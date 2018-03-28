@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="机构获取Token">
+	<test name="执行测试类文件">
+		<classes>
+		  
+		   <class name="com.demo.RegisterTest">
+		      <methods>
+		          <include name="registerTestCorrectParameter"></include><!-- 验证用户参数正确 -->
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+	</test>
+
+</suite>

@@ -1,0 +1,2 @@
+INSERT INTO `vinedb`.`bbc_product` (`sku_id`, `item_id`, `product_name`, `category`, `bn`, `image_path`, `state`, `brand_name`, `price`, `cost_price`, `mkt_price`, `product_integral`, `image_list`, `shop_id`, `cat_id`, `introduction`, `note`) VALUES ('1', '1', '商品标题1', NULL, '商品编号1', 'image_default1', '1', 'brand_name1', '100.00', '90.00', '110.00', NULL, '商品相册1', '1', '1', '商品详情1', NULL);
+	

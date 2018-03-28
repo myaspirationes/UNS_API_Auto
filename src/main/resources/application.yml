@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  contextPath: /cloud
+spring:
+  application:
+    name: '@project.name@'
+  datasource:
+    url: jdbc:mysql://139.196.243.73:3307/repairtstdbzs0920?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123
+    type: com.alibaba.druid.pool.DruidDataSource
+    max-active: 20
+    initial-size: 1
+    min-idle: 3
+    max-wait: 60000
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    poolPreparedStatements: true
