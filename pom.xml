@@ -9,7 +9,7 @@
 
 	<name>UNS_API_Auto</name>
 	<description>Demo project for Spring Boot</description>
-
+	<!-- <listener class-name="org.uncommons.reportng.HTMLReporter" /> -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -37,6 +37,13 @@
 			<artifactId>testng</artifactId>
 			<version>6.9.4</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.uncommons/reportng -->
+		<dependency>
+			<groupId>org.uncommons</groupId>
+			<artifactId>reportng</artifactId>
+			<version>1.1.4</version>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>com.jayway.jsonpath</groupId>
@@ -48,7 +55,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 
-			
+
 
 		</dependency>
 		<dependency>
@@ -61,27 +68,21 @@
 
 
 		<!-- https://mvnrepository.com/artifact/org.junit/junit4-runner -->
-		<!-- <dependency>
-			<groupId>org.junit</groupId>
-			<artifactId>junit4-runner</artifactId>
-			<version>5.0.0-ALPHA</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.junit</groupId> <artifactId>junit4-runner</artifactId> 
+			<version>5.0.0-ALPHA</version> </dependency> -->
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>javax.mail-api</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.json/org.json 
+		<!-- https://mvnrepository.com/artifact/org.json/org.json <dependency> 
+			<groupId>org.json</groupId> <artifactId>org.json</artifactId> <version>2.0</version> 
+			</dependency> -->
 		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>org.json</artifactId>
-			<version>2.0</version>
-		</dependency>-->
-<dependency>
-   <groupId>log4j</groupId>
-   <artifactId>log4j</artifactId>
-   <version>1.2.14</version>
-  </dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
 		<dependency>
 			<groupId>com.jayway.jsonpath</groupId>
 			<artifactId>json-path-assert</artifactId>
@@ -169,11 +170,8 @@
 			<artifactId>pagehelper</artifactId>
 			<version>4.1.6</version>
 		</dependency>
-	<!-- 	<dependency>
-<groupId>org.codehaus.mojo</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>2.10</version>
-	</dependency>  -->
+		<!-- <dependency> <groupId>org.codehaus.mojo</groupId> <artifactId>sonar-maven-plugin</artifactId> 
+			<version>2.10</version> </dependency> -->
 	</dependencies>
 
 	<!-- <build> <plugins> <plugin> <groupId>org.springframework.boot</groupId> 
@@ -242,10 +240,10 @@
 				<artifactId>maven-install-plugin</artifactId>
 
 			</plugin>
-			  
+
 		</plugins>
 	</build>
-	
+
 	<reporting>
 		<plugins>
 			<!-- 项目信息报告项目信息配置 -->

@@ -22,7 +22,7 @@ public class HttpUtil {
 
 	private TestRestTemplate template = new TestRestTemplate();
 
-	public JSONObject jfscPost(String url, Map<String, Object> request) throws JsonProcessingException, JSONException {
+	public JSONObject UNSPost(String url, Map<String, Object> request) throws JsonProcessingException, JSONException {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(request);
 		HttpHeaders headers = new HttpHeaders();

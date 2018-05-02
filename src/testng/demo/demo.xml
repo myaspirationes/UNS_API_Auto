@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="机构获取Token">
-	<test name="执行测试类文件">
+<suite name="机构获取Token" parallel = "false">
+	<test name="RegisterTest" preserve-order="false">
 		<classes>
 		  
 		   <class name="com.demo.RegisterTest">
@@ -13,6 +13,7 @@
 		    </class>
 		   
 		</classes>
+		
 	</test>
 
 </suite>
