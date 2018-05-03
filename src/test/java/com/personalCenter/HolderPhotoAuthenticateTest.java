@@ -16,14 +16,13 @@ import com.example.HttpUtil;
 public class HolderPhotoAuthenticateTest extends HttpUtil {
 //持件照接口
 	String url = "/UU/register";
-	@BeforeClass
-	@AfterClass
+
 
 	/**
 	 * 提交正确参数
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestCorrectParameter() throws Exception {
+	public void postHolderPhotoAuthenticateTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", 8888888);
@@ -54,7 +53,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 持证图片ID为错误格式
 	 */
 	//@Test
-	public void requestHolderPhotoAuthenticateTestholdIdIsError() throws Exception {
+	public void postHolderPhotoAuthenticateTestholdIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", "888888");
@@ -86,7 +85,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 持证图片ID存在非法字符
 	 */
 	//@Test
-	public void requestHolderPhotoAuthenticateTestholdIdIllegalCharacters() throws Exception {
+	public void postHolderPhotoAuthenticateTestholdIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", "<><@#$");
@@ -116,7 +115,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 持证图片ID超长字符
 	 */
 	//@Test
-	public void requestHolderPhotoAuthenticateTestholdIdIsLong() throws Exception {
+	public void postHolderPhotoAuthenticateTestholdIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", 888888888);
@@ -146,7 +145,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 持证图片ID为空格
 	 */
 	//@Test
-	public void requestHolderPhotoAuthenticateTestholdIdIsSpace() throws Exception {
+	public void postHolderPhotoAuthenticateTestholdIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", " ");
@@ -176,7 +175,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 持证图片ID为空
 	 */
 	//@Test
-	public void requestHolderPhotoAuthenticateTestholdIdIsEmpty() throws Exception {
+	public void postHolderPhotoAuthenticateTestholdIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", "");
@@ -206,7 +205,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 持证图片ID为null
 	 */
 	//@Test
-	public void requestHolderPhotoAuthenticateTestholdIdIsNull() throws Exception {
+	public void postHolderPhotoAuthenticateTestholdIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", null);
@@ -236,7 +235,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 持证图片ID不提交该参数
 	 */
 	//@Test
-	public void requestHolderPhotoAuthenticateTestholdIdNonSubmissionParameters() throws Exception {
+	public void postHolderPhotoAuthenticateTestholdIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -265,7 +264,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为未登录用户
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestUserIdNotLoggedIn() throws Exception {
+	public void postHolderPhotoAuthenticateTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", 8888888);
@@ -295,7 +294,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为错误用户
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestUserIdIsError() throws Exception {
+	public void postHolderPhotoAuthenticateTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", 8888888);
@@ -325,7 +324,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为非法字符
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestUserIdIllegalCharacters() throws Exception {
+	public void postHolderPhotoAuthenticateTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<>#$%^");
 		con.put("holdId", 8888888);
@@ -355,7 +354,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为小数
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestUserIdIsDecimal() throws Exception {
+	public void postHolderPhotoAuthenticateTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125.1);
 		con.put("holdId", 8888888);
@@ -385,7 +384,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为负数
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestUserIdIsNegativeNumber() throws Exception {
+	public void postHolderPhotoAuthenticateTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -12492125);
 		con.put("holdId", 8888888);
@@ -415,7 +414,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为空格
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestUserIdIsSpace() throws Exception {
+	public void postHolderPhotoAuthenticateTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
 		con.put("holdId", 8888888);
@@ -445,7 +444,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为空
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestUserIdIsEmpty() throws Exception {
+	public void postHolderPhotoAuthenticateTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
 		con.put("holdId", 8888888);
@@ -475,7 +474,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为null
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestUserIdIsNull() throws Exception {
+	public void postHolderPhotoAuthenticateTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
 		con.put("holdId", 8888888);
@@ -505,7 +504,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID不传该参数
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestUserIdNonSubmissionParameters() throws Exception {
+	public void postHolderPhotoAuthenticateTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("holdId", 8888888);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -534,7 +533,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为0
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestUserIdIsZero() throws Exception {
+	public void postHolderPhotoAuthenticateTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
 		con.put("holdId", 8888888);
@@ -564,7 +563,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 持证图片ID为小数
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestHoldIdIsDecimal() throws Exception {
+	public void postHolderPhotoAuthenticateTestHoldIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", 8888888.8);
@@ -594,7 +593,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 持证图片ID为负数
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestHoldIdIsNegativeNumber() throws Exception {
+	public void postHolderPhotoAuthenticateTestHoldIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", -8888888);
@@ -624,7 +623,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 * 持证图片ID为0
 	 */
 	@Test
-	public void requestHolderPhotoAuthenticateTestHoldIdIsZero() throws Exception {
+	public void postHolderPhotoAuthenticateTestHoldIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
 		con.put("holdId", 8888888);

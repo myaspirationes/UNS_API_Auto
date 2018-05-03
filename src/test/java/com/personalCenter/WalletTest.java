@@ -13,31 +13,31 @@ import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
 
-public class IdPhotoAuthenticateTest extends HttpUtil {
-//证件照认证接口
-	String url = "/UU/register";
-	
+public class WalletTest extends HttpUtil {
+//实名认证接口
+	String url = "/UU/wallet";
+
 
 	/**
 	 * 提交正确参数
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestCorrectParameter() throws Exception {
+	public void postWalletTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -53,22 +53,22 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为未登录用户
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestUserIdNotLoggedIn() throws Exception {
+	public void postWalletTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 111111);
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444);
+		con.put("userId", 12312313);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -84,22 +84,22 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为错误用户
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestUserIdIsError() throws Exception {
+	public void postWalletTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "231231233rf3");
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444);
+		con.put("userId", "12312sd313");
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -115,22 +115,22 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为非法字符
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestUserIdIllegalCharacters() throws Exception {
+	public void postWalletTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "<@#$%^&>");
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444);
+		con.put("userId", "<$%^>");
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -146,22 +146,22 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为小数
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestUserIdIsDecimal() throws Exception {
+	public void postWalletTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125.1);
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444);
+		con.put("userId", 12123123.33);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -177,22 +177,22 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为负数
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestUserIdIsNegativeNumber() throws Exception {
+	public void postWalletTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", -12492125);
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444);
+		con.put("userId", -121312);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -208,22 +208,22 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为空格
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestUserIdIsSpace() throws Exception {
+	public void postWalletTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -239,22 +239,22 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为空
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestUserIdIsEmpty() throws Exception {
+	public void postWalletTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -270,22 +270,22 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为null
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestUserIdIsNull() throws Exception {
+	public void postWalletTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -301,22 +301,22 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID为0
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestUserIdIsZero() throws Exception {
+	public void postWalletTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -332,21 +332,21 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 用户ID不传该参数
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestUserIdNonSubmissionParameters() throws Exception {
+	public void postWalletTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -358,594 +358,532 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
+	
 	/**
-	 * 正面图ID为错误
+	 * 用户的姓名为错误
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestPositiveIdIsError() throws Exception {
+	public void postWalletTestRealNameIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", "56s654d");
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇123123");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("正面图ID为错误" + post);
+		System.out.println("用户的姓名为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 正面图ID与反面图ID不符
+	 * 用户的姓名与身份证ID不符
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestPositiveIdNotTheSameAsReverseId() throws Exception {
+	public void postWalletTestUserIdNotTheSameAsRealName() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
-		con.put("positiveId", 11133333);
-		con.put("reverseId", 44444);
+		con.put("userId", 124925111);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("正面图ID与反面图ID不符" + post);
+		System.out.println("用户的姓名与身份证ID不符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 正面图ID为空
+	 * 用户的姓名为空
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestPositiveIdIsEmpty() throws Exception {
+	public void postWalletTestRealNameIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", "");
-		con.put("reverseId", 44444);
+		con.put("realName", "");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("正面图ID为空" + post);
+		System.out.println("用户的姓名为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 正面图ID为空格
+	 * 用户的姓名为空格
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestPositiveIdIsSpace() throws Exception {
+	public void postWalletTestRealNameIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", " ");
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("正面图ID为空格" + post);
+		System.out.println("用户的姓名为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 正面图ID为nul
+	 * 用户的姓名为null
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestPositiveIdIsNull() throws Exception {
+	public void postWalletTestRealNameIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", null);
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("正面图ID为nul" + post);
+		System.out.println("用户的姓名为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 正面图ID不传该参数
+	 * 用户的姓名不传该参数
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestPositiveIdNonSubmissionParameters() throws Exception {
+	public void postWalletTestRealNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("reverseId", 44444);
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("正面图ID不传该参数" + post);
+		System.out.println("用户的姓名不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 正面图ID超长
+	 * 用户的姓名超长
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestPositiveIdIsLong() throws Exception {
+	public void postWalletTestRealNameIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", 88888888);
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("正面图ID超长" + post);
+		System.out.println("用户的姓名超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 正面ID为小数
+	 * 用户的姓名为非法字符
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestPositiveIdIsDecimal() throws Exception {
+	public void postWalletTestRealNameIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", 33333.3);
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇<!@#!23>");
+		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("正面ID为小数" + post);
+		System.out.println("用户的姓名为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 正面ID为负数
+	 * 用户的身份证号为小于18位
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestPositiveIdIsNegativeNumber() throws Exception {
+	public void postWalletTestPapersNoLessThan18() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", -33333);
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "3101121987082731");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("正面ID为负数" + post);
+		System.out.println("用户的身份证号为小于18位" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 正面ID为0
+	 * 用户的身份证号为空
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestPositiveIdIsZero() throws Exception {
+	public void postWalletTestPapersNoIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", 0);
-		con.put("reverseId", 44444);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("正面ID为0" + post);
+		System.out.println("用户的身份证号为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 反面图ID为错误
+	 * 用户的身份证号为空格
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestReverseIdIsError() throws Exception {
+	public void postWalletTestPapersNoIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", 33333);
-		con.put("reverseId", "44fg444");
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", " ");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("反面图ID为错误" + post);
+		System.out.println("用户的身份证号为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 反面图ID为空
+	 * 用户的身份证号为null
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestReverseIdIsEmpty() throws Exception {
+	public void postWalletTestPapersNoIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", 33333);
-		con.put("reverseId", "");
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", null);
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("反面图ID为空" + post);
+		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 反面图ID为空格
+	 * 用户的身份证号不传该参数
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestReverseIdIsSpace() throws Exception {
+	public void postWalletTestPapersNoNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", 33333);
-		con.put("reverseId", " ");
+		con.put("realName", "刘靖宇");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("反面图ID为空格" + post);
+		System.out.println("用户的身份证号不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 反面图ID为null
+	 * 用户的身份证号超长
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestReverseIdIsNull() throws Exception {
+	public void postWalletTestPapersNoIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", 33333);
-		con.put("reverseId", null);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "31011219228708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("反面图ID为null" + post);
+		System.out.println("用户的身份证号超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 反面图ID不传该参数
+	 * 用户的身份证号为0
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestreverseIdNonSubmissionParameters() throws Exception {
+	public void postWalletTestPapersNoIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", 33333);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", "0");
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("反面图ID不传该参数" + post);
+		System.out.println("用户的身份证号为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 反面图ID超长
+	 * 用户的身份证号为负数
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestReverseIdIsLong() throws Exception {
+	public void postWalletTestPapersNoIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", 33333);
-		con.put("reverseId", 444444444);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", -310273611);
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("反面图ID超长" + post);
+		System.out.println("用户的身份证号为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 反面ID为0
+	 * 用户的身份证号为小数
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestReverseIdIsZero() throws Exception {
+	public void postWalletTestPapersNoIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("positiveId", 33333);
-		con.put("reverseId", 0);
+		con.put("realName", "刘靖宇");
+		con.put("papersNo", 1.52);
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
+		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("mos", "iphone");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", 12491751);
+		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("反面ID为0" + post);
+		System.out.println("用户的身份证号为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
-	/**
-	 * 反面ID为负数
-	 */
-	@Test
-	public void postIdPhotoAuthenticateTestReverseIdIsNegativeNumber() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
-		con.put("positiveId", 33333);
-		con.put("reverseId", -44444);
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
-		head.put("ver", "1.0");
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("反面ID为负数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
-	}
-	/**
-	 * 反面ID为小数
-	 */
-	@Test
-	public void postIdPhotoAuthenticateTestReverseIdIsDecimal() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
-		con.put("positiveId", 33333);
-		con.put("reverseId", 44444.4);
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("mod", "ios");
-		head.put("mos", "7.0");
-		head.put("cmd", "3906");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
-		head.put("sync", 1);
-		head.put("aid", "lan66");
-		head.put("ver", "1.0");
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("反面ID为小数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
-	}
-	
 	
 	
 	
