@@ -283,7 +283,7 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 用户ID为空格
+	 * 用户ID为空格 
 	 */
 	@Test
 	public void postAuthenticationManagementListTestUserIdIsSpace() throws Exception {
