@@ -13,8 +13,8 @@ import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
 
-public class MultiAccountAssociationTest extends HttpUtil {
-//获取多账号关联接口
+public class UpDataMultiAccountAssociationTest extends HttpUtil {
+//多账号关联接口修改
 	String url = "/UU/user";
 	
 
@@ -25,11 +25,15 @@ public class MultiAccountAssociationTest extends HttpUtil {
 	public void postMultiAccountAssociationTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
+		con.put("uniqueId", 12492125);
+		con.put("type", 12492125);
+		con.put("bind", 12492125);
+		con.put("nickName", 12492125);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "208");
+		head.put("cmd", "215");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "188111");
 		head.put("ln", "cn");
