@@ -15,7 +15,7 @@ import com.example.HttpUtil;
 
 public class MultiAccountAssociationTest extends HttpUtil {
 //获取多账号关联接口
-	String url = "192.168.9.81/UU/user";
+	String url = "/UU/user";
 	
 
 	/**
