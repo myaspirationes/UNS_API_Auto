@@ -19,7 +19,7 @@ public class ShareTest extends HttpUtil {
 
 
 	/**
-	 * 提交正确参数
+	 * 提交正确参数  
 	 */
 	@Test
 	public void postShareTestCorrectParameter() throws Exception {
