@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import com.example.HttpUtil;
 
 public class SettingDefaultReceivingAddressTest extends HttpUtil {
-//获取多账号关联接口
+//设置默认收货地址
 	String url = "/UU/user";
 	
 
