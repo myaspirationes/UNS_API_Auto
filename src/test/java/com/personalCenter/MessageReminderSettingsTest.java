@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import com.example.HttpUtil;
 
 public class MessageReminderSettingsTest extends HttpUtil {
-//设置默认收货地址
+//消息提醒设置接口
 	String url = "/UU/user";
 	
 
@@ -25,10 +25,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	public void postMessageReminderSettingsTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
-		con.put("isMsgNotice", 1);
-		con.put("isVoiceNotice", 1);
-		con.put("isShackNotice", 1);
-		con.put("isMainMsgNotice", 1);
+		con.put("isMsgNotice", 0);
+		con.put("isVoiceNotice", 0);
+		con.put("isShackNotice", 0);
+		con.put("isMainMsgNotice", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -54,14 +54,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	/**
 	 * 用户为未登录
 	 */
-	//@Test
+	@Test
 	public void postMessageReminderSettingsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
-		con.put("isMsgNotice", 1);
-		con.put("isVoiceNotice", 1);
-		con.put("isShackNotice", 1);
-		con.put("isMainMsgNotice", 1);
+		con.put("isMsgNotice", 0);
+		con.put("isVoiceNotice", 0);
+		con.put("isShackNotice", 0);
+		con.put("isMainMsgNotice", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -87,14 +87,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	/**
 	 * 用户为错误
 	 */
-	//@Test
+	@Test
 	public void postMessageReminderSettingsTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
-		con.put("isMsgNotice", 1);
-		con.put("isVoiceNotice", 1);
-		con.put("isShackNotice", 1);
-		con.put("isMainMsgNotice", 1);
+		con.put("isMsgNotice", 0);
+		con.put("isVoiceNotice", 0);
+		con.put("isShackNotice", 0);
+		con.put("isMainMsgNotice", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -120,14 +120,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	/**
 	 * 用户ID存在小数
 	 */
-	//@Test
+	@Test
 	public void postMessageReminderSettingsTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "23.42");
-		con.put("isMsgNotice", 1);
-		con.put("isVoiceNotice", 1);
-		con.put("isShackNotice", 1);
-		con.put("isMainMsgNotice", 1);
+		con.put("isMsgNotice", 0);
+		con.put("isVoiceNotice", 0);
+		con.put("isShackNotice", 0);
+		con.put("isMainMsgNotice", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -153,14 +153,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	/**
 	 * 用户ID存在非法字符
 	 */
-	//@Test
+	@Test
 	public void postMessageReminderSettingsTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<$%(+!,=>");
-		con.put("isMsgNotice", 1);
-		con.put("isVoiceNotice", 1);
-		con.put("isShackNotice", 1);
-		con.put("isMainMsgNotice", 1);
+		con.put("isMsgNotice", 0);
+		con.put("isVoiceNotice", 0);
+		con.put("isShackNotice", 0);
+		con.put("isMainMsgNotice", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -186,14 +186,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	/**
 	 * 用户ID存在负数
 	 */
-	//@Test
+	@Test
 	public void postMessageReminderSettingsTestUserIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "-234");
-		con.put("isMsgNotice", 1);
-		con.put("isVoiceNotice", 1);
-		con.put("isShackNotice", 1);
-		con.put("isMainMsgNotice", 1);
+		con.put("isMsgNotice", 0);
+		con.put("isVoiceNotice", 0);
+		con.put("isShackNotice", 0);
+		con.put("isMainMsgNotice", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -219,14 +219,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	@Test
 	public void postMessageReminderSettingsTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
-		con.put("isMsgNotice", 1);
-		con.put("isVoiceNotice", 1);
-		con.put("isShackNotice", 1);
-		con.put("isMainMsgNotice", 1);
+		con.put("isMsgNotice", 0);
+		con.put("isVoiceNotice", 0);
+		con.put("isShackNotice", 0);
+		con.put("isMainMsgNotice", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -252,14 +252,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	/**
 	 * 用户ID为String
 	 */
-	//@Test
+	@Test
 	public void postMessageReminderSettingsTestUserIdIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "dfdfghju");
-		con.put("isMsgNotice", 1);
-		con.put("isVoiceNotice", 1);
-		con.put("isShackNotice", 1);
-		con.put("isMainMsgNotice", 1);
+		con.put("isMsgNotice", 0);
+		con.put("isVoiceNotice", 0);
+		con.put("isShackNotice", 0);
+		con.put("isMainMsgNotice", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -285,14 +285,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	@Test
 	public void postMessageReminderSettingsTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
-		con.put("isMsgNotice", 1);
-		con.put("isVoiceNotice", 1);
-		con.put("isShackNotice", 1);
-		con.put("isMainMsgNotice", 1);
+		con.put("isMsgNotice", 0);
+		con.put("isVoiceNotice", 0);
+		con.put("isShackNotice", 0);
+		con.put("isMainMsgNotice", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -318,14 +318,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	@Test
 	public void postMessageReminderSettingsTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
-		con.put("isMsgNotice", 1);
-		con.put("isVoiceNotice", 1);
-		con.put("isShackNotice", 1);
-		con.put("isMainMsgNotice", 1);
+		con.put("isMsgNotice", 0);
+		con.put("isVoiceNotice", 0);
+		con.put("isShackNotice", 0);
+		con.put("isMainMsgNotice", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -351,14 +351,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	@Test
 		public void postMessageReminderSettingsTestUserIdIsNull() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", null);
-			con.put("isMsgNotice", 1);
-			con.put("isVoiceNotice", 1);
-			con.put("isShackNotice", 1);
-			con.put("isMainMsgNotice", 1);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -384,14 +384,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		/**
 		 * 用户ID不传该 参数
 		 */
-		//@Test
+		@Test
 		public void postMessageReminderSettingsTestUserIdNonSubmissionParameters() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 		
-			con.put("isMsgNotice", 1);
-			con.put("isVoiceNotice", 1);
-			con.put("isShackNotice", 1);
-			con.put("isMainMsgNotice", 1);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -417,14 +417,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		/**
 		 * 信息提醒传0接收消息提醒
 		 */
-		//@Test
+		@Test
 		public void postMessageReminderSettingsTestIsMsgNoticeSetZeroReceive() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 234234);
 			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 1);
-			con.put("isShackNotice", 1);
-			con.put("isMainMsgNotice", 1);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -450,14 +450,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		/**
 		 * 设置信息提醒传1不接收消息提醒
 		 */
-		//@Test
+		@Test
 		public void postMessageReminderSettingsTestIsMsgNoticeSetOneNotReceive() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 234234);
 			con.put("isMsgNotice", 1);
-			con.put("isVoiceNotice", 1);
-			con.put("isShackNotice", 1);
-			con.put("isMainMsgNotice", 1);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -483,14 +483,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		/**
 		 * 设置信息提醒传String
 		 */
-		//@Test
+		@Test
 		public void postMessageReminderSettingsTestIsMsgNoticeIsString() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 234234);
 			con.put("isMsgNotice", "vhfdf");
-			con.put("isVoiceNotice", 1);
-			con.put("isShackNotice", 1);
-			con.put("isMainMsgNotice", 1);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -516,14 +516,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		/**
 		 * 设置信息提醒传小数
 		 */
-		//@Test
+		@Test
 		public void postMessageReminderSettingsTestIsMsgNoticeIsDecimal() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 234234);
-			con.put("isMsgNotice", 1.23);
-			con.put("isVoiceNotice", 1);
-			con.put("isShackNotice", 1);
-			con.put("isMainMsgNotice", 1);
+			con.put("isMsgNotice", 0.23);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -549,14 +549,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		/**
 		 * 设置信息提醒传负数
 		 */
-		//@Test
+		@Test
 		public void postMessageReminderSettingsTestIsMsgNoticeIsNegativeNumbe() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 234234);
 			con.put("isMsgNotice", -8);
-			con.put("isVoiceNotice", 1);
-			con.put("isShackNotice", 1);
-			con.put("isMainMsgNotice", 1);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -582,14 +582,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		/**
 		 * 设置信息提醒传空格
 		 */
-		//@Test
+		@Test
 		public void postMessageReminderSettingsTestIsMsgNoticeIsSpace() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 234234);
 			con.put("isMsgNotice", " ");
-			con.put("isVoiceNotice", 1);
-			con.put("isShackNotice", 1);
-			con.put("isMainMsgNotice", 1);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -615,14 +615,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		/**
 		 * 设置信息提醒传空
 		 */
-		//@Test
+		@Test
 		public void postMessageReminderSettingsTestIsMsgNoticeIsEmpty() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 234234);
 			con.put("isMsgNotice", "");
-			con.put("isVoiceNotice", 1);
-			con.put("isShackNotice", 1);
-			con.put("isMainMsgNotice", 1);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -648,14 +648,14 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		/**
 		 * 设置信息提醒传null
 		 */
-		//@Test
+		@Test
 		public void postMessageReminderSettingsTestIsMsgNoticeIsNull() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 234234);
 			con.put("isMsgNotice", null);
-			con.put("isVoiceNotice", 1);
-			con.put("isShackNotice", 1);
-			con.put("isMainMsgNotice", 1);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -678,9 +678,1058 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			assertThat(head1.get("msg")).isEqualTo("上传成功");
 				
 		}
-	
-	
-	
-	
+		/**
+		 * 设置信息提醒不传该参数
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMsgNoticeNonSubmissionParameters() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置信息提醒不传该参数" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置信息提醒为最大值
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMsgNoticeIsMax() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 999999999);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置信息提醒为最大值" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置声音提醒传0接收声音提醒
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsVoiceNoticeSetZeroReceive() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置声音提醒传0接收声音提醒" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置声音提醒传1不接收声音提醒
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsVoiceNoticeSetOneNotReceive() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 1);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置声音提醒传1不接收声音提醒" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置声音提醒传String
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsVoiceNoticeIsString() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", "dfdfdsfs");
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置声音提醒传String" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置声音提醒传小数
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsVoiceNoticeIsDecimal() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0.36);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置声音提醒传小数" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置声音提醒传负数
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsVoiceNoticeIsNegativeNumbe() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", -23);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置声音提醒传负数" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置声音提醒传空格
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsVoiceNoticeIsSpace() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", " ");
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置声音提醒传空格" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置声音提醒传空
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsVoiceNoticeIsEmpty() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", "");
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置声音提醒传空" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置声音提醒传null
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsVoiceNoticeIsNull() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", null);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置声音提醒传null" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置声音提醒不传该参数
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsVoiceNoticeNonSubmissionParameters() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置声音提醒不传该参数" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置声音提醒为最大值
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsVoiceNoticeIsMax() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 999999999);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置声音提醒为最大值" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置震动提醒传0接收震动提醒
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsShackNoticeSetZeroReceive() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置震动提醒传0接收震动提醒" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置震动提醒传1不接收震动提醒
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsShackNoticeSetOneNotReceive() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 1);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置震动提醒传1不接收震动提醒" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置震动提醒传String
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsShackNoticeIsString() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", "dfggfh");
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置震动提醒传String" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置震动提醒传小数
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsShackNoticeIsDecimal() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0.69);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置震动提醒传小数" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置震动提醒传负数
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsShackNoticeIsNegativeNumbe() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", -23);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置震动提醒传负数" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置震动提醒传空格
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsShackNoticeIsSpace() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", " ");
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置震动提醒传空格" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置震动提醒传空
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsShackNoticeIsEmpty() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", "");
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置震动提醒传空" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置震动提醒传null
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsShackNoticeIsNull() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", null);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置震动提醒传null" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置震动提醒不传该参数
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsShackNoticeNonSubmissionParameters() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置震动提醒不传该参数" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置震动提醒为最大值
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsShackNoticeIsMax() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 999999999);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置震动提醒为最大值" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置主信息提醒传0接收主信息提醒
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMainMsgNoticeSetZeroReceive() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置主信息提醒传0接收主信息提醒" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置主信息提醒传1不接收主信息提醒
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMainMsgNoticeSetOneNotReceive() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 1);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置主信息提醒传1不接收主信息提醒" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置主信息提醒传String
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMainMsgNoticeIsString() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", "gfjtytry");
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置主信息提醒传String" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置主信息提醒传小数
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMainMsgNoticeIsDecimal() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 2.36);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置主信息提醒传小数" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置主信息提醒传负数
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMainMsgNoticeIsNegativeNumbe() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", -12);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置主信息提醒传负数" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置主信息提醒传空格
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMainMsgNoticeIsSpace() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", " ");
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置主信息提醒传String" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置主信息提醒传空
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMainMsgNoticeIsEmpty() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", "");
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置主信息提醒传空" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置主信息提醒传null
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMainMsgNoticeIsNull() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", null);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置主信息提醒传null" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置主信息提醒不传该参数
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMainMsgNoticeNonSubmissionParameters() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置主信息提醒不传该参数" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		/**
+		 * 设置主信息提醒为最大值
+		 */
+		@Test
+		public void postMessageReminderSettingsTestIsMainMsgNoticeIsMax() throws Exception {
+			Map<String, Object> con = new HashMap<String, Object>();
+			con.put("userId", 234234);
+			con.put("isMsgNotice", 0);
+			con.put("isVoiceNotice", 0);
+			con.put("isShackNotice", 0);
+			con.put("isMainMsgNotice", 999999999);
+			Map<String, Object> head = new HashMap<String, Object>();
+			head.put("aid", "1and6uu");
+			head.put("ver", "1.0");
+			head.put("cmd", "3710");
+			head.put("de", "2011-07-13 00:00:00");
+			head.put("uuid", "188111");
+			head.put("ln", "cn");
+			head.put("chcode", "ef19843298ae8f2134f");
+			head.put("sync", "1");
+			head.put("mod", "ios");
+			Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+			request.put("con", con);
+			request.put("head", head);
+			
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("设置主信息提醒为最大值" + post);
+			JSONObject head1 = (JSONObject) post.get("head");
+		
+			assertThat(head1.get("st")).isEqualTo("0");
+			assertThat(head1.get("msg")).isEqualTo("上传成功");
+				
+		}
+		
 	
 }
