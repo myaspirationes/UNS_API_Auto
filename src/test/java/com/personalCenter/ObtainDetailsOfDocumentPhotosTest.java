@@ -13,16 +13,16 @@ import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
 
-public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
+public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 //获取手持件照详情接口
-	String url = "http://172.22.200.107:8080/UU/ObtainDetailsOfHolderPhotos";
+	String url = "/UU/authenticatee";
 	
 
 	/**
 	 * 提交正确参数
 	 */
 	@Test
-	public void postObtainDetailsOfHolderPhotosTestCorrectParameters() throws Exception {
+	public void postObtainDetailsOfDocumentPhotosTestCorrectParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12491791L);
 
@@ -51,7 +51,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	 * 用户ID为未登录用户
 	 */
 	@Test
-	public void postObtainDetailsOfHolderPhotosTestUserIdNotLoggedIn() throws Exception {
+	public void postObtainDetailsOfDocumentPhotosTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12491791L);
 
@@ -80,7 +80,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	 * 用户ID为错误用户
 	 */
 	@Test
-	public void postObtainDetailsOfHolderPhotosTestUserIdIsError() throws Exception {
+	public void postObtainDetailsOfDocumentPhotosTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12491791L);
 
@@ -109,7 +109,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	 * 用户ID为非法字符
 	 */
 	@Test
-	public void postObtainDetailsOfHolderPhotosTestUserIdIllegalCharacters() throws Exception {
+	public void postObtainDetailsOfDocumentPhotosTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<@$%^&*(_>");
 
@@ -138,7 +138,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	 * 用户ID为小数
 	 */
 	@Test
-	public void postObtainDetailsOfHolderPhotosTestUserIdIsDecimal() throws Exception {
+	public void postObtainDetailsOfDocumentPhotosTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12.499);
 
@@ -167,7 +167,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	 * 用户ID为负数
 	 */
 	@Test
-	public void postObtainDetailsOfHolderPhotosTestUserIdIsNegativeNumbe() throws Exception {
+	public void postObtainDetailsOfDocumentPhotosTestUserIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -1991L);
 
@@ -196,7 +196,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	 * 用户ID为空格
 	 */
 	@Test
-	public void postObtainDetailsOfHolderPhotosTestUserIdIsSpace() throws Exception {
+	public void postObtainDetailsOfDocumentPhotosTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
 
@@ -225,7 +225,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	 * 用户ID为空
 	 */
 	@Test
-	public void postObtainDetailsOfHolderPhotosTestUserIdIsEmpty() throws Exception {
+	public void postObtainDetailsOfDocumentPhotosTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
 
@@ -254,7 +254,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	 * 用户ID为null
 	 */
 	@Test
-	public void postObtainDetailsOfHolderPhotosTestUserIdIsNull() throws Exception {
+	public void postObtainDetailsOfDocumentPhotosTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
 
@@ -283,7 +283,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	 * 用户ID不传该参数
 	 */
 	@Test
-	public void postObtainDetailsOfHolderPhotosTestUserIdNonSubmissionParameters() throws Exception {
+	public void postObtainDetailsOfDocumentPhotosTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		
 
@@ -312,7 +312,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	 * 用户ID为0
 	 */
 	@Test
-	public void postObtainDetailsOfHolderPhotosTestUserIdIsZero() throws Exception {
+	public void postObtainDetailsOfDocumentPhotosTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
 
