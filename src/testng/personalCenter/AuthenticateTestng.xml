@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="实名认证详情接口" >
+	<test name="AuthenticateTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.AuthenticateTest">
+		      <methods>
+		          <include name="postAuthenticateTestCorrectParameter"></include><!-- 未实名认证 -->
+		          <include name="postAuthenticateTestUserIdNotLoggedIn"></include><!-- 用户ID为实名用户 -->
+		          <include name="postAuthenticateTestUserIdIsError"></include><!-- 用户ID为错误用户 -->
+		          <include name="postAuthenticateTestUserIdIllegalCharacters"></include><!-- 用户ID为非法字符 -->
+		          <include name="postAuthenticateTestUserIdIsDecimal"></include><!-- 用户ID为小数 -->
+		          <include name="postAuthenticateTestUserIdIsNegativeNumber"></include><!-- 用户ID为负数 -->
+		          <include name="postAuthenticateTestUserIdIsSpace"></include><!-- 用户ID为空格 -->
+		          <include name="postAuthenticateTestUserIdIsEmpty"></include><!-- 用户ID为空 -->
+		          <include name="postAuthenticateTestUserIdIsNull"></include><!-- 用户ID为null -->
+		          <include name="postAuthenticateTestUserIdIsZero"></include><!-- 用户ID为0 -->
+		          <include name="postAuthenticateTestUserIdNonSubmissionParameters"></include><!-- 用户ID不传该参数 -->
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

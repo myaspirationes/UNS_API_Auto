@@ -32,7 +32,7 @@ public class HttpUtil {
 	
 		HttpEntity<String> httpEntity = new HttpEntity<String>(json, headers);
 		String body =template.postForObject(YSBURL + url, httpEntity, String.class);
-		body = UUIDGenerator.info(body);
+		//body = UUIDGenerator.info(body);
 		
 		JSONObject obj = new JSONObject(body);
 		return obj;

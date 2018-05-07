@@ -13,30 +13,27 @@ import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
 
-public class AuthenticationManagementListTest extends HttpUtil {
-//认证管理列表接口
-	String url = "/UU/authenticate";
+public class ChatSettingsTest extends HttpUtil {
+//聊天设置接口
+	String url = "/UU/user";
 	
 
 	/**
 	 * 提交正确参数
 	 */
 	@Test
-	public void postAuthenticationManagementListTestCorrectParameter() throws Exception {
+	public void postDownloadUserBasicInformationTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
-		
+		con.put("userId", 12491791L);
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -45,61 +42,52 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
-	
 	/**
-	 * 用户为未认证
+	 * 用户为未登录
 	 */
 	@Test
-	public void postAuthenticationManagementListTestUserIdIsNotLoggedIn() throws Exception {
+	public void postDownloadUserBasicInformationTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
-		
+		con.put("userId", 12491791L);
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户为未认证" + post);
+		System.out.println("用户为未登录" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		
-		
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户为错误
 	 */
 	@Test
-	public void postAuthenticationManagementListTestUserIdIsError() throws Exception {
+	public void postDownloadUserBasicInformationTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "1249212w125");
-		
+		con.put("userId", 12491791L);
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -108,28 +96,25 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		System.out.println("用户为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户ID存在小数
 	 */
 	@Test
-	public void postAuthenticationManagementListTestUserIdIsDecimal() throws Exception {
+	public void postDownloadUserBasicInformationTestUserIdIsDecimalr() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12.492125);
-		
+		con.put("userId", 12.49);
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -138,29 +123,25 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		System.out.println("用户ID存在小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 
-	 * 用户ID存在非法字符  
+	 * 用户ID存在非法字符
 	 */
 	@Test
-	public void postAuthenticationManagementListTestUserIdIsIllegalCharacters() throws Exception {
+	public void postDownloadUserBasicInformationTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "<#@$%*&','>");
-		
+		con.put("userId", "<@$%^&*)_>");
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -169,28 +150,25 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		System.out.println("用户ID存在非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户ID存在负数
 	 */
 	@Test
-	public void postAuthenticationManagementListTestUserIdIsNegativeNumber() throws Exception {
+	public void postDownloadUserBasicInformationTestUserIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", -1249125);
-		
+		con.put("userId", -1249L);
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -199,28 +177,25 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		System.out.println("用户ID存在负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("请输入有效的用户id");
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户ID为0
 	 */
 	@Test
-	public void postAuthenticationManagementListTestUserIdIsZero() throws Exception {
+	public void postDownloadUserBasicInformationTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
-		
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -229,27 +204,25 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("请输入有效的用户id");
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户ID为String
 	 */
 	@Test
-	public void postAuthenticationManagementListTestUserIdIsString() throws Exception {
+	public void postDownloadUserBasicInformationTestUserIdIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "abdgfhGH");
+		con.put("userId", "dffgfhfh");
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -258,28 +231,25 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		System.out.println("用户ID为String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户ID为空
 	 */
 	@Test
-	public void postAuthenticationManagementListTestUserIdIsEmpty() throws Exception {
+	public void postDownloadUserBasicInformationTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId","" );
-		
+		con.put("userId", "");
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -288,28 +258,25 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("请输入有效的用户id");
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
-	 * 用户ID为空格 
+	 * 用户ID为空格
 	 */
 	@Test
-	public void postAuthenticationManagementListTestUserIdIsSpace() throws Exception {
+	public void postDownloadUserBasicInformationTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
-		
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -318,28 +285,25 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户ID为null
 	 */
 	@Test
-	public void postAuthenticationManagementListTestUserIdIsNull() throws Exception {
+	public void postDownloadUserBasicInformationTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
-		
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -348,28 +312,25 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("请输入有效的用户id");
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户ID不传该 参数
 	 */
 	@Test
-	public void postAuthenticationManagementListTestUserIdNonSubmissionParameters() throws Exception {
+	public void postDownloadUserBasicInformationTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		
-		
+	
+
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
-		head.put("cmd", "3909");
-		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("ver", "1.2.1");
+		head.put("cmd", "3709");
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -378,10 +339,11 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		System.out.println("用户ID不传该 参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("请输入有效的用户id");
+		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	
 	
+		
 	
 }
