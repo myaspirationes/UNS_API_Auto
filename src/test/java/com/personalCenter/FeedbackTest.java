@@ -3,6 +3,7 @@ package com.personalCenter;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
@@ -12,29 +13,33 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 
 public class FeedbackTest extends HttpUtil {
 //帮助与反馈接口
-	String url = "/UU/Feedback";
-	
-
+	String url = "/UU/feedback";
+	String dataType = "perCenter81";
+	String selectSql = "SELECT * FROM T_FEEDBACK WHERE USER_ID = '12495324'";
+	String deleteSql = "DELETE T_FEEDBACK WHERE USER_ID IN( '12495324','12495325')";
 	/**
 	 * 正确反馈问题
 	 */
 	@Test
 	public void postFeedbackTestCorrectParameter() throws Exception {
+		List<Map<String,Object>> list ;
+		list =MetaOper.read(selectSql,dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -45,9 +50,11 @@ public class FeedbackTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("正确反馈问题" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		String feedbackContent = list.get(0).get("FEEDBACK_CONTENT").toString();
+		
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("反馈成功");
+		assertThat(feedbackContent.equals("手机闪退"));
 	}
 	/**
 	 * 用户ID错误
@@ -55,17 +62,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495325);
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -86,17 +93,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestUserIdIsNotExist() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", "12495AA324");
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -117,17 +124,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestUserIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", "12495324123123123123123123143415134513452346456345756478");
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -139,8 +146,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("用户ID超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户ID为空
@@ -150,15 +157,15 @@ public class FeedbackTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -170,8 +177,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户ID为空格
@@ -181,15 +188,15 @@ public class FeedbackTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -212,15 +219,15 @@ public class FeedbackTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -232,8 +239,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 用户ID不提交
@@ -243,15 +250,15 @@ public class FeedbackTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -263,8 +270,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("用户ID不提交" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 用户ID为0
@@ -274,15 +281,15 @@ public class FeedbackTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -294,8 +301,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户ID为小数
@@ -305,15 +312,15 @@ public class FeedbackTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12.3);
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -325,8 +332,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户ID为负数
@@ -336,15 +343,15 @@ public class FeedbackTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -231L);
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -356,8 +363,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 反馈描述超长
@@ -365,17 +372,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestContentIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退的风格风格豆腐干大概的非官方的是是多少");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -387,8 +394,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("反馈描述超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("反馈成功");
 	}
 	/**
 	 * 反馈描述存在非法字符
@@ -396,17 +403,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestContentIsIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "<@#%^*)+>");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -418,8 +425,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("反馈描述存在非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("反馈成功");
 	}
 	/**
 	 * 反馈描述为空
@@ -427,17 +434,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestContentIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -458,17 +465,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestContentIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", null);
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -477,11 +484,11 @@ public class FeedbackTest extends HttpUtil {
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为负数" + post);
+		System.out.println("反馈描述为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 反馈描述为空格
@@ -489,17 +496,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestContentIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", " ");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -511,8 +518,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("反馈描述为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("反馈成功");
 	}
 	/**
 	 * 反馈描述存在图片URL地址
@@ -520,17 +527,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestContentIsURL() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "https://www.2345.com/?k872897314");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -542,8 +549,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("反馈描述存在图片URL地址" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("反馈成功");
 	}
 	/**
 	 * 反馈描述存在运算符
@@ -551,17 +558,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestContentIsOperator() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "2+3=5");
-		con.put("fileId", "1234,132343,3434");
+		con.put("fileId", "10000159,10000160,10000161");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -573,8 +580,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("反馈描述存在运算符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("反馈成功");
 	}
 	/**
 	 * 图片ID超过5张
@@ -582,17 +589,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdIsMoreFive() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434,124,13343,13943");
+		con.put("fileId", "10000159,10000160,10000161,10000158,10000157,10000156");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -613,17 +620,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdIsFive() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434,124,13343");
+		con.put("fileId", "10000159,10000160,10000161,124,13343");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -635,8 +642,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID等于5张" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("反馈成功");
 	}
 	/**
 	 * 图片ID为6张其中1张为错误的
@@ -644,17 +651,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdIsSixAndOneIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434,124,13343,13943");
+		con.put("fileId", "10000159,10000160,10000161,asdasd,13343,13943");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -675,17 +682,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdIsFiveAndOneIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
-		con.put("fileId", "1234,132343,3434,124,13343");
+		con.put("fileId", "10000159,10000160,10000161,asasas,13343");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -706,17 +713,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdIsOne() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
 		con.put("fileId", "1234");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -728,8 +735,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID为1张" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("反馈成功");
 	}
 	/**
 	 * 图片ID为0张
@@ -737,17 +744,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
 		con.put("fileId", ",");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -759,8 +766,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID为0张" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("反馈成功");
 	}
 	/**
 	 * 图片Id之间的分隔符非法
@@ -768,17 +775,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdSeparatorIsIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
 		con.put("fileId", "1234￥132343%3434*124");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -799,17 +806,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
 		con.put("fileId", "12.34,13.2343,3.43");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -830,17 +837,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
 		con.put("fileId", "-1234,-132343,343");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -861,17 +868,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
 		con.put("fileId", "");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -883,8 +890,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("反馈成功");
 	}
 	/**
 	 * 图片ID为null
@@ -892,17 +899,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
 		con.put("fileId", null);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -923,17 +930,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
 		con.put("fileId", " ");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -954,17 +961,17 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestFileIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491661L);
+		con.put("userId", 12495324);
 		con.put("content", "手机闪退");
 	
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
+		head.put("ver", "2.2.2");
 		head.put("cmd", "4901");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491751");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "RhIdm0fijYBstecNo/BBAa+qVTEnjyqr");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		head.put("mos","iphone");
@@ -980,7 +987,13 @@ public class FeedbackTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	
-	
+	@AfterClass
+	public void afterClass(){
+		
+		
+		MetaOper.delete(deleteSql, dataType);
+		
+	}
 		
 	
 }

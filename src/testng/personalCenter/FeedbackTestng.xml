@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="帮助与反馈接口" >
+	<test name="FeedbackTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.FeedbackTest">
+		      <methods>
+		          <include name="postFeedbackTestCorrectParameter"></include>
+		          <include name="postFeedbackTestUserIdIsError"></include>
+		          <include name="postFeedbackTestUserIdIsNotExist"></include>
+		          <include name="postFeedbackTestUserIdIsLong"></include>
+		          <include name="postFeedbackTestUserIdIsEmpty"></include>
+		          <include name="postFeedbackTestUserIdIsSpace"></include>
+		          <include name="postFeedbackTestUserIdIsNull"></include>
+		          <include name="postFeedbackTestUserIdNonSubmissionParameters"></include>
+		          <include name="postFeedbackTestUserIdIsZero"></include>
+		          <include name="postFeedbackTestUserIdIsDecimal"></include>
+		          <include name="postFeedbackTestUserIdIsNegativeNumbe"></include>
+		          <include name="postFeedbackTestContentIsLong"></include>
+		          <include name="postFeedbackTestContentIsIllegalCharacters"></include>
+		          <include name="postFeedbackTestContentIsEmpty"></include>
+		          <include name="postFeedbackTestContentIsNull"></include>
+		          <include name="postFeedbackTestContentIsSpace"></include>
+		          <include name="postFeedbackTestContentIsURL"></include>
+		          <include name="postFeedbackTestContentIsOperator"></include>
+		          <include name="postFeedbackTestFileIdIsMoreFive"></include>
+		          <include name="postFeedbackTestFileIdIsFive"></include>
+		          <include name="postFeedbackTestFileIdIsSixAndOneIsError"></include>
+		          <include name="postFeedbackTestFileIdIsFiveAndOneIsError"></include>
+		          <include name="postFeedbackTestFileIdIsOne"></include>
+		          <include name="postFeedbackTestFileIdIsZero"></include>
+		          <include name="postFeedbackTestFileIdSeparatorIsIllegalCharacters"></include>
+		          <include name="postFeedbackTestFileIdIsDecimal"></include>
+		          <include name="postFeedbackTestFileIdIsNegativeNumbe"></include>
+		          <include name="postFeedbackTestFileIdIsEmpty"></include>
+		          <include name="postFeedbackTestFileIdIsNull"></include>
+		          <include name="postFeedbackTestFileIdIsSpace"></include>
+		          <include name="postFeedbackTestFileIdNonSubmissionParameters"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

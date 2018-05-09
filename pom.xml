@@ -212,7 +212,8 @@
 						<suiteXmlFile>./src/testng/personalCenter/CollectionListTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/DeleteReceivingAddressTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/DownloadUserBasicInformationTestng.xml</suiteXmlFile>
-											
+						<suiteXmlFile>./src/testng/personalCenter/EditionTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/FeedbackTestng.xml</suiteXmlFile>
 											
 											
 					</suiteXmlFiles>

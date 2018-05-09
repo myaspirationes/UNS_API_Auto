@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="持件照接口" >
+	<test name="HolderPhotoAuthenticateTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.HolderPhotoAuthenticateTest">
+		      <methods>
+		          <include name="postHolderPhotoAuthenticateTestCorrectParameter"></include>
+		          <include name="postHolderPhotoAuthenticateTestIsReview"></include>
+		          <include name="postHolderPhotoAuthenticateTestIsSuccess"></include>
+		          <include name="postHolderPhotoAuthenticateTestIsFail"></include>
+		          <include name="postHolderPhotoAuthenticateTestholdIdIsError"></include>
+		          <include name="postHolderPhotoAuthenticateTestholdIdIllegalCharacters"></include>
+		          <include name="postHolderPhotoAuthenticateTestholdIdIsLong"></include>
+		          <include name="postHolderPhotoAuthenticateTestholdIdIsSpace"></include>
+		          <include name="postHolderPhotoAuthenticateTestholdIdIsEmpty"></include>
+		          <include name="postHolderPhotoAuthenticateTestholdIdIsNull"></include>
+		          <include name="postHolderPhotoAuthenticateTestholdIdNonSubmissionParameters"></include>
+		          <include name="postHolderPhotoAuthenticateTestUserIdNotLoggedIn"></include>
+		          <include name="postHolderPhotoAuthenticateTestUserIdIsError"></include>
+		          <include name="postHolderPhotoAuthenticateTestUserIdIllegalCharacters"></include>
+		          <include name="postHolderPhotoAuthenticateTestUserIdIsDecimal"></include>
+		          <include name="postHolderPhotoAuthenticateTestUserIdIsNegativeNumber"></include>
+		          <include name="postHolderPhotoAuthenticateTestUserIdIsSpace"></include>
+		          <include name="postHolderPhotoAuthenticateTestUserIdIsEmpty"></include>
+		          <include name="postHolderPhotoAuthenticateTestUserIdIsNull"></include>
+		          <include name="postHolderPhotoAuthenticateTestUserIdNonSubmissionParameters"></include>
+		          <include name="postHolderPhotoAuthenticateTestUserIdIsZero"></include>
+		          <include name="postHolderPhotoAuthenticateTestHoldIdIsDecimal"></include>
+		          <include name="postHolderPhotoAuthenticateTestHoldIdIsNegativeNumber"></include>
+		          <include name="postHolderPhotoAuthenticateTestHoldIdIsZero"></include>
+		         
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="证件照认证接口" >
+	<test name="IdPhotoAuthenticateTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.IdPhotoAuthenticateTest">
+		      <methods>
+		          <include name="postIdPhotoAuthenticateTestCorrectParameter"></include>
+		          <include name="postIdPhotoAuthenticateTestIsReview"></include>
+		          <include name="postIdPhotoAuthenticateTestIsSuccess"></include>
+		          <include name="postIdPhotoAuthenticateTestIsFail"></include>
+		          <include name="postIdPhotoAuthenticateTestUserIdNotLoggedIn"></include>
+		          <include name="postIdPhotoAuthenticateTestUserIdIsError"></include>
+		          <include name="postIdPhotoAuthenticateTestUserIdIllegalCharacters"></include>
+		          <include name="postIdPhotoAuthenticateTestUserIdIsDecimal"></include>
+		          <include name="postIdPhotoAuthenticateTestUserIdIsNegativeNumber"></include>
+		          <include name="postIdPhotoAuthenticateTestUserIdIsSpace"></include>
+		          <include name="postIdPhotoAuthenticateTestUserIdIsEmpty"></include>
+		          <include name="postIdPhotoAuthenticateTestUserIdIsNull"></include>
+		          <include name="postIdPhotoAuthenticateTestUserIdIsZero"></include>
+		          <include name="postIdPhotoAuthenticateTestUserIdNonSubmissionParameters"></include>
+		          <include name="postIdPhotoAuthenticateTestPositiveIdIsError"></include>
+		          <include name="postIdPhotoAuthenticateTestPositiveIdNotTheSameAsReverseId"></include>
+		          <include name="postIdPhotoAuthenticateTestPositiveIdIsEmpty"></include>
+		          <include name="postIdPhotoAuthenticateTestPositiveIdIsSpace"></include>
+		          <include name="postIdPhotoAuthenticateTestPositiveIdIsNull"></include>
+		          <include name="postIdPhotoAuthenticateTestPositiveIdNonSubmissionParameters"></include>
+		          <include name="postIdPhotoAuthenticateTestPositiveIdIsLong"></include>
+		          <include name="postIdPhotoAuthenticateTestPositiveIdIsDecimal"></include>
+		          <include name="postIdPhotoAuthenticateTestPositiveIdIsNegativeNumber"></include>
+		          <include name="postIdPhotoAuthenticateTestPositiveIdIsZero"></include>
+		          <include name="postIdPhotoAuthenticateTestReverseIdIsError"></include>
+		          <include name="postIdPhotoAuthenticateTestReverseIdIsEmpty"></include>
+		          <include name="postIdPhotoAuthenticateTestReverseIdIsSpace"></include>
+		          <include name="postIdPhotoAuthenticateTestReverseIdIsNull"></include>
+		          <include name="postIdPhotoAuthenticateTestreverseIdNonSubmissionParameters"></include>
+		          <include name="postIdPhotoAuthenticateTestReverseIdIsLong"></include>
+		          <include name="postIdPhotoAuthenticateTestReverseIdIsZero"></include>
+		          <include name="postIdPhotoAuthenticateTestReverseIdIsNegativeNumber"></include>
+		          <include name="postIdPhotoAuthenticateTestReverseIdIsDecimal"></include> 
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

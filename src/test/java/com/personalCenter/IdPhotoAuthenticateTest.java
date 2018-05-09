@@ -12,19 +12,28 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 
 public class IdPhotoAuthenticateTest extends HttpUtil {
 //证件照认证接口
-	String url = "/UU/register";
-	
-
+	String url = "/UU/authenticate";
+	WalletTest walletTest = new WalletTest();
+	String deleteSql0 = "DELETE FROM T_AUTH_JUNIOR_REAL_NAME WHERE USER_ID =  12495417";
+	String deleteSql1 = "DELETE FROM t_wallet where USER_ID =12495417";
+	String dataType0 = "perCenter81";
+	String dataType1 = "wallet81";
+	String deleteSql2 = "DELETE FROM T_AUTH_PHOTO WHERE USER_ID = '12495417'";
+	String updateSql0 = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+	String updateSql1 = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='2' WHERE USER_ID = '12495417'";
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestCorrectParameter() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 33333);
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -32,9 +41,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -45,10 +54,111 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
+		JSONObject body1 = (JSONObject) post.get("body");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("autoMsg")).isEqualTo("证件照审核中");
 	}
+	/**
+	 * 用户ID审核中
+	 */
+	@Test
+	public void postIdPhotoAuthenticateTestIsReview() throws Exception {
+		postIdPhotoAuthenticateTestCorrectParameter();
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("userId", 12495417);
+		con.put("positiveId", 33333);
+		con.put("reverseId", 44444);
+		Map<String, Object> head = new HashMap<String, Object>();
+		head.put("mod", "ios");
+		head.put("mos", "7.0");
+		head.put("cmd", "3906");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("uuid", "12495417");
+		head.put("ln", "cn");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("sync", 1);
+		head.put("aid", "lan66");
+		head.put("ver", "1.0");
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID审核中" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+	
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请不要多次上传证件照");
+	}
+	
+	/**
+	 * 用户ID审核成功
+	 */
+	@Test
+	public void postIdPhotoAuthenticateTestIsSuccess() throws Exception {
+		postIdPhotoAuthenticateTestCorrectParameter();
+		MetaOper.update(updateSql0, dataType0);
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("userId", 12495417);
+		con.put("positiveId", 33333);
+		con.put("reverseId", 44444);
+		Map<String, Object> head = new HashMap<String, Object>();
+		head.put("mod", "ios");
+		head.put("mos", "7.0");
+		head.put("cmd", "3906");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("uuid", "12495417");
+		head.put("ln", "cn");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("sync", 1);
+		head.put("aid", "lan66");
+		head.put("ver", "1.0");
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID审核成功" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+	
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请不要多次上传证件照");
+	}
+	/**
+	 * 用户ID审核失败
+	 */
+	@Test
+	public void postIdPhotoAuthenticateTestIsFail() throws Exception {
+		postIdPhotoAuthenticateTestCorrectParameter();
+		MetaOper.update(updateSql1, dataType0);
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("userId", 12495417);
+		con.put("positiveId", 33333);
+		con.put("reverseId", 44444);
+		Map<String, Object> head = new HashMap<String, Object>();
+		head.put("mod", "ios");
+		head.put("mos", "7.0");
+		head.put("cmd", "3906");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("uuid", "12495417");
+		head.put("ln", "cn");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("sync", 1);
+		head.put("aid", "lan66");
+		head.put("ver", "1.0");
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID审核失败" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+	
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("重新上传成功");
+	}
+	
 	/**
 	 * 用户ID为未登录用户
 	 */
@@ -63,9 +173,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -94,9 +204,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -108,8 +218,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("用户ID为错误用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -125,9 +235,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -139,8 +249,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("用户ID为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为小数
@@ -148,7 +258,7 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	@Test
 	public void postIdPhotoAuthenticateTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125.1);
+		con.put("userId", 12495417.1);
 		con.put("positiveId", 33333);
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -156,9 +266,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -170,8 +280,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为负数
@@ -179,7 +289,7 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	@Test
 	public void postIdPhotoAuthenticateTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", -12492125);
+		con.put("userId", -12495417);
 		con.put("positiveId", 33333);
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -187,9 +297,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -201,8 +311,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请输入有效的用户id");
 	}
 	/**
 	 * 用户ID为空格
@@ -218,9 +328,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -232,8 +342,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为空
@@ -249,9 +359,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -263,8 +373,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请输入有效的用户id");
 	}
 	/**
 	 * 用户ID为null
@@ -280,9 +390,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -294,8 +404,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请输入有效的用户id");
 	}
 	/**
 	 * 用户ID为0
@@ -311,9 +421,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -325,8 +435,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请输入有效的用户id");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -341,9 +451,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -355,16 +465,18 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请输入有效的用户id");
 	}
 	/**
 	 * 正面图ID为错误
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestPositiveIdIsError() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", "56s654d");
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -372,9 +484,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -394,8 +506,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestPositiveIdNotTheSameAsReverseId() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 11133333);
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -403,9 +517,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -425,8 +539,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestPositiveIdIsEmpty() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", "");
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -434,9 +550,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -456,8 +572,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestPositiveIdIsSpace() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", " ");
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -465,9 +583,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -487,8 +605,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestPositiveIdIsNull() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", null);
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -496,9 +616,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -518,17 +638,19 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestPositiveIdNonSubmissionParameters() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("mod", "ios");
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -548,8 +670,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestPositiveIdIsLong() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 88888888);
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -557,9 +681,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -579,8 +703,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestPositiveIdIsDecimal() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 33333.3);
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -588,9 +714,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -610,8 +736,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestPositiveIdIsNegativeNumber() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", -33333);
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -619,9 +747,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -641,8 +769,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestPositiveIdIsZero() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 0);
 		con.put("reverseId", 44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -650,9 +780,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -672,8 +802,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestReverseIdIsError() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 33333);
 		con.put("reverseId", "44fg444");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -681,9 +813,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -703,8 +835,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestReverseIdIsEmpty() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 33333);
 		con.put("reverseId", "");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -712,9 +846,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -734,8 +868,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestReverseIdIsSpace() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 33333);
 		con.put("reverseId", " ");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -743,9 +879,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -765,8 +901,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestReverseIdIsNull() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 33333);
 		con.put("reverseId", null);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -774,9 +912,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -796,17 +934,19 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestreverseIdNonSubmissionParameters() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 33333);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("mod", "ios");
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -826,8 +966,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestReverseIdIsLong() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 33333);
 		con.put("reverseId", 444444444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -835,9 +977,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -857,8 +999,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestReverseIdIsZero() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 33333);
 		con.put("reverseId", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -866,9 +1010,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -888,8 +1032,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestReverseIdIsNegativeNumber() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 33333);
 		con.put("reverseId", -44444);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -897,9 +1043,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");
@@ -919,8 +1065,10 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postIdPhotoAuthenticateTestReverseIdIsDecimal() throws Exception {
+		walletTest.postWalletTestCorrectParameter();
+		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12495417);
 		con.put("positiveId", 33333);
 		con.put("reverseId", 44444.4);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -928,9 +1076,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVr6C2/i63ZvVn9i2yraEAND");
+		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
 		head.put("sync", 1);
 		head.put("aid", "lan66");
 		head.put("ver", "1.0");

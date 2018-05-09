@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="实名认证接口" >
+	<test name="WalletTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.WalletTest">
+		      <methods>
+		          <include name="postWalletTestCorrectParameter"></include>
+		          <include name="postWalletTestUserIdNotLoggedIn"></include>
+		          <include name="postWalletTestUserIdIsError"></include>
+		          <include name="postWalletTestUserIdIllegalCharacters"></include>
+		          <include name="postWalletTestUserIdIsDecimal"></include>
+		          <include name="postWalletTestUserIdIsNegativeNumber"></include>
+		          <include name="postWalletTestUserIdIsSpace"></include>
+		          <include name="postWalletTestUserIdIsEmpty"></include>
+		          <include name="postWalletTestUserIdIsNull"></include>
+		          <include name="postWalletTestUserIdIsZero"></include>
+		          <include name="postWalletTestUserIdNonSubmissionParameters"></include>
+		          <include name="postWalletTestRealNameIsError"></include>
+		          <include name="postWalletTestUserIdNotTheSameAsRealName"></include>
+		          <include name="postWalletTestRealNameIsEmpty"></include>
+		          <include name="postWalletTestRealNameIsSpace"></include>
+		          <include name="postWalletTestRealNameIsNull"></include>
+		          <include name="postWalletTestRealNameNonSubmissionParameters"></include>
+		          <include name="postWalletTestRealNameIsLong"></include>
+		          <include name="postWalletTestRealNameIllegalCharacters"></include>
+		          <include name="postWalletTestPapersNoLessThan18"></include>
+		          <include name="postWalletTestPapersNoIsEmpty"></include>
+		          <include name="postWalletTestPapersNoIsSpace"></include>
+		          <include name="postWalletTestPapersNoIsNull"></include>
+		          <include name="postWalletTestPapersNoNonSubmissionParameters"></include>
+		          <include name="postWalletTestPapersNoIsLong"></include>
+		          <include name="postWalletTestPapersNoIsZero"></include>
+		          <include name="postWalletTestPapersNoIsNegativeNumber"></include>
+		          <include name="postWalletTestPapersNoIsDecimal"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

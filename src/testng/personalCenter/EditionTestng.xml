@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取版本主要更新记录接口" >
+	<test name="EditionTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.EditionTest">
+		      <methods>
+		          <include name="postEditionTestCorrectParameter"></include>
+		          <include name="postEditionTestUserIdNotLoggedIn"></include>
+		          <include name="postEditionTestUserIdIsError"></include>
+		          <include name="postEditionTestUserIdIllegalCharacters"></include>
+		          <include name="postEditionTestUserIdIsDecimal"></include>
+		          <include name="postEditionTestUserIdIsNegativeNumbe"></include>
+		          <include name="postEditionTestUserIdIsSpace"></include>
+		          <include name="postEditionTestUserIdIsIsEmpty"></include>
+		          <include name="postEditionTestUserIdIsNull"></include>
+		          <include name="postEditionTestUserIdIsZero"></include>
+		          <include name="postEditionTestUserIdNonSubmissionParameters"></include>
+		          <include name="postEditionTestSystemTypeIsZeroIOS"></include>
+		          <include name="postEditionTestSystemTypeIsOneandroid"></include>
+		          <include name="postEditionTestSystemTypeIsError"></include>
+		          <include name="postEditionTestSystemTypeIsString"></include>
+		          <include name="postEditionTestSystemTypeIsEmpty"></include>
+		          <include name="postEditionTestSystemTypeIsSpace"></include>
+		          <include name="postEditionTestSystemTypeIsNull"></include>
+		          <include name="postEditionTestSystemTypeIsMax"></include>
+		          <include name="postEditionTestSystemTypeIsLong"></include>
+		          <include name="postEditionTestSystemTypeIsDecimal"></include>
+		          <include name="postEditionTestSystemTypeIsNegativeNumbe"></include>
+		          <include name="postEditionTestSystemTypeNonSubmissionParameters"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
