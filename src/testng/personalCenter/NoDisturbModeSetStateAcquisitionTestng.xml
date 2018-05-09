@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="勿扰模式设置状态获取接口">
+	<test name="NoDisturbModeSetStateAcquisitionTest">
+		<classes>
+
+			<class name="com.personalCenter.NoDisturbModeSetStateAcquisitionTest">
+				<methods>
+					<include name="postNoDisturbModeSetStateAcquisitionTestCorrectParameter"></include>
+					<include name="postNoDisturbModeSetStateAcquisitionTesUserIdIsError"></include>
+					<include name="postNoDisturbModeSetStateAcquisitionTestUserIdNotLoggedIn"></include>
+					<include name="postNoDisturbModeSetStateAcquisitionTestUserIdIsLong"></include>
+					<include name="postNoDisturbModeSetStateAcquisitionTestUserIdIsZero"></include>
+					<include name="postNoDisturbModeSetStateAcquisitionTestUserIdIsNegativeNumbe"></include>
+					<include name="postNoDisturbModeSetStateAcquisitionTestUserIdIsDecimal"></include>
+					<include name="postNoDisturbModeSetStateAcquisitionTestUserIdIsEmpty"></include>
+					<include name="postNoDisturbModeSetStateAcquisitionTestUserIdIsSpace"></include>
+					<include name="postNoDisturbModeSetStateAcquisitionTestUserIdIllegalCharacters"></include>
+					<include name="postNoDisturbModeSetStateAcquisitionTestUserIdIsNull"></include>
+					<include name="postNoDisturbModeSetStateAcquisitionTestUserIdNonSubmissionParameters"></include>
+					
+					
+					<!-- <exclude name=""></exclude> -->
+				</methods>
+			</class>
+
+		</classes>
+
+	</test>
+
+</suite>

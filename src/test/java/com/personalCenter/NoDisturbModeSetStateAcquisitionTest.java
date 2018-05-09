@@ -24,15 +24,15 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "234234");
+		con.put("userId", "12495324");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -43,8 +43,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID错误
@@ -52,15 +52,15 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTesUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "234234");
+		con.put("userId", "1249532456");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -71,8 +71,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("用户ID错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID用户未登录
@@ -80,15 +80,15 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "234234");
+		con.put("userId", "12495324333");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -99,8 +99,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("用户ID用户未登录" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID超长
@@ -108,15 +108,15 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "234234123456");
+		con.put("userId", "1249532412345655552245445656789");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -127,8 +127,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("用户ID超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为0
@@ -142,9 +142,9 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -155,8 +155,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为负数
@@ -170,9 +170,9 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -183,8 +183,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为小数
@@ -198,9 +198,9 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -211,8 +211,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为空
@@ -226,9 +226,9 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -239,8 +239,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为空格
@@ -254,9 +254,9 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -267,8 +267,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID存在非法字符
@@ -282,9 +282,9 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -295,8 +295,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("用户ID存在非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为null
@@ -310,9 +310,9 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -323,8 +323,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("useId为空");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -338,9 +338,9 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3709");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -351,8 +351,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("useId为空");
 	}
 	
 		
