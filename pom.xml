@@ -28,6 +28,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.4.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
@@ -201,7 +206,15 @@
 					</excludes>
 
 					<suiteXmlFiles>
-						<suiteXmlFile>./src/testng/demo/demo.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/AuthenticateTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/AuthenticationManagementListTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/ChangeThePhoneNumberTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/CollectionListTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/DeleteReceivingAddressTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/DownloadUserBasicInformationTestng.xml</suiteXmlFile>
+											
+											
+											
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
