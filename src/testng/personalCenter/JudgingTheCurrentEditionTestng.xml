@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="判断当前版本是否最新接口">
+	<test name="JudgingTheCurrentEditionTest">
+		<classes>
+
+			<class name="com.personalCenter.JudgingTheCurrentEditionTest">
+				<methods>
+					<include name="postAuthenticateTestCorrectParameter"></include>
+					<include name="postAuthenticateTestUserIdNotLoggedIn"></include>
+					<include name="postAuthenticateTestUserIdIsError"></include>
+					<include name="postAuthenticateTestUserIdIllegalCharacters"></include>
+					<include name="postAuthenticateTestUserIdIsDecimal"></include>
+					<include name="postAuthenticateTestUserIdIsNegativeNumber"></include>
+					<include name="postAuthenticateTestUserIdIsSpace"></include>
+					<include name="postAuthenticateTestUserIdIsEmpty"></include>
+					<include name="postAuthenticateTestUserIdIsNull"></include>
+					<include name="postAuthenticateTestUserIdIsZero"></include>
+					<include name="postAuthenticateTestUserIdNonSubmissionParameters"></include>
+					<include name="postAuthenticateTestSystemTypeIsIOS"></include>
+					<include name="postAuthenticateTestSystemTypeIsAndroid"></include>
+					<include name="postAuthenticateTestSystemTypeIsError"></include>
+					<include name="postAuthenticateTestSystemTypeIsString"></include>
+					<include name="postAuthenticateTestSystemTypeIsEmpty"></include>
+					<include name="postAuthenticateTestSystemTypeIsSpace"></include>
+					<include name="postAuthenticateTeStsystemTypeIsNull"></include>
+					<include name="postAuthenticateTestSystemTypeIsMax"></include>
+					<include name="postAuthenticateTestSystemTypeIsLong"></include>
+					<include name="postAuthenticateTestSystemTypeIsDecimal"></include>
+					<include name="postAuthenticateTestSystemTypeIsNegativeNumber"></include>
+					<include name="postAuthenticateTestSystemTypeNonSubmissionParameters"></include>
+					<include name="postAuthenticateTestEditionNumberIsError"></include>
+					<include name="postAuthenticateTestEditionNumberIsLong"></include>
+					<include name="postAuthenticateTestEditionNumberIsEmpty"></include>
+					<include name="postAuthenticateTestEditionNumberIsSpace"></include>
+					<include name="postAuthenticateTestEditionNumberIsNull"></include>
+					<include name="postAuthenticateTestEditionNumberNonSubmissionParameters"></include>
+					
+					<!-- <exclude name=""></exclude> -->
+				</methods>
+			</class>
+
+		</classes>
+
+	</test>
+
+</suite>
