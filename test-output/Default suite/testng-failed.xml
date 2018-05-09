@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.demo.RegisterTest">
+      <class name="com.personalCenter.JudgingTheCurrentEditionTest">
         <methods>
-          <include name="accessTokenCorrectParameter"/>
+          <include name="postAuthenticateTestUserIdNotLoggedIn"/>
+          <include name="postAuthenticateTestUserIdIsZero"/>
         </methods>
-      </class> <!-- com.demo.RegisterTest -->
+      </class> <!-- com.personalCenter.JudgingTheCurrentEditionTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,5 +1,7 @@
 package com.personalCenter;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashMap;
