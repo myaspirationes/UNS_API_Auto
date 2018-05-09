@@ -3,6 +3,7 @@ package com.personalCenter;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
@@ -12,20 +13,31 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 
 public class DeleteReceivingAddressTest extends HttpUtil {
-//获取多账号关联接口
-	String url = "/UU/user";
-	
-
+//删除收货地址
+	String url = "/UU/addressinfo";
+	String insertIntoSql = "INSERT INTO T_ADDRESS_INFO (\"ADDRESS_ID\",\"USER_ID\",\"CONTACT_NAME\", \"CONTACT_INFO\", \"PROVINCE_CODE\", \"CITY_CODE\", \"COUNTY_CODE\", \"DETAILED_ADDRESS\", \"IS_DEFAULT\", \"IS_DELETE\", \"MODIFY_TIME\", \"CREATE_TIME\", \"LABEL\", \"BRIEF_ADDRESS\") VALUES (T_ADDRESS_INFO_SEQ.nextval,'12495324', '测试君', '13524001140', '上海市', '上海市', '浦东新区', '会一直了', '0', '1', TO_DATE('2016-12-02 13:19:54', 'SYYYY-MM-DD HH24:MI:SS'), TO_DATE('2016-12-02 10:59:05', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL)";
+	String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID = '12495324'";
+	String deleteSql = "DELETE T_ADDRESS_INFO where USER_ID = '12495324'";
+	String dataType = "perCenter81";
+	@BeforeClass
+	public void beforeClass(){
+		MetaOper.insert(insertIntoSql, dataType);
+	}
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postDeleteReceivingAddressTestCorrectParameter() throws Exception {
+		List<Map<String,Object>> list ;
+		list =MetaOper.read(selectSql,dataType);
+		System.out.println("list======="+list);
+		String addressId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
-		con.put("userId", 1249212);
+		con.put("addressId", addressId);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -33,7 +45,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -44,18 +56,24 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+		
 	}
 	
 	/**
 	 * 地址ID 非此用户
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdNotTheUser() throws Exception {
+		String selectSql1 ="SELECT * FROM T_ADDRESS_INFO WHERE USER_ID <> '12495324'";
+		List<Map<String,Object>> list ;
+		list =MetaOper.read(selectSql1,dataType);
+		System.out.println("list======="+list);
+		String addressId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
-		con.put("userId", 1249212);
+		con.put("addressId", addressId);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -63,7 +81,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -74,18 +92,18 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("地址ID 非此用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("地址ID 非此用户");
 			
 	}
 	/**
 	 * 地址id错误信息
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
-		con.put("userId", 1249212);
+		con.put("addressId", 1249545);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -93,7 +111,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -104,17 +122,17 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("地址id错误信息" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("没有此地址");
 	}
 	/**
 	 * 地址id为String类型
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", "vfgdfg");
-		con.put("userId", 1249212);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -122,7 +140,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -133,17 +151,17 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("地址id为String类型" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 地址id为小数
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 12.4);
-		con.put("userId", 1249212);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -151,7 +169,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -162,17 +180,17 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("地址id为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 地址id为负数
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", -124);
-		con.put("userId", 1249212);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -180,7 +198,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -191,17 +209,17 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("地址id为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("没有此地址");
 	}
 	/**
 	 * 地址id为0
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 0);
-		con.put("userId", 1249212);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -209,7 +227,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -220,17 +238,17 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("地址id为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("没有此地址");
 	}
 	/**
 	 * 地址id为空格
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", " ");
-		con.put("userId", 1249212);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -238,7 +256,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -249,17 +267,17 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("地址id为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 地址id 为空
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", "");
-		con.put("userId", 1249212);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -267,7 +285,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -278,16 +296,16 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("地址id 为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 地址id不传该参数
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 1249212);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -295,7 +313,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -306,17 +324,17 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("地址id不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 地址id为超长
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 45232555558L);
-		con.put("userId", 1249212);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -324,7 +342,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -335,46 +353,18 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("地址id为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("没有此地址");
 	}
-	/**
-	 * 地址不属于这个用户
-	 */
-	//@Test
-	public void postDeleteReceivingAddressTestAddressIdIsNotBelongUser() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
-		con.put("userId", 1249212);
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "1and6uu");
-		head.put("ver", "1.2.0");
-		head.put("cmd", "4502");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491610");
-		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
-		head.put("sync", "1");
-		head.put("mod", "ios");
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("地址id为超长" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
-	}
 	/**
 	 * 用户ID错误
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
-		con.put("userId", 1249212);
+		con.put("addressId", 124953245);
+		con.put("userId", 125321114);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -382,7 +372,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -393,17 +383,17 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("用户ID错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("没有此地址");
 	}
 	/**
 	 * 用户id不存在
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestUserIdIsNotExist() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
-		con.put("userId", 1249212);
+		con.put("addressId", 124953245);
+		con.put("userId", 1212495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -411,7 +401,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -422,17 +412,17 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("用户id不存在" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户ID超长
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestUserIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
-		con.put("userId", 12492122235L);
+		con.put("addressId", 124953245);
+		con.put("userId", 124953242235L);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -440,7 +430,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -451,16 +441,16 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("用户ID超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
+		con.put("addressId", 124953245);
 		con.put("userId", "");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
@@ -469,7 +459,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -480,16 +470,16 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
+		con.put("addressId", 124953245);
 		con.put("userId", " ");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
@@ -498,7 +488,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -509,16 +499,16 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
+		con.put("addressId", 124953245);
 		con.put("userId", null);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
@@ -527,7 +517,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -538,16 +528,16 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户ID不提交
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
+		con.put("addressId", 124953245);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -555,7 +545,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -566,16 +556,16 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("用户ID不提交" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
+		con.put("addressId", 124953245);
 		con.put("userId", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
@@ -584,7 +574,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -595,16 +585,16 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 用户ID为小数
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
+		con.put("addressId", 124953245);
 		con.put("userId", 12.69);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
@@ -613,7 +603,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -624,16 +614,16 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID为负数
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 12492125);
+		con.put("addressId", 124953245);
 		con.put("userId", -56);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
@@ -642,7 +632,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -653,10 +643,19 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
-	
+	@AfterClass
+	public void afterClass(){
+		/*List<Map<String,Object>> list ;
+		list =MetaOper.read(selectSql,dataType);
+		System.out.println("list======="+list);
+		String userId = list.get(0).get("USER_ID").toString();*/
+		
+		MetaOper.delete(deleteSql, dataType);
+		
+	}
 	
 	
 }

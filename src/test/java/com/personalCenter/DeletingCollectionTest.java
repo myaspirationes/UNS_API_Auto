@@ -15,7 +15,7 @@ import com.example.HttpUtil;
 
 public class DeletingCollectionTest extends HttpUtil {
 //删除收藏接口
-	String url = "/UU/deletingcollection";
+	String url = "/UU/user";
 	
 
 	/**

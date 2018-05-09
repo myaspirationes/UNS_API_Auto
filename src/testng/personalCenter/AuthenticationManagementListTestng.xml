@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="认证管理列表接口" >
+	<test name="AuthenticationManagementListTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.AuthenticationManagementListTest">
+		      <methods>
+		          <include name="postAuthenticationManagementListTestCorrectParameter"></include>
+		          <include name="postAuthenticationManagementListTestUserIdIsNotLoggedIn"></include>
+		          <include name="postAuthenticationManagementListTestUserIdIsError"></include>
+		          <include name="postAuthenticationManagementListTestUserIdIsDecimal"></include>
+		          <include name="postAuthenticationManagementListTestUserIdIsIllegalCharacters"></include>
+		          <include name="postAuthenticationManagementListTestUserIdIsNegativeNumber"></include>
+		          <include name="postAuthenticationManagementListTestUserIdIsZero"></include>
+		          <include name="postAuthenticationManagementListTestUserIdIsString"></include>
+		          <include name="postAuthenticationManagementListTestUserIdIsEmpty"></include>
+		          <include name="postAuthenticationManagementListTestUserIdIsSpace"></include>
+		          <include name="postAuthenticationManagementListTestUserIdIsNull"></include>
+		          <include name="postAuthenticationManagementListTestUserIdNonSubmissionParameters"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

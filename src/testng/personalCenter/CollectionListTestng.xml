@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取收藏列表接口">
+	<test name="CollectionListTest">
+		<classes>
+
+			<class name="com.personalCenter.CollectionListTest">
+				<methods>
+					<include name="postCollectionListTestCorrectParameter"></include>
+					<include name="postCollectionListTestUserIdNotLoggedIn"></include>
+					<include name="postCollectionListTestUserIdIsError"></include>
+					<include name="postCollectionListTestUserIdIsIllegalCharacters"></include>
+					<include name="postCollectionListTestUserIdIsDecimal"></include>
+					<include name="postCollectionListTestUserIdIsNegativeNumbe"></include>
+					<include name="postCollectionListTestUserIdIsIsSpace"></include>
+					<include name="postCollectionListTestUserIdIsEmpty"></include>
+					<include name="postCollectionListTestUserIdIsNull"></include>
+					<include name="postCollectionListTestUserIdIsZero"></include>
+					<include name="postCollectionListTestUserIdNonSubmissionParameters"></include>
+					<include name="postCollectionListTestFavoriteTypeIsError"></include>
+					<include name="postCollectionListTestFavoriteTypeIsString"></include>
+					<include name="postCollectionListTestFavoriteTypeIsMax"></include>
+					<include name="postCollectionListTestFavoriteTypeIsGoodsSix"></include>
+					<include name="postCollectionListTestFavoriteTypeIsShopsSeventeen"></include>
+					<include name="postCollectionListTestFavoriteTypeIsNegativeNumbe"></include>
+					<include name="postCollectionListTestFavoriteTypeIsDecimal"></include>
+					<include name="postCollectionListTestFavoriteTypeIsZero"></include>
+					<include name="postCollectionListTestFavoriteTypeIsEmpty"></include>
+					<include name="postCollectionListTestFavoriteTypeIsSpace"></include>
+					<include name="postCollectionListTestFavoriteTypeIsIllegalCharacters"></include>
+					<include name="postCollectionListTestFavoriteTypeNonSubmissionParameters"></include>
+					<include name="postCollectionListTestPageNowIsString"></include>
+					<include name="postCollectionListTestPageNowIsDecimal"></include>
+					<include name="postCollectionListTestPageNowIsNegativeNumbe"></include>
+					<include name="postCollectionListTestPageNowIsZero"></include>
+					<include name="postCollectionListTestPageNowIsMax"></include>
+					<include name="postCollectionListTestPageNowIsLong"></include>
+					<include name="postCollectionListTestPageNowIsEmpty"></include>
+					<include name="postCollectionListTestPageNowIsSpace"></include>
+					<include name="postCollectionListTestPageNowIsNull"></include>
+					<include name="postCollectionListTestPageSizeIsString"></include>
+					<include name="postCollectionListTestPageSizeIsDecimal"></include>
+					<include name="postCollectionListTestPageSizeIsNegativeNumbe"></include>
+					<include name="postCollectionListTestPageSizeIsZero"></include>
+					<include name="postCollectionListTestPageSizeIsMax"></include>
+					<include name="postCollectionListTestPageSizeIsLong"></include>
+					<include name="postCollectionListTestPageSizeIsEmpty"></include>
+					<include name="postCollectionListTestPageSizeIsSpace"></include>
+					<include name="postCollectionListTestpageSizeIsNull"></include>
+					<include name="postCollectionListTestKeyWordIsLong"></include>
+					<include name="postCollectionListTestKeyWordIsIllegalCharacters"></include>
+					<include name="postCollectionListTestKeyWordIsEmpty"></include>
+					<include name="postCollectionListTestKeyWordIsSpace"></include>
+					<include name="postCollectionListTestKeyWordIsNull"></include>
+					<include name="postCollectionListTestKeyWordIsNonSubmissionParameters"></include>
+					
+					<!-- <exclude name=""></exclude> -->
+				</methods>
+			</class>
+
+		</classes>
+
+	</test>
+
+</suite>

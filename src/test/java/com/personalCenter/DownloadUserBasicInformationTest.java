@@ -15,7 +15,7 @@ import com.example.HttpUtil;
 
 public class DownloadUserBasicInformationTest extends HttpUtil {
 //下载用户基本信息接口
-	String url = "/UU/DownloadUserBasicInformation";
+	String url = "/UU/user";
 	
 
 	/**
@@ -24,14 +24,14 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 	@Test
 	public void postDownloadUserBasicInformationTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491791L);
+		con.put("userId", 12495324);
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -42,8 +42,8 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户为未登录
@@ -56,9 +56,9 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -69,8 +69,8 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		System.out.println("用户为未登录" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户为错误
@@ -78,14 +78,14 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 	@Test
 	public void postDownloadUserBasicInformationTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491791L);
+		con.put("userId", 12491610);
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -110,9 +110,9 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -123,8 +123,8 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		System.out.println("用户ID存在小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID存在非法字符
@@ -137,9 +137,9 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -150,8 +150,8 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		System.out.println("用户ID存在非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID存在负数
@@ -164,9 +164,9 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -177,8 +177,8 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		System.out.println("用户ID存在负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID为0
@@ -191,9 +191,9 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -204,8 +204,8 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID为String
@@ -218,9 +218,9 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -231,8 +231,8 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		System.out.println("用户ID为String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID为空
@@ -245,9 +245,9 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -258,8 +258,8 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID为空格
@@ -272,9 +272,9 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -285,8 +285,8 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID为null
@@ -299,9 +299,9 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -312,8 +312,8 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID不传该 参数
@@ -326,9 +326,9 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "202");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -339,8 +339,8 @@ public class DownloadUserBasicInformationTest extends HttpUtil {
 		System.out.println("用户ID不传该 参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	
 	

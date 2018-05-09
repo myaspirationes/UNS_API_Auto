@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="删除收货地址">
+	<test name="DeleteReceivingAddressTest">
+		<classes>
+
+			<class name="com.personalCenter.DeleteReceivingAddressTest">
+				<methods>
+					<include name="postDeleteReceivingAddressTestCorrectParameter"></include>
+					<include name="postDeleteReceivingAddressTestAddressIdNotTheUser"></include>
+					<include name="postDeleteReceivingAddressTestAddressIdError"></include>
+					<include name="postDeleteReceivingAddressTestAddressIdIsString"></include>
+					<include name="postDeleteReceivingAddressTestAddressIdIsDecimal"></include>
+					<include name="postDeleteReceivingAddressTestAddressIdIsNegativeNumber"></include>
+					<include name="postDeleteReceivingAddressTestAddressIdIsZero"></include>
+					<include name="postDeleteReceivingAddressTestAddressIdIsSpace"></include>
+					<include name="postDeleteReceivingAddressTestAddressIdIsEmpty"></include>
+					<include name="postDeleteReceivingAddressTestAddressIdNonSubmissionParameters"></include>
+					<include name="postDeleteReceivingAddressTestAddressIdIsLong"></include>
+					<include name="postDeleteReceivingAddressTestUserIdIsError"></include>
+					<include name="postDeleteReceivingAddressTestUserIdIsNotExist"></include>
+					<include name="postDeleteReceivingAddressTestUserIdIsLong"></include>
+					<include name="postDeleteReceivingAddressTestUserIdIsEmpty"></include>
+					<include name="postDeleteReceivingAddressTestUserIdIsSpace"></include>
+					<include name="postDeleteReceivingAddressTestUserIdIsNull"></include>
+					<include name="postDeleteReceivingAddressTestUserIdNonSubmissionParameters"></include>
+					<include name="postDeleteReceivingAddressTestUserIdIsZero"></include>
+					<include name="postDeleteReceivingAddressTestUserIdIsDecimal"></include>
+					<include name="postDeleteReceivingAddressTestUserIdIsNegativeNumber"></include>
+					<!-- <exclude name=""></exclude> -->
+				</methods>
+			</class>
+
+		</classes>
+
+	</test>
+
+</suite>

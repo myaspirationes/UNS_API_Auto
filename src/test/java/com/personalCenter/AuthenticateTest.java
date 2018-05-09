@@ -1,5 +1,6 @@
 package com.personalCenter;
 
+import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashMap;
@@ -25,6 +26,7 @@ public class AuthenticateTest extends HttpUtil {
 	public void postAuthenticateTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
+		
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
@@ -80,12 +82,12 @@ public class AuthenticateTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 用户ID为错误用户
+	 * 用户ID为与登录用户不符
 	 */
 	@Test
 	public void postAuthenticateTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12312sd313");
+		con.put("userId", "12492211");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
