@@ -15,7 +15,7 @@ import com.example.HttpUtil;
 
 public class CreateAnOrderTest extends HttpUtil {
 // 用户创建订单接口
-	String url = "api/insertOrder";
+	String url = "/api/insertOrder";
 
 
 	/**
@@ -35,8 +35,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -52,7 +52,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12312313);
@@ -66,8 +66,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -83,7 +83,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "12312sd313");
@@ -97,8 +97,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -114,7 +114,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<$%^>");
@@ -128,8 +128,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -145,7 +145,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12123123.33);
@@ -159,8 +159,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -176,7 +176,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -121312);
@@ -190,8 +190,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -207,7 +207,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
@@ -221,8 +221,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -238,7 +238,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
@@ -252,8 +252,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -269,7 +269,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
@@ -283,8 +283,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -300,7 +300,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
@@ -314,8 +314,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -331,7 +331,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("orderID", "orderID");
@@ -344,8 +344,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -361,7 +361,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 订单号为错误
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestOrderIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
@@ -375,8 +375,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -392,7 +392,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 订单号超长
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestorderIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
@@ -406,8 +406,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -423,7 +423,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 订单号为空
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestorderIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
@@ -437,8 +437,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -454,7 +454,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 订单号为空格
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestOrderIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
@@ -468,8 +468,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -485,7 +485,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 订单号为Null
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestOrderIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
@@ -499,8 +499,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -516,7 +516,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	/**
 	 * 订单号不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAuthenticateTestOrderIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
@@ -530,8 +530,8 @@ public class CreateAnOrderTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12492126);
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("uuid", 12495324);
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);

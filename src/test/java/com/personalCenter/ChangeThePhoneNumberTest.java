@@ -24,20 +24,20 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	@Test
 	public void postAuthenticationManagementListTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 12492211);
 		con.put("mobile", 13774323645L);
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -46,8 +46,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo("1");
+		assertThat(head1.get("msg")).isEqualTo("该手机号已被注册过不允许更换");
 	}
 	/**
 	 * 用户ID错误
@@ -55,20 +55,20 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	@Test
 	public void postAuthenticationManagementListTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", 124921125);
 		con.put("mobile", 13774323645L);
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -77,8 +77,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("用户ID错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo("-1");
+		assertThat(head1.get("msg")).isEqualTo("账户不存在");
 	}
 	/**
 	 * 用户id不存在
@@ -91,15 +91,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -108,8 +108,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("用户id不存在" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo("-3");
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID超长
@@ -122,25 +122,25 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID超长" + post);
+		System.out.println("用户id不存在" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo("-1");
+		assertThat(head1.get("msg")).isEqualTo("账户不存在");
 	}
 	/**
 	 * 用户ID为空
@@ -153,15 +153,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -184,15 +184,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -215,15 +215,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -245,15 +245,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -276,15 +276,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -293,8 +293,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("新手机号码错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo("-3");
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 新手机号码超长
@@ -303,19 +303,19 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	public void postAuthenticationManagementListTestMobileIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("mobile", 13774323645111L);
+		con.put("mobile", 137743236111111141L);
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -324,8 +324,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("新手机号码超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo("-3");
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 新手机号码小于11位
@@ -338,15 +338,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -355,8 +355,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("新手机号码小于11位" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo("-3");
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 手机号码前面加00
@@ -369,15 +369,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -386,8 +386,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("手机号码前面加00" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 手机号码前面加+ 86
@@ -400,15 +400,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -417,8 +417,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("手机号码前面加+ 86" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 输入11位的固话（固话+区号）
@@ -431,15 +431,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -448,8 +448,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("输入11位的固话（固话+区号）" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo("-3");
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 输入手机号码存在小数
@@ -462,15 +462,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -479,8 +479,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("输入手机号码存在小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 手机号码存在负数
@@ -493,15 +493,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -510,8 +510,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("手机号码存在负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 手机号码存在非法字符
@@ -524,15 +524,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -541,8 +541,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("手机号码存在非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 手机号码为空
@@ -555,15 +555,15 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		con.put("checkMsg", 478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
-		head.put("ver", "2.0.6");
+		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
-		head.put("mos", "6.0");
-		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "8.1.0");
+		head.put("mod", "(google)Nexus 5X");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -572,8 +572,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("手机号码为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 手机号码为null
@@ -589,9 +589,9 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -603,8 +603,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("手机号码为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 手机号码为空格
@@ -620,9 +620,9 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -634,8 +634,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("手机号码为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 手机号码不传该参数
@@ -650,9 +650,9 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -664,8 +664,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("手机号码不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 查询的验证码错误
@@ -674,16 +674,16 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	public void postAuthenticationManagementListTestcheckMsgIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("mobile", 13774323645L);
+		con.put("mobile", 13764590708L);
 		con.put("checkMsg", 123123);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -695,8 +695,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("查询的验证码错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-2);
+		assertThat(head1.get("msg")).isEqualTo("验证码错误");
 	}
 	/**
 	 * 查询的验证码为String
@@ -705,16 +705,16 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	public void postAuthenticationManagementListTestCheckMsgIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("mobile", 13774323645L);
+		con.put("mobile", 13764590708L);
 		con.put("checkMsg", "1sdas");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -726,8 +726,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("查询的验证码为String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-2);
+		assertThat(head1.get("msg")).isEqualTo("验证码错误");
 	}
 	/**
 	 * 查询的验证码超长
@@ -736,16 +736,16 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	public void postAuthenticationManagementListTestcheckMsgIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("mobile", 13774323645L);
+		con.put("mobile", 13764590708L);
 		con.put("checkMsg", 4781911113L);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -757,8 +757,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("查询的验证码超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-2);
+		assertThat(head1.get("msg")).isEqualTo("验证码错误");
 	}
 	/**
 	 * 查询的验证码为空
@@ -767,16 +767,16 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	public void postAuthenticationManagementListTestCheckMsgIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("mobile", 13774323645L);
+		con.put("mobile", 13764590708L);
 		con.put("checkMsg", " ");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -788,8 +788,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("查询的验证码为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-2);
+		assertThat(head1.get("msg")).isEqualTo("验证码错误");
 	}
 	/**
 	 * 查询的验证码为null
@@ -798,16 +798,16 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	public void postAuthenticationManagementListTestCheckMsgIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("mobile", 13774323645L);
+		con.put("mobile", 13764590708L);
 		con.put("checkMsg", null);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -819,8 +819,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("查询的验证码为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-2);
+		assertThat(head1.get("msg")).isEqualTo("验证码错误");
 	}
 	/**
 	 * 查询的验证码为不存在
@@ -829,16 +829,16 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	public void postAuthenticationManagementListTestCheckMsgNonExistent() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("mobile", 13774323645L);
+		con.put("mobile", 13764590708L);
 		con.put("checkMsg", 111111);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -847,11 +847,11 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("查询的验证码为不存在" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-2);
+		assertThat(head1.get("msg")).isEqualTo("验证码错误");
 	}
 	/**
 	 * 查询的验证码为小数
@@ -860,16 +860,16 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	public void postAuthenticationManagementListTestCheckMsgIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("mobile", 13774323645L);
+		con.put("mobile", 13764590708L);
 		con.put("checkMsg", 478.193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -881,8 +881,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("查询的验证码为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-2);
+		assertThat(head1.get("msg")).isEqualTo("验证码错误");
 	}
 	/**
 	 * 查询的验证码为负数
@@ -891,16 +891,16 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	public void postAuthenticationManagementListTestCheckMsgIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("mobile", 13774323645L);
+		con.put("mobile", 13764590708L);
 		con.put("checkMsg", -478193);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -912,8 +912,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("查询的验证码为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-2);
+		assertThat(head1.get("msg")).isEqualTo("验证码错误");
 	}
 	/**
 	 * 查询的验证码诶空格
@@ -922,16 +922,16 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 	public void postAuthenticationManagementListTestCheckMsgIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492125);
-		con.put("mobile", 13774323645L);
+		con.put("mobile", 13764590708L);
 		con.put("checkMsg", " ");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -943,8 +943,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("查询的验证码诶空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-2);
+		assertThat(head1.get("msg")).isEqualTo("验证码错误");
 	}
 	
 	

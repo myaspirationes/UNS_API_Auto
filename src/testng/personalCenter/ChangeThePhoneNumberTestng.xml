@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="更改手机号码接口">
+	<test name="ChangeThePhoneNumberTest">
+		<classes>
+
+			<class name="com.personalCenter.ChangeThePhoneNumberTest">
+				<methods>
+					<include name="postAuthenticationManagementListTestCorrectParameter"></include>
+					<include name="postAuthenticationManagementListTestUserIdIsError"></include>
+					<include name="postAuthenticationManagementListTestUserIdNonExistent"></include>
+					<include name="postAuthenticationManagementListTestUserIdIsLong"></include>
+					<include name="postAuthenticationManagementListTestUserIdIsEmpty"></include>
+					<include name="postAuthenticationManagementListTestUserIdIsSpace"></include>
+					<include name="postAuthenticationManagementListTestUserIdIsNull"></include>
+					<include
+						name="postAuthenticationManagementListTestUserIdNonSubmissionParameters"></include>
+					<include name="postAuthenticationManagementListTestMobileIsError"></include>
+					<include name="postAuthenticationManagementListTestMobileIsLong"></include>
+					<include name="postAuthenticationManagementListTestMobileLessThan11"></include>
+					<include name="postAuthenticationManagementListTestMobilePrecede00"></include>
+					<include name="postAuthenticationManagementListTestMobilePrecede86"></include>
+					<include name="postAuthenticationManagementListTestMobileIsTelephone"></include>
+					<include name="postAuthenticationManagementListTestMobileIsDecimal"></include>
+					<include name="postAuthenticationManagementListTestMobileIsNegativeNumber"></include>
+					<include name="postAuthenticationManagementListTestMobileIllegalCharacters"></include>
+					<include name="postAuthenticationManagementListTestMobileIsEmpty"></include>
+					<include name="postAuthenticationManagementListTestMobileIsNull"></include>
+					<include name="postAuthenticationManagementListTestMobileIsSpace"></include>
+					<include name="postAuthenticationManagementListTestMobileNonSubmissionParameters"></include>
+					<include name="postAuthenticationManagementListTestcheckMsgIsError"></include>
+					<include name="postAuthenticationManagementListTestCheckMsgIsString"></include>
+					<include name="postAuthenticationManagementListTestcheckMsgIsLong"></include>
+					<include name="postAuthenticationManagementListTestCheckMsgIsEmpty"></include>
+					<include name="postAuthenticationManagementListTestCheckMsgIsNull"></include>
+					<include name="postAuthenticationManagementListTestCheckMsgNonExistent"></include>
+					<include name="postAuthenticationManagementListTestCheckMsgIsDecimal"></include>
+					<include name="postAuthenticationManagementListTestCheckMsgIsNegativeNumber"></include>
+					<include name="postAuthenticationManagementListTestCheckMsgIsSpace"></include>
+					<!-- <exclude name=""></exclude> -->
+				</methods>
+			</class>
+
+		</classes>
+
+	</test>
+
+</suite>

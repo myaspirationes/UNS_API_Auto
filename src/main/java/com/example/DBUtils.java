@@ -15,14 +15,15 @@ public final class DBUtils {
 //    private static String url = "jdbc:mysql://139.196.243.18:3306/vinedb"; // 数据库地址
 //    private static String username = "vine"; // 数据库用户名
 //    private static String password = "dadiMSR1199"; // 数据库密码
-
+	
     private DBUtils() {
 
     }
     // 加载驱动
     static {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            //Class.forName("com.mysql.jdbc.Driver");
+        	Class.forName("oracle.jdbc.driver.OracleDriver");
         } catch (ClassNotFoundException e) {
             System.out.println("驱动加载出错!");
         }
@@ -31,14 +32,14 @@ public final class DBUtils {
     // 获得连接
     public static Connection getConnection(String dataType) throws SQLException {
     	Connection con = null;
-    	if(dataType == "jfsc"){
-    	con =  DriverManager.getConnection("jdbc:mysql://139.196.243.18:3306/vinedb?user=vine&password=dadiMSR1199&useUnicode=true&characterEncoding=utf-8");
+    	if(dataType == "perCenter81"){
+    	con =  DriverManager.getConnection("jdbc:oracle:thin:@192.168.9.10:1521:dbdev", "uudb", "uns1066");
        // return DriverManager.getConnection(url, username, password);
-    	}else if(dataType == "yxc"){
+    	}/*else if(dataType == "yxc"){
     		con = DriverManager.getConnection("jdbc:mysql://rm-uf63jqo1o12t445bqo.mysql.rds.aliyuncs.com:3306/repairtstdb?user=vine&password=pAssw0rd&useUnicode=true&characterEncoding=utf-8");
     	}else if(dataType == "yxc_ddp"){
     		con = DriverManager.getConnection("jdbc:mysql://rm-uf63jqo1o12t445bqo.mysql.rds.aliyuncs.com:3306/ddp?user=vine&password=pAssw0rd&useUnicode=true&characterEncoding=utf-8");
-    	}
+    	}*/
     	else{
     		con = null;
     	}

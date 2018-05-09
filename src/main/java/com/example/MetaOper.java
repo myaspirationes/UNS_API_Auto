@@ -19,18 +19,22 @@ import java.util.Map;
 public class MetaOper {
 	public static void main(String[] args) {
 		
-		String dataType = "yxc";
+		String dataType = "perCenter81";
 		
-			String instSql = "select * from t_sec_department where id = '190'";
-				MetaOper.read(instSql, dataType);
-			System.out.println(MetaOper.read(instSql, dataType).get(0));
+		String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID = '12495324'";
+		String insertIntoSql = "INSERT INTO T_ADDRESS_INFO (\"ADDRESS_ID\",\"USER_ID\",\"CONTACT_NAME\", \"CONTACT_INFO\", \"PROVINCE_CODE\", \"CITY_CODE\", \"COUNTY_CODE\", \"DETAILED_ADDRESS\", \"IS_DEFAULT\", \"IS_DELETE\", \"MODIFY_TIME\", \"CREATE_TIME\", \"LABEL\", \"BRIEF_ADDRESS\") VALUES (T_ADDRESS_INFO_SEQ.nextval,'12495324', '测试君', '13524001140', '上海市', '上海市', '浦东新区', '会一直了', '0', '1', TO_DATE('2016-12-02 13:19:54', 'SYYYY-MM-DD HH24:MI:SS'), TO_DATE('2016-12-02 10:59:05', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL)";
+		System.out.println("insertIntoSql=="+insertIntoSql);
+		MetaOper.insert(insertIntoSql, dataType);
+		/*MetaOper.read(selectSql, dataType);
+			//System.out.println(MetaOper.read(selectSql, dataType).get(0));
 			/*List<Map<String, Object>> list = MetaOper.read(sql, dataType);
 			for (Map<String, Object> map : list) {
 				orderNo =orderNo+map.get("orderNo").toString()+",";
 			}*/
 				List<Map<String,Object>> list ;
-			list =MetaOper.read(instSql,dataType);
-			String CODE = list.get(0).get("CODE").toString();
+			list =MetaOper.read(selectSql,dataType);
+			System.out.println("list======="+list);
+			String CODE = list.get(0).get("USER_ID").toString();
 			System.out.println("CODE==="+CODE);
  }
 
@@ -61,9 +65,10 @@ public class MetaOper {
      try {
          conn = DBUtils.getConnection(dataType);
          ps = conn.prepareStatement(sql);
-         ps.execute();
+         ps.executeUpdate();
        	
      } catch (Exception e) {
+    	 e.printStackTrace();
          throw new RuntimeException();
      } finally {
      	// System.out.println("执行finally");
@@ -128,6 +133,7 @@ public class MetaOper {
           //  System.out.println("准备释放");
             return datas;
         } catch (Exception e) {
+        	e.printStackTrace();
             throw new RuntimeException();
         } finally {
         	// System.out.println("执行finally");

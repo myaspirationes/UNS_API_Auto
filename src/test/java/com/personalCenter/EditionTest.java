@@ -21,17 +21,17 @@ public class EditionTest extends HttpUtil {
 	/**
 	 * 正确参数查询
 	 */
-	@Test
+	//@Test
 	public void postEditionTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", 1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -42,7 +42,7 @@ public class EditionTest extends HttpUtil {
 		System.out.println("正确参数查询" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -51,14 +51,14 @@ public class EditionTest extends HttpUtil {
 	@Test
 	public void postEditionTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", 1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -69,7 +69,7 @@ public class EditionTest extends HttpUtil {
 		System.out.println("用户ID为未登录用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -78,14 +78,14 @@ public class EditionTest extends HttpUtil {
 	@Test
 	public void postEditionTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", 1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -96,7 +96,7 @@ public class EditionTest extends HttpUtil {
 		System.out.println("用户ID为错误用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -110,9 +110,9 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -123,7 +123,7 @@ public class EditionTest extends HttpUtil {
 		System.out.println("用户ID为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -137,9 +137,9 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -150,7 +150,7 @@ public class EditionTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -164,9 +164,9 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -177,7 +177,7 @@ public class EditionTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -191,9 +191,9 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -204,7 +204,7 @@ public class EditionTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -218,9 +218,9 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -231,7 +231,7 @@ public class EditionTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -245,9 +245,9 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -258,8 +258,8 @@ public class EditionTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为0
@@ -272,9 +272,9 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -285,7 +285,7 @@ public class EditionTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -299,9 +299,9 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -312,23 +312,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 系统类型为0IOS
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeIsZeroIOS() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -339,23 +339,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("系统类型为0IOS" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 系统类型为1android
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeIsOneandroid() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", 1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -366,23 +366,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("系统类型为1android" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 系统类型为错误
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", 3);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -393,23 +393,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("系统类型为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("不存在的设备类型");
 	}
 	/**
 	 * 系统类型为String
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", "addffhj");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -420,23 +420,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("系统类型为String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 系统类型为空
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", "");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -447,23 +447,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("系统类型为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("不存在的设备类型");
 	}
 	/**
 	 * 系统类型为空格
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", " ");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -474,23 +474,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("系统类型为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 系统类型为null
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", null);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -501,23 +501,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("系统类型为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 系统类型为最大值
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeIsMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", 999999999);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -528,23 +528,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("系统类型为最大值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("不存在的设备类型");
 	}
 	/**
 	 * 系统类型为超长
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
-		con.put("systemType", 12491740L);
+		con.put("userId", 12495324);
+		con.put("systemType", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -555,23 +555,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("系统类型为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("不存在的设备类型");
 	}
 	/**
 	 * 系统类型为小数
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", 1.23);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -582,23 +582,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("系统类型为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
 	 * 系统类型为负数
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("systemType", -1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -609,23 +609,23 @@ public class EditionTest extends HttpUtil {
 		System.out.println("系统类型为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("不存在的设备类型");
 	}
 	/**
-	 * 系统类型不传该参数
+	 * 0
 	 */
-	@Test
+	//@Test
 	public void postEditionTestSystemTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -633,11 +633,11 @@ public class EditionTest extends HttpUtil {
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("系统类型不传该参数" + post);
+		System.out.println("0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	
 	

@@ -15,7 +15,7 @@ import com.example.HttpUtil;
 
 public class CollectionListTest extends HttpUtil {
 //获取收藏列表接口
-	String url = "/UU/collectionlist";
+	String url = "/UU/favorite";
 	
 
 	/**
@@ -24,7 +24,7 @@ public class CollectionListTest extends HttpUtil {
 	@Test
 	public void postCollectionListTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491740L);
+		con.put("userId", 12495324);
 		con.put("favoriteType", 0);
 		con.put("pageNow", 1);
 		con.put("pageSize", 5);
@@ -32,9 +32,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -45,8 +45,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("正确参数查询" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为未登录用户
@@ -62,9 +62,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -75,7 +75,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("用户ID为未登录用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -92,9 +92,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -105,7 +105,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("用户ID为错误用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -122,9 +122,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -135,7 +135,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("用户ID为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -152,9 +152,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -165,7 +165,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -182,9 +182,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -195,7 +195,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -212,9 +212,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -225,7 +225,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -242,9 +242,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -255,7 +255,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -272,9 +272,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -285,8 +285,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户id不能为空");
 	}
 	/**
 	 * 用户ID为0
@@ -302,9 +302,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -315,7 +315,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -332,9 +332,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -345,8 +345,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户id不能为空");
 	}
 	/**
 	 * 收藏类型错误
@@ -362,9 +362,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -375,7 +375,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -392,9 +392,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -405,7 +405,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型为String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -422,9 +422,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -435,7 +435,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型为最大值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -452,9 +452,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -465,8 +465,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型为商品6" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 收藏类型为商铺17
@@ -482,9 +482,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -495,8 +495,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型为商铺17" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 收藏类型为负数
@@ -512,9 +512,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -525,7 +525,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -542,9 +542,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -555,7 +555,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -572,9 +572,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -585,8 +585,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 收藏类型为空
@@ -602,9 +602,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -615,7 +615,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -632,9 +632,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -645,7 +645,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -662,9 +662,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -675,7 +675,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -692,9 +692,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -705,8 +705,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("收藏类型不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("收藏类型不能为空");
 	}
 	/**
 	 * 当前页码为String
@@ -722,9 +722,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -735,7 +735,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("当前页码为String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -752,9 +752,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -765,7 +765,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("当前页码为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -782,9 +782,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -795,7 +795,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("当前页码为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -812,9 +812,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -825,7 +825,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("当前页码为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -842,9 +842,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -855,8 +855,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("当前页码为最大值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 当前页码为超长
@@ -872,9 +872,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -885,8 +885,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("当前页码为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 当前页码为空
@@ -902,9 +902,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -915,7 +915,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("当前页码为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -932,9 +932,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -945,7 +945,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("当前页码为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -962,9 +962,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -975,8 +975,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("当前页码为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("当前页码不能为空");
 	}
 	/**
 	 * 每页显示数量为String
@@ -992,9 +992,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1005,7 +1005,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("每页显示数量为String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -1022,9 +1022,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1035,7 +1035,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("每页显示数量为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -1052,9 +1052,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1065,7 +1065,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("每页显示数量为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -1082,9 +1082,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1095,7 +1095,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("每页显示数量为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -1112,9 +1112,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1125,7 +1125,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("每页显示数量为最大值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	
@@ -1143,9 +1143,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1156,7 +1156,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("每页显示数量为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -1173,9 +1173,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1186,7 +1186,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("每页显示数量为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -1203,9 +1203,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1216,7 +1216,7 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("每页显示数量为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("上传成功");
 	}
 	/**
@@ -1233,9 +1233,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1246,8 +1246,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("每页显示数量为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("每页显示数量不能为空");
 	}
 	/**
 	 * 搜索关键字为超长
@@ -1263,9 +1263,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1276,8 +1276,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("搜索关键字为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 搜索关键字为非法字符
@@ -1293,9 +1293,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1306,8 +1306,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("搜索关键字为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 搜索关键字为空
@@ -1323,9 +1323,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1336,8 +1336,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("搜索关键字为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 搜索关键字为空格
@@ -1353,9 +1353,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1366,8 +1366,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("搜索关键字为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 搜索关键字为null
@@ -1383,9 +1383,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1396,8 +1396,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("搜索关键字为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 搜索关键字不传该参数
@@ -1413,9 +1413,9 @@ public class CollectionListTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2112");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1426,8 +1426,8 @@ public class CollectionListTest extends HttpUtil {
 		System.out.println("搜索关键字不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	
 	

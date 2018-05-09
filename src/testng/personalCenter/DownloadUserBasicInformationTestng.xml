@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="下载用户基本信息接口" >
+	<test name="DownloadUserBasicInformationTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.DownloadUserBasicInformationTest">
+		      <methods>
+		          <include name="postDownloadUserBasicInformationTestCorrectParameter"></include>
+		          <include name="postDownloadUserBasicInformationTestUserIdNotLoggedIn"></include>
+		          <include name="postDownloadUserBasicInformationTestUserIdIsError"></include>
+		          <include name="postDownloadUserBasicInformationTestUserIdIsDecimalr"></include>
+		          <include name="postDownloadUserBasicInformationTestUserIdIllegalCharacters"></include>
+		          <include name="postDownloadUserBasicInformationTestUserIdIsNegativeNumbe"></include>
+		          <include name="postDownloadUserBasicInformationTestUserIdIsZero"></include>
+		          <include name="postDownloadUserBasicInformationTestUserIdIsString"></include>
+		          <include name="postDownloadUserBasicInformationTestUserIdIsEmpty"></include>
+		          <include name="postDownloadUserBasicInformationTestUserIdIsSpace"></include>
+		          <include name="postDownloadUserBasicInformationTestUserIdIsNull"></include>
+		          <include name="postDownloadUserBasicInformationTestUserIdNonSubmissionParameters"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

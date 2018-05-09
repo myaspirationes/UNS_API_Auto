@@ -1,8 +1,12 @@
 package com.personalCenter;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.anyList;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
@@ -12,6 +16,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.google.gson.Gson;
 
 public class AuthenticationManagementListTest extends HttpUtil {
 //认证管理列表接口
@@ -75,19 +80,28 @@ public class AuthenticationManagementListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户为未认证" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
+		String body1 = post.get("body").toString();
+		Map<String, Object> map = new Gson().fromJson(body1, Map.class);
+		System.out.println(map);
+		List<Map<String, Object>> list = new Gson().fromJson(map.get("recordList").toString(), List.class);
+		/*for (Map<String, Object> m : list) {
+			System.out.println("每行的值=" + m);
+			System.out.println("行字段=" + m.get("authTitle"));
+		}*/
+		//System.out.println("recordList======"+list.get(0).get("authTitle"));
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(list.get(0).get("authTitle")).isEqualTo("实名认证");
+		
 		
 		
 	}
 	/**
-	 * 用户为错误
+	 * 用户ID为与登录用户不符
 	 */
 	@Test
 	public void postAuthenticationManagementListTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "1249212w125");
+		con.put("userId", 12492211);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
