@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="用户地址获取列表接口" >
+	<test name="GetTheUserAddressTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.GetTheUserAddressTest">
+		      <methods>
+		          <include name="postTheUserAddressTestCorrectParameter"></include>
+		          <include name="postTheUserAddressTestUserIdNotLoggedIn"></include>
+		          <include name="postTheUserAddressTestUserIdIsError"></include>
+		          <include name="postTheUserAddressTestUserIdIllegalCharacters"></include>
+		          <include name="postTheUserAddressTestUserIdIsDecimal"></include>
+		          <include name="postTheUserAddressTestUserIdIsNegativeNumber"></include>
+		          <include name="postTheUserAddressTestUserIdIsZero"></include>
+		          <include name="postTheUserAddressTestUserIdIsSpace"></include>
+		          <include name="postTheUserAddressTestUserIdIsEmpty"></include>
+		          <include name="postTheUserAddressTestUserIdNonSubmissionParameters"></include>
+		          <include name="postTheUserAddressTestUserIdIsLong"></include>
+		         
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
