@@ -29,7 +29,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-	//@Test
+	@Test
 	public void postHolderPhotoAuthenticateTestCorrectParameter() throws Exception {
 		walletTest.postWalletTestCorrectParameter();
 		MetaOper.delete(deleteSql2, dataType0);
@@ -63,7 +63,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	/**
 	 * 用户ID审核中
 	 */
-	//@Test
+	@Test
 	public void postHolderPhotoAuthenticateTestIsReview() throws Exception {
 		walletTest.postWalletTestCorrectParameter();
 		WalletTest walletTest = new WalletTest();
@@ -99,7 +99,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	/**
 	 * 用户ID审核成功
 	 */
-	//@Test
+	@Test
 	public void postHolderPhotoAuthenticateTestIsSuccess() throws Exception {
 		walletTest.postWalletTestCorrectParameter();
 		MetaOper.update(updateSql0, dataType0);
@@ -135,7 +135,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	/**
 	 * 用户ID审核失败
 	 */
-	//@Test
+	@Test
 	public void postHolderPhotoAuthenticateTestIsFail() throws Exception {
 		walletTest.postWalletTestCorrectParameter();
 		MetaOper.update(updateSql1, dataType0);
