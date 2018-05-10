@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取件照详情接口" >
+	<test name="ObtainDetailsOfDocumentPhotosTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.ObtainDetailsOfDocumentPhotosTest">
+		      <methods>
+		          <include name="postObtainDetailsOfDocumentPhotosTestIsAudit"></include>
+		          <include name="postObtainDetailsOfDocumentPhotosTestIsSuccess"></include>
+		          <include name="postObtainDetailsOfDocumentPhotosTestIsFail"></include>
+		          <include name="postObtainDetailsOfDocumentPhotosTestUserIdNotLoggedIn"></include>
+		          <include name="postObtainDetailsOfDocumentPhotosTestUserIdIsError"></include>
+		          <include name="postObtainDetailsOfDocumentPhotosTestUserIdIllegalCharacters"></include>
+		          <include name="postObtainDetailsOfDocumentPhotosTestUserIdIsDecimal"></include>
+		          <include name="postObtainDetailsOfDocumentPhotosTestUserIdIsNegativeNumbe"></include>
+		          <include name="postObtainDetailsOfDocumentPhotosTestUserIdIsSpace"></include>
+		          <include name="postObtainDetailsOfDocumentPhotosTestUserIdIsEmpty"></include>
+		          <include name="postObtainDetailsOfDocumentPhotosTestUserIdIsNull"></include>
+		           <include name="postObtainDetailsOfDocumentPhotosTestUserIdNonSubmissionParameters"></include>
+		           <include name="postObtainDetailsOfDocumentPhotosTestUserIdIsZero"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

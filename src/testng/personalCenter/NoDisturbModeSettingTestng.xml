@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="勿扰模式设置接口" >
+	<test name="NoDisturbModeSettingTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.NoDisturbModeSettingTest">
+		      <methods>
+		          <include name="postNoDisturbModeSettingTestCorrectParameterNoOpen"></include>
+		          <include name="postNoDisturbModeSettingTestCorrectParameterIsOpen"></include>
+		          <include name="postNoDisturbModeSettingTestUserIdNotLoggedIn"></include>
+		          <include name="postNoDisturbModeSettingTestUserIdIsError"></include>
+		          <include name="postNoDisturbModeSettingTestUserIdIsDecimal"></include>
+		          <include name="postNoDisturbModeSettingTestUserIdIllegalCharacters"></include>
+		          <include name="postNoDisturbModeSettingTestUserIdIsNegativeNumbe"></include>
+		          <include name="postNoDisturbModeSettingTestUserIdIsZero"></include>
+		          <include name="postNoDisturbModeSettingTestUserIdIsString"></include>
+		          <include name="postNoDisturbModeSettingTestUserIdIsEmpty"></include>
+		          <include name="postNoDisturbModeSettingTestUserIdIsSpace"></include>
+		          <include name="postNoDisturbModeSettingTestUserIdIsNull"></include>
+		          <include name="postNoDisturbModeSettingTestUserIdNonSubmissionParameters"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbNoOpenTimeIsCorrect"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbNoOpenTimeNonSubmissionParameters"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbNoOpenTimeIsError"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbIsError"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbIsNegativeNumbe"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbIsDecimal"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbIllegalCharacters"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbIsEmpty"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbIsNull"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbNonSubmissionParameters"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbOpenedAgainOpen"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbOpenedAgainNoOpen"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbClosedAgainOpen"></include>
+		          <include name="postNoDisturbModeSettingTestIsNotDisturbClosedAgainClose"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsError"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeLessNoDisturbEndTime"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeMoreNoDisturbEndTime"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsTimeStamp"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonthDay"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsHourMinuteSec"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsSpace"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsNumber"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsEmpty"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsNull"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeNonSubmissionParameters"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsNegativeNumbe"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonthDayMax"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonthDayLeast"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsHourMinSecMax"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsHourMinSecLeast"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonDayHourMinSec"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsError"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsTimeStamp"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsTimeYearMonthDay"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsHourMinuteSec"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsSpace"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsNumber"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsEmpty"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsNull"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeNonSubmissionParameters"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsNegativeNumbe"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsYearMonthDayMax"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsYearMonthDayLeast"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsHourMinSecMax"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsHourMinSecLeast"></include>
+		          <include name="postNoDisturbModeSettingTestNoDisturbEndTimeIsYearMonthDayHourMinSec"></include>
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

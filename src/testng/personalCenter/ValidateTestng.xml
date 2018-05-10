@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="账号查询接口" >
+	<test name="ValidateTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.ValidateTest">
+		      <methods>
+		          <include name="postValidateTestCorrectParameter"></include>
+		          <include name="postValidateTestMobileIsError"></include>
+		          <include name="postValidateTestMobileIsLong"></include>
+		          <include name="postValidateTestMobileLessThan11"></include>
+		          <include name="postValidateTestMobilePrecede00"></include>
+		          <include name="postValidateTestMobilePrecede86"></include>
+		          <include name="postValidateTestMobileIsTelephone"></include>
+		          <include name="postValidateTestMobileIsDecimal"></include>
+		          <include name="postValidateTestMobileIsNegativeNumber"></include>
+		          <include name="postValidateTestMobileIllegalCharacters"></include>
+		          <include name="postValidateTestMobileIsEmpty"></include>
+		          <include name="postValidateTestMobileIsNull"></include>
+		          <include name="postValidateTestmobileIsSpace"></include>
+		          <include name="postValidateTestMobileNonSubmissionParameters"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

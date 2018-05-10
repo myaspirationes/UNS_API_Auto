@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="推荐给好友接口" >
+	<test name="ShareTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.ShareTest">
+		      <methods>
+		          <include name="postShareTestCorrectParameter"></include>
+		          <include name="postShareTestUserIdNotLoggedIn"></include>
+		          <include name="postShareTestUserIdIsError"></include>
+		          <include name="postShareTestUserIdIllegalCharacters"></include>
+		          <include name="postShareTestUserIdIsDecimal"></include>
+		          <include name="postShareTestUserIdIsNegativeNumber"></include>
+		          <include name="postShareTestUserIdIsSpace"></include>
+		          <include name="postShareTestUserIdIsEmpty"></include>
+		          <include name="postShareTestUserIdIsNull"></include>
+		          <include name="postShareTestUserIdIsZero"></include>
+		          <include name="postShareTestUserIdNonSubmissionParameters"></include>
+		          <include name="postShareTestShareTypeIsWeChat"></include>
+		          <include name="postShareTestShareTypeIsWeChatCircle"></include>
+		          <include name="postShareTestShareTypeIsQQ"></include>
+		          <include name="postShareTestShareTypeIsQQZone"></include>
+		          <include name="postShareTestShareTypeIsSinaMicroblog"></include>
+		          <include name="postShareTestShareTypeIsTencentMicroblog"></include>
+		          <include name="postShareTestShareTypeIsError"></include>
+		          <include name="postShareTestShareTypeIsString"></include>
+		          <include name="postShareTestShareTypeIsDecimal"></include>
+		          <include name="postShareTestShareTypeIsNegativeNumber"></include>
+		          <include name="postShareTestShareTypeIsZero"></include>
+		          <include name="postShareTestShareTypeIsEmpty"></include>
+		          <include name="postShareTestShareTypeIsSpace"></include>
+		          <include name="postShareTestShareTypeIllegalCharacters"></include>
+		          <include name="postShareTestShareTypeIsNull"></include>
+		          <include name="postShareTestShareTypeNonSubmissionParameters"></include>
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
