@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import com.example.HttpUtil;
 
 public class UntieMultiAccountAssociationTest extends HttpUtil {
-//认证管理列表接口
+//解除第三方账户关联接口(由于需要第三方接口获取信息所以暂时未做测试)
 	String url = "/UU/user";
 	
 
@@ -24,14 +24,14 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	@Test
 	public void postAuthenticationManagementListTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", 1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -49,7 +49,7 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID错误
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 124932827);
@@ -57,9 +57,9 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -77,7 +77,7 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID用户未登录
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12345678);
@@ -85,9 +85,9 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -104,7 +104,7 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID超长
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestUserIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 124931111827L);
@@ -112,9 +112,9 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -131,7 +131,7 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
@@ -139,9 +139,9 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -158,17 +158,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", -12493827);
+		con.put("userId", -12495324);
 		con.put("type", 1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -185,7 +185,7 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1249.3827);
@@ -193,9 +193,9 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -212,7 +212,7 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
@@ -220,9 +220,9 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -240,7 +240,7 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
@@ -248,9 +248,9 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -268,7 +268,7 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID存在非法字符
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<$%^>");
@@ -276,9 +276,9 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -295,7 +295,7 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
@@ -303,9 +303,9 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -322,16 +322,16 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("type", 1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -348,17 +348,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为1：QQ
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIsQQ() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", 1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -375,17 +375,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为2：wechat
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIsWechat() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", 2);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -402,17 +402,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型3.sina
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIsSina() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", 3);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -430,17 +430,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型4.kabao
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIsKabao() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", 4);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -458,17 +458,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为0
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -485,17 +485,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为小数
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", 1.5);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -512,17 +512,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为负数
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", -1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -539,17 +539,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为字符串
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", "a");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -566,17 +566,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为最大值
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", 11111111);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -593,17 +593,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为非法字符
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", "<&$#.>");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -621,17 +621,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为空
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", "");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -649,17 +649,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为空格
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", " ");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -676,17 +676,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为null
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", null);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -703,16 +703,16 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -729,17 +729,17 @@ public class UntieMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 解绑账户类型为原本就为解绑
 	 */
-	@Test
+	//@Test
 	public void postAuthenticationManagementListTestTypeIsUntie() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12493827);
+		con.put("userId", 12495324);
 		con.put("type", 1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "223");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

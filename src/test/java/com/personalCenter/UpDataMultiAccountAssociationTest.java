@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import com.example.HttpUtil;
 
 public class UpDataMultiAccountAssociationTest extends HttpUtil {
-//多账号关联接口修改
+//多账号关联接口修改(由于需要第三方接口获取信息所以暂时未做测试)
 	String url = "/UU/user";
 	
 

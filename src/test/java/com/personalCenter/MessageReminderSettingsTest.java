@@ -1,6 +1,8 @@
 package com.personalCenter;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 import java.util.HashMap;
 import java.util.List;
@@ -451,7 +453,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		
 			assertThat(head1.get("st")).isEqualTo(0);
 			assertThat(head1.get("msg")).isEqualTo("成功");
-			assertThat(isMsgNotice.equals(0));
+			assertThat(isMsgNotice,equalTo( "0" ));
 				
 		}
 		/**
@@ -487,7 +489,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		
 			assertThat(head1.get("st")).isEqualTo(0);
 			assertThat(head1.get("msg")).isEqualTo("成功");
-			assertThat(isMsgNotice.equals(1));
+			assertThat(isMsgNotice,equalTo( "1" ));
 				
 		}
 		/**
@@ -786,7 +788,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		
 			assertThat(head1.get("st")).isEqualTo(0);
 			assertThat(head1.get("msg")).isEqualTo("成功");
-			assertThat(isVoiceNotice.equals(0));
+			assertThat(isVoiceNotice,equalTo( "0" ));
 				
 		}
 		/**
@@ -822,7 +824,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		
 			assertThat(head1.get("st")).isEqualTo(0);
 			assertThat(head1.get("msg")).isEqualTo("成功");
-			assertThat(isVoiceNotice.equals(1));
+			assertThat(isVoiceNotice,equalTo( "1" ));
 				
 		}
 		/**
@@ -1121,7 +1123,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		
 			assertThat(head1.get("st")).isEqualTo(0);
 			assertThat(head1.get("msg")).isEqualTo("成功");
-			assertThat(isShackNotice.equals(0));
+			assertThat(isShackNotice,equalTo( "0" ));
 				
 		}
 		/**
@@ -1157,7 +1159,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		
 			assertThat(head1.get("st")).isEqualTo(0);
 			assertThat(head1.get("msg")).isEqualTo("成功");
-			assertThat(isShackNotice.equals(1));
+			assertThat(isShackNotice,equalTo( "1" ));
 				
 		}
 		/**
@@ -1456,7 +1458,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		
 			assertThat(head1.get("st")).isEqualTo(0);
 			assertThat(head1.get("msg")).isEqualTo("成功");
-			assertThat(isMainMsgNotice.equals(0));
+			assertThat(isMainMsgNotice,equalTo( "0" ));
 				
 		}
 		/**
@@ -1492,7 +1494,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		
 			assertThat(head1.get("st")).isEqualTo(0);
 			assertThat(head1.get("msg")).isEqualTo("成功");
-			assertThat(isMainMsgNotice.equals(1));
+			assertThat(isMainMsgNotice,equalTo( "1" ));
 		}
 		/**
 		 * 设置主信息提醒传String
