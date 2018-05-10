@@ -45,8 +45,8 @@ public class ValidateTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 手机号码错误
@@ -376,8 +376,8 @@ public class ValidateTest extends HttpUtil {
 		System.out.println("手机号码为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 手机号码为空格
@@ -432,11 +432,11 @@ public class ValidateTest extends HttpUtil {
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("手机号码不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	
 	
