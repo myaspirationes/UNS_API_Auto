@@ -23,7 +23,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestCorrectParameterNoOpen() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "234234");
+		con.put("userId", "12495324");
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
@@ -32,9 +32,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -52,7 +52,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 提交正确参数为开启
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestCorrectParameterIsOpen() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -64,9 +64,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -83,7 +83,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 用户为未登录
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -95,9 +95,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -114,7 +114,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 用户为错误
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -126,9 +126,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -145,7 +145,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 用户ID存在小数
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "23.4");
@@ -157,9 +157,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -176,7 +176,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 用户ID存在非法字符
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<@$*(_+.>");
@@ -188,9 +188,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -207,7 +207,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 用户ID存在负数
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestUserIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "-12");
@@ -219,9 +219,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -238,7 +238,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
@@ -250,9 +250,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -269,7 +269,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 用户ID为String
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestUserIdIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "sfhjkkm");
@@ -281,9 +281,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -300,7 +300,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
@@ -312,9 +312,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -331,7 +331,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
@@ -343,9 +343,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -362,7 +362,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
@@ -374,9 +374,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -393,7 +393,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 用户ID不传该 参数
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("isNotDisturb", 1);
@@ -404,9 +404,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -423,7 +423,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 未开启勿扰模式传正确时间
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbNoOpenTimeIsCorrect() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -435,9 +435,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -454,7 +454,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 未开启勿扰模式不传时间
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbNoOpenTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -464,9 +464,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -483,7 +483,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 未开启勿扰模式时间传错误格式
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbNoOpenTimeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -495,9 +495,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -514,7 +514,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 设置勿扰模式参数传错误
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -526,9 +526,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -545,7 +545,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 设置勿扰模式参数传负数
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -557,9 +557,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -576,7 +576,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 设置勿扰模式参数传小数
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -588,9 +588,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -607,7 +607,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 设置勿扰模式参数传非法字符
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -619,9 +619,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -638,7 +638,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 设置勿扰模式参数传空
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -650,9 +650,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -669,7 +669,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 设置勿扰模式参数传null
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -681,9 +681,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -700,7 +700,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 设置勿扰模式不传该参数
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -711,9 +711,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -730,7 +730,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开启勿扰模式再次传开启值
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbOpenedAgainOpen() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -742,9 +742,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -761,7 +761,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开启勿扰模式再次传未开启值
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbOpenedAgainNoOpen() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -773,9 +773,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -792,7 +792,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 关闭勿扰模式再次传开启勿扰模式
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbClosedAgainOpen() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -804,9 +804,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -823,7 +823,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 关闭勿扰模式再次传关闭勿扰模式
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbClosedAgainClose() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -835,9 +835,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -854,7 +854,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传错误格式
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -866,9 +866,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -885,7 +885,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间小于结束时间
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeLessNoDisturbEndTime() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -897,9 +897,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -916,7 +916,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间大于结束时间
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeMoreNoDisturbEndTime() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -928,9 +928,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -947,7 +947,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传时间戳
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsTimeStamp() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -959,9 +959,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -978,7 +978,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传年月日
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonthDay() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -990,9 +990,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1009,7 +1009,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传时分秒
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsHourMinuteSec() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1021,9 +1021,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1040,7 +1040,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传空格
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1052,9 +1052,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1071,7 +1071,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传数字去掉中间格式
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1083,9 +1083,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1102,7 +1102,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传空
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1114,9 +1114,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1133,7 +1133,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传null
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1145,9 +1145,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1165,7 +1165,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间不传该参数
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1176,9 +1176,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1196,7 +1196,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传负数
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1208,9 +1208,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1228,7 +1228,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传年月日最大值
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonthDayMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1240,9 +1240,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1260,7 +1260,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传年月日最小时间
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonthDayLeast() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1272,9 +1272,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1291,7 +1291,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传时分秒最大时间
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsHourMinSecMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1303,9 +1303,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1322,7 +1322,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传时分秒最小时间
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsHourMinSecLeast() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1334,9 +1334,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1353,7 +1353,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 开始时间传年月日时分秒
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonDayHourMinSec() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1365,9 +1365,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1384,7 +1384,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传错误格式
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1396,9 +1396,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1415,7 +1415,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传时间戳
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsTimeStamp() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1427,9 +1427,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1446,7 +1446,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传年月日
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsTimeYearMonthDay() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1458,9 +1458,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1477,7 +1477,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传时分秒
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsHourMinuteSec() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1489,9 +1489,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1508,7 +1508,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传空格
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1520,9 +1520,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1539,7 +1539,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传数字去掉中间格式
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1551,9 +1551,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1570,7 +1570,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传空
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1582,9 +1582,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1601,7 +1601,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传null
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1613,9 +1613,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1632,7 +1632,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间不传该参数
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1643,9 +1643,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1662,7 +1662,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传负数
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1674,9 +1674,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1693,7 +1693,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传年月日最大值
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsYearMonthDayMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1705,9 +1705,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1724,7 +1724,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传年月日最小时间
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsYearMonthDayLeast() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1736,9 +1736,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1755,7 +1755,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传时分秒最大时间
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsHourMinSecMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1767,9 +1767,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1786,7 +1786,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传时分秒最小时间
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsHourMinSecLeast() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1798,9 +1798,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1817,7 +1817,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	/**
 	 * 结束时间传年月日时分秒
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsYearMonthDayHourMinSec() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "234234");
@@ -1829,9 +1829,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

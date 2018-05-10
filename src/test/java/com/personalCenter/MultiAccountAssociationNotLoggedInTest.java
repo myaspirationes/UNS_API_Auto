@@ -15,7 +15,7 @@ import com.example.HttpUtil;
 
 public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 //获取多账号关联接口(未登录)
-	String url = "/UU/user";
+	String url = "/UU/system";
 	
 
 	/**
@@ -24,7 +24,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 	@Test
 	public void postMultiAccountAssociationNotLoggedInTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("mobile", "13938228027");
+		con.put("mobile", "13774323645");
 		con.put("uniqueId", "ABCDEFGHIGKLMNOPQRSTUVWXYZ00007");
 		con.put("type", 1);
 		con.put("password", "98afa509d7ac716e9a537688fe02f5cf");
@@ -35,9 +35,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -70,9 +70,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -105,9 +105,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -138,9 +138,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -172,9 +172,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -205,9 +205,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -238,9 +238,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -271,9 +271,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -304,9 +304,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -337,9 +337,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -370,9 +370,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -404,9 +404,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -438,9 +438,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -472,9 +472,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -506,9 +506,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -540,9 +540,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -574,9 +574,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -608,9 +608,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -642,9 +642,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -676,9 +676,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -710,9 +710,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -743,9 +743,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -777,9 +777,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -811,9 +811,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -845,9 +845,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -879,9 +879,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -913,9 +913,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -947,9 +947,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -981,9 +981,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1015,9 +1015,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1049,9 +1049,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1082,9 +1082,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1116,9 +1116,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1150,9 +1150,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1184,9 +1184,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1218,9 +1218,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1252,9 +1252,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1286,9 +1286,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1320,9 +1320,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1354,9 +1354,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1387,9 +1387,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1421,9 +1421,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1455,9 +1455,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1489,9 +1489,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1523,9 +1523,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1557,9 +1557,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1590,9 +1590,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1624,9 +1624,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1658,9 +1658,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1692,9 +1692,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1726,9 +1726,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1759,9 +1759,9 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

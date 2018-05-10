@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="消息提醒设置接口" >
+	<test name="MessageReminderSettingsTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.MessageReminderSettingsTest">
+		      <methods>
+		          <include name="postMessageReminderSettingsTestCorrectParameter"></include>
+		          <include name="postMessageReminderSettingsTestUserIdNotLoggedIn"></include>
+		          <include name="postMessageReminderSettingsTestUserIdIsError"></include>
+		          <include name="postMessageReminderSettingsTestUserIdIsDecimal"></include>
+		          <include name="postMessageReminderSettingsTestUserIdIllegalCharacters"></include>
+		          <include name="postMessageReminderSettingsTestUserIdIsNegativeNumbe"></include>
+		          <include name="postMessageReminderSettingsTestUserIdIsZero"></include>
+		          <include name="postMessageReminderSettingsTestUserIdIsString"></include>
+		          <include name="postMessageReminderSettingsTestUserIdIsEmpty"></include>
+		          <include name="postMessageReminderSettingsTestUserIdIsSpace"></include>
+		          <include name="postMessageReminderSettingsTestUserIdIsNull"></include>
+		          <include name="postMessageReminderSettingsTestUserIdNonSubmissionParameters"></include>
+		          <include name="postMessageReminderSettingsTestIsMsgNoticeSetZeroReceive"></include>
+		          <include name="postMessageReminderSettingsTestIsMsgNoticeSetOneNotReceive"></include>
+		          <include name="postMessageReminderSettingsTestIsMsgNoticeIsString"></include>
+		          <include name="postMessageReminderSettingsTestIsMsgNoticeIsDecimal"></include>
+		          <include name="postMessageReminderSettingsTestIsMsgNoticeIsNegativeNumbe"></include>
+		          <include name="postMessageReminderSettingsTestIsMsgNoticeIsSpace"></include>
+		          <include name="postMessageReminderSettingsTestIsMsgNoticeIsEmpty"></include>
+		          <include name="postMessageReminderSettingsTestIsMsgNoticeIsNull"></include>
+		          <include name="postMessageReminderSettingsTestIsMsgNoticeNonSubmissionParameters"></include>
+		          <include name="postMessageReminderSettingsTestIsMsgNoticeIsMax"></include>
+		          <include name="postMessageReminderSettingsTestIsVoiceNoticeSetZeroReceive"></include>
+		          <include name="postMessageReminderSettingsTestIsVoiceNoticeSetOneNotReceive"></include>
+		          <include name="postMessageReminderSettingsTestIsVoiceNoticeIsString"></include>
+		          <include name="postMessageReminderSettingsTestIsVoiceNoticeIsDecimal"></include>
+		          <include name="postMessageReminderSettingsTestIsVoiceNoticeIsNegativeNumbe"></include>
+		          <include name="postMessageReminderSettingsTestIsVoiceNoticeIsSpace"></include>
+		          <include name="postMessageReminderSettingsTestIsVoiceNoticeIsEmpty"></include>
+		          <include name="postMessageReminderSettingsTestIsVoiceNoticeIsNull"></include>
+		          <include name="postMessageReminderSettingsTestIsVoiceNoticeNonSubmissionParameters"></include>
+		          <include name="postMessageReminderSettingsTestIsVoiceNoticeIsMax"></include>
+		          <include name="postMessageReminderSettingsTestIsShackNoticeSetZeroReceive"></include>
+		          <include name="postMessageReminderSettingsTestIsShackNoticeSetOneNotReceive"></include>
+		          <include name="postMessageReminderSettingsTestIsShackNoticeIsString"></include>
+		          <include name="postMessageReminderSettingsTestIsShackNoticeIsDecimal"></include>
+		          <include name="postMessageReminderSettingsTestIsShackNoticeIsNegativeNumbe"></include>
+		          <include name="postMessageReminderSettingsTestIsShackNoticeIsSpace"></include>
+		          <include name="postMessageReminderSettingsTestIsShackNoticeIsEmpty"></include>
+		          <include name="postMessageReminderSettingsTestIsShackNoticeIsNull"></include>
+		          <include name="postMessageReminderSettingsTestIsShackNoticeNonSubmissionParameters"></include>
+		          <include name="postMessageReminderSettingsTestIsShackNoticeIsMax"></include>
+		          <include name="postMessageReminderSettingsTestIsMainMsgNoticeSetZeroReceive"></include>
+		          <include name="postMessageReminderSettingsTestIsMainMsgNoticeSetOneNotReceive"></include>
+		          <include name="postMessageReminderSettingsTestIsMainMsgNoticeIsString"></include>
+		          <include name="postMessageReminderSettingsTestIsMainMsgNoticeIsDecimal"></include>
+		          <include name="postMessageReminderSettingsTestIsMainMsgNoticeIsNegativeNumbe"></include>
+		          <include name="postMessageReminderSettingsTestIsMainMsgNoticeIsSpace"></include>
+		          <include name="postMessageReminderSettingsTestIsMainMsgNoticeIsEmpty"></include>
+		          <include name="postMessageReminderSettingsTestIsMainMsgNoticeIsNull"></include>
+		          <include name="postMessageReminderSettingsTestIsMainMsgNoticeNonSubmissionParameters"></include>
+		          <include name="postMessageReminderSettingsTestIsMainMsgNoticeIsMax"></include>
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
