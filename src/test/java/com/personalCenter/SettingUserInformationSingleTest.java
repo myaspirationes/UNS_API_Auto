@@ -13,31 +13,38 @@ import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
 
-public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
-//获取多账号关联接口(未登录)
-	String url = "/UU/system";
+public class SettingUserInformationSingleTest extends HttpUtil {
+//设置用户信息(单个)接口
+	String url = "/UU/user";
 	
 
 	/**
 	 * 提交正确参数
 	 */
 	@Test
-	public void postMultiAccountAssociationNotLoggedInTestCorrectParameter() throws Exception {
+	public void postSettingUserInformationSingleTestTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("mobile", "13938228027");
-		con.put("uniqueId", "ABCDEFGHIGKLMNOPQRSTUVWXYZ00007");
-		con.put("type", 1);
-		con.put("password", "98afa509d7ac716e9a537688fe02f5cf");
-		con.put("bind", "sdgjhjk");
-		con.put("nickNamed", "我是昵称");
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "1and6uu");
-		head.put("ver", "1.0");
-		head.put("cmd", "110");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12491621");
+		con.put("userId", "12495218");
+		con.put("nickName", "武城东员工");
+		con.put("uBarId", 5500);
+		con.put("gender", "1");
+		con.put("cityAddress", "10000");
+		con.put("companyAddress", "20000");
+		con.put("familyAddress", "25000");
+		con.put("email", "15171@163.com");
+		con.put("englishName", "Jack");
+		con.put("signature", "任性");
+		con.put("mySocial", "125");
+		con.put("headUrl", "我是昵称");
+		con.put("hostUrl", "我是昵称");
+		con.put("headFileId", "10001");
+		con.put("dynamicFileId", "10002");
+		Map<String, Object> head = new HashMap<String, Object>();		
+		head.put("ver", "1.2.1");
+		head.put("cmd", "209");		
+		head.put("uuid", "12491610");
 		head.put("ln", "cn");
-		head.put("chcode", "VoCbKw7Z/V7NL3fHrNQPMAED8vDL6wGk");
+		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
