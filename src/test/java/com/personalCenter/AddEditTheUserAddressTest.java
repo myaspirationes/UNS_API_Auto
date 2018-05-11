@@ -22,6 +22,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 	String deleteSql = "DELETE  T_ADDRESS_INFO WHERE USER_ID = '12495324'";
 	String insertSql = "INSERT INTO T_ADDRESS_INFO (\"ADDRESS_ID\",\"USER_ID\",\"CONTACT_NAME\", \"CONTACT_INFO\", \"PROVINCE_CODE\", \"CITY_CODE\", \"COUNTY_CODE\", \"DETAILED_ADDRESS\", \"IS_DEFAULT\", \"IS_DELETE\", \"MODIFY_TIME\", \"CREATE_TIME\", \"LABEL\", \"BRIEF_ADDRESS\") VALUES (T_ADDRESS_INFO_SEQ.nextval,'12495324', '测试君', '13524001140', '上海市', '上海市', '浦东新区', '会一直了', '0', '1', TO_DATE('2016-12-02 13:19:54', 'SYYYY-MM-DD HH24:MI:SS'), TO_DATE('2016-12-02 10:59:05', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL)";
 	String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID = '12495324'";
+	String insertSql1 = "INSERT INTO T_ADDRESS_INFO (\"ADDRESS_ID\",\"USER_ID\",\"CONTACT_NAME\", \"CONTACT_INFO\", \"PROVINCE_CODE\", \"CITY_CODE\", \"COUNTY_CODE\", \"DETAILED_ADDRESS\", \"IS_DEFAULT\", \"IS_DELETE\", \"MODIFY_TIME\", \"CREATE_TIME\", \"LABEL\", \"BRIEF_ADDRESS\") VALUES (T_ADDRESS_INFO_SEQ.nextval,'12495324', '测试君', '13524001140', '上海市', '上海市', '浦东新区', '会一直了', '1', '1', TO_DATE('2016-12-02 13:19:54', 'SYYYY-MM-DD HH24:MI:SS'), TO_DATE('2016-12-02 10:59:05', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL)";
 @BeforeClass
 public void beforeClass(){
 	
@@ -124,28 +125,33 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestUserIdNotLoggedIn() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 		
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -164,27 +170,33 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestUserIdIllegalCharacters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<$%^>");
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
+		
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -203,27 +215,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestUserIdIsError() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "12312sd313");
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -242,27 +259,34 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestUserIdIsDecimal() throws Exception {
+		
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1.23);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
+		
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -281,27 +305,33 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestUserIdIsNegativeNumber() throws Exception {
+
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", -121312);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", -12312313);
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -320,27 +350,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestUserIdIsZero() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -359,27 +394,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestUserIdIsSpace() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -398,27 +438,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestUserIdIsEmpty() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -437,26 +482,31 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestUserIdNonSubmissionParameters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -475,27 +525,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestUserIdIsLong() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "123313546846846165687987984651513213135687987451513213565687879845115354548787413546222");
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -514,27 +569,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestUserIdNonSelf() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "12492163");
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -553,27 +613,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestAddressLabelIsLong() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12492163");
-		con.put("addressId", "1249110012333662132122021355654898465131323202154687984546894651255468751");
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", "123313546846846165687987984651513213135687987451513213565687879845115354548787413546222");
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -592,27 +657,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestAddressLabelIsDecimal() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12492163");
+		con.put("userId", 12495324);
 		con.put("addressId", 1.23);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -631,27 +701,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestAddressLabelIsNegativeNumber() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", -124999);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", -123);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -670,27 +745,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestAddressLabelIsZero() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
+		con.put("userId", 12495324);
 		con.put("addressId", 0);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -709,27 +789,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestAddressLabelIsExistent() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", addId);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -748,27 +833,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestAddressLabelIsEmpty() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
+		con.put("userId", 12495324);
 		con.put("addressId", "");
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -787,27 +877,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestAddressLabelIsNull() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
+		con.put("userId", 12495324);
 		con.put("addressId", null);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -826,27 +921,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestAddressLabelIsSpace() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
+		con.put("userId", 12495324);
 		con.put("addressId", " ");
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -865,26 +965,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestAddressLabelNonSubmissionParameters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		//con.put("addressId", 0);
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -903,27 +1009,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestAddressLabelIllegalCharacters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
+		con.put("userId", 12495324);
 		con.put("addressId", "<$%^>");
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("contactName", "测试小哥");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -942,27 +1053,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestConsigneeIsLong() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", "2156459846515132135657487941651321568989855");
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试小哥奥斯卡大快圣诞节我我及饿哦来卡仕达路上看到 卡懒得去我饿迫切我开始懂了马充满了姓名存在");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -981,27 +1097,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestConsigneeIllegalCharacters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
 		con.put("contactName", "<$%^>");
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1020,27 +1141,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestConsigneeIsEmpty() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
 		con.put("contactName", "");
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1059,27 +1185,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestConsigneeIsSpace() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", " ");
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "  ");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1098,27 +1229,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestConsigneeIsNull() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
 		con.put("contactName", null);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1137,26 +1273,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestConsigneeNonSubmissionParameters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		//con.put("contactName", "测试");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1175,27 +1317,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobileIsLong() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", "137647719955665221445332");
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996123");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1214,27 +1361,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobilePrecede86() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", "+8615616115463");
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "+8613764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1253,27 +1405,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobilePrecede00() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", "+0013764771995");
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "+0013764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1292,27 +1449,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobilePrecede17951() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", "1795113764771995");
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "1795113764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1331,27 +1493,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobileLessThan11() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
 		con.put("contactInfo", "1376477");
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1370,27 +1537,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobileIsTelephone() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
 		con.put("contactInfo", "02160790211");
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1409,27 +1581,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobileIsEmpty() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
 		con.put("contactInfo", "");
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1448,27 +1625,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobileIsSpace() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
 		con.put("contactInfo", " ");
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1487,27 +1669,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobileIllegalCharacters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
 		con.put("contactInfo", "<$%^>");
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1526,27 +1713,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobileIsNull() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", null);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "null");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1565,27 +1757,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobileNotBegin1() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", "23764771995");
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "23764447159");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1604,26 +1801,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobileNonSubmissionParameters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		//con.put("contactInfo", "");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1642,27 +1845,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobileIsNegativeNumber() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
 		con.put("contactInfo", "-13764771995");
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1681,27 +1889,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestMobileIsZero() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
 		con.put("contactInfo", 0);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1720,27 +1933,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeNotTheSameAsCityCode() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 1376477);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 340000);
+		con.put("cityCode", 310102);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1759,27 +1977,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCityCodeNotTheSameAsCountyCode() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 1376477);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 410100);
+		con.put("countyCode", 110115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1798,27 +2021,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeNotTheSameAsCountyCode() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 1376477);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 610000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 110115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1837,27 +2065,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeIsError() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 1376477);
-		con.put("provinceCode", 123654879);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 918796);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1876,27 +2109,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeIsNegativeNumber() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 1376477);
-		con.put("provinceCode", -123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", -310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1915,27 +2153,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeIsDecimal() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 1376477);
-		con.put("provinceCode", 1.23);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 3.10000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1954,27 +2197,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeIsZero() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 1376477);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
 		con.put("provinceCode", 0);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1993,27 +2241,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeIsSpace() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 1376477);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
 		con.put("provinceCode", " ");
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2032,27 +2285,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeIsEmpty() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 1376477);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
 		con.put("provinceCode", "");
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2067,31 +2325,36 @@ public void beforeClass(){
 		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
-	 * 53、省编码为null非法字符
+	 * 53、省编码为null
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeIsNull() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 1374688);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
 		con.put("provinceCode", null);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2110,27 +2373,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeIllegalCharacters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", "0");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
 		con.put("provinceCode", "<$%^>");
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2149,27 +2417,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeIsLong() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", "0");
-		con.put("provinceCode", "51654895151325131654687987946513516526552645215487984651321");
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", "516546847987984651361322035130201350203156");
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2188,26 +2461,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeNonSubmissionParameters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", "0");
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		//con.put("provinceCode", "<$%^>");
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2226,27 +2505,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestProvinceCodeIsString() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", "0");
-		con.put("provinceCode", "123sd52");
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", "123qqw6987");
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2265,27 +2549,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCityCodeIsError() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133230);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 987654);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2304,27 +2593,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCityCodeIsNegativeNumber() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", -133230);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", -310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2343,27 +2637,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCityCodeIsDecimal() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 1.23);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 987.654);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2382,27 +2681,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCityCodeIsZero() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
 		con.put("cityCode", 0);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2421,27 +2725,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCityCodeIsSpace() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
 		con.put("cityCode", " ");
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2460,27 +2769,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCityCodeIsEmpty() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
 		con.put("cityCode", "");
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2499,27 +2813,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCityCodeIllegalCharacters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
 		con.put("cityCode", "<$%^>");
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2538,27 +2857,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCityCodeIsLong() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", "12345678945612245621554886321478796363214747866322123366454787896363214478555");
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", "123313546846846165687987984651513213135687987451513213565687879845115354548787413546222");
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2577,26 +2901,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCityCodeNonSubmissionParameters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		//con.put("cityCode", "1233135468");
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2615,27 +2945,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCityCodeIsString() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", "123sdx152");
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", "123ss69");
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2654,27 +2989,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCountyCodeIsError() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", 654123);
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 999999);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2693,27 +3033,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCountyCodeIsNegativeNumber() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", -654123);
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", -310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2732,27 +3077,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCountyCodeIsDecimal() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", 654.123);
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 3.1231);
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2771,27 +3121,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCountyCodeIsZero() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
 		con.put("countyCode", 0);
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2810,27 +3165,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCountyCodeIsSpace() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
 		con.put("countyCode", " ");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2849,27 +3209,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCountyCodeIsEmpty() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
 		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2888,27 +3253,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCountyCodeIsNull() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
 		con.put("countyCode", null);
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2927,27 +3297,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCountyCodeIllegalCharacters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
 		con.put("countyCode", "<$%^>");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2966,27 +3341,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCountyCodeIsLong() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "213546587954145465787494151313532135467846513213546798651323");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", "123313546846846165687987984651513213135687987451513213565687879845115354548787413546222");
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3005,26 +3385,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCountyCodeNonSubmissionParameters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		//con.put("countyCode", "1233135468");
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3043,27 +3429,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestCountyCodeIsString() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "123xs564");
-		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", "1233de25");
+		con.put("label", "公司");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3082,27 +3473,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDetailedAddressIsEmpty() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
 		con.put("detailedAd", "");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3121,27 +3517,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDetailedAddressIsSpace() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
 		con.put("detailedAd", " ");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3160,27 +3561,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDetailedAddressIsNull() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
 		con.put("detailedAd", null);
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3199,27 +3605,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDetailedAddressIsError() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "56454987975131");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", 5648795);
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3238,27 +3649,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDetailedAddressIllegalCharacters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
 		con.put("detailedAd", "<$%^>");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3273,31 +3689,36 @@ public void beforeClass(){
 		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
-	 * 85、详细地址超长为String
+	 * 85、详细地址超长
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDetailedAddressIsLong() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "51515165468798798451513215648784689651321321545023251654687900");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "123313546846846165687987984651513213135687987451513213565687879845115354548787413546222");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3316,27 +3737,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDetailedAddressIsString() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", "123aa22");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", "123as244");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3355,27 +3781,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDetailedAddressIsZero() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
 		con.put("detailedAd", 0);
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3394,27 +3825,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDetailedAddressIsNegativeNumber() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", -123);
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", -89765);
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3433,27 +3869,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDetailedAddressIsDecimal() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("detailedAd", 1.23);
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		con.put("detailedAd", 1.25);
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3472,26 +3913,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDetailedAddressNonSubmissionParameters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "家");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "公司");
+		//con.put("detailedAd", 0);
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3510,27 +3957,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestLabelNameIsEmpty() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3549,27 +4001,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestLabelNameIsSpace() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", " ");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3588,27 +4045,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestLabelNameIsNull() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", null);
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3627,27 +4089,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestLabelNameIsError() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "ssssddwq");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "1521");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3666,27 +4133,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestLabelNameIllegalCharacters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "<$%^>");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3705,27 +4177,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestLabelNameIsLong() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "51656498987546513213654879084000468498");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "123313546846846165687987984651513213135687987451513213565687879845115354548787413546222");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3744,27 +4221,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestLabelNameIsString() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", "swqa556dff");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", "12563sw415");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3783,27 +4265,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestLabelNameIsZero() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", 0);
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3822,27 +4309,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestLabelNameIsNegativeNumber() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", -13504);
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", -728);
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3861,27 +4353,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestLabelNameIsDecimal() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("label", 13.504);
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		con.put("label", 7.28);
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3900,26 +4397,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestLabelNameNonSubmissionParameters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
+		//con.put("label", -728);
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3930,35 +4433,40 @@ public void beforeClass(){
 		System.out.println("标签名称不传该值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 102、默认标记为默认
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestIsDefault() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 1);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3977,27 +4485,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestNonDefault() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4016,27 +4529,33 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestNonDefaults() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		
+		MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", 0);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4055,27 +4574,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDefaults() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		MetaOper.insert(insertSql1, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+//		String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
-		con.put("isDefault", 0);
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
+		con.put("isDefault", 1);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4094,27 +4618,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDefaultIsError() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
-		con.put("isDefault", 6);
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
+		con.put("isDefault", 5);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4133,27 +4662,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDefaultIsNegativeNumber() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", -6);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4172,27 +4706,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDefaultIsDecimal() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
-		con.put("isDefault", 1.26);
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
+		con.put("isDefault", 1.23);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4211,27 +4750,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDefaultIsString() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
-		con.put("isDefault", "ws126df");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
+		con.put("isDefault", "12wd6");
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4250,27 +4794,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDefaultIsSpace() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", " ");
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4289,27 +4838,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDefaultIsEmpty() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", "");
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4328,27 +4882,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDefaultIsNull() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", null);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4367,27 +4926,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDefaultIllegalCharacters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
 		con.put("isDefault", "<$%^>");
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4406,27 +4970,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDefaultIsLong() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
-		con.put("isDefault", "215465986513222032032045789786353212231233554657809876543211234563121");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
+		con.put("isDefault", "123313546846846165687987984651513213135687987451513213565687879845115354548787413546222");
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4445,26 +5014,32 @@ public void beforeClass(){
 	 */
 	//@Test
 	public void postAddEditTheUserAddressTestDefaultNonSubmissionParameters() throws Exception {
+		MetaOper.delete(deleteSql, dataType);
+		//MetaOper.insert(insertSql, dataType);
+		List<Map<String,Object>> list ;
+		list = MetaOper.read(selectSql,dataType);
+		//String addId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492161);
-		con.put("addressId", 10011);
-		con.put("contactName", 10000006);
-		con.put("contactInfo", 12344443);
-		con.put("provinceCode", 123);
-		con.put("cityCode", 133);
-		con.put("countyCode", "");
+		con.put("userId", 12495324);
+		con.put("addressId", 0);
+		con.put("contactName", "测试君");
+		con.put("contactInfo", "13764771996");
+		con.put("provinceCode", 310000);
+		con.put("cityCode", 310100);
+		con.put("countyCode", 310115);
 		con.put("label", "家");
-		con.put("detailedAd", "详细地址3");
-		con.put("briefAddress", "江苏省，南京市，玄武区");
+		con.put("detailedAd", "上南路3855号如日商务园");
+		con.put("briefAddress", "上海市，上海市，浦东新区");
+		//con.put("isDefault", "");
 	
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "land6uu");
-		head.put("ver", "1.2.0");
+		head.put("aid", "lan66");
+		head.put("ver", "2.2.2");
 		head.put("ln", "cn");
 		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
+		head.put("de", "2018-05-10 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4503);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
