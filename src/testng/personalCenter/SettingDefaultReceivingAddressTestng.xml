@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="设置默认收货地址接口" >
+	<test name="SettingDefaultReceivingAddressTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.SettingDefaultReceivingAddressTest">
+		      <methods>
+		          <include name="postSettingDefaultReceivingAddressTestCorrectParameter"></include>
+		          <include name="postSettingDefaultReceivingAddressTestAddressIdNotTheUser"></include>
+		          <include name="postSettingDefaultReceivingAddressTestAddressIdError"></include>
+		          <include name="postSettingDefaultReceivingAddressTestAddressIdIsString"></include>
+		          <include name="postSettingDefaultReceivingAddressTestAddressIdIsDecimal"></include>
+		          <include name="postSettingDefaultReceivingAddressTestAddressIdIsNegativeNumber"></include>
+		          <include name="postSettingDefaultReceivingAddressTestAddressIdIsZero"></include>
+		          <include name="postSettingDefaultReceivingAddressTestAddressIdIsSpace"></include>
+		          <include name="postSettingDefaultReceivingAddressTestAddressIdIsEmpty"></include>
+		          <include name="postSettingDefaultReceivingAddressTestAddressIdNonSubmissionParameters"></include>
+		          <include name="postSettingDefaultReceivingAddressTestAddressIdIsLong"></include>
+		          <include name="postSettingDefaultReceivingAddressTestUserIdIsError"></include>
+		          <include name="postSettingDefaultReceivingAddressTestUserIdNotLoggedIn"></include>
+		          <include name="postSettingDefaultReceivingAddressTestUserIdIsLong"></include>
+		          <include name="postSettingDefaultReceivingAddressTestUserIdIsZero"></include>
+		          <include name="postSettingDefaultReceivingAddressTestUserIdIsNegativeNumber"></include>
+		          <include name="postSettingDefaultReceivingAddressTestUserIdIsDecimal"></include>
+		          <include name="postSettingDefaultReceivingAddressTestUserIdIsEmpty"></include>
+		          <include name="postSettingDefaultReceivingAddressTestUserIdIsSpace"></include>
+		          <include name="postSettingDefaultReceivingAddressTestUserIdIllegalCharacters"></include>
+		          <include name="postSettingDefaultReceivingAddressTestUserIdIsNull"></include>
+		          <include name="postSettingDefaultReceivingAddressTestUserIdNonSubmissionParameters"></include>
+		          <include name="postSettingDefaultReceivingAddressTestSetManyDefaultAddress"></include>
+		          <include name="postSettingDefaultReceivingAddressTestSetAddressExisted"></include>
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
