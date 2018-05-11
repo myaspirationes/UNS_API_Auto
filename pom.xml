@@ -206,14 +206,30 @@
 					</excludes>
 
 					<suiteXmlFiles>
+					<suiteXmlFile>./src/testng/personalCenter/AddEditTheUserAddressTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/AuthenticateTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/AuthenticationManagementListTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/ChangeThePhoneNumberTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/ChatSettingsTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/CollectionListTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/DeleteReceivingAddressTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/DownloadUserBasicInformationTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/EditionTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/FeedbackTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/GetTheUserAddressTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/HolderPhotoAuthenticateTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/IdPhotoAuthenticateTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/JudgingTheCurrentEditionTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/MessageReminderSettingsTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/NoDisturbModeSetStateAcquisitionTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/NoDisturbModeSettingTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/ObtainDetailsOfDocumentPhotosTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/ObtainDetailsOfHolderPhotosTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/SettingDefaultReceivingAddressTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/SettingUserInformationSingleTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/ShareTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/ValidateTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/personalCenter/WalletTestng.xml</suiteXmlFile>
 											
 											
 					</suiteXmlFiles>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="//用户地址编辑/添加接口" >
+	<test name="AddEditTheUserAddressTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.AddEditTheUserAddressTest">
+		      <methods>
+		          <include name="postAddEditTheUserAddressTestCorrectParameter"></include>
+		          <include name="postAddEditTheUserAddressTestCorrectParameter0"></include>
+		          <include name="postAddEditTheUserAddressTestUserIdNotLoggedIn"></include>
+		          <include name="postAddEditTheUserAddressTestUserIdIllegalCharacters"></include>
+		          <include name="postAddEditTheUserAddressTestUserIdIsError"></include>
+		          <include name="postAddEditTheUserAddressTestUserIdIsDecimal"></include>
+		          <include name="postAddEditTheUserAddressTestUserIdIsNegativeNumber"></include>
+		          <include name="postAddEditTheUserAddressTestUserIdIsZero"></include>
+		          <include name="postAddEditTheUserAddressTestUserIdIsSpace"></include>
+		          <include name="postAddEditTheUserAddressTestUserIdIsEmpty"></include>
+		          <include name="postAddEditTheUserAddressTestUserIdNonSubmissionParameters"></include>
+		          <include name="postAddEditTheUserAddressTestUserIdIsLong"></include>
+		          <include name="postAddEditTheUserAddressTestUserIdNonSelf"></include>
+		          <include name="postAddEditTheUserAddressTestAddressLabelIsLong"></include>
+		          <include name="postAddEditTheUserAddressTestAddressLabelIsDecimal"></include>
+		          <include name="postAddEditTheUserAddressTestAddressLabelIsNegativeNumber"></include>
+		          <include name="postAddEditTheUserAddressTestAddressLabelIsZero"></include>
+		          <include name="postAddEditTheUserAddressTestAddressLabelIsExistent"></include>
+		          <include name="postAddEditTheUserAddressTestAddressLabelIsEmpty"></include>
+		          <include name="postAddEditTheUserAddressTestAddressLabelIsNull"></include>
+		          <include name="postAddEditTheUserAddressTestAddressLabelIsSpace"></include>
+		          <include name="postAddEditTheUserAddressTestAddressLabelNonSubmissionParameters"></include>
+		          <include name="postAddEditTheUserAddressTestAddressLabelIllegalCharacters"></include>
+		          <include name="postAddEditTheUserAddressTestConsigneeIsLong"></include>
+		          <include name="postAddEditTheUserAddressTestConsigneeIllegalCharacters"></include>
+		          <include name="postAddEditTheUserAddressTestConsigneeIsEmpty"></include>
+		          <include name="postAddEditTheUserAddressTestConsigneeIsSpace"></include>
+		          <include name="postAddEditTheUserAddressTestConsigneeIsNull"></include>
+		          <include name="postAddEditTheUserAddressTestConsigneeNonSubmissionParameters"></include>
+		          <include name="postAddEditTheUserAddressTestMobileIsLong"></include>
+		          <include name="postAddEditTheUserAddressTestMobilePrecede86"></include>
+		          <include name="postAddEditTheUserAddressTestMobilePrecede00"></include>
+		          <include name="postAddEditTheUserAddressTestMobilePrecede17951"></include>
+		          <include name="postAddEditTheUserAddressTestMobileLessThan11"></include>
+		          <include name="postAddEditTheUserAddressTestMobileIsTelephone"></include>
+		          <include name="postAddEditTheUserAddressTestMobileIsEmpty"></include>
+		          <include name="postAddEditTheUserAddressTestMobileIsSpace"></include>
+		          <include name="postAddEditTheUserAddressTestMobileIllegalCharacters"></include>
+		          <include name="postAddEditTheUserAddressTestMobileIsNull"></include>
+		          <include name="postAddEditTheUserAddressTestMobileNotBegin1"></include>
+		          <include name="postAddEditTheUserAddressTestMobileNonSubmissionParameters"></include>
+		          <include name="postAddEditTheUserAddressTestMobileIsNegativeNumber"></include>
+		          <include name="postAddEditTheUserAddressTestMobileIsZero"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeNotTheSameAsCityCode"></include>
+		          <include name="postAddEditTheUserAddressTestCityCodeNotTheSameAsCountyCode"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeNotTheSameAsCountyCode"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeIsError"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeIsNegativeNumber"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeIsDecimal"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeIsZero"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeIsSpace"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeIsEmpty"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeIsNull"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeIllegalCharacters"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeIsLong"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeNonSubmissionParameters"></include>
+		          <include name="postAddEditTheUserAddressTestProvinceCodeIsString"></include>
+		          <include name="postAddEditTheUserAddressTestCityCodeIsError"></include>
+		          <include name="postAddEditTheUserAddressTestCityCodeIsNegativeNumber"></include>
+		          <include name="postAddEditTheUserAddressTestCityCodeIsDecimal"></include>
+		          <include name="postAddEditTheUserAddressTestCityCodeIsZero"></include>
+		          <include name="postAddEditTheUserAddressTestCityCodeIsSpace"></include>
+		          <include name="postAddEditTheUserAddressTestCityCodeIsEmpty"></include>
+		          <include name="postAddEditTheUserAddressTestCityCodeIllegalCharacters"></include>
+		          <include name="postAddEditTheUserAddressTestCityCodeIsLong"></include>
+		          <include name="postAddEditTheUserAddressTestCityCodeNonSubmissionParameters"></include>
+		          <include name="postAddEditTheUserAddressTestCityCodeIsString"></include>
+		          <include name="postAddEditTheUserAddressTestCountyCodeIsError"></include>
+		          <include name="postAddEditTheUserAddressTestCountyCodeIsNegativeNumber"></include>
+		          <include name="postAddEditTheUserAddressTestCountyCodeIsDecimal"></include>
+		          <include name="postAddEditTheUserAddressTestCountyCodeIsZero"></include>
+		          <include name="postAddEditTheUserAddressTestCountyCodeIsSpace"></include>
+		          <include name="postAddEditTheUserAddressTestCountyCodeIsEmpty"></include>
+		          <include name="postAddEditTheUserAddressTestCountyCodeIsNull"></include>
+		          <include name="postAddEditTheUserAddressTestCountyCodeIllegalCharacters"></include>
+		          <include name="postAddEditTheUserAddressTestCountyCodeIsLong"></include>
+		          <include name="postAddEditTheUserAddressTestCountyCodeNonSubmissionParameters"></include>
+		          <include name="postAddEditTheUserAddressTestCountyCodeIsString"></include>
+		          <include name="postAddEditTheUserAddressTestDetailedAddressIsEmpty"></include>
+		          <include name="postAddEditTheUserAddressTestDetailedAddressIsSpace"></include>
+		          <include name="postAddEditTheUserAddressTestDetailedAddressIsNull"></include>
+		          <include name="postAddEditTheUserAddressTestDetailedAddressIllegalCharacters"></include>
+		          <include name="postAddEditTheUserAddressTestDetailedAddressIsLong"></include>
+		          <include name="postAddEditTheUserAddressTestDetailedAddressIsString"></include>
+		          <include name="postAddEditTheUserAddressTestDetailedAddressIsZero"></include>
+		          <include name="postAddEditTheUserAddressTestDetailedAddressIsNegativeNumber"></include>
+		          <include name="postAddEditTheUserAddressTestDetailedAddressIsDecimal"></include>
+		          <include name="postAddEditTheUserAddressTestDetailedAddressNonSubmissionParameters"></include>
+		          <include name="postAddEditTheUserAddressTestLabelNameIsEmpty"></include>
+		          <include name="postAddEditTheUserAddressTestLabelNameIsSpace"></include>
+		          <include name="postAddEditTheUserAddressTestLabelNameIsNull"></include>
+		          <include name="postAddEditTheUserAddressTestLabelNameIllegalCharacters"></include>
+		          <include name="postAddEditTheUserAddressTestLabelNameIsLong"></include>
+		          <include name="postAddEditTheUserAddressTestLabelNameIsString"></include>
+		          <include name="postAddEditTheUserAddressTestLabelNameIsZero"></include>
+		          <include name="postAddEditTheUserAddressTestLabelNameIsNegativeNumber"></include>
+		          <include name="postAddEditTheUserAddressTestLabelNameIsDecimal"></include>
+		          <include name="postAddEditTheUserAddressTestLabelNameNonSubmissionParameters"></include>
+		          <include name="postAddEditTheUserAddressTestIsDefault"></include>
+		          <include name="postAddEditTheUserAddressTestNonDefault"></include>
+		          <include name="postAddEditTheUserAddressTestNonDefaults"></include>
+		          <include name="postAddEditTheUserAddressTestDefaults"></include>
+		          <include name="postAddEditTheUserAddressTestDefaultIsError"></include>
+		          <include name="postAddEditTheUserAddressTestDefaultIsNegativeNumber"></include>
+		          <include name="postAddEditTheUserAddressTestDefaultIsDecimal"></include>
+		          <include name="postAddEditTheUserAddressTestDefaultIsString"></include>
+		          <include name="postAddEditTheUserAddressTestDefaultIsSpace"></include>
+		          <include name="postAddEditTheUserAddressTestDefaultIsEmpty"></include>
+		          <include name="postAddEditTheUserAddressTestDefaultIsNull"></include>
+		          <include name="postAddEditTheUserAddressTestDefaultIllegalCharacters"></include>
+		          <include name="postAddEditTheUserAddressTestDefaultIsLong"></include>
+		          <include name="postAddEditTheUserAddressTestDefaultNonSubmissionParameters"></include>
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
