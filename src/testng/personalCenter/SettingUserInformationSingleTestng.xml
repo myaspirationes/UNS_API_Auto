@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="设置用户信息(单个)接口" >
+	<test name="SettingUserInformationSingleTest" >
+		<classes>
+		  
+		   <class name="com.personalCenter.SettingUserInformationSingleTest">
+		      <methods>
+		          <include name="postSettingUserInformationSingleTestCorrectParameter"></include>
+		          <include name="postSettingUserInformationSingleTestUserIdNotLoggedIn"></include>
+		          <include name="postSettingUserInformationSingleTestUserIdIsError"></include>
+		          <include name="postSettingUserInformationSingleTestUserIdIsDecimal"></include>
+		          <include name="postSettingUserInformationSingleTestIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestUserIdIsNegativeNumbe"></include>
+		          <include name="postSettingUserInformationSingleTestUserIdIsZero"></include>
+		          <include name="postSettingUserInformationSingleTestUserIdIsString"></include>
+		          <include name="postSettingUserInformationSingleTestUserIdIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestUserIdIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestUserIdIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestUserIdNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestNickNameIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestNickNameIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestNickNameIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestNickNameIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestNickNameIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestNickNameNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestUBarIdIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestUBarIdIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestUBarIdIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestUBarIdIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestUBarIdIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestUBarIdNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestGenderIsZero"></include>
+		          <include name="postSettingUserInformationSingleTestGenderIsOne"></include>
+		          <include name="postSettingUserInformationSingleTestGenderIsError"></include>
+		          <include name="postSettingUserInformationSingleTestGenderIsDecimal"></include>
+		          <include name="postSettingUserInformationSingleTestGenderIsNegativeNumbe"></include>
+		          <include name="postSettingUserInformationSingleTestGenderIsString"></include>
+		          <include name="postSettingUserInformationSingleTestGenderIsMax"></include>
+		          <include name="postSettingUserInformationSingleTestGenderIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestGenderIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestGenderIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestGenderNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestCityAddressIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestCityAddressIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestCityAddressIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestCityAddressIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestCityAddressIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestCityAddressNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestCompanyAddressIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestCompanyAddressIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestCompanyAddressIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestCompanyAddressIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestCompanyAddressIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestCompanyAddressNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestFamilyAddressIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestFamilyAddressIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestFamilyAddressIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestFamilyAddressIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestFamilyAddressNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestEmailIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestEmailIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestEmailIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestEmailIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestEmailIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestEmailNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestEnglishNameIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestEnglishNameIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestEnglishNameIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestEnglishNameIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestEnglishNameIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestEnglishNameIsNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestsiGnatureIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestsiGnatureIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestsiGnatureIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestsiGnatureIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestsiGnatureIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestMySocialIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestMySocialIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestmySocialIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestmySocialIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestMySocialIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestMySocialNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestHeadUrlIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestHeadUrlIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestHeadUrlIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestHeadUrlIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestHeadUrlNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestHostUrlIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestHostUrlIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestHostUrlIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestHostUrlIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestHostUrlIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestHostUrlNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestHeadFileIdIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestHeadFileIdIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestHeadFileIdIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestHeadFileIdIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestHeadFileIdIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestHeadFileIdIsDecimal"></include>
+		          <include name="postSettingUserInformationSingleTestHeadFileIdIsZero"></include>
+		          <include name="postSettingUserInformationSingleTestHeadFileIdIsNegativeNumbe"></include>
+		          <include name="postSettingUserInformationSingleTestHeadFileIdNonSubmissionParameters"></include>
+		          <include name="postSettingUserInformationSingleTestDynamicFileIdIsLong"></include>
+		          <include name="postSettingUserInformationSingleTestDynamicFileIdIsIllegalCharacters"></include>
+		          <include name="postSettingUserInformationSingleTestDynamicFileIdIsEmpty"></include>
+		          <include name="postSettingUserInformationSingleTestDynamicFileIdIsSpace"></include>
+		          <include name="postSettingUserInformationSingleTestDynamicFileIdIsNull"></include>
+		          <include name="postSettingUserInformationSingleTestDynamicFileIdIsDecimal"></include>
+		          <include name="postSettingUserInformationSingleTestDynamicFileIdIsZero"></include>
+		          <include name="postSettingUserInformationSingleTestDynamicFileIdIsNegativeNumbe"></include>
+		          <include name="postSettingUserInformationSingleTestDynamicFileIdNonSubmissionParameters"></include>
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

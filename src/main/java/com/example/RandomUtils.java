@@ -4,7 +4,7 @@ package com.example;
  * 生成随机数字、字符串的工具类
  * 
  */
-public abstract class RandomUtils {
+public class RandomUtils {
 
 	// 没有添加 I、O 的原因是避免和数字 1、0 混淆
 	private static final String ALPHA_NUMERIC = "ABCDEFGHJKLMNPQRSTUVWXYZ123456789";
