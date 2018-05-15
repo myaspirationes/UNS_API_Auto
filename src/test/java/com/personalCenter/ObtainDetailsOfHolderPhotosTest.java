@@ -146,6 +146,9 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	public void postObtainDetailsOfHolderPhotosTestUserIdNotLoggedIn() throws Exception {
 		HolderPhotoAuthenticateTest hpa = new HolderPhotoAuthenticateTest();
 		hpa.postHolderPhotoAuthenticateTestCorrectParameter();
+		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+		MetaOper.update(updateSql, dataType);
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1249541766);
 
@@ -177,6 +180,9 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	public void postObtainDetailsOfHolderPhotosTestUserIdIsError() throws Exception {
 		HolderPhotoAuthenticateTest hpa = new HolderPhotoAuthenticateTest();
 		hpa.postHolderPhotoAuthenticateTestCorrectParameter();
+		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+		MetaOper.update(updateSql, dataType);
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1249541756);
 
@@ -206,6 +212,11 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfHolderPhotosTestUserIdIllegalCharacters() throws Exception {
+		HolderPhotoAuthenticateTest hpa = new HolderPhotoAuthenticateTest();
+		hpa.postHolderPhotoAuthenticateTestCorrectParameter();
+		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+		MetaOper.update(updateSql, dataType);
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<@$%^&*(_>");
 
@@ -237,6 +248,9 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	public void postObtainDetailsOfHolderPhotosTestUserIdIsDecimal() throws Exception {
 		HolderPhotoAuthenticateTest hpa = new HolderPhotoAuthenticateTest();
 		hpa.postHolderPhotoAuthenticateTestCorrectParameter();
+		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+		MetaOper.update(updateSql, dataType);
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12.499);
 
@@ -268,6 +282,9 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	public void postObtainDetailsOfHolderPhotosTestUserIdIsNegativeNumbe() throws Exception {
 		HolderPhotoAuthenticateTest hpa = new HolderPhotoAuthenticateTest();
 		hpa.postHolderPhotoAuthenticateTestCorrectParameter();
+		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+		MetaOper.update(updateSql, dataType);
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -1991L);
 
@@ -299,6 +316,9 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	public void postObtainDetailsOfHolderPhotosTestUserIdIsSpace() throws Exception {
 		HolderPhotoAuthenticateTest hpa = new HolderPhotoAuthenticateTest();
 		hpa.postHolderPhotoAuthenticateTestCorrectParameter();
+		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+		MetaOper.update(updateSql, dataType);
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
 
@@ -330,6 +350,9 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	public void postObtainDetailsOfHolderPhotosTestUserIdIsEmpty() throws Exception {
 		HolderPhotoAuthenticateTest hpa = new HolderPhotoAuthenticateTest();
 		hpa.postHolderPhotoAuthenticateTestCorrectParameter();
+		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+		MetaOper.update(updateSql, dataType);
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
 
@@ -361,6 +384,9 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	public void postObtainDetailsOfHolderPhotosTestUserIdIsNull() throws Exception {
 		HolderPhotoAuthenticateTest hpa = new HolderPhotoAuthenticateTest();
 		hpa.postHolderPhotoAuthenticateTestCorrectParameter();
+		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+		MetaOper.update(updateSql, dataType);
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
 
@@ -392,6 +418,9 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	public void postObtainDetailsOfHolderPhotosTestUserIdNonSubmissionParameters() throws Exception {
 		HolderPhotoAuthenticateTest hpa = new HolderPhotoAuthenticateTest();
 		hpa.postHolderPhotoAuthenticateTestCorrectParameter();
+		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+		MetaOper.update(updateSql, dataType);
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 		
 
@@ -423,6 +452,9 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	public void postObtainDetailsOfHolderPhotosTestUserIdIsZero() throws Exception {
 		HolderPhotoAuthenticateTest hpa = new HolderPhotoAuthenticateTest();
 		hpa.postHolderPhotoAuthenticateTestCorrectParameter();
+		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+		MetaOper.update(updateSql, dataType);
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
 

@@ -16,7 +16,7 @@ import com.example.LoginTest;
 
 public class JudgingTheCurrentEditionTest extends HttpUtil {
 // 判断当前版本是否最新接口
-<<<<<<< HEAD
+
 	String url = "/UU/edition";
 	String chcode;
 	@BeforeClass
@@ -29,15 +29,12 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 			e.printStackTrace();
 		}
 	}
-=======
-	String url = "/edition";
 
->>>>>>> bc3317531e54c57d9a94a22e5f6983b92bf6b778
 
 	/**
 	 * 提交正确参数
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -69,7 +66,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12312313);
@@ -101,7 +98,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "12312sd313");
@@ -133,7 +130,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<$%^>");
@@ -165,7 +162,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12123123.33);
@@ -197,7 +194,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -121312);
@@ -229,7 +226,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
@@ -261,7 +258,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
@@ -293,7 +290,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
@@ -325,7 +322,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
@@ -357,7 +354,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("systemType", 1);
@@ -388,7 +385,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 系统类型为0IOS
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsIOS() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -420,7 +417,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 系统类型为1android
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsAndroid() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -452,7 +449,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 系统类型为错误
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -484,7 +481,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 系统类型为String
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -516,7 +513,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 系统类型为空
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -548,7 +545,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 系统类型为空格
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -580,11 +577,11 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 系统类型为null
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestsystemTypeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
-		con.put("systemType", 1);
+		con.put("systemType", null);
 		con.put("editionNumber", "1.2.1");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -606,13 +603,13 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		System.out.println("系统类型为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 系统类型为最大值
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -644,11 +641,11 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 系统类型为超长
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
-		con.put("systemType", 99999999999L);
+		con.put("systemType", "9999999999999999999999999999999999999");
 		con.put("editionNumber", "1.2.1");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -776,7 +773,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 1);
-		con.put("editionNumber", "9999");
+		con.put("editionNumber", 9999);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
@@ -797,8 +794,8 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		System.out.println("版本号错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 版本号超长
@@ -829,8 +826,8 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		System.out.println("版本号超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 版本号为空
@@ -861,8 +858,8 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		System.out.println("版本号为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 版本号为空格
@@ -893,8 +890,8 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		System.out.println("版本号为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 版本号为null
@@ -925,8 +922,8 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		System.out.println("版本号为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 版本号不传该参数
@@ -956,8 +953,8 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		System.out.println("版本号不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	
 }
