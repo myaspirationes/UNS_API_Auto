@@ -13,6 +13,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 import com.example.MetaOper;
 
 public class SettingDefaultReceivingAddressTest extends HttpUtil {
@@ -25,7 +26,17 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID = 12495324";
 	String deleteSql = "DELETE  T_ADDRESS_INFO WHERE USER_ID = '12495324'";
 	List<Map<String,Object>> list ;
-
+	String chcode;
+	@BeforeClass
+	public void  beforeClass(){
+		LoginTest login = new LoginTest();
+		try {
+			chcode = login.getLoginTestChcodeBy177();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * 提交正确参数
 	 */
@@ -46,7 +57,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -82,7 +93,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -117,7 +128,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -152,7 +163,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -186,7 +197,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -220,7 +231,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -254,7 +265,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -288,7 +299,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -322,7 +333,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -355,7 +366,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -389,7 +400,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -423,7 +434,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -457,7 +468,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -491,7 +502,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -525,7 +536,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -559,7 +570,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -593,7 +604,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -627,7 +638,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -661,7 +672,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -695,7 +706,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -729,7 +740,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -762,7 +773,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -797,7 +808,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -832,7 +843,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

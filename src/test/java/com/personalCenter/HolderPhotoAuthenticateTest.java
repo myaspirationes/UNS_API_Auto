@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 import com.example.MetaOper;
 
 public class HolderPhotoAuthenticateTest extends HttpUtil {
@@ -25,7 +26,17 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	String deleteSql2 = "DELETE FROM T_AUTH_HOLD_PHOTO WHERE USER_ID = '12495417'";
 	String updateSql0 = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
 	String updateSql1 = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='2' WHERE USER_ID = '12495417'";
-
+	String chcode;
+	@BeforeClass
+	public void  beforeClass(){
+		LoginTest login = new LoginTest();
+		try {
+			chcode = login.getLoginTestChcodeBy137();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * 提交正确参数
 	 */
@@ -47,7 +58,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.2.2");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -82,7 +93,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.2.2");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -117,7 +128,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.2.2");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -153,7 +164,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.2.2");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -186,7 +197,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -221,7 +232,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -254,7 +265,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -287,7 +298,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -320,7 +331,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -353,7 +364,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -384,7 +395,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -415,7 +426,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -446,7 +457,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -477,7 +488,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -508,7 +519,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -539,7 +550,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -570,7 +581,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -601,7 +612,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -632,7 +643,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -662,7 +673,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -693,7 +704,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -724,7 +735,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -755,7 +766,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -786,7 +797,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("sync", "");
 		head.put("aid", "lan66");
 		head.put("ver", "2.1.1");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);

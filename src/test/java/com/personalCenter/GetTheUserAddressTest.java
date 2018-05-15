@@ -12,19 +12,30 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 
 public class GetTheUserAddressTest extends HttpUtil {
 //用户地址获取列表接口
 	String url = "/UU/addressinfo";
 
-
+	String chcode;
+	@BeforeClass
+	public void  beforeClass(){
+		LoginTest login = new LoginTest();
+		try {
+			chcode = login.getLoginTestChcodeBy177();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postTheUserAddressTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491610);
+		con.put("userId", 12495324);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan6uu");
@@ -33,7 +44,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
+		head.put("uuid", 12495324);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -64,8 +75,8 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("uuid", 12495324);
+		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -95,8 +106,8 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("uuid", 12495324);
+		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -125,8 +136,8 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("uuid", 12495324);
+		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -155,8 +166,8 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("uuid", 12495324);
+		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -185,8 +196,8 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("uuid", 12495324);
+		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -215,8 +226,8 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("uuid", 12495324);
+		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -245,8 +256,8 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("uuid", 12495324);
+		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -275,8 +286,8 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("uuid", 12495324);
+		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -303,8 +314,8 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("uuid", 12495324);
+		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -333,8 +344,8 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12491610);
-		head.put("chcode", "VfMNOgrCxVofJYONk/2WNKsV0cl15KcM");
+		head.put("uuid", 12495324);
+		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);

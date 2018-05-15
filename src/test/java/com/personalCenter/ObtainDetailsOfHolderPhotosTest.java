@@ -14,13 +14,24 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 import com.example.MetaOper;
 
 public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 //获取手持件照详情接口
 	String url = "/UU/authenticate";
 	String dataType = "perCenter81";
-	
+	String chcode;
+	@BeforeClass
+	public void  beforeClass(){
+		LoginTest login = new LoginTest();
+		try {
+			chcode = login.getLoginTestChcodeBy137();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 //成功  1 失败2
 	/**
@@ -43,7 +54,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", 3908);
 		head.put("uuid", 12495417);
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", 1);
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -78,7 +89,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", 3908);
 		head.put("uuid", 12495417);
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", 1);
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -113,7 +124,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", 3908);
 		head.put("uuid", 12495417);
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", 1);
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -145,7 +156,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", "3908");
 		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -176,7 +187,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", "3908");
 		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -205,7 +216,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", "3908");
 		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -236,7 +247,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", "3908");
 		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -267,7 +278,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", "3908");
 		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -298,7 +309,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", "3908");
 		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -329,7 +340,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", "3908");
 		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -360,7 +371,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", "3908");
 		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -391,7 +402,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", "3908");
 		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -422,7 +433,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("cmd", "3908");
 		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

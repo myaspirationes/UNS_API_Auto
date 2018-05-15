@@ -12,11 +12,22 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 
 public class ChatSettingsTest extends HttpUtil {
 //聊天设置接口
 	String url = "/UU/user";
-	
+	String chcode;
+	@BeforeClass
+	public void  beforeClass(){
+		LoginTest login = new LoginTest();
+		try {
+			chcode = login.getLoginTestChcodeBy177();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * 提交正确参数
@@ -31,7 +42,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -58,7 +69,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -85,7 +96,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -97,7 +108,7 @@ public class ChatSettingsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("useId格式不正确");
 	}
 	/**
 	 * 用户ID存在小数
@@ -112,7 +123,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -124,7 +135,7 @@ public class ChatSettingsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("useId格式不正确");
 	}
 	/**
 	 * 用户ID存在非法字符
@@ -139,7 +150,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -151,7 +162,7 @@ public class ChatSettingsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("useId格式不正确");
 	}
 	/**
 	 * 用户ID存在负数
@@ -166,7 +177,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -178,7 +189,7 @@ public class ChatSettingsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("用户不存在");
+		assertThat(head1.get("msg")).isEqualTo("useId格式不正确");
 	}
 	/**
 	 * 用户ID为0
@@ -193,7 +204,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -220,7 +231,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -232,7 +243,7 @@ public class ChatSettingsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("useId格式不正确");
 	}
 	/**
 	 * 用户ID为空
@@ -247,7 +258,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -259,7 +270,7 @@ public class ChatSettingsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("useId格式不正确");
 	}
 	/**
 	 * 用户ID为空格
@@ -274,7 +285,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -286,7 +297,7 @@ public class ChatSettingsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("useId格式不正确");
 	}
 	/**
 	 * 用户ID为null
@@ -301,7 +312,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -328,7 +339,7 @@ public class ChatSettingsTest extends HttpUtil {
 		head.put("cmd", "3709");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

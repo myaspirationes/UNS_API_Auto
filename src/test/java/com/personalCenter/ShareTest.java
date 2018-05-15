@@ -12,11 +12,22 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 
 public class ShareTest extends HttpUtil {
 //推荐给好友
 	String url = "/UU/share";
-
+	String chcode;
+	@BeforeClass
+	public void  beforeClass(){
+		LoginTest login = new LoginTest();
+		try {
+			chcode = login.getLoginTestChcodeBy177();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * 提交正确参数  
@@ -36,7 +47,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -67,7 +78,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -98,7 +109,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -108,8 +119,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("用户ID为错误用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -129,7 +140,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -139,8 +150,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("用户ID为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为小数
@@ -160,7 +171,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -170,8 +181,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为负数
@@ -191,7 +202,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -201,8 +212,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为空格
@@ -222,7 +233,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -233,7 +244,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为空
@@ -253,7 +264,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -263,8 +274,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为null
@@ -284,7 +295,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -315,7 +326,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -325,8 +336,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -345,7 +356,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -376,7 +387,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -407,7 +418,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -438,7 +449,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -469,7 +480,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -500,7 +511,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -531,7 +542,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -562,7 +573,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -593,7 +604,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -603,8 +614,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("分享输入String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 分享输入小数
@@ -624,7 +635,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -634,8 +645,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("分享输入小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 分享输入负数
@@ -655,7 +666,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -665,8 +676,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("分享输入负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 分享输入0
@@ -686,7 +697,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -696,8 +707,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("分享输入0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 分享为空
@@ -717,7 +728,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -727,8 +738,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("分享为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 分享为空格
@@ -748,7 +759,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -758,8 +769,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("分享为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 分享为非法字符
@@ -779,7 +790,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -789,8 +800,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("分享为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 分享为null
@@ -810,7 +821,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -840,7 +851,7 @@ public class ShareTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
 		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);

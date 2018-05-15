@@ -12,11 +12,22 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 
 public class UpDataMultiAccountAssociationTest extends HttpUtil {
 //多账号关联接口修改(由于需要第三方接口获取信息所以暂时未做测试)
 	String url = "/UU/user";
-	
+	String chcode;
+	@BeforeClass
+	public void  beforeClass(){
+		LoginTest login = new LoginTest();
+		try {
+			chcode = login.getLoginTestChcodeBy137();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * 提交正确参数
@@ -35,9 +46,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "215");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -65,9 +76,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -96,9 +107,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -125,9 +136,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -155,9 +166,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -184,9 +195,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -213,9 +224,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -241,9 +252,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -270,9 +281,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -299,9 +310,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -328,9 +339,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -357,9 +368,9 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "188111");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "ef19843298ae8f2134f");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

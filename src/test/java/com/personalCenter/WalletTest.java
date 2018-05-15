@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 import com.example.MetaOper;
 
 public class WalletTest extends HttpUtil {
@@ -21,19 +22,29 @@ public class WalletTest extends HttpUtil {
 	String deleteSql1 = "DELETE FROM t_wallet where USER_ID =12495417";
 	String dataType0 = "perCenter81";
 	String dataType1 = "wallet81";
-
+	String chcode;
+	LoginTest login = new LoginTest();
 	@BeforeClass
 	public void beforeClass() {
 		MetaOper.deleteMySql(deleteSql1, dataType1);
 		MetaOper.delete(deleteSql0, dataType0);
+		
+		try {
+			chcode = login.getLoginTestChcodeBy137();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
-
+	
+	
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postWalletTestCorrectParameter() throws Exception {
+		chcode = login.getLoginTestChcodeBy137();
 		MetaOper.deleteMySql(deleteSql1, dataType1);
 		MetaOper.delete(deleteSql0, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -49,7 +60,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -82,7 +93,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -114,7 +125,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -146,7 +157,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -178,7 +189,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -210,7 +221,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -242,7 +253,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -274,7 +285,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -306,7 +317,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -340,7 +351,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -371,7 +382,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -405,7 +416,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -439,7 +450,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -473,7 +484,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -507,7 +518,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -541,7 +552,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -572,7 +583,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -606,7 +617,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -640,7 +651,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -672,7 +683,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -704,7 +715,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -736,7 +747,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -768,7 +779,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -799,7 +810,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -831,7 +842,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -863,7 +874,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -895,7 +906,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -927,7 +938,7 @@ public class WalletTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
 		head.put("uuid", 12495417);
-		head.put("chcode", "ubd1yTW/Xcgx+ypradQi02IAGc5+AKvf");
+		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);

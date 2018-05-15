@@ -12,11 +12,22 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 
 public class ChangeThePhoneNumberTest extends HttpUtil {
 //更改手机号码接口
 	String url = "/UU/user";
-	
+	String chcode;
+	@BeforeClass
+	public void  beforeClass(){
+		LoginTest login = new LoginTest();
+		try {
+			chcode = login.getLoginTestChcodeBy177();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * 提交正确参数
@@ -34,7 +45,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -46,7 +57,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("1");
+		assertThat(head1.get("st")).isEqualTo(1);
 		assertThat(head1.get("msg")).isEqualTo("该手机号已被注册过不允许更换");
 	}
 	/**
@@ -65,7 +76,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -77,7 +88,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("用户ID错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("-1");
+		assertThat(head1.get("st")).isEqualTo(-1);
 		assertThat(head1.get("msg")).isEqualTo("账户不存在");
 	}
 	/**
@@ -96,7 +107,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -108,7 +119,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("用户id不存在" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("-3");
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
@@ -127,7 +138,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -139,7 +150,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("用户id不存在" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("-1");
+		assertThat(head1.get("st")).isEqualTo(-1);
 		assertThat(head1.get("msg")).isEqualTo("账户不存在");
 	}
 	/**
@@ -158,7 +169,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -170,8 +181,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-1);
+		assertThat(head1.get("msg")).isEqualTo("账户不存在");
 	}
 	/**
 	 * 用户ID为空格
@@ -189,7 +200,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -201,8 +212,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID未null
@@ -220,7 +231,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -232,8 +243,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("用户ID未null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不完整");
 	}
 	/**
 	 * 用户ID不提交
@@ -250,7 +261,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -262,8 +273,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("用户ID不提交" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不完整");
 	}
 	/**
 	 * 新手机号码错误
@@ -281,7 +292,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -293,8 +304,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("新手机号码错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("-3");
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("手机号格式不对");
 	}
 	/**
 	 * 新手机号码超长
@@ -312,7 +323,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -324,8 +335,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("新手机号码超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("-3");
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("手机号格式不对");
 	}
 	/**
 	 * 新手机号码小于11位
@@ -343,7 +354,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -355,8 +366,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("新手机号码小于11位" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("-3");
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("手机号格式不对");
 	}
 	/**
 	 * 手机号码前面加00
@@ -374,7 +385,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -387,7 +398,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("手机号格式不对");
 	}
 	/**
 	 * 手机号码前面加+ 86
@@ -405,7 +416,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -418,7 +429,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("手机号格式不对");
 	}
 	/**
 	 * 输入11位的固话（固话+区号）
@@ -436,7 +447,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -448,8 +459,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("输入11位的固话（固话+区号）" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("-3");
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("手机号格式不对");
 	}
 	/**
 	 * 输入手机号码存在小数
@@ -467,7 +478,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -480,7 +491,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("手机号格式不对");
 	}
 	/**
 	 * 手机号码存在负数
@@ -498,7 +509,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -511,7 +522,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isIn("参数不完整","手机号格式不对");
 	}
 	/**
 	 * 手机号码存在非法字符
@@ -529,7 +540,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -542,7 +553,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("手机号格式不对");
 	}
 	/**
 	 * 手机号码为空
@@ -560,7 +571,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "8.1.0");
 		head.put("mod", "(google)Nexus 5X");
@@ -573,7 +584,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("手机号格式不对");
 	}
 	/**
 	 * 手机号码为null
@@ -591,7 +602,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -604,7 +615,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isIn("数据包错误！","参数不完整");
 	}
 	/**
 	 * 手机号码为空格
@@ -622,7 +633,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -635,7 +646,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("手机号格式不对");
 	}
 	/**
 	 * 手机号码不传该参数
@@ -652,7 +663,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -665,7 +676,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("参数不完整");
 	}
 	/**
 	 * 查询的验证码错误
@@ -683,7 +694,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -714,7 +725,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -745,7 +756,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -776,7 +787,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -807,7 +818,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -819,8 +830,8 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		System.out.println("查询的验证码为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-2);
-		assertThat(head1.get("msg")).isEqualTo("验证码错误");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不完整");
 	}
 	/**
 	 * 查询的验证码为不存在
@@ -838,7 +849,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -869,7 +880,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -900,7 +911,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -931,7 +942,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");

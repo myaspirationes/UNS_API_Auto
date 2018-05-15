@@ -12,10 +12,22 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 
 public class AddCollectionTest extends HttpUtil {
 //添加收藏接口
 	String url = "/UU/addcollection";
+	String chcode;
+	@BeforeClass
+	public void  beforeClass(){
+		LoginTest login = new LoginTest();
+		try {
+			chcode = login.getLoginTestChcodeBy177();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 
 	/**
@@ -43,9 +55,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -84,9 +96,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -125,9 +137,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -166,9 +178,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -207,9 +219,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -248,9 +260,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -289,9 +301,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -330,9 +342,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -371,9 +383,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -412,9 +424,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -453,9 +465,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -494,9 +506,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -535,9 +547,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -576,9 +588,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -617,9 +629,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -658,9 +670,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -699,9 +711,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -740,9 +752,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -781,9 +793,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -822,9 +834,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -863,9 +875,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -904,9 +916,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -945,9 +957,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -986,9 +998,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1027,9 +1039,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1068,9 +1080,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1109,9 +1121,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1150,9 +1162,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1191,9 +1203,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1232,9 +1244,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1273,9 +1285,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1314,9 +1326,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1355,9 +1367,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1396,9 +1408,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1437,9 +1449,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1478,9 +1490,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1519,9 +1531,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1560,9 +1572,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1601,9 +1613,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1642,9 +1654,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1683,9 +1695,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1724,9 +1736,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1765,9 +1777,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1806,9 +1818,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1847,9 +1859,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1888,9 +1900,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1929,9 +1941,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1970,9 +1982,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2011,9 +2023,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2052,9 +2064,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2093,9 +2105,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2134,9 +2146,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2175,9 +2187,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2216,9 +2228,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2257,9 +2269,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2298,9 +2310,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2339,9 +2351,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2380,9 +2392,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2421,9 +2433,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2462,9 +2474,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2504,9 +2516,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2545,9 +2557,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2586,9 +2598,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2627,9 +2639,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2668,9 +2680,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2709,9 +2721,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2750,9 +2762,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2791,9 +2803,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2832,9 +2844,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2873,9 +2885,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2914,9 +2926,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2955,9 +2967,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -2996,9 +3008,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3037,9 +3049,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3078,9 +3090,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3119,9 +3131,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3160,9 +3172,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3201,9 +3213,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3242,9 +3254,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3283,9 +3295,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3324,9 +3336,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3365,9 +3377,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3406,9 +3418,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3447,9 +3459,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3488,9 +3500,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3529,9 +3541,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3570,9 +3582,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3611,9 +3623,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3652,9 +3664,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3693,9 +3705,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3734,9 +3746,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3775,9 +3787,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3816,9 +3828,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3857,9 +3869,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3898,9 +3910,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3939,9 +3951,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -3980,9 +3992,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4021,9 +4033,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4062,9 +4074,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4103,9 +4115,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4144,9 +4156,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4185,9 +4197,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4226,9 +4238,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4267,9 +4279,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4308,9 +4320,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4349,9 +4361,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4390,9 +4402,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4431,9 +4443,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4472,9 +4484,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4513,9 +4525,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4554,9 +4566,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4595,9 +4607,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4636,9 +4648,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4677,9 +4689,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4718,9 +4730,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4759,9 +4771,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4800,9 +4812,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4841,9 +4853,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4882,9 +4894,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4923,9 +4935,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -4964,9 +4976,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5005,9 +5017,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5046,9 +5058,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5087,9 +5099,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5128,9 +5140,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5169,9 +5181,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5210,9 +5222,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5251,9 +5263,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5292,9 +5304,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5333,9 +5345,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5374,9 +5386,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5415,9 +5427,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5456,9 +5468,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5497,9 +5509,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5538,9 +5550,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5579,9 +5591,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5620,9 +5632,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5661,9 +5673,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5702,9 +5714,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5743,9 +5755,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5784,9 +5796,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5825,9 +5837,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5866,9 +5878,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5907,9 +5919,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5948,9 +5960,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5989,9 +6001,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6030,9 +6042,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6071,9 +6083,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6112,9 +6124,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6153,9 +6165,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6194,9 +6206,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6235,9 +6247,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6276,9 +6288,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6317,9 +6329,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6358,9 +6370,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6399,9 +6411,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6440,9 +6452,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6481,9 +6493,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6522,9 +6534,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6563,9 +6575,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6604,9 +6616,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6645,9 +6657,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6686,9 +6698,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6727,9 +6739,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6768,9 +6780,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6809,9 +6821,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6850,9 +6862,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6891,9 +6903,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6932,9 +6944,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6973,9 +6985,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -7014,9 +7026,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -7055,9 +7067,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -7096,9 +7108,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -7137,9 +7149,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -7178,9 +7190,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -7219,9 +7231,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -7260,9 +7272,9 @@ public class AddCollectionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "2111");
-		head.put("uuid", "12491610");
+		head.put("uuid", "12495324");
 		head.put("ln", "cn");
-		head.put("chcode", "VfMNOgrCxVpKcwVoU4n2y4jbgjnYR6mb");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mod", "ios");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class HttpUtil {
 	
 	String YSBURL = "http://192.168.9.81";
+	//String YSBURL = "http://192.168.9.46";
 
 	private TestRestTemplate template = new TestRestTemplate();
 

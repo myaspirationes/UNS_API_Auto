@@ -12,11 +12,22 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 
 public class ValidateTest extends HttpUtil {
 //账号查询接口
 	String url = "/UU/authorize/validate";
-	
+	String chcode;
+	@BeforeClass
+	public void  beforeClass(){
+		LoginTest login = new LoginTest();
+		try {
+			chcode = login.getLoginTestChcodeBy137();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * 提交正确参数
@@ -31,9 +42,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -61,9 +72,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -91,9 +102,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -121,9 +132,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -151,9 +162,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -181,9 +192,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -211,9 +222,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -242,9 +253,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -272,9 +283,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -302,9 +313,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -332,9 +343,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -362,9 +373,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -392,9 +403,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
@@ -421,9 +432,9 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12492126");
+		head.put("uuid", "12495417");
 		head.put("ln", "cn");
-		head.put("chcode", "viTIKkLDeKMU85CexwSsWgSCZBAAiPhQ");
+		head.put("chcode", chcode);
 		head.put("sync", "1");
 		head.put("mos", "6.0");
 		head.put("mod", "(LeEco)Le X620");
