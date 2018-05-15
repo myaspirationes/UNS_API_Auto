@@ -30,11 +30,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		}
 	}
 
-<<<<<<< HEAD
-	
 
-=======
->>>>>>> 17641952dfc2cceb61558ac1fd2646cc38670405
 
 	/**
 	 * 提交正确参数
