@@ -16,6 +16,7 @@ import com.example.LoginTest;
 
 public class JudgingTheCurrentEditionTest extends HttpUtil {
 // 判断当前版本是否最新接口
+<<<<<<< HEAD
 	String url = "/UU/edition";
 	String chcode;
 	@BeforeClass
@@ -28,12 +29,16 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 			e.printStackTrace();
 		}
 	}
+=======
+	String url = "/edition";
+
+>>>>>>> bc3317531e54c57d9a94a22e5f6983b92bf6b778
 
 	/**
 	 * 提交正确参数
 	 */
 	@Test
-	public void postAuthenticateTestCorrectParameter() throws Exception {
+	public void postJudgingTheCurrentEditionTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 1);
@@ -65,7 +70,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 用户ID为未登录用户
 	 */
 	@Test
-	public void postAuthenticateTestUserIdNotLoggedIn() throws Exception {
+	public void postJudgingTheCurrentEditionTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12312313);
 		con.put("systemType", 1);
@@ -97,7 +102,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 用户ID为错误用户
 	 */
 	@Test
-	public void postAuthenticateTestUserIdIsError() throws Exception {
+	public void postJudgingTheCurrentEditionTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "12312sd313");
 		con.put("systemType", 1);
@@ -129,7 +134,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 用户ID为非法字符
 	 */
 	@Test
-	public void postAuthenticateTestUserIdIllegalCharacters() throws Exception {
+	public void postJudgingTheCurrentEditionTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<$%^>");
 		con.put("systemType", 1);
@@ -161,7 +166,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 用户ID为小数
 	 */
 	@Test
-	public void postAuthenticateTestUserIdIsDecimal() throws Exception {
+	public void postJudgingTheCurrentEditionTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12123123.33);
 		con.put("systemType", 1);
@@ -193,7 +198,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 用户ID为负数
 	 */
 	@Test
-	public void postAuthenticateTestUserIdIsNegativeNumber() throws Exception {
+	public void postJudgingTheCurrentEditionTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -121312);
 		con.put("systemType", 1);
@@ -225,7 +230,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 用户ID为空格
 	 */
 	@Test
-	public void postAuthenticateTestUserIdIsSpace() throws Exception {
+	public void postJudgingTheCurrentEditionTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
 		con.put("systemType", 1);
@@ -257,7 +262,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 用户ID为空
 	 */
 	@Test
-	public void postAuthenticateTestUserIdIsEmpty() throws Exception {
+	public void postJudgingTheCurrentEditionTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
 		con.put("systemType", 1);
@@ -289,7 +294,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 用户ID为null
 	 */
 	@Test
-	public void postAuthenticateTestUserIdIsNull() throws Exception {
+	public void postJudgingTheCurrentEditionTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
 		con.put("systemType", 1);
@@ -321,7 +326,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 用户ID为0
 	 */
 	@Test
-	public void postAuthenticateTestUserIdIsZero() throws Exception {
+	public void postJudgingTheCurrentEditionTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
 		con.put("systemType", 1);
@@ -353,7 +358,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 用户ID不传该参数
 	 */
 	@Test
-	public void postAuthenticateTestUserIdNonSubmissionParameters() throws Exception {
+	public void postJudgingTheCurrentEditionTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("systemType", 1);
 		con.put("editionNumber", "1.2.1");
@@ -384,7 +389,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型为0IOS
 	 */
 	@Test
-	public void postAuthenticateTestSystemTypeIsIOS() throws Exception {
+	public void postJudgingTheCurrentEditionTestSystemTypeIsIOS() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 0);
@@ -416,7 +421,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型为1android
 	 */
 	@Test
-	public void postAuthenticateTestSystemTypeIsAndroid() throws Exception {
+	public void postJudgingTheCurrentEditionTestSystemTypeIsAndroid() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 1);
@@ -448,7 +453,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型为错误
 	 */
 	@Test
-	public void postAuthenticateTestSystemTypeIsError() throws Exception {
+	public void postJudgingTheCurrentEditionTestSystemTypeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 999);
@@ -480,7 +485,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型为String
 	 */
 	@Test
-	public void postAuthenticateTestSystemTypeIsString() throws Exception {
+	public void postJudgingTheCurrentEditionTestSystemTypeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", "aaa");
@@ -512,7 +517,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型为空
 	 */
 	@Test
-	public void postAuthenticateTestSystemTypeIsEmpty() throws Exception {
+	public void postJudgingTheCurrentEditionTestSystemTypeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", "");
@@ -544,7 +549,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型为空格
 	 */
 	@Test
-	public void postAuthenticateTestSystemTypeIsSpace() throws Exception {
+	public void postJudgingTheCurrentEditionTestSystemTypeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", " ");
@@ -576,7 +581,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型为null
 	 */
 	@Test
-	public void postAuthenticateTeStsystemTypeIsNull() throws Exception {
+	public void postJudgingTheCurrentEditionTestsystemTypeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 1);
@@ -608,7 +613,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型为最大值
 	 */
 	@Test
-	public void postAuthenticateTestSystemTypeIsMax() throws Exception {
+	public void postJudgingTheCurrentEditionTestSystemTypeIsMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 999999999);
@@ -640,7 +645,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型为超长
 	 */
 	@Test
-	public void postAuthenticateTestSystemTypeIsLong() throws Exception {
+	public void postJudgingTheCurrentEditionTestSystemTypeIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 99999999999L);
@@ -672,7 +677,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型为小数
 	 */
 	@Test
-	public void postAuthenticateTestSystemTypeIsDecimal() throws Exception {
+	public void postJudgingTheCurrentEditionTestSystemTypeIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 1.5);
@@ -704,7 +709,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型为负数
 	 */
 	@Test
-	public void postAuthenticateTestSystemTypeIsNegativeNumber() throws Exception {
+	public void postJudgingTheCurrentEditionTestSystemTypeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", -1);
@@ -736,7 +741,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 系统类型不传该参数
 	 */
 	@Test
-	public void postAuthenticateTestSystemTypeNonSubmissionParameters() throws Exception {
+	public void postJudgingTheCurrentEditionTestSystemTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("editionNumber", "1.2.1");
@@ -767,7 +772,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 版本号错误
 	 */
 	@Test
-	public void postAuthenticateTestEditionNumberIsError() throws Exception {
+	public void postJudgingTheCurrentEditionTestEditionNumberIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 1);
@@ -799,7 +804,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 版本号超长
 	 */
 	@Test
-	public void postAuthenticateTestEditionNumberIsLong() throws Exception {
+	public void postJudgingTheCurrentEditionTestEditionNumberIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 1);
@@ -831,7 +836,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 版本号为空
 	 */
 	@Test
-	public void postAuthenticateTestEditionNumberIsEmpty() throws Exception {
+	public void postJudgingTheCurrentEditionTestEditionNumberIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 1);
@@ -863,7 +868,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 版本号为空格
 	 */
 	@Test
-	public void postAuthenticateTestEditionNumberIsSpace() throws Exception {
+	public void postJudgingTheCurrentEditionTestEditionNumberIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 1);
@@ -895,7 +900,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 版本号为null
 	 */
 	@Test
-	public void postAuthenticateTestEditionNumberIsNull() throws Exception {
+	public void postJudgingTheCurrentEditionTestEditionNumberIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 1);
@@ -927,7 +932,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	 * 版本号不传该参数
 	 */
 	@Test
-	public void postAuthenticateTestEditionNumberNonSubmissionParameters() throws Exception {
+	public void postJudgingTheCurrentEditionTestEditionNumberNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("systemType", 1);
