@@ -18,9 +18,10 @@ public class AddCollectionTest extends HttpUtil {
 //添加收藏接口
 	String url = "/UU/addcollection";
 	String chcode;
+	LoginTest login = new LoginTest();
 	@BeforeClass
 	public void  beforeClass(){
-		LoginTest login = new LoginTest();
+		
 		try {
 			chcode = login.getLoginTestChcodeBy177();
 		} catch (Exception e) {

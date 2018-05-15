@@ -16,7 +16,7 @@ import com.example.LoginTest;
 
 public class JudgingTheCurrentEditionTest extends HttpUtil {
 // 判断当前版本是否最新接口
-<<<<<<< HEAD
+
 	String url = "/UU/edition";
 	String chcode;
 	@BeforeClass
@@ -29,10 +29,9 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 			e.printStackTrace();
 		}
 	}
-=======
-	String url = "/edition";
 
->>>>>>> bc3317531e54c57d9a94a22e5f6983b92bf6b778
+	
+
 
 	/**
 	 * 提交正确参数

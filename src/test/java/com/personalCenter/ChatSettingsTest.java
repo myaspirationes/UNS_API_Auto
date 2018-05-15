@@ -216,7 +216,7 @@ public class ChatSettingsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("用户不存在");
+		assertThat(head1.get("msg")).isEqualTo("useId格式不正确");
 	}
 	/**
 	 * 用户ID为String

@@ -41,7 +41,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 	/**
 	 * 1、提交正确参数为默认地址
 	 */
-	@Test
+	//@Test
 	public void postAddEditTheUserAddressTestCorrectParameter() throws Exception {
 		
 		MetaOper.delete(deleteSql, dataType);
@@ -1222,7 +1222,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 	/**
 	 * 27、收货人为空格
 	 */
-	//@Test
+	@Test
 	public void postAddEditTheUserAddressTestConsigneeIsSpace() throws Exception {
 		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertSql, dataType);
