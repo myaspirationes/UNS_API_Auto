@@ -201,8 +201,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("用户ID为未登录用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请实名认证 或者 参数缺失，不能进行证件照认证和持件照认证");
 	}
 	/**
 	 * 用户ID为错误用户
@@ -512,8 +512,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("正面图ID为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("positivId或reverseId格式不正确");
 	}
 	/**
 	 * 正面图ID与反面图ID不符
@@ -545,8 +545,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("正面图ID与反面图ID不符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 正面图ID为空
@@ -578,8 +578,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("正面图ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请实名认证 或者 参数缺失，不能进行证件照认证和持件照认证");
 	}
 	/**
 	 * 正面图ID为空格
@@ -644,8 +644,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("正面图ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请实名认证 或者 参数缺失，不能进行证件照认证和持件照认证");
 	}
 	/**
 	 * 正面图ID不传该参数
@@ -676,8 +676,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("正面图ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请实名认证 或者 参数缺失，不能进行证件照认证和持件照认证");
 	}
 	/**
 	 * 正面图ID超长
@@ -874,8 +874,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("反面图ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请实名认证 或者 参数缺失，不能进行证件照认证和持件照认证");
 	}
 	/**
 	 * 反面图ID为空格
@@ -940,8 +940,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("反面图ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请实名认证 或者 参数缺失，不能进行证件照认证和持件照认证");
 	}
 	/**
 	 * 反面图ID不传该参数
@@ -972,8 +972,8 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		System.out.println("反面图ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("请实名认证 或者 参数缺失，不能进行证件照认证和持件照认证");
 	}
 	/**
 	 * 反面图ID超长
