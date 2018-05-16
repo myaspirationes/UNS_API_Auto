@@ -674,7 +674,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 系统类型为小数
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -706,7 +706,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 系统类型为负数
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -738,7 +738,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 系统类型不传该参数
 	 */
-	@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);

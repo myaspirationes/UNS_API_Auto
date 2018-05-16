@@ -31,7 +31,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-	@Test
+	//@Test
 	public void postNoDisturbModeSetStateAcquisitionTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "12495324");
@@ -62,7 +62,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTesUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "1249532456");
+		con.put("userId", 1249532456);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -199,7 +199,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "23.34");
@@ -227,7 +227,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
@@ -255,7 +255,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
@@ -283,7 +283,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID存在非法字符
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<#%^&(_>");
@@ -311,7 +311,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
@@ -339,7 +339,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		
