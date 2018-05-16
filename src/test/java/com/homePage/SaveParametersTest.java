@@ -1256,7 +1256,7 @@ public class SaveParametersTest extends HttpUtil {
 	 * 达人橱窗高度为小数
 	 */
 	@Test
-	public void postSaveParametersTestBigGunHighNonSubmissionParameters() throws Exception {
+	public void postSaveParametersTestBigGunHighIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1316,10 +1316,10 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 达人橱窗高度为0
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestBigGunHighIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1327,7 +1327,49 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("goodsCount", 1);
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
-		request.put("bigGunHigh", 1);
+		request.put("bigGunHigh", 0);
+		request.put("shopHigh", 1);
+		request.put("goodsHigh", 1);
+		request.put("usedHigh", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("达人橱窗高度为0" + post);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 达人橱窗高度为最大值
+	 */
+	@Test
+	public void postSaveParametersTestBigGunHighIsMax() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("userId", 12495324);
+		request.put("carousel", 1);
+		request.put("bigGunCount", 1);
+		request.put("goodsCount", 1);
+		request.put("usedCount", 1);
+		request.put("mixtureHigh", 1);
+		request.put("bigGunHigh", 999999999);
+		request.put("shopHigh", 1);
+		request.put("goodsHigh", 1);
+		request.put("usedHigh", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("达人橱窗高度为最大值" + post);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 达人橱窗高度为长整型
+	 */
+	@Test
+	public void postSaveParametersTestBigGunHigh() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("userId", 12495324);
+		request.put("carousel", 1);
+		request.put("bigGunCount", 1);
+		request.put("goodsCount", 1);
+		request.put("usedCount", 1);
+		request.put("mixtureHigh", 1);
+		request.put("bigGunHigh", 999999999999L);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
@@ -1337,10 +1379,10 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 达人橱窗高度为空
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestBigGunHighIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1348,20 +1390,20 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("goodsCount", 1);
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
-		request.put("bigGunHigh", 1);
+		request.put("bigGunHigh", "");
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("达人橱窗高度为空" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 达人橱窗高度为空格
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestBigGunHighIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1369,20 +1411,20 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("goodsCount", 1);
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
-		request.put("bigGunHigh", 1);
+		request.put("bigGunHigh", " ");
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("达人橱窗高度为空格" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 达人橱窗高度为null
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestBigGunHighIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1390,20 +1432,20 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("goodsCount", 1);
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
-		request.put("bigGunHigh", 1);
+		request.put("bigGunHigh", null);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("达人橱窗高度为null" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 达人橱窗高度不传该参数
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestBigGunHighNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1411,20 +1453,19 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("goodsCount", 1);
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
-		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("达人橱窗高度不传该参数" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 店铺板块高度为小数
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestShopHighIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1433,19 +1474,19 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
+		request.put("shopHigh", 1.5);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("店铺板块高度为小数" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 店铺板块高度为负数
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestShopHighIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1454,19 +1495,19 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
+		request.put("shopHigh", -1);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("店铺板块高度为负数" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 店铺板块高度为字符
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestShopHighIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1479,15 +1520,15 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("店铺板块高度为字符" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 店铺板块高度为0
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestShopHighIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1496,19 +1537,19 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
+		request.put("shopHigh", 0);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("店铺板块高度为0" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 店铺板块高度为最大值
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestShopHighIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1517,19 +1558,19 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
+		request.put("shopHigh", 999999999);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("店铺板块高度为最大值" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 店铺板块高度为长整型
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestShopHighIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1538,19 +1579,19 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
+		request.put("shopHigh", 999999999999L);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("店铺板块高度为长整型" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 店铺板块高度为空
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestShopHighIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1559,19 +1600,19 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
+		request.put("shopHigh", "");
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("店铺板块高度为空" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 店铺板块高度为空格
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestShopHighIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1580,19 +1621,19 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
+		request.put("shopHigh", " ");
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("店铺板块高度为空格" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 店铺板块高度为null
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestShopHighIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1601,19 +1642,19 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
+		request.put("shopHigh", null);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("店铺板块高度为null" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 店铺板块高度不传该参数
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestShopHighNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1622,19 +1663,18 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("店铺板块高度不传该参数" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 商品板块高度为小数
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestGoodsHighIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1644,18 +1684,18 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
+		request.put("goodsHigh", 1.5);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("商品板块高度为小数" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 商品板块高度为负数
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestGoodsHighIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1665,18 +1705,18 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
+		request.put("goodsHigh", -1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("商品板块高度为负数" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 商品板块高度为字符
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestGoodsHighIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1686,18 +1726,18 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
+		request.put("goodsHigh", "aaa");
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("商品板块高度为字符" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 商品板块高度为0
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestGoodsHighIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1707,18 +1747,18 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
+		request.put("goodsHigh", 0);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("商品板块高度为0" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 商品板块高度为最大值
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestGoodsHighIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1728,18 +1768,18 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
+		request.put("goodsHigh", 999999999);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("商品板块高度为最大值" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 商品板块高度为长整型
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestGoodsHighIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1749,18 +1789,18 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
+		request.put("goodsHigh", 989999999999L);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("商品板块高度为长整型" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 商品板块高度为空
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestGoodsHighIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1770,18 +1810,18 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
+		request.put("goodsHigh", "");
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("商品板块高度为空" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 商品板块高度为空格
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestGoodsHighIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1791,18 +1831,18 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
+		request.put("goodsHigh", " ");
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("商品板块高度为空格" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 商品板块高度不传该参数
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestGoodsHighNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1812,18 +1852,17 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("mixtureHigh", 1);
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("商品板块高度不传该参数" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 二手橱窗高度为小数
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestUsedHighIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1834,17 +1873,17 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
+		request.put("usedHigh", 1.5);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("二手橱窗高度为小数" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 二手橱窗高度为负数
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestUsedHighIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1855,17 +1894,17 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
+		request.put("usedHigh", -1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("二手橱窗高度为负数" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 二手橱窗高度为字符
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestUsedHighIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1876,17 +1915,17 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
+		request.put("usedHigh", "aa");
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("二手橱窗高度为字符" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 二手橱窗高度为0
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestUsedHighIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1897,17 +1936,17 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
+		request.put("usedHigh", 0);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("二手橱窗高度为0" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 二手橱窗高度为最大值
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestUsedHighIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1918,17 +1957,17 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
+		request.put("usedHigh", 999999999);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("二手橱窗高度为最大值" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 二手橱窗高度为长整型
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestUsedHighIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1939,17 +1978,17 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
+		request.put("usedHigh", 999999999999L);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("二手橱窗高度为长整型" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 二手橱窗高度为空
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestUsedHighIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1960,17 +1999,17 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
+		request.put("usedHigh", "");
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("二手橱窗高度为空" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 二手橱窗高度为空格
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestUsedHighIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -1981,17 +2020,17 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
+		request.put("usedHigh", " ");
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("二手橱窗高度为空格" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 二手橱窗高度为null
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestUsedHighIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -2002,17 +2041,17 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
+		request.put("usedHigh", null);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("二手橱窗高度为null" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 提交正确参数
+	 * 二手橱窗高度不传该参数
 	 */
 	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
+	public void postSaveParametersTestUsedHighNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
@@ -2023,135 +2062,8 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("bigGunHigh", 1);
 		request.put("shopHigh", 1);
 		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 提交正确参数
-	 */
-	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("userId", 12495324);
-		request.put("carousel", 1);
-		request.put("bigGunCount", 1);
-		request.put("goodsCount", 1);
-		request.put("usedCount", 1);
-		request.put("mixtureHigh", 1);
-		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 提交正确参数
-	 */
-	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("userId", 12495324);
-		request.put("carousel", 1);
-		request.put("bigGunCount", 1);
-		request.put("goodsCount", 1);
-		request.put("usedCount", 1);
-		request.put("mixtureHigh", 1);
-		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 提交正确参数
-	 */
-	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("userId", 12495324);
-		request.put("carousel", 1);
-		request.put("bigGunCount", 1);
-		request.put("goodsCount", 1);
-		request.put("usedCount", 1);
-		request.put("mixtureHigh", 1);
-		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 提交正确参数
-	 */
-	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("userId", 12495324);
-		request.put("carousel", 1);
-		request.put("bigGunCount", 1);
-		request.put("goodsCount", 1);
-		request.put("usedCount", 1);
-		request.put("mixtureHigh", 1);
-		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 提交正确参数
-	 */
-	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("userId", 12495324);
-		request.put("carousel", 1);
-		request.put("bigGunCount", 1);
-		request.put("goodsCount", 1);
-		request.put("usedCount", 1);
-		request.put("mixtureHigh", 1);
-		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 提交正确参数
-	 */
-	@Test
-	public void postSaveParametersTestCorrectParameter() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("userId", 12495324);
-		request.put("carousel", 1);
-		request.put("bigGunCount", 1);
-		request.put("goodsCount", 1);
-		request.put("usedCount", 1);
-		request.put("mixtureHigh", 1);
-		request.put("bigGunHigh", 1);
-		request.put("shopHigh", 1);
-		request.put("goodsHigh", 1);
-		request.put("usedHigh", 1);
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("二手橱窗高度不传该参数" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
