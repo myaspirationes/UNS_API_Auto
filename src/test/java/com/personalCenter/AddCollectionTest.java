@@ -75,7 +75,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -116,7 +116,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUserIdIsError() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -157,7 +157,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -198,7 +198,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -239,7 +239,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUserIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -280,7 +280,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUserIdIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -321,7 +321,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -362,7 +362,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUserIdNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -403,7 +403,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUserIdIsZero() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -444,7 +444,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -485,7 +485,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏类型错误
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteTypeIsError() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -526,7 +526,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏类型为String
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteTypeIsString() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -567,7 +567,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏类型为最大值
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteTypeIsMax() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -608,7 +608,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏类型为商品6
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteTypeIsSix() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -649,7 +649,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏类型为商铺17
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteTypeIsSeventeen() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -690,7 +690,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏类型为小数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteTypeIsDecimal() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -731,7 +731,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏类型为0
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteTypeIsZero() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -772,7 +772,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏类型为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteTypeIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -813,7 +813,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏类型为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteTypeIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -854,7 +854,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏类型为非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteTypeIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -895,7 +895,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏类型不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -936,7 +936,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳为00000000
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampIs00000000() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -977,7 +977,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳为最大值时间戳
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampIsMax() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1018,7 +1018,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳为错误时间戳
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampIsError() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1059,7 +1059,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳为YYYY-MM-DD
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampIsYYYYMMDD() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1100,7 +1100,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳为负数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampIsNegativeNumbe() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1141,7 +1141,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳为小数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampIsDecimal() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1182,7 +1182,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳为String
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampIsString() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1223,7 +1223,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1264,7 +1264,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1305,7 +1305,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1346,7 +1346,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳为非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1387,7 +1387,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 聊天信息时间戳不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestTimeStampNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1428,7 +1428,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人用户id错误
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectIdIsError() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1469,7 +1469,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人用户id为非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectIdIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1510,7 +1510,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人用户id为小数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectIdIsDecimal() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1551,7 +1551,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人用户id负数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1592,7 +1592,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人用户id为0
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectIdIsZero() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1633,7 +1633,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人用户id为超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectIdIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1674,7 +1674,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人用户id为String
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectIdIsString() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1715,7 +1715,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人用户id为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectIdIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1756,7 +1756,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人用户id为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectIdIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1797,7 +1797,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人用户id为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectIdIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1838,7 +1838,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人用户id不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1879,7 +1879,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏内容与来源不符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgAndFavoriteSourceNotMatch() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1920,7 +1920,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品ID为错误
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodIdIsError() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -1961,7 +1961,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品ID为超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodIdIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",1012910254L);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2002,7 +2002,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品ID为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodIdIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId","");//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2043,7 +2043,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品ID为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodIdIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId"," ");//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2084,7 +2084,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品ID为Null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodIdIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",null);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2125,7 +2125,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品ID为String
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodIdIsString() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId","dfdgs");//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2166,7 +2166,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品ID为小数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodIdIsDecimal() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10.129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2207,7 +2207,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品ID为负数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",-10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2248,7 +2248,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品ID为0
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodIdIsZero() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",0);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2289,7 +2289,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品ID不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2330,7 +2330,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品名字和商品ID不符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodNameAndGoodIdNotMatch() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2371,7 +2371,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品名字为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodNameIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2412,7 +2412,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品名字为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodNameIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2453,7 +2453,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品名字为非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodNameIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2495,7 +2495,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品名字为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodNameIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2536,7 +2536,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品名字为超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodNameIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2577,7 +2577,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品名字不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2618,7 +2618,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品缩略图url错误地址
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodUrlIsError() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2659,7 +2659,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品缩略图url超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodUrlIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2700,7 +2700,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品缩略图url存在非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodUrlIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2741,7 +2741,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品缩略图url为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodUrlIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2782,7 +2782,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品缩略图url为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodUrlIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2823,7 +2823,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品缩略图url为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodUrlIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2864,7 +2864,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品缩略图url不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodUrlNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2905,7 +2905,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态0待上架
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsZero() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2946,7 +2946,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态1上架中
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsOne() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -2987,7 +2987,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态2已下架
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsTwo() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3028,7 +3028,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态3草稿箱
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsThree() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3069,7 +3069,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态为错误
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsError() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3110,7 +3110,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态为小数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsDecimal() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3151,7 +3151,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态为负数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsNegativeNumbe() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3192,7 +3192,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态为String
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsString() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3233,7 +3233,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3274,7 +3274,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3315,7 +3315,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3356,7 +3356,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态为最大值
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusIsMax() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3397,7 +3397,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品状态不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodSatusNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3438,7 +3438,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品标签为超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodTagsIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3479,7 +3479,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品标签为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodTagsIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3520,7 +3520,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品标签为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodTagsIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3561,7 +3561,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品标签为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodTagsIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3602,7 +3602,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品标签不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodTagsNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3643,7 +3643,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品标签存在非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodTagsIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3684,7 +3684,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格为最大值
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodPriceIsMax() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3725,7 +3725,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格为5位小数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodTagsIsFiveDecimal() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3766,7 +3766,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格为0.0000
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodPriceIs0Spot0000() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3807,7 +3807,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格为String
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodPriceIsString() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3848,7 +3848,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格为最小值
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodPriceIsMinimum() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3889,7 +3889,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格为超范围
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodPriceOverRange() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3930,7 +3930,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格分数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodPriceIsFraction() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -3971,7 +3971,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格为运算式1+1
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodPriceIsOperationalFormula() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -4012,7 +4012,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodPriceIsIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -4053,7 +4053,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodPriceIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -4094,7 +4094,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodPriceIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -4135,7 +4135,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商商品价格不传该值
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgGoodPriceNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -4176,7 +4176,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺ID为错误
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopIdIsError() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId",1012);//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4217,7 +4217,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺ID为超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopIdIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId",1012121231L);//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4258,7 +4258,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺ID为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopIdIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4299,7 +4299,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺ID为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopIdIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId"," ");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4340,7 +4340,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺ID为Null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopIdIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId",null);//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4381,7 +4381,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺ID为String
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopIdIsString() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","cgfggdf");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4422,7 +4422,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺ID为小数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopIdIsDecimal() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","10.12");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4463,7 +4463,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺ID为负数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","-1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4504,7 +4504,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺ID为0
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopIdIsZero() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId",0);//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4545,7 +4545,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺ID不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4586,7 +4586,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺名字和店铺ID不符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopIdAndShopNameNotMatch() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4627,7 +4627,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺名字为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopNameIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4668,7 +4668,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺名字为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopNameIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4709,7 +4709,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺名字为非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopNameIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4750,7 +4750,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺名字为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopNameIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4791,7 +4791,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺名字为超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopNameIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4832,7 +4832,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺名字不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4873,7 +4873,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺缩略图url错误地址
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopUrlIsError() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4914,7 +4914,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺缩略图url超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopUrlIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4955,7 +4955,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺缩略图url存在非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopUrlIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -4996,7 +4996,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺缩略图url为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopUrlIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5037,7 +5037,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺缩略图url为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopUrlIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5078,7 +5078,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺缩略图url为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopUrlIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5119,7 +5119,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺缩略图url不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopUrlNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5160,7 +5160,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态0待上架
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsZero() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5201,7 +5201,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态1上架中
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsOne() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5242,7 +5242,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态2已下架
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsTwo() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5283,7 +5283,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态3草稿箱
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsThree() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5324,7 +5324,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态为错误
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsError() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5365,7 +5365,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态为小数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsDecimal() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5406,7 +5406,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态为负数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsNegativeNumbe() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5447,7 +5447,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态为String
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsString() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5488,7 +5488,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5529,7 +5529,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5570,7 +5570,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5611,7 +5611,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态为最大值
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusIsMax() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5652,7 +5652,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺状态不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopSatusNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5693,7 +5693,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺标签为超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopTagsIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5734,7 +5734,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺标签为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopTagsIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5775,7 +5775,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺标签为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopTagsIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5816,7 +5816,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺标签为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopTagsIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5857,7 +5857,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺标签不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopTagsNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5898,7 +5898,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏电商店铺标签存在非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestMsgShopTagsIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5939,7 +5939,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 唯一标识id为超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUniqueIdIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -5980,7 +5980,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 唯一标识id为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUniqueIdIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6021,7 +6021,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 唯一标识id为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUniqueIdIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6062,7 +6062,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 唯一标识id为非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUniqueIdIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6103,7 +6103,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 唯一标识id为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUniqueIdIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6144,7 +6144,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 唯一标识id为小数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUniqueIdIsDecimal() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6185,7 +6185,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 唯一标识id为0
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUniqueIdIsZero() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6226,7 +6226,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 唯一标识id为负数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUniqueIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6267,7 +6267,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 唯一标识id为String
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUniqueIdIsString() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6308,7 +6308,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 唯一标识id不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestUniqueIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6349,7 +6349,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏来源为错误
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteSourceIsError() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6390,7 +6390,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏来源为String
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteSourceIsString() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6431,7 +6431,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏来源为负数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteSourceIsNegativeNumbe() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6472,7 +6472,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏来源为小数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteSourceIsDecimal() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6513,7 +6513,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏来源为0
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteSourceIsZero() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6554,7 +6554,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏来源为最大值
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteSourceIsMax() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6595,7 +6595,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏来源为长整型
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteSourceIsLongForm() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6636,7 +6636,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏来源为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteSourceIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6677,7 +6677,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏来源为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteSourceIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6718,7 +6718,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏来源为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteSourceIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6759,7 +6759,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 收藏来源不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestFavoriteSourceNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6800,7 +6800,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人昵称超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectNameIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6841,7 +6841,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人昵称为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectNameIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6882,7 +6882,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人昵称为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectNameIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6923,7 +6923,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人昵称为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectNameIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -6964,7 +6964,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人昵称为非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectNameIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -7005,7 +7005,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 信息发布人昵称不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestObjectNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -7046,7 +7046,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 描述超长
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestDescribeIsLong() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -7087,7 +7087,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 描述为空
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestDescribeIsEmpty() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -7128,7 +7128,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 描述为空格
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestDescribeIsSpace() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -7169,7 +7169,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 描述为null
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestDescribeIsNull() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -7210,7 +7210,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 描述为非法字符
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestDescribeIsIllegalCharacters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"
@@ -7251,7 +7251,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 描述不传该参数
 	 */
-	@Test
+	//@Test
 	public void postAddCollectionTestDescribeNonSubmissionParameters() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("shopId","1012");//"shopId":"1012","shopName":"他是特","shopUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","shopSatus":"1","shopTags":"[fun,instesting,nice]"

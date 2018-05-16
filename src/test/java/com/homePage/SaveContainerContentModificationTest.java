@@ -14,6 +14,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.ListMap;
 import com.example.MetaOper;
 
 public class SaveContainerContentModificationTest extends HttpUtil {
@@ -23,7 +24,9 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	String updateSql = "update T_CONTAINER_CONTENT set TITLE = '大地' , FILE_ID='101' WHERE CONTAINER_CON_ID='1'";
 	String selectSql = "SELECT * from T_CONTAINER_CONTENT WHERE CONTAINER_CON_ID = '1'";
 	String dataType = "perCenter81";
-	
+	List<Map> lis = new ArrayList<Map>();
+	Map<Object, Object> map1 = new HashMap<Object, Object>();
+	Map<Object, Object> map2 = new HashMap<Object, Object>();
 	/**
 	 * 提交正确参数
 	 */
@@ -31,11 +34,21 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	public void postSaveContainerContentModificationTesttCorrectParameter() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		MetaOper.read(selectSql, dataType);
-		Map<String, Object> contentList = new HashMap<String, Object>();
-	
+		
+		map1.put("titleText", "天空");
+		map1.put("fileId", 11);
+		map1.put("contentId", 1);
+		map1.put("containerId", 1);
+		map2.put("titleText", "天空2");
+		map2.put("fileId", 22);
+		map2.put("contentId", 2);
+		map2.put("containerId", 2);
+
+		lis.add(map1);
+		lis.add(map2);
 
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("contentList", contentList);
+		request.put("contentList", lis);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
