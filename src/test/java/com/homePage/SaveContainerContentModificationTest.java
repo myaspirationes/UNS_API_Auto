@@ -14,7 +14,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
-import com.example.ListMap;
 import com.example.MetaOper;
 
 public class SaveContainerContentModificationTest extends HttpUtil {
