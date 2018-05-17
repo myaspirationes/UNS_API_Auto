@@ -24,8 +24,8 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	@Test
 	public void postContainerEditingDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
-		request.put("containerId", 100);
+		request.put("userId", 1249124);				
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -36,11 +36,11 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 1249532412);		
-		request.put("containerId", 100);
+		request.put("userId", 1249124123);		
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
@@ -52,11 +52,11 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12312313);		
-		request.put("containerId", 100);
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误用户" + post);
@@ -67,11 +67,11 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^>");				
-		request.put("containerId", 100);
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
@@ -82,11 +82,11 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	//@Test
+	////@Test
 	public void postContainerEditingDetailsTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 121123.33);			
-		request.put("containerId", 100);
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
@@ -97,11 +97,11 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	//@Test
+	////@Test
 	public void postContainerEditingDetailsTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -121312);				
-		request.put("containerId", 100);
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
@@ -112,11 +112,11 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	////@Test
 	public void postContainerEditingDetailsTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");					
-		request.put("containerId", 100);
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
@@ -128,11 +128,11 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	////@Test
 	public void postContainerEditingDetailsTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");				
-		request.put("containerId", 100);
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
@@ -143,11 +143,11 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	////@Test
 	public void postContainerEditingDetailsTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);		
-		request.put("containerId", 100);
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
@@ -158,11 +158,11 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	////@Test
 	public void postContainerEditingDetailsTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);			
-		request.put("containerId", 100);
+		request.put("containerId", 3);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
@@ -173,10 +173,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	//@Test
+	////@Test
 	public void postContainerEditingDetailsTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("containerId", 100);
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
@@ -187,26 +187,27 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为String
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", "fggf");
-		request.put("containerId", 100);
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为String" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo("400");
 	}
 	/**
 	 * 用户ID超长
 	 */
-	//@Test
+	////@Test
 	public void postContainerEditingDetailsTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", "56526666666666666666666666666666");
-		request.put("containerId", 100);
+		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID超长" + post);
@@ -217,11 +218,11 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 容器id为错误
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
-		request.put("containerId", 10000);
+		request.put("userId", 1249124);				
+		request.put("containerId", 300);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器id为错误" + post);
@@ -232,10 +233,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 容器id为超长
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
+		request.put("userId", 1249124);				
 		request.put("containerId", "1211111111111112222222222221");
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -247,10 +248,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 容器id为String
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
+		request.put("userId", 1249124);				
 		request.put("containerId", "dfdsfd");
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -262,10 +263,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 容器id为空
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
+		request.put("userId", 1249124);				
 		request.put("containerId", "");
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -277,10 +278,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 容器id为空格
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
+		request.put("userId", 1249124);				
 		request.put("containerId", " ");
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -292,10 +293,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 容器id为null
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
+		request.put("userId", 1249124);				
 		request.put("containerId", null);
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -307,10 +308,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 容器id为0
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
+		request.put("userId", 1249124);				
 		request.put("containerId", 0);
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -322,10 +323,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 容器id为非法字符
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdIsIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
+		request.put("userId", 1249124);				
 		request.put("containerId", "<@$%&*_>");
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -337,10 +338,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 容器id为小数
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
+		request.put("userId", 1249124);				
 		request.put("containerId", 12.369);
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -352,10 +353,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 容器id为负数
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
+		request.put("userId", 1249124);				
 		request.put("containerId", -125);
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -367,10 +368,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 容器id不传
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
+		request.put("userId", 1249124);				
 		
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -382,10 +383,10 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 添加一个容器id
 	 */
-	@Test
+	//@Test
 	public void postContainerEditingDetailsTestContainerIdAddOne() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
+		request.put("userId", 1249124);				
 		request.put("containerId", 125);
 		
 		JSONObject post = super.UNSPost(url, request);

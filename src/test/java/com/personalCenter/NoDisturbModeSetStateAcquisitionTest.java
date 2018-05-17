@@ -13,11 +13,14 @@ import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
 import com.example.LoginTest;
+import com.example.MetaOper;
 
 public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 //勿扰模式设置状态获取接口
 	String url = "/UU/user";
+	String dataType = "perCenter81";
 	String chcode;
+	LoginTest login = new LoginTest();
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
@@ -31,14 +34,17 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestCorrectParameter() throws Exception {
+		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "12495324");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -61,12 +67,16 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTesUserIdIsError() throws Exception {
+		//NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		//hpa.postNoDisturbModeSettingTestCorrectParameterIsOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 1249532456);
+		
+		con.put("userId", "1249532456");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -82,19 +92,22 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("没有对应用户id的用户");
 	}
 	/**
 	 * 用户ID用户未登录
 	 */
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdNotLoggedIn() throws Exception {
+		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324333");
+		con.put("userId", "1249532333");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -110,19 +123,22 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("没有对应用户id的用户");
 	}
 	/**
 	 * 用户ID超长
 	 */
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsLong() throws Exception {
+		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "1249532412345655552245445656789");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -138,19 +154,22 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("没有对应用户id的用户");
 	}
 	/**
 	 * 用户ID为0
 	 */
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsZero() throws Exception {
+		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -166,19 +185,22 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("useId格式不正确");
+		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
 	}
 	/**
 	 * 用户ID为负数
 	 */
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsNegativeNumbe() throws Exception {
+		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "-234");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -194,19 +216,22 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("useId格式不正确");
+		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
 	}
 	/**
 	 * 用户ID为小数
 	 */
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsDecimal() throws Exception {
+		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "23.34");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -222,19 +247,22 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
 	}
 	/**
 	 * 用户ID为空
 	 */
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsEmpty() throws Exception {
+		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -250,19 +278,22 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
 	}
 	/**
 	 * 用户ID为空格
 	 */
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsSpace() throws Exception {
+		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -278,19 +309,22 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
 	}
 	/**
 	 * 用户ID存在非法字符
 	 */
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIllegalCharacters() throws Exception {
+		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<#%^&(_>");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -306,19 +340,22 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
 	}
 	/**
 	 * 用户ID为null
 	 */
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsNull() throws Exception {
+		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -334,19 +371,22 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("useId为空");
+		assertThat(head1.get("msg")).isEqualTo("userId为空");
 	}
 	/**
 	 * 用户ID不传该参数
 	 */
 	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdNonSubmissionParameters() throws Exception {
+		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
+		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		chcode = login.getLoginTestChcodeBy177();
 		Map<String, Object> con = new HashMap<String, Object>();
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
-		head.put("cmd", "3709");
+		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
@@ -362,7 +402,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("useId为空");
+		assertThat(head1.get("msg")).isEqualTo("userId为空");
 	}
 	
 		
