@@ -41,7 +41,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -69,7 +69,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -97,7 +97,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -125,7 +125,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -153,7 +153,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -181,7 +181,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -209,7 +209,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -237,7 +237,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -265,7 +265,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -292,7 +292,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -320,7 +320,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -348,7 +348,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -376,7 +376,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -404,7 +404,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -432,7 +432,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -459,7 +459,7 @@ public class HomePageSearchTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", "12495324");
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
