@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c4a610d-2f9b-4ba5-8d43-60318edf6dab" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/homePage/InvisibleTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/homePage/InvisibleTest.java" />
-    </list>
+    <list default="true" id="3c4a610d-2f9b-4ba5-8d43-60318edf6dab" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,7 +20,7 @@
       <file leaf-file-name="InvisibleTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/InvisibleTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="-7787">
               <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="18" />
               <folding>
                 <element signature="e#2870#2886#0" expanded="true" />
@@ -650,7 +647,7 @@
       <workItem from="1526546606207" duration="4924000" />
       <workItem from="1526605951599" duration="4981000" />
       <workItem from="1526613794185" duration="1780000" />
-      <workItem from="1526633269673" duration="1142000" />
+      <workItem from="1526633269673" duration="1336000" />
     </task>
     <servers />
   </component>
@@ -687,7 +684,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27814000" />
+    <option name="totallyTimeSpent" value="28008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1121,7 +1118,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/InvisibleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="-7787">
           <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="18" />
           <folding>
             <element signature="e#2870#2886#0" expanded="true" />
