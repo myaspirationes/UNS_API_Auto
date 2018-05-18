@@ -49,7 +49,7 @@ public class ObtainPlateParametersTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-	//@Test
+	@Test
 	public void postObtainPlateParametersTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "12312313");
@@ -63,7 +63,7 @@ public class ObtainPlateParametersTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	//@Test
+	@Test
 	public void postObtainPlateParametersTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^>");									
@@ -77,7 +77,7 @@ public class ObtainPlateParametersTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	//@Test
+	@Test
 	public void postObtainPlateParametersTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 121123.33);		
@@ -92,7 +92,7 @@ public class ObtainPlateParametersTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	//@Test
+	@Test
 	public void postObtainPlateParametersTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -121312);
@@ -106,7 +106,7 @@ public class ObtainPlateParametersTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	@Test
 	public void postObtainPlateParametersTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");		
@@ -121,7 +121,7 @@ public class ObtainPlateParametersTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	@Test
 	public void postObtainPlateParametersTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");		
@@ -136,7 +136,7 @@ public class ObtainPlateParametersTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	@Test
 	public void postObtainPlateParametersTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);		
@@ -151,7 +151,7 @@ public class ObtainPlateParametersTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	@Test
 	public void postObtainPlateParametersTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);
@@ -166,7 +166,7 @@ public class ObtainPlateParametersTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	//@Test
+	@Test
 	public void postObtainPlateParametersTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();	
 		
