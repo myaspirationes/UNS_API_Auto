@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import com.example.HttpUtil;
 
 public class GetPlateContentDetailsTest extends HttpUtil {
-// 删除容器模块接口
+// 容器编辑详情接口
 	String url = "/uu-admin/container/containerInfo";
 
 
