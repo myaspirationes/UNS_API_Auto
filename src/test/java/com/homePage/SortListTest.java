@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.example.MetaOper;
 import org.json.JSONObject;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -18,6 +19,7 @@ import com.example.HttpUtil;
 public class SortListTest extends HttpUtil {
 // 容器板块排序接口
 	String url = "/uu-admin/container/sortList";
+
 
 
 	/**
@@ -34,6 +36,8 @@ public class SortListTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+
+
 	}
 	/**
 	 * 用户ID为未登录用户

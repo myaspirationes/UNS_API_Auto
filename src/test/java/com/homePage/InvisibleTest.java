@@ -1,10 +1,12 @@
 package com.homePage;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -13,8 +15,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class InvisibleTest extends HttpUtil {
 // 启用/隐藏容器模块接口
-	String url = "/uu-admin/container/invisble";
-
+	String url = "/uu-admin/container/invisible";
+	String selectStatus = "SELECT * FROM T_HOME_PAGE_CONTAINER WHERE CONTAINER_ID = 2 ";
+	String dataType = "perCenter81";
+	List<Map<String,Object>> list ;
 
 	/**
 	 * 提交正确参数
@@ -23,40 +27,43 @@ public class InvisibleTest extends HttpUtil {
 	public void postInvisibleTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
-		request.put("containerId", 100);
-		request.put("status",0);
+		request.put("containerId", 2);
+		request.put("status",1);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		list = MetaOper.read(selectStatus,dataType);
+
+		assertThat((list.get(0).get("STATUS").toString()).equals("1"));
 	}
 	/**
-	 * 用户ID为未登录用户
+	 * 用户ID为未登录
 	 */
-	//@Test
+	@Test
 	public void postInvisibleTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 1249532412);		
-		request.put("containerId", 100);
-		request.put("status",0);
+		request.put("userId", 12495325);
+		request.put("containerId", 2);
+		request.put("status",1);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为未登录用户" + post);
-	
-	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		System.out.println("用户ID为未登录" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("未登录");
+
 	}
 	/**
 	 * 用户ID为错误用户
 	 */
-	//@Test
+	@Test
 	public void postInvisibleTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12312313);		
-		request.put("containerId", 100);
+		request.put("userId", 1239913);
+		request.put("containerId", 2);
 		request.put("status",0);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -68,7 +75,7 @@ public class InvisibleTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	//@Test
+	@Test
 	public void postInvisibleTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^>");				
@@ -78,13 +85,12 @@ public class InvisibleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 用户ID为小数
 	 */
-	//@Test
+	@Test
 	public void postInvisibleTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 121123.33);			
@@ -94,13 +100,12 @@ public class InvisibleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 用户ID为负数
 	 */
-	//@Test
+	@Test
 	public void postInvisibleTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -121312);				
