@@ -19,9 +19,12 @@ import java.util.Map;
 public class MetaOper {
 	public static void main(String[] args) {
 		
-		String dataType = "wallet81";
+		//String dataType = "wallet81";
+        String dataType = "perCenter81";
 		
-		String selectSql = "SELECT * FROM t_wallet";
+		//String selectSql = "SELECT * FROM t_wallet";
+        String selectSql = "SELECT * FROM T_HOME_PAGE_CONTAINER";
+
 		
 		/*MetaOper.read(selectSql, dataType);
 			//System.out.println(MetaOper.read(selectSql, dataType).get(0));
@@ -30,9 +33,9 @@ public class MetaOper {
 				orderNo =orderNo+map.get("orderNo").toString()+",";
 			}*/
 				List<Map<String,Object>> list ;
-			list =MetaOper.readMySql(selectSql,dataType);
+			list =MetaOper.read(selectSql,dataType);
 			System.out.println("list======="+list);
-			String CODE = list.get(0).get("USER_ID").toString();
+			String CODE = list.get(0).get("TITLE").toString();
 			System.out.println("CODE==="+CODE);
  }
 
