@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import com.example.HttpUtil;
 
 public class GetFirstPagePlateContainersListTest extends HttpUtil {
-// 获取板块默认值参数接口
+// 获取首页板块容器列表接口
 	String url = "/uu-admin/container/getHomePageContainer";
 
 
