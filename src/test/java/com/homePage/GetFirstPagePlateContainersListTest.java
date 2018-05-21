@@ -35,7 +35,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	//@Test
+	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "12495324123");		
@@ -50,7 +50,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-	//@Test
+	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "12312313");		
@@ -65,7 +65,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	//@Test
+	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^>");				
@@ -80,7 +80,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	//@Test
+	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 121123.33);			
@@ -94,7 +94,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	//@Test
+	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -121312);				
@@ -108,7 +108,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");					
@@ -123,7 +123,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");				
@@ -138,7 +138,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);		
@@ -152,7 +152,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);			
@@ -167,7 +167,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	//@Test
+	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		
@@ -181,7 +181,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	/**
 	 * 用户ID为超长
 	 */
-	//@Test
+	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", "12495324121222221111122222222");	
