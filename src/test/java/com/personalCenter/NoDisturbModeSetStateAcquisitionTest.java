@@ -34,7 +34,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestCorrectParameter() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
@@ -97,7 +97,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID用户未登录
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdNotLoggedIn() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
@@ -128,7 +128,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID超长
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsLong() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
@@ -159,7 +159,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsZero() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
@@ -190,7 +190,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsNegativeNumbe() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
@@ -221,7 +221,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsDecimal() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
@@ -252,7 +252,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsEmpty() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
@@ -283,7 +283,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsSpace() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
@@ -314,7 +314,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID存在非法字符
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIllegalCharacters() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
@@ -345,7 +345,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsNull() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
@@ -376,7 +376,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	//@Test
+	@Test
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdNonSubmissionParameters() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();

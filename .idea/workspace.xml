@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3c4a610d-2f9b-4ba5-8d43-60318edf6dab" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/homePage/AddOrEditContainerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/homePage/AddOrEditContainerTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/personalCenter/NoDisturbModeSetStateAcquisitionTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/personalCenter/NoDisturbModeSetStateAcquisitionTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/personalCenter/NoDisturbModeSettingTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/personalCenter/NoDisturbModeSettingTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,102 +23,187 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="InvisibleTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/InvisibleTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddOrEditContainerTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/AddOrEditContainerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="389" column="76" lean-forward="false" selection-start-line="389" selection-start-column="76" selection-end-line="389" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContainerEditingDetailsTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/ContainerEditingDetailsTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetFirstPagePlateContainersListTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/GetFirstPagePlateContainersListTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetPlateContentDetailsTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/GetPlateContentDetailsTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetPlateDefaultParameterTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/GetPlateDefaultParameterTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetTheHomePageAllPlateContainersTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/GetTheHomePageAllPlateContainersTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomePageSearchTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/HomePageSearchTest.java">
+      <file leaf-file-name="FeedbackTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/FeedbackTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="810">
-              <caret line="63" column="4" lean-forward="false" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+              <caret line="68" column="8" lean-forward="false" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomePageConfigurationParameterTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/HomePageConfigurationParameterTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="53">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeleteContainerModuleTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/DeleteContainerModuleTest.java">
+      <file leaf-file-name="GetMultiAccountAssociationTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/GetMultiAccountAssociationTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetTheUserAddressTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/GetTheUserAddressTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HolderPhotoAuthenticateTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/HolderPhotoAuthenticateTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IdPhotoAuthenticateTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/IdPhotoAuthenticateTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JudgingTheCurrentEditionTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/JudgingTheCurrentEditionTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageReminderSettingsTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/MessageReminderSettingsTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MultiAccountAssociationNotLoggedInTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/MultiAccountAssociationNotLoggedInTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NoDisturbModeSetStateAcquisitionTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/NoDisturbModeSetStateAcquisitionTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5475">
+              <caret line="378" column="4" lean-forward="false" selection-start-line="378" selection-start-column="4" selection-end-line="378" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NoDisturbModeSettingTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/NoDisturbModeSettingTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14205">
+              <caret line="963" column="4" lean-forward="false" selection-start-line="963" selection-start-column="4" selection-end-line="963" selection-end-column="4" />
+              <folding>
+                <element signature="e#2414#2430#0" expanded="true" />
+                <element signature="e#2626#2642#0" expanded="true" />
+                <element signature="e#2950#2966#0" expanded="true" />
+                <element signature="e#3806#3822#0" expanded="true" />
+                <element signature="e#4000#4016#0" expanded="true" />
+                <element signature="e#4324#4340#0" expanded="true" />
+                <element signature="e#4798#4814#0" expanded="true" />
+                <element signature="e#4993#5009#0" expanded="true" />
+                <element signature="e#5317#5333#0" expanded="true" />
+                <element signature="e#5802#5818#0" expanded="true" />
+                <element signature="e#5992#6008#0" expanded="true" />
+                <element signature="e#6316#6332#0" expanded="true" />
+                <element signature="e#6814#6830#0" expanded="true" />
+                <element signature="e#7009#7025#0" expanded="true" />
+                <element signature="e#7333#7349#0" expanded="true" />
+                <element signature="e#7829#7845#0" expanded="true" />
+                <element signature="e#8018#8034#0" expanded="true" />
+                <element signature="e#8342#8358#0" expanded="true" />
+                <element signature="e#8825#8841#0" expanded="true" />
+                <element signature="e#9010#9026#0" expanded="true" />
+                <element signature="e#9334#9350#0" expanded="true" />
+                <element signature="e#9822#9838#0" expanded="true" />
+                <element signature="e#10015#10031#0" expanded="true" />
+                <element signature="e#10339#10355#0" expanded="true" />
+                <element signature="e#10826#10842#0" expanded="true" />
+                <element signature="e#11012#11028#0" expanded="true" />
+                <element signature="e#11336#11352#0" expanded="true" />
+                <element signature="e#11819#11835#0" expanded="true" />
+                <element signature="e#12006#12022#0" expanded="true" />
+                <element signature="e#12330#12346#0" expanded="true" />
+                <element signature="e#12815#12831#0" expanded="true" />
+                <element signature="e#13003#13019#0" expanded="true" />
+                <element signature="e#13327#13343#0" expanded="true" />
+                <element signature="e#13830#13846#0" expanded="true" />
+                <element signature="e#13991#14007#0" expanded="true" />
+                <element signature="e#14315#14331#0" expanded="true" />
+                <element signature="e#14823#14839#0" expanded="true" />
+                <element signature="e#15035#15051#0" expanded="true" />
+                <element signature="e#15359#15375#0" expanded="true" />
+                <element signature="e#15874#15890#0" expanded="true" />
+                <element signature="e#15997#16013#0" expanded="true" />
+                <element signature="e#16321#16337#0" expanded="true" />
+                <element signature="e#16830#16846#0" expanded="true" />
+                <element signature="e#17032#17048#0" expanded="true" />
+                <element signature="e#17356#17372#0" expanded="true" />
+                <element signature="e#17860#17876#0" expanded="true" />
+                <element signature="e#18054#18070#0" expanded="true" />
+                <element signature="e#18378#18394#0" expanded="true" />
+                <element signature="e#18879#18895#0" expanded="true" />
+                <element signature="e#19074#19090#0" expanded="true" />
+                <element signature="e#19398#19414#0" expanded="true" />
+                <element signature="e#19893#19909#0" expanded="true" />
+                <element signature="e#20090#20106#0" expanded="true" />
+                <element signature="e#20414#20430#0" expanded="true" />
+                <element signature="e#20920#20936#0" expanded="true" />
+                <element signature="e#21125#21141#0" expanded="true" />
+                <element signature="e#21449#21465#0" expanded="true" />
+                <element signature="e#21944#21960#0" expanded="true" />
+                <element signature="e#22139#22155#0" expanded="true" />
+                <element signature="e#22463#22479#0" expanded="true" />
+                <element signature="e#22957#22973#0" expanded="true" />
+                <element signature="e#23154#23170#0" expanded="true" />
+                <element signature="e#23478#23494#0" expanded="true" />
+                <element signature="e#23990#24006#0" expanded="true" />
+                <element signature="e#24154#24170#0" expanded="true" />
+                <element signature="e#24478#24494#0" expanded="true" />
+                <element signature="e#24981#24997#0" expanded="true" />
+                <element signature="e#25193#25209#0" expanded="true" />
+                <element signature="e#25517#25533#0" expanded="true" />
+                <element signature="e#26019#26035#0" expanded="true" />
+                <element signature="e#26213#26229#0" expanded="true" />
+                <element signature="e#26537#26553#0" expanded="true" />
+                <element signature="e#27194#27210#0" expanded="true" />
+                <element signature="e#27406#27422#0" expanded="true" />
+                <element signature="e#27730#27746#0" expanded="true" />
+                <element signature="e#28755#28771#0" expanded="true" />
+                <element signature="e#28949#28965#0" expanded="true" />
+                <element signature="e#29273#29289#0" expanded="true" />
+                <element signature="e#29771#29787#0" expanded="true" />
+                <element signature="e#29970#29986#0" expanded="true" />
+                <element signature="e#30294#30310#0" expanded="true" />
+                <element signature="e#30812#30828#0" expanded="true" />
+                <element signature="e#31024#31040#0" expanded="true" />
+                <element signature="e#31348#31364#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -130,6 +218,14 @@
       <find>2111</find>
       <find>@Test</find>
       <find>InvisibleTest</find>
+      <find>//@Test</find>
+      <find>设置勿扰模式参数传错误</find>
+      <find>未开启勿扰模式时间传错误格式</find>
+      <find>开启勿扰模式不传时间</find>
+      <find>开启勿扰模式再次传未开启值</find>
+      <find>开启勿扰模式再次传开启值</find>
+      <find>开始时间传空</find>
+      <find>开始时间传错误格式</find>
     </findStrings>
     <replaceStrings>
       <replace>InvisibleTest</replace>
@@ -139,6 +235,7 @@
       <replace>4893</replace>
       <replace>//@Test</replace>
       <replace>AddOrEditContainerTest</replace>
+      <replace>@Test</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -162,6 +259,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/MetaOper.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/homePage/InvisibleTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/homePage/AddOrEditContainerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/personalCenter/NoDisturbModeSetStateAcquisitionTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/personalCenter/NoDisturbModeSettingTest.java" />
       </list>
     </option>
   </component>
@@ -179,8 +278,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="x" value="1440" />
+    <option name="width" value="1280" />
+    <option name="height" value="1024" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -201,7 +301,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -283,6 +382,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -311,32 +411,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.InvisibleTest.postInvisibleTestStatusNonSubmissionParameters">
+  <component name="RunManager" selected="TestNG.NoDisturbModeSettingTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
-    </configuration>
-    <configuration name="MetaOper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.example.MetaOper" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="UNS_API_Auto" />
-      <envs />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -391,102 +472,6 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="InvisibleTest.postInvisibleTestStatusIsEmpty" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.homePage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="UNS_API_Auto" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.homePage" />
-      <option name="MAIN_CLASS_NAME" value="com.homePage.InvisibleTest" />
-      <option name="METHOD_NAME" value="postInvisibleTestStatusIsEmpty" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="InvisibleTest.postInvisibleTestStatusNonSubmissionParameters" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.homePage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="UNS_API_Auto" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.homePage" />
-      <option name="MAIN_CLASS_NAME" value="com.homePage.InvisibleTest" />
-      <option name="METHOD_NAME" value="postInvisibleTestStatusNonSubmissionParameters" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="InvisibleTest.postInvisibleTestUserIdIsDecimal" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.homePage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="UNS_API_Auto" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.homePage" />
-      <option name="MAIN_CLASS_NAME" value="com.homePage.InvisibleTest" />
-      <option name="METHOD_NAME" value="postInvisibleTestUserIdIsDecimal" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
     <configuration name="InvisibleTest.postInvisibleTestUserIdIsError" type="TestNG" factoryName="TestNG" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -519,10 +504,10 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="InvisibleTest.postInvisibleTestUserIdIsNegativeNumber" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="NoDisturbModeSettingTest (2)" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.homePage.*" />
+          <option name="PATTERN" value="com.personalCenter.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -530,9 +515,137 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.homePage" />
-      <option name="MAIN_CLASS_NAME" value="com.homePage.InvisibleTest" />
-      <option name="METHOD_NAME" value="postInvisibleTestUserIdIsNegativeNumber" />
+      <option name="PACKAGE_NAME" value="com.personalCenter" />
+      <option name="MAIN_CLASS_NAME" value="com.personalCenter.NoDisturbModeSettingTest" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="NoDisturbModeSettingTest (3)" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.personalCenter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="UNS_API_Auto" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.personalCenter" />
+      <option name="MAIN_CLASS_NAME" value="com.personalCenter.NoDisturbModeSettingTest" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="NoDisturbModeSettingTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.personalCenter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="UNS_API_Auto" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.personalCenter" />
+      <option name="MAIN_CLASS_NAME" value="com.personalCenter.NoDisturbModeSettingTest" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="NoDisturbModeSettingTest.postNoDisturbModeSettingTestCorrectParameterIsOpen" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.personalCenter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="UNS_API_Auto" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.personalCenter" />
+      <option name="MAIN_CLASS_NAME" value="com.personalCenter.NoDisturbModeSettingTest" />
+      <option name="METHOD_NAME" value="postNoDisturbModeSettingTestCorrectParameterIsOpen" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="NoDisturbModeSettingTest.postNoDisturbModeSettingTestNoDisturbCreateTimeIsError" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.personalCenter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="UNS_API_Auto" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.personalCenter" />
+      <option name="MAIN_CLASS_NAME" value="com.personalCenter.NoDisturbModeSettingTest" />
+      <option name="METHOD_NAME" value="postNoDisturbModeSettingTestNoDisturbCreateTimeIsError" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -607,19 +720,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="TestNG.InvisibleTest.postInvisibleTestUserIdIsError" />
       <item index="1" class="java.lang.String" itemvalue="TestNG.HomePageSearchTest.postHomePageSearchTestCorrectParameter" />
-      <item index="2" class="java.lang.String" itemvalue="TestNG.InvisibleTest.postInvisibleTestUserIdIsDecimal" />
-      <item index="3" class="java.lang.String" itemvalue="TestNG.InvisibleTest.postInvisibleTestUserIdIsNegativeNumber" />
-      <item index="4" class="java.lang.String" itemvalue="Application.MetaOper" />
-      <item index="5" class="java.lang.String" itemvalue="TestNG.InvisibleTest.postInvisibleTestStatusIsEmpty" />
-      <item index="6" class="java.lang.String" itemvalue="TestNG.InvisibleTest.postInvisibleTestStatusNonSubmissionParameters" />
+      <item index="2" class="java.lang.String" itemvalue="TestNG.NoDisturbModeSettingTest" />
+      <item index="3" class="java.lang.String" itemvalue="TestNG.NoDisturbModeSettingTest.postNoDisturbModeSettingTestCorrectParameterIsOpen" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.NoDisturbModeSettingTest (2)" />
+      <item index="5" class="java.lang.String" itemvalue="TestNG.NoDisturbModeSettingTest.postNoDisturbModeSettingTestNoDisturbCreateTimeIsError" />
+      <item index="6" class="java.lang.String" itemvalue="TestNG.NoDisturbModeSettingTest (3)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="TestNG.InvisibleTest.postInvisibleTestStatusNonSubmissionParameters" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.InvisibleTest.postInvisibleTestStatusIsEmpty" />
-        <item index="2" class="java.lang.String" itemvalue="Application.MetaOper" />
-        <item index="3" class="java.lang.String" itemvalue="TestNG.InvisibleTest.postInvisibleTestUserIdIsNegativeNumber" />
-        <item index="4" class="java.lang.String" itemvalue="TestNG.InvisibleTest.postInvisibleTestUserIdIsDecimal" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG.NoDisturbModeSettingTest" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.NoDisturbModeSettingTest (3)" />
+        <item index="2" class="java.lang.String" itemvalue="TestNG.NoDisturbModeSettingTest.postNoDisturbModeSettingTestNoDisturbCreateTimeIsError" />
+        <item index="3" class="java.lang.String" itemvalue="TestNG.NoDisturbModeSettingTest (2)" />
+        <item index="4" class="java.lang.String" itemvalue="TestNG.NoDisturbModeSettingTest.postNoDisturbModeSettingTestCorrectParameterIsOpen" />
       </list>
     </recent_temporary>
   </component>
@@ -643,76 +756,78 @@
       <workItem from="1526605951599" duration="4981000" />
       <workItem from="1526613794185" duration="1780000" />
       <workItem from="1526633269673" duration="4042000" />
-      <workItem from="1526695516090" duration="2436000" />
+      <workItem from="1526695516090" duration="2760000" />
+      <workItem from="1526865069809" duration="7451000" />
+      <workItem from="1526952618071" duration="2270000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="InvisibleTest_postInvisibleTestStatusIsEmpty - 2018.05.18 at 17h 16m 48s.xml">
-      <configuration name="InvisibleTest.postInvisibleTestStatusIsEmpty" configurationId="TestNG" />
+    <history-entry file="NoDisturbModeSettingTest - 2018.05.21 at 18h 35m 01s.xml">
+      <configuration name="NoDisturbModeSettingTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="InvisibleTest_postInvisibleTestStatusNonSubmissionParameters - 2018.05.18 at 17h 19m 39s.xml">
-      <configuration name="InvisibleTest.postInvisibleTestStatusNonSubmissionParameters" configurationId="TestNG" />
+    <history-entry file="NoDisturbModeSettingTest - 2018.05.21 at 18h 45m 30s.xml">
+      <configuration name="NoDisturbModeSettingTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="InvisibleTest_postInvisibleTestUserIdIsDecimal - 2018.05.18 at 13h 06m 03s.xml">
-      <configuration name="InvisibleTest.postInvisibleTestUserIdIsDecimal" configurationId="TestNG" />
+    <history-entry file="NoDisturbModeSettingTest_(1) - 2018.05.21 at 18h 38m 35s.xml">
+      <configuration name="NoDisturbModeSettingTest (1)" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="InvisibleTest_postInvisibleTestUserIdIsError - 2018.05.18 at 11h 36m 43s.xml">
-      <configuration name="InvisibleTest.postInvisibleTestUserIdIsError" configurationId="TestNG" />
+    <history-entry file="NoDisturbModeSettingTest_(2) - 2018.05.21 at 18h 54m 09s.xml">
+      <configuration name="NoDisturbModeSettingTest (2)" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="InvisibleTest_postInvisibleTestUserIdIsError - 2018.05.18 at 11h 37m 32s.xml">
-      <configuration name="InvisibleTest.postInvisibleTestUserIdIsError" configurationId="TestNG" />
+    <history-entry file="NoDisturbModeSettingTest_(3) - 2018.05.22 at 09h 31m 34s.xml">
+      <configuration name="NoDisturbModeSettingTest (3)" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="InvisibleTest_postInvisibleTestUserIdIsError - 2018.05.18 at 11h 37m 52s.xml">
-      <configuration name="InvisibleTest.postInvisibleTestUserIdIsError" configurationId="TestNG" />
+    <history-entry file="NoDisturbModeSettingTest_postNoDisturbModeSettingTestCorrectParameterIsOpen - 2018.05.21 at 18h 41m 35s.xml">
+      <configuration name="NoDisturbModeSettingTest.postNoDisturbModeSettingTestCorrectParameterIsOpen" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="InvisibleTest_postInvisibleTestUserIdIsNegativeNumber - 2018.05.18 at 13h 06m 57s.xml">
-      <configuration name="InvisibleTest.postInvisibleTestUserIdIsNegativeNumber" configurationId="TestNG" />
+    <history-entry file="NoDisturbModeSettingTest_postNoDisturbModeSettingTestCorrectParameterIsOpen - 2018.05.21 at 18h 41m 48s.xml">
+      <configuration name="NoDisturbModeSettingTest.postNoDisturbModeSettingTestCorrectParameterIsOpen" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="InvisibleTest_postInvisibleTestUserIdNotLoggedIn - 2018.05.18 at 11h 23m 55s.xml">
-      <configuration name="InvisibleTest.postInvisibleTestUserIdNotLoggedIn" configurationId="TestNG" />
+    <history-entry file="NoDisturbModeSettingTest_postNoDisturbModeSettingTestCorrectParameterNoOpen - 2018.05.21 at 18h 37m 12s.xml">
+      <configuration name="NoDisturbModeSettingTest.postNoDisturbModeSettingTestCorrectParameterNoOpen" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="InvisibleTest_postInvisibleTestUserIdNotLoggedIn - 2018.05.18 at 11h 24m 01s.xml">
-      <configuration name="InvisibleTest.postInvisibleTestUserIdNotLoggedIn" configurationId="TestNG" />
+    <history-entry file="NoDisturbModeSettingTest_postNoDisturbModeSettingTestNoDisturbCreateTimeIsError - 2018.05.21 at 19h 01m 21s.xml">
+      <configuration name="NoDisturbModeSettingTest.postNoDisturbModeSettingTestNoDisturbCreateTimeIsError" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="InvisibleTest_postInvisibleTestUserIdNotLoggedIn - 2018.05.18 at 11h 36m 36s.xml">
-      <configuration name="InvisibleTest.postInvisibleTestUserIdNotLoggedIn" configurationId="TestNG" />
+    <history-entry file="NoDisturbModeSettingTest_postNoDisturbModeSettingTestNoDisturbCreateTimeIsError - 2018.05.22 at 09h 30m 53s.xml">
+      <configuration name="NoDisturbModeSettingTest.postNoDisturbModeSettingTestNoDisturbCreateTimeIsError" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33150000" />
+    <option name="totallyTimeSpent" value="43195000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="1440" y="0" width="1280" height="1024" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.50277776" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32854208" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26235294" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -743,106 +858,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvnw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/AddCollectionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/personalCenter/AddEditTheUserAddressTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvnw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.springBeans">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/SaveParametersTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19650">
-          <caret line="1321" column="16" lean-forward="false" selection-start-line="2072" selection-start-column="0" selection-end-line="2072" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/AddCollectionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/AddEditTheUserAddressTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/AddCollectionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.springBeans">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -918,13 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/AddCollectionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -932,7 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -940,56 +947,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/DeletingCollectionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/ChangeThePhoneNumberTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2329">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/ChatSettingsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-267">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/CollectionListTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-225">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/CreateAnOrderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-779">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/FeedbackTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="68" column="8" lean-forward="false" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/DeleteReceivingAddressTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="43" column="48" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="43" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -1013,7 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1425">
           <caret line="103" column="35" lean-forward="false" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1021,7 +977,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="32" column="29" lean-forward="false" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1029,7 +984,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1053,7 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1061,7 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1069,7 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1077,7 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1085,7 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1093,31 +1041,278 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="63" column="4" lean-forward="false" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/HomePageConfigurationParameterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
+        <state relative-caret-position="90">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/InvisibleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="105">
           <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/AddOrEditContainerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="389" column="76" lean-forward="false" selection-start-line="389" selection-start-column="76" selection-end-line="389" selection-end-column="76" />
+        <state relative-caret-position="745">
+          <caret line="1170" column="35" lean-forward="false" selection-start-line="1170" selection-start-column="35" selection-end-line="1170" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/AddCollectionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/AddEditTheUserAddressTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/AuthenticationManagementListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/AuthenticateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/ChangeThePhoneNumberTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/ChatSettingsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/CollectionListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/CreateAnOrderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/DeleteReceivingAddressTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="43" column="48" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="43" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/DeletingCollectionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/DownloadUserBasicInformationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/EditionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/FeedbackTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="68" column="8" lean-forward="false" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/GetMultiAccountAssociationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/GetTheUserAddressTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/HolderPhotoAuthenticateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/IdPhotoAuthenticateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/JudgingTheCurrentEditionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/MessageReminderSettingsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/MultiAccountAssociationNotLoggedInTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/NoDisturbModeSetStateAcquisitionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5475">
+          <caret line="378" column="4" lean-forward="false" selection-start-line="378" selection-start-column="4" selection-end-line="378" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/NoDisturbModeSettingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14205">
+          <caret line="963" column="4" lean-forward="false" selection-start-line="963" selection-start-column="4" selection-end-line="963" selection-end-column="4" />
+          <folding>
+            <element signature="e#2414#2430#0" expanded="true" />
+            <element signature="e#2626#2642#0" expanded="true" />
+            <element signature="e#2950#2966#0" expanded="true" />
+            <element signature="e#3806#3822#0" expanded="true" />
+            <element signature="e#4000#4016#0" expanded="true" />
+            <element signature="e#4324#4340#0" expanded="true" />
+            <element signature="e#4798#4814#0" expanded="true" />
+            <element signature="e#4993#5009#0" expanded="true" />
+            <element signature="e#5317#5333#0" expanded="true" />
+            <element signature="e#5802#5818#0" expanded="true" />
+            <element signature="e#5992#6008#0" expanded="true" />
+            <element signature="e#6316#6332#0" expanded="true" />
+            <element signature="e#6814#6830#0" expanded="true" />
+            <element signature="e#7009#7025#0" expanded="true" />
+            <element signature="e#7333#7349#0" expanded="true" />
+            <element signature="e#7829#7845#0" expanded="true" />
+            <element signature="e#8018#8034#0" expanded="true" />
+            <element signature="e#8342#8358#0" expanded="true" />
+            <element signature="e#8825#8841#0" expanded="true" />
+            <element signature="e#9010#9026#0" expanded="true" />
+            <element signature="e#9334#9350#0" expanded="true" />
+            <element signature="e#9822#9838#0" expanded="true" />
+            <element signature="e#10015#10031#0" expanded="true" />
+            <element signature="e#10339#10355#0" expanded="true" />
+            <element signature="e#10826#10842#0" expanded="true" />
+            <element signature="e#11012#11028#0" expanded="true" />
+            <element signature="e#11336#11352#0" expanded="true" />
+            <element signature="e#11819#11835#0" expanded="true" />
+            <element signature="e#12006#12022#0" expanded="true" />
+            <element signature="e#12330#12346#0" expanded="true" />
+            <element signature="e#12815#12831#0" expanded="true" />
+            <element signature="e#13003#13019#0" expanded="true" />
+            <element signature="e#13327#13343#0" expanded="true" />
+            <element signature="e#13830#13846#0" expanded="true" />
+            <element signature="e#13991#14007#0" expanded="true" />
+            <element signature="e#14315#14331#0" expanded="true" />
+            <element signature="e#14823#14839#0" expanded="true" />
+            <element signature="e#15035#15051#0" expanded="true" />
+            <element signature="e#15359#15375#0" expanded="true" />
+            <element signature="e#15874#15890#0" expanded="true" />
+            <element signature="e#15997#16013#0" expanded="true" />
+            <element signature="e#16321#16337#0" expanded="true" />
+            <element signature="e#16830#16846#0" expanded="true" />
+            <element signature="e#17032#17048#0" expanded="true" />
+            <element signature="e#17356#17372#0" expanded="true" />
+            <element signature="e#17860#17876#0" expanded="true" />
+            <element signature="e#18054#18070#0" expanded="true" />
+            <element signature="e#18378#18394#0" expanded="true" />
+            <element signature="e#18879#18895#0" expanded="true" />
+            <element signature="e#19074#19090#0" expanded="true" />
+            <element signature="e#19398#19414#0" expanded="true" />
+            <element signature="e#19893#19909#0" expanded="true" />
+            <element signature="e#20090#20106#0" expanded="true" />
+            <element signature="e#20414#20430#0" expanded="true" />
+            <element signature="e#20920#20936#0" expanded="true" />
+            <element signature="e#21125#21141#0" expanded="true" />
+            <element signature="e#21449#21465#0" expanded="true" />
+            <element signature="e#21944#21960#0" expanded="true" />
+            <element signature="e#22139#22155#0" expanded="true" />
+            <element signature="e#22463#22479#0" expanded="true" />
+            <element signature="e#22957#22973#0" expanded="true" />
+            <element signature="e#23154#23170#0" expanded="true" />
+            <element signature="e#23478#23494#0" expanded="true" />
+            <element signature="e#23990#24006#0" expanded="true" />
+            <element signature="e#24154#24170#0" expanded="true" />
+            <element signature="e#24478#24494#0" expanded="true" />
+            <element signature="e#24981#24997#0" expanded="true" />
+            <element signature="e#25193#25209#0" expanded="true" />
+            <element signature="e#25517#25533#0" expanded="true" />
+            <element signature="e#26019#26035#0" expanded="true" />
+            <element signature="e#26213#26229#0" expanded="true" />
+            <element signature="e#26537#26553#0" expanded="true" />
+            <element signature="e#27194#27210#0" expanded="true" />
+            <element signature="e#27406#27422#0" expanded="true" />
+            <element signature="e#27730#27746#0" expanded="true" />
+            <element signature="e#28755#28771#0" expanded="true" />
+            <element signature="e#28949#28965#0" expanded="true" />
+            <element signature="e#29273#29289#0" expanded="true" />
+            <element signature="e#29771#29787#0" expanded="true" />
+            <element signature="e#29970#29986#0" expanded="true" />
+            <element signature="e#30294#30310#0" expanded="true" />
+            <element signature="e#30812#30828#0" expanded="true" />
+            <element signature="e#31024#31040#0" expanded="true" />
+            <element signature="e#31348#31364#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
