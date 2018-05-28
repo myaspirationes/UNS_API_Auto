@@ -25,11 +25,15 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	List<Map<String,Object>> list ;
 	String dataType = "perCenter81";
 	String chcode;
+	String uuid;
+	JSONObject body;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,7 +45,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	@Test
 	public void postMessageReminderSettingsTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isMsgNotice", 0);
 		con.put("isVoiceNotice", 0);
 		con.put("isShackNotice", 0);
@@ -51,7 +55,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3710");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -74,7 +78,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	@Test
 	public void postMessageReminderSettingsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isMsgNotice", 0);
 		con.put("isVoiceNotice", 0);
 		con.put("isShackNotice", 0);
@@ -84,7 +88,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3710");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -117,7 +121,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3710");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -150,7 +154,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3710");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -183,7 +187,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3710");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -216,7 +220,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3710");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -249,7 +253,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3710");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -282,7 +286,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3710");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -315,7 +319,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3710");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -348,7 +352,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3710");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -381,7 +385,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -414,7 +418,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -447,7 +451,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -483,7 +487,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -519,7 +523,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -552,7 +556,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -585,7 +589,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -618,7 +622,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -651,7 +655,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -684,7 +688,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -716,7 +720,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -749,7 +753,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -782,7 +786,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -818,7 +822,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -854,7 +858,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -887,7 +891,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -920,7 +924,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -953,7 +957,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -986,7 +990,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1019,7 +1023,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1051,7 +1055,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1084,7 +1088,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1117,7 +1121,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1153,7 +1157,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1189,7 +1193,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1222,7 +1226,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1255,7 +1259,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1288,7 +1292,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1321,7 +1325,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1354,7 +1358,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1386,7 +1390,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1419,7 +1423,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1452,7 +1456,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1488,7 +1492,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1525,7 +1529,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1558,7 +1562,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1591,7 +1595,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1624,7 +1628,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1657,7 +1661,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1690,7 +1694,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1722,7 +1726,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
@@ -1755,7 +1759,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			head.put("ver", "1.0");
 			head.put("cmd", "3710");
 			head.put("de", "2011-07-13 00:00:00");
-			head.put("uuid", "12495324");
+			head.put("uuid", uuid);
 			head.put("ln", "cn");
 			head.put("chcode", chcode);
 			head.put("sync", "1");
