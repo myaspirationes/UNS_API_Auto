@@ -17,12 +17,16 @@ import com.example.LoginTest;
 public class UpDataMultiAccountAssociationTest extends HttpUtil {
 //多账号关联接口修改(由于需要第三方接口获取信息所以暂时未做测试)
 	String url = "/UU/user";
+	JSONObject body;
 	String chcode;
+	String uuid;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy137();
+			body = login.getLoginTestChcodeBy137();
+			uuid = (body.get("userId")).toString();
+			chcode = (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -35,7 +39,7 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 	@Test
 	public void postMultiAccountAssociationTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("uniqueId", 12492125);
 		con.put("type", 12492125);
 		con.put("bind", 12492125);
@@ -46,7 +50,7 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "215");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -69,14 +73,14 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 	//@Test
 	public void postMultiAccountAssociationTestUserIdIsNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -100,14 +104,14 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 	//@Test
 	public void postMultiAccountAssociationTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -136,7 +140,7 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -166,7 +170,7 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -195,7 +199,7 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -224,7 +228,7 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -252,7 +256,7 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -281,7 +285,7 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -310,7 +314,7 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -339,7 +343,7 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -368,7 +372,7 @@ public class UpDataMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "208");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");

@@ -26,7 +26,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy137();
+			chcode = login.getLoginTestChcodeBy177();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

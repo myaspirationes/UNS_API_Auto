@@ -17,12 +17,16 @@ import com.example.LoginTest;
 public class OrderSeachTest extends HttpUtil {
 // 用户创建订单接口
 	String url = "/api/oderSeach";
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid = (body.get(uuid)).toString();
+			chcode = (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,7 +38,7 @@ public class OrderSeachTest extends HttpUtil {
 	@Test
 	public void postAuthenticateTestClidPendingPayment() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("clid", 0);
 		con.put("searchWord", "searchWord");
 		
@@ -46,7 +50,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -78,7 +82,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -110,7 +114,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -142,7 +146,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -174,7 +178,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -206,7 +210,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -238,7 +242,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -270,7 +274,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -302,7 +306,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -334,7 +338,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -366,7 +370,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -398,7 +402,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -430,7 +434,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -462,7 +466,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -494,7 +498,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -526,7 +530,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -558,7 +562,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -590,7 +594,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -622,7 +626,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -654,7 +658,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -686,7 +690,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -718,7 +722,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -750,7 +754,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -781,7 +785,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -813,7 +817,7 @@ public class OrderSeachTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

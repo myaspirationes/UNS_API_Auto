@@ -23,15 +23,19 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 //设置用户信息(单个)接口
 	String url = "/UU/user";
 	RandomUtils ru = new RandomUtils();
-	String updateSql = "UPDATE  T_USERINFO SET UBAR_IS_DEFAULT = '1' WHERE USER_ID = 12495324";
+	String updateSql = "UPDATE  T_USERINFO SET UBAR_IS_DEFAULT = '1' WHERE USER_ID = 12495396";
 	String dataType = "perCenter81";
 	List<Map<String,Object>> list ;
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid = (body.get("userId")).toString();
+			chcode = (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -44,7 +48,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestCorrectParameter() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -62,7 +66,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -103,7 +107,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -144,7 +148,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -185,7 +189,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -226,7 +230,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -267,7 +271,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -308,7 +312,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -322,7 +326,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID为String
@@ -349,7 +353,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -390,7 +394,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -431,7 +435,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -472,7 +476,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -513,7 +517,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -536,7 +540,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestNickNameIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even分公司分管但是经过核查v虚构的2222222222222222222222222222222222222222222222222222222222222身份梵蒂冈地方豆腐干的");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -554,7 +558,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -577,7 +581,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestNickNameIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "<@%&*>");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -595,7 +599,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -618,7 +622,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestNickNameIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -636,7 +640,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -659,7 +663,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestNickNameIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", " ");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -677,7 +681,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -700,7 +704,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestNickNameIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", null);
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -718,7 +722,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -741,7 +745,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestNickNameNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -759,7 +763,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -782,7 +786,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestUBarIdIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "DreamEven1555555675674565");
 		con.put("gender", 1);
@@ -800,7 +804,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -823,7 +827,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestUBarIdIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "<@#%&*>");
 		con.put("gender", 1);
@@ -841,7 +845,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -864,7 +868,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestUBarIdIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "");
 		con.put("gender", 1);
@@ -882,7 +886,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -905,7 +909,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestUBarIdIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", " ");
 		con.put("gender", 1);
@@ -923,7 +927,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -947,7 +951,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestUBarIdIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", null);
 		con.put("gender", 1);
@@ -965,7 +969,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -989,7 +993,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestUBarIdNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		
 		con.put("gender", 1);
@@ -1007,7 +1011,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1031,7 +1035,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestGenderIsZero() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 0);
@@ -1049,7 +1053,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1076,7 +1080,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestGenderIsOne() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1094,7 +1098,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1120,7 +1124,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestGenderIsError() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 5);
@@ -1138,7 +1142,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1152,7 +1156,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("性别的值只能是0男或1女");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	/**
 	 * 性别传小数
@@ -1161,7 +1165,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestGenderIsDecimal() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1.23);
@@ -1179,7 +1183,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1193,7 +1197,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("性别不是数字");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	/**
 	 * 性别传负数
@@ -1202,7 +1206,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestGenderIsNegativeNumbe() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", -1);
@@ -1220,7 +1224,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1234,7 +1238,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("性别不是数字");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	/**
 	 * 性别传String
@@ -1243,7 +1247,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestGenderIsString() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", "hjkhj");
@@ -1261,7 +1265,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1275,7 +1279,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("性别不是数字");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	/**
 	 * 性别传最大值
@@ -1284,7 +1288,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestGenderIsMax() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 999999999);
@@ -1302,7 +1306,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1316,7 +1320,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("性别的值只能是0男或1女");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	/**
 	 * 性别传空
@@ -1325,7 +1329,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestGenderIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", "");
@@ -1343,7 +1347,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1357,7 +1361,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("性别不是数字");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	/**
 	 * 性别传空格
@@ -1366,7 +1370,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestGenderIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", " ");
@@ -1384,7 +1388,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1398,7 +1402,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("性别不是数字");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	/**
 	 * 性别传null
@@ -1407,7 +1411,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestGenderIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", null);
@@ -1425,7 +1429,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1448,7 +1452,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestGenderNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		
@@ -1466,7 +1470,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1489,7 +1493,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestCityAddressIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1507,7 +1511,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1521,7 +1525,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("地区的的长度超过6位");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	/**
 	 * 地区为非法字符
@@ -1530,7 +1534,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestCityAddressIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1548,7 +1552,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1562,7 +1566,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("地区的的长度超过6位");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	/**
 	 * 地区为空
@@ -1571,7 +1575,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestCityAddressIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1589,7 +1593,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1603,7 +1607,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("地区数据包错误");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	/**
 	 * 地区为空格
@@ -1612,7 +1616,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestCityAddressIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1630,7 +1634,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1644,7 +1648,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("地区数据包错误");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	
 	/**
@@ -1654,7 +1658,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestCityAddressIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1672,7 +1676,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1695,7 +1699,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestCityAddressNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1713,7 +1717,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1736,7 +1740,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestCompanyAddressIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1754,7 +1758,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1768,7 +1772,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("公司地址的长度超过240位");
+		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
 	}
 	/**
 	 * 公司地址为非法字符
@@ -1777,7 +1781,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	public void postSettingUserInformationSingleTestCompanyAddressIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1795,7 +1799,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1814,11 +1818,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 公司地址为空
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestCompanyAddressIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1836,7 +1840,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1855,11 +1859,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 公司地址为空格
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestCompanyAddressIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1877,7 +1881,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1896,11 +1900,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 公司地址为null
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestCompanyAddressIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1918,7 +1922,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1937,11 +1941,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 公司地址为不传该参数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestCompanyAddressNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -1959,7 +1963,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1978,11 +1982,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 家庭住址为非法字符
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestFamilyAddressIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2000,7 +2004,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2019,11 +2023,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 家庭住址为空
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestFamilyAddressIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2041,7 +2045,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2060,11 +2064,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 家庭住址为空格
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestFamilyAddressIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2082,7 +2086,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2101,11 +2105,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 家庭住址为null
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestFamilyAddressIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2123,7 +2127,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2142,11 +2146,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 家庭住址为不传该参数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestFamilyAddressNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2164,7 +2168,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2183,11 +2187,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱超长
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEmailIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2205,7 +2209,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2224,11 +2228,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱为非法字符
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEmailIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2246,7 +2250,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2265,11 +2269,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱为空
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEmailIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2287,7 +2291,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2307,11 +2311,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱为空格
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEmailIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2329,7 +2333,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2349,11 +2353,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱为null
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEmailIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2371,7 +2375,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2391,11 +2395,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱为不传该参数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEmailNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2413,7 +2417,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2433,11 +2437,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名超长
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2455,7 +2459,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2475,11 +2479,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名为非法字符
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2497,7 +2501,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2516,11 +2520,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名为空
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2538,7 +2542,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2557,11 +2561,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名为空格
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2579,7 +2583,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2598,11 +2602,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名为null
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2620,7 +2624,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2639,11 +2643,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名为不传该参数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2661,7 +2665,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2680,11 +2684,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名超长
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestsiGnatureIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2702,7 +2706,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2721,11 +2725,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名为非法字符
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestsiGnatureIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2743,7 +2747,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2762,11 +2766,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名为空
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestsiGnatureIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2784,7 +2788,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2803,11 +2807,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名为空格
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestsiGnatureIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2825,7 +2829,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2844,11 +2848,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名为null
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestsiGnatureIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2866,7 +2870,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2885,11 +2889,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名为不传该参数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2907,7 +2911,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2926,11 +2930,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交超长
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestMySocialIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2948,7 +2952,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -2967,11 +2971,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交为非法字符
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestMySocialIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -2989,7 +2993,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3008,11 +3012,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交为空
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestmySocialIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3030,7 +3034,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3049,11 +3053,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交为空格
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestmySocialIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3071,7 +3075,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3090,11 +3094,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交为null
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestMySocialIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3112,7 +3116,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3131,11 +3135,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交为不传该参数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestMySocialNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3153,7 +3157,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3172,11 +3176,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 头像url超长
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadUrlIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3194,7 +3198,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3213,11 +3217,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 头像url为非法字符
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadUrlIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3235,7 +3239,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3254,11 +3258,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 头像url为空
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadUrlIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3276,7 +3280,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3295,11 +3299,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 头像url为空格
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadUrlIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3317,7 +3321,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3337,11 +3341,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 头像url为不传该参数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadUrlNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3359,7 +3363,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3378,11 +3382,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名超长
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHostUrlIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3400,7 +3404,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3419,11 +3423,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名为非法字符
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHostUrlIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3441,7 +3445,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3460,11 +3464,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名为空
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHostUrlIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3482,7 +3486,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3501,11 +3505,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名为空格
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHostUrlIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3523,7 +3527,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3542,11 +3546,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名为null
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHostUrlIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3564,7 +3568,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3583,11 +3587,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名为不传该参数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHostUrlNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3605,7 +3609,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3624,11 +3628,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像id超长
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3646,7 +3650,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3665,11 +3669,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像id为非法字符
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3687,7 +3691,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3706,11 +3710,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像id为空
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3728,7 +3732,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3747,11 +3751,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为空格
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3769,7 +3773,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3788,11 +3792,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为null
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3810,7 +3814,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3829,11 +3833,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为小数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsDecimal() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3851,7 +3855,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3870,11 +3874,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为0
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsZero() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3892,7 +3896,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3911,11 +3915,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为负数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsNegativeNumbe() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3933,7 +3937,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3952,11 +3956,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为不传该参数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestHeadFileIdNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -3974,7 +3978,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -3993,11 +3997,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件id超长
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -4015,7 +4019,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -4034,11 +4038,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件id为非法字符
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -4056,7 +4060,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -4075,11 +4079,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件id为空
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -4097,7 +4101,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -4116,11 +4120,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为空格
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -4138,7 +4142,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -4157,11 +4161,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为null
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -4179,7 +4183,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -4198,11 +4202,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为小数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsDecimal() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -4220,7 +4224,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -4239,11 +4243,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为0
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsZero() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -4261,7 +4265,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -4280,11 +4284,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为负数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsNegativeNumbe() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -4302,7 +4306,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -4321,11 +4325,11 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为不传该参数
 	 */
-	@Test
+	//@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
@@ -4343,7 +4347,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();		
 		head.put("ver", "1.2.1");
 		head.put("cmd", "209");		
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");

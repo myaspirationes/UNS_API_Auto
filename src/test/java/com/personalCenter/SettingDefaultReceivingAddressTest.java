@@ -26,12 +26,16 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID = 12495324";
 	String deleteSql = "DELETE  T_ADDRESS_INFO WHERE USER_ID = '12495324'";
 	List<Map<String,Object>> list ;
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid = (body.get("userId")).toString();
+			chcode = (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,13 +53,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", addressId);
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -85,13 +89,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", addressId);
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -120,13 +124,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 5694521);
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -155,13 +159,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", "ghdgdfgdg");
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -175,7 +179,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("addressId 校验失败,非法输入");
 			
 	}
 	/**
@@ -189,13 +193,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 12.36);
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -209,7 +213,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("addressId 校验失败,非法输入");
 			
 	}
 	/**
@@ -223,13 +227,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", -12465);
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -243,7 +247,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("addressId 校验失败,非法输入");
 			
 	}
 	/**
@@ -257,13 +261,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 0);
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -277,7 +281,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("addressId 校验失败,非法输入");
 			
 	}
 	/**
@@ -291,13 +295,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", " ");
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -311,7 +315,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("addressId 校验失败,非法输入");
 			
 	}
 	/**
@@ -325,13 +329,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", "");
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -345,7 +349,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("addressId 校验失败,非法输入");
 			
 	}
 	/**
@@ -358,13 +362,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		list=MetaOper.read(selectSql, dataType);
 		
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -392,13 +396,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 5645542132545565655L);
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -426,13 +430,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", addressId);
-		con.put("userId", 1249532466);
+		con.put("userId", 1324566);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -460,13 +464,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", addressId);
-		con.put("userId", 1249532433);
+		con.put("userId", 13245633);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -500,7 +504,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -514,7 +518,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 			
 	}
 	/**
@@ -534,7 +538,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -548,7 +552,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 			
 	}
 	/**
@@ -568,7 +572,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -582,7 +586,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 			
 	}
 	/**
@@ -602,7 +606,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -616,7 +620,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 			
 	}
 	/**
@@ -636,7 +640,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -650,7 +654,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 			
 	}
 	/**
@@ -670,7 +674,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -684,7 +688,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 			
 	}
 	/**
@@ -704,7 +708,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -718,7 +722,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 			
 	}
 	/**
@@ -738,7 +742,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -771,7 +775,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -800,13 +804,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		String addressId = list.get(1).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", addressId);
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -819,8 +823,8 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		System.out.println("设置多个默认地址" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 			
 	}
 	/**
@@ -835,13 +839,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", addressId);
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4501");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -854,8 +858,8 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		System.out.println("设置地址已是默认地址" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 			
 	}
 	

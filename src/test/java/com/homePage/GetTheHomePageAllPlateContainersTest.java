@@ -14,14 +14,14 @@ import org.testng.annotations.Test;
 import com.example.HttpUtil;
 
 public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
-// 删除容器模块接口
+// 获取首页所有板块容器接口
 	String url = "/uu-admin/container/getHomePageContainer";
 
 
 	/**
 	 * 提交正确参数
 	 */
-	@Test
+	//@Test
 	public void postGetTheHomePageAllPlateContainersTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -35,10 +35,10 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12495324123");	
+		request.put("userId", 1249532412);	
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
@@ -53,7 +53,7 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 	//@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12312313");	
+		request.put("userId", 12312313);	
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误用户" + post);
@@ -193,7 +193,7 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 	//@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", "12495324121222221111122222222");	
+		request.put("userId", 999999999999999999L);	
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);

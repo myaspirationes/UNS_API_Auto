@@ -17,12 +17,16 @@ import com.example.LoginTest;
 public class ShareTest extends HttpUtil {
 //推荐给好友
 	String url = "/UU/share";
+	JSONObject body;
 	String chcode;
+	String uuid;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid = (body.get("userId")).toString();
+			chcode = (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,6 +38,9 @@ public class ShareTest extends HttpUtil {
 	 */
 	@Test
 	public void postShareTestCorrectParameter() throws Exception {
+		//body = login.getLoginTestChcodeBy177();
+		uuid = (body.get("userId")).toString();
+		chcode = (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
 		con.put("shareType", 1);
@@ -46,7 +53,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -66,7 +73,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12312313);
+		con.put("userId", 123456);
 		con.put("shareType", 1);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -77,7 +84,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -88,8 +95,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("用户ID为未登录用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为错误用户
@@ -108,7 +115,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -120,7 +127,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法");
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -139,7 +146,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -151,7 +158,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法");
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为小数
@@ -170,7 +177,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -182,7 +189,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法");
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为负数
@@ -201,7 +208,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -213,7 +220,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法");
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为空格
@@ -232,7 +239,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -244,7 +251,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法");
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为空
@@ -263,7 +270,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -275,7 +282,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法");
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为null
@@ -294,7 +301,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -325,7 +332,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -337,7 +344,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法");
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -355,7 +362,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -375,7 +382,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsWeChat() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", 1);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -386,7 +393,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -406,7 +413,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsWeChatCircle() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", 2);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -417,7 +424,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -437,7 +444,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsQQ() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", 3);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -448,7 +455,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -468,7 +475,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsQQZone() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", 4);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -479,7 +486,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -499,7 +506,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsSinaMicroblog() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", 5);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -510,7 +517,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -530,7 +537,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsTencentMicroblog() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", 6);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -541,7 +548,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -561,7 +568,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", 99);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -572,7 +579,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -583,8 +590,8 @@ public class ShareTest extends HttpUtil {
 		System.out.println("分享错误编号" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 分享输入String
@@ -592,7 +599,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", "a");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -603,7 +610,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -623,7 +630,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", 1.55);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -634,7 +641,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -654,7 +661,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", -1);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -665,7 +672,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -685,7 +692,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", 0);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -696,7 +703,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -716,7 +723,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", "");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -727,7 +734,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -747,7 +754,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", " ");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -758,7 +765,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -778,7 +785,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", "<$^%^.>");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -789,7 +796,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -809,7 +816,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", null);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -820,7 +827,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -840,7 +847,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestShareTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
@@ -850,7 +857,7 @@ public class ShareTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3301);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

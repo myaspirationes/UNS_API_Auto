@@ -35,7 +35,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-	////@Test
+	@Test
 	public void postJudgingTheCurrentEditionTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -67,7 +67,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	////@Test
+	//@Test
 	public void postJudgingTheCurrentEditionTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12312313);
@@ -99,7 +99,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-	////@Test
+	@Test
 	public void postJudgingTheCurrentEditionTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1231231323);
@@ -131,7 +131,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	////@Test
+	@Test
 	public void postJudgingTheCurrentEditionTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<$%^>");
@@ -158,7 +158,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不合法!");
+		assertThat(head1.get("msg")).isEqualTo("用户id不合法");
 	}
 	/**
 	 * 用户ID为小数

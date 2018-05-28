@@ -18,11 +18,13 @@ import com.example.MetaOper;
 public class WalletTest extends HttpUtil {
 	// 实名认证接口
 	String url = "/UU/wallet";
-	String deleteSql0 = "DELETE FROM T_AUTH_JUNIOR_REAL_NAME WHERE USER_ID =  12495417";
-	String deleteSql1 = "DELETE FROM t_wallet where USER_ID =12495417";
+	String deleteSql0 ="DELETE FROM T_AUTH_JUNIOR_REAL_NAME WHERE USER_ID ='12495079'";
+	String deleteSql1 = "DELETE FROM t_wallet where USER_ID = '12495079' " ;
 	String dataType0 = "perCenter81";
 	String dataType1 = "wallet81";
+	JSONObject body;
 	String chcode;
+	String uuid;
 	LoginTest login = new LoginTest();
 	@BeforeClass
 	public void beforeClass() {
@@ -30,7 +32,9 @@ public class WalletTest extends HttpUtil {
 		MetaOper.delete(deleteSql0, dataType0);
 		
 		try {
-			chcode = login.getLoginTestChcodeBy137();
+			body = login.getLoginTestChcodeBy137();
+			uuid = (body.get("userId")).toString();
+			chcode = (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -44,11 +48,12 @@ public class WalletTest extends HttpUtil {
 	 */
 	@Test
 	public void postWalletTestCorrectParameter() throws Exception {
-		chcode = login.getLoginTestChcodeBy137();
+		//uuid = (body.get("userId")).toString();
+		//chcode = (body.get("checkCode")).toString();
 		MetaOper.deleteMySql(deleteSql1, dataType1);
 		MetaOper.delete(deleteSql0, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495417);
+		con.put("userId", uuid);
 		con.put("realName", "钱君超");
 		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -59,7 +64,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -81,7 +86,7 @@ public class WalletTest extends HttpUtil {
 	public void postWalletTestUserIdNotLoggedIn() throws Exception {
 		postWalletTestCorrectParameter();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495417);
+		con.put("userId", 123456);
 		con.put("realName", "钱君超");
 		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -92,7 +97,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -103,8 +108,8 @@ public class WalletTest extends HttpUtil {
 		System.out.println("用户ID为未登录用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("您的身份证已经注册过微度账户");
 	}
 
 	/**
@@ -124,7 +129,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -156,7 +161,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -188,7 +193,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -220,7 +225,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -252,7 +257,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -284,7 +289,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -316,7 +321,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -350,7 +355,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -362,7 +367,7 @@ public class WalletTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("身份证信息与手机号实名不符");
+		assertThat(head1.get("msg")).isEqualTo("您的身份证已经注册过微度账户");
 	}
 
 	/**
@@ -381,7 +386,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -404,7 +409,7 @@ public class WalletTest extends HttpUtil {
 		MetaOper.deleteMySql(deleteSql1, dataType1);
 		MetaOper.delete(deleteSql0, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇123123");
 		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -415,7 +420,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -438,7 +443,7 @@ public class WalletTest extends HttpUtil {
 		MetaOper.deleteMySql(deleteSql1, dataType1);
 		MetaOper.delete(deleteSql0, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 124925111);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -449,7 +454,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -472,7 +477,7 @@ public class WalletTest extends HttpUtil {
 		MetaOper.deleteMySql(deleteSql1, dataType1);
 		MetaOper.delete(deleteSql0, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "");
 		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -483,7 +488,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -506,7 +511,7 @@ public class WalletTest extends HttpUtil {
 		MetaOper.deleteMySql(deleteSql1, dataType1);
 		MetaOper.delete(deleteSql0, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -517,7 +522,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -540,7 +545,7 @@ public class WalletTest extends HttpUtil {
 		MetaOper.deleteMySql(deleteSql1, dataType1);
 		MetaOper.delete(deleteSql0, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -551,7 +556,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -572,7 +577,7 @@ public class WalletTest extends HttpUtil {
 	@Test
 	public void postWalletTestRealNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
@@ -582,7 +587,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -605,7 +610,7 @@ public class WalletTest extends HttpUtil {
 		MetaOper.deleteMySql(deleteSql1, dataType1);
 		MetaOper.delete(deleteSql0, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇刘靖宇");
 		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -616,7 +621,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -639,7 +644,7 @@ public class WalletTest extends HttpUtil {
 		MetaOper.deleteMySql(deleteSql1, dataType1);
 		MetaOper.delete(deleteSql0, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇<!@#!23>");
 		con.put("papersNo", "310112198708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -650,7 +655,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -671,7 +676,7 @@ public class WalletTest extends HttpUtil {
 	@Test
 	public void postWalletTestPapersNoLessThan18() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		con.put("papersNo", "3101121987082731");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -682,7 +687,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -703,7 +708,7 @@ public class WalletTest extends HttpUtil {
 	@Test
 	public void postWalletTestPapersNoIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		con.put("papersNo", "");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -714,7 +719,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -735,7 +740,7 @@ public class WalletTest extends HttpUtil {
 	@Test
 	public void postWalletTestPapersNoIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		con.put("papersNo", " ");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -746,7 +751,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -767,7 +772,7 @@ public class WalletTest extends HttpUtil {
 	@Test
 	public void postWalletTestPapersNoIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		con.put("papersNo", null);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -778,7 +783,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -799,7 +804,7 @@ public class WalletTest extends HttpUtil {
 	@Test
 	public void postWalletTestPapersNoNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
@@ -809,7 +814,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -830,7 +835,7 @@ public class WalletTest extends HttpUtil {
 	@Test
 	public void postWalletTestPapersNoIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		con.put("papersNo", "31011219228708273611");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -841,7 +846,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -862,7 +867,7 @@ public class WalletTest extends HttpUtil {
 	@Test
 	public void postWalletTestPapersNoIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		con.put("papersNo", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -873,7 +878,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -894,7 +899,7 @@ public class WalletTest extends HttpUtil {
 	@Test
 	public void postWalletTestPapersNoIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		con.put("papersNo", -310273611);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -905,7 +910,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -926,7 +931,7 @@ public class WalletTest extends HttpUtil {
 	@Test
 	public void postWalletTestPapersNoIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("realName", "刘靖宇");
 		con.put("papersNo", 1.52);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -937,7 +942,7 @@ public class WalletTest extends HttpUtil {
 		head.put("mos", "iphone");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3002);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

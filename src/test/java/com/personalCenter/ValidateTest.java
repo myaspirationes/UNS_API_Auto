@@ -17,12 +17,16 @@ import com.example.LoginTest;
 public class ValidateTest extends HttpUtil {
 //账号查询接口
 	String url = "/UU/authorize/validate";
+	JSONObject body;
 	String chcode;
+	String uuid;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy137();
+			body = login.getLoginTestChcodeBy137();
+			uuid = (body.get("userId")).toString();
+			chcode = (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,7 +46,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -72,7 +76,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -102,7 +106,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -132,7 +136,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -162,7 +166,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -192,7 +196,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -222,7 +226,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -253,7 +257,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -283,7 +287,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -313,7 +317,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -343,7 +347,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -373,7 +377,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -403,7 +407,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -432,7 +436,7 @@ public class ValidateTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "4801");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
