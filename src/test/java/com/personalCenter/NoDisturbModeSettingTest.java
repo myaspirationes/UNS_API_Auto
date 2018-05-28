@@ -572,8 +572,8 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("设置勿扰模式参数传错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo("-3");
+		assertThat(head1.get("msg")).isEqualTo("isNotDisturb数据不正确");
 	}
 	/**
 	 * 设置勿扰模式参数传负数
@@ -603,8 +603,8 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("设置勿扰模式参数传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("isNotDisturb数据不正确");
 	}
 	/**
 	 * 设置勿扰模式参数传小数

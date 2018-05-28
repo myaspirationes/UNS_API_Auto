@@ -159,7 +159,7 @@ public class FeedbackTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("用户不存在");
+		assertThat(head1.get("msg")).isEqualTo("userId非法");
 	}
 	/**
 	 * 用户ID为空
@@ -190,7 +190,7 @@ public class FeedbackTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("用户不存在");
+		assertThat(head1.get("msg")).isEqualTo("userId非法");
 	}
 	/**
 	 * 用户ID为空格
@@ -314,7 +314,7 @@ public class FeedbackTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("用户不存在");
+		assertThat(head1.get("msg")).isEqualTo("userId非法");
 	}
 	/**
 	 * 用户ID为小数
@@ -345,7 +345,7 @@ public class FeedbackTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("用户不存在");
+		assertThat(head1.get("msg")).isEqualTo("userId非法");
 	}
 	/**
 	 * 用户ID为负数
@@ -376,7 +376,7 @@ public class FeedbackTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("用户不存在");
+		assertThat(head1.get("msg")).isEqualTo("userId非法");
 	}
 	/**
 	 * 反馈描述超长
@@ -685,8 +685,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID为6张其中1张为错误的" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 图片ID为5张其中一张为错误
@@ -716,8 +716,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID为5张其中一张为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 图片ID为1张
@@ -778,8 +778,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID为0张" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("反馈成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 图片Id之间的分隔符非法
@@ -809,8 +809,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片Id之间的分隔符非法" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 图片ID存在小数
@@ -840,8 +840,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID存在小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 图片ID存在负数
@@ -871,8 +871,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID存在负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-5);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 图片ID为空
@@ -902,8 +902,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("反馈成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 图片ID为null
@@ -933,8 +933,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("反馈成功");
 	}
 	/**
 	 * 图片ID为空格
@@ -964,8 +964,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 图片ID不传该参数

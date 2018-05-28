@@ -55,8 +55,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("正确参数查询" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为未登陆
@@ -84,7 +84,7 @@ public class HomePageSearchTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为为错误
@@ -111,8 +111,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("用户ID为为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("不存在用户id");
 	}
 	/**
 	 * 用户ID为为非法字符
@@ -139,8 +139,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("用户ID为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为小数
@@ -167,8 +167,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为负数
@@ -195,8 +195,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为空格
@@ -223,8 +223,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为空
@@ -251,8 +251,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID为null
@@ -279,8 +279,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -306,8 +306,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 搜索关键字超长
@@ -334,8 +334,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("搜索关键字超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 搜索关键字非法字符
@@ -362,8 +362,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("搜索关键字非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 搜索关键字为空
@@ -390,8 +390,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("搜索关键字为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 搜索关键字为空格
@@ -418,8 +418,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("搜索关键字为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 搜索关键字为null
@@ -446,8 +446,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("搜索关键字为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 搜索关键字不传该参数
@@ -473,8 +473,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("搜索关键字不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	
 
