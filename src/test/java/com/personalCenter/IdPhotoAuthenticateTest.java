@@ -19,13 +19,13 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 //证件照认证接口
 	String url = "/UU/authenticate";
 	WalletTest walletTest = new WalletTest();
-	String deleteSql0 = "DELETE FROM T_AUTH_JUNIOR_REAL_NAME WHERE USER_ID =  uuid";
-	String deleteSql1 = "DELETE FROM t_wallet where USER_ID =uuid";
+	String deleteSql0 = "DELETE FROM T_AUTH_JUNIOR_REAL_NAME WHERE USER_ID =  12495396";
+	String deleteSql1 = "DELETE FROM t_wallet where USER_ID =12495396";
 	String dataType0 = "perCenter81";
 	String dataType1 = "wallet81";
-	String deleteSql2 = "DELETE FROM T_AUTH_PHOTO WHERE USER_ID = 'uuid'";
-	String updateSql0 = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = 'uuid'";
-	String updateSql1 = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='2' WHERE USER_ID = 'uuid'";
+	String deleteSql2 = "DELETE FROM T_AUTH_PHOTO WHERE USER_ID = '12495396'";
+	String updateSql0 = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495396'";
+	String updateSql1 = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='2' WHERE USER_ID = '12495396'";
 	JSONObject body;
 	String chcode;
 	String uuid;

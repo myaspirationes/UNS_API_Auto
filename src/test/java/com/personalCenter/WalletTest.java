@@ -18,8 +18,8 @@ import com.example.MetaOper;
 public class WalletTest extends HttpUtil {
 	// 实名认证接口
 	String url = "/UU/wallet";
-	String deleteSql0 ="DELETE FROM T_AUTH_JUNIOR_REAL_NAME WHERE USER_ID ='12495079'";
-	String deleteSql1 = "DELETE FROM t_wallet where USER_ID = '12495079' " ;
+	String deleteSql0 ="DELETE FROM T_AUTH_JUNIOR_REAL_NAME WHERE USER_ID ='12495396'";
+	String deleteSql1 = "DELETE FROM t_wallet where USER_ID = '12495396' " ;
 	String dataType0 = "perCenter81";
 	String dataType1 = "wallet81";
 	JSONObject body;
