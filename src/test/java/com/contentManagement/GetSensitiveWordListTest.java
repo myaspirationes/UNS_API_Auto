@@ -21,13 +21,6 @@ public class GetSensitiveWordListTest extends HttpUtil {
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
-		LoginTest login = new LoginTest();
-		try {
-			chcode = login.getLoginTestChcodeBy177();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	/**
 	 * 提交正确参数
