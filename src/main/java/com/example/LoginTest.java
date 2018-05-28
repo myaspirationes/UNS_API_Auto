@@ -17,7 +17,7 @@ public class LoginTest extends HttpUtil {
 
 	
 
-	public String getLoginTestChcodeBy137() throws Exception {
+	public JSONObject getLoginTestChcodeBy137() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("password", "1b8a994a442e2cece2ab9b419af29b29");
 		con.put("phoneType", 0);
@@ -39,10 +39,9 @@ public class LoginTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("登录参数查询" + post);
 		JSONObject body = (JSONObject) post.get("body");
-		String chcode = body.getString("checkCode").toString();
-		return chcode;
+		return body;
 	}
-	public String getLoginTestChcodeBy177() throws Exception {
+	public JSONObject getLoginTestChcodeBy177() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("password", "1b8a994a442e2cece2ab9b419af29b29");
 		con.put("phoneType", 0);
@@ -64,8 +63,7 @@ public class LoginTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("登录参数查询" + post);
 		JSONObject body = (JSONObject) post.get("body");
-		String chcode = body.getString("checkCode").toString();
-		return chcode;
+		return body;
 	}
 	
 }
