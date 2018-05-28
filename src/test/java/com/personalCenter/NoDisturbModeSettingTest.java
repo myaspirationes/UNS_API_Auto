@@ -24,13 +24,17 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	String selectSql = "SELECT * FROM T_MOBILE_SET WHERE USER_ID = 12495324";
 	List<Map<String,Object>> list ;
 	String dataType = "perCenter81";
+	JSONObject body;
+	String uuid;
 	String chcode;
 	LoginTest login = new LoginTest();
 	@BeforeClass
 	public void  beforeClass(){
 		
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,9 +45,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSettingTestCorrectParameterNoOpen() throws Exception {
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 0);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
@@ -52,7 +56,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -79,9 +83,9 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSettingTestCorrectParameterIsOpen() throws Exception {
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "23:00:00");
 		con.put("noDisturbEndTime", "06:00:00");
@@ -90,7 +94,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -128,7 +132,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -159,7 +163,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -190,7 +194,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -221,7 +225,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -252,7 +256,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -283,7 +287,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -314,7 +318,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -345,7 +349,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -376,7 +380,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -407,7 +411,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -437,7 +441,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -459,7 +463,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbNoOpenTimeIsCorrect() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "00:00:00");
 		con.put("noDisturbEndTime", "01:00:00");
@@ -468,7 +472,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -490,14 +494,14 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbNoOpenTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -519,7 +523,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbNoOpenTimeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "120");
 		con.put("noDisturbEndTime", "223");
@@ -528,7 +532,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -550,7 +554,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 3);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
@@ -559,7 +563,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -581,7 +585,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", -1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
@@ -590,7 +594,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -612,7 +616,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1.23);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
@@ -621,7 +625,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -643,7 +647,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", "<@#^&*(_+>");
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
@@ -652,7 +656,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -674,7 +678,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", "");
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
@@ -683,7 +687,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -705,7 +709,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", null);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
@@ -714,7 +718,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -736,7 +740,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -744,7 +748,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -766,7 +770,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbOpenedAgainOpen() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 0);
 		con.put("noDisturbCreateTime", "00:00:00");
 		con.put("noDisturbEndTime", "00:00:00");
@@ -775,7 +779,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -797,7 +801,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbOpenedAgainNoOpen() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
@@ -806,7 +810,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -830,7 +834,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='0' WHERE USER_ID = '12495417'";
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "23:00:00");
 		con.put("noDisturbEndTime", "06:00:00");
@@ -839,7 +843,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -870,7 +874,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='0' WHERE USER_ID = '12495417'";
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 0);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
@@ -879,7 +883,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -901,7 +905,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 156452);
 		con.put("noDisturbEndTime", 0);
@@ -910,7 +914,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -932,7 +936,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeLessNoDisturbEndTime() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "00:00:00");
 		con.put("noDisturbEndTime", "01:00:00");
@@ -941,7 +945,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -963,7 +967,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeMoreNoDisturbEndTime() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime","01:00:00");
 		con.put("noDisturbEndTime","00:00:00");
@@ -972,7 +976,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -994,7 +998,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsTimeStamp() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "1377216000000");
 		con.put("noDisturbEndTime", 0);
@@ -1003,7 +1007,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1025,7 +1029,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonthDay() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "2018/5/4");
 		con.put("noDisturbEndTime", 0);
@@ -1034,7 +1038,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1056,7 +1060,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsHourMinuteSec() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "13:34:45");
 		con.put("noDisturbEndTime", 0);
@@ -1065,7 +1069,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1090,7 +1094,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", " ");
 		con.put("noDisturbEndTime", 0);
@@ -1099,7 +1103,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1121,7 +1125,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "140912");
 		con.put("noDisturbEndTime", 0);
@@ -1130,7 +1134,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1152,7 +1156,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "");
 		con.put("noDisturbEndTime", 0);
@@ -1161,7 +1165,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1183,7 +1187,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", null);
 		con.put("noDisturbEndTime", 0);
@@ -1192,7 +1196,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1215,7 +1219,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbEndTime", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -1223,7 +1227,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1246,7 +1250,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "-23");
 		con.put("noDisturbEndTime", 0);
@@ -1255,7 +1259,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1278,7 +1282,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonthDayMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "9999/12/31");
 		con.put("noDisturbEndTime", 0);
@@ -1287,7 +1291,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1310,7 +1314,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonthDayLeast() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "1/1/1");
 		con.put("noDisturbEndTime", 0);
@@ -1319,7 +1323,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1341,7 +1345,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsHourMinSecMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "23:59:59");
 		con.put("noDisturbEndTime", 0);
@@ -1350,7 +1354,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1375,7 +1379,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsHourMinSecLeast() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "00:00:00");
 		con.put("noDisturbEndTime", 0);
@@ -1384,7 +1388,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1409,7 +1413,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbCreateTimeIsYearMonDayHourMinSec() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "2018/1/1 00:00:00");
 		con.put("noDisturbEndTime", 0);
@@ -1418,7 +1422,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1440,7 +1444,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 123456);
@@ -1449,7 +1453,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1471,7 +1475,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsTimeStamp() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", "1377216000000");
@@ -1480,7 +1484,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1502,7 +1506,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsTimeYearMonthDay() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", "2018/12/12");
@@ -1511,7 +1515,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1533,7 +1537,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsHourMinuteSec() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", "13:12:12");
@@ -1542,7 +1546,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1568,7 +1572,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", " ");
@@ -1577,7 +1581,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1599,7 +1603,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", "152324");
@@ -1608,7 +1612,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1630,7 +1634,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", "");
@@ -1639,7 +1643,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1661,7 +1665,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", null);
@@ -1670,7 +1674,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1692,7 +1696,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -1700,7 +1704,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1722,7 +1726,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", "-562");
@@ -1731,7 +1735,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1753,7 +1757,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsYearMonthDayMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", "9999/12/31");
@@ -1762,7 +1766,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1784,7 +1788,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsYearMonthDayLeast() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", "1/1/1");
@@ -1793,7 +1797,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1815,7 +1819,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsHourMinSecMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", "23:59:59");
@@ -1824,7 +1828,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1850,7 +1854,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsHourMinSecLeast() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", "00:00:00");
@@ -1859,7 +1863,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1885,7 +1889,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestNoDisturbEndTimeIsYearMonthDayHourMinSec() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", "2018/12/12 01:00:00");
@@ -1894,7 +1898,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3712");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");

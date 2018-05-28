@@ -42,7 +42,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestCorrectParameter() throws Exception {
 		List<Map<String,Object>> list ;
 		list =MetaOper.read(selectSql,dataType);

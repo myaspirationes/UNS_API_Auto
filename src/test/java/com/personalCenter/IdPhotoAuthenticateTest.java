@@ -35,7 +35,7 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 		
 		try {
 			body = login.getLoginTestChcodeBy137();
-			uuid = (body.get(uuid)).toString();
+			uuid = (body.get("userId")).toString();
 			chcode = (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

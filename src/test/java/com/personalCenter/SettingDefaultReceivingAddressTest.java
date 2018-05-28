@@ -20,11 +20,11 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 //设置默认收货地址接口
 	String url = "/UU/addressinfo";
 	String dataType = "perCenter81";
-	String insertIntoSql ="INSERT INTO T_ADDRESS_INFO (\"ADDRESS_ID\",\"USER_ID\",\"CONTACT_NAME\", \"CONTACT_INFO\", \"PROVINCE_CODE\", \"CITY_CODE\", \"COUNTY_CODE\", \"DETAILED_ADDRESS\", \"IS_DEFAULT\", \"IS_DELETE\", \"MODIFY_TIME\", \"CREATE_TIME\", \"LABEL\", \"BRIEF_ADDRESS\") VALUES (T_ADDRESS_INFO_SEQ.nextval,'12495324', '测试君', '13524001140', '上海市', '上海市', '浦东新区', '会一直了', '0', '1', TO_DATE('2016-12-02 13:19:54', 'SYYYY-MM-DD HH24:MI:SS'), TO_DATE('2016-12-02 10:59:05', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL)";
-	String insertIntoSql1 ="INSERT INTO T_ADDRESS_INFO (\"ADDRESS_ID\",\"USER_ID\",\"CONTACT_NAME\", \"CONTACT_INFO\", \"PROVINCE_CODE\", \"CITY_CODE\", \"COUNTY_CODE\", \"DETAILED_ADDRESS\", \"IS_DEFAULT\", \"IS_DELETE\", \"MODIFY_TIME\", \"CREATE_TIME\", \"LABEL\", \"BRIEF_ADDRESS\") VALUES (T_ADDRESS_INFO_SEQ.nextval,'12495324', '测试君', '13524001140', '上海市', '上海市', '浦东新区', '会一直了', '1', '1', TO_DATE('2016-12-02 13:19:54', 'SYYYY-MM-DD HH24:MI:SS'), TO_DATE('2016-12-02 10:59:05', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL)";
-	String updateSql = "UPDATE T_ADDRESS_INFO SET ADDRESS_ID=10709 where USER_ID = '12495324'";
-	String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID = 12495324";
-	String deleteSql = "DELETE  T_ADDRESS_INFO WHERE USER_ID = '12495324'";
+	String insertIntoSql ="INSERT INTO T_ADDRESS_INFO (\"ADDRESS_ID\",\"USER_ID\",\"CONTACT_NAME\", \"CONTACT_INFO\", \"PROVINCE_CODE\", \"CITY_CODE\", \"COUNTY_CODE\", \"DETAILED_ADDRESS\", \"IS_DEFAULT\", \"IS_DELETE\", \"MODIFY_TIME\", \"CREATE_TIME\", \"LABEL\", \"BRIEF_ADDRESS\") VALUES (T_ADDRESS_INFO_SEQ.nextval,'12495396', '测试君', '13524001140', '上海市', '上海市', '浦东新区', '会一直了', '0', '1', TO_DATE('2016-12-02 13:19:54', 'SYYYY-MM-DD HH24:MI:SS'), TO_DATE('2016-12-02 10:59:05', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL)";
+	String insertIntoSql1 ="INSERT INTO T_ADDRESS_INFO (\"ADDRESS_ID\",\"USER_ID\",\"CONTACT_NAME\", \"CONTACT_INFO\", \"PROVINCE_CODE\", \"CITY_CODE\", \"COUNTY_CODE\", \"DETAILED_ADDRESS\", \"IS_DEFAULT\", \"IS_DELETE\", \"MODIFY_TIME\", \"CREATE_TIME\", \"LABEL\", \"BRIEF_ADDRESS\") VALUES (T_ADDRESS_INFO_SEQ.nextval,'12495396', '测试君', '13524001140', '上海市', '上海市', '浦东新区', '会一直了', '1', '1', TO_DATE('2016-12-02 13:19:54', 'SYYYY-MM-DD HH24:MI:SS'), TO_DATE('2016-12-02 10:59:05', 'SYYYY-MM-DD HH24:MI:SS'), NULL, NULL)";
+	String updateSql = "UPDATE T_ADDRESS_INFO SET ADDRESS_ID=10709 where USER_ID = '12495396'";
+	String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID = 12495396";
+	String deleteSql = "DELETE  T_ADDRESS_INFO WHERE USER_ID = '12495396'";
 	List<Map<String,Object>> list ;
 	JSONObject body;
 	String uuid;
@@ -82,7 +82,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdNotTheUser() throws Exception {
-		String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID <> 12495324";
+		String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID <> 12495396";
 		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
@@ -117,7 +117,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdError() throws Exception {
-		String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID <> 12495324";
+		String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID <> 12495396";
 		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
@@ -566,7 +566,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", addressId);
-		con.put("userId", -12495324);
+		con.put("userId", -12495396);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.2.0");
@@ -859,7 +859,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("成功");
 			
 	}
 	

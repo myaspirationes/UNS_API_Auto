@@ -18,12 +18,17 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 // 判断当前版本是否最新接口
 
 	String url = "/UU/edition";
+	JSONObject body;
+	String uuid;
 	String chcode;
+	
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,7 +43,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	@Test
 	public void postJudgingTheCurrentEditionTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 1);
 		con.put("editionNumber", "1.2.1");
 		
@@ -50,7 +55,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -82,7 +87,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -114,7 +119,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -146,7 +151,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -178,7 +183,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -210,7 +215,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -242,7 +247,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -274,7 +279,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -306,7 +311,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -338,7 +343,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -369,7 +374,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -389,7 +394,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsIOS() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 0);
 		con.put("editionNumber", "1.2.1");
 		
@@ -401,7 +406,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -421,7 +426,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsAndroid() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 1);
 		con.put("editionNumber", "1.2.1");
 		
@@ -433,7 +438,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -453,7 +458,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 999);
 		con.put("editionNumber", "1.2.1");
 		
@@ -465,7 +470,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -485,7 +490,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", "aaa");
 		con.put("editionNumber", "1.2.1");
 		
@@ -497,7 +502,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -517,7 +522,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", "");
 		con.put("editionNumber", "1.2.1");
 		
@@ -529,7 +534,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -549,7 +554,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", " ");
 		con.put("editionNumber", "1.2.1");
 		
@@ -561,7 +566,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -581,7 +586,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	//@Test
 	public void postJudgingTheCurrentEditionTestsystemTypeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", null);
 		con.put("editionNumber", "1.2.1");
 		
@@ -593,7 +598,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -613,7 +618,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 999999999);
 		con.put("editionNumber", "1.2.1");
 		
@@ -625,7 +630,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -645,7 +650,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	//@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 999999999999999999L);
 		con.put("editionNumber", "1.2.1");
 		
@@ -657,7 +662,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -677,7 +682,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 1.5);
 		con.put("editionNumber", "1.2.1");
 		
@@ -689,7 +694,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -709,7 +714,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", -1);
 		con.put("editionNumber", "1.2.1");
 		
@@ -721,7 +726,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -741,7 +746,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	@Test
 	public void postJudgingTheCurrentEditionTestSystemTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("editionNumber", "1.2.1");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -752,7 +757,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -772,7 +777,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	@Test
 	public void postJudgingTheCurrentEditionTestEditionNumberIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 1);
 		con.put("editionNumber", 9999);
 		
@@ -784,7 +789,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -804,7 +809,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	@Test
 	public void postJudgingTheCurrentEditionTestEditionNumberIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 1);
 		con.put("editionNumber", "111122.111111112.1111111111111111111111111111111111111111111111");
 		
@@ -816,7 +821,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -836,7 +841,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	@Test
 	public void postJudgingTheCurrentEditionTestEditionNumberIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 1);
 		con.put("editionNumber", "");
 		
@@ -848,7 +853,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -868,7 +873,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	@Test
 	public void postJudgingTheCurrentEditionTestEditionNumberIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 1);
 		con.put("editionNumber", " ");
 		
@@ -880,7 +885,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -900,7 +905,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	@Test
 	public void postJudgingTheCurrentEditionTestEditionNumberIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 1);
 		con.put("editionNumber", null);
 		
@@ -912,7 +917,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -932,7 +937,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 	@Test
 	public void postJudgingTheCurrentEditionTestEditionNumberNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("systemType", 1);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -943,7 +948,7 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		head.put("mos", "6.0");
 		head.put("de", "2017-08-17 16:58:08");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 3101);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

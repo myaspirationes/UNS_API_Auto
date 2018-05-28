@@ -19,13 +19,17 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 //勿扰模式设置状态获取接口
 	String url = "/UU/user";
 	String dataType = "perCenter81";
+	JSONObject body;
+	String uuid;
 	String chcode;
 	LoginTest login = new LoginTest();
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,15 +42,15 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestCorrectParameter() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495324");
+		con.put("userId", uuid);
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -69,7 +73,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTesUserIdIsError() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		
 		con.put("userId", "1249532456");
@@ -78,7 +82,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -101,7 +105,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdNotLoggedIn() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "1249532333");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -109,7 +113,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -132,7 +136,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsLong() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "1249532412345655552245445656789");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -140,7 +144,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -163,7 +167,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsZero() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -171,7 +175,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -194,7 +198,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsNegativeNumbe() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "-234");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -202,7 +206,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -225,7 +229,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsDecimal() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "23.34");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -233,7 +237,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -256,7 +260,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsEmpty() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -264,7 +268,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -287,7 +291,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsSpace() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -295,7 +299,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -318,7 +322,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIllegalCharacters() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<#%^&(_>");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -326,7 +330,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -349,7 +353,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdIsNull() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -357,7 +361,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -380,7 +384,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestUserIdNonSubmissionParameters() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
-		chcode = login.getLoginTestChcodeBy177();
+		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -388,7 +392,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "3711");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");

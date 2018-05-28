@@ -17,12 +17,16 @@ import com.example.LoginTest;
 public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 //获取多账号关联接口(未登录)
 	String url = "/UU/system";
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -46,7 +50,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -81,7 +85,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -116,7 +120,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -149,7 +153,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -183,7 +187,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -216,7 +220,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -249,7 +253,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -282,7 +286,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -315,7 +319,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -348,7 +352,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -381,7 +385,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -415,7 +419,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -449,7 +453,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -483,7 +487,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -517,7 +521,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -551,7 +555,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -585,7 +589,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -619,7 +623,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -653,7 +657,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -687,7 +691,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -721,7 +725,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -754,7 +758,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -788,7 +792,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -822,7 +826,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -856,7 +860,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -890,7 +894,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -924,7 +928,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -958,7 +962,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -992,7 +996,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1026,7 +1030,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1060,7 +1064,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1093,7 +1097,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1127,7 +1131,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1161,7 +1165,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1195,7 +1199,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1229,7 +1233,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1263,7 +1267,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1297,7 +1301,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1331,7 +1335,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1365,7 +1369,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1398,7 +1402,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1432,7 +1436,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1466,7 +1470,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1500,7 +1504,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1534,7 +1538,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1568,7 +1572,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1601,7 +1605,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1635,7 +1639,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1669,7 +1673,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1703,7 +1707,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1737,7 +1741,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1770,7 +1774,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 		head.put("ver", "1.0");
 		head.put("cmd", "110");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");

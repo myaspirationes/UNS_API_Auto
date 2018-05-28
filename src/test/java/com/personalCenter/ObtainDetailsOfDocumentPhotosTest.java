@@ -20,12 +20,16 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	String url = "/UU/authenticate";
 	
 	String dataType = "perCenter81";
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy137();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,19 +40,19 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestIsAudit() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495417);
+		con.put("userId", uuid);
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -70,19 +74,19 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestIsSuccess() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495417);
+		con.put("userId", uuid);
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -104,19 +108,19 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestIsFail() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='2' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='2' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495417);
+		con.put("userId", uuid);
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -139,7 +143,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestUserIdNotLoggedIn() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
@@ -151,7 +155,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -172,7 +176,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestUserIdIsError() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
@@ -184,7 +188,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -205,7 +209,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestUserIdIllegalCharacters() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
@@ -217,7 +221,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -238,7 +242,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestUserIdIsDecimal() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
@@ -250,7 +254,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -271,7 +275,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestUserIdIsNegativeNumbe() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
@@ -283,7 +287,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -304,7 +308,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestUserIdIsSpace() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
@@ -316,7 +320,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -337,7 +341,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestUserIdIsEmpty() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
@@ -349,7 +353,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -370,7 +374,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestUserIdIsNull() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
@@ -382,7 +386,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -403,7 +407,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestUserIdNonSubmissionParameters() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
@@ -415,7 +419,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -436,7 +440,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestUserIdIsZero() throws Exception {
-		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 'uuid'";
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
@@ -448,7 +452,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3907");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");

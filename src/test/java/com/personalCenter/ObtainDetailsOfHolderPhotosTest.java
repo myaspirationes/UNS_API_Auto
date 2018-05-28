@@ -21,12 +21,16 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 //获取手持件照详情接口
 	String url = "/UU/authenticate";
 	String dataType = "perCenter81";
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,14 +49,14 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		MetaOper.update(updateSql, dataType);
 
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495417);
+		con.put("userId", uuid);
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", 3908);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", 1);
@@ -80,14 +84,14 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		MetaOper.update(updateSql, dataType);
 
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495417);
+		con.put("userId", uuid);
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", 3908);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", 1);
@@ -115,14 +119,14 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		MetaOper.update(updateSql, dataType);
 
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495417);
+		con.put("userId", uuid);
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", 3908);
-		head.put("uuid", 12495417);
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", 1);
@@ -157,7 +161,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3908");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -191,7 +195,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3908");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -225,7 +229,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3908");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -259,7 +263,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3908");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -293,7 +297,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3908");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -327,7 +331,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3908");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -361,7 +365,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3908");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -395,7 +399,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3908");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -429,7 +433,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3908");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -463,7 +467,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
 		head.put("cmd", "3908");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
