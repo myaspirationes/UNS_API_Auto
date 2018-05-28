@@ -26,12 +26,16 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	String deleteSql2 = "DELETE FROM T_AUTH_HOLD_PHOTO WHERE USER_ID = '12495417'";
 	String updateSql0 = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495417'";
 	String updateSql1 = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='2' WHERE USER_ID = '12495417'";
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy137();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,7 +56,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -87,7 +91,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -122,7 +126,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -158,7 +162,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "3906");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -191,7 +195,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -226,7 +230,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -259,7 +263,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -292,7 +296,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -325,7 +329,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -358,7 +362,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -389,7 +393,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -420,7 +424,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -451,7 +455,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -482,7 +486,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -513,7 +517,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -544,7 +548,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -575,7 +579,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -606,7 +610,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -637,7 +641,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -667,7 +671,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -698,7 +702,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -729,7 +733,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -760,7 +764,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");
@@ -791,7 +795,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 		head.put("mos", "7.0");
 		head.put("cmd", "106");
 		head.put("de", "2018-03-26 18:03:43");
-		head.put("uuid", "12495417");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", "7.0");
 		head.put("sync", "");

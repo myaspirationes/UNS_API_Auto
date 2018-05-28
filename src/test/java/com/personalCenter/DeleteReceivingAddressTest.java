@@ -23,13 +23,17 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 	String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID = '12495324'";
 	String deleteSql = "DELETE T_ADDRESS_INFO where USER_ID = '12495324'";
 	String dataType = "perCenter81";
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void beforeClass(){
 		MetaOper.insert(insertIntoSql, dataType);
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,7 +56,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -88,7 +92,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -118,7 +122,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -147,7 +151,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -176,7 +180,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -205,7 +209,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -234,7 +238,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -263,7 +267,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -292,7 +296,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -320,7 +324,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -349,7 +353,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -379,7 +383,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -408,7 +412,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -437,7 +441,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -466,7 +470,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -495,7 +499,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -524,7 +528,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -552,7 +556,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -581,7 +585,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -610,7 +614,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -639,7 +643,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 		head.put("ver", "1.2.0");
 		head.put("cmd", "4502");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");

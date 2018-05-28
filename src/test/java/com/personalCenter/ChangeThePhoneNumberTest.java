@@ -17,12 +17,16 @@ import com.example.LoginTest;
 public class ChangeThePhoneNumberTest extends HttpUtil {
 //更改手机号码接口
 	String url = "/UU/user";
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,7 +47,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -74,7 +78,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -105,7 +109,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -136,7 +140,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -167,7 +171,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -198,7 +202,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -229,7 +233,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -259,7 +263,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -290,7 +294,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -321,7 +325,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -352,7 +356,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -383,7 +387,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -414,7 +418,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -445,7 +449,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -476,7 +480,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -507,7 +511,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -538,7 +542,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -569,7 +573,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.2.0");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -600,7 +604,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -631,7 +635,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -661,7 +665,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -692,7 +696,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -723,7 +727,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -754,7 +758,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -785,7 +789,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -816,7 +820,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -847,7 +851,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -878,7 +882,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -909,7 +913,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -940,7 +944,7 @@ public class ChangeThePhoneNumberTest extends HttpUtil {
 		head.put("ver", "2.0.6");
 		head.put("cmd", "218");
 		head.put("de", "2017-08-17 16:58:08");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");

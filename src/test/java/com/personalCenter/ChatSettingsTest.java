@@ -17,12 +17,18 @@ import com.example.LoginTest;
 public class ChatSettingsTest extends HttpUtil {
 //聊天设置接口
 	String url = "/UU/user";
+	
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,7 +46,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -67,7 +73,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -80,7 +86,7 @@ public class ChatSettingsTest extends HttpUtil {
 		System.out.println("用户为未登录" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -94,7 +100,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -121,7 +127,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -148,7 +154,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -175,7 +181,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -202,7 +208,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -229,7 +235,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -256,7 +262,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -283,7 +289,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -310,7 +316,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -337,7 +343,7 @@ public class ChatSettingsTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3709");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");

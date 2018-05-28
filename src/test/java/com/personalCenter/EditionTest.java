@@ -19,12 +19,16 @@ import com.example.LoginTest;
 public class EditionTest extends HttpUtil {
 //获取版本主要更新记录接口
 	String url = "/UU/edition";
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,7 +46,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -69,7 +73,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -96,7 +100,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -123,7 +127,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -150,7 +154,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -177,7 +181,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -204,7 +208,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -231,7 +235,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -258,7 +262,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -285,7 +289,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -298,8 +302,8 @@ public class EditionTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -312,7 +316,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -339,7 +343,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -366,7 +370,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -393,7 +397,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -407,7 +411,7 @@ public class EditionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("不存在的设备类型");
+		assertThat(head1.get("msg")).isEqualTo("系统类型不合法!");
 	}
 	/**
 	 * 系统类型为String
@@ -420,7 +424,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -447,7 +451,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -474,7 +478,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -501,7 +505,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -528,7 +532,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -542,7 +546,7 @@ public class EditionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("不存在的设备类型");
+		assertThat(head1.get("msg")).isEqualTo("系统类型不合法!");
 	}
 	/**
 	 * 系统类型为超长
@@ -555,7 +559,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -569,7 +573,7 @@ public class EditionTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("不存在的设备类型");
+		assertThat(head1.get("msg")).isEqualTo("系统类型不合法!");
 	}
 	/**
 	 * 系统类型为小数
@@ -582,7 +586,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -609,7 +613,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -636,7 +640,7 @@ public class EditionTest extends HttpUtil {
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
 		head.put("cmd", "3102");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");

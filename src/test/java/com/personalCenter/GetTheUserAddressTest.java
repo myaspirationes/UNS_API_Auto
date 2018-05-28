@@ -18,12 +18,16 @@ public class GetTheUserAddressTest extends HttpUtil {
 //用户地址获取列表接口
 	String url = "/UU/addressinfo";
 
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -35,7 +39,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 	@Test
 	public void postTheUserAddressTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan6uu");
@@ -44,7 +48,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -75,7 +79,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -106,7 +110,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -118,7 +122,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -136,7 +140,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -148,7 +152,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户ID为小数
@@ -166,7 +170,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -178,7 +182,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户ID为负数
@@ -196,7 +200,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -226,7 +230,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -256,7 +260,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -268,7 +272,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户ID为空
@@ -286,7 +290,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -298,7 +302,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -314,7 +318,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -344,7 +348,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		head.put("mod", "ios");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("sync", 1);
-		head.put("uuid", 12495324);
+		head.put("uuid", uuid);
 		head.put("chcode", chcode);
 		head.put("cmd", 4504);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -356,7 +360,7 @@ public class GetTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	
 	

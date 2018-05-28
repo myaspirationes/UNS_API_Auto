@@ -18,12 +18,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 //获取多账号关联接口
 	String url = "/UU/user";
 	
+	JSONObject body;
+	String uuid;
 	String chcode;
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			chcode = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy177();
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -35,7 +39,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 	@Test
 	public void postMultiAccountAssociationTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -46,7 +50,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -59,13 +63,13 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为未登录用户
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -79,7 +83,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -92,8 +96,8 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("用户ID为未登录用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为错误用户
@@ -112,7 +116,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -125,8 +129,8 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("用户ID为错误用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -145,7 +149,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -178,7 +182,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -211,7 +215,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -244,7 +248,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -277,7 +281,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -310,7 +314,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -343,7 +347,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -375,7 +379,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -408,7 +412,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -441,7 +445,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -474,7 +478,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -507,7 +511,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -540,7 +544,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -572,7 +576,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -605,7 +609,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -638,7 +642,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -671,7 +675,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -704,7 +708,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -737,7 +741,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -770,7 +774,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -803,7 +807,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -836,7 +840,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -869,7 +873,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -902,7 +906,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -935,7 +939,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -968,7 +972,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1000,7 +1004,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1033,7 +1037,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1066,7 +1070,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1099,7 +1103,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1132,7 +1136,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1165,7 +1169,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1198,7 +1202,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1231,7 +1235,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1264,7 +1268,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1297,7 +1301,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1330,7 +1334,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");
@@ -1362,7 +1366,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		head.put("ver", "2.2.2");
 		head.put("cmd", "222");
 		head.put("de", "2011-07-13 00:00:00");
-		head.put("uuid", "12495324");
+		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
 		head.put("sync", "1");

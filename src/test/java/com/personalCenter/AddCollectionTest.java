@@ -26,8 +26,8 @@ public class AddCollectionTest extends HttpUtil {
 		
 		try {
 			body = login.getLoginTestChcodeBy177();
-			uuid= body.getString("uuid");
-			chcode= body.getString("chcode");
+			uuid= (body.get("userId")).toString();
+			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,7 +48,7 @@ public class AddCollectionTest extends HttpUtil {
 		msg.put("goodTags","fun,instesting,nice");
 		msg.put("goodPrice",10.20);
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12491737L);
+		con.put("userId", uuid);
 		con.put("favoriteType", 6);
 		con.put("timeStamp", 1476096258L);
 		con.put("objectId", 12345678L);
