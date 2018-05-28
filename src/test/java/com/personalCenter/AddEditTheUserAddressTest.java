@@ -501,7 +501,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 	}
 	/**
 	 * 11、用户ID不传该参数
@@ -592,7 +592,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 	}
 	/**
 	 * 13、添加非自己用户ID的地址
@@ -1086,7 +1086,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("addressId 校验失败,非法输入");
 	}
 	/**
 	 * 24、收货人超长
@@ -1131,7 +1131,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据库执行异常");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 25、收货人存在非法字符
@@ -1175,8 +1175,8 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		System.out.println("收货人存在非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 26、收货人为空
@@ -1220,8 +1220,8 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		System.out.println("收货人为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 27、收货人为空格
@@ -1266,7 +1266,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 28、收货人为null
@@ -1311,7 +1311,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常");
 	}
 	/**
 	 * 29、收货人不传该参数
@@ -1356,7 +1356,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 30、手机号码超11位
@@ -1401,7 +1401,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 31、手机号码前缀+86
@@ -1446,7 +1446,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 32、手机号码前缀+00
@@ -1491,7 +1491,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 33、手机号码前缀加长途17951
@@ -1536,7 +1536,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 34、手机号码小于11位
@@ -1581,7 +1581,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 35、手机号码为区号加固话（02160790211）
@@ -1626,7 +1626,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 36、手机号码为空
@@ -1671,7 +1671,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("contactInfo 校验失败,非法输入");
 	}
 	/**
 	 * 37、手机号码为空格
@@ -1716,7 +1716,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("contactInfo 校验失败,非法输入");
 	}
 	/**
 	 * 38、手机号码存在非法字符
@@ -1761,7 +1761,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("contactInfo 校验失败,非法输入");
 	}
 	/**
 	 * 39、手机号码为null
@@ -1806,7 +1806,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("contactInfo 校验失败,非法输入");
 	}
 	/**
 	 * 40、手机号码非1开头
@@ -1851,7 +1851,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 41、手机号码不传该参数
@@ -1896,7 +1896,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 42、手机号码存负数
@@ -1941,7 +1941,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 43、手机号码为0
@@ -1986,7 +1986,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("contactInfo 校验失败,非法输入");
 	}
 	/**
 	 * 44、省编码和市编码不一致
@@ -2031,7 +2031,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 45、市编码和区编码不一致
@@ -2076,7 +2076,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 46、省编码和区编码不一致
@@ -2121,7 +2121,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 47、省编码错误
@@ -2166,7 +2166,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 48、省编码输入负数
@@ -2211,7 +2211,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("provinceCode 校验失败,非法输入");
 	}
 	/**
 	 * 49、省编码输入小数
@@ -2256,7 +2256,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("provinceCode 校验失败,非法输入");
 	}
 	/**
 	 * 50、省编码为0
@@ -2301,7 +2301,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("provinceCode 校验失败,非法输入");
 	}
 	/**
 	 * 51、省编码为空格
@@ -2346,7 +2346,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("provinceCode 校验失败,非法输入");
 	}
 	/**
 	 * 52、省编码为空
@@ -2391,7 +2391,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("provinceCode 校验失败,非法输入");
 	}
 	/**
 	 * 53、省编码为null
@@ -2436,7 +2436,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 54、省编码为非法字符
@@ -2481,7 +2481,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("provinceCode 校验失败,非法输入");
 	}
 	/**
 	 * 55、省编码超长
@@ -2526,7 +2526,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("provinceCode 校验失败,非法输入");
 	}
 	/**
 	 * 56、省编码不传该参数
@@ -2571,7 +2571,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 57、省编码为String
@@ -2616,7 +2616,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("provinceCode 校验失败,非法输入");
 	}
 	/**
 	 * 58、市编码错误
@@ -2796,7 +2796,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("cityCode 校验失败,非法输入");
 	}
 	/**
 	 * 62、市编码为空格
@@ -3021,7 +3021,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 68、市编码为String
@@ -3111,7 +3111,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 70、区编码输入负数
@@ -3156,7 +3156,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("countyCode 校验失败,非法输入");
 	}
 	/**
 	 * 71、区编码输入小数
@@ -3201,7 +3201,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("countyCode 校验失败,非法输入");
 	}
 	/**
 	 * 72、区编码为0
@@ -3246,7 +3246,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("countyCode 校验失败,非法输入");
 	}
 	/**
 	 * 73、区编码为空格
@@ -3291,7 +3291,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("countyCode 校验失败,非法输入");
 	}
 	/**
 	 * 74、区编码为空
@@ -3336,7 +3336,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("countyCode 校验失败,非法输入");
 	}
 	/**
 	 * 75、区编码为null
@@ -3381,7 +3381,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 76、区编码为非法字符
@@ -3426,7 +3426,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("countyCode 校验失败,非法输入");
 	}
 	/**
 	 * 77、区编码超长
@@ -3471,7 +3471,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据库执行异常");
+		assertThat(head1.get("msg")).isEqualTo("countyCode 校验失败,非法输入");
 	}
 	/**
 	 * 78、区编码不传该参数
@@ -3516,7 +3516,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 79、区编码为String
@@ -3561,7 +3561,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("countyCode 校验失败,非法输入");
 	}
 	/**
 	 * 80、详细地址为空
@@ -3606,7 +3606,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("detailedAd 校验失败,非法输入");
 	}
 	/**
 	 * 81、详细地址为空格
@@ -3650,8 +3650,8 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		System.out.println("详细地址为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 82、详细地址为null
@@ -3696,7 +3696,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	
 	/**
@@ -3742,7 +3742,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 85、详细地址超长
@@ -3787,7 +3787,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据库执行异常");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 86、详细地址为String
@@ -4012,7 +4012,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 91、标签名称为空
@@ -4056,8 +4056,8 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		System.out.println("标签名称为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 92、标签名称为空格
@@ -4101,8 +4101,8 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		System.out.println("标签名称为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 93、标签名称为null
@@ -4147,7 +4147,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 95、标签名称为非法字符
@@ -4191,8 +4191,8 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		System.out.println("标签名称为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 96、标签名称超长
@@ -4237,7 +4237,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据库执行异常");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 97、标签名称为String
@@ -4281,8 +4281,8 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		System.out.println("标签名称为String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 98、标签名称为0
@@ -4326,8 +4326,8 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		System.out.println("标签名称为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 99、标签名称为负数
@@ -4371,8 +4371,8 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		System.out.println("标签名称为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 100、标签名称为小数
@@ -4416,8 +4416,8 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		System.out.println("标签名称为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 101、标签名称不传该值
@@ -4461,8 +4461,8 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		System.out.println("标签名称不传该值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 102、默认标记为默认
@@ -4686,7 +4686,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 107、默认值为负数
@@ -4731,7 +4731,7 @@ public class AddEditTheUserAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 108、默认值为小数

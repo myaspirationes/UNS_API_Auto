@@ -3,13 +3,39 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.personalCenter.FeedbackTest">
+      <class name="com.personalCenter.AddEditTheUserAddressTest">
         <methods>
-          <include name="postFeedbackTestCorrectParameter"/>
+          <include name="postAddEditTheUserAddressTestDefaults"/>
+          <include name="postAddEditTheUserAddressTestNonDefaults"/>
+          <include name="postAddEditTheUserAddressTestAddressLabelIsEmpty"/>
+          <include name="postAddEditTheUserAddressTestAddressLabelIllegalCharacters"/>
+          <include name="postAddEditTheUserAddressTestCityCodeIsSpace"/>
+          <include name="postAddEditTheUserAddressTestCityCodeIsString"/>
+          <include name="postAddEditTheUserAddressTestDetailedAddressIsDecimal"/>
           <include name="beforeClass"/>
-          <include name="afterClass"/>
+          <include name="postAddEditTheUserAddressTestAddressLabelIsNull"/>
+          <include name="postAddEditTheUserAddressTestCityCodeIsDecimal"/>
+          <include name="postAddEditTheUserAddressTestAddressLabelIsSpace"/>
+          <include name="postAddEditTheUserAddressTestCityCodeIsError"/>
+          <include name="postAddEditTheUserAddressTestDetailedAddressIsNegativeNumber"/>
+          <include name="postAddEditTheUserAddressTestCityCodeIllegalCharacters"/>
+          <include name="postAddEditTheUserAddressTestDetailedAddressIsZero"/>
+          <include name="postAddEditTheUserAddressTestAddressLabelIsExistent"/>
+          <include name="postAddEditTheUserAddressTestConsigneeIsEmpty"/>
+          <include name="postAddEditTheUserAddressTestAddressLabelNonSubmissionParameters"/>
+          <include name="postAddEditTheUserAddressTestCityCodeIsEmpty"/>
+          <include name="postAddEditTheUserAddressTestNonDefault"/>
+          <include name="postAddEditTheUserAddressTestAddressLabelIsLong"/>
+          <include name="postAddEditTheUserAddressTestAddressLabelIsDecimal"/>
+          <include name="postAddEditTheUserAddressTestAddressLabelIsZero"/>
+          <include name="postAddEditTheUserAddressTestDetailedAddressIsString"/>
+          <include name="postAddEditTheUserAddressTestCityCodeIsLong"/>
+          <include name="postAddEditTheUserAddressTestConsigneeIsNull"/>
+          <include name="postAddEditTheUserAddressTestIsDefault"/>
+          <include name="postAddEditTheUserAddressTestCityCodeIsNegativeNumber"/>
+          <include name="postAddEditTheUserAddressTestAddressLabelIsNegativeNumber"/>
         </methods>
-      </class> <!-- com.personalCenter.FeedbackTest -->
+      </class> <!-- com.personalCenter.AddEditTheUserAddressTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

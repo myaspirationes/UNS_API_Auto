@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>84/28/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon May 28 16:56:41 CST 2018</td>
+<td>Started on:</td><td>Mon May 28 17:33:41 CST 2018</td>
 </tr>
-<tr><td>Total time:</td><td>0 seconds (413 ms)</td>
+<tr><td>Total time:</td><td>13 seconds (13703 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,1782 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIllegalCharacters()'><b>postAddEditTheUserAddressTestAddressLabelIllegalCharacters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[addressId 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIllegalCharacters(AddEditTheUserAddressTest.java:1089)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace93199773", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace93199773'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[addressId 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIllegalCharacters(AddEditTheUserAddressTest.java:1089)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsDecimal()'><b>postAddEditTheUserAddressTestAddressLabelIsDecimal</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsDecimal(AddEditTheUserAddressTest.java:732)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace352367347", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace352367347'><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsDecimal(AddEditTheUserAddressTest.java:732)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsEmpty()'><b>postAddEditTheUserAddressTestAddressLabelIsEmpty</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[addressId 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsEmpty(AddEditTheUserAddressTest.java:913)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1551629761", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1551629761'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[addressId 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsEmpty(AddEditTheUserAddressTest.java:913)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsExistent()'><b>postAddEditTheUserAddressTestAddressLabelIsExistent</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsExistent(AddEditTheUserAddressTest.java:868)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1902671237", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1902671237'><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsExistent(AddEditTheUserAddressTest.java:868)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsLong()'><b>postAddEditTheUserAddressTestAddressLabelIsLong</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[数据库执行异常]&quot;&gt; but was:&lt;&quot;[失败]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsLong(AddEditTheUserAddressTest.java:687)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace462526099", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace462526099'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[数据库执行异常]&quot;&gt; but was:&lt;&quot;[失败]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsLong(AddEditTheUserAddressTest.java:687)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsNegativeNumber()'><b>postAddEditTheUserAddressTestAddressLabelIsNegativeNumber</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsNegativeNumber(AddEditTheUserAddressTest.java:778)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2113748097", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2113748097'><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsNegativeNumber(AddEditTheUserAddressTest.java:778)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsNull()'><b>postAddEditTheUserAddressTestAddressLabelIsNull</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数]异常！&quot;&gt; but was:&lt;&quot;[程序]异常！&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsNull(AddEditTheUserAddressTest.java:957)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2075952726", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2075952726'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数]异常！&quot;&gt; but was:&lt;&quot;[程序]异常！&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsNull(AddEditTheUserAddressTest.java:957)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsSpace()'><b>postAddEditTheUserAddressTestAddressLabelIsSpace</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[addressId 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsSpace(AddEditTheUserAddressTest.java:1001)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2113604623", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2113604623'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[addressId 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsSpace(AddEditTheUserAddressTest.java:1001)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsZero()'><b>postAddEditTheUserAddressTestAddressLabelIsZero</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsZero(AddEditTheUserAddressTest.java:824)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace983595261", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace983595261'><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelIsZero(AddEditTheUserAddressTest.java:824)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelNonSubmissionParameters()'><b>postAddEditTheUserAddressTestAddressLabelNonSubmissionParameters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数]异常！&quot;&gt; but was:&lt;&quot;[程序]异常！&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelNonSubmissionParameters(AddEditTheUserAddressTest.java:1045)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace350059321", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace350059321'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数]异常！&quot;&gt; but was:&lt;&quot;[程序]异常！&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestAddressLabelNonSubmissionParameters(AddEditTheUserAddressTest.java:1045)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIllegalCharacters()'><b>postAddEditTheUserAddressTestCityCodeIllegalCharacters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIllegalCharacters(AddEditTheUserAddressTest.java:2934)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace575935098", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace575935098'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIllegalCharacters(AddEditTheUserAddressTest.java:2934)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsDecimal()'><b>postAddEditTheUserAddressTestCityCodeIsDecimal</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsDecimal(AddEditTheUserAddressTest.java:2754)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace221111433", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace221111433'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsDecimal(AddEditTheUserAddressTest.java:2754)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsEmpty()'><b>postAddEditTheUserAddressTestCityCodeIsEmpty</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsEmpty(AddEditTheUserAddressTest.java:2889)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace940857381", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace940857381'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsEmpty(AddEditTheUserAddressTest.java:2889)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsError()'><b>postAddEditTheUserAddressTestCityCodeIsError</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[失败]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsError(AddEditTheUserAddressTest.java:2664)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace616674002", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace616674002'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[失败]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsError(AddEditTheUserAddressTest.java:2664)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsLong()'><b>postAddEditTheUserAddressTestCityCodeIsLong</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsLong(AddEditTheUserAddressTest.java:2979)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace925973605", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace925973605'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsLong(AddEditTheUserAddressTest.java:2979)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsNegativeNumber()'><b>postAddEditTheUserAddressTestCityCodeIsNegativeNumber</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsNegativeNumber(AddEditTheUserAddressTest.java:2709)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1954985045", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1954985045'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsNegativeNumber(AddEditTheUserAddressTest.java:2709)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsSpace()'><b>postAddEditTheUserAddressTestCityCodeIsSpace</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsSpace(AddEditTheUserAddressTest.java:2844)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace530539368", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace530539368'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsSpace(AddEditTheUserAddressTest.java:2844)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsString()'><b>postAddEditTheUserAddressTestCityCodeIsString</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsString(AddEditTheUserAddressTest.java:3069)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace757708014", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace757708014'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[参数异常！]&quot;&gt; but was:&lt;&quot;[cityCode 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsString(AddEditTheUserAddressTest.java:3069)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestConsigneeIsEmpty()'><b>postAddEditTheUserAddressTestConsigneeIsEmpty</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[失败]&quot;&gt; but was:&lt;&quot;[contactName 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestConsigneeIsEmpty(AddEditTheUserAddressTest.java:1224)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace800088638", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace800088638'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;[失败]&quot;&gt; but was:&lt;&quot;[contactName 校验失败,非法输入]&quot;&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestConsigneeIsEmpty(AddEditTheUserAddressTest.java:1224)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestConsigneeIsNull()'><b>postAddEditTheUserAddressTestConsigneeIsNull</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;&quot;程序异常[]&quot;&gt; but was:&lt;&quot;程序异常[！]&quot;&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestConsigneeIsNull(AddEditTheUserAddressTest.java:1314)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2100440237", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2100440237'><pre>org.junit.ComparisonFailure: expected:&lt;&quot;程序异常[]&quot;&gt; but was:&lt;&quot;程序异常[！]&quot;&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestConsigneeIsNull(AddEditTheUserAddressTest.java:1314)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaults()'><b>postAddEditTheUserAddressTestDefaults</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaults(AddEditTheUserAddressTest.java:4611)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1991278377", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1991278377'><pre>java.lang.IndexOutOfBoundsException: Index: 1, Size: 1
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaults(AddEditTheUserAddressTest.java:4611)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsDecimal()'><b>postAddEditTheUserAddressTestDetailedAddressIsDecimal</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsDecimal(AddEditTheUserAddressTest.java:3969)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2103569237", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2103569237'><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsDecimal(AddEditTheUserAddressTest.java:3969)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsNegativeNumber()'><b>postAddEditTheUserAddressTestDetailedAddressIsNegativeNumber</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsNegativeNumber(AddEditTheUserAddressTest.java:3924)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1399701152", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1399701152'><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsNegativeNumber(AddEditTheUserAddressTest.java:3924)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsString()'><b>postAddEditTheUserAddressTestDetailedAddressIsString</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsString(AddEditTheUserAddressTest.java:3834)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace40170008", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace40170008'><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsString(AddEditTheUserAddressTest.java:3834)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsZero()'><b>postAddEditTheUserAddressTestDetailedAddressIsZero</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsZero(AddEditTheUserAddressTest.java:3879)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace193388045", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace193388045'><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsZero(AddEditTheUserAddressTest.java:3879)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestIsDefault()'><b>postAddEditTheUserAddressTestIsDefault</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestIsDefault(AddEditTheUserAddressTest.java:4509)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace749282235", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace749282235'><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestIsDefault(AddEditTheUserAddressTest.java:4509)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestNonDefault()'><b>postAddEditTheUserAddressTestNonDefault</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestNonDefault(AddEditTheUserAddressTest.java:4554)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1219916644", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1219916644'><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestNonDefault(AddEditTheUserAddressTest.java:4554)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestNonDefaults()'><b>postAddEditTheUserAddressTestNonDefaults</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestNonDefaults(AddEditTheUserAddressTest.java:4599)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace968113504", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace968113504'><pre>org.junit.ComparisonFailure: expected:&lt;[0]&gt; but was:&lt;[-3]&gt;
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestNonDefaults(AddEditTheUserAddressTest.java:4599)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,10 +1851,425 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeIsZero()'><b>postAddEditTheUserAddressTestCityCodeIsZero</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeNonSubmissionParameters()'><b>postAddEditTheUserAddressTestCityCodeNonSubmissionParameters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCityCodeNotTheSameAsCountyCode()'><b>postAddEditTheUserAddressTestCityCodeNotTheSameAsCountyCode</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestConsigneeIllegalCharacters()'><b>postAddEditTheUserAddressTestConsigneeIllegalCharacters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestConsigneeIsLong()'><b>postAddEditTheUserAddressTestConsigneeIsLong</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestConsigneeIsSpace()'><b>postAddEditTheUserAddressTestConsigneeIsSpace</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestConsigneeNonSubmissionParameters()'><b>postAddEditTheUserAddressTestConsigneeNonSubmissionParameters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
 <td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCorrectParameter()'><b>postAddEditTheUserAddressTestCorrectParameter</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
 <td></td>
 <td>0</td>
-<td>com.personalCenter.AddEditTheUserAddressTest@17046283</td></tr>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCorrectParameter0()'><b>postAddEditTheUserAddressTestCorrectParameter0</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCountyCodeIllegalCharacters()'><b>postAddEditTheUserAddressTestCountyCodeIllegalCharacters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCountyCodeIsDecimal()'><b>postAddEditTheUserAddressTestCountyCodeIsDecimal</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCountyCodeIsEmpty()'><b>postAddEditTheUserAddressTestCountyCodeIsEmpty</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCountyCodeIsError()'><b>postAddEditTheUserAddressTestCountyCodeIsError</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCountyCodeIsLong()'><b>postAddEditTheUserAddressTestCountyCodeIsLong</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCountyCodeIsNegativeNumber()'><b>postAddEditTheUserAddressTestCountyCodeIsNegativeNumber</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCountyCodeIsNull()'><b>postAddEditTheUserAddressTestCountyCodeIsNull</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCountyCodeIsSpace()'><b>postAddEditTheUserAddressTestCountyCodeIsSpace</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCountyCodeIsString()'><b>postAddEditTheUserAddressTestCountyCodeIsString</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCountyCodeIsZero()'><b>postAddEditTheUserAddressTestCountyCodeIsZero</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestCountyCodeNonSubmissionParameters()'><b>postAddEditTheUserAddressTestCountyCodeNonSubmissionParameters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaultIllegalCharacters()'><b>postAddEditTheUserAddressTestDefaultIllegalCharacters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaultIsDecimal()'><b>postAddEditTheUserAddressTestDefaultIsDecimal</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaultIsEmpty()'><b>postAddEditTheUserAddressTestDefaultIsEmpty</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaultIsError()'><b>postAddEditTheUserAddressTestDefaultIsError</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaultIsLong()'><b>postAddEditTheUserAddressTestDefaultIsLong</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaultIsNegativeNumber()'><b>postAddEditTheUserAddressTestDefaultIsNegativeNumber</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaultIsNull()'><b>postAddEditTheUserAddressTestDefaultIsNull</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaultIsSpace()'><b>postAddEditTheUserAddressTestDefaultIsSpace</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaultIsString()'><b>postAddEditTheUserAddressTestDefaultIsString</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDefaultNonSubmissionParameters()'><b>postAddEditTheUserAddressTestDefaultNonSubmissionParameters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIllegalCharacters()'><b>postAddEditTheUserAddressTestDetailedAddressIllegalCharacters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsEmpty()'><b>postAddEditTheUserAddressTestDetailedAddressIsEmpty</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsLong()'><b>postAddEditTheUserAddressTestDetailedAddressIsLong</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsNull()'><b>postAddEditTheUserAddressTestDetailedAddressIsNull</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressIsSpace()'><b>postAddEditTheUserAddressTestDetailedAddressIsSpace</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestDetailedAddressNonSubmissionParameters()'><b>postAddEditTheUserAddressTestDetailedAddressNonSubmissionParameters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestLabelNameIllegalCharacters()'><b>postAddEditTheUserAddressTestLabelNameIllegalCharacters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestLabelNameIsDecimal()'><b>postAddEditTheUserAddressTestLabelNameIsDecimal</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestLabelNameIsEmpty()'><b>postAddEditTheUserAddressTestLabelNameIsEmpty</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestLabelNameIsLong()'><b>postAddEditTheUserAddressTestLabelNameIsLong</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestLabelNameIsNegativeNumber()'><b>postAddEditTheUserAddressTestLabelNameIsNegativeNumber</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestLabelNameIsNull()'><b>postAddEditTheUserAddressTestLabelNameIsNull</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestLabelNameIsSpace()'><b>postAddEditTheUserAddressTestLabelNameIsSpace</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestLabelNameIsString()'><b>postAddEditTheUserAddressTestLabelNameIsString</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestLabelNameIsZero()'><b>postAddEditTheUserAddressTestLabelNameIsZero</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestLabelNameNonSubmissionParameters()'><b>postAddEditTheUserAddressTestLabelNameNonSubmissionParameters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobileIllegalCharacters()'><b>postAddEditTheUserAddressTestMobileIllegalCharacters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobileIsEmpty()'><b>postAddEditTheUserAddressTestMobileIsEmpty</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobileIsLong()'><b>postAddEditTheUserAddressTestMobileIsLong</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobileIsNegativeNumber()'><b>postAddEditTheUserAddressTestMobileIsNegativeNumber</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobileIsNull()'><b>postAddEditTheUserAddressTestMobileIsNull</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobileIsSpace()'><b>postAddEditTheUserAddressTestMobileIsSpace</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobileIsTelephone()'><b>postAddEditTheUserAddressTestMobileIsTelephone</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobileIsZero()'><b>postAddEditTheUserAddressTestMobileIsZero</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobileLessThan11()'><b>postAddEditTheUserAddressTestMobileLessThan11</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobileNonSubmissionParameters()'><b>postAddEditTheUserAddressTestMobileNonSubmissionParameters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobileNotBegin1()'><b>postAddEditTheUserAddressTestMobileNotBegin1</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobilePrecede00()'><b>postAddEditTheUserAddressTestMobilePrecede00</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobilePrecede17951()'><b>postAddEditTheUserAddressTestMobilePrecede17951</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestMobilePrecede86()'><b>postAddEditTheUserAddressTestMobilePrecede86</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeIllegalCharacters()'><b>postAddEditTheUserAddressTestProvinceCodeIllegalCharacters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeIsDecimal()'><b>postAddEditTheUserAddressTestProvinceCodeIsDecimal</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeIsEmpty()'><b>postAddEditTheUserAddressTestProvinceCodeIsEmpty</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeIsError()'><b>postAddEditTheUserAddressTestProvinceCodeIsError</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeIsLong()'><b>postAddEditTheUserAddressTestProvinceCodeIsLong</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeIsNegativeNumber()'><b>postAddEditTheUserAddressTestProvinceCodeIsNegativeNumber</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeIsNull()'><b>postAddEditTheUserAddressTestProvinceCodeIsNull</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeIsSpace()'><b>postAddEditTheUserAddressTestProvinceCodeIsSpace</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeIsString()'><b>postAddEditTheUserAddressTestProvinceCodeIsString</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeIsZero()'><b>postAddEditTheUserAddressTestProvinceCodeIsZero</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeNonSubmissionParameters()'><b>postAddEditTheUserAddressTestProvinceCodeNonSubmissionParameters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeNotTheSameAsCityCode()'><b>postAddEditTheUserAddressTestProvinceCodeNotTheSameAsCityCode</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestProvinceCodeNotTheSameAsCountyCode()'><b>postAddEditTheUserAddressTestProvinceCodeNotTheSameAsCountyCode</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestUserIdIllegalCharacters()'><b>postAddEditTheUserAddressTestUserIdIllegalCharacters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestUserIdIsDecimal()'><b>postAddEditTheUserAddressTestUserIdIsDecimal</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestUserIdIsEmpty()'><b>postAddEditTheUserAddressTestUserIdIsEmpty</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestUserIdIsError()'><b>postAddEditTheUserAddressTestUserIdIsError</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestUserIdIsLong()'><b>postAddEditTheUserAddressTestUserIdIsLong</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestUserIdIsNegativeNumber()'><b>postAddEditTheUserAddressTestUserIdIsNegativeNumber</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestUserIdIsSpace()'><b>postAddEditTheUserAddressTestUserIdIsSpace</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestUserIdIsZero()'><b>postAddEditTheUserAddressTestUserIdIsZero</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestUserIdNonSelf()'><b>postAddEditTheUserAddressTestUserIdNonSelf</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestUserIdNonSubmissionParameters()'><b>postAddEditTheUserAddressTestUserIdNonSubmissionParameters</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
+<tr>
+<td title='com.personalCenter.AddEditTheUserAddressTest.postAddEditTheUserAddressTestUserIdNotLoggedIn()'><b>postAddEditTheUserAddressTestUserIdNotLoggedIn</b><br>Test class: com.personalCenter.AddEditTheUserAddressTest</td>
+<td></td>
+<td>0</td>
+<td>com.personalCenter.AddEditTheUserAddressTest@1622f1b</td></tr>
 </table><p>
 </body>
 </html>
