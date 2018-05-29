@@ -38,11 +38,9 @@ public class ShareTest extends HttpUtil {
 	 */
 	@Test
 	public void postShareTestCorrectParameter() throws Exception {
-		//body = login.getLoginTestChcodeBy177();
-		uuid = (body.get("userId")).toString();
-		chcode = (body.get("checkCode")).toString();
+		
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("shareType", 1);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -569,7 +567,7 @@ public class ShareTest extends HttpUtil {
 	public void postShareTestShareTypeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("shareType", 99);
+		con.put("shareType", 100);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
@@ -591,7 +589,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 分享输入String

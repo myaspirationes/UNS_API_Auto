@@ -15,7 +15,7 @@ import com.example.HttpUtil;
 import com.example.LoginTest;
 
 public class OrderSeachTest extends HttpUtil {
-// 用户创建订单接口
+// 搜索订单的详情接口
 	String url = "/api/oderSeach";
 	JSONObject body;
 	String uuid;

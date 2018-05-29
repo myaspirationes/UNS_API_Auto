@@ -19,13 +19,13 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 //证件照认证接口
 	String url = "/UU/authenticate";
 	WalletTest walletTest = new WalletTest();
-	String deleteSql0 = "DELETE FROM T_AUTH_JUNIOR_REAL_NAME WHERE USER_ID =  uuid";
-	String deleteSql1 = "DELETE FROM t_wallet where USER_ID =uuid";
+	String deleteSql0 = "DELETE FROM T_AUTH_JUNIOR_REAL_NAME WHERE USER_ID =  12495396";
+	String deleteSql1 = "DELETE FROM t_wallet where USER_ID =12495396";
 	String dataType0 = "perCenter81";
 	String dataType1 = "wallet81";
-	String deleteSql2 = "DELETE FROM T_AUTH_PHOTO WHERE USER_ID = 'uuid'";
-	String updateSql0 = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = 'uuid'";
-	String updateSql1 = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='2' WHERE USER_ID = 'uuid'";
+	String deleteSql2 = "DELETE FROM T_AUTH_PHOTO WHERE USER_ID = '12495396'";
+	String updateSql0 = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='1' WHERE USER_ID = '12495396'";
+	String updateSql1 = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='2' WHERE USER_ID = '12495396'";
 	JSONObject body;
 	String chcode;
 	String uuid;
@@ -34,7 +34,7 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	public void  beforeClass(){
 		
 		try {
-			body = login.getLoginTestChcodeBy137();
+			body = login.getLoginTestChcodeBy177();
 			uuid = (body.get("userId")).toString();
 			chcode = (body.get("checkCode")).toString();
 		} catch (Exception e) {
@@ -46,11 +46,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 提交正确参数
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestCorrectParameter() throws Exception {
+	public void postIdPhotoAuthenticateTestCorrectParameter() throws Exception {		
 		walletTest.postWalletTestCorrectParameter();
-		//body = login.getLoginTestChcodeBy137();
-		//uuid = (body.get(uuid)).toString();
-		//chcode = (body.get("checkCode")).toString();
+		
 		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);

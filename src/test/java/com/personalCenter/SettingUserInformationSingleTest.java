@@ -85,7 +85,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户为未登录
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUserIdNotLoggedIn() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -126,7 +126,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户为错误
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUserIdIsError() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -167,7 +167,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户ID存在小数
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUserIdIsDecimal() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -208,7 +208,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户ID存在非法字符
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -249,7 +249,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户ID存在负数
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUserIdIsNegativeNumbe() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -290,7 +290,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUserIdIsZero() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -331,7 +331,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户ID为String
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUserIdIsString() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -372,7 +372,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUserIdIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -413,7 +413,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUserIdIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -454,7 +454,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUserIdIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -495,7 +495,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户ID不传该 参数
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUserIdNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -536,7 +536,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 昵称超长
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestNickNameIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -572,12 +572,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("昵称的长度不能超过64位");
+		assertThat(head1.get("msg")).isEqualTo("昵称的长度不能超过8位");
 	}
 	/**
 	 * 昵称为非法字符
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestNickNameIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -618,7 +618,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 昵称为空
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestNickNameIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -659,7 +659,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 昵称为空格
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestNickNameIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -700,7 +700,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 昵称为null
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestNickNameIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -741,7 +741,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 昵称为不传该参数
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestNickNameNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -782,7 +782,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * u吧号超长
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUBarIdIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -823,7 +823,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * u吧号为非法字符
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUBarIdIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -864,7 +864,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * u吧号为空
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUBarIdIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -905,7 +905,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * u吧号为空格
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUBarIdIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -947,7 +947,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * u吧号为null
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUBarIdIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -989,7 +989,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * u吧号为不传该参数
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestUBarIdNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1031,7 +1031,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 性别传0男
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestGenderIsZero() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1065,18 +1065,19 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("性别传0男" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-		String sesql0 = "SELECT * FROM T_USERINFO WHERE USER_ID = 12495324";
+		String sesql0 = "SELECT * FROM T_USERINFO WHERE USER_ID = 12495396";
 		list = MetaOper.read(sesql0, dataType);
-		String gender = list.get(0).get("GENDER").toString();
+		
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(gender,equalTo("0"));
+		assertThat(list.get(0).get("GENDER").toString()).isEqualTo("0");
+		
 	}
 	
 	/**
 	 * 性别传1女
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestGenderIsOne() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1110,17 +1111,16 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("性别传1女" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-		String sesql0 = "SELECT * FROM T_USERINFO WHERE USER_ID = 12495324";
+		String sesql0 = "SELECT * FROM T_USERINFO WHERE USER_ID = 12495396";
 		list = MetaOper.read(sesql0, dataType);
-		String gender = list.get(0).get("GENDER").toString();
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(gender,equalTo( "1" ));
+		assertThat(list.get(0).get("GENDER").toString()).isEqualTo("1");
 	}
 	/**
 	 * 性别传错误
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestGenderIsError() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1156,12 +1156,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("性别的值只能是0男或1女");
 	}
 	/**
 	 * 性别传小数
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestGenderIsDecimal() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1197,12 +1197,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("性别不是数字");
 	}
 	/**
 	 * 性别传负数
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestGenderIsNegativeNumbe() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1238,12 +1238,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("性别不是数字");
 	}
 	/**
 	 * 性别传String
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestGenderIsString() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1279,12 +1279,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("性别不是数字");
 	}
 	/**
 	 * 性别传最大值
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestGenderIsMax() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1320,12 +1320,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("性别的值只能是0男或1女");
 	}
 	/**
 	 * 性别传空
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestGenderIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1361,12 +1361,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("性别不是数字");
 	}
 	/**
 	 * 性别传空格
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestGenderIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1402,12 +1402,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("性别不是数字");
 	}
 	/**
 	 * 性别传null
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestGenderIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1448,7 +1448,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 性别不传该参数
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestGenderNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1489,7 +1489,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 地区超长
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestCityAddressIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1525,12 +1525,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("地区的的长度超过6位");
 	}
 	/**
 	 * 地区为非法字符
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestCityAddressIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1538,7 +1538,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		con.put("nickName", "梦想家Even");
 		con.put("uBarId", "D"+ru.getRandomNum(8)+"E"+ru.getRandomNum(6));
 		con.put("gender", 1);
-		con.put("cityAddress", "<#$%&*>");
+		con.put("cityAddress", "<#&*>");
 		con.put("companyAddress", "上南路3855号如日商务园区11号楼5楼");
 		con.put("familyAddress", "闵行区富砾路259弄38号");
 		con.put("email", "13774323645@163.com");
@@ -1566,12 +1566,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("地区数据包错误");
 	}
 	/**
 	 * 地区为空
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestCityAddressIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1607,12 +1607,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("地区数据包错误");
 	}
 	/**
 	 * 地区为空格
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestCityAddressIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1648,13 +1648,13 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("地区数据包错误");
 	}
 	
 	/**
 	 * 地区为null
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestCityAddressIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1695,7 +1695,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 地区为不传该参数
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestCityAddressNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1736,7 +1736,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 公司地址超长
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestCompanyAddressIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1772,12 +1772,12 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("微度号只可以修改一次");
+		assertThat(head1.get("msg")).isEqualTo("公司地址的长度超过240位");
 	}
 	/**
 	 * 公司地址为非法字符
 	 */
-	//@Test
+	@Test
 	public void postSettingUserInformationSingleTestCompanyAddressIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1818,7 +1818,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 公司地址为空
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestCompanyAddressIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1859,7 +1859,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 公司地址为空格
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestCompanyAddressIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1900,7 +1900,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 公司地址为null
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestCompanyAddressIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1941,7 +1941,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 公司地址为不传该参数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestCompanyAddressNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -1982,7 +1982,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 家庭住址为非法字符
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestFamilyAddressIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2023,7 +2023,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 家庭住址为空
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestFamilyAddressIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2064,7 +2064,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 家庭住址为空格
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestFamilyAddressIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2105,7 +2105,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 家庭住址为null
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestFamilyAddressIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2146,7 +2146,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 家庭住址为不传该参数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestFamilyAddressNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2187,7 +2187,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱超长
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEmailIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2228,7 +2228,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱为非法字符
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEmailIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2269,7 +2269,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱为空
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEmailIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2311,7 +2311,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱为空格
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEmailIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2353,7 +2353,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱为null
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEmailIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2395,7 +2395,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 邮箱为不传该参数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEmailNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2437,7 +2437,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名超长
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2479,7 +2479,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名为非法字符
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2520,7 +2520,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名为空
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2561,7 +2561,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名为空格
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2602,7 +2602,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名为null
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2643,7 +2643,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 英文名为不传该参数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestEnglishNameIsNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2684,7 +2684,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名超长
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestsiGnatureIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2725,7 +2725,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名为非法字符
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestsiGnatureIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2766,7 +2766,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名为空
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestsiGnatureIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2807,7 +2807,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名为空格
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestsiGnatureIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2848,7 +2848,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名为null
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestsiGnatureIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2889,7 +2889,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 个性签名为不传该参数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2930,7 +2930,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交超长
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestMySocialIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -2971,7 +2971,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交为非法字符
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestMySocialIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3012,7 +3012,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交为空
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestmySocialIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3053,7 +3053,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交为空格
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestmySocialIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3094,7 +3094,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交为null
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestMySocialIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3135,7 +3135,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 我的社交为不传该参数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestMySocialNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3176,7 +3176,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 头像url超长
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadUrlIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3217,7 +3217,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 头像url为非法字符
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadUrlIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3258,7 +3258,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 头像url为空
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadUrlIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3299,7 +3299,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 头像url为空格
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadUrlIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3341,7 +3341,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 头像url为不传该参数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadUrlNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3382,7 +3382,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名超长
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHostUrlIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3423,7 +3423,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名为非法字符
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHostUrlIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3464,7 +3464,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名为空
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHostUrlIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3505,7 +3505,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名为空格
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHostUrlIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3546,7 +3546,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名为null
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHostUrlIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3587,7 +3587,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 主机域名为不传该参数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHostUrlNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3628,7 +3628,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像id超长
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3669,7 +3669,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像id为非法字符
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3710,7 +3710,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像id为空
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3751,7 +3751,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为空格
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3792,7 +3792,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为null
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3833,7 +3833,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为小数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsDecimal() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3874,7 +3874,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为0
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsZero() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3915,7 +3915,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为负数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadFileIdIsNegativeNumbe() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3956,7 +3956,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 用户头像ID为不传该参数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestHeadFileIdNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -3997,7 +3997,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件id超长
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsLong() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -4038,7 +4038,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件id为非法字符
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsIllegalCharacters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -4079,7 +4079,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件id为空
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsEmpty() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -4120,7 +4120,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为空格
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsSpace() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -4161,7 +4161,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为null
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -4202,7 +4202,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为小数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsDecimal() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -4243,7 +4243,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为0
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsZero() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -4284,7 +4284,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为负数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdIsNegativeNumbe() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -4325,7 +4325,7 @@ public class SettingUserInformationSingleTest extends HttpUtil {
 	/**
 	 * 动态封面文件ID为不传该参数
 	 */
-	////@Test
+	@Test
 	public void postSettingUserInformationSingleTestDynamicFileIdNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();

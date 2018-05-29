@@ -40,7 +40,7 @@ public class AuthenticateTest extends HttpUtil {
 	@Test
 	public void postAuthenticateTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -102,7 +102,7 @@ public class AuthenticateTest extends HttpUtil {
 	@Test
 	public void postAuthenticateTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12492211");
+		con.put("userId", 12492221);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");

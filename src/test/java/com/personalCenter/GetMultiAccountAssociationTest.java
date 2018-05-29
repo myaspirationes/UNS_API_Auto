@@ -72,7 +72,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 	@Test
 	public void postMultiAccountAssociationTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -102,10 +102,10 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -135,7 +135,7 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<#$%.>");
@@ -162,13 +162,13 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("用户ID为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID为小数
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12492.125);
@@ -195,16 +195,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID为负数
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -228,13 +228,13 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
@@ -261,13 +261,13 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
@@ -294,13 +294,13 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
@@ -327,13 +327,13 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
@@ -360,13 +360,13 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID不传该参数
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
@@ -392,16 +392,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 唯一标识错误
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUniqueIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF55123124edfgdfgwe424 3A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -425,16 +425,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("唯一标识错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 *唯一标识超长
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUniqueIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5Esdasdasdasdasdasdasdaaaaaaassssssssssssssssssssssssssssssssssssssssssssssssssssss2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -458,16 +458,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("唯一标识超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 唯一标识为空
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUniqueIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -491,16 +491,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("唯一标识为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 唯一标识存在非法字符
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUniqueIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "<$%^.>");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -524,16 +524,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("唯一标识存在非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 唯一标识为空格
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUniqueIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -557,16 +557,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("唯一标识为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 不传唯一标识
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestUniqueIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("type", 1);
 		con.put("bind", "bind");
 		con.put("nickName", "nickName");
@@ -589,16 +589,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("不传唯一标识" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型为错误
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestTypeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 123123);
 		con.put("bind", "bind");
@@ -622,16 +622,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("账户类型为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型为String
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestTypeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", "asas");
 		con.put("bind", "bind");
@@ -655,16 +655,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("账户类型为String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型为小数
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestTypeIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1.5);
 		con.put("bind", "bind");
@@ -688,16 +688,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("账户类型为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型为负数
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestTypeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", -1);
 		con.put("bind", "bind");
@@ -721,16 +721,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("账户类型为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型为0
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestTypeIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 0);
 		con.put("bind", "bind");
@@ -754,16 +754,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("账户类型为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型为空
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestTypeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -787,16 +787,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("账户类型为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型为空格
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTesttypeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", " ");
 		con.put("bind", "bind");
@@ -820,16 +820,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("账户类型为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型为最大值
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestTypeIsMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 999999999);
 		con.put("bind", "bind");
@@ -853,16 +853,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("账户类型为最大值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型为null
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestTypeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", null);
 		con.put("bind", "bind");
@@ -886,16 +886,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型传1QQ
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestTypeIsQQ() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -919,16 +919,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("账户类型传1QQ" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型传2weichat
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestTypeIsWeichat() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 2);
 		con.put("bind", "bind");
@@ -952,16 +952,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("账户类型传2weichat" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账户类型传3微博
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTesttypeIsSina() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 3);
 		con.put("bind", "bind");
@@ -985,16 +985,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("账户类型传3微博" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 不传账户类型
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("bind", "bind");
 		con.put("nickName", "nickName");
@@ -1017,16 +1017,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("不传账户类型" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 绑定信息为空
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestBindIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "");
@@ -1050,16 +1050,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("绑定信息为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 绑定信息为空格
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestBindIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", " ");
@@ -1083,16 +1083,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("绑定信息为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 绑定信息为超长
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestBindIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbindbind");
@@ -1116,16 +1116,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("绑定信息为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 绑定信息为null
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestBindIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", null);
@@ -1149,16 +1149,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("绑定信息为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 绑定信息存在非法字符
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestBind() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "<$%^.>");
@@ -1182,16 +1182,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("绑定信息存在非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 昵称超长
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestNickNameIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -1215,16 +1215,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("昵称超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 昵称为空
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestNickNameIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -1248,16 +1248,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("昵称为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 昵称为空格
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestNickNameIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -1281,16 +1281,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("昵称为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 昵称为null
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestNickNameIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -1314,16 +1314,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 昵称存在非法字符
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestNickNameIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -1347,16 +1347,16 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("昵称存在非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 不传昵称
 	 */
-	//@Test
+	@Test
 	public void postMultiAccountAssociationTestNickNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
+		con.put("userId", uuid);
 		con.put("uniqueId", "14715291A5E2A40EF553A44B143DE188");
 		con.put("type", 1);
 		con.put("bind", "bind");
@@ -1379,8 +1379,8 @@ public class GetMultiAccountAssociationTest extends HttpUtil {
 		System.out.println("不传昵称" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	
 }

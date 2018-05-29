@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.json.JSONObject;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 //import org.junit.Test;
 import org.testng.annotations.Test;
@@ -43,7 +44,6 @@ public class FeedbackTest extends HttpUtil {
 	@Test
 	public void postFeedbackTestCorrectParameter() throws Exception {
 		List<Map<String,Object>> list ;
-		list =MetaOper.read(selectSql,dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("content", "手机闪退手机闪退手机闪退手机闪退手机闪退手机闪退手机闪退");
@@ -66,16 +66,16 @@ public class FeedbackTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("正确反馈问题" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-		String feedbackContent = list.get(0).get("FEEDBACK_CONTENT").toString();
 		
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("反馈成功");
-		assertThat(feedbackContent.equals("手机闪退手机闪退手机闪退手机闪退手机闪退"));
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("FEEDBACK_CONTENT").toString()).isEqualTo("手机闪退手机闪退手机闪退手机闪退手机闪退手机闪退手机闪退");
 	}
 	/**
 	 * 用户ID错误
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495325);
@@ -106,7 +106,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 用户id不存在
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestUserIdIsNotExist() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "12495AA324");
@@ -137,7 +137,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 用户ID超长
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestUserIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "12495324123123123123123123143415134513452346456345756478");
@@ -168,7 +168,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
@@ -199,7 +199,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
@@ -230,7 +230,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
@@ -261,7 +261,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 用户ID不提交
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		
@@ -292,7 +292,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
@@ -323,7 +323,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12.3);
@@ -354,7 +354,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestUserIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -231L);
@@ -385,7 +385,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 反馈描述超长
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestContentIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -416,7 +416,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 反馈描述存在非法字符
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestContentIsIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -447,7 +447,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 反馈描述为空
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestContentIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -478,7 +478,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 反馈描述为null
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestContentIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -509,7 +509,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 反馈描述为空格
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestContentIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -540,7 +540,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 反馈描述存在图片URL地址
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestContentIsURL() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -571,7 +571,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 反馈描述存在运算符
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestContentIsOperator() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -602,7 +602,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID超过5张
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdIsMoreFive() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -633,7 +633,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID等于5张
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdIsFive() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -664,7 +664,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID为6张其中1张为错误的
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdIsSixAndOneIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -695,7 +695,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID为5张其中一张为错误
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdIsFiveAndOneIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -726,7 +726,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID为1张
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdIsOne() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -757,7 +757,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID为0张
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -788,7 +788,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片Id之间的分隔符非法
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdSeparatorIsIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -819,7 +819,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID存在小数
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -850,7 +850,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID存在负数
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -881,7 +881,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID为空
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -912,7 +912,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID为null
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -943,7 +943,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID为空格
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -974,7 +974,7 @@ public class FeedbackTest extends HttpUtil {
 	/**
 	 * 图片ID不传该参数
 	 */
-	//@Test
+	@Test
 	public void postFeedbackTestFileIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1003,8 +1003,8 @@ public class FeedbackTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("反馈成功");
 	}
 	
-	@AfterClass
-	public void afterClass(){
+	@AfterMethod
+	public void afterMethod(){
 		
 		
 		MetaOper.delete(deleteSql, dataType);
