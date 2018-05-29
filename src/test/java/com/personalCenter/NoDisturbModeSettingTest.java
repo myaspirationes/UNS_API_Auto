@@ -21,7 +21,7 @@ import com.example.MetaOper;
 public class NoDisturbModeSettingTest extends HttpUtil {
 //勿扰模式设置接口
 	String url = "/UU/user";
-	String selectSql = "SELECT * FROM T_MOBILE_SET WHERE USER_ID = 12495324";
+	String selectSql = "SELECT * FROM T_MOBILE_SET WHERE USER_ID = 12495396";
 	List<Map<String,Object>> list ;
 	String dataType = "perCenter81";
 	JSONObject body;
@@ -45,12 +45,14 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSettingTestCorrectParameterNoOpen() throws Exception {
+		body = login.getLoginTestChcodeBy177();
+		uuid= (body.get("userId")).toString();
 		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 0);
-		con.put("noDisturbCreateTime", 0);
-		con.put("noDisturbEndTime", 0);
+		con.put("isNotDisturb", 1);
+		con.put("noDisturbCreateTime", "00:00:00");
+		con.put("noDisturbEndTime", "00:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -69,12 +71,10 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("提交正确参数为未开启" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		list =MetaOper.read(selectSql,dataType);
-		String isNotDisturb = list.get(0).get("IS_NOT_DISTURB").toString();
-		
-	
+			
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(isNotDisturb,equalTo( "0" ));
+		assertThat(list.get(0).get("IS_NOT_DISTURB").toString()).isEqualTo("1");
 		
 		
 	}
@@ -86,7 +86,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 1);
+		con.put("isNotDisturb", 0);
 		con.put("noDisturbCreateTime", "23:00:00");
 		con.put("noDisturbEndTime", "06:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -107,13 +107,12 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("提交正确参数为开启" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		list =MetaOper.read(selectSql,dataType);
-		String isNotDisturb = list.get(0).get("IS_NOT_DISTURB").toString();
 		String nct = list.get(0).get("NODISTURBER_CREATE_TIME") .toString();
 		String net = list.get(0).get("NODISTURBER_END_TIME").toString();
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(isNotDisturb,equalTo( "1" ));
+		assertThat(list.get(0).get("IS_NOT_DISTURB").toString()).isEqualTo("1");		
 		assertThat(nct,equalTo( "23:00:00" ));
 		assertThat(net,equalTo( "06:00:00" ));
 	}
@@ -123,10 +122,10 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12495325");
-		con.put("isNotDisturb", 0);
-		con.put("noDisturbCreateTime", 0);
-		con.put("noDisturbEndTime", 0);
+		con.put("userId", 12495325);
+		con.put("isNotDisturb", 1);
+		con.put("noDisturbCreateTime", "23:00:00");
+		con.put("noDisturbEndTime", "06:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -145,7 +144,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("用户为未登录" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -156,8 +155,8 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "124a95324");
 		con.put("isNotDisturb", 1);
-		con.put("noDisturbCreateTime", 0);
-		con.put("noDisturbEndTime", 0);
+		con.put("noDisturbCreateTime", "23:00:00");
+		con.put("noDisturbEndTime", "06:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -576,7 +575,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("设置勿扰模式参数传错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("-3");
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("isNotDisturb数据不正确");
 	}
 	/**
@@ -769,6 +768,8 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbOpenedAgainOpen() throws Exception {
+		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='0' WHERE USER_ID = '12495396'";
+		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("isNotDisturb", 0);
@@ -800,6 +801,8 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbOpenedAgainNoOpen() throws Exception {
+		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='0' WHERE USER_ID = '12495396'";
+		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
@@ -831,11 +834,11 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbClosedAgainOpen() throws Exception {
-		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='1' WHERE USER_ID = '12495396'";
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 1);
+		con.put("isNotDisturb", 0);
 		con.put("noDisturbCreateTime", "23:00:00");
 		con.put("noDisturbEndTime", "06:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -871,13 +874,13 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbClosedAgainClose() throws Exception {
-		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='1' WHERE USER_ID = '12495396'";
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 0);
-		con.put("noDisturbCreateTime", 0);
-		con.put("noDisturbEndTime", 0);
+		con.put("isNotDisturb", 1);
+		con.put("noDisturbCreateTime", "00:00:00");
+		con.put("noDisturbEndTime", "00:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -1063,7 +1066,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "13:34:45");
-		con.put("noDisturbEndTime", 0);
+		con.put("noDisturbEndTime", "13:34:45");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -1082,11 +1085,11 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("开始时间传时分秒" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		list =MetaOper.read(selectSql,dataType);
-		String noDisturbCreateTime = list.get(0).get("NODISTURBER_CREATE_TIME").toString();
-	
+			
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(noDisturbCreateTime,equalTo( "13:34:45" ));
+		assertThat(list.get(0).get("NODISTURBER_CREATE_TIME").toString()).isEqualTo("13:34:45");
+	
 	}
 	/**
 	 * 开始时间传空格
@@ -1348,7 +1351,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "23:59:59");
-		con.put("noDisturbEndTime", 0);
+		con.put("noDisturbEndTime", "00:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -1367,11 +1370,11 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("开始时间传时分秒最大时间" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		list =MetaOper.read(selectSql,dataType);
-		String noDisturbCreateTime = list.get(0).get("NODISTURBER_CREATE_TIME").toString();
-	
+			
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(noDisturbCreateTime,equalTo( "23:59:59" ));
+		assertThat(list.get(0).get("NODISTURBER_CREATE_TIME").toString()).isEqualTo("23:59:59");
+
 	}
 	/**
 	 * 开始时间传时分秒最小时间
@@ -1382,7 +1385,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "00:00:00");
-		con.put("noDisturbEndTime", 0);
+		con.put("noDisturbEndTime", "00:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -1401,11 +1404,11 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("开始时间传时分秒最小时间" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		list =MetaOper.read(selectSql,dataType);
-		String noDisturbCreateTime = list.get(0).get("NODISTURBER_CREATE_TIME").toString();
-	
+			
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(noDisturbCreateTime,equalTo( "00:00:00" ));
+		assertThat(list.get(0).get("NODISTURBER_CREATE_TIME").toString()).isEqualTo("00:00:00");
+
 	}
 	/**
 	 * 开始时间传年月日时分秒
@@ -1539,7 +1542,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
-		con.put("noDisturbCreateTime", 0);
+		con.put("noDisturbCreateTime", "00:00:00");
 		con.put("noDisturbEndTime", "13:12:12");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
@@ -1559,12 +1562,12 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("结束时间传时分秒" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		list =MetaOper.read(selectSql,dataType);
-		String noDisturbEndTime = list.get(0).get("NODISTURBER_END_TIME").toString();
-		
+				
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(noDisturbEndTime,equalTo( "13:12:12" ));
+		assertThat(list.get(0).get("NODISTURBER_END_TIME").toString()).isEqualTo("13:12:12");
+		
 	}
 	/**
 	 * 结束时间传空格
@@ -1821,7 +1824,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
-		con.put("noDisturbCreateTime", 0);
+		con.put("noDisturbCreateTime", "00:00:00");
 		con.put("noDisturbEndTime", "23:59:59");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
@@ -1841,12 +1844,11 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("结束时间传时分秒最大时间" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		list =MetaOper.read(selectSql,dataType);
-		String noDisturbEndTime = list.get(0).get("NODISTURBER_END_TIME").toString();
-		
-	
+			
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(noDisturbEndTime,equalTo( "23:59:59" ));
+		assertThat(list.get(0).get("NODISTURBER_END_TIME").toString()).isEqualTo("23:59:59");		
+		
 	}
 	/**
 	 * 结束时间传时分秒最小时间
@@ -1856,7 +1858,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("isNotDisturb", 1);
-		con.put("noDisturbCreateTime", 0);
+		con.put("noDisturbCreateTime", "23:00:00");
 		con.put("noDisturbEndTime", "00:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
@@ -1876,12 +1878,11 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("结束时间传时分秒最小时间" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		list =MetaOper.read(selectSql,dataType);
-		String noDisturbEndTime = list.get(0).get("NODISTURBER_END_TIME").toString();
-		
-	
+			
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(noDisturbEndTime,equalTo( "00:00:00" ));
+		assertThat(list.get(0).get("NODISTURBER_END_TIME").toString()).isEqualTo("00:00:00");
+		
 	}
 	/**
 	 * 结束时间传年月日时分秒

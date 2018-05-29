@@ -69,7 +69,7 @@ public class ValidateTest extends HttpUtil {
 	@Test
 	public void postValidateTestMobileIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("mobile", "sdasdasd");
+		con.put("mobile", "12DF0");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
@@ -99,7 +99,7 @@ public class ValidateTest extends HttpUtil {
 	@Test
 	public void postValidateTestMobileIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("mobile", "1377432364511111");
+		con.put("mobile", 1377432364511111L);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");

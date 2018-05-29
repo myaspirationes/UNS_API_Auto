@@ -45,7 +45,7 @@ public class ObtainDetailsOfHolderPhotosTest extends HttpUtil {
 	public void postObtainDetailsOfHolderPhotosTestInReview() throws Exception {
 		HolderPhotoAuthenticateTest hpa = new HolderPhotoAuthenticateTest();
 		hpa.postHolderPhotoAuthenticateTestCorrectParameter();
-		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495417'";
+		String updateSql = "UPDATE \"T_AUTH_HOLD_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = '12495396'";
 		MetaOper.update(updateSql, dataType);
 
 		Map<String, Object> con = new HashMap<String, Object>();

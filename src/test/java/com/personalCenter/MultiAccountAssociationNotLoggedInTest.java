@@ -24,7 +24,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
 		try {
-			body = login.getLoginTestChcodeBy177();
+			body = login.getLoginTestChcodeBy137();
 			uuid= (body.get("userId")).toString();
 			chcode= (body.get("checkCode")).toString();
 		} catch (Exception e) {
@@ -70,7 +70,7 @@ public class MultiAccountAssociationNotLoggedInTest extends HttpUtil {
 	/**
 	 * 手机号码超11位
 	 */
-	////@Test
+	@Test
 	public void postMultiAccountAssociationNotLoggedInTestMobileNumberMoreEleven() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("mobile", "13938228027222");

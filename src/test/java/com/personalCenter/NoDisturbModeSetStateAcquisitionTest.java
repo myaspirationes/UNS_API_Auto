@@ -42,6 +42,8 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 	public void postNoDisturbModeSetStateAcquisitionTestCorrectParameter() throws Exception {
 		NoDisturbModeSettingTest hpa = new NoDisturbModeSettingTest();
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
+		body = login.getLoginTestChcodeBy177();
+		uuid= (body.get("userId")).toString();
 		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);

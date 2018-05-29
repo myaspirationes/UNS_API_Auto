@@ -48,8 +48,9 @@ public class WalletTest extends HttpUtil {
 	 */
 	@Test
 	public void postWalletTestCorrectParameter() throws Exception {
-		//uuid = (body.get("userId")).toString();
-		//chcode = (body.get("checkCode")).toString();
+		body = login.getLoginTestChcodeBy137();
+		uuid = (body.get("userId")).toString();
+		chcode = (body.get("checkCode")).toString();
 		MetaOper.deleteMySql(deleteSql1, dataType1);
 		MetaOper.delete(deleteSql0, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();

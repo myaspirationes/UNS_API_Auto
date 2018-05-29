@@ -34,7 +34,7 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	public void  beforeClass(){
 		
 		try {
-			body = login.getLoginTestChcodeBy137();
+			body = login.getLoginTestChcodeBy177();
 			uuid = (body.get("userId")).toString();
 			chcode = (body.get("checkCode")).toString();
 		} catch (Exception e) {
@@ -46,11 +46,9 @@ public class IdPhotoAuthenticateTest extends HttpUtil {
 	 * 提交正确参数
 	 */
 	@Test
-	public void postIdPhotoAuthenticateTestCorrectParameter() throws Exception {
+	public void postIdPhotoAuthenticateTestCorrectParameter() throws Exception {		
 		walletTest.postWalletTestCorrectParameter();
-		//body = login.getLoginTestChcodeBy137();
-		//uuid = (body.get(uuid)).toString();
-		//chcode = (body.get("checkCode")).toString();
+		
 		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
