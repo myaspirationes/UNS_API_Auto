@@ -20,8 +20,8 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 // 保存容器内容修改
 	String url = "/uu-admin/container/saveOrEditContent";
 	//String updateSql = "update T_CONTAINER_CONTENT set TITLE = '大地' , FILE_ID='101' WHERE CONTAINER_CON_ID='1'";
-	//String selectSql = "SELECT * from T_CONTAINER_CONTENT WHERE CONTAINER_CON_ID = '1'";
-	//String dataType = "perCenter81";
+	String selectSql = "SELECT * from T_CONTAINER_CONTENT WHERE CONTAINER_CON_ID = '1'";
+	String dataType = "perCenter81";
 	List<Map> lis = new ArrayList<Map>();
 	Map<Object, Object> map1 = new HashMap<Object, Object>();
 	Map<Object, Object> map2 = new HashMap<Object, Object>();
@@ -30,8 +30,8 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTesttCorrectParameter() throws Exception {
-		////MetaOper.update(updateSql, dataType);
-		////MetaOper.read(selectSql, dataType);
+		//MetaOper.update(updateSql, dataType);
+		MetaOper.read(selectSql, dataType);
 		
 		map1.put("titleText", "天空");
 		map1.put("fileId", 11);

@@ -39,7 +39,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	@Test
 	public void postGetPlateContentDetailsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324123L);	
+		request.put("userId", 1249);	
 		request.put("containerId", 22);
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -187,8 +187,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(400);
+		
 	}
 	/**
 	 * 用户ID不传该参数
@@ -201,8 +201,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户不能为空");
 	}
 	/**
 	 * 用户ID为超长
@@ -210,7 +210,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	//@Test
 	public void postGetPlateContentDetailsTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", "12495324121222221111122222222");	
+		request.put("userId", 999999999999999999L);	
 		request.put("containerId", 22);
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -226,7 +226,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestContainerIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
-		request.put("containerId", "888");
+		request.put("containerId", 8888888);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为错误" + post);
@@ -241,7 +241,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestContainerIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
-		request.put("containerId", "225561111111111111111111111111");
+		request.put("containerId", 999999999999999999L);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID超长" + post);
@@ -261,8 +261,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
 	}
 	/**
 	 * 容器ID存在非法字符
@@ -276,8 +276,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(400);
+		
 	}
 	/**
 	 * 容器ID为小数
@@ -321,8 +321,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
 	}
 	/**
 	 * 容器ID为null
@@ -336,8 +336,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
 	}
 	/**
 	 * 容器ID为String
@@ -351,8 +351,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(400);
+		
 	}
 	/**
 	 * 容器ID不传该参数
@@ -366,8 +366,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
 	}
 	
 	
