@@ -31,7 +31,7 @@ public class SortListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("homePageParameterPojos[0].containerId", 1);
-		request.put("homePageParameterPojos[1].containerId", 2);
+		request.put("homePageParameterPojos[1].containerId", 18);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 		assertThat(post.get("status")).isEqualTo(0);

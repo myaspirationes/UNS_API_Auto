@@ -37,7 +37,7 @@ public class InvisibleTest extends HttpUtil {
         assertThat(post.get("msg")).isEqualTo("成功");
         list = MetaOper.read(selectStatus,dataType);
 
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat((list.get(0).get("STATUS").toString())).isEqualTo("1");
     }
     /**
      * 用户ID为未登录
@@ -269,8 +269,7 @@ public class InvisibleTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器id为String" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
+        assertThat(post.get("status")).isEqualTo(400);
     }
     /**
      * 容器id为空
@@ -412,7 +411,7 @@ public class InvisibleTest extends HttpUtil {
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
         list = MetaOper.read(selectStatus,dataType);
-        assertThat((list.get(0).get("STATUS").toString()).equals("0"));
+        assertThat((list.get(0).get("STATUS").toString())).isEqualTo("0");
     }
     /**
      * 状态为1启用
@@ -422,7 +421,7 @@ public class InvisibleTest extends HttpUtil {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
         request.put("containerId", 2);
-        request.put("status",0);
+        request.put("status",1);
 
         JSONObject post = super.UNSPost(url, request);
         System.out.println("状态为1启用" + post);
@@ -430,7 +429,7 @@ public class InvisibleTest extends HttpUtil {
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
         list = MetaOper.read(selectStatus,dataType);
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat((list.get(0).get("STATUS").toString())).isEqualTo("1");
     }
     /**
      * 状态为小数
@@ -448,7 +447,7 @@ public class InvisibleTest extends HttpUtil {
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
         list = MetaOper.read(selectStatus,dataType);
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat((list.get(0).get("STATUS").toString())).isEqualTo("1");
     }
     /**
      * 状态为负数

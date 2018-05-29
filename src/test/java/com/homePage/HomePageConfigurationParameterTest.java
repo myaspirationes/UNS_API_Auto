@@ -41,11 +41,11 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 	public void postHomePageConfigurationParameterTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("keyWord", "苹果");
+		
 
 		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("ver", "2.2.2");
+		head.put("cmd", "4893");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -59,8 +59,8 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 		System.out.println("正确参数查询" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为未登陆
@@ -69,11 +69,11 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 	public void postHomePageConfigurationParameterTestUsrIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495325);
-		con.put("keyWord", "苹果");
+		
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -87,8 +87,8 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 		System.out.println("用户ID为未登陆" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为为错误
@@ -97,11 +97,11 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 	public void postHomePageConfigurationParameterTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1111);
-		con.put("keyWord", "苹果");
+		
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -115,8 +115,8 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 		System.out.println("用户ID为为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("不存在用户id");
 	}
 	/**
 	 * 用户ID为为非法字符
@@ -125,11 +125,11 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 	public void postHomePageConfigurationParameterTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " <#$%^>");
-		con.put("keyWord", "苹果");
+		
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -143,8 +143,8 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 		System.out.println("用户ID为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为小数
@@ -153,11 +153,11 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 	public void postHomePageConfigurationParameterTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1.1);
-		con.put("keyWord", "苹果");
+		
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -171,8 +171,8 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为负数
@@ -181,11 +181,11 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 	public void postHomePageConfigurationParameterTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -1);
-		con.put("keyWord", "苹果");
+		
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -199,8 +199,8 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为空格
@@ -209,11 +209,11 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 	public void postHomePageConfigurationParameterTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
-		con.put("keyWord", "苹果");
+		
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -227,8 +227,8 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为空
@@ -237,11 +237,11 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 	public void postHomePageConfigurationParameterTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
-		con.put("keyWord", "苹果");
+		
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -255,8 +255,8 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID为null
@@ -265,11 +265,11 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 	public void postHomePageConfigurationParameterTestuserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
-		con.put("keyWord", "苹果");
+		
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -283,8 +283,8 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -292,11 +292,11 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 	@Test
 	public void postHomePageConfigurationParameterTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("keyWord", "苹果");
+		
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "2111");
+		head.put("cmd", "4893");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -310,8 +310,8 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 
 

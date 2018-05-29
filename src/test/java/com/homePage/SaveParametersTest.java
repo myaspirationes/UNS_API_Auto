@@ -18,15 +18,27 @@ import com.example.HttpUtil;
 public class SaveParametersTest extends HttpUtil {
 // 保存板块参数接口
 	String url = "/uu-admin/container/saveParameters";
-	String selectCarousel = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10100";
-    String selectBigGunCount = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10101";
-    String selectGoodsCount = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10102";
-    String selectUsedCount = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10103";
-    String selectMixtureHigh = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10104";
-    String selectBigGunHigh = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10105";
-    String selectShopHigh = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10116";
-    String selectGoodsHigh = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10117";
-    String selectUsedHigh = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10107";
+	//81环境
+//	String selectCarousel = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10100";
+//    String selectBigGunCount = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10101";
+//    String selectGoodsCount = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10102";
+//    String selectUsedCount = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10103";
+//    String selectMixtureHigh = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10104";
+//    String selectBigGunHigh = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10105";
+//    String selectShopHigh = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10116";
+//    String selectGoodsHigh = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10117";
+//    String selectUsedHigh = "SELECT * FROM T_DICT WHERE \"PARENT\" = 1100 AND \"DICT_ID\" = 10107";
+
+	//41环境
+	String selectCarousel = "SELECT * FROM T_DICT WHERE PARENT = 1100 AND DICT_ID = 10099";
+	String selectBigGunCount = "SELECT * FROM T_DICT WHERE PARENT = 1100 AND DICT_ID = 10100";
+	String selectGoodsCount = "SELECT * FROM T_DICT WHERE PARENT = 1100 AND DICT_ID = 10101";
+	String selectUsedCount = "SELECT * FROM T_DICT WHERE PARENT = 1100 AND DICT_ID = 10102";
+	String selectMixtureHigh = "SELECT * FROM T_DICT WHERE PARENT = 1100 AND DICT_ID = 10103";
+	String selectBigGunHigh = "SELECT * FROM T_DICT WHERE PARENT = 1100 AND DICT_ID = 10104";
+	String selectShopHigh = "SELECT * FROM T_DICT WHERE PARENT = 1100 AND DICT_ID = 10105";
+	String selectGoodsHigh = "SELECT * FROM T_DICT WHERE PARENT = 1100 AND DICT_ID = 10119";
+	String selectUsedHigh = "SELECT * FROM T_DICT WHERE PARENT = 1100 AND DICT_ID = 10106";
 
 	String dataType = "perCenter81";
 	List<Map<String,Object>> list ;
@@ -82,7 +94,7 @@ public class SaveParametersTest extends HttpUtil {
 	@Test
 	public void postSaveParametersTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("userId", "1aaa4");
+		request.put("userId", 1111);
 		request.put("carousel", 1);
 		request.put("bigGunCount", 1);
 		request.put("goodsCount", 1);
@@ -94,7 +106,8 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误用户" + post);
-		assertThat(post.get("status")).isEqualTo(400);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -134,8 +147,8 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("用户ID没有做校验");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为负数
@@ -155,8 +168,8 @@ public class SaveParametersTest extends HttpUtil {
 		request.put("usedHigh", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("用户ID没有做校验");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为空格
@@ -263,7 +276,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("msg")).isEqualTo("成功");
 
 		list =MetaOper.read(selectCarousel,dataType);
-		assertThat((list.get(0).get("CONTENT").toString()).equals("1"));
+		assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("1");
 	}
 	/**
 	 * 轮播图播放时间为负数
@@ -327,7 +340,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectCarousel,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("0"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
 	}
 	/**
 	 * 轮播图播放时间为最大值
@@ -350,7 +363,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectCarousel,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("999999999"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("999999999");
 	}
 	/**
 	 * 轮播图播放时间为长整型
@@ -393,7 +406,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectCarousel,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("5"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("5");
 	}
 	/**
 	 * 轮播图播放时间为空格
@@ -416,7 +429,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectCarousel,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("5"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("5");
 	}
 	/**
 	 * 轮播图播放时间为null
@@ -439,7 +452,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectCarousel,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("5"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("5");
 	}
 	/**
 	 * 轮播图播放时间不传该参数
@@ -461,7 +474,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectCarousel,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("5"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("5");
 	}
 	/**
 	 *达人搜索结果罗列条数为小数
@@ -484,7 +497,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("1"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("1");
 
 	}
 	/**
@@ -549,7 +562,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("0"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
 	}
 	/**
 	 * 达人搜索结果罗列条数为最大值
@@ -572,7 +585,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("999999999"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("999999999");
 	}
 	/**
 	 * 达人搜索结果罗列条数为长整型
@@ -615,7 +628,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
 	}
 	/**
 	 * 达人搜索结果罗列条数为空格
@@ -638,7 +651,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
 	}
 	/**
 	 * 达人搜索结果罗列条数为null
@@ -661,7 +674,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
 	}
 	/**
 	 * 达人搜索结果罗列条数不传该参数
@@ -684,7 +697,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
 	}
 	/**
 	 * 电商搜索结果罗列条数为小数
@@ -707,7 +720,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("1"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("1");
 	}
 	/**
 	 * 电商搜索结果罗列条数为负数
@@ -728,7 +741,7 @@ public class SaveParametersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("电商搜索结果罗列条数为负数" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("电商搜索结果罗列条数不能小于0");
+		assertThat(post.get("msg")).isEqualTo("商品搜索结果罗列条数不能小于0");
 	}
 	/**
 	 * 电商搜索结果罗列条数为字符
@@ -771,7 +784,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("0"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
 	}
 	/**
 	 * 电商搜索结果罗列条数为最大值
@@ -794,7 +807,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("999999999"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("999999999");
 	}
 	/**
 	 * 电商搜索结果罗列条数为长整型
@@ -837,7 +850,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
 	}
 	/**
 	 * 电商搜索结果罗列条数为空格
@@ -860,7 +873,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
 	}
 	/**
 	 * 电商搜索结果罗列条数为null
@@ -883,7 +896,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
 	}
 	/**
 	 * 电商搜索结果罗列条数不传该参数
@@ -905,7 +918,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
 	}
 	/**
 	 * 二手搜索结果罗列条数为小数
@@ -928,7 +941,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("1"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("1");
 	}
 	/**
 	 * 二手搜索结果罗列条数为负数
@@ -992,7 +1005,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("0"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
 	}
 	/**
 	 * 二手搜索结果罗列条数为最大值
@@ -1015,7 +1028,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("999999999"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("999999999");
 	}
 	/**
 	 * 二手搜索结果罗列条数为长整型
@@ -1058,7 +1071,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
 	}
 	/**
 	 * 二手搜索结果罗列条数为空格
@@ -1081,7 +1094,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
 	}
 	/**
 	 * 二手搜索结果罗列条数不传该参数
@@ -1103,7 +1116,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
 	}
 	/**
 	 * 混合橱窗容器高度为小数
@@ -1126,7 +1139,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("1"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("1");
 	}
 	/**
 	 * 混合橱窗容器高度为负数
@@ -1191,7 +1204,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("0"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
 	}
 	/**
 	 * 混合橱窗容器高度为最大值
@@ -1214,7 +1227,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("999999999"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("999999999");
 	}
 	/**
 	 * 混合橱窗容器高度为长整型
@@ -1258,7 +1271,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("128"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
 	}
 	/**
 	 * 混合橱窗容器高度为空格
@@ -1281,7 +1294,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("128"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
 	}
 	/**
 	 * 混合橱窗容器高度为null
@@ -1304,7 +1317,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("128"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
 	}
 	/**
 	 * 混合橱窗容器高度不传该参数
@@ -1326,7 +1339,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("128"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
 	}
 	/**
 	 * 达人橱窗高度为小数
@@ -1349,7 +1362,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("1"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("1");
 	}
 	/**
 	 * 达人橱窗高度为负数
@@ -1413,7 +1426,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("0"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
 	}
 	/**
 	 * 达人橱窗高度为最大值
@@ -1436,7 +1449,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("999999999"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("999999999");
 	}
 	/**
 	 * 达人橱窗高度为长整型
@@ -1480,7 +1493,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("128"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
 	}
 	/**
 	 * 达人橱窗高度为空格
@@ -1503,7 +1516,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("128"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
 	}
 	/**
 	 * 达人橱窗高度为null
@@ -1526,7 +1539,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("128"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
 	}
 	/**
 	 * 达人橱窗高度不传该参数
@@ -1548,7 +1561,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("128"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
 	}
 	/**
 	 * 店铺板块高度为小数
@@ -1571,7 +1584,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("1"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("1");
 	}
 	/**
 	 * 店铺板块高度为负数
@@ -1635,7 +1648,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("0"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
 	}
 	/**
 	 * 店铺板块高度为最大值
@@ -1658,7 +1671,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("999999999"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("999999999");
 	}
 	/**
 	 * 店铺板块高度为长整型
@@ -1701,7 +1714,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 	/**
 	 * 店铺板块高度为空格
@@ -1724,7 +1737,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 	/**
 	 * 店铺板块高度为null
@@ -1747,7 +1760,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 	/**
 	 * 店铺板块高度不传该参数
@@ -1769,7 +1782,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 	/**
 	 * 商品板块高度为小数
@@ -1792,7 +1805,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("1"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("1");
 	}
 	/**
 	 * 商品板块高度为负数
@@ -1856,7 +1869,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("0"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
 	}
 	/**
 	 * 商品板块高度为最大值
@@ -1879,7 +1892,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("999999999"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("999999999");
 	}
 	/**
 	 * 商品板块高度为长整型
@@ -1922,7 +1935,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 	/**
 	 * 商品板块高度为空格
@@ -1945,7 +1958,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 	/**
 	 * 商品板块高度不传该参数
@@ -1967,7 +1980,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 	/**
 	 * 二手橱窗高度为小数
@@ -1990,7 +2003,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("1"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("1");
 	}
 	/**
 	 * 二手橱窗高度为负数
@@ -2054,7 +2067,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("0"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
 	}
 	/**
 	 * 二手橱窗高度为最大值
@@ -2077,7 +2090,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("999999999"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("999999999");
 	}
 	/**
 	 * 二手橱窗高度为长整型
@@ -2120,7 +2133,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 	/**
 	 * 二手橱窗高度为空格
@@ -2143,7 +2156,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 	/**
 	 * 二手橱窗高度为null
@@ -2166,7 +2179,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 	/**
 	 * 二手橱窗高度不传该参数
@@ -2188,13 +2201,13 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 
 	/**
 	 * 恢复默认值
 	 */
-	@AfterClass
+	//@AfterClass
 	public void postSaveParametersTestRestoreTheDefaultValue() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
@@ -2204,23 +2217,23 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectCarousel,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("5"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("5");
         list =MetaOper.read(selectBigGunCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
         list =MetaOper.read(selectGoodsCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
         list =MetaOper.read(selectUsedCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("3"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("128"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("128"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
         list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString()).equals("192"));
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
 	}
 	
 }

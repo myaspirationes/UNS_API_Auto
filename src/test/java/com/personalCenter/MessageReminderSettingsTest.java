@@ -46,10 +46,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	public void postMessageReminderSettingsTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isMsgNotice", 0);
-		con.put("isVoiceNotice", 0);
-		con.put("isShackNotice", 0);
-		con.put("isMainMsgNotice", 0);
+		con.put("isMsgNotice", "0");
+		con.put("isVoiceNotice", "0");
+		con.put("isShackNotice", "0");
+		con.put("isMainMsgNotice", "0");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -68,7 +68,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo("0");
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	
@@ -79,10 +79,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	public void postMessageReminderSettingsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isMsgNotice", 0);
-		con.put("isVoiceNotice", 0);
-		con.put("isShackNotice", 0);
-		con.put("isMainMsgNotice", 0);
+		con.put("isMsgNotice", "0");
+		con.put("isVoiceNotice", "0");
+		con.put("isShackNotice", "0");
+		con.put("isMainMsgNotice", "0");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -112,10 +112,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	public void postMessageReminderSettingsTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "124951a4");
-		con.put("isMsgNotice", 0);
-		con.put("isVoiceNotice", 0);
-		con.put("isShackNotice", 0);
-		con.put("isMainMsgNotice", 0);
+		con.put("isMsgNotice", "0");
+		con.put("isVoiceNotice", "0");
+		con.put("isShackNotice", "0");
+		con.put("isMainMsgNotice", "0");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -145,10 +145,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	public void postMessageReminderSettingsTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "23.42");
-		con.put("isMsgNotice", 0);
-		con.put("isVoiceNotice", 0);
-		con.put("isShackNotice", 0);
-		con.put("isMainMsgNotice", 0);
+		con.put("isMsgNotice", "0");
+		con.put("isVoiceNotice", "0");
+		con.put("isShackNotice", "0");
+		con.put("isMainMsgNotice", "0");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -178,10 +178,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	public void postMessageReminderSettingsTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "<$%(+!,=>");
-		con.put("isMsgNotice", 0);
-		con.put("isVoiceNotice", 0);
-		con.put("isShackNotice", 0);
-		con.put("isMainMsgNotice", 0);
+		con.put("isMsgNotice", "0");
+		con.put("isVoiceNotice", "0");
+		con.put("isShackNotice", "0");
+		con.put("isMainMsgNotice", "0");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -211,10 +211,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	public void postMessageReminderSettingsTestUserIdIsNegativeNumbe() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "-234");
-		con.put("isMsgNotice", 0);
-		con.put("isVoiceNotice", 0);
-		con.put("isShackNotice", 0);
-		con.put("isMainMsgNotice", 0);
+		con.put("isMsgNotice", "0");
+		con.put("isVoiceNotice", "0");
+		con.put("isShackNotice", "0");
+		con.put("isMainMsgNotice", "0");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -243,11 +243,11 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	@Test
 	public void postMessageReminderSettingsTestUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 0);
-		con.put("isMsgNotice", 0);
-		con.put("isVoiceNotice", 0);
-		con.put("isShackNotice", 0);
-		con.put("isMainMsgNotice", 0);
+		con.put("userId", "0");
+		con.put("isMsgNotice", "0");
+		con.put("isVoiceNotice", "0");
+		con.put("isShackNotice", "0");
+		con.put("isMainMsgNotice", "0");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -277,10 +277,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	public void postMessageReminderSettingsTestUserIdIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "dfdfghju");
-		con.put("isMsgNotice", 0);
-		con.put("isVoiceNotice", 0);
-		con.put("isShackNotice", 0);
-		con.put("isMainMsgNotice", 0);
+		con.put("isMsgNotice", "0");
+		con.put("isVoiceNotice", "0");
+		con.put("isShackNotice", "0");
+		con.put("isMainMsgNotice", "0");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -310,10 +310,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	public void postMessageReminderSettingsTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
-		con.put("isMsgNotice", 0);
-		con.put("isVoiceNotice", 0);
-		con.put("isShackNotice", 0);
-		con.put("isMainMsgNotice", 0);
+		con.put("isMsgNotice", "0");
+		con.put("isVoiceNotice", "0");
+		con.put("isShackNotice", "0");
+		con.put("isMainMsgNotice", "0");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -343,10 +343,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 	public void postMessageReminderSettingsTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
-		con.put("isMsgNotice", 0);
-		con.put("isVoiceNotice", 0);
-		con.put("isShackNotice", 0);
-		con.put("isMainMsgNotice", 0);
+		con.put("isMsgNotice", "0");
+		con.put("isVoiceNotice", "0");
+		con.put("isShackNotice", "0");
+		con.put("isMainMsgNotice", "0");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");
@@ -376,10 +376,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestUserIdIsNull() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", null);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -409,10 +409,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestUserIdNonSubmissionParameters() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 		
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -442,10 +442,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMsgNoticeSetZeroReceive() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -466,7 +466,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			list =MetaOper.read(selectSql,dataType);
 			String isMsgNotice = list.get(0).get("IS_MSG_NOTICE").toString();
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 			assertThat(isMsgNotice,equalTo( "0" ));
 				
@@ -479,9 +479,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
 			con.put("isMsgNotice", 1);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -502,7 +502,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			list =MetaOper.read(selectSql,dataType);
 			String isMsgNotice = list.get(0).get("IS_MSG_NOTICE").toString();
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 			assertThat(isMsgNotice,equalTo( "1" ));
 				
@@ -515,9 +515,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
 			con.put("isMsgNotice", "vhfdf");
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -548,9 +548,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
 			con.put("isMsgNotice", 0.23);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -581,9 +581,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
 			con.put("isMsgNotice", -8);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -614,9 +614,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
 			con.put("isMsgNotice", " ");
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -647,9 +647,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
 			con.put("isMsgNotice", "");
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -668,7 +668,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			System.out.println("设置信息提醒传空" + post);
 			JSONObject head1 = (JSONObject) post.get("head");
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 				
 		}
@@ -680,9 +680,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
 			con.put("isMsgNotice", null);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -712,9 +712,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMsgNoticeNonSubmissionParameters() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -745,9 +745,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
 			con.put("isMsgNotice", 999999999);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -777,10 +777,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsVoiceNoticeSetZeroReceive() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -801,7 +801,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			list =MetaOper.read(selectSql,dataType);
 			String isVoiceNotice = list.get(0).get("IS_VOICE_NOTICE").toString();
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 			assertThat(isVoiceNotice,equalTo( "0" ));
 				
@@ -813,10 +813,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsVoiceNoticeSetOneNotReceive() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
+			con.put("isMsgNotice", "0");
 			con.put("isVoiceNotice", 1);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -837,7 +837,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			list =MetaOper.read(selectSql,dataType);
 			String isVoiceNotice = list.get(0).get("IS_VOICE_NOTICE").toString();
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 			assertThat(isVoiceNotice,equalTo( "1" ));
 				
@@ -849,10 +849,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsVoiceNoticeIsString() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
+			con.put("isMsgNotice", "0");
 			con.put("isVoiceNotice", "dfdfdsfs");
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -882,10 +882,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsVoiceNoticeIsDecimal() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
+			con.put("isMsgNotice", "0");
 			con.put("isVoiceNotice", 0.36);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -915,10 +915,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsVoiceNoticeIsNegativeNumbe() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
+			con.put("isMsgNotice", "0");
 			con.put("isVoiceNotice", -23);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -948,10 +948,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsVoiceNoticeIsSpace() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
+			con.put("isMsgNotice", "0");
 			con.put("isVoiceNotice", " ");
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -981,10 +981,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsVoiceNoticeIsEmpty() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
+			con.put("isMsgNotice", "0");
 			con.put("isVoiceNotice", "");
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1003,7 +1003,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			System.out.println("设置声音提醒传空" + post);
 			JSONObject head1 = (JSONObject) post.get("head");
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 				
 		}
@@ -1014,10 +1014,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsVoiceNoticeIsNull() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
+			con.put("isMsgNotice", "0");
 			con.put("isVoiceNotice", null);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1036,7 +1036,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			System.out.println("设置声音提醒传null" + post);
 			JSONObject head1 = (JSONObject) post.get("head");
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 				
 		}
@@ -1047,9 +1047,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsVoiceNoticeNonSubmissionParameters() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1068,7 +1068,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			System.out.println("设置声音提醒不传该参数" + post);
 			JSONObject head1 = (JSONObject) post.get("head");
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 				
 		}
@@ -1079,10 +1079,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsVoiceNoticeIsMax() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
+			con.put("isMsgNotice", "0");
 			con.put("isVoiceNotice", 999999999);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1112,10 +1112,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsShackNoticeSetZeroReceive() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1136,7 +1136,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			list =MetaOper.read(selectSql,dataType);
 			String isShackNotice = list.get(0).get("IS_SHACK_NOTICE").toString();
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 			assertThat(isShackNotice,equalTo( "0" ));
 				
@@ -1148,10 +1148,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsShackNoticeSetOneNotReceive() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
 			con.put("isShackNotice", 1);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1172,7 +1172,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			list =MetaOper.read(selectSql,dataType);
 			String isShackNotice = list.get(0).get("IS_SHACK_NOTICE").toString();
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 			assertThat(isShackNotice,equalTo( "1" ));
 				
@@ -1184,10 +1184,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsShackNoticeIsString() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
 			con.put("isShackNotice", "dfggfh");
-			con.put("isMainMsgNotice", 0);
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1217,10 +1217,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsShackNoticeIsDecimal() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
 			con.put("isShackNotice", 0.69);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1250,10 +1250,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsShackNoticeIsNegativeNumbe() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
 			con.put("isShackNotice", -23);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1283,10 +1283,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsShackNoticeIsSpace() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
 			con.put("isShackNotice", " ");
-			con.put("isMainMsgNotice", 0);
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1316,10 +1316,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsShackNoticeIsEmpty() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
 			con.put("isShackNotice", "");
-			con.put("isMainMsgNotice", 0);
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1338,7 +1338,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			System.out.println("设置震动提醒传空" + post);
 			JSONObject head1 = (JSONObject) post.get("head");
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 				
 		}
@@ -1349,10 +1349,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsShackNoticeIsNull() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
 			con.put("isShackNotice", null);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1382,9 +1382,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsShackNoticeNonSubmissionParameters() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1403,7 +1403,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			System.out.println("设置震动提醒不传该参数" + post);
 			JSONObject head1 = (JSONObject) post.get("head");
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 				
 		}
@@ -1414,10 +1414,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsShackNoticeIsMax() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
 			con.put("isShackNotice", 999999999);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1447,10 +1447,10 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMainMsgNoticeSetZeroReceive() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
-			con.put("isMainMsgNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
+			con.put("isMainMsgNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1471,7 +1471,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			list =MetaOper.read(selectSql,dataType);
 			String isMainMsgNotice = list.get(0).get("IS_MAINMSG_NOTICE").toString();
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 			assertThat(isMainMsgNotice,equalTo( "0" ));
 				
@@ -1483,9 +1483,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMainMsgNoticeSetOneNotReceive() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
 			con.put("isMainMsgNotice", 1);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
@@ -1509,7 +1509,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 
 			String isMainMsgNotice = list.get(0).get("IS_MAINMSG_NOTICE").toString();
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 			//assertThat(isMainMsgNotice,equalTo( "1" ));
 		}
@@ -1520,9 +1520,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMainMsgNoticeIsString() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
 			con.put("isMainMsgNotice", "gfjtytry");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
@@ -1553,9 +1553,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMainMsgNoticeIsDecimal() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
 			con.put("isMainMsgNotice", 2.36);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
@@ -1586,9 +1586,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMainMsgNoticeIsNegativeNumbe() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
 			con.put("isMainMsgNotice", -12);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
@@ -1619,9 +1619,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMainMsgNoticeIsSpace() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
 			con.put("isMainMsgNotice", " ");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
@@ -1652,9 +1652,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMainMsgNoticeIsEmpty() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
 			con.put("isMainMsgNotice", "");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
@@ -1674,7 +1674,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			System.out.println("设置主信息提醒传空" + post);
 			JSONObject head1 = (JSONObject) post.get("head");
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 				
 		}
@@ -1685,9 +1685,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMainMsgNoticeIsNull() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
 			con.put("isMainMsgNotice", null);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
@@ -1718,9 +1718,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMainMsgNoticeNonSubmissionParameters() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
 			head.put("ver", "1.0");
@@ -1739,7 +1739,7 @@ public class MessageReminderSettingsTest extends HttpUtil {
 			System.out.println("设置主信息提醒不传该参数" + post);
 			JSONObject head1 = (JSONObject) post.get("head");
 		
-			assertThat(head1.get("st")).isEqualTo(0);
+			assertThat(head1.get("st")).isEqualTo("0");
 			assertThat(head1.get("msg")).isEqualTo("成功");
 				
 		}
@@ -1750,9 +1750,9 @@ public class MessageReminderSettingsTest extends HttpUtil {
 		public void postMessageReminderSettingsTestIsMainMsgNoticeIsMax() throws Exception {
 			Map<String, Object> con = new HashMap<String, Object>();
 			con.put("userId", 12495324);
-			con.put("isMsgNotice", 0);
-			con.put("isVoiceNotice", 0);
-			con.put("isShackNotice", 0);
+			con.put("isMsgNotice", "0");
+			con.put("isVoiceNotice", "0");
+			con.put("isShackNotice", "0");
 			con.put("isMainMsgNotice", 999999999);
 			Map<String, Object> head = new HashMap<String, Object>();
 			head.put("aid", "1and6uu");
