@@ -109,7 +109,7 @@ public class NoDisturbModeSetStateAcquisitionTest extends HttpUtil {
 		hpa.postNoDisturbModeSettingTestCorrectParameterNoOpen();
 		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "1249532333");
+		con.put("userId", "1249");
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "1and6uu");
 		head.put("ver", "1.0");

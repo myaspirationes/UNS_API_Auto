@@ -98,8 +98,8 @@ public class JudgingTheCurrentEditionTest extends HttpUtil {
 		System.out.println("用户ID为未登录用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("用户id不合法");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为错误用户

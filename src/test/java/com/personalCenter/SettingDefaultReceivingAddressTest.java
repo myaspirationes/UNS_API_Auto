@@ -8,7 +8,9 @@ import java.util.Map;
 
 import org.json.JSONObject;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 //import org.junit.Test;
 import org.testng.annotations.Test;
 
@@ -25,6 +27,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	String updateSql = "UPDATE T_ADDRESS_INFO SET ADDRESS_ID=10709 where USER_ID = '12495396'";
 	String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID = 12495396";
 	String deleteSql = "DELETE  T_ADDRESS_INFO WHERE USER_ID = '12495396'";
+	String selectSql1 = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID = 12495396 ORDER BY CREATE_TIME DESC";
 	List<Map<String,Object>> list ;
 	JSONObject body;
 	String uuid;
@@ -41,13 +44,16 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 			e.printStackTrace();
 		}
 	}
+	@BeforeMethod
+	public void afterMethod(){
+		MetaOper.delete(deleteSql, dataType);
+	}
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestCorrectParameter() throws Exception {
 		
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -83,7 +89,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdNotTheUser() throws Exception {
 		String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID <> 12495396";
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -118,7 +123,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdError() throws Exception {
 		String selectSql = "SELECT * FROM T_ADDRESS_INFO WHERE USER_ID <> 12495396";
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		
@@ -153,9 +157,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdIsString() throws Exception {
 		
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
-		list=MetaOper.read(selectSql, dataType);
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", "ghdgdfgdg");
@@ -187,9 +189,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdIsDecimal() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
-		list=MetaOper.read(selectSql, dataType);
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 12.36);
@@ -221,9 +221,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdIsNegativeNumber() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
-		list=MetaOper.read(selectSql, dataType);
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", -12465);
@@ -255,9 +253,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdIsZero() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
-		list=MetaOper.read(selectSql, dataType);
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 0);
@@ -289,9 +285,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdIsSpace() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
-		list=MetaOper.read(selectSql, dataType);
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", " ");
@@ -323,9 +317,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdIsEmpty() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
-		list=MetaOper.read(selectSql, dataType);
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", "");
@@ -357,9 +349,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdNonSubmissionParameters() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
-		list=MetaOper.read(selectSql, dataType);
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -390,9 +380,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestAddressIdIsLong() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
-		list=MetaOper.read(selectSql, dataType);
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 5645542132545565655L);
@@ -424,7 +412,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestUserIdIsError() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -458,7 +445,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestUserIdNotLoggedIn() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -492,7 +478,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestUserIdIsLong() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -526,7 +511,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestUserIdIsZero() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -560,7 +544,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestUserIdIsNegativeNumber() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -594,7 +577,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestUserIdIsDecimal() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -628,7 +610,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestUserIdIsEmpty() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -662,7 +643,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestUserIdIsSpace() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -696,7 +676,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestUserIdIllegalCharacters() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -764,7 +743,6 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestUserIdNonSubmissionParameters() throws Exception {
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
@@ -797,11 +775,10 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	 */
 	@Test
 	public void postSettingDefaultReceivingAddressTestSetManyDefaultAddress() throws Exception {				
-		MetaOper.delete(deleteSql, dataType);
 		MetaOper.insert(insertIntoSql, dataType);
 		MetaOper.insert(insertIntoSql1, dataType);
 		list=MetaOper.read(selectSql, dataType);
-		String addressId = list.get(1).get("ADDRESS_ID").toString();
+		String addressId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", addressId);
 		con.put("userId", uuid);
@@ -823,9 +800,11 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		System.out.println("设置多个默认地址" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
-			
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+		list=MetaOper.read(selectSql1, dataType);
+		assertThat(list.get(0).get("IS_DEFAULT").toString()).isEqualTo("0");
+		assertThat(list.get(1).get("IS_DEFAULT").toString()).isEqualTo("1");
 	}
 	/**
 	 * 设置地址已是默认地址
@@ -833,8 +812,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 	@Test
 	public void postSettingDefaultReceivingAddressTestSetAddressExisted() throws Exception {
 		MetaOper.delete(deleteSql, dataType);
-		MetaOper.insert(insertIntoSql, dataType);
-		MetaOper.insert(insertIntoSql, dataType);
+		MetaOper.insert(insertIntoSql1, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		String addressId = list.get(0).get("ADDRESS_ID").toString();
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -857,11 +835,13 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("设置地址已是默认地址" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
+		list=MetaOper.read(selectSql, dataType);
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-			
+		assertThat(list.get(0).get("IS_DEFAULT").toString()).isEqualTo("1");
+
 	}
+	
 	
 	
 	
