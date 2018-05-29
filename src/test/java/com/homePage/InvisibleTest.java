@@ -357,12 +357,13 @@ public class InvisibleTest extends HttpUtil {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
         request.put("containerId", 12.369);
-        request.put("status",0);
+        request.put("status",1);
 
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器id为小数" + post);
 
-        assertThat(post.get("status")).isEqualTo(500);
+        assertThat(post.get("status")).isEqualTo(0);
+        assertThat(post.get("msg")).isEqualTo("成功");
     }
     /**
      * 容器id为负数
