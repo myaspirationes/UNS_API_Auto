@@ -18,8 +18,8 @@ import com.example.MetaOper;
 public class WalletTest extends HttpUtil {
 	// 实名认证接口
 	String url = "/UU/wallet";
-	String deleteSql0 ="DELETE FROM T_AUTH_JUNIOR_REAL_NAME WHERE USER_ID ='12495396'";
-	String deleteSql1 = "DELETE FROM t_wallet where USER_ID = '12495396' " ;
+	String deleteSql0 ="DELETE FROM T_AUTH_JUNIOR_REAL_NAME WHERE USER_ID ='12495079'";
+	String deleteSql1 = "DELETE FROM t_wallet where USER_ID = '12495079' " ;
 	String dataType0 = "perCenter81";
 	String dataType1 = "wallet81";
 	JSONObject body;
@@ -368,7 +368,7 @@ public class WalletTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("您的身份证已经注册过微度账户");
+		assertThat(head1.get("msg")).isEqualTo("身份证信息与手机号实名不符");
 	}
 
 	/**

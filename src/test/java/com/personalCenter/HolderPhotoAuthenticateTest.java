@@ -29,6 +29,7 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	JSONObject body;
 	String uuid;
 	String chcode;
+	LoginTest login = new LoginTest();
 	@BeforeClass
 	public void  beforeClass(){
 		LoginTest login = new LoginTest();
@@ -46,6 +47,9 @@ public class HolderPhotoAuthenticateTest extends HttpUtil {
 	 */
 	@Test
 	public void postHolderPhotoAuthenticateTestCorrectParameter() throws Exception {
+		body = login.getLoginTestChcodeBy137();
+		uuid= (body.get("userId")).toString();
+		chcode= (body.get("checkCode")).toString();
 		walletTest.postWalletTestCorrectParameter();
 		MetaOper.delete(deleteSql2, dataType0);
 		Map<String, Object> con = new HashMap<String, Object>();
