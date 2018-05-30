@@ -89,10 +89,217 @@ public class BackUserLoginTest extends HttpUtil {
 		request.put("passWord", "abc123456");
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户名为" + post);
+		System.out.println("用户名超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
+	
+	/**
+	 * 用户登录名为null
+	 */
+	@Test
+	public void postBackUserLoginTestUserNameIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", null);
+		request.put("passWord", "abc123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户名为null" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 用户登录名为空格
+	 */
+	@Test
+	public void postBackUserLoginTestUserNameIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", " ");
+		request.put("passWord", "abc123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户名为空格" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 用户登录名为空
+	 */
+	@Test
+	public void postBackUserLoginTestUserNameIsEmpty() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", "");
+		request.put("passWord", "abc123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户名为空" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 不传用户登录名参数
+	 */
+	@Test
+	public void postBackUserLoginTestUserNameUncommitted() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("passWord", "abc123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("不传用户登录名" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 用户登录名传long型
+	 */
+	@Test
+	public void postBackUserLoginTestUserNameIsIntType() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", 18856785678L);
+		request.put("passWord", "abc123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户登录名传long型" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 密码错误
+	 */
+	@Test
+	public void postBackUserLoginTestPasswordIsError() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", "18856785678");
+		request.put("passWord", "123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("密码错误" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 密码为非法字符
+	 */
+	@Test
+	public void postBackUserLoginTestPasswordIllegalCharacters() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", "18856785678");
+		request.put("passWord", "<$%^>");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("密码为非法字符" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 密码为超长字符
+	 */
+	@Test
+	public void postBackUserLoginTestPasswordIsLong() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", "18856785678");
+		request.put("passWord", "18856785678abc12318856785678abc12318856785678abc12318856785678abc123");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("密码为超长字符" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 密码为null
+	 */
+	@Test
+	public void postBackUserLoginTestPasswordIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", "18856785678");
+		request.put("passWord", null);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("密码为null" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 密码为空格
+	 */
+	@Test
+	public void postBackUserLoginTestPasswordIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", "18856785678");
+		request.put("passWord", " ");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("密码为空格" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 密码为空
+	 */
+	@Test
+	public void postBackUserLoginTestPasswordIsEmpty() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", "18856785678");
+		request.put("passWord", "");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("密码为空" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 不传密码参数
+	 */
+	@Test
+	public void postBackUserLoginTestPasswordUncommitted() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", "18856785678");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("不传密码参数" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
+	/**
+	 * 把正确密码里的小写字母改成大写
+	 */
+	@Test
+	public void postBackUserLoginTestPasswordChangeSmallerLetterToCapitalLetter() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userName", "18856785678");
+		request.put("passWord", "ABC123");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("把正确密码里的小写字母改成大写" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
+	}
+	
 
 }
