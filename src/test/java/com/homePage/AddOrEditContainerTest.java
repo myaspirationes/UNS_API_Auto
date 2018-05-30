@@ -67,8 +67,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("用户ID为未登录" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
+        assertThat(post.get("status")).isEqualTo(500);
 
     }
     /**
@@ -87,8 +86,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("用户ID为错误" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
+        assertThat(post.get("status")).isEqualTo(500);
 
     }
     /**
@@ -126,8 +124,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("用户ID为小数" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 用户ID为负数
@@ -145,8 +142,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("用户ID为负数" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
+        assertThat(post.get("status")).isEqualTo(500);
 
     }
     /**
@@ -165,8 +161,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("用户ID为空格" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 用户ID为空
@@ -184,8 +179,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("用户ID为空" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 用户ID为null
@@ -203,8 +197,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("用户ID为null" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 用户ID不传该参数
@@ -221,8 +214,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("用户ID不传该参数" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 容器ID为字符串
@@ -400,9 +392,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         System.out.println("类型为0" + post);
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-        System.out.println("list===="+list);
-        assertThat(list.get(0).get("TYPE").toString()).isEqualTo("0");
+
 
     }
     /**
@@ -421,11 +411,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("类型为1" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat(list.get(0).get("TYPE").toString()).isEqualTo("1");
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 类型为2
@@ -443,11 +429,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("类型为2" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 类型为3
@@ -465,11 +447,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("类型为3" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 类型为小数
@@ -487,11 +465,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("类型为小数" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 类型为负数
@@ -509,11 +483,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("类型为负数" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 类型为最大值
@@ -531,11 +501,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("类型为最大值" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 类型为字符串
@@ -553,11 +519,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("类型为字符串" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(400);
     }
     /**
      * 类型为空
@@ -575,11 +537,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("类型为空" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 类型为空格
@@ -615,11 +573,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("类型为null" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 类型不传该参数
@@ -636,11 +590,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("类型不传该参数" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 板块源类型为0
@@ -658,11 +608,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("板块源类型为0" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 板块源类型为1
@@ -680,11 +626,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("板块源类型为1" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 板块源类型为2
@@ -702,11 +644,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("板块源类型为2" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 板块源类型为3
@@ -724,11 +662,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("板块源类型为3" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 板块源类型为小数
@@ -746,11 +680,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("板块源类型为小数" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 板块源类型为负数
@@ -768,11 +698,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("板块源类型为负数" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 板块源类型为字符串
@@ -790,11 +716,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("板块源类型为字符串" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(400);
     }
     /**
      * 板块源类型为空
@@ -812,11 +734,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("板块源类型为空" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 板块源类型为空格
@@ -834,11 +752,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("板块源类型为空格" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 板块源类型为null
@@ -856,11 +770,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("板块源类型为null" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 板块源类型不传该参数
@@ -877,11 +787,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("板块源类型不传该参数" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 容器标题为空
@@ -899,11 +805,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器标题为空" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
 
     }
 
@@ -923,11 +825,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器标题为空格" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
 
     }
     /**
@@ -946,11 +844,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器标题为空" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
 
     }
     /**
@@ -969,11 +863,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器标题为非法字符" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
 
     }
     /**
@@ -991,11 +881,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器标题不传该参数" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
 
     }
     /**
@@ -1014,11 +900,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器标题超长" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 容器备注为空
@@ -1036,11 +918,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器备注为空" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 容器备注为空格
@@ -1058,11 +936,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器备注为空格" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 容器备注为null
@@ -1080,11 +954,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器备注为null" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 容器备注为非法字符
@@ -1102,11 +972,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器备注为非法字符" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 容器备注不传该参数
@@ -1123,11 +989,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器备注不传该参数" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 容器备注为超长
@@ -1145,11 +1007,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器备注为超长" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
 
 }

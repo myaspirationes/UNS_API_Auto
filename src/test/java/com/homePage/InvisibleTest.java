@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class InvisibleTest extends HttpUtil {
     // 启用/隐藏容器模块接口
     String url = "/uu-admin/container/invisible";
-    String selectStatus = "SELECT * FROM T_HOME_PAGE_CONTAINER WHERE CONTAINER_ID = 2 ";
+    String selectStatus = "SELECT * FROM T_HOME_PAGE_CONTAINER WHERE CONTAINER_ID = 1 ";
     String dataType = "perCenter81";
     List<Map<String,Object>> list ;
 
@@ -27,7 +27,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestCorrectParameter() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",1);
 
         JSONObject post = super.UNSPost(url, request);
@@ -46,7 +46,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestUserIdNotLoggedIn() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495325);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",1);
 
         JSONObject post = super.UNSPost(url, request);
@@ -63,7 +63,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestUserIdIsError() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 1239913);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -79,7 +79,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestUserIdIllegalCharacters() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", "<$%^>");
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -94,7 +94,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestUserIdIsDecimal() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 121123.33);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -109,7 +109,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestUserIdIsNegativeNumber() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", -121312);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -125,7 +125,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestUserIdIsSpace() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", " ");
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -141,7 +141,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestUserIdIsEmpty() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", "");
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -156,7 +156,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestUserIdIsNull() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", null);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -172,7 +172,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestUserIdIsZero() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 0);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -187,7 +187,7 @@ public class InvisibleTest extends HttpUtil {
     @Test
     public void postInvisibleTestUserIdNonSubmissionParameters() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -203,7 +203,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestUserIdIsString() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", "fggf");
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -218,7 +218,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestUserIdIsLong() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", "56526666666666666666666666666666");
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -403,7 +403,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestStatusIs0() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",0);
 
         JSONObject post = super.UNSPost(url, request);
@@ -421,7 +421,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestStatusIs1() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",1);
 
         JSONObject post = super.UNSPost(url, request);
@@ -439,7 +439,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestStatusIsDecimal() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",1.5);
 
         JSONObject post = super.UNSPost(url, request);
@@ -457,7 +457,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestStatusIsNegativeNumber() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",-10);
 
         JSONObject post = super.UNSPost(url, request);
@@ -472,7 +472,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestStatusIsMax() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",999999999);
 
         JSONObject post = super.UNSPost(url, request);
@@ -487,7 +487,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestStatusIsString() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status","aa");
 
         JSONObject post = super.UNSPost(url, request);
@@ -502,7 +502,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestStatusIsEmpty() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status","");
 
         JSONObject post = super.UNSPost(url, request);
@@ -518,7 +518,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestStatusIsSpace() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status"," ");
 
         JSONObject post = super.UNSPost(url, request);
@@ -534,7 +534,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestStatusIsNull() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("status",null);
 
         JSONObject post = super.UNSPost(url, request);
@@ -550,7 +550,7 @@ public class InvisibleTest extends HttpUtil {
     public void postInvisibleTestStatusNonSubmissionParameters() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
 
         JSONObject post = super.UNSPost(url, request);
         System.out.println("状态不传改参数" + post);
