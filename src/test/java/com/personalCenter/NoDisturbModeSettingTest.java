@@ -50,7 +50,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 1);
+		con.put("isNotDisturb", 0);
 		con.put("noDisturbCreateTime", "00:00:00");
 		con.put("noDisturbEndTime", "00:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -74,7 +74,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 			
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("IS_NOT_DISTURB").toString()).isEqualTo("1");
+		assertThat(list.get(0).get("IS_NOT_DISTURB").toString()).isEqualTo("0");
 		
 		
 	}
@@ -86,7 +86,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 0);
+		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "23:00:00");
 		con.put("noDisturbEndTime", "06:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -122,7 +122,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495325);
+		con.put("userId", 12495388);
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "23:00:00");
 		con.put("noDisturbEndTime", "06:00:00");
@@ -144,8 +144,8 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		System.out.println("用户为未登录" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
 	}
 	/**
 	 * 用户为错误
@@ -153,7 +153,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	@Test
 	public void postNoDisturbModeSettingTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "124a95324");
+		con.put("userId", "12495224");
 		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "23:00:00");
 		con.put("noDisturbEndTime", "06:00:00");
@@ -768,11 +768,11 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbOpenedAgainOpen() throws Exception {
-		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='0' WHERE USER_ID = '12495396'";
+		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='1' WHERE USER_ID = '12495396'";
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 0);
+		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "00:00:00");
 		con.put("noDisturbEndTime", "00:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -801,7 +801,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbOpenedAgainNoOpen() throws Exception {
-		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='0' WHERE USER_ID = '12495396'";
+		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='1' WHERE USER_ID = '12495396'";
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -834,11 +834,11 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbClosedAgainOpen() throws Exception {
-		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='1' WHERE USER_ID = '12495396'";
+		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='0' WHERE USER_ID = '12495396'";
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 0);
+		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "23:00:00");
 		con.put("noDisturbEndTime", "06:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -874,7 +874,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 	 */
 	@Test
 	public void postNoDisturbModeSettingTestIsNotDisturbClosedAgainClose() throws Exception {
-		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='1' WHERE USER_ID = '12495396'";
+		String updateSql = "UPDATE \"T_MOBILE_SET\" SET \"IS_NOT_DISTURB\"='0' WHERE USER_ID = '12495396'";
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
