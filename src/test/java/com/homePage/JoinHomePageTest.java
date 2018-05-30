@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import com.example.HttpUtil;
 
 public class JoinHomePageTest extends HttpUtil {
-// 加入首页接口
+// 加入首页接口(目前不做)
 	String url = "/uu-admin/container/containerInfo";
 
 

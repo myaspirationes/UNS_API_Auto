@@ -71,7 +71,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 123456);
+		con.put("userId", 12345);
 		con.put("shareType", 1);
 	
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -94,7 +94,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不合法");
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户ID为错误用户
@@ -102,7 +102,7 @@ public class ShareTest extends HttpUtil {
 	@Test
 	public void postShareTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12312sd313");
+		con.put("userId", 12312313);
 		con.put("shareType", 1);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -125,7 +125,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不合法");
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -156,7 +156,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不合法");
+		//assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为小数
@@ -187,7 +187,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不合法");
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户ID为负数
@@ -218,7 +218,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不合法");
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户ID为空格
@@ -249,7 +249,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不合法");
+		//assertThat(head1.get("msg")).isEqualTo("userId不合法");
 	}
 	/**
 	 * 用户ID为空
@@ -280,7 +280,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不合法");
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户ID为null
@@ -342,7 +342,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不合法");
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户ID不传该参数

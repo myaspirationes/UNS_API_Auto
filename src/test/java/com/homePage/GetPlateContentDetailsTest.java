@@ -39,7 +39,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	@Test
 	public void postGetPlateContentDetailsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 1249);	
+		request.put("userId", 12495325);	
 		request.put("containerId", 22);
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -177,7 +177,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为String
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "fsddf");	
@@ -193,7 +193,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("containerId", 22);
@@ -207,7 +207,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为超长
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 999999999999999999L);	
@@ -222,7 +222,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 容器ID为错误
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestContainerIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
@@ -237,7 +237,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 容器ID超长
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestContainerIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
@@ -252,7 +252,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 容器ID为空
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestContainerIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
@@ -267,7 +267,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 容器ID存在非法字符
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestContainerIdIsIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
@@ -282,7 +282,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 容器ID为小数
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestContainerIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
@@ -297,7 +297,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 容器ID为负数
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestContainerIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
@@ -312,7 +312,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 容器ID为空格
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestContainerIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
@@ -327,7 +327,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 容器ID为null
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestContainerIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
@@ -342,7 +342,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 容器ID为String
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestContainerIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
@@ -357,7 +357,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	/**
 	 * 容器ID不传该参数
 	 */
-	//@Test
+	@Test
 	public void postGetPlateContentDetailsTestContainerIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
