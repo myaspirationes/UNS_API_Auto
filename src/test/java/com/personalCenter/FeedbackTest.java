@@ -627,8 +627,8 @@ public class FeedbackTest extends HttpUtil {
 		System.out.println("图片ID超过5张" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("反馈成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("反馈图片最多上传五张");
 	}
 	/**
 	 * 图片ID等于5张
@@ -907,7 +907,7 @@ public class FeedbackTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法");
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 图片ID为null

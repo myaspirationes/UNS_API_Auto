@@ -3,6 +3,7 @@ package com.homePage;
 import com.example.HttpUtil;
 import com.example.MetaOper;
 import org.json.JSONObject;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -16,10 +17,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AddOrEditContainerTest extends HttpUtil {
     // 添加/编辑容器模块接口
     String url = "/uu-admin/container/addOrEditContainer";
-    String selectStatus = "SELECT * FROM T_HOME_PAGE_CONTAINER WHERE CONTAINER_ID = 2 ";
+    String selectStatus = "SELECT * FROM T_HOME_PAGE_CONTAINER WHERE CONTAINER_ID = 1 ";
+    String selectAdd = "SELECT * FROM T_HOME_PAGE_CONTAINER WHERE TITLE = '接口测试'AND CONTAINER_ID <> 1";
+    String deleteSql = "DELETE FROM T_HOME_PAGE_CONTAINER WHERE TITLE = '接口测试'AND CONTAINER_ID <> 1";
+
     String dataType = "perCenter81";
     List<Map<String,Object>> list ;
-
+    @BeforeMethod
+    public void beforeMethod(){
+        MetaOper.delete(deleteSql,dataType);
+    }
     /**
      * 提交正确参数
      */
@@ -27,7 +34,7 @@ public class AddOrEditContainerTest extends HttpUtil {
     public void postAddOrEditContainerTestCorrectParameter() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        //request.put("containerId", 2);
         request.put("type",1);
         request.put("boardType",2);
         request.put("title","接口测试");
@@ -38,6 +45,10 @@ public class AddOrEditContainerTest extends HttpUtil {
 
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
+        list = MetaOper.read(selectAdd,dataType);
+
+        assertThat((list.get(0).get("TITLE").toString())).isEqualTo("接口测试");
+
 
     }
     /**
@@ -117,9 +128,6 @@ public class AddOrEditContainerTest extends HttpUtil {
 
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
     }
     /**
      * 用户ID为负数
@@ -159,9 +167,6 @@ public class AddOrEditContainerTest extends HttpUtil {
 
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
     }
     /**
      * 用户ID为空
@@ -181,9 +186,6 @@ public class AddOrEditContainerTest extends HttpUtil {
 
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
     }
     /**
      * 用户ID为null
@@ -203,9 +205,6 @@ public class AddOrEditContainerTest extends HttpUtil {
 
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
     }
     /**
      * 用户ID不传该参数
@@ -224,9 +223,6 @@ public class AddOrEditContainerTest extends HttpUtil {
 
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
     }
     /**
      * 容器ID为字符串
@@ -253,7 +249,7 @@ public class AddOrEditContainerTest extends HttpUtil {
     public void postAddOrEditContainerTestContainerIdIsDecimal() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2.2);
+        request.put("containerId", 1.2);
         request.put("type",1);
         request.put("boardType",2);
         request.put("title","接口测试");
@@ -266,7 +262,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         assertThat(post.get("msg")).isEqualTo("成功");
         list = MetaOper.read(selectStatus,dataType);
 
-        assertThat((list.get(0).get("CONTAINER_ID").toString()).equals("2"));
+        assertThat((list.get(0).get("TITLE").toString())).isEqualTo("接口测试");
     }
     /**
      * 容器ID为负数
@@ -311,7 +307,7 @@ public class AddOrEditContainerTest extends HttpUtil {
     public void postAddOrEditContainerTestContainerIdIsEmpty() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", "aaa");
+        request.put("containerId", "");
         request.put("type",1);
         request.put("boardType",2);
         request.put("title","接口测试");
@@ -320,7 +316,10 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("容器ID为空" + post);
 
-        assertThat(post.get("status")).isEqualTo(400);
+        assertThat(post.get("status")).isEqualTo(0);
+        assertThat(post.get("msg")).isEqualTo("成功");
+        list = MetaOper.read(selectAdd,dataType);
+        assertThat(list.get(0).get("TITLE")).isEqualTo("接口测试");
     }
     /**
      * 容器ID为空格
@@ -340,9 +339,8 @@ public class AddOrEditContainerTest extends HttpUtil {
 
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat(list.get(0).get("STATUS")).isEqualTo("1");
+        list = MetaOper.read(selectAdd,dataType);
+        assertThat(list.get(0).get("TITLE")).isEqualTo("接口测试");
         }
     /**
      * 容器ID为null
@@ -362,9 +360,8 @@ public class AddOrEditContainerTest extends HttpUtil {
 
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat(list.get(0).get("STATUS")).isEqualTo("1");
+        list = MetaOper.read(selectAdd,dataType);
+        assertThat(list.get(0).get("TITLE")).isEqualTo("接口测试");
     }
     /**
      * 容器ID为不传该参数
@@ -383,9 +380,8 @@ public class AddOrEditContainerTest extends HttpUtil {
 
         assertThat(post.get("status")).isEqualTo(0);
         assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat(list.get(0).get("STATUS")).isEqualTo("1");
+        list = MetaOper.read(selectAdd,dataType);
+        assertThat(list.get(0).get("TITLE")).isEqualTo("接口测试");
     }
     /**
      * 类型为0
@@ -394,7 +390,7 @@ public class AddOrEditContainerTest extends HttpUtil {
     public void postAddOrEditContainerTestTypeIsZero() throws Exception {
         Map<String, Object> request = new HashMap<String, Object>();
         request.put("userId", 12495324);
-        request.put("containerId", 2);
+        request.put("containerId", 1);
         request.put("type",0);
         request.put("boardType",2);
         request.put("title","接口测试");
@@ -406,7 +402,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         assertThat(post.get("msg")).isEqualTo("成功");
         list = MetaOper.read(selectStatus,dataType);
         System.out.println("list===="+list);
-        assertThat(list.get(0).get("STATUS")).isEqualTo("1");
+        assertThat(list.get(0).get("TYPE").toString()).isEqualTo("0");
 
     }
     /**
@@ -429,7 +425,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         assertThat(post.get("msg")).isEqualTo("成功");
         list = MetaOper.read(selectStatus,dataType);
 
-        assertThat(list.get(0).get("STATUS")).isEqualTo("1");
+        assertThat(list.get(0).get("TYPE").toString()).isEqualTo("1");
     }
     /**
      * 类型为2
@@ -601,11 +597,7 @@ public class AddOrEditContainerTest extends HttpUtil {
         JSONObject post = super.UNSPost(url, request);
         System.out.println("类型为空格" + post);
 
-        assertThat(post.get("status")).isEqualTo(0);
-        assertThat(post.get("msg")).isEqualTo("成功");
-        list = MetaOper.read(selectStatus,dataType);
-
-        assertThat((list.get(0).get("STATUS").toString()).equals("1"));
+        assertThat(post.get("status")).isEqualTo(500);
     }
     /**
      * 类型为null
