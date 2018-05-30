@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取板块参数接口" >
+	<test name="ObtainPlateParametersTest" >
+		<classes>
+		  
+		   <class name="com.homePage.ObtainPlateParametersTest">
+		      <methods>		          
+		            <include name="postObtainPlateParametersTestCorrectParameter"></include>
+		            <include name="postObtainPlateParametersTestUserIdNotLoggedIn"></include>
+		            <include name="postObtainPlateParametersTestUserIdIsError"></include>
+		            <include name="postObtainPlateParametersTestUserIdIllegalCharacters"></include>
+		            <include name="postObtainPlateParametersTestUserIdIsDecimal"></include>
+		            <include name="postObtainPlateParametersTestUserIdIsNegativeNumber"></include>
+		            <include name="postObtainPlateParametersTestUserIdIsSpace"></include>
+		            <include name="postObtainPlateParametersTestUserIdIsEmpty"></include>
+		            <include name="postObtainPlateParametersTestUserIdIsNull"></include>
+		            <include name="postObtainPlateParametersTestUserIdIsZero"></include>
+		            <include name="postObtainPlateParametersTestUserIdNonSubmissionParameters"></include>
+		         
+		           
+		         
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

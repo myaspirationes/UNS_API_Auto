@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="保存容器内容修改" >
+	<test name="SaveContainerContentModificationTest" >
+		<classes>
+		  
+		   <class name="com.homePage.SaveContainerContentModificationTest">
+		      <methods>		          
+		            <include name="postSaveContainerContentModificationTesttCorrectParameter"></include>
+		            <include name="postSaveContainerContentModificationTestContentListIsError"></include>
+		            <include name="postSaveContainerContentModificationTestContentListIsIllegalCharacters"></include>
+		            <include name="postSaveContainerContentModificationTestContentListIsDecimal"></include>
+		            <include name="postSaveContainerContentModificationTestContentListIsNegativeNumber"></include>
+		            <include name="postSaveContainerContentModificationTestContentListIsSpace"></include>
+		            <include name="postSaveContainerContentModificationTestContentListIsEmpty"></include>
+		            <include name="postSaveContainerContentModificationTestContentListIsNull"></include>
+		            <include name="postSaveContainerContentModificationTestContentListIsLong"></include>
+		            <include name="postSaveContainerContentModificationTestContentListIsString"></include>
+		            <include name="postSaveContainerContentModificationTestContentListIsZero"></include>
+		            <include name="postSaveContainerContentModificationTestContentListNonSubmissionParameters"></include>
+		            <include name="postSaveContainerContentModificationTestTitleTextIsLong"></include>
+		            <include name="postSaveContainerContentModificationTestTitleTextIsEmpty"></include>
+		            <include name="postSaveContainerContentModificationTestTitleTextIsSpace"></include>
+		            <include name="postSaveContainerContentModificationTestTitleTextIsNull"></include>
+		            <include name="postSaveContainerContentModificationTestTitleTextIsIllegalCharacters"></include>
+		            <include name="postSaveContainerContentModificationTestTitleTextIsZero"></include>
+		            <include name="postSaveContainerContentModificationTestTitleTextIsError"></include>
+		            <include name="postSaveContainerContentModificationTestTitleTextNonSubmissionParameters"></include>
+		            <include name="postSaveContainerContentModificationTestFileIdIsError"></include>
+		            <include name="postSaveContainerContentModificationTestFileIdIsString"></include>
+		            <include name="postSaveContainerContentModificationTestFileIdIsLong"></include>
+		            <include name="postSaveContainerContentModificationTestFileIdIsDecimal"></include>
+		            <include name="postSaveContainerContentModificationTestFileIdIsNegativeNumber"></include>
+		            <include name="postSaveContainerContentModificationTestFileIdIsZero"></include>
+		            <include name="postSaveContainerContentModificationTestFileIdIsEmpty"></include>
+		            <include name="postSaveContainerContentModificationTestFileIdIsIllegalCharacters"></include>
+		            <include name="postSaveContainerContentModificationTestTitleText"></include>
+		            <include name="postSaveContainerContentModificationTestContentIdIsError"></include>
+		            <include name="postSaveContainerContentModificationTestcontentIdIsString"></include>
+		            <include name="postSaveContainerContentModificationTestContentIdIsIllegalCharacters"></include>
+		            <include name="postSaveContainerContentModificationTestContentIdIsEmpty"></include>
+		            <include name="postSaveContainerContentModificationTestContentIdIsSpace"></include>
+		            <include name="postSaveContainerContentModificationTestContentIdIsNull"></include>
+		            <include name="postSaveContainerContentModificationTestContentIdIsNegativeNumber"></include>
+		            <include name="postSaveContainerContentModificationTestContentIdIsDecimal"></include>
+		            <include name="postSaveContainerContentModificationTestContentIdIsZero"></include>
+		            <include name="postSaveContainerContentModificationTestContentIdIsLong"></include>
+		            <include name="postSaveContainerContentModificationTestContentIdNonSubmissionParameters"></include>
+		            <include name="postSaveContainerContentModificationTestContainerIdIsError"></include>
+		            <include name="postSaveContainerContentModificationTestContainerIdIsIllegalCharacters"></include>
+		            <include name="postSaveContainerContentModificationTestContainerIdIsLong"></include>
+		            <include name="postSaveContainerContentModificationTestContainerIdIsString"></include>
+		            <include name="postSaveContainerContentModificationTestContainerIdIsNegativeNumber"></include>
+		            <include name="postSaveContainerContentModificationTestContainerIdIsDecimal"></include>
+		            <include name="postSaveContainerContentModificationTestContainerIdIsZero"></include>
+		            <include name="postSaveContainerContentModificationTestContainerIdIsEmpty"></include>
+		            <include name="postSaveContainerContentModificationTestContainerIdIsSpace"></include>
+		            <include name="postSaveContainerContentModificationTestContainerIdIsNull"></include>
+		            <include name="postSaveContainerContentModificationTestContainerIdNonSubmissionParameters"></include>
+		           
+		           
+		         
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

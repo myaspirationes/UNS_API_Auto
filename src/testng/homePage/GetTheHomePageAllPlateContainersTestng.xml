@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取首页所有板块容器接口" >
+	<test name="GetTheHomePageAllPlateContainersTest" >
+		<classes>
+		  
+		   <class name="com.homePage.GetTheHomePageAllPlateContainersTest">
+		      <methods>		          
+		           <include name="postGetTheHomePageAllPlateContainersTestCorrectParameter"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdNotLoggedIn"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdIsError"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdIllegalCharacters"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdIsDecimal"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdIsNegativeNumber"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdIsSpace"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdIsEmpty"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdIsNull"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdIsZero"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdIsString"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdNonSubmissionParameters"></include>
+		           <include name="postGetTheHomePageAllPlateContainersTestUserIdIsLong"></include>
+		          
+		           
+		           
+		          
+		           
+		         
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

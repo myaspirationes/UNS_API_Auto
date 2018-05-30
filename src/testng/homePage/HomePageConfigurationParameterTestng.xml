@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取首页UI的配置参数接口" >
+	<test name="HomePageConfigurationParameterTest" >
+		<classes>
+		  
+		   <class name="com.homePage.HomePageConfigurationParameterTest">
+		      <methods>		          
+		            <include name="postHomePageConfigurationParameterTestCorrectParameter"></include>
+		            <include name="postHomePageConfigurationParameterTestUsrIdNotLoggedIn"></include>
+		            <include name="postHomePageConfigurationParameterTestUserIdIsError"></include>
+		            <include name="postHomePageConfigurationParameterTestUserIdIllegalCharacters"></include>
+		            <include name="postHomePageConfigurationParameterTestUserIdIsDecimal"></include>
+		            <include name="postHomePageConfigurationParameterTestUserIdIsNegativeNumber"></include>
+		            <include name="postHomePageConfigurationParameterTestUserIdIsSpace"></include>
+		            <include name="postHomePageConfigurationParameterTestUserIdIsEmpty"></include>
+		            <include name="postHomePageConfigurationParameterTestuserIdIsNull"></include>
+		            <include name="postHomePageConfigurationParameterTestUserIdNonSubmissionParameters"></include>
+		          
+		           
+		         
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取板块内容详情接口" >
+	<test name="GetPlateContentDetailsTest" >
+		<classes>
+		  
+		   <class name="com.homePage.GetPlateContentDetailsTest">
+		      <methods>		          
+		           <include name="postGetPlateContentDetailsTestCorrectParameter"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdNotLoggedIn"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdIsError"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdIllegalCharacters"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdIsDecimal"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdIsNegativeNumber"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdIsSpace"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdIsEmpty"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdIsNull"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdIsZero"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdIsString"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdNonSubmissionParameters"></include>
+		           <include name="postGetPlateContentDetailsTestUserIdIsLong"></include>
+		           <include name="postGetPlateContentDetailsTestContainerIdIsError"></include>
+		           <include name="postGetPlateContentDetailsTestContainerIdIsLong"></include>
+		           <include name="postGetPlateContentDetailsTestContainerIdIsEmpty"></include>
+		           <include name="postGetPlateContentDetailsTestContainerIdIsIllegalCharacters"></include>
+		           <include name="postGetPlateContentDetailsTestContainerIdIsDecimal"></include>
+		           <include name="postGetPlateContentDetailsTestContainerIdIsNegativeNumber"></include>
+		           <include name="postGetPlateContentDetailsTestContainerIdIsSpace"></include>
+		           <include name="postGetPlateContentDetailsTestContainerIdIsNull"></include>
+		           <include name="postGetPlateContentDetailsTestContainerIdIsString"></include>
+		           <include name="postGetPlateContentDetailsTestContainerIdNonSubmissionParameters"></include>
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

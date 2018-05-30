@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="添加/编辑容器模块接口" >
+	<test name="AddOrEditContainerTest" >
+		<classes>
+		  
+		   <class name="com.homePage.AddOrEditContainerTest">
+		      <methods>
+		          <include name="postAddOrEditContainerTestCorrectParameter"></include>
+		          <include name="postAddOrEditContainerTestUserIdNotLoggedIn"></include>
+		          <include name="postAddOrEditContainerTestUserIdIsError"></include>
+		          <include name="postAddOrEditContainerTestUserIdIllegalCharacters"></include>
+		          <include name="postAddOrEditContainerTestUserIdIsDecimal"></include>
+		          <include name="postAddOrEditContainerTestUserIdIsNegativeNumber"></include>
+		          <include name="postAddOrEditContainerTestUserIdIsSpace"></include>
+		          <include name="postAddOrEditContainerTestUserIdIsEmpty"></include>
+		          <include name="postAddOrEditContainerTestUserIdIsNull"></include>
+		          <include name="postAddOrEditContainerTestUserIdNonSubmissionParameters"></include>
+		          <include name="postAddOrEditContainerTestContainerIdIsString"></include>
+		          <include name="postAddOrEditContainerTestContainerIdIsDecimal"></include>
+		          <include name="postAddOrEditContainerTestContainerIdIsNegativeNumber"></include>
+		          <include name="postAddOrEditContainerTestContainerIdIsZero"></include>
+		          <include name="postAddOrEditContainerTestContainerIdIsEmpty"></include>
+		          <include name="postAddOrEditContainerTestContainerIdIsSpace"></include>
+		          <include name="postAddOrEditContainerTestContainerIdIsNull"></include>
+		          <include name="postAddOrEditContainerTestContainerIdNonSubmissionParameters"></include>
+		          <include name="postAddOrEditContainerTestTypeIsZero"></include>
+		          <include name="postAddOrEditContainerTestTypeIsOne"></include>
+		          <include name="postAddOrEditContainerTestTypeIsTwo"></include>
+		          <include name="postAddOrEditContainerTestTypeIsThree"></include>
+		          <include name="postAddOrEditContainerTestTypeIsDecimal"></include>
+		          <include name="postAddOrEditContainerTestTypeIsNegativeNumber"></include>
+		          <include name="postAddOrEditContainerTestTypeIsMax"></include>
+		          <include name="postAddOrEditContainerTestTypeIsString"></include>
+		          <include name="postAddOrEditContainerTestTypeIsEmpty"></include>
+		          <include name="postAddOrEditContainerTestTypeIsSpace"></include>
+		          <include name="postAddOrEditContainerTestTypeIsNull"></include>
+		          <include name="postAddOrEditContainerTestTypeNonSubmissionParameters"></include>
+		          <include name="postAddOrEditContainerTestBoardTypeIsZero"></include>
+		          <include name="postAddOrEditContainerTestBoardTypeIsOne"></include>
+		          <include name="postAddOrEditContainerTestBoardTypeIsTwo"></include>
+		          <include name="postAddOrEditContainerTestBoardTypeIsThree"></include>
+		          <include name="postAddOrEditContainerTestBoardTypeIsDecimal"></include>
+		          <include name="postAddOrEditContainerTestBoardTypeIsNegativeNumber"></include>
+		          <include name="postAddOrEditContainerTestBoardTypeIsString"></include>
+		          <include name="postAddOrEditContainerTestBoardTypeIsEmpty"></include>
+		          <include name="postAddOrEditContainerTestBoardTypeIsSpace"></include>
+		          <include name="postAddOrEditContainerTestBoardTypeIsNull"></include>
+		          <include name="postAddOrEditContainerTestBoardTypeNonSubmissionParameters"></include>
+		          <include name="postAddOrEditContainerTestTitleIsEmpty"></include>
+		          <include name="postAddOrEditContainerTestTitleIsSpace"></include>
+		          <include name="postAddOrEditContainerTestTitleIsNull"></include>
+		          <include name="postAddOrEditContainerTestTitleIllegalCharacters"></include>
+		          <include name="postAddOrEditContainerTestTitleNonSubmissionParameters"></include>
+		          <include name="postAddOrEditContainerTestTitleIsLong"></include>
+		          <include name="postAddOrEditContainerTestRemarksIsEmpty"></include>
+		          <include name="postAddOrEditContainerTestRemarksIsSpace"></include>
+		          <include name="postAddOrEditContainerTestRemarksIsNull"></include>
+		          <include name="postAddOrEditContainerTestRemarksIllegalCharacters"></include>
+		          <include name="postAddOrEditContainerTestRemarksNonSubmissionParameters"></include>
+		          <include name="postAddOrEditContainerTestRemarksIsLong"></include>
+		          
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

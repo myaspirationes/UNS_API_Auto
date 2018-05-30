@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="首页搜索接口" >
+	<test name="HomePageSearchTest" >
+		<classes>
+		  
+		   <class name="com.homePage.HomePageSearchTest">
+		      <methods>		          
+		            <include name="postHomePageSearchTestCorrectParameter"></include>
+		            <include name="postHomePageSearchTestUsrIdNotLoggedIn"></include>
+		            <include name="postHomePageSearchTestUserIdIsError"></include>
+		            <include name="postHomePageSearchTestUserIdIllegalCharacters"></include>
+		            <include name="postHomePageSearchTestUserIdIsDecimal"></include>
+		            <include name="postHomePageSearchTestUserIdIsNegativeNumber"></include>
+		            <include name="postHomePageSearchTestUserIdIsSpace"></include>
+		            <include name="postHomePageSearchTestUserIdIsEmpty"></include>
+		            <include name="postHomePageSearchTestuserIdIsNull"></include>
+		            <include name="postHomePageSearchTestUserIdNonSubmissionParameters"></include>
+		            <include name="postHomePageSearchTestKeyWordIsLong"></include>
+		            <include name="postHomePageSearchTestKeyWordIllegalCharacters"></include>
+		            <include name="postHomePageSearchTestKeyWordIsEmpty"></include>
+		            <include name="postHomePageSearchTestKeyWordIsSpace"></include>
+		            <include name="postHomePageSearchTestKeyWordIsNull"></include>
+		            <include name="postHomePageSearchTestKeyWordNonSubmissionParameters"></include>
+		           
+		          
+		           
+		         
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

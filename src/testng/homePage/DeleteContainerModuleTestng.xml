@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="删除容器模块接口" >
+	<test name="DeleteContainerModuleTest" >
+		<classes>
+		  
+		   <class name="com.homePage.DeleteContainerModuleTest">
+		      <methods>		          
+		          <include name="postDeleteContainerModuleTestCorrectParameter"></include>
+		          <include name="postDeleteContainerModuleTestUserIdNotLoggedIn"></include>
+		          <include name="postDeleteContainerModuleTestUserIdIsError"></include>
+		          <include name="postDeleteContainerModuleTestUserIdIllegalCharacters"></include>
+		          <include name="postDeleteContainerModuleTestUserIdIsDecimal"></include>
+		          <include name="postDeleteContainerModuleTestUserIdIsNegativeNumber"></include>
+		          <include name="postDeleteContainerModuleTestUserIdIsSpace"></include>
+		          <include name="postDeleteContainerModuleTestUserIdIsEmpty"></include>
+		          <include name="postDeleteContainerModuleTestUserIdIsNull"></include>
+		          <include name="postDeleteContainerModuleTestUserIdIsZero"></include>
+		          <include name="postDeleteContainerModuleTestUserIdNonSubmissionParameters"></include>
+		          <include name="postDeleteContainerModuleTestUserIdIsLong"></include>
+		          <include name="postDeleteContainerModuleTestUserIdIsString"></include>
+		          <include name="postDeleteContainerModuleTestContainerIdIsError"></include>
+		          <include name="postDeleteContainerModuleTestContainerIdIsLong"></include>
+		          <include name="postDeleteContainerModuleTestContainerIdIsEmpty"></include>
+		          <include name="postDeleteContainerModuleTestContainerIdIsIllegalCharacters"></include>
+		          <include name="postDeleteContainerModuleTestContainerIdIsDecimal"></include>
+		          <include name="postDeleteContainerModuleTestContainerIdIsNegativeNumber"></include>
+		          <include name="postDeleteContainerModuleTestContainerIdIsSpace"></include>
+		          <include name="postDeleteContainerModuleTestContainerIdIsNull"></include>
+		          <include name="postDeleteContainerModuleTestContainerIdIsString"></include>
+		          <include name="postDeleteContainerModuleTestContainerIdNonSubmissionParameters"></include>
+		          
+		          
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="容器编辑详情接口" >
+	<test name="ContainerEditingDetailsTest" >
+		<classes>
+		  
+		   <class name="com.homePage.ContainerEditingDetailsTest">
+		      <methods>
+		          <include name="postContainerEditingDetailsTestCorrectParameter"></include>
+		          <include name="postContainerEditingDetailsTestUserIdNotLoggedIn"></include>
+		          <include name="postContainerEditingDetailsTestUserIdIsError"></include>
+		          <include name="postContainerEditingDetailsTestUserIdIllegalCharacters"></include>
+		          <include name="postContainerEditingDetailsTestUserIdIsDecimal"></include>
+		          <include name="postContainerEditingDetailsTestUserIdIsNegativeNumber"></include>
+		          <include name="postContainerEditingDetailsTestUserIdIsSpace"></include>
+		          <include name="postContainerEditingDetailsTestUserIdIsEmpty"></include>
+		          <include name="postContainerEditingDetailsTestUserIdIsNull"></include>
+		          <include name="postContainerEditingDetailsTestUserIdIsZero"></include>
+		          <include name="postContainerEditingDetailsTestUserIdNonSubmissionParameters"></include>
+		          <include name="postContainerEditingDetailsTestUserIdIsString"></include>
+		          <include name="postContainerEditingDetailsTestUserIdIsLong"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdIsError"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdIsLong"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdIsString"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdIsEmpty"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdIsSpace"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdIsNull"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdIsZero"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdIsIllegalCharacters"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdIsDecimal"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdIsNegativeNumber"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdNonSubmissionParameters"></include>
+		          <include name="postContainerEditingDetailsTestContainerIdAddOne"></include>
+		          
+		          
+		          
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

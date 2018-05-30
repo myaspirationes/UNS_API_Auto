@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="启用/隐藏容器模块接口" >
+	<test name="InvisibleTest" >
+		<classes>
+		  
+		   <class name="com.homePage.InvisibleTest">
+		      <methods>		          
+		            <include name="postInvisibleTestCorrectParameter"></include>
+		            <include name="postInvisibleTestUserIdNotLoggedIn"></include>
+		            <include name="postInvisibleTestUserIdIsError"></include>
+		            <include name="postInvisibleTestUserIdIllegalCharacters"></include>
+		            <include name="postInvisibleTestUserIdIsDecimal"></include>
+		            <include name="postInvisibleTestUserIdIsNegativeNumber"></include>
+		            <include name="postInvisibleTestUserIdIsSpace"></include>
+		            <include name="postInvisibleTestUserIdIsEmpty"></include>
+		            <include name="postInvisibleTestUserIdIsNull"></include>
+		            <include name="postInvisibleTestUserIdIsZero"></include>
+		            <include name="postInvisibleTestUserIdNonSubmissionParameters"></include>
+		            <include name="postInvisibleTestUserIdIsString"></include>
+		            <include name="postInvisibleTestUserIdIsLong"></include>
+		            <include name="postInvisibleTestContainerIdIsError"></include>
+		            <include name="postInvisibleTestContainerIdIsLong"></include>
+		            <include name="postInvisibleTestContainerIdIsString"></include>
+		            <include name="postInvisibleTestContainerIdIsEmpty"></include>
+		            <include name="postInvisibleTestContainerIdIsSpace"></include>
+		            <include name="postInvisibleTestContainerIdIsNull"></include>
+		            <include name="postInvisibleTestContainerIdIsZero"></include>
+		            <include name="postInvisibleTestContainerIdIsIllegalCharacters"></include>
+		            <include name="postInvisibleTestContainerIdIsDecimal"></include>
+		            <include name="postInvisibleTestContainerIdIsNegativeNumber"></include>
+		            <include name="postInvisibleTestContainerIdNonSubmissionParameters"></include>
+		            <include name="postInvisibleTestStatusIs0"></include>
+		            <include name="postInvisibleTestStatusIs1"></include>
+		            <include name="postInvisibleTestStatusIsDecimal"></include>
+		            <include name="postInvisibleTestStatusIsNegativeNumber"></include>
+		            <include name="postInvisibleTestStatusIsMax"></include>
+		            <include name="postInvisibleTestStatusIsString"></include>
+		            <include name="postInvisibleTestStatusIsEmpty"></include>
+		            <include name="postInvisibleTestStatusIsSpace"></include>
+		            <include name="postInvisibleTestStatusIsNull"></include>
+		            <include name="postInvisibleTestStatusNonSubmissionParameters"></include>
+		           
+		          
+		           
+		         
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="加入首页接口" >
+	<test name="JoinHomePageTest" >
+		<classes>
+		  
+		   <class name="com.homePage.JoinHomePageTest">
+		      <methods>		          
+		            <include name="postJoinHomePageTestCorrectParameter"></include>
+		            <include name="postJoinHomePageTestUserIdNotLoggedIn"></include>
+		            <include name="postJoinHomePageTestUserIdIsError"></include>
+		            <include name="postJoinHomePageTestUserIdIllegalCharacters"></include>
+		            <include name="postJoinHomePageTestUserIdIsDecimal"></include>
+		            <include name="postJoinHomePageTestUserIdIsNegativeNumber"></include>
+		            <include name="postJoinHomePageTestUserIdIsSpace"></include>
+		            <include name="postJoinHomePageTestUserIdIsEmpty"></include>
+		            <include name="postJoinHomePageTestUserIdIsNull"></include>
+		            <include name="postJoinHomePageTestUserIdIsZero"></include>
+		            <include name="postJoinHomePageTestUserIdIsString"></include>
+		            <include name="postJoinHomePageTestUserIdIsLong"></include>
+		            <include name="postJoinHomePageTestUserIdNonSubmissionParameters"></include>
+		            <include name="postJoinHomePageTestType"></include>
+		            <include name="postJoinHomePageTestTypeIsLong"></include>
+		            <include name="postJoinHomePageTestTypeIsString"></include>
+		            <include name="postJoinHomePageTestTypeIsIllegalCharacters"></include>
+		            <include name="postJoinHomePageTestTypeIsEmpty"></include>
+		            <include name="postJoinHomePageTestTypeIsSpace"></include>
+		            <include name="postJoinHomePageTestTypeIsZero"></include>
+		            <include name="postJoinHomePageTestTypeIsNegativeNumber"></include>
+		            <include name="postJoinHomePageTestTypeIsDecimal"></include>
+		            <include name="postJoinHomePageTestTypeIsNull"></include>
+		            <include name="postJoinHomePageTestTypeIs1"></include>
+		            <include name="postJoinHomePageTestTypeIs2"></include>
+		            <include name="postJoinHomePageTesttypeIs3"></include>
+		            <include name="postJoinHomePageTesttypeNonSubmissionParameters"></include>
+		            <include name="postJoinHomePageTestContainerIdIsError"></include>
+		            <include name="postJoinHomePageTestContainerIdIsLong"></include>
+		            <include name="postJoinHomePageTestContainerIdIsEmpty"></include>
+		            <include name="postJoinHomePageTestContainerIdIllegalCharacters"></include>
+		            <include name="postJoinHomePageTestContainerIdIsDecimal"></include>
+		            <include name="postJoinHomePageTestContainerIdIsNegativeNumber"></include>
+		            <include name="postJoinHomePageTestContainerIdIsSpace"></include>
+		            <include name="postJoinHomePageTestContainerIdIsNull"></include>
+		            <include name="postJoinHomePageTestContainerIdIsString"></include>
+		            <include name="postJoinHomePageTestContainerIdNonSubmissionParameters"></include>
+		           
+		          
+		           
+		         
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

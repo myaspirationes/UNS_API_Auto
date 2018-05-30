@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取首页板块容器列表接口" >
+	<test name="GetFirstPagePlateContainersListTest" >
+		<classes>
+		  
+		   <class name="com.homePage.GetFirstPagePlateContainersListTest">
+		      <methods>		          
+		          <include name="postGetFirstPagePlateContainersListTestCorrectParameter"></include>
+		          <include name="postGetFirstPagePlateContainersListTestUserIdNotLoggedIn"></include>
+		          <include name="postGetFirstPagePlateContainersListTestUserIdIsError"></include>
+		          <include name="postGetFirstPagePlateContainersListTestUserIdIllegalCharacters"></include>
+		          <include name="postGetFirstPagePlateContainersListTestUserIdIsDecimal"></include>
+		          <include name="postGetFirstPagePlateContainersListTestUserIdIsNegativeNumber"></include>
+		          <include name="postGetFirstPagePlateContainersListTestUserIdIsSpace"></include>
+		          <include name="postGetFirstPagePlateContainersListTestUserIdIsEmpty"></include>
+		          <include name="postGetFirstPagePlateContainersListTestUserIdIsNull"></include>
+		          <include name="postGetFirstPagePlateContainersListTestUserIdIsZero"></include>
+		          <include name="postGetFirstPagePlateContainersListTestUserIdNonSubmissionParameters"></include>
+		          <include name="postGetFirstPagePlateContainersListTestUserIdIsLong"></include>
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
