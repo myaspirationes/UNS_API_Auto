@@ -89,9 +89,10 @@ public class ValidateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println(" 手机号码错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		JSONObject body1 = (JSONObject) post.get("body");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("userId")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码超长
@@ -119,9 +120,10 @@ public class ValidateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		JSONObject body1 = (JSONObject) post.get("body");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("userId")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码小于11位
@@ -149,9 +151,10 @@ public class ValidateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码小于11位" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		JSONObject body1 = (JSONObject) post.get("body");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("userId")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码前面加00
@@ -179,9 +182,10 @@ public class ValidateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码前面加00" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		JSONObject body1 = (JSONObject) post.get("body");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("userId")).isEqualTo(12495079);
 	}
 	/**
 	 * 手机号码前面加+ 86
@@ -209,9 +213,10 @@ public class ValidateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码前面加+ 86" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		JSONObject body1 = (JSONObject) post.get("body");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("userId")).isEqualTo(0);
 	}
 	/**
 	 * 输入11位的固话（固话+区号）
@@ -239,9 +244,10 @@ public class ValidateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("输入11位的固话（固话+区号）" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		JSONObject body1 = (JSONObject) post.get("body");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("userId")).isEqualTo(0);
 	}
 	
 	/**
@@ -270,9 +276,10 @@ public class ValidateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("输入手机号码存在小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		JSONObject body1 = (JSONObject) post.get("body");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("userId")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码存在负数
@@ -300,9 +307,10 @@ public class ValidateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码存在负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		JSONObject body1 = (JSONObject) post.get("body");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("userId")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码存在非法字符
@@ -330,9 +338,10 @@ public class ValidateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码存在非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		JSONObject body1 = (JSONObject) post.get("body");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("userId")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码为空
@@ -360,9 +369,10 @@ public class ValidateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		JSONObject body1 = (JSONObject) post.get("body");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("userId")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码为null
@@ -420,9 +430,10 @@ public class ValidateTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("上传成功");
+		JSONObject body1 = (JSONObject) post.get("body");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(body1.get("userId")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码不传该参数

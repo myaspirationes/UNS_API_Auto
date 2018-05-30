@@ -50,7 +50,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 1);
+		con.put("isNotDisturb", 0);
 		con.put("noDisturbCreateTime", "00:00:00");
 		con.put("noDisturbEndTime", "00:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -74,7 +74,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 			
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("IS_NOT_DISTURB").toString()).isEqualTo("1");
+		assertThat(list.get(0).get("IS_NOT_DISTURB").toString()).isEqualTo("0");
 		
 		
 	}
@@ -86,7 +86,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		chcode= (body.get("checkCode")).toString();
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 0);
+		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "23:00:00");
 		con.put("noDisturbEndTime", "06:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -838,7 +838,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 0);
+		con.put("isNotDisturb", 1);
 		con.put("noDisturbCreateTime", "23:00:00");
 		con.put("noDisturbEndTime", "06:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();

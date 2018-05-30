@@ -118,7 +118,7 @@ public class MetaOper {
             while (rs.next()) {
                 data = new HashMap<String, Object>();
                 // 每循环一条将列名和列值存入Map
-                for (int i = 1; i < columnCount; i++) {
+                for (int i = 1; i <= columnCount; i++) {
                 	try {
                 		  data.put(rsmd.getColumnLabel(i), rs.getObject(rsmd
                                   .getColumnLabel(i)));
