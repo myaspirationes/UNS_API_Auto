@@ -207,7 +207,7 @@
 					</excludes>
 
 					<suiteXmlFiles>
-					<!-- 个人中心
+					<!-- 个人中心 -->
 					<suiteXmlFile>./src/testng/personalCenter/AddEditTheUserAddressTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/AuthenticateTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/AuthenticationManagementListTestng.xml</suiteXmlFile>
@@ -231,7 +231,7 @@
 						<suiteXmlFile>./src/testng/personalCenter/SettingUserInformationSingleTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/ShareTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/ValidateTestng.xml</suiteXmlFile>
-						<suiteXmlFile>./src/testng/personalCenter/WalletTestng.xml</suiteXmlFile>-->
+						<suiteXmlFile>./src/testng/personalCenter/WalletTestng.xml</suiteXmlFile>
 
 						<!--首页-->
 						<suiteXmlFile>./src/testng/homePage/AddOrEditContainerTestng.xml</suiteXmlFile>
