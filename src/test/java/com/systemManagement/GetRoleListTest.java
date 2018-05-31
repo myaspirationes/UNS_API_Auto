@@ -951,4 +951,325 @@ public class GetRoleListTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
+	/**
+	 * 每页显示记录集为小数
+	 */
+	@Test
+	public void postGetRoleListTestPageSizeIsIsDecimal() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageSize", 1.1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为小数" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 每页显示记录集为String
+	 */
+	@Test
+	public void postGetRoleListTestPageSizeIsString() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageSize", "aaa");
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为String" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 每页显示记录集为空格
+	 */
+	@Test
+	public void postGetRoleListTestPageSizeIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageSize", " ");
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为空格" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 每页显示记录集为空
+	 */
+	@Test
+	public void postGetRoleListTestPageSizeIsEmpty() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageSize", "");
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为空" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 每页显示记录集为null
+	 */
+	@Test
+	public void postGetRoleListTestPageSizeIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageSize", null);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为null" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 每页显示记录集为超长
+	 */
+	@Test
+	public void postGetRoleListTestPageSizeIsLong() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageSize", -1);
+		request.put("pageNow", 1111111111111111111L);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为超长" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 每页显示记录集不传该参数
+	 */
+	@Test
+	public void postGetRoleListTestPageSizeNonSubmissionParameters() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集不传该参数" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 每页显示记录集为0
+	 */
+	@Test
+	public void postGetRoleListTestPageSizeIsZero() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageSize", 0);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为0" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 当前页数为负数
+	 */
+	@Test
+	public void postGetRoleListTestPageNowIsNegativeNumber() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageNow", -1);
+		request.put("pageSize", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为负数" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 当前页数为小数
+	 */
+	@Test
+	public void postGetRoleListTestPageNowIsIsDecimal() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageNow", 1.1);
+		request.put("pageSize", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为小数" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 当前页数为String
+	 */
+	@Test
+	public void postGetRoleListTestPageNowIsString() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageNow", "aaa");
+		request.put("pageSize", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为String" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 当前页数为空格
+	 */
+	@Test
+	public void postGetRoleListTestPageNowIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageNow", " ");
+		request.put("pageSize", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为空格" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 当前页数为空
+	 */
+	@Test
+	public void postGetRoleListTestPageNowIsEmpty() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageNow", "");
+		request.put("pageSize", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为空" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 当前页数为null
+	 */
+	@Test
+	public void postGetRoleListTestPageNowIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageNow", null);
+		request.put("pageSize", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为null" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 当前页数为超长
+	 */
+	@Test
+	public void postGetRoleListTestPageNowIsLong() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageNow", -1);
+		request.put("pageSize", 1111111111111111111L);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为超长" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 当前页数不传该参数
+	 */
+	@Test
+	public void postGetRoleListTestPageNowNonSubmissionParameters() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageSize", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数不传该参数" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 当前页数为0
+	 */
+	@Test
+	public void postGetRoleListTestPageNowIsZero() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageNow", 0);
+		request.put("pageSize", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为0" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
 }
