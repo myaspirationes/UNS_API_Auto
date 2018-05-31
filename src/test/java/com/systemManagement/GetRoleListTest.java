@@ -724,5 +724,231 @@ public class GetRoleListTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
+	/**
+	 * 角色状态为超长
+	 */
+	@Test
+	public void postGetRoleListTestStatusIsLong() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 99999999999999999L);
+		request.put("pageSize", 1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("角色状态为超长" + post);
 	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 角色状态为非法字符
+	 */
+	@Test
+	public void postGetRoleListTestStatusIllegalCharacters() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", "<.@%$^>");
+		request.put("pageSize", 1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("角色状态为非法字符" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 角色状态为错误
+	 */
+	@Test
+	public void postGetRoleListTestStatusIsError() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 9999);
+		request.put("pageSize", 1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("角色状态为错误" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 角色状态为空
+	 */
+	@Test
+	public void postGetRoleListTestStatusIsEmpty() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageSize", 1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("角色状态为空" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 角色状态为空格
+	 */
+	@Test
+	public void postGetRoleListTestStatusIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", " ");
+		request.put("pageSize", 1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("角色状态为空格" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 角色状态为String
+	 */
+	@Test
+	public void postGetRoleListTestStatusIsString() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", "aa");
+		request.put("pageSize", 1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("角色状态为String" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 角色状态为null
+	 */
+	@Test
+	public void postGetRoleListTestStatusIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", "");
+		request.put("pageSize", 1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("角色状态为null" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 角色状态不传该参数
+	 */
+	@Test
+	public void postGetRoleListTestStatusNonSubmissionParameters() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("pageSize", 1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("角色状态不传该参数" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 角色状态为小数
+	 */
+	@Test
+	public void postGetRoleListTestStatusIsDecimal() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2.9);
+		request.put("pageSize", 1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("角色状态为小数" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 角色状态为负数
+	 */
+	@Test
+	public void postGetRoleListTestStatusIsNegativeNumber() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", -2);
+		request.put("pageSize", 1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("角色状态为负数" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 角色状态名称为0
+	 */
+	@Test
+	public void postGetRoleListTestStatusIsZero() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 0);
+		request.put("pageSize", 1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("角色状态名称为0" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 每页显示记录集为负数
+	 */
+	@Test
+	public void postGetRoleListTestPageSizeIsNegativeNumber() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeStart", "1991-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("status", 2);
+		request.put("pageSize", -1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为负数" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
 }
