@@ -3,39 +3,21 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.personalCenter.AddEditTheUserAddressTest">
+      <class name="com.homePage.SaveParametersTest">
         <methods>
-          <include name="postAddEditTheUserAddressTestDefaults"/>
-          <include name="postAddEditTheUserAddressTestNonDefaults"/>
-          <include name="postAddEditTheUserAddressTestAddressLabelIsEmpty"/>
-          <include name="postAddEditTheUserAddressTestAddressLabelIllegalCharacters"/>
-          <include name="postAddEditTheUserAddressTestCityCodeIsSpace"/>
-          <include name="postAddEditTheUserAddressTestCityCodeIsString"/>
-          <include name="postAddEditTheUserAddressTestDetailedAddressIsDecimal"/>
-          <include name="beforeClass"/>
-          <include name="postAddEditTheUserAddressTestAddressLabelIsNull"/>
-          <include name="postAddEditTheUserAddressTestCityCodeIsDecimal"/>
-          <include name="postAddEditTheUserAddressTestAddressLabelIsSpace"/>
-          <include name="postAddEditTheUserAddressTestCityCodeIsError"/>
-          <include name="postAddEditTheUserAddressTestDetailedAddressIsNegativeNumber"/>
-          <include name="postAddEditTheUserAddressTestCityCodeIllegalCharacters"/>
-          <include name="postAddEditTheUserAddressTestDetailedAddressIsZero"/>
-          <include name="postAddEditTheUserAddressTestAddressLabelIsExistent"/>
-          <include name="postAddEditTheUserAddressTestConsigneeIsEmpty"/>
-          <include name="postAddEditTheUserAddressTestAddressLabelNonSubmissionParameters"/>
-          <include name="postAddEditTheUserAddressTestCityCodeIsEmpty"/>
-          <include name="postAddEditTheUserAddressTestNonDefault"/>
-          <include name="postAddEditTheUserAddressTestAddressLabelIsLong"/>
-          <include name="postAddEditTheUserAddressTestAddressLabelIsDecimal"/>
-          <include name="postAddEditTheUserAddressTestAddressLabelIsZero"/>
-          <include name="postAddEditTheUserAddressTestDetailedAddressIsString"/>
-          <include name="postAddEditTheUserAddressTestCityCodeIsLong"/>
-          <include name="postAddEditTheUserAddressTestConsigneeIsNull"/>
-          <include name="postAddEditTheUserAddressTestIsDefault"/>
-          <include name="postAddEditTheUserAddressTestCityCodeIsNegativeNumber"/>
-          <include name="postAddEditTheUserAddressTestAddressLabelIsNegativeNumber"/>
+          <include name="postSaveParametersTestUsedHighIsZero"/>
+          <include name="postSaveParametersTestBigGunCountNonSubmissionParameters"/>
+          <include name="postSaveParametersTestGoodsHighIsZero"/>
+          <include name="postSaveParametersTestBigGunCountIsZero"/>
+          <include name="postSaveParametersTestGoodsCountZero"/>
+          <include name="postSaveParametersTestMixtureHighIsZero"/>
+          <include name="postSaveParametersTestCarouselIsZero"/>
+          <include name="postSaveParametersTestBigGunHighIsZero"/>
+          <include name="postSaveParametersTestShopHighIsZero"/>
+          <include name="postSaveParametersTestUsedCountIsZero"/>
+          <include name="postSaveParametersTestUserIdNotLoggedIn"/>
         </methods>
-      </class> <!-- com.personalCenter.AddEditTheUserAddressTest -->
+      </class> <!-- com.homePage.SaveParametersTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

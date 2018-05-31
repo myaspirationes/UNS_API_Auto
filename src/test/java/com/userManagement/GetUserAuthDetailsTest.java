@@ -14,8 +14,8 @@ import org.testng.annotations.Test;
 import com.example.HttpUtil;
 
 public class GetUserAuthDetailsTest extends HttpUtil {
-// 获取板块内容详情接口
-	String url = "/uu-admin/container/containerInfo";
+// 获取用户认证详情接口
+	String url = "/uu-admin/UUuserManage/getUserAuthDetails";
 
 
 	/**
@@ -25,7 +25,7 @@ public class GetUserAuthDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
-		request.put("containerId", 2);
+		request.put("uid", 2);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
