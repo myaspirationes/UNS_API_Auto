@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="保存板块参数接口" >
+	<test name="SaveParametersTest" >
+		<classes>
+		  
+		   <class name="com.homePage.SaveParametersTest">
+		      <methods>		          
+		            <include name="postSaveParametersTestCorrectParameter"></include>
+		            <include name="postSaveParametersTestUserIdNotLoggedIn"></include>
+		            <include name="postSaveParametersTestUserIdIsError"></include>
+		            <include name="postSaveParametersTestUserIdIllegalCharacters"></include>
+		            <include name="postSaveParametersTestUserIdIsDecimal"></include>
+		            <include name="postSaveParametersTestUserIdIsNegativeNumber"></include>
+		            <include name="postSaveParametersTestUserIdIsSpace"></include>
+		            <include name="postSaveParametersTestUserIdIsEmpty"></include>
+		            <include name="postSaveParametersTestUserIdIsNull"></include>
+		            <include name="postSaveParametersTestUserIdNonSubmissionParameters"></include>
+		            <include name="postSaveParametersTestCarouselIsDecimal"></include>
+		            <include name="postSaveParametersTestCarouselIsNegativeNumber"></include>
+		            <include name="postSaveParametersTestCarouselIsString"></include>
+		            <include name="postSaveParametersTestCarouselIsZero"></include>
+		            <include name="postSaveParametersTestCarouselIsMax"></include>
+		            <include name="postSaveParametersTestCarouselIsLong"></include>
+		            <include name="postSaveParametersTestCarouselIsEmpty"></include>
+		            <include name="postSaveParametersTestCarouselIsSpace"></include>
+		            <include name="postSaveParametersTestCarouselIsNull"></include>
+		            <include name="postSaveParametersTestCarouselNonSubmissionParameters"></include>
+		            <include name="postSaveParametersTestBigGunCountIsDecimal"></include>
+		            <include name="postSaveParametersTestBigGunCountIsNegativeNumber"></include>
+		            <include name="postSaveParametersTestBigGunCountIsString"></include>
+		            <include name="postSaveParametersTestBigGunCountIsZero"></include>
+		            <include name="postSaveParametersTestBigGunCountIsMax"></include>
+		            <include name="postSaveParametersTestBigGunCountIsLong"></include>
+		            <include name="postSaveParametersTestBigGunCountIsEmpty"></include>
+		            <include name="postSaveParametersTestBigGunCountIsSpace"></include>
+		            <include name="postSaveParametersTestBigGunCountIsNull"></include>
+		            <include name="postSaveParametersTestBigGunCountNonSubmissionParameters"></include>
+		            <include name="postSaveParametersTestGoodsCountIsDecimal"></include>
+		            <include name="postSaveParametersTestGoodsCountIsNegativeNumber"></include>
+		            <include name="postSaveParametersTestGoodsCountIsString"></include>
+		            <include name="postSaveParametersTestGoodsCountZero"></include>
+		            <include name="postSaveParametersTestGoodsCountIsMax"></include>
+		            <include name="postSaveParametersTestGoodsCountIsLong"></include>
+		            <include name="postSaveParametersTestGoodsCountIsEmpty"></include>
+		            <include name="postSaveParametersTestGoodsCountIsSpace"></include>
+		            <include name="postSaveParametersTestGoodsCountIsNull"></include>
+		            <include name="postSaveParametersTestGoodsCountNonSubmissionParameters"></include>
+		            <include name="postSaveParametersTestUsedCountIsDecimal"></include>
+		            <include name="postSaveParametersTestUsedCountIsNegativeNumber"></include>
+		            <include name="postSaveParametersTestUsedCountIsString"></include>
+		            <include name="postSaveParametersTestUsedCountIsZero"></include>
+		            <include name="postSaveParametersTestUsedCountIsMax"></include>
+		            <include name="postSaveParametersTestUsedCountIsLong"></include>
+		            <include name="postSaveParametersTestUsedCountIsEmpty"></include>
+		            <include name="postSaveParametersTestUsedCountIsSpace"></include>
+		            <include name="postSaveParametersTestUsedCountNonSubmissionParameters"></include>
+		            <include name="postSaveParametersTestMixtureHighIsDecimal"></include>
+		            <include name="postSaveParametersTestMixtureHighIsNegativeNumber"></include>
+		            <include name="postSaveParametersTestMixtureHighIsString"></include>
+		            <include name="postSaveParametersTestMixtureHighIsZero"></include>
+		            <include name="postSaveParametersTestMixtureHighIsMax"></include>
+		            <include name="postSaveParametersTestMixtureHigh"></include>
+		            <include name="postSaveParametersTestMixtureHighIsEmpty"></include>
+		            <include name="postSaveParametersTestMixtureHighIsSpace"></include>
+		            <include name="postSaveParametersTestMixtureHighIsNull"></include>
+		            <include name="postSaveParametersTestMixtureHighNonSubmissionParameters"></include>
+		            <include name="postSaveParametersTestBigGunHighIsDecimal"></include>
+		            <include name="postSaveParametersTestBigGunHighIsNegativeNumber"></include>
+		            <include name="postSaveParametersTestBigGunHighIsString"></include>
+		            <include name="postSaveParametersTestBigGunHighIsZero"></include>
+		            <include name="postSaveParametersTestBigGunHighIsMax"></include>
+		            <include name="postSaveParametersTestBigGunHigh"></include>
+		            <include name="postSaveParametersTestBigGunHighIsEmpty"></include>
+		            <include name="postSaveParametersTestBigGunHighIsSpace"></include>
+		            <include name="postSaveParametersTestBigGunHighIsNull"></include>
+		            <include name="postSaveParametersTestBigGunHighNonSubmissionParameters"></include>
+		            <include name="postSaveParametersTestShopHighIsDecimal"></include>
+		            <include name="postSaveParametersTestShopHighIsNegativeNumber"></include>
+		            <include name="postSaveParametersTestShopHighIsString"></include>
+		            <include name="postSaveParametersTestShopHighIsZero"></include>
+		            <include name="postSaveParametersTestShopHighIsMax"></include>
+		            <include name="postSaveParametersTestShopHighIsLong"></include>
+		            <include name="postSaveParametersTestShopHighIsEmpty"></include>
+		            <include name="postSaveParametersTestShopHighIsSpace"></include>
+		            <include name="postSaveParametersTestShopHighIsNull"></include>
+		            <include name="postSaveParametersTestShopHighNonSubmissionParameters"></include>
+		            <include name="postSaveParametersTestGoodsHighIsDecimal"></include>
+		            <include name="postSaveParametersTestGoodsHighIsNegativeNumber"></include>
+		            <include name="postSaveParametersTestGoodsHighIsString"></include>
+		            <include name="postSaveParametersTestGoodsHighIsZero"></include>
+		            <include name="postSaveParametersTestGoodsHighIsMax"></include>
+		            <include name="postSaveParametersTestGoodsHighIsLong"></include>
+		            <include name="postSaveParametersTestGoodsHighIsEmpty"></include>
+		            <include name="postSaveParametersTestGoodsHighIsSpace"></include>
+		            <include name="postSaveParametersTestGoodsHighNonSubmissionParameters"></include>
+		            <include name="postSaveParametersTestUsedHighIsDecimal"></include>
+		            <include name="postSaveParametersTestUsedHighIsNegativeNumber"></include>
+		            <include name="postSaveParametersTestUsedHighIsString"></include>
+		            <include name="postSaveParametersTestUsedHighIsZero"></include>
+		            <include name="postSaveParametersTestUsedHighIsMax"></include>
+		            <include name="postSaveParametersTestUsedHighIsLong"></include>
+		            <include name="postSaveParametersTestUsedHighIsEmpty"></include>
+		            <include name="postSaveParametersTestUsedHighIsSpace"></include>
+		            <include name="postSaveParametersTestUsedHighIsNull"></include>
+		            <include name="postSaveParametersTestUsedHighNonSubmissionParameters"></include>
+		            
+		            
+		         
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

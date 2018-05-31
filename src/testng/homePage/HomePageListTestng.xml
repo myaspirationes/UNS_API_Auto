@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="首页列表" >
+	<test name="HomePageListTest" >
+		<classes>
+		  
+		   <class name="com.homePage.HomePageListTest">
+		      <methods>		          
+		             <include name="postHomePageSearchTestCorrectParameter"></include>
+		             <include name="postHomePageSearchTestUserIdNotLoggedIn"></include>
+		             <include name="postHomePageSearchTestUserIdIsError"></include>
+		             <include name="postHomePageSearchTestUserIdIllegalCharacters"></include>
+		             <include name="postHomePageSearchTestUserIdIsDecimal"></include>
+		             <include name="postHomePageSearchTestUserIdIsNegativeNumber"></include>
+		             <include name="postHomePageSearchTestUserIdIsEmpty"></include>
+		             <include name="postHomePageSearchTestUserIdIsSpace"></include>
+		             <include name="postHomePageSearchTestUserIdIsNull"></include>
+		             <include name="postHomePageSearchTestUserIdNonSubmissionParameters"></include>
+		             <include name="postHomePageSearchTestPageSizeIsMax"></include>
+		             <include name="postHomePageSearchTestPageSizeIsZero"></include>
+		             <include name="postHomePageSearchTestPageSizeIsNegativeNumber"></include>
+		             <include name="postHomePageSearchTestPageSizeIsDecimal"></include>
+		             <include name="postHomePageSearchTestPageSizeIsString"></include>
+		             <include name="postHomePageSearchTestPageSizeIsSpace"></include>
+		             <include name="postHomePageSearchTestPageSizeIsEmpty"></include>
+		             <include name="postHomePageSearchTestPageSizeIllegalCharacters"></include>
+		             <include name="postHomePageSearchTestPageSizeNonSubmissionParameters"></include>
+		             <include name="postHomePageSearchTestPageNowIsMax"></include>
+		             <include name="postHomePageSearchTestPageNowIsZero"></include>
+		             <include name="postHomePageSearchTestPageNowIsNegativeNumber"></include>
+		             <include name="postHomePageSearchTestPageNowIsDecimal"></include>
+		             <include name="postHomePageSearchTestPageNowIsString"></include>
+		             <include name="postHomePageSearchTestPageNowIsEmpty"></include>
+		             <include name="postHomePageSearchTestPageNowIllegalCharacters"></include>
+		             <include name="postHomePageSearchTestPageNowIsSpace"></include>
+		             <include name="postHomePageSearchTestPageNowNonSubmissionParameters"></include>
+		         
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
