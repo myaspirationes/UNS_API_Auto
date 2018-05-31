@@ -3,21 +3,16 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.homePage.SaveParametersTest">
+      <class name="com.userManagement.GetUserAuthDetailsTest">
         <methods>
-          <include name="postSaveParametersTestUsedHighIsZero"/>
-          <include name="postSaveParametersTestBigGunCountNonSubmissionParameters"/>
-          <include name="postSaveParametersTestGoodsHighIsZero"/>
-          <include name="postSaveParametersTestBigGunCountIsZero"/>
-          <include name="postSaveParametersTestGoodsCountZero"/>
-          <include name="postSaveParametersTestMixtureHighIsZero"/>
-          <include name="postSaveParametersTestCarouselIsZero"/>
-          <include name="postSaveParametersTestBigGunHighIsZero"/>
-          <include name="postSaveParametersTestShopHighIsZero"/>
-          <include name="postSaveParametersTestUsedCountIsZero"/>
-          <include name="postSaveParametersTestUserIdNotLoggedIn"/>
+          <include name="beforeClass"/>
+          <include name="postGetUserAuthDetailsTestUserIdNotLoggedIn"/>
+          <include name="postGetUserAuthDetailsTestUserIdIsLong"/>
+          <include name="postGetUserAuthDetailsTestUidIsError"/>
+          <include name="postGetUserAuthDetailsTestUserIdIsError"/>
+          <include name="postGetUserAuthDetailsTestUidIsLong"/>
         </methods>
-      </class> <!-- com.homePage.SaveParametersTest -->
+      </class> <!-- com.userManagement.GetUserAuthDetailsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

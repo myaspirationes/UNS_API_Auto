@@ -3,6 +3,7 @@ package com.userManagement;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
@@ -12,35 +13,46 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
+import com.login.BackUserLoginTest;
 
 public class GetUserAuthDetailsTest extends HttpUtil {
 // 获取用户认证详情接口
 	String url = "/uu-admin/UUuserManage/getUserAuthDetails";
-
+	String userId;
+	String selectSql = "SELECT * FROM T_AUTH_JUNIOR_REAL_NAME where USER_ID = 12495005";
+	List<Map<String,Object>> list ;
+	String dataType = "perCenter81";
+@BeforeClass
+public void beforeClass(){
+	 userId = new BackUserLoginTest().userId;
+	 list = MetaOper.read(selectSql, dataType);
+}
 
 	/**
 	 * 提交正确参数
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestCorrectParameter() throws Exception {
+	public void postGetUserAuthDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495324);				
-		request.put("uid", 2);
+		request.put("userId", userId);				
+		request.put("uid", 12495005);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(list.get(0).get("REAL_NAME").toString()).isEqualTo("张慧彪");
 	}
 	/**
 	 * 用户ID为未登录用户
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdNotLoggedIn() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495325);	
-		request.put("containerId", 22);
+		request.put("userId", 12345678);	
+		request.put("uid", 12495005);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
@@ -53,10 +65,10 @@ public class GetUserAuthDetailsTest extends HttpUtil {
 	 * 用户ID为错误用户
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdIsError() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12312313);	
-		request.put("containerId", 22);
+		request.put("uid", 12495005);
 		
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -69,305 +81,305 @@ public class GetUserAuthDetailsTest extends HttpUtil {
 	 * 用户ID为非法字符
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdIllegalCharacters() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^>");	
-		request.put("containerId", 22);
+		request.put("uid", 12495005);
 		
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 	
-		assertThat(post.get("status")).isEqualTo(400);
-		
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为小数
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdIsDecimal() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 121123.33);
-		request.put("containerId", 22);
+		request.put("uid", 12495005);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为负数
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdIsNegativeNumber() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -121312);	
-		request.put("containerId", 22);
+		request.put("uid", 12495005);
 				
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为空格
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdIsSpace() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");		
-		request.put("containerId", 22);
+		request.put("uid", 12495005);
 			
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
 	
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为空
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdIsEmpty() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");	
-		request.put("containerId", 22);
+		request.put("uid", 12495005);
 		
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为null
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdIsNull() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);	
-		request.put("containerId", 22);
+		request.put("uid", 12495005);
 					
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户不能为空");
+		assertThat(post.get("msg")).isEqualTo("userId不能为空");
 	}
 	/**
 	 * 用户ID为0
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdIsZero() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);	
-		request.put("containerId", 2);
+		request.put("uid", 12495005);
 		
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为String
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdIsString() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "fsddf");	
-		request.put("containerId", 22);
+		request.put("uid", 12495005);
 		
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为0" + post);
+		System.out.println("用户ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(400);
-		
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID不传该参数
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdNonSubmissionParameters() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("containerId", 22);
+		request.put("uid", 12495005);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户不能为空");
+		assertThat(post.get("msg")).isEqualTo("userId不能为空");
 	}
 	/**
 	 * 用户ID为超长
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestUserIdIsLong() throws Exception {
+	public void postGetUserAuthDetailsTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 999999999999999999L);	
-		request.put("containerId", 22);
+		request.put("uid", 12495005);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
-	 * 容器ID为错误
+	 * 被查看用户ID为错误
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestContainerIdIsError() throws Exception {
+	public void postGetUserAuthDetailsTestUidIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495324);	
-		request.put("containerId", 8888888);
+		request.put("userId", userId);	
+		request.put("uid", 12345678);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("容器ID为错误" + post);
-
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
-	}
-	/**
-	 * 容器ID超长
-	 */
-	@Test
-	public void postGetPlateContentDetailsTestContainerIdIsLong() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495324);	
-		request.put("containerId", 999999999999999999L);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("容器ID超长" + post);
-
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
-	}
-	/**
-	 * 容器ID为空
-	 */
-	@Test
-	public void postGetPlateContentDetailsTestContainerIdIsEmpty() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495324);	
-		request.put("containerId", "");
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("容器ID为空" + post);
+		System.out.println("被查看用户ID为错误" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
-	 * 容器ID存在非法字符
+	 * 被查看用户ID超长
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestContainerIdIsIllegalCharacters() throws Exception {
+	public void postGetUserAuthDetailsTestUidIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495324);	
-		request.put("containerId", "<@$^*_>");
+		request.put("userId", userId);	
+		request.put("uid", 999999999999999999L);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为超长" + post);
-
-		assertThat(post.get("status")).isEqualTo(400);
-		
-	}
-	/**
-	 * 容器ID为小数
-	 */
-	@Test
-	public void postGetPlateContentDetailsTestContainerIdIsDecimal() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495324);	
-		request.put("containerId", 2.36);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("容器ID为小数" + post);
-
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
-	}
-	/**
-	 * 容器ID为负数
-	 */
-	@Test
-	public void postGetPlateContentDetailsTestContainerIdIsNegativeNumber() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495324);	
-		request.put("containerId", -23);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("容器ID为负数" + post);
-
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
-	}
-	/**
-	 * 容器ID为空格
-	 */
-	@Test
-	public void postGetPlateContentDetailsTestContainerIdIsSpace() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495324);	
-		request.put("containerId", " ");
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("容器ID为空格" + post);
+		System.out.println("被查看用户ID超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
-	 * 容器ID为null
+	 * 被查看用户ID为空
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestContainerIdIsNull() throws Exception {
+	public void postGetUserAuthDetailsTestUidIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495324);	
-		request.put("containerId", null);
+		request.put("userId",userId);	
+		request.put("uid", "");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("容器ID为null" + post);
+		System.out.println("被查看用户ID为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
-	 * 容器ID为String
+	 * 被查看用户ID存在非法字符
 	 */
 	@Test
-	public void postGetPlateContentDetailsTestContainerIdIsString() throws Exception {
+	public void postGetUserAuthDetailsTestUidIsIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495324);	
-		request.put("containerId", "gsd");
+		request.put("userId", userId);	
+		request.put("uid", "<@$^*_>");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("容器ID为String" + post);
-
-		assertThat(post.get("status")).isEqualTo(400);
-		
-	}
-	/**
-	 * 容器ID不传该参数
-	 */
-	@Test
-	public void postGetPlateContentDetailsTestContainerIdNonSubmissionParameters() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495324);	
-		
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("容器ID不传该参数" + post);
+		System.out.println("被查看用户ID存在非法字符" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数非法");
+	}
+	/**
+	 * 被查看用户ID为小数
+	 */
+	@Test
+	public void postGetUserAuthDetailsTestUidIsDecimal() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();		
+		request.put("userId", userId);	
+		request.put("uid", 2.36);
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("被查看用户ID为小数" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
+	}
+	/**
+	 * 被查看用户ID为负数
+	 */
+	@Test
+	public void postGetUserAuthDetailsTestUidIsNegativeNumber() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();		
+		request.put("userId", userId);	
+		request.put("uid", -23);
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("被查看用户ID为负数" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
+	}
+	/**
+	 * 被查看用户ID为空格
+	 */
+	@Test
+	public void postGetUserAuthDetailsTestUidIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();		
+		request.put("userId", userId);	
+		request.put("uid", " ");
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("被查看用户ID为空格" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
+	}
+	/**
+	 * 被查看用户ID为null
+	 */
+	@Test
+	public void postGetUserAuthDetailsTestUidIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();		
+		request.put("userId", userId);	
+		request.put("uid", null);
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("被查看用户ID为null" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("uid不能为空");
+	}
+	/**
+	 * 被查看用户ID为String
+	 */
+	@Test
+	public void postGetUserAuthDetailsTestUidIsString() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();		
+		request.put("userId", userId);	
+		request.put("uid", "gsd");
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("被查看用户ID为String" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
+	}
+	/**
+	 * 被查看用户不传该参数
+	 */
+	@Test
+	public void postGetUserAuthDetailsTestUidNonSubmissionParameters() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();		
+		request.put("userId", userId);	
+		
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("被查看用户不传该参数" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("uid不能为空");
 	}
 	
 	
