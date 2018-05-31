@@ -207,7 +207,7 @@
 					</excludes>
 
 					<suiteXmlFiles>
-					<!-- 个人中心 -->
+					<!-- 个人中心
 					<suiteXmlFile>./src/testng/personalCenter/AddEditTheUserAddressTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/AuthenticateTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/AuthenticationManagementListTestng.xml</suiteXmlFile>
@@ -231,8 +231,25 @@
 						<suiteXmlFile>./src/testng/personalCenter/SettingUserInformationSingleTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/ShareTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/ValidateTestng.xml</suiteXmlFile>
-						<suiteXmlFile>./src/testng/personalCenter/WalletTestng.xml</suiteXmlFile>
-						
+						<suiteXmlFile>./src/testng/personalCenter/WalletTestng.xml</suiteXmlFile>-->
+
+						<!--首页-->
+						<suiteXmlFile>./src/testng/homePage/AddOrEditContainerTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/ContainerEditingDetailsTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/DeleteContainerModuleTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/GetFirstPagePlateContainersListTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/GetPlateContentDetailsTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/GetPlateDefaultParameterTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/GetTheHomePageAllPlateContainersTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/HomePageConfigurationParameterTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/HomePageListTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/HomePageSearchTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/InvisibleTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/JoinHomePageTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/ObtainPlateParametersTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/SaveContainerContentModificationTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/SaveParametersTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/homePage/SortListTestng.xml</suiteXmlFile>
 											
 											
 					</suiteXmlFiles>
