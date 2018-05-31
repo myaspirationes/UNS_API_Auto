@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c4a610d-2f9b-4ba5-8d43-60318edf6dab" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/systemManagement/GetRoleListTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/systemManagement/GetRoleListTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -120,8 +121,8 @@
       <file leaf-file-name="GetRoleListTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetRoleListTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10740">
-              <caret line="725" column="5" lean-forward="true" selection-start-line="725" selection-start-column="5" selection-end-line="725" selection-end-column="5" />
+            <state relative-caret-position="105">
+              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="13" />
               <folding>
                 <element signature="e#510#511#0" expanded="true" />
                 <element signature="e#553#554#0" expanded="true" />
@@ -873,7 +874,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88906000" />
+    <option name="totallyTimeSpent" value="88940000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -1386,8 +1387,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetRoleListTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10740">
-          <caret line="725" column="5" lean-forward="true" selection-start-line="725" selection-start-column="5" selection-end-line="725" selection-end-column="5" />
+        <state relative-caret-position="105">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="13" />
           <folding>
             <element signature="e#510#511#0" expanded="true" />
             <element signature="e#553#554#0" expanded="true" />
