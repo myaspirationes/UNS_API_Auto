@@ -25,7 +25,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
-		request.put("containerId", 2);
+		request.put("containerId", 4);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -40,7 +40,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495325);	
-		request.put("containerId", 22);
+		request.put("containerId", 4);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
@@ -56,7 +56,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12312313);	
-		request.put("containerId", 22);
+		request.put("containerId", 4);
 		
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -72,7 +72,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^>");	
-		request.put("containerId", 22);
+		request.put("containerId", 4);
 		
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -88,7 +88,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 121123.33);
-		request.put("containerId", 22);
+		request.put("containerId", 4);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
@@ -103,7 +103,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -121312);	
-		request.put("containerId", 22);
+		request.put("containerId", 4);
 				
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
@@ -118,7 +118,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");		
-		request.put("containerId", 22);
+		request.put("containerId", 4);
 			
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
@@ -134,7 +134,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");	
-		request.put("containerId", 22);
+		request.put("containerId", 4);
 		
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -150,7 +150,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);	
-		request.put("containerId", 22);
+		request.put("containerId", 4);
 					
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
@@ -181,7 +181,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "fsddf");	
-		request.put("containerId", 22);
+		request.put("containerId", 4);
 		
 
 		JSONObject post = super.UNSPost(url, request);
@@ -196,7 +196,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	@Test
 	public void postGetPlateContentDetailsTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("containerId", 22);
+		request.put("containerId", 4);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
@@ -211,7 +211,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 	public void postGetPlateContentDetailsTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 999999999999999999L);	
-		request.put("containerId", 22);
+		request.put("containerId", 4);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
@@ -231,8 +231,9 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("body").toString()).isEqualTo("{}");
 	}
 	/**
 	 * 容器ID超长
@@ -246,8 +247,9 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("body").toString()).isEqualTo("{}");
 	}
 	/**
 	 * 容器ID为空
@@ -291,8 +293,9 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("body").toString()).isEqualTo("{}");
 	}
 	/**
 	 * 容器ID为负数
@@ -306,8 +309,9 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("body").toString()).isEqualTo("{}");
 	}
 	/**
 	 * 容器ID为空格
