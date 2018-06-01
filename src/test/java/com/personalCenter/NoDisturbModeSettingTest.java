@@ -805,7 +805,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 1);
+		con.put("isNotDisturb", 0);
 		con.put("noDisturbCreateTime", 0);
 		con.put("noDisturbEndTime", 0);
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -878,7 +878,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("isNotDisturb", 1);
+		con.put("isNotDisturb", 0);
 		con.put("noDisturbCreateTime", "00:00:00");
 		con.put("noDisturbEndTime", "00:00:00");
 		Map<String, Object> head = new HashMap<String, Object>();
