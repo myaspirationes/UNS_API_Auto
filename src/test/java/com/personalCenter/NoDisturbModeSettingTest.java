@@ -145,7 +145,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
+		assertThat(head1.get("msg")).isEqualTo("没有此用户");
 	}
 	/**
 	 * 用户为错误
@@ -176,7 +176,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
+		assertThat(head1.get("msg")).isEqualTo("没有此用户");
 	}
 	/**
 	 * 用户ID存在小数
@@ -207,7 +207,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
+		assertThat(head1.get("msg")).isEqualTo("没有此用户");
 	}
 	/**
 	 * 用户ID存在非法字符
@@ -238,7 +238,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID存在负数
@@ -269,7 +269,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
+		assertThat(head1.get("msg")).isEqualTo("没有此用户");
 	}
 	/**
 	 * 用户ID为0
@@ -300,7 +300,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
+		assertThat(head1.get("msg")).isEqualTo("没有此用户");
 	}
 	/**
 	 * 用户ID为String
@@ -331,7 +331,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为空
@@ -362,7 +362,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
+		assertThat(head1.get("msg")).isEqualTo("没有此用户");
 	}
 	/**
 	 * 用户ID为空格
@@ -393,7 +393,7 @@ public class NoDisturbModeSettingTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId格式不对");
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为null

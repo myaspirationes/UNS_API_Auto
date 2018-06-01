@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.userManagement.GetUserAuthDetailsTest">
+      <class name="com.systemManagement.GetAuthTreeTest">
         <methods>
+          <include name="postGetAuthTreeTestRoleIdIsError"/>
+          <include name="postGetAuthTreeTestRoleIdIsNegativeNumber"/>
+          <include name="postGetAuthTreeTestRoleIdIsZero"/>
           <include name="beforeClass"/>
-          <include name="postGetUserAuthDetailsTestUserIdNotLoggedIn"/>
-          <include name="postGetUserAuthDetailsTestUserIdIsLong"/>
-          <include name="postGetUserAuthDetailsTestUidIsError"/>
-          <include name="postGetUserAuthDetailsTestUserIdIsError"/>
-          <include name="postGetUserAuthDetailsTestUidIsLong"/>
+          <include name="postpostGetAuthTreeTestUserIdNotLoggedIn"/>
+          <include name="postGetAuthTreeTestRoleIdIsDecimal"/>
         </methods>
-      </class> <!-- com.userManagement.GetUserAuthDetailsTest -->
+      </class> <!-- com.systemManagement.GetAuthTreeTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
