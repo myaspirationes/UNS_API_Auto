@@ -435,9 +435,281 @@ public class ChangePasswordTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("密码错误");
+		
+		
+		
+	}
+	
+	/**
+	 * 旧密码为超长字符
+	 */
+//	@Test
+	public void postChangePasswordTestOldPasswordIsLong() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", "123456123456123456123456123456123456123456123456");
+		request.put("newPassWord", "123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("旧密码为超长字符" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("密码错误");
+		
+		
 	}
 	
 	
+	/**
+	 * 旧密码为null
+	 */
+	@Test
+	public void postChangePasswordTestOldPasswordIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", "null");
+		request.put("newPassWord", "123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("旧密码为null" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
+		
+		
+	}
+	
+	/**
+	 * 旧密码为空格
+	 */
+	@Test
+	public void postChangePasswordTestOldPasswordIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", " ");
+		request.put("newPassWord", "123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("旧密码为空格" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
+		
+		
+	}
+	
+	/**
+	 * 旧密码为空
+	 */
+	@Test
+	public void postChangePasswordTestOldPasswordIsEmpty() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", "");
+		request.put("newPassWord", "123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("旧密码为空" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
+		
+		
+	}
+	
+	/**
+	 * 不传旧密码参数
+	 */
+	@Test
+	public void postChangePasswordTestOldPasswordNotCommitted() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("newPassWord", "123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("不传旧密码参数" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("缺少参数");	
+		
+	}
+	
+	/**
+	 * 正确的int型旧密码
+	 */
+	@Test
+	public void postChangePasswordTestOldPasswordTypeIsInt() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", 123456);
+		request.put("newPassWord", "123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("正确的int型旧密码" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		
+	}
+	
+	/**
+	 * 新密码与旧密码一致
+	 */
+	@Test
+	public void postChangePasswordTestNewPasswordSameAsOldPassword() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", "123456");
+		request.put("newPassWord", "123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("新密码与旧密码一致" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");	
+		
+	}
+	
+	/**
+	 * 新密码为非法字符
+	 */
+	@Test
+	public void postChangePasswordTestNewPasswordIsIllegalCharacter() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", "123456");
+		request.put("newPassWord", "<@#$%^&>");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("新密码为非法字符" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		
+	}
+	
+	
+	/**
+	 * 新密码为超长字符
+	 */
+	@Test
+	public void postChangePasswordTestNewPasswordIsLong() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", "123456");
+		request.put("newPassWord", "123456123456123456123456123456123456123456123456123456123456123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("新密码为超长字符" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		
+	}
+	
+	/**
+	 * 新密码为null
+	 */
+	@Test
+	public void postChangePasswordTestNewPasswordIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", "123456");
+		request.put("newPassWord", null);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("新密码为null" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		
+	}
+	
+	/**
+	 * 新密码为空格
+	 */
+	@Test
+	public void postChangePasswordTestNewPasswordIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", "123456");
+		request.put("newPassWord", " ");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("新密码为空格" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		
+	}
+	
+	
+	/**
+	 * 新密码为空
+	 */
+	@Test
+	public void postChangePasswordTestNewPasswordIsEmpty() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", "123456");
+		request.put("newPassWord", "");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("新密码为空" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		
+	}
+	
+	/**
+	 * 不传新密码参数
+	 */
+	@Test
+	public void postChangePasswordTestNewPasswordNotCommitted() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", "123456");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("不传新密码参数" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		
+	}
+	
+	/**
+	 * 提交int型新密码
+	 */
+	@Test
+	public void postChangePasswordTestNewPasswordTypeIsInt() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("userName", "admin");
+		request.put("oldPassWord", "123456");
+		request.put("newPassWord", 123456);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("提交int型新密码" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		
+	}
 	
 
 }
