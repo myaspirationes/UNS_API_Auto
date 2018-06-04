@@ -24,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ModifyParameterConfigurationTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModifyParameterConfigurationTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/ModifyParameterConfigurationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="105">
+              <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="11" />
               <folding>
                 <element signature="e#1285#1301#0" expanded="true" />
                 <element signature="e#1817#1833#0" expanded="true" />
@@ -80,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetManagerParaSpecialTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GetManagerParaSpecialTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetManagerParaSpecialTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+            <state relative-caret-position="105">
+              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="13" />
               <folding>
                 <element signature="e#726#742#0" expanded="true" />
                 <element signature="e#1157#1173#0" expanded="true" />
@@ -117,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>0);</find>
       <find>&quot;上传成功&quot;</find>
       <find>2111</find>
       <find>con.put(&quot;keyWord&quot;, &quot;苹果&quot;);</find>
@@ -147,9 +146,9 @@
       <find>assertThat(list.get(0).get(&quot;REAL_NAME&quot;).toString()).isEqualTo(&quot;张慧彪&quot;);</find>
       <find>GetUserOperateLogTest</find>
       <find>ModifyParameterConfigurationTest</find>
+      <find>1000000</find>
     </findStrings>
     <replaceStrings>
-      <replace>HomePageConfigurationParameterTest</replace>
       <replace>//@Test</replace>
       <replace>AddOrEditContainerTest</replace>
       <replace>&quot;0&quot;);</replace>
@@ -179,6 +178,7 @@
       <replace>结束</replace>
       <replace>TestOperateEndTime</replace>
       <replace>GetManagerParaSpecialTest</replace>
+      <replace>10000000</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -794,7 +794,7 @@
       <workItem from="1527642154970" duration="14903000" />
       <workItem from="1527773014292" duration="4703000" />
       <workItem from="1527819977420" duration="10050000" />
-      <workItem from="1528074265222" duration="5005000" />
+      <workItem from="1528074265222" duration="5111000" />
     </task>
     <servers />
   </component>
@@ -831,10 +831,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108946000" />
+    <option name="totallyTimeSpent" value="109052000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1280" height="1024" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -844,7 +845,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3764706" sideWeight="0.50555557" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37577003" sideWeight="0.49444443" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37577003" sideWeight="0.49444443" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -932,41 +933,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetManagerParaSpecialTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding>
-            <element signature="e#726#742#0" expanded="true" />
-            <element signature="e#1157#1173#0" expanded="true" />
-            <element signature="e#1584#1600#0" expanded="true" />
-            <element signature="e#2028#2044#0" expanded="true" />
-            <element signature="e#2414#2430#0" expanded="true" />
-            <element signature="e#2803#2819#0" expanded="true" />
-            <element signature="e#3235#3251#0" expanded="true" />
-            <element signature="e#3670#3686#0" expanded="true" />
-            <element signature="e#4055#4071#0" expanded="true" />
-            <element signature="e#4430#4446#0" expanded="true" />
-            <element signature="e#4805#4821#0" expanded="true" />
-            <element signature="e#5202#5218#0" expanded="true" />
-            <element signature="e#5549#5565#0" expanded="true" />
-            <element signature="e#5977#5993#0" expanded="true" />
-            <element signature="e#6413#6429#0" expanded="true" />
-            <element signature="e#6863#6879#0" expanded="true" />
-            <element signature="e#7310#7326#0" expanded="true" />
-            <element signature="e#7751#7767#0" expanded="true" />
-            <element signature="e#8184#8200#0" expanded="true" />
-            <element signature="e#8620#8636#0" expanded="true" />
-            <element signature="e#9014#9030#0" expanded="true" />
-            <element signature="e#9358#9374#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/ModifyParameterConfigurationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="11" />
           <folding>
             <element signature="e#1285#1301#0" expanded="true" />
             <element signature="e#1817#1833#0" expanded="true" />
@@ -1013,6 +983,37 @@
             <element signature="e#23993#24009#0" expanded="true" />
             <element signature="e#24541#24557#0" expanded="true" />
             <element signature="e#25095#25111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetManagerParaSpecialTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="e#726#742#0" expanded="true" />
+            <element signature="e#1157#1173#0" expanded="true" />
+            <element signature="e#1584#1600#0" expanded="true" />
+            <element signature="e#2028#2044#0" expanded="true" />
+            <element signature="e#2414#2430#0" expanded="true" />
+            <element signature="e#2803#2819#0" expanded="true" />
+            <element signature="e#3235#3251#0" expanded="true" />
+            <element signature="e#3670#3686#0" expanded="true" />
+            <element signature="e#4055#4071#0" expanded="true" />
+            <element signature="e#4430#4446#0" expanded="true" />
+            <element signature="e#4805#4821#0" expanded="true" />
+            <element signature="e#5202#5218#0" expanded="true" />
+            <element signature="e#5549#5565#0" expanded="true" />
+            <element signature="e#5977#5993#0" expanded="true" />
+            <element signature="e#6413#6429#0" expanded="true" />
+            <element signature="e#6863#6879#0" expanded="true" />
+            <element signature="e#7310#7326#0" expanded="true" />
+            <element signature="e#7751#7767#0" expanded="true" />
+            <element signature="e#8184#8200#0" expanded="true" />
+            <element signature="e#8620#8636#0" expanded="true" />
+            <element signature="e#9014#9030#0" expanded="true" />
+            <element signature="e#9358#9374#0" expanded="true" />
           </folding>
         </state>
       </provider>
