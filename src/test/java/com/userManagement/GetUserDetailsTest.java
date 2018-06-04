@@ -16,6 +16,7 @@ import com.example.HttpUtil;
 public class GetUserDetailsTest extends HttpUtil {
 // 获取用户详情接口
 	String url = "/uu-admin/UUuserManage/getUserDetails";
+	
 
 
 	/**
@@ -24,7 +25,7 @@ public class GetUserDetailsTest extends HttpUtil {
 	@Test
 	public void postGetUserDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("uid", 12495324);					
+		request.put("uid", 12495396);					
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
@@ -37,7 +38,7 @@ public class GetUserDetailsTest extends HttpUtil {
 	@Test
 	public void postGetUserDetailsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("uid", 12495329);
+		request.put("uid", 12495311);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
@@ -72,7 +73,8 @@ public class GetUserDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 	
-		assertThat(post.get("status")).isEqualTo(400);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 		
 	}
 	/**
@@ -86,8 +88,8 @@ public class GetUserDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为负数
@@ -100,8 +102,8 @@ public class GetUserDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为空格
@@ -116,7 +118,7 @@ public class GetUserDetailsTest extends HttpUtil {
 	
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为空
@@ -130,7 +132,7 @@ public class GetUserDetailsTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为null
@@ -144,7 +146,7 @@ public class GetUserDetailsTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户不能为空");
+		assertThat(post.get("msg")).isEqualTo("uid不能为空");
 	}
 	/**
 	 * 用户ID为0
@@ -157,8 +159,8 @@ public class GetUserDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为String
@@ -171,8 +173,8 @@ public class GetUserDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 		
 	}
 	/**
@@ -186,7 +188,7 @@ public class GetUserDetailsTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户不能为空");
+		assertThat(post.get("msg")).isEqualTo("uid不能为空");
 	}
 	/**
 	 * 用户ID为超长
