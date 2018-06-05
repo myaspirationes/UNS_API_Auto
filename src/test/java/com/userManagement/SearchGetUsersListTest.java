@@ -22,26 +22,29 @@ public class SearchGetUsersListTest extends HttpUtil {
 	String url = "/uu-admin/UUuserManage/getUserList";
 	String userId;
 	String selectSql = "SELECT * FROM T_USERINFO WHERE USER_ID= 12495396";
+	String updateSql = "UPDATE T_USERINFO SET STATUES = '0' WHERE USER_ID= 12495396";	
 	String dataType = "perCenter81";
 	List<Map<String,Object>> list ;
 	@BeforeClass
 	public void beforeClass(){
 		 userId = new BackUserLoginTest().userId;
 		 list = MetaOper.read(selectSql, dataType);
+		 
 	}
-
+	
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postSearchGetUsersListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		MetaOper.update(updateSql, dataType);
 		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-05-17");
-		request.put("status", 0);
+		//request.put("status", 0);
 		request.put("uid", 12495396);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -51,6 +54,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		//JSONObject body = (JSONObject)post.get("body");
+		//assertThat(body.get("userList").toString()).isNotEqualTo("[]");
 	}
 	/**
 	 * 用户ID为未登录用户
@@ -530,8 +535,11 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号前+86" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
+		
 	}
 	/**
 	 * 手机号前加00
@@ -552,8 +560,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号前加00" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 手机号码前面加长途号码17951
@@ -574,8 +584,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码前面加长途号码17951" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 手机号含有非法字符
@@ -596,8 +608,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号含有非法字符" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 手机号为0
@@ -618,8 +632,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号为0" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 手机号为null
@@ -642,6 +658,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 手机号为空
@@ -664,6 +682,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 手机号为空格
@@ -684,8 +704,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号为空格" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 手机号为小数
@@ -706,8 +728,11 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("body")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 手机号为负数
@@ -715,7 +740,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "-12452");
 		request.put("startTime", "2018-01-01");
@@ -728,8 +753,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 手机号码为非1开头
@@ -750,8 +777,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码为非1开头" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 手机号码格式为xxx-xxxx-xxxx
@@ -772,8 +801,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码格式为xxx-xxxx-xxxx" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 手机号不传该参数
@@ -781,11 +812,11 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-05-17");
-		request.put("status", 0);
+		request.put("status", 1);
 		request.put("uid", 12495396);
 		request.put("pageSize", 2);
 		request.put("pageNow", 1);
@@ -795,6 +826,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("userList").toString()).isNotEqualTo("[]");
 	}
 	/**
 	 * 注册时间(开始) 传错误格式
