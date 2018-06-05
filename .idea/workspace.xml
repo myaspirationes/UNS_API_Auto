@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c4a610d-2f9b-4ba5-8d43-60318edf6dab" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/systemManagement/CreateAndSetPersonRoleTest.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/systemManagement/DeletePersonRoleTest.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/systemManagement/CreateAndSetPersonRoleTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/systemManagement/CreateAndSetPersonRoleTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,19 +22,180 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="ModifyParameterConfigurationTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/ModifyParameterConfigurationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="11" />
+              <folding>
+                <element signature="e#1285#1301#0" expanded="true" />
+                <element signature="e#1817#1833#0" expanded="true" />
+                <element signature="e#2358#2374#0" expanded="true" />
+                <element signature="e#2894#2910#0" expanded="true" />
+                <element signature="e#3433#3449#0" expanded="true" />
+                <element signature="e#3958#3974#0" expanded="true" />
+                <element signature="e#4486#4502#0" expanded="true" />
+                <element signature="e#5021#5037#0" expanded="true" />
+                <element signature="e#5546#5562#0" expanded="true" />
+                <element signature="e#6071#6087#0" expanded="true" />
+                <element signature="e#6618#6634#0" expanded="true" />
+                <element signature="e#7115#7131#0" expanded="true" />
+                <element signature="e#7649#7665#0" expanded="true" />
+                <element signature="e#8192#8208#0" expanded="true" />
+                <element signature="e#8749#8765#0" expanded="true" />
+                <element signature="e#9303#9319#0" expanded="true" />
+                <element signature="e#9851#9867#0" expanded="true" />
+                <element signature="e#10388#10404#0" expanded="true" />
+                <element signature="e#10931#10947#0" expanded="true" />
+                <element signature="e#11490#11506#0" expanded="true" />
+                <element signature="e#11999#12015#0" expanded="true" />
+                <element signature="e#12494#12510#0" expanded="true" />
+                <element signature="e#13094#13110#0" expanded="true" />
+                <element signature="e#13650#13666#0" expanded="true" />
+                <element signature="e#14194#14210#0" expanded="true" />
+                <element signature="e#14738#14754#0" expanded="true" />
+                <element signature="e#15303#15319#0" expanded="true" />
+                <element signature="e#15814#15830#0" expanded="true" />
+                <element signature="e#16412#16428#0" expanded="true" />
+                <element signature="e#16968#16984#0" expanded="true" />
+                <element signature="e#17512#17528#0" expanded="true" />
+                <element signature="e#18059#18075#0" expanded="true" />
+                <element signature="e#18626#18642#0" expanded="true" />
+                <element signature="e#19128#19144#0" expanded="true" />
+                <element signature="e#19669#19685#0" expanded="true" />
+                <element signature="e#20219#20235#0" expanded="true" />
+                <element signature="e#20757#20773#0" expanded="true" />
+                <element signature="e#21295#21311#0" expanded="true" />
+                <element signature="e#21836#21852#0" expanded="true" />
+                <element signature="e#22384#22400#0" expanded="true" />
+                <element signature="e#22950#22966#0" expanded="true" />
+                <element signature="e#23457#23473#0" expanded="true" />
+                <element signature="e#23993#24009#0" expanded="true" />
+                <element signature="e#24541#24557#0" expanded="true" />
+                <element signature="e#25095#25111#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetRoleListTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetRoleListTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetRoleDetailsTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetRoleDetailsTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetManagerParaSpecialTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetManagerParaSpecialTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding>
+                <element signature="e#726#742#0" expanded="true" />
+                <element signature="e#1157#1173#0" expanded="true" />
+                <element signature="e#1584#1600#0" expanded="true" />
+                <element signature="e#2028#2044#0" expanded="true" />
+                <element signature="e#2414#2430#0" expanded="true" />
+                <element signature="e#2803#2819#0" expanded="true" />
+                <element signature="e#3235#3251#0" expanded="true" />
+                <element signature="e#3670#3686#0" expanded="true" />
+                <element signature="e#4055#4071#0" expanded="true" />
+                <element signature="e#4430#4446#0" expanded="true" />
+                <element signature="e#4805#4821#0" expanded="true" />
+                <element signature="e#5202#5218#0" expanded="true" />
+                <element signature="e#5549#5565#0" expanded="true" />
+                <element signature="e#5977#5993#0" expanded="true" />
+                <element signature="e#6413#6429#0" expanded="true" />
+                <element signature="e#6863#6879#0" expanded="true" />
+                <element signature="e#7310#7326#0" expanded="true" />
+                <element signature="e#7751#7767#0" expanded="true" />
+                <element signature="e#8184#8200#0" expanded="true" />
+                <element signature="e#8620#8636#0" expanded="true" />
+                <element signature="e#9014#9030#0" expanded="true" />
+                <element signature="e#9358#9374#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetAuthTreeTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetAuthTreeTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeletePersonRoleTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/DeletePersonRoleTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateAndSetPersonRoleTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/CreateAndSetPersonRoleTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="630" column="0" lean-forward="false" selection-start-line="630" selection-start-column="0" selection-end-line="630" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AssignPermissionsForRolesTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/AssignPermissionsForRolesTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetPlateDefaultParameterTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/GetPlateDefaultParameterTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvisibleTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/InvisibleTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>设置勿扰模式参数传错误</find>
-      <find>未开启勿扰模式时间传错误格式</find>
-      <find>开启勿扰模式不传时间</find>
-      <find>开启勿扰模式再次传未开启值</find>
-      <find>开启勿扰模式再次传开启值</find>
-      <find>开始时间传空</find>
-      <find>开始时间传错误格式</find>
-      <find>&quot;12495324&quot;</find>
-      <find>0);</find>
       <find>&quot;上传成功&quot;</find>
       <find>2111</find>
       <find>con.put(&quot;keyWord&quot;, &quot;苹果&quot;);</find>
@@ -57,12 +217,17 @@
       <find>PageSize</find>
       <find>Teststatus</find>
       <find>GetRoleListTest</find>
+      <find>GetUserAuthDetailsTest</find>
+      <find>每页显示记录数</find>
+      <find>&quot;realName&quot;, 1</find>
+      <find>TestRealName</find>
+      <find>TestOperateStartTime</find>
+      <find>assertThat(list.get(0).get(&quot;REAL_NAME&quot;).toString()).isEqualTo(&quot;张慧彪&quot;);</find>
+      <find>GetUserOperateLogTest</find>
+      <find>ModifyParameterConfigurationTest</find>
+      <find>1000000</find>
     </findStrings>
     <replaceStrings>
-      <replace>InvisibleTest</replace>
-      <replace>KeyWord</replace>
-      <replace>HomePageSearchTest</replace>
-      <replace>HomePageConfigurationParameterTest</replace>
       <replace>//@Test</replace>
       <replace>AddOrEditContainerTest</replace>
       <replace>&quot;0&quot;);</replace>
@@ -79,12 +244,20 @@
       <replace>GetUserDisposeListTest</replace>
       <replace>uid</replace>
       <replace>GetRoleListTest</replace>
-      <replace>结束</replace>
       <replace>End</replace>
       <replace>当前页数</replace>
       <replace>PageNow</replace>
       <replace>TestStatus</replace>
       <replace>DeletePersonRoleTest</replace>
+      <replace>GetUserOperateLogTest</replace>
+      <replace>当前页码</replace>
+      <replace>TestPageNow</replace>
+      <replace>&quot;realName&quot;, &quot;admin&quot;</replace>
+      <replace>TestUserName</replace>
+      <replace>结束</replace>
+      <replace>TestOperateEndTime</replace>
+      <replace>GetManagerParaSpecialTest</replace>
+      <replace>10000000</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -114,13 +287,17 @@
         <option value="$PROJECT_DIR$/src/test/java/com/personalCenter/AddEditTheUserAddressTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/homePage/AddOrEditContainerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/homePage/InvisibleTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/homePage/HomePageListTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/contentManagement/UploadSensitiveFileTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/userManagement/GetUserDisposeListTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/systemManagement/GetRoleListTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/systemManagement/CreateAndSetPersonRoleTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/systemManagement/DeletePersonRoleTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/userManagement/GetUserOperateLogTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/userManagement/GetManagerParaSpecialTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/homePage/HomePageListTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/systemManagement/GetManagerParaSpecialTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/systemManagement/ModifyParameterConfigurationTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/systemManagement/CreateAndSetPersonRoleTest.java" />
       </list>
     </option>
   </component>
@@ -137,7 +314,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -159,8 +336,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,7 +456,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -313,7 +490,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.GetRoleListTest.postGetRoleListTestUserIdNotLoggedIn">
+  <component name="RunManager" selected="TestNG.CreateAndSetPersonRoleTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -342,7 +519,7 @@
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
     </configuration>
-    <configuration name="GetRoleListTest.postGetRoleListTestCorrectParameter" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateAndSetPersonRoleTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.systemManagement.*" />
@@ -354,71 +531,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="com.systemManagement" />
-      <option name="MAIN_CLASS_NAME" value="com.systemManagement.GetRoleListTest" />
-      <option name="METHOD_NAME" value="postGetRoleListTestCorrectParameter" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="GetRoleListTest.postGetRoleListTestUserIdNotLoggedIn" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.systemManagement.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="UNS_API_Auto" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.systemManagement" />
-      <option name="MAIN_CLASS_NAME" value="com.systemManagement.GetRoleListTest" />
-      <option name="METHOD_NAME" value="postGetRoleListTestUserIdNotLoggedIn" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="GetUserDisposeListTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.userManagement.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="UNS_API_Auto" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.userManagement" />
-      <option name="MAIN_CLASS_NAME" value="com.userManagement.GetUserDisposeListTest" />
+      <option name="MAIN_CLASS_NAME" value="com.systemManagement.CreateAndSetPersonRoleTest" />
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
@@ -438,10 +551,10 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="GetUserDisposeListTest.postGetUserDisposeListTestCorrectParameter" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="GetManagerParaSpecialTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.userManagement.*" />
+          <option name="PATTERN" value="com.systemManagement.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -449,9 +562,41 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="com.userManagement" />
-      <option name="MAIN_CLASS_NAME" value="com.userManagement.GetUserDisposeListTest" />
-      <option name="METHOD_NAME" value="postGetUserDisposeListTestCorrectParameter" />
+      <option name="PACKAGE_NAME" value="com.systemManagement" />
+      <option name="MAIN_CLASS_NAME" value="com.systemManagement.GetManagerParaSpecialTest" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="GetManagerParaSpecialTest.postGetManagerParaSpecialTestCorrectParameter" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.systemManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="UNS_API_Auto" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.systemManagement" />
+      <option name="MAIN_CLASS_NAME" value="com.systemManagement.GetManagerParaSpecialTest" />
+      <option name="METHOD_NAME" value="postGetManagerParaSpecialTestCorrectParameter" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -502,6 +647,38 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration name="InvisibleTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.homePage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="UNS_API_Auto" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="com.homePage" />
+      <option name="MAIN_CLASS_NAME" value="com.homePage.InvisibleTest" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
     <configuration name="InvisibleTest.postInvisibleTestUserIdIsError" type="TestNG" factoryName="TestNG" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -534,17 +711,22 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="&lt;default&gt; (1)" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration name="ModifyParameterConfigurationTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.systemManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="UNS_API_Auto" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
+      <option name="PACKAGE_NAME" value="com.systemManagement" />
+      <option name="MAIN_CLASS_NAME" value="com.systemManagement.ModifyParameterConfigurationTest" />
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="PACKAGE" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -645,19 +827,19 @@
       <item index="0" class="java.lang.String" itemvalue="TestNG.InvisibleTest.postInvisibleTestUserIdIsError" />
       <item index="1" class="java.lang.String" itemvalue="TestNG.HomePageSearchTest.postHomePageSearchTestCorrectParameter" />
       <item index="2" class="java.lang.String" itemvalue="TestNG.&lt;default&gt;" />
-      <item index="3" class="java.lang.String" itemvalue="TestNG.&lt;default&gt; (1)" />
-      <item index="4" class="java.lang.String" itemvalue="TestNG.GetUserDisposeListTest" />
-      <item index="5" class="java.lang.String" itemvalue="TestNG.GetUserDisposeListTest.postGetUserDisposeListTestCorrectParameter" />
-      <item index="6" class="java.lang.String" itemvalue="TestNG.GetRoleListTest.postGetRoleListTestCorrectParameter" />
-      <item index="7" class="java.lang.String" itemvalue="TestNG.GetRoleListTest.postGetRoleListTestUserIdNotLoggedIn" />
+      <item index="3" class="java.lang.String" itemvalue="TestNG.GetManagerParaSpecialTest.postGetManagerParaSpecialTestCorrectParameter" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.GetManagerParaSpecialTest" />
+      <item index="5" class="java.lang.String" itemvalue="TestNG.ModifyParameterConfigurationTest" />
+      <item index="6" class="java.lang.String" itemvalue="TestNG.CreateAndSetPersonRoleTest" />
+      <item index="7" class="java.lang.String" itemvalue="TestNG.InvisibleTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="TestNG.GetRoleListTest.postGetRoleListTestUserIdNotLoggedIn" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.GetRoleListTest.postGetRoleListTestCorrectParameter" />
-        <item index="2" class="java.lang.String" itemvalue="TestNG.GetUserDisposeListTest.postGetUserDisposeListTestCorrectParameter" />
-        <item index="3" class="java.lang.String" itemvalue="TestNG.GetUserDisposeListTest" />
-        <item index="4" class="java.lang.String" itemvalue="TestNG.&lt;default&gt; (1)" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG.CreateAndSetPersonRoleTest" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.InvisibleTest" />
+        <item index="2" class="java.lang.String" itemvalue="TestNG.GetManagerParaSpecialTest" />
+        <item index="3" class="java.lang.String" itemvalue="TestNG.ModifyParameterConfigurationTest" />
+        <item index="4" class="java.lang.String" itemvalue="TestNG.GetManagerParaSpecialTest.postGetManagerParaSpecialTestCorrectParameter" />
       </list>
     </recent_temporary>
   </component>
@@ -689,74 +871,76 @@
       <workItem from="1527589051989" duration="393000" />
       <workItem from="1527642154970" duration="14903000" />
       <workItem from="1527773014292" duration="4703000" />
+      <workItem from="1527819977420" duration="10050000" />
+      <workItem from="1528074265222" duration="8134000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GetRoleListTest_postGetRoleListTestCorrectParameter - 2018.05.31 at 16h 42m 12s.xml">
-      <configuration name="GetRoleListTest.postGetRoleListTestCorrectParameter" configurationId="TestNG" />
+    <history-entry file="CreateAndSetPersonRoleTest - 2018.06.04 at 16h 18m 21s.xml">
+      <configuration name="CreateAndSetPersonRoleTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="GetRoleListTest_postGetRoleListTestCorrectParameter - 2018.05.31 at 16h 45m 37s.xml">
-      <configuration name="GetRoleListTest.postGetRoleListTestCorrectParameter" configurationId="TestNG" />
+    <history-entry file="CreateAndSetPersonRoleTest - 2018.06.05 at 10h 18m 33s.xml">
+      <configuration name="CreateAndSetPersonRoleTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="GetRoleListTest_postGetRoleListTestCorrectParameter - 2018.05.31 at 16h 53m 36s.xml">
-      <configuration name="GetRoleListTest.postGetRoleListTestCorrectParameter" configurationId="TestNG" />
+    <history-entry file="GetManagerParaSpecialTest - 2018.06.04 at 10h 33m 25s.xml">
+      <configuration name="GetManagerParaSpecialTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="GetRoleListTest_postGetRoleListTestUserIdNotLoggedIn - 2018.05.31 at 16h 55m 34s.xml">
-      <configuration name="GetRoleListTest.postGetRoleListTestUserIdNotLoggedIn" configurationId="TestNG" />
+    <history-entry file="GetManagerParaSpecialTest - 2018.06.04 at 10h 40m 29s.xml">
+      <configuration name="GetManagerParaSpecialTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="GetRoleListTest_postGetRoleListTestUserIdNotLoggedIn - 2018.05.31 at 16h 55m 50s.xml">
-      <configuration name="GetRoleListTest.postGetRoleListTestUserIdNotLoggedIn" configurationId="TestNG" />
+    <history-entry file="GetManagerParaSpecialTest - 2018.06.04 at 16h 16m 34s.xml">
+      <configuration name="GetManagerParaSpecialTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="GetUserDisposeListTest - 2018.05.31 at 14h 19m 32s.xml">
-      <configuration name="GetUserDisposeListTest" configurationId="TestNG" />
+    <history-entry file="GetManagerParaSpecialTest_postGetManagerParaSpecialTestCorrectParameter - 2018.06.04 at 10h 33m 14s.xml">
+      <configuration name="GetManagerParaSpecialTest.postGetManagerParaSpecialTestCorrectParameter" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="GetUserDisposeListTest - 2018.05.31 at 14h 20m 27s.xml">
-      <configuration name="GetUserDisposeListTest" configurationId="TestNG" />
+    <history-entry file="InvisibleTest - 2018.06.04 at 19h 05m 59s.xml">
+      <configuration name="InvisibleTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="GetUserDisposeListTest_postGetUserDisposeListTestCorrectParameter - 2018.05.31 at 14h 21m 29s.xml">
-      <configuration name="GetUserDisposeListTest.postGetUserDisposeListTestCorrectParameter" configurationId="TestNG" />
+    <history-entry file="ModifyParameterConfigurationTest - 2018.06.04 at 10h 40m 41s.xml">
+      <configuration name="ModifyParameterConfigurationTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="GetUserDisposeListTest_postGetUserDisposeListTestCorrectParameter - 2018.05.31 at 14h 21m 49s.xml">
-      <configuration name="GetUserDisposeListTest.postGetUserDisposeListTestCorrectParameter" configurationId="TestNG" />
+    <history-entry file="ModifyParameterConfigurationTest - 2018.06.04 at 11h 19m 40s.xml">
+      <configuration name="ModifyParameterConfigurationTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="_default__(1) - 2018.05.31 at 13h 48m 34s.xml">
-      <configuration name="&lt;default&gt; (1)" configurationId="TestNG" />
+    <history-entry file="ModifyParameterConfigurationTest - 2018.06.04 at 11h 30m 54s.xml">
+      <configuration name="ModifyParameterConfigurationTest" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93891000" />
+    <option name="totallyTimeSpent" value="112075000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3764706" sideWeight="0.50555557" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3764706" sideWeight="0.49444443" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43058825" sideWeight="0.49444443" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39764705" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39764705" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26235294" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -778,101 +962,43 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/ValidateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="174" column="30" lean-forward="true" selection-start-line="174" selection-start-column="30" selection-end-line="174" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/AddCollectionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="278" column="38" lean-forward="false" selection-start-line="278" selection-start-column="28" selection-end-line="278" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/AddEditTheUserAddressTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1839">
-          <caret line="2182" column="26" lean-forward="false" selection-start-line="2182" selection-start-column="26" selection-end-line="2182" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/ObtainPlateParametersTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/ChangeThePhoneNumberTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.4/testng-6.9.4.jar!/org/testng/ClassMethodMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.4/testng-6.9.4.jar!/org/testng/internal/NoOpTestClass.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.4/testng-6.9.4.jar!/org/testng/internal/MethodInvocationHelper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.4/testng-6.9.4.jar!/org/testng/internal/Invoker.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="877" column="0" lean-forward="false" selection-start-line="877" selection-start-column="0" selection-end-line="877" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.4/testng-6.9.4.jar!/org/testng/internal/TestMethodWorker.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.4/testng-6.9.4.jar!/org/testng/TestRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="457" column="23" lean-forward="false" selection-start-line="457" selection-start-column="23" selection-end-line="457" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.4/testng-6.9.4.jar!/org/testng/SuiteRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="203" column="23" lean-forward="false" selection-start-line="203" selection-start-column="23" selection-end-line="203" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.4/testng-6.9.4.jar!/org/testng/TestNG.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="928" column="0" lean-forward="false" selection-start-line="928" selection-start-column="0" selection-end-line="928" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.9.4/testng-6.9.4.jar!/org/testng/SuiteRunnerWorker.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/JoinHomePageTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/ChatSettingsTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/personalCenter/CollectionListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/SaveParametersTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/SortListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -880,34 +1006,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/SaveParametersTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10950">
-          <caret line="743" column="49" lean-forward="false" selection-start-line="743" selection-start-column="49" selection-end-line="743" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/SortListTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="19" column="11" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/ContainerEditingDetailsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4203">
-          <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+        <state relative-caret-position="60">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/DeleteContainerModuleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="60">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -915,6 +1030,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -922,260 +1038,155 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/GetPlateDefaultParameterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="53" column="82" lean-forward="false" selection-start-line="53" selection-start-column="82" selection-end-line="53" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/GetTheHomePageAllPlateContainersTest.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/HomePageConfigurationParameterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4305">
-          <caret line="296" column="29" lean-forward="false" selection-start-line="296" selection-start-column="29" selection-end-line="296" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/HomePageListTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="602" column="18" lean-forward="false" selection-start-line="602" selection-start-column="8" selection-end-line="602" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/HomePageSearchTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="34" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/InvisibleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/cloudWarehouse/CreateOrderTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/AssignPermissionsForRolesTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/demo/RegisterTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/login/GetWorkBenchListTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/contentManagement/GetSensitiveWordListTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/homePage/AddOrEditContainerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/ModifyParameterConfigurationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/homePage/GetPlateDefaultParameterTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/homePage/GetTheHomePageAllPlateContainersTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="73" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/homePage/HomePageConfigurationParameterTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="71" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/homePage/HomePageListTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="53" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/homePage/HomePageSearchTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="55" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/homePage/InvisibleTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="50" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/homePage/ObtainPlateParametersTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="62" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/homePage/SaveContainerContentModificationTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="73" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/homePage/SaveParametersTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="55" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/homePage/JoinHomePageTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="53" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testng/homePage/SortListTestng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="49" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3135">
-          <caret line="209" column="33" lean-forward="false" selection-start-line="209" selection-start-column="33" selection-end-line="209" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/userManagement/GetUserAuthDetailsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="105">
+          <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="11" />
           <folding>
-            <marker date="1527755772740" expanded="true" signature="10845:10857" ph="{...}" />
+            <element signature="e#1285#1301#0" expanded="true" />
+            <element signature="e#1817#1833#0" expanded="true" />
+            <element signature="e#2358#2374#0" expanded="true" />
+            <element signature="e#2894#2910#0" expanded="true" />
+            <element signature="e#3433#3449#0" expanded="true" />
+            <element signature="e#3958#3974#0" expanded="true" />
+            <element signature="e#4486#4502#0" expanded="true" />
+            <element signature="e#5021#5037#0" expanded="true" />
+            <element signature="e#5546#5562#0" expanded="true" />
+            <element signature="e#6071#6087#0" expanded="true" />
+            <element signature="e#6618#6634#0" expanded="true" />
+            <element signature="e#7115#7131#0" expanded="true" />
+            <element signature="e#7649#7665#0" expanded="true" />
+            <element signature="e#8192#8208#0" expanded="true" />
+            <element signature="e#8749#8765#0" expanded="true" />
+            <element signature="e#9303#9319#0" expanded="true" />
+            <element signature="e#9851#9867#0" expanded="true" />
+            <element signature="e#10388#10404#0" expanded="true" />
+            <element signature="e#10931#10947#0" expanded="true" />
+            <element signature="e#11490#11506#0" expanded="true" />
+            <element signature="e#11999#12015#0" expanded="true" />
+            <element signature="e#12494#12510#0" expanded="true" />
+            <element signature="e#13094#13110#0" expanded="true" />
+            <element signature="e#13650#13666#0" expanded="true" />
+            <element signature="e#14194#14210#0" expanded="true" />
+            <element signature="e#14738#14754#0" expanded="true" />
+            <element signature="e#15303#15319#0" expanded="true" />
+            <element signature="e#15814#15830#0" expanded="true" />
+            <element signature="e#16412#16428#0" expanded="true" />
+            <element signature="e#16968#16984#0" expanded="true" />
+            <element signature="e#17512#17528#0" expanded="true" />
+            <element signature="e#18059#18075#0" expanded="true" />
+            <element signature="e#18626#18642#0" expanded="true" />
+            <element signature="e#19128#19144#0" expanded="true" />
+            <element signature="e#19669#19685#0" expanded="true" />
+            <element signature="e#20219#20235#0" expanded="true" />
+            <element signature="e#20757#20773#0" expanded="true" />
+            <element signature="e#21295#21311#0" expanded="true" />
+            <element signature="e#21836#21852#0" expanded="true" />
+            <element signature="e#22384#22400#0" expanded="true" />
+            <element signature="e#22950#22966#0" expanded="true" />
+            <element signature="e#23457#23473#0" expanded="true" />
+            <element signature="e#23993#24009#0" expanded="true" />
+            <element signature="e#24541#24557#0" expanded="true" />
+            <element signature="e#25095#25111#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/userManagement/GetUserDisposeListTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetRoleDetailsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+        <state relative-caret-position="90">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/login/BackUserLoginTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/CreateAndSetPersonRoleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="713" column="35" lean-forward="false" selection-start-line="713" selection-start-column="35" selection-end-line="713" selection-end-column="35" />
-          <folding>
-            <element signature="e#7437#7453#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/DeletePersonRoleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="17" column="58" lean-forward="false" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+        <state relative-caret-position="90">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetAuthTreeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetManagerParaSpecialTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
-            <element signature="e#707#723#0" expanded="true" />
-            <element signature="e#1129#1145#0" expanded="true" />
-            <element signature="e#1547#1563#0" expanded="true" />
-            <element signature="e#1974#1990#0" expanded="true" />
-            <element signature="e#2393#2409#0" expanded="true" />
-            <element signature="e#2815#2831#0" expanded="true" />
-            <element signature="e#3223#3239#0" expanded="true" />
-            <element signature="e#3634#3650#0" expanded="true" />
-            <element signature="e#4052#4068#0" expanded="true" />
-            <element signature="e#4460#4476#0" expanded="true" />
-            <element signature="e#4868#4884#0" expanded="true" />
-            <element signature="e#5298#5314#0" expanded="true" />
-            <element signature="e#5677#5693#0" expanded="true" />
-            <element signature="e#6110#6126#0" expanded="true" />
-            <element signature="e#6532#6548#0" expanded="true" />
-            <element signature="e#6953#6969#0" expanded="true" />
-            <element signature="e#7365#7381#0" expanded="true" />
-            <element signature="e#7780#7796#0" expanded="true" />
-            <element signature="e#8202#8218#0" expanded="true" />
-            <element signature="e#8641#8657#0" expanded="true" />
-            <element signature="e#9030#9046#0" expanded="true" />
-            <element signature="e#9453#9469#0" expanded="true" />
-            <element signature="e#9871#9887#0" expanded="true" />
+            <element signature="e#726#742#0" expanded="true" />
+            <element signature="e#1157#1173#0" expanded="true" />
+            <element signature="e#1584#1600#0" expanded="true" />
+            <element signature="e#2028#2044#0" expanded="true" />
+            <element signature="e#2414#2430#0" expanded="true" />
+            <element signature="e#2803#2819#0" expanded="true" />
+            <element signature="e#3235#3251#0" expanded="true" />
+            <element signature="e#3670#3686#0" expanded="true" />
+            <element signature="e#4055#4071#0" expanded="true" />
+            <element signature="e#4430#4446#0" expanded="true" />
+            <element signature="e#4805#4821#0" expanded="true" />
+            <element signature="e#5202#5218#0" expanded="true" />
+            <element signature="e#5549#5565#0" expanded="true" />
+            <element signature="e#5977#5993#0" expanded="true" />
+            <element signature="e#6413#6429#0" expanded="true" />
+            <element signature="e#6863#6879#0" expanded="true" />
+            <element signature="e#7310#7326#0" expanded="true" />
+            <element signature="e#7751#7767#0" expanded="true" />
+            <element signature="e#8184#8200#0" expanded="true" />
+            <element signature="e#8620#8636#0" expanded="true" />
+            <element signature="e#9014#9030#0" expanded="true" />
+            <element signature="e#9358#9374#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetRoleListTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/contentManagement/UploadSensitiveFileTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/CreateAndSetPersonRoleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        <state relative-caret-position="145">
+          <caret line="630" column="0" lean-forward="false" selection-start-line="630" selection-start-column="0" selection-end-line="630" selection-end-column="0" />
           <folding />
         </state>
       </provider>

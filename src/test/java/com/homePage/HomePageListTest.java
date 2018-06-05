@@ -871,7 +871,7 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("当前页码数量不传该参数" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo(0);
-        assertThat(head1.get("msg")).isEqualTo("成功");
+        assertThat(head1.get("st")).isEqualTo(-3);
+        assertThat(head1.get("msg")).isEqualTo("当前页数不能为空");
     }
 }
