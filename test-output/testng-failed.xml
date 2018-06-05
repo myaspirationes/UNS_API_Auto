@@ -3,16 +3,46 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.systemManagement.GetAuthTreeTest">
+      <class name="com.systemManagement.GetManagerParaListTest">
         <methods>
-          <include name="postGetAuthTreeTestRoleIdIsError"/>
-          <include name="postGetAuthTreeTestRoleIdIsNegativeNumber"/>
-          <include name="postGetAuthTreeTestRoleIdIsZero"/>
+          <include name="postGetManagerParaListTestPageSizeIsString"/>
+          <include name="postGetManagerParaListTestUserIdIsDecimal"/>
           <include name="beforeClass"/>
-          <include name="postpostGetAuthTreeTestUserIdNotLoggedIn"/>
-          <include name="postGetAuthTreeTestRoleIdIsDecimal"/>
+          <include name="postGetManagerParaListTestKeyWordsIllegalCharacters"/>
+          <include name="postGetManagerParaListTestKeyWordsIsError"/>
+          <include name="postGetManagerParaListTestUserIdIsString"/>
+          <include name="postGetManagerParaListTestKeyWordsIsEmpty"/>
+          <include name="postGetManagerParaListTestPageNowIsEmpty"/>
+          <include name="postGetManagerParaListTestPageNowIsNegativeNumber"/>
+          <include name="postGetManagerParaListTestKeyWordsIsLong"/>
+          <include name="postGetManagerParaListTestKeyWordsIsSpace"/>
+          <include name="postGetManagerParaListTestPageSizeIsNegativeNumber"/>
+          <include name="postGetManagerParaListTestPageNowIsString"/>
+          <include name="postGetManagerParaListTestPageNowNonSubmissionParameters"/>
+          <include name="postGetManagerParaListTestUserIdIsNull"/>
+          <include name="postGetManagerParaListTestPageSizeIsLong"/>
+          <include name="postGetManagerParaListTestPageNowIsIsDecimal"/>
+          <include name="postGetManagerParaListTestPageSizeIsIsDecimal"/>
+          <include name="postGetManagerParaListTestUserIdIsNegativeNumber"/>
+          <include name="postGetManagerParaListTestUserIdIllegalCharacters"/>
+          <include name="postGetManagerParaListTestKeyWordsIsNull"/>
+          <include name="postGetManagerParaListTestUserIdNonSubmissionParameters"/>
+          <include name="postGetManagerParaListTestPageSizeIsZero"/>
+          <include name="postGetManagerParaListTestPageSizeIsNull"/>
+          <include name="postGetManagerParaListTestPageNowIsNull"/>
+          <include name="postGetManagerParaListTestPageNowIsSpace"/>
+          <include name="postGetManagerParaListTestUserIdIsSpace"/>
+          <include name="postGetManagerParaListTestPageSizeIsSpace"/>
+          <include name="postGetManagerParaListTestPageNowIsLong"/>
+          <include name="postGetManagerParaListTestPageSizeIsEmpty"/>
+          <include name="postGetManagerParaListTestUserIdIsEmpty"/>
+          <include name="postGetManagerParaListTestKeyWordsNonSubmissionParameters"/>
+          <include name="postGetManagerParaListTestPageNowIsZero"/>
+          <include name="postGetManagerParaListTestUserIdIsError"/>
+          <include name="postGetManagerParaListTestPageSizeNonSubmissionParameters"/>
+          <include name="postGetManagerParaListTestUserIdIsZero"/>
         </methods>
-      </class> <!-- com.systemManagement.GetAuthTreeTest -->
+      </class> <!-- com.systemManagement.GetManagerParaListTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
