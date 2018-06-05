@@ -14,6 +14,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GetWorkBenchListTest extends HttpUtil {
 	// 获取待处理工作列表接口
 	String url = "/uu-admin/workBench/workBenchList";
+	BackUserLoginTest login = new BackUserLoginTest();
+	String userId=login.userId;
+	
 
 	/**
 	 * 提交正确参数
@@ -21,12 +24,12 @@ public class GetWorkBenchListTest extends HttpUtil {
 	@Test
 	public void postGetWorkBenchListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12495324");
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 
@@ -36,13 +39,13 @@ public class GetWorkBenchListTest extends HttpUtil {
 	@Test
 	public void postGetWorkBenchListTestBackUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12495324123");
+		request.put("userId", "10000001");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录的运营后台用户" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("无此用户");
 	}
 
 	/**
@@ -51,13 +54,13 @@ public class GetWorkBenchListTest extends HttpUtil {
 	@Test
 	public void postGetWorkBenchListTestUserIdIsNotBack() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12312312345");
+		request.put("userId", "12495445");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID非运营后台用户" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("msg")).isEqualTo("无此用户");
 	}
 	
 	/**
@@ -72,14 +75,14 @@ public class GetWorkBenchListTest extends HttpUtil {
 		System.out.println("用户ID为错误用户" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("msg")).isEqualTo("无此用户");
 	}
 	
 
 	/**
 	 * 用户ID为非法字符
 	 */
-//	@Test
+	@Test
 	public void postGetWorkBenchListTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^>");
@@ -87,14 +90,14 @@ public class GetWorkBenchListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(400);
-		// assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不合法");
 	}
 
 	/**
 	 * 用户ID为小数
 	 */
-//	@Test
+	@Test
 	public void postGetWorkBenchListTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 121123.33);
@@ -103,13 +106,13 @@ public class GetWorkBenchListTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("msg")).isEqualTo("参数不合法");
 	}
 
 	/**
 	 * 用户ID为负数
 	 */
-//	@Test
+	@Test
 	public void postGetWorkBenchListTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -121312);
@@ -118,13 +121,13 @@ public class GetWorkBenchListTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("msg")).isEqualTo("参数不合法");
 	}
 
 	/**
 	 * 用户ID为空格
 	 */
-//	@Test
+	@Test
 	public void postGetWorkBenchListTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
@@ -133,13 +136,13 @@ public class GetWorkBenchListTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
+		assertThat(post.get("msg")).isEqualTo("参数不合法");
 	}
 
 	/**
 	 * 用户ID为空
 	 */
-//	@Test
+	@Test
 	public void postGetWorkBenchListTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
@@ -148,13 +151,13 @@ public class GetWorkBenchListTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
+		assertThat(post.get("msg")).isEqualTo("参数不合法");
 	}
 
 	/**
 	 * 用户ID为null
 	 */
-//	@Test
+	@Test
 	public void postGetWorkBenchListTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
@@ -163,13 +166,13 @@ public class GetWorkBenchListTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
+		assertThat(post.get("msg")).isEqualTo("参数不合法");
 	}
 
 	/**
 	 * 用户ID为0
 	 */
-//	@Test
+	@Test
 	public void postGetWorkBenchListTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);
@@ -178,13 +181,13 @@ public class GetWorkBenchListTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("msg")).isEqualTo("参数不合法");
 	}
 
 	/**
 	 * 用户ID不传该参数
 	 */
-//	@Test
+	@Test
 	public void postGetWorkBenchListTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 
@@ -192,7 +195,7 @@ public class GetWorkBenchListTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
+		assertThat(post.get("msg")).isEqualTo("参数不合法");
 	}
 
 }

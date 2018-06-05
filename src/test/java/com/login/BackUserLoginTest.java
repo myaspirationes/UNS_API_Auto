@@ -48,14 +48,14 @@ public class BackUserLoginTest extends HttpUtil {
 	@Test
 	public void postBackUserLoginTestNotBackUser() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userName", "admin");
-		request.put("passWord", "123456");
+		request.put("userName", "18300001111");
+		request.put("passWord", "test123");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交非运营后台用户登录名和密码" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("无权限");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户记录不存在!");
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class BackUserLoginTest extends HttpUtil {
 		System.out.println("用户登录名为错误的" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("msg")).isEqualTo("用户记录不存在!");
 	}
 
 	/**
@@ -86,8 +86,8 @@ public class BackUserLoginTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户名为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户记录不存在!");
 	}
 	
 	/**
@@ -102,8 +102,8 @@ public class BackUserLoginTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户名超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户记录不存在!");
 	}
 	
 	/**
@@ -181,8 +181,8 @@ public class BackUserLoginTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录名传long型" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户记录不存在!");
 	}
 	
 	/**
@@ -197,8 +197,8 @@ public class BackUserLoginTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("密码错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户记录不存在!");
 	}
 	
 	/**
@@ -213,8 +213,8 @@ public class BackUserLoginTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("密码为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("登录失败，密码输入错误。");
 	}
 	
 	/**
@@ -229,8 +229,8 @@ public class BackUserLoginTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("密码为超长字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("登录失败，密码输入错误。");
 	}
 	
 	/**
@@ -296,21 +296,7 @@ public class BackUserLoginTest extends HttpUtil {
 		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	
-	/**
-	 * 把正确密码里的小写字母改成大写
-	 */
-	@Test
-	public void postBackUserLoginTestPasswordChangeSmallerLetterToCapitalLetter() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userName", "admin");
-		request.put("passWord", "ABC123");
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("把正确密码里的小写字母改成大写" + post);
-
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
-	}
+	
 	
 
 }
