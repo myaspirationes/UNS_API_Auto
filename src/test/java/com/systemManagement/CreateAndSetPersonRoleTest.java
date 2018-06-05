@@ -37,7 +37,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("新增成功");
 	}
 	/**
 	 * 用户ID为未登录用户
