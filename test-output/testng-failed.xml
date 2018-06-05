@@ -3,16 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.userManagement.GetUserAuthDetailsTest">
+      <class name="com.personalCenter.CreateAnOrderTest">
         <methods>
+          <include name="postAuthenticateTestCorrectParameter"/>
           <include name="beforeClass"/>
-          <include name="postGetUserAuthDetailsTestUserIdNotLoggedIn"/>
-          <include name="postGetUserAuthDetailsTestUserIdIsLong"/>
-          <include name="postGetUserAuthDetailsTestUidIsError"/>
-          <include name="postGetUserAuthDetailsTestUserIdIsError"/>
-          <include name="postGetUserAuthDetailsTestUidIsLong"/>
         </methods>
-      </class> <!-- com.userManagement.GetUserAuthDetailsTest -->
+      </class> <!-- com.personalCenter.CreateAnOrderTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
