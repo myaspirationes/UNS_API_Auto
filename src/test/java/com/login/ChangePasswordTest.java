@@ -1,10 +1,9 @@
 package com.login;
 
 import com.example.HttpUtil;
-import com.example.LoginTest;
 import com.example.MetaOper;
+import com.example.CryptographyUtil;
 import org.json.JSONObject;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -17,10 +16,13 @@ public class ChangePasswordTest extends HttpUtil {
 	// 用户登录接口
 	String url = "/uu-admin/BackUser/changePassWord";
 	
+	String dataType = "perCenter81";
+	String updatePasswordSql="UPDATE T_WEB_USER SET PASSWORD='6dc9dfd94b9485bbb4df440353efc4f5' WHERE USER_ID=10000000";
+	String DBpassword="SELECT PASSWORD FROM T_WEB_USER WHERE USER_ID=10000000";
 	
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;
-		
+			
 	
 	/**
 	 * 提交正确参数
@@ -31,22 +33,29 @@ public class ChangePasswordTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("oldPassWord", "123456");
-		request.put("newPassWord", "123456");
+		request.put("newPassWord", "111111");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-//		修改成功后需与数据可存的密码进行校验
-//		此处需重置数据库密码为123456
+//		修改成功后与数据可库中的密码进行校验		
+		String  password=CryptographyUtil.md5("111111", "naruto");
+		System.out.println("md5加密后的字符串" + password);
+		List<Map<String,Object>> list ;
+		list=MetaOper.read(DBpassword, dataType);
+		assertThat(list.get(0).get("PASSWORD").toString()).isEqualTo(password);		
+				
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
 	/**
 	 * 提交非运营后台用户登录名和密码
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestNotBackUsernameAndPassword() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495511);
@@ -57,14 +66,16 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交非运营后台用户登录名和密码" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("无权限");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 
 	/**
 	 * 提交错误的用户ID
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserIIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0123);
@@ -75,32 +86,37 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交错误的用户ID" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 
 	/**
 	 * 未登录的用户ID
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserIdNotLogin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 10000001);
-		request.put("userName", "admin");
+		request.put("userId", 10000004);
+		request.put("userName", "naruto");
 		request.put("oldPassWord", "123456");
 		request.put("newPassWord", "123456");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("未登录的用户ID：" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户ID为小数
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 10000.001);
@@ -111,14 +127,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户id为非法字符
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserIdIsIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^&>");
@@ -129,14 +148,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户id为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(400);
+//		assertThat(post.get("msg")).isEqualTo("参数有误");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户id为负数
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserIdIsMinus() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -1000000);
@@ -147,14 +169,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户id为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户id为0
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);
@@ -165,14 +190,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户id为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户id为string型
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserIdTypeIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "10000000");
@@ -183,14 +211,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户id为string型" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户id为空格
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
@@ -201,14 +232,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户id为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(500);
+//		assertThat(post.get("msg")).isEqualTo("参数有误");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户id为空
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
@@ -219,14 +253,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户id为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(500);
+//		assertThat(post.get("msg")).isEqualTo("参数有误");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户id为null
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
@@ -237,14 +274,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户id为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(500);
+//		assertThat(post.get("msg")).isEqualTo("参数有误");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 不提交用户id
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserIdNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userName", "admin");
@@ -254,14 +294,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("不提交用户id" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(500);
+//		assertThat(post.get("msg")).isEqualTo("参数有误");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 提交错误的用户登录名
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserNameIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -272,14 +315,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交错误的用户登录名" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户登录名为非法字符
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserNameIsIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -290,14 +336,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录名为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户登录名超长
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserNameIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -308,14 +357,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录名超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户登录名为null
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -328,12 +380,15 @@ public class ChangePasswordTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户登录名为空格
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -346,12 +401,15 @@ public class ChangePasswordTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户登录名为空
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -364,12 +422,15 @@ public class ChangePasswordTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 不传用户登录名参数
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserNameNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -381,12 +442,15 @@ public class ChangePasswordTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 用户登录名传int型
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestUserNameTypeIsInt() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -397,14 +461,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录名传int型" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 旧密码错误
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestOldPasswordIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -415,14 +482,17 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("旧密码错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("密码错误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
 	 * 旧密码为非法字符
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestOldPasswordIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -433,17 +503,18 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("旧密码为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("密码错误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
 		
-		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
 	/**
 	 * 旧密码为超长字符
 	 */
-//	@Test
+	@Test
 	public void postChangePasswordTestOldPasswordIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -454,10 +525,11 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("旧密码为超长字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("密码错误");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
 		
-		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	
@@ -475,10 +547,11 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("旧密码为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
 		
-		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -496,9 +569,10 @@ public class ChangePasswordTest extends HttpUtil {
 		System.out.println("旧密码为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -516,9 +590,10 @@ public class ChangePasswordTest extends HttpUtil {
 		System.out.println("旧密码为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -535,7 +610,10 @@ public class ChangePasswordTest extends HttpUtil {
 		System.out.println("不传旧密码参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("缺少参数");	
+		assertThat(post.get("msg")).isEqualTo("参数有误");	
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -553,8 +631,11 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("正确的int型旧密码" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");	
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -575,6 +656,9 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");	
 		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
+		
 	}
 	
 	/**
@@ -591,8 +675,19 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("新密码为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		try {
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");	
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			}
+		finally 
+		{
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
+		}
 		
 	}
 	
@@ -606,13 +701,24 @@ public class ChangePasswordTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("oldPassWord", "123456");
-		request.put("newPassWord", "123456123456123456123456123456123456123456123456123456123456123456");
+		request.put("newPassWord", "Abcdefg1234567890Abcdefg1234567890Abcdefg1234567890Abcdefg1234567890Abcdefg1234567890");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("新密码为超长字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		try {
+			assertThat(post.get("status")).isEqualTo(-1);
+			assertThat(post.get("msg")).isEqualTo("参数错误");	
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				}
+			finally 
+			{
+//			重置密码为123456
+			MetaOper.update(updatePasswordSql, dataType);
+			}
 		
 	}
 	
@@ -631,7 +737,10 @@ public class ChangePasswordTest extends HttpUtil {
 		System.out.println("新密码为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		assertThat(post.get("msg")).isEqualTo("参数有误");	
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -650,7 +759,10 @@ public class ChangePasswordTest extends HttpUtil {
 		System.out.println("新密码为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		assertThat(post.get("msg")).isEqualTo("参数有误");	
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -670,7 +782,10 @@ public class ChangePasswordTest extends HttpUtil {
 		System.out.println("新密码为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		assertThat(post.get("msg")).isEqualTo("参数有误");	
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -688,7 +803,10 @@ public class ChangePasswordTest extends HttpUtil {
 		System.out.println("不传新密码参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		assertThat(post.get("msg")).isEqualTo("参数有误");	
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -706,8 +824,11 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交int型新密码" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");	
+		
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
