@@ -96,11 +96,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AssignPermissionsForRolesTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AssignPermissionsForRolesTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/AssignPermissionsForRolesTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
               <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetUserOperateLogTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetUserOperateLogTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -959,7 +969,7 @@
       <workItem from="1527773014292" duration="4703000" />
       <workItem from="1527819977420" duration="10050000" />
       <workItem from="1528074265222" duration="21679000" />
-      <workItem from="1528247039126" duration="3341000" />
+      <workItem from="1528247039126" duration="3368000" />
     </task>
     <servers />
   </component>
@@ -996,7 +1006,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128961000" />
+    <option name="totallyTimeSpent" value="128988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1280" height="1024" extended-state="6" />
@@ -1754,18 +1764,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetUserOperateLogTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6106">
-          <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/AssignPermissionsForRolesTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/systemManagement/GetUserOperateLogTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="13" />
           <folding />
         </state>
       </provider>
