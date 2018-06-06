@@ -4,6 +4,7 @@ import com.example.HttpUtil;
 import com.example.MetaOper;
 import com.example.CryptographyUtil;
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -22,6 +23,13 @@ public class ChangePasswordTest extends HttpUtil {
 	
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;
+	
+	@AfterMethod
+	public void afterMethod() 
+	{
+//		重置密码为123456
+		MetaOper.update(updatePasswordSql, dataType);
+	}
 			
 	
 	/**
@@ -47,8 +55,6 @@ public class ChangePasswordTest extends HttpUtil {
 		list=MetaOper.read(DBpassword, dataType);
 		assertThat(list.get(0).get("PASSWORD").toString()).isEqualTo(password);		
 				
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -68,8 +74,6 @@ public class ChangePasswordTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户不存在");
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 
 	/**
@@ -88,8 +92,6 @@ public class ChangePasswordTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户不存在");
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 
 	/**
@@ -109,8 +111,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -130,8 +130,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户不存在");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -151,8 +149,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(400);
 //		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -172,8 +168,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户不存在");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -193,8 +187,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户不存在");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -214,8 +206,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -235,8 +225,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(500);
 //		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -256,8 +244,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(500);
 //		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -277,8 +263,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(500);
 //		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -297,8 +281,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(500);
 //		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -318,8 +300,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -339,8 +319,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -360,8 +338,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -381,8 +357,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -402,8 +376,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -423,8 +395,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -443,8 +413,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -464,8 +432,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -485,8 +451,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -506,8 +470,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -528,8 +490,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	
@@ -550,8 +510,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户名及密码不符");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -571,8 +529,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -592,8 +548,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 	}
 	
 	/**
@@ -612,8 +566,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");	
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -634,8 +586,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");	
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -656,8 +606,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");	
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -675,19 +623,8 @@ public class ChangePasswordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("新密码为非法字符" + post);
 
-		try {
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");	
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-			}
-		finally 
-		{
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
-		}
+		assertThat(post.get("msg")).isEqualTo("成功");
 		
 	}
 	
@@ -705,20 +642,9 @@ public class ChangePasswordTest extends HttpUtil {
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("新密码为超长字符" + post);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");	
 
-		try {
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("参数错误");	
-			}
-			catch(Exception e)
-			{
-				e.printStackTrace();
-				}
-			finally 
-			{
-//			重置密码为123456
-			MetaOper.update(updatePasswordSql, dataType);
-			}
 		
 	}
 	
@@ -739,8 +665,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");	
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -761,8 +685,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");	
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -784,8 +706,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");	
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -805,8 +725,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数有误");	
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
@@ -827,8 +745,6 @@ public class ChangePasswordTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");	
 		
-//		重置密码为123456
-		MetaOper.update(updatePasswordSql, dataType);
 		
 	}
 	
