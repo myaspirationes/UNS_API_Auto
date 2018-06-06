@@ -33,6 +33,13 @@
 			<artifactId>ojdbc14</artifactId>
 			<version>10.2.0.4.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-all -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-all</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -207,8 +214,8 @@
 					</excludes>
 
 					<suiteXmlFiles>
-					<!-- 个人中心 -->
-					<suiteXmlFile>./src/testng/personalCenter/AddEditTheUserAddressTestng.xml</suiteXmlFile>
+						<!-- 个人中心 -->
+						<suiteXmlFile>./src/testng/personalCenter/AddEditTheUserAddressTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/AuthenticateTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/AuthenticationManagementListTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/ChangeThePhoneNumberTestng.xml</suiteXmlFile>
@@ -233,7 +240,7 @@
 						<suiteXmlFile>./src/testng/personalCenter/ValidateTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/personalCenter/WalletTestng.xml</suiteXmlFile>
 
-						<!--首页-->
+						<!--首页 -->
 						<suiteXmlFile>./src/testng/homePage/AddOrEditContainerTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/homePage/ContainerEditingDetailsTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/homePage/DeleteContainerModuleTestng.xml</suiteXmlFile>
@@ -250,8 +257,8 @@
 						<suiteXmlFile>./src/testng/homePage/SaveContainerContentModificationTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/homePage/SaveParametersTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/homePage/SortListTestng.xml</suiteXmlFile>
-											
-											
+
+
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
