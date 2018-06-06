@@ -1,14 +1,12 @@
 package com.systemManagement;
 
 import com.example.HttpUtil;
-import com.example.MetaOper;
 import com.login.BackUserLoginTest;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,18 +17,9 @@ public class DeletePersonRoleTest extends HttpUtil {
 // 删除角色接口
 	String url = "/uu-admin/SystemManager/deletePersonRole";
 	String userId;
-	String dataType = "perCenter81";
-	String selectSql = "SELECT * FROM T_ROLES WHERE ROLE_NAME = '自动化测试角色' OR ROLE_DESC = '自动化测试用请勿删除'";
-	String deleteSql = "DELETE FROM T_ROLES WHERE ROLE_NAME = '自动化测试角色' OR ROLE_DESC = '自动化测试用请勿删除'";
-	List<Map<String,Object>> list ;
-	String roleId;
 	@BeforeClass
-	public void beforeClass() throws Exception {
-		MetaOper.delete(deleteSql,dataType);
-		userId =new BackUserLoginTest().userId;
-		new CreateAndSetPersonRoleTest().postGetRoleListTestCorrectParameter();
-		list = MetaOper.read(selectSql,dataType);
-		roleId = list.get(0).get("ROLE_ID").toString();
+	public void beforeClass(){
+	userId =new BackUserLoginTest().userId;
 }
 
 	/**
@@ -38,11 +27,9 @@ public class DeletePersonRoleTest extends HttpUtil {
 	 */
 	@Test
 	public void postDeletePersonRoleTestCorrectParameter() throws Exception {
-
-
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleId", roleId);
+		request.put("roleId", 0);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -57,7 +44,7 @@ public class DeletePersonRoleTest extends HttpUtil {
 	public void postDeletePersonRoleTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleId", roleId);
+		request.put("roleId", 0);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
@@ -71,14 +58,14 @@ public class DeletePersonRoleTest extends HttpUtil {
 	@Test
 	public void postDeletePersonRoleTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 13);
-		request.put("roleId", roleId);
+		request.put("userId", userId);
+		request.put("roleId", 0);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -87,12 +74,12 @@ public class DeletePersonRoleTest extends HttpUtil {
 	public void postDeletePersonRoleTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<.@#$%>");
-		request.put("roleId", roleId);
+		request.put("roleId", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为小数
@@ -101,12 +88,12 @@ public class DeletePersonRoleTest extends HttpUtil {
 	public void postDeletePersonRoleTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 123.123);
-		request.put("roleId", roleId);
+		request.put("roleId", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为负数
@@ -115,12 +102,12 @@ public class DeletePersonRoleTest extends HttpUtil {
 	public void postDeletePersonRoleTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -345);
-		request.put("roleId", roleId);
+		request.put("roleId", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为0
@@ -128,13 +115,13 @@ public class DeletePersonRoleTest extends HttpUtil {
 	@Test
 	public void postDeletePersonRoleTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", roleId);
-		request.put("roleId", roleId);
+		request.put("userId", 0);
+		request.put("roleId", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为String
@@ -143,12 +130,12 @@ public class DeletePersonRoleTest extends HttpUtil {
 	public void postDeletePersonRoleTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "userId");
-		request.put("roleId", roleId);
+		request.put("roleId", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为空格
@@ -157,12 +144,12 @@ public class DeletePersonRoleTest extends HttpUtil {
 	public void postDeletePersonRoleTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
-		request.put("roleId", roleId);
+		request.put("roleId", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为空
@@ -171,12 +158,12 @@ public class DeletePersonRoleTest extends HttpUtil {
 	public void postDeletePersonRoleTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
-		request.put("roleId", roleId);
+		request.put("roleId", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为null
@@ -185,11 +172,12 @@ public class DeletePersonRoleTest extends HttpUtil {
 	public void postDeletePersonRoleTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
-		request.put("roleId", roleId);
+		request.put("roleId", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -197,11 +185,12 @@ public class DeletePersonRoleTest extends HttpUtil {
 	@Test
 	public void postDeletePersonRoleTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("roleId", roleId);
+		request.put("roleId", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID超长
@@ -210,12 +199,12 @@ public class DeletePersonRoleTest extends HttpUtil {
 	public void postDeletePersonRoleTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 123123123123213L);
-		request.put("roleId", roleId);
+		request.put("roleId", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色ID为非法字符
@@ -228,8 +217,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色ID为错误
@@ -242,8 +231,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("没有此角色");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色ID为空
@@ -256,8 +245,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色ID为空格
@@ -270,8 +259,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色ID为null
@@ -284,7 +273,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色ID为String
@@ -297,8 +287,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色ID为不传该参数
@@ -310,7 +300,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色ID为小数
@@ -323,8 +314,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色ID为负数
@@ -337,8 +328,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色ID为存在的
@@ -351,8 +342,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为存在的" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("没有此角色");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色ID为0
@@ -365,8 +356,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("没有此角色");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 
 }

@@ -11,7 +11,6 @@ import org.testng.annotations.BeforeClass;
 //import org.junit.Test;
 import org.testng.annotations.Test;
 
-import com.example.Head;
 import com.example.HttpUtil;
 import com.example.LoginTest;
 
@@ -43,18 +42,17 @@ public class CreateAnOrderTest extends HttpUtil {
 		con.put("userId", 12492125);
 		con.put("orderID", "orderID");
 		
-		Map<String, Object> head = new Head().addHead(uuid, chcode);
-//		Map<String, Object> head = new HashMap<String, Object>();
-//		head.put("aid", "lan66");
-//		head.put("ver", "2.0.6");
-//		head.put("ln", "cn");
-//		head.put("mod", "(LeEco)Le X620");
-//		head.put("mos", "6.0");
-//		head.put("de", "2017-08-17 16:58:08");
-//		head.put("sync", 1);
-//		head.put("uuid", uuid);
-//		head.put("chcode", chcode);
-//		head.put("cmd", 3902);
+		Map<String, Object> head = new HashMap<String, Object>();
+		head.put("aid", "lan66");
+		head.put("ver", "2.0.6");
+		head.put("ln", "cn");
+		head.put("mod", "(LeEco)Le X620");
+		head.put("mos", "6.0");
+		head.put("de", "2017-08-17 16:58:08");
+		head.put("sync", 1);
+		head.put("uuid", uuid);
+		head.put("chcode", chcode);
+		head.put("cmd", 3902);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
