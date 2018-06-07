@@ -36,11 +36,13 @@ public final class DBUtils {
     	//con =  DriverManager.getConnection("jdbc:oracle:thin:@192.168.9.10:1521:dbdev", "uudb", "uns1066");
     	con =  DriverManager.getConnection("jdbc:oracle:thin:@192.168.9.9:1521:weidu", "uudbsit", "uns1066");
        // return DriverManager.getConnection(url, username, password);
-    	}/*else if(dataType == "yxc"){
-    		con = DriverManager.getConnection("jdbc:mysql://rm-uf63jqo1o12t445bqo.mysql.rds.aliyuncs.com:3306/repairtstdb?user=vine&password=pAssw0rd&useUnicode=true&characterEncoding=utf-8");
+    	}
+    	else if(dataType == "uedb"){
+    		//con = DriverManager.getConnection("jdbc:mysql://rm-uf63jqo1o12t445bqo.mysql.rds.aliyuncs.com:3306/repairtstdb?user=vine&password=pAssw0rd&useUnicode=true&characterEncoding=utf-8");
+    		con =  DriverManager.getConnection("jdbc:oracle:thin:@192.168.9.9:1521:weidu", "uedbsit", "uns1066");
     	}else if(dataType == "yxc_ddp"){
     		con = DriverManager.getConnection("jdbc:mysql://rm-uf63jqo1o12t445bqo.mysql.rds.aliyuncs.com:3306/ddp?user=vine&password=pAssw0rd&useUnicode=true&characterEncoding=utf-8");
-    	}*/
+    	}
     	else{
     		con = null;
     	}

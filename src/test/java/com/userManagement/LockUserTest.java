@@ -9,17 +9,20 @@ import java.util.Map;
 
 import org.json.JSONObject;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 //import org.junit.Test;
 import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 import com.example.MetaOper;
+import com.login.BackUserLoginTest;
 
 public class LockUserTest extends HttpUtil {
 // 锁定用户接口
 	String url = "/uu-admin/UUuserManage/lockedUser/";
-	String selectSql = "SELECT * FROM T_USER_LOCK order by UPDATE_TIME DESC";
+	String selectSql = "SELECT * FROM T_USER_LOCK order by CREATE_TIME DESC";
 	String deleteSql = "delete FROM T_USER_LOCK where LOCKED_USER_ID = 12495396 or MSG = '测试3' or MSG = '测试4'";
 	String updateSql = "update T_USER_LOCK set LOCK_DURATION = 1 where LOCKED_USER_ID = 12495396 ";
 	List<Map<String,Object>> list ;
@@ -27,41 +30,39 @@ public class LockUserTest extends HttpUtil {
 	List<Map> lis = new ArrayList<Map>();
 	Map<Object, Object> map1 = new HashMap<Object, Object>();
 	Map<Object, Object> map2 = new HashMap<Object, Object>();
-
+	BackUserLoginTest login = new BackUserLoginTest();
+	String userId=login.userId;
+		
+	@AfterMethod
+	public void afterMethod()
+	{
+		MetaOper.delete(deleteSql, dataType);
+	}
+	
 	/**
 	 * 提交正确参数
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestCorrectParameter() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
-		map1.put("opinion", "测试3");
-		map2.put("lockType", 2);
-		map2.put("lockTime", 1);
-		map2.put("opinion", "测试4");
-		lis.add(map1);
-		lis.add(map2);
+		map1.put("opinion", "测试3");	
+		lis.add(map1);		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
 		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
-		
+		System.out.println("提交正确参数" + post);	
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("操作成功");
-		MetaOper.read(selectSql, dataType);
 		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("LOCK_TYPE").toString()).isEqualTo("2");
+		assertThat(list.get(0).get("LOCK_TYPE").toString()).isEqualTo("0");
 		assertThat(list.get(0).get("LOCK_DURATION").toString()).isEqualTo("1");
-		assertThat(list.get(0).get("MSG").toString()).isEqualTo("测试4");
-		assertThat(list.get(1).get("LOCK_TYPE").toString()).isEqualTo("0");
-		assertThat(list.get(1).get("LOCK_DURATION").toString()).isEqualTo("1");
-		assertThat(list.get(1).get("MSG").toString()).isEqualTo("测试3");
-		MetaOper.delete(deleteSql, dataType);
+		assertThat(list.get(0).get("MSG").toString()).isEqualTo("测试3");		
 	}
 	/**
 	 * 用户ID为未登录用户
