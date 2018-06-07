@@ -33,8 +33,8 @@ public class LockUserTest extends HttpUtil {
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;
 		
-	@AfterMethod
-	public void afterMethod()
+	@AfterClass
+	public void afterClass()
 	{
 		MetaOper.delete(deleteSql, dataType);
 	}
@@ -44,7 +44,6 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestCorrectParameter() throws Exception {
-		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");	

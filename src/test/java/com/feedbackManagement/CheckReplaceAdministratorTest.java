@@ -14,13 +14,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CheckReplaceAdministratorTest extends HttpUtil {
 	// 审核更换管理员接口
 	String url = "/modifyManager/auditModifyManager";
-
+	String updateSql = "UPDATE T_MODIFY_MANAGER_APPLY SET STATUS = 0 WHERE MANAGER_ID = '12495396'";
+	String updateSql1 = "UPDATE T_MODIFY_MANAGER_RECORD SET STATUS = 0 WHERE MANAGER_ID = '12495396'";
+	String dataType = "uedb";
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailTestCorrectParameter() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();
+		MetaOper.update(updateSql, dataType);
+		MetaOper.update(updateSql1, dataType);
+		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("applyId", 4);
 		request.put("status", 1);
 		request.put("userId", 12491748);
