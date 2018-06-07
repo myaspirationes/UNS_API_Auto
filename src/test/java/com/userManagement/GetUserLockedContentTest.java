@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetUserLockedContentTest extends HttpUtil {
 // 获取用户已锁定的内容列表接口
-	String url = "uu-admin/UUuserManage/getUserLockedContent";
+	String url = "/uu-admin/UUuserManage/getUserLockedContent";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){
@@ -28,6 +28,7 @@ public class GetUserLockedContentTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetManagerParaSpecialTestCorrectParameter() throws Exception {
+		new LockUserTest().postLockUserTestCorrectParameter();
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("operatorId", 12495396);
