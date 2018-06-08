@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class AssignPermissionsForRolesTest extends HttpUtil {
-// 获取角色详情接口
+// 为角色配置权限接口
 	String url = "/uu-admin/BackUser/setRoleAuthTree";
 	String userId;
 	@BeforeClass

@@ -12,8 +12,8 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetModifyManagerCheckListTest extends HttpUtil {
-	// 获取更换管理员审核详列表接口
-	String url = "/modifyManager/getModifyManagerCheckList";
+	// 获取更换管理员审核列表接口
+	String url = "/uu-admin/modifyManager/getModifyManagerCheckList";
 
 	/**
 	 * 提交正确参数
@@ -22,7 +22,7 @@ public class GetModifyManagerCheckListTest extends HttpUtil {
 	public void postGetModifyManagerCheckListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("status", 3);
-		request.put("mobile", "12495396");
+		request.put("mobile", "17740800827");
 		request.put("applyStartDate", "2018-5-10");
 		request.put("applyEndDate", "2018-5-18");
 		request.put("auditStartDate", "2018-5-19");
@@ -42,7 +42,7 @@ public class GetModifyManagerCheckListTest extends HttpUtil {
 	public void postGetModifyManagerCheckListTestStatusIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("status", 100);
-		request.put("mobile", "12495396");
+		request.put("mobile","17740800827");
 		request.put("applyStartDate", "2018-5-10");
 		request.put("applyEndDate", "2018-5-18");
 		request.put("auditStartDate", "2018-5-19");
@@ -62,7 +62,7 @@ public class GetModifyManagerCheckListTest extends HttpUtil {
 	public void postGetModifyManagerCheckListTestStatusIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("status", 3.23);
-		request.put("mobile", "12495396");
+		request.put("mobile","17740800827");
 		request.put("applyStartDate", "20180510");
 		request.put("applyEndDate", "2018-5-18");
 		request.put("auditStartDate", "2018-5-19");
@@ -82,7 +82,7 @@ public class GetModifyManagerCheckListTest extends HttpUtil {
 	public void postGetModifyManagerCheckListTestStatusIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("status", -3);
-		request.put("mobile", "12495396");
+		request.put("mobile","17740800827");
 		request.put("applyStartDate", "20180510");
 		request.put("applyEndDate", "2018-5-18");
 		request.put("auditStartDate", "2018-5-19");
@@ -102,7 +102,7 @@ public class GetModifyManagerCheckListTest extends HttpUtil {
 	public void postGetModifyManagerCheckListTestStatusIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("status", "fdsfs");
-		request.put("mobile", "12495396");
+		request.put("mobile","17740800827");
 		request.put("applyStartDate", "20180510");
 		request.put("applyEndDate", "2018-5-18");
 		request.put("auditStartDate", "2018-5-19");
@@ -122,7 +122,7 @@ public class GetModifyManagerCheckListTest extends HttpUtil {
 public void postGetModifyManagerCheckListTeststatusIsSpace() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", " ");
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -143,7 +143,7 @@ public void postGetModifyManagerCheckListTeststatusIsSpace() throws Exception {
 public void postGetModifyManagerCheckListTestStatusIsEmpty() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", "");
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -163,7 +163,7 @@ public void postGetModifyManagerCheckListTestStatusIsEmpty() throws Exception {
 public void postGetModifyManagerCheckListTestStatusIsNull() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", null);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -183,7 +183,7 @@ public void postGetModifyManagerCheckListTestStatusIsNull() throws Exception {
 public void postGetModifyManagerCheckListTestStatusIsLong() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 999999999999999999L);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -202,7 +202,7 @@ public void postGetModifyManagerCheckListTestStatusIsLong() throws Exception {
 @Test
 public void postGetModifyManagerCheckListTestStatusNonSubmissionParameters() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -222,7 +222,7 @@ public void postGetModifyManagerCheckListTestStatusNonSubmissionParameters() thr
 public void postGetModifyManagerCheckListTestStatusIs0() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 0);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -243,7 +243,7 @@ public void postGetModifyManagerCheckListTestStatusIs1() throws Exception {
 	
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 1);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -263,7 +263,7 @@ public void postGetModifyManagerCheckListTestStatusIs1() throws Exception {
 public void postGetModifyManagerCheckListTestStatusI2s() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 1);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -283,7 +283,7 @@ public void postGetModifyManagerCheckListTestStatusI2s() throws Exception {
 public void postGetModifyManagerCheckListTestStatusIs3() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -562,7 +562,7 @@ public void postGetModifyManagerCheckListTestMobileNonSubmissionParameters() thr
 public void postGetModifyManagerCheckListTestMobileIsMoreApplyEndDate() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-20");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -582,7 +582,7 @@ public void postGetModifyManagerCheckListTestMobileIsMoreApplyEndDate() throws E
 public void postGetModifyManagerCheckListTestApplyStartDateIsErrorFormat() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018/5/10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -602,7 +602,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsErrorFormat() throw
 public void postGetModifyManagerCheckListTestApplyStartDateIsLessApplyEndDate() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018/5/10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -622,7 +622,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsLessApplyEndDate() 
 public void postGetModifyManagerCheckListTestApplyStartDateIsTimeStamp() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "1525685061");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -642,7 +642,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsTimeStamp() throws 
 public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDay() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -662,7 +662,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDay() thro
 public void postGetModifyManagerCheckListTestApplyStartDateIsHourMinSec() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "10:22:56");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -682,7 +682,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsHourMinSec() throws
 public void postGetModifyManagerCheckListTestApplyStartDateIsSpace() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", " ");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -702,7 +702,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsSpace() throws Exce
 public void postGetModifyManagerCheckListTestApplyStartDateIsNumber() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -722,7 +722,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsNumber() throws Exc
 public void postGetModifyManagerCheckListTestApplyStartDateIsEmpty() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -742,7 +742,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsEmpty() throws Exce
 public void postGetModifyManagerCheckListTestApplyStartDateIsNull() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", null);
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -762,7 +762,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsNull() throws Excep
 public void postGetModifyManagerCheckListTestApplyStartDateIsNegativeNumber() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", -123456);
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -782,7 +782,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsNegativeNumber() th
 public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayMax() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "9999-12-31");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -802,7 +802,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayMax() t
 public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayLeast() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "0001-1-1");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -822,7 +822,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayLeast()
 public void postGetModifyManagerCheckListTestApplyStartDateIsHourMinSecMax() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "23:59:59");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -842,7 +842,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsHourMinSecMax() thr
 public void postGetModifyManagerCheckListTestApplyStartDateIsHourMinSecLeast() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "00:00:00");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -862,7 +862,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsHourMinSecLeast() t
 public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayHourMinSec() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10 12:12:22");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -882,7 +882,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayHourMin
 public void postGetModifyManagerCheckListTestApplyStartDateNonSubmissionParameters() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "2018-5-21");
@@ -901,7 +901,7 @@ public void postGetModifyManagerCheckListTestApplyStartDateNonSubmissionParamete
 public void postGetModifyManagerCheckListTestApplyEndDateIsErrorFormat() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018/5/18");
 	request.put("auditStartDate", "2018-5-19");
@@ -921,7 +921,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsErrorFormat() throws 
 public void postGetModifyManagerCheckListTestApplyEndDateIsTimeStamp() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "1526624377");
 	request.put("auditStartDate", "2018-5-19");
@@ -941,7 +941,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsTimeStamp() throws Ex
 public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDay() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -961,7 +961,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDay() throws
 public void postGetModifyManagerCheckListTestApplyEndDateIsHourMinSec() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "12:12:22");
 	request.put("auditStartDate", "2018-5-19");
@@ -981,7 +981,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsHourMinSec() throws E
 public void postGetModifyManagerCheckListTestApplyEndDateIsNumber() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "20180518");
 	request.put("auditStartDate", "2018-5-19");
@@ -1001,7 +1001,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsNumber() throws Excep
 public void postGetModifyManagerCheckListTestApplyEndDateIsEmpty() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "");
 	request.put("auditStartDate", "2018-5-19");
@@ -1021,7 +1021,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsEmpty() throws Except
 public void postGetModifyManagerCheckListTestApplyEndDateIsSpace() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", " ");
 	request.put("auditStartDate", "2018-5-19");
@@ -1041,7 +1041,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsSpace() throws Except
 public void postGetModifyManagerCheckListTestApplyEndDateIsNull() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", null);
 	request.put("auditStartDate", "2018-5-19");
@@ -1061,7 +1061,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsNull() throws Excepti
 public void postGetModifyManagerCheckListTestApplyEndDateIsNegativeNumber() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "-1234565");
 	request.put("auditStartDate", "2018-5-19");
@@ -1081,7 +1081,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsNegativeNumber() thro
 public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayMax() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "9999-12-31");
 	request.put("auditStartDate", "2018-5-19");
@@ -1101,7 +1101,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayMax() thr
 public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayLeast() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "1-1-1");
 	request.put("auditStartDate", "2018-5-19");
@@ -1121,7 +1121,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayLeast() t
 public void postGetModifyManagerCheckListTestApplyEndDateIsHourMinSecMax() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "23:59:59");
 	request.put("auditStartDate", "2018-5-19");
@@ -1141,7 +1141,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsHourMinSecMax() throw
 public void postGetModifyManagerCheckListTestApplyEndDateIsHourMinSecLeast() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "00:00:00");
 	request.put("auditStartDate", "2018-5-19");
@@ -1161,7 +1161,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsHourMinSecLeast() thr
 public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayHourMinSec() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18 15:22:33");
 	request.put("auditStartDate", "2018-5-19");
@@ -1181,7 +1181,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayHourMinSe
 public void postGetModifyManagerCheckListTestApplyEndDateIsNonSubmissionParameters() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "2018-5-21");
@@ -1200,7 +1200,7 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsNonSubmissionParamete
 public void postGetModifyManagerCheckListTestAuditStartDateIsErrorFormat() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018/5/19");
@@ -1220,7 +1220,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsErrorFormat() throw
 public void postGetModifyManagerCheckListTestAuditStartDateIsLessAuditEndDate() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1240,7 +1240,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsLessAuditEndDate() 
 public void postGetModifyManagerCheckListTestAuditStartDateIsMoreAuditEndDate() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-22");
@@ -1260,7 +1260,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsMoreAuditEndDate() 
 public void postGetModifyManagerCheckListTestAuditStartDateIsLessApplyEndDate() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-9");
@@ -1280,7 +1280,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsLessApplyEndDate() 
 public void postGetModifyManagerCheckListTestAuditStartDateIsTimeStamp() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "1526710777");
 	request.put("auditStartDate", "2018-5-9");
@@ -1300,7 +1300,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsTimeStamp() throws 
 public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDay() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-9");
@@ -1320,7 +1320,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDay() thro
 public void postGetModifyManagerCheckListTestAuditStartDateIsHourMinSec() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "22:15:12");
@@ -1340,7 +1340,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsHourMinSec() throws
 public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayMax() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "9999-12-31");
@@ -1360,7 +1360,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayMax() t
 public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayLeast() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "1-1-1");
@@ -1380,7 +1380,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayLeast()
 public void postGetModifyManagerCheckListTestAuditStartDateIsHourMinSecMax() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "23:59:59");
@@ -1400,7 +1400,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsHourMinSecMax() thr
 public void postGetModifyManagerCheckListTestAuditStartDateIsHourMinSecLeast() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "00:00:00");
@@ -1420,7 +1420,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsHourMinSecLeast() t
 public void postGetModifyManagerCheckListTestAuditStartDateIsEmpty() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "");
@@ -1440,7 +1440,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsEmpty() throws Exce
 public void postGetModifyManagerCheckListTestAuditStartDateIsSpace() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", " ");
@@ -1460,7 +1460,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsSpace() throws Exce
 public void postGetModifyManagerCheckListTestAuditStartDateIsNull() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", null);
@@ -1480,7 +1480,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsNull() throws Excep
 public void postGetModifyManagerCheckListTestAuditStartDateIsNegativeNumber() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "-123456789");
@@ -1500,7 +1500,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsNegativeNumber() th
 public void postGetModifyManagerCheckListTestAuditStartDateIsNumber() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "20180519");
@@ -1520,7 +1520,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsNumber() throws Exc
 public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayHourMinSec() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19 14:22:42");
@@ -1540,7 +1540,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayHourMin
 public void postGetModifyManagerCheckListTestAuditStartDateNonSubmissionParameters() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditEndDate", "2018-5-21");
@@ -1559,7 +1559,7 @@ public void postGetModifyManagerCheckListTestAuditStartDateNonSubmissionParamete
 public void postGetModifyManagerCheckListTestAuditEndDateIsErrorFormat() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1579,7 +1579,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsErrorFormat() throws 
 public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDay() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1599,7 +1599,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDay() throws
 public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSec() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1619,7 +1619,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSec() throws E
 public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayMax() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1639,7 +1639,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayMax() thr
 public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayLeast() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1659,7 +1659,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayLeast() t
 public void postGetModifyManagerCheckListTestAuditEndDateIsTimeStamp() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1679,7 +1679,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsTimeStamp() throws Ex
 public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSecMax() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1699,7 +1699,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSecMax() throw
 public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSecLeast() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1719,7 +1719,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSecLeast() thr
 public void postGetModifyManagerCheckListTestAuditEndDateIsNumber() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1739,7 +1739,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsNumber() throws Excep
 public void postGetModifyManagerCheckListTestAuditEndDateIsNegativeNumber() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1759,7 +1759,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsNegativeNumber() thro
 public void postGetModifyManagerCheckListTestAuditEndDateIsEmpty() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1779,7 +1779,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsEmpty() throws Except
 public void postGetModifyManagerCheckListTestAuditEndDateIsSpace() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1799,7 +1799,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsSpace() throws Except
 public void postGetModifyManagerCheckListTestAuditEndDateIsNull() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1819,7 +1819,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsNull() throws Excepti
 public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayHourMinSec() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1839,7 +1839,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayHourMinSe
 public void postGetModifyManagerCheckListTestAuditEndDateIsString() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1859,7 +1859,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsString() throws Excep
 public void postGetModifyManagerCheckListTestAuditEndDateIsLessAuditStartDate() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1879,7 +1879,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsLessAuditStartDate() 
 public void postGetModifyManagerCheckListTestAuditEndDateIsLessApplyStartDate() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1899,7 +1899,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsLessApplyStartDate() 
 public void postGetModifyManagerCheckListTestAuditEndDateNonSubmissionParameters() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1918,7 +1918,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateNonSubmissionParameters
 public void postGetModifyManagerCheckListTestPageNoIs0() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1938,7 +1938,7 @@ public void postGetModifyManagerCheckListTestPageNoIs0() throws Exception {
 public void postGetModifyManagerCheckListTestPageNoIsNegativeNumber() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1958,7 +1958,7 @@ public void postGetModifyManagerCheckListTestPageNoIsNegativeNumber() throws Exc
 public void postGetModifyManagerCheckListTestPageNoIsDecimal() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1978,7 +1978,7 @@ public void postGetModifyManagerCheckListTestPageNoIsDecimal() throws Exception 
 public void postGetModifyManagerCheckListTestPageNoIsString() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -1998,7 +1998,7 @@ public void postGetModifyManagerCheckListTestPageNoIsString() throws Exception {
 public void postGetModifyManagerCheckListTestPageNoIsEmpty() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2018,7 +2018,7 @@ public void postGetModifyManagerCheckListTestPageNoIsEmpty() throws Exception {
 public void postGetModifyManagerCheckListTestPageNoIsSpace() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2038,7 +2038,7 @@ public void postGetModifyManagerCheckListTestPageNoIsSpace() throws Exception {
 public void postGetModifyManagerCheckListTestPageNoIsNull() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2058,7 +2058,7 @@ public void postGetModifyManagerCheckListTestPageNoIsNull() throws Exception {
 public void postGetModifyManagerCheckListTestPageNoIsMax() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2078,7 +2078,7 @@ public void postGetModifyManagerCheckListTestPageNoIsMax() throws Exception {
 public void postGetModifyManagerCheckListTestPageNoNonSubmissionParameters() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2097,7 +2097,7 @@ public void postGetModifyManagerCheckListTestPageNoNonSubmissionParameters() thr
 public void postGetModifyManagerCheckListTestPageSizeIs0() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2117,7 +2117,7 @@ public void postGetModifyManagerCheckListTestPageSizeIs0() throws Exception {
 public void postGetModifyManagerCheckListTestPageSizeIsDecimal() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2137,7 +2137,7 @@ public void postGetModifyManagerCheckListTestPageSizeIsDecimal() throws Exceptio
 public void postGetModifyManagerCheckListTestPageSizeIsNegativeNumber() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2157,7 +2157,7 @@ public void postGetModifyManagerCheckListTestPageSizeIsNegativeNumber() throws E
 public void postGetModifyManagerCheckListTestPageSizeIsString() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2178,7 +2178,7 @@ public void postGetModifyManagerCheckListTestPageSizeIsString() throws Exception
 public void postGetModifyManagerCheckListTestPageSizeIsEmpty() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2198,7 +2198,7 @@ public void postGetModifyManagerCheckListTestPageSizeIsEmpty() throws Exception 
 public void postGetModifyManagerCheckListTestPageSizeIsSpace() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2218,7 +2218,7 @@ public void postGetModifyManagerCheckListTestPageSizeIsSpace() throws Exception 
 public void postGetModifyManagerCheckListTestPageSizeIsNull() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2238,7 +2238,7 @@ public void postGetModifyManagerCheckListTestPageSizeIsNull() throws Exception {
 public void postGetModifyManagerCheckListTestPageSizeNonSubmissionParameters() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
@@ -2257,7 +2257,7 @@ public void postGetModifyManagerCheckListTestPageSizeNonSubmissionParameters() t
 public void postGetModifyManagerCheckListTestPageSizeIsMax() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "12495396");
+	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18");
 	request.put("auditStartDate", "2018-5-19");
