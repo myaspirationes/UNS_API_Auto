@@ -24,7 +24,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	List<Map<String,Object>> list2 ;
 	String selectSql = "SELECT * FROM T_AUDIT_MSG WHERE MSG_ID = 1";
 	String selectSql1 = "SELECT * FROM T_AUDIT_MSG_CATEGORY WHERE CATEGORY_ID = 1";
-	String selectSql2 = "SELECT * FROM T_AUDIT_MSG_CATEGORY WHERE CATEGORY_ID = 2";
+	String selectSql2 = "SELECT * FROM T_AUDIT_MSG WHERE MSG_ID = 2";
 	String dataType = "uedb";
 	List<Map> lis = new ArrayList<Map>();
 	Map<Object, Object> map1 = new HashMap<Object, Object>();
@@ -41,9 +41,9 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestCorrectParameter() throws Exception {
-		map1.put("key", 1);
+		map1.put("key", "5");
 		map1.put("value", "自动化测试1");
-		map2.put("key", 2);
+		map2.put("key", "6");
 		map2.put("value", "自动化测试2");
 		lis.add(map1);
 		lis.add(map2);
@@ -56,13 +56,13 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId或者roleId格式不正确");
-		list =MetaOper.read(selectSql,dataType);
-		list1 =MetaOper.read(selectSql1,dataType);
-		list2 =MetaOper.read(selectSql2,dataType);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list = MetaOper.read(selectSql1,dataType);
+		list1 = MetaOper.read(selectSql1,dataType);
+		list2 = MetaOper.read(selectSql2,dataType);
 		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("0");
-		assertThat(list1.get(0).get("MSG_CONTENT").toString()).isEqualTo("自动化测试1");
+		assertThat(list.get(0).get("MSG_CONTENT").toString()).isEqualTo("自动化测试1");
 		assertThat(list2.get(0).get("MSG_CONTENT").toString()).isEqualTo("自动化测试2");
 	}
 	/**
@@ -70,14 +70,20 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdNotLoggedIn() throws Exception {
+		map1.put("key", "3");
+		map1.put("value", "自动化测试1");
+		map2.put("key", "4");
+		map2.put("value", "自动化测试2");
+		lis.add(map1);
+		lis.add(map2);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495366);
 		request.put("paraId", 1);
-		request.put("name", "自动化测试");
-		request.put("rules", "自动化测试用请勿删除");
-		request.put("status", 1);
+		request.put("name", "商户审核原因");
+		request.put("rules", lis);
+		request.put("status", 0);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为未登录用户" + post);
+		System.out.println("提交正确参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");

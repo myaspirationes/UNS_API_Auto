@@ -29,7 +29,7 @@ public class GetRoleDetailsTest extends HttpUtil {
 	public void postGetRoleDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleId", 110);
+		request.put("roleId", 10000001);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -43,12 +43,12 @@ public class GetRoleDetailsTest extends HttpUtil {
 	@Test
 	public void postGetRoleDetailsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495323);
-		request.put("roleId", 110);
+		request.put("userId", 10000012);
+		request.put("roleId", 10000037);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID未登录" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -57,13 +57,13 @@ public class GetRoleDetailsTest extends HttpUtil {
 	@Test
 	public void postGetRoleDetailsTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 95323);
-		request.put("roleId", 110);
+		request.put("userId", 001);
+		request.put("roleId", 10000001);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误ID" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -72,12 +72,12 @@ public class GetRoleDetailsTest extends HttpUtil {
 	public void postGetRoleDetailsTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^>");
-		request.put("roleId", 110);
+		request.put("roleId", 10000001);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
+//		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为小数
@@ -86,12 +86,12 @@ public class GetRoleDetailsTest extends HttpUtil {
 	public void postGetRoleDetailsTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 1249.5323);
-		request.put("roleId", 110);
+		request.put("roleId", 10000001);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 用户ID为负数
@@ -100,12 +100,12 @@ public class GetRoleDetailsTest extends HttpUtil {
 	public void postGetRoleDetailsTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -12495323);
-		request.put("roleId", 110);
+		request.put("roleId", 10000001);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 用户ID为0
@@ -114,12 +114,12 @@ public class GetRoleDetailsTest extends HttpUtil {
 	public void postGetRoleDetailsTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);
-		request.put("roleId", 110);
+		request.put("roleId", 10000001);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 用户ID为String
@@ -128,12 +128,12 @@ public class GetRoleDetailsTest extends HttpUtil {
 	public void postGetRoleDetailsTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "AAA");
-		request.put("roleId", 110);
+		request.put("roleId", 10000001);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
+//		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 用户ID为空格
@@ -142,12 +142,12 @@ public class GetRoleDetailsTest extends HttpUtil {
 	public void postGetRoleDetailsTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
-		request.put("roleId", 110);
+		request.put("roleId", 10000001);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
 	}
 	/**
 	 * 用户ID为空
@@ -156,12 +156,12 @@ public class GetRoleDetailsTest extends HttpUtil {
 	public void postGetRoleDetailsTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
-		request.put("roleId", 110);
+		request.put("roleId", 10000001);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
 	}
 	/**
 	 * 用户ID为null
@@ -170,12 +170,12 @@ public class GetRoleDetailsTest extends HttpUtil {
 	public void postGetRoleDetailsTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
-		request.put("roleId", 110);
+		request.put("roleId", 10000001);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -183,12 +183,12 @@ public class GetRoleDetailsTest extends HttpUtil {
 	@Test
 	public void postGetRoleDetailsTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("roleId", 110);
+		request.put("roleId", 10000001);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
 	}
 	/**
 	 * 用户ID为超长
@@ -197,12 +197,12 @@ public class GetRoleDetailsTest extends HttpUtil {
 	public void postGetRoleDetailsTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 999999999999999999L);
-		request.put("roleId", 110);
+		request.put("roleId", 10000001);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 角色id为错误
@@ -215,8 +215,8 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("id为：999的角色不存在");
 	}
 	/**
 	 * 角色id为小数
@@ -229,8 +229,8 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("id为：1的角色不存在");
 	}
 	/**
 	 * 角色id为负数
@@ -243,8 +243,8 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("id为：-11的角色不存在");
 	}
 	/**
 	 * 角色id传非法字符
@@ -257,8 +257,8 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id传非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
+//		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色id传空
@@ -271,8 +271,8 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id传空" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("角色id不能为空！");
 	}
 	/**
 	 * 角色id传空格
@@ -285,8 +285,8 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id传空格" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("角色id不能为空！");
 	}
 	/**
 	 * 角色id传String
@@ -299,8 +299,8 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id传String" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
+//		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色id不传参数
@@ -312,8 +312,8 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id不传参数" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("角色id不能为空！");
 	}
 	/**
 	 * 角色id传0
@@ -326,8 +326,8 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id传0" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("id为：0的角色不存在");
 	}
 	
 }
