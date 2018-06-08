@@ -51,6 +51,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 用户ID为未登录用户
@@ -74,6 +76,9 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);		
+				
 	}
 	/**
 	 * 用户ID为错误用户
@@ -97,6 +102,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 用户ID为非法字符
@@ -209,6 +216,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 用户ID为null
@@ -231,6 +240,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 用户ID为0
@@ -297,6 +308,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 用户ID为超长
@@ -318,6 +331,9 @@ public class SearchGetUsersListTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
+		
 	}
 	/**
 	 * 昵称为超长
@@ -325,7 +341,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestNickNameIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495396);	
+		request.put("userId", userId);	
 		request.put("nickname", "测试DDDDddd顶顶顶顶顶顶顶顶顶打发打发发士大夫十分犯得上方法犯得上方法是打发士大夫");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -337,38 +353,18 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("昵称为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
+			
 	}
-	/**
-	 * 昵称含有非法字符
-	 */
-	@Test
-	public void postSearchGetUsersListTestNickNameIsIllegalCharacters() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495396);	
-		request.put("nickname", "<@$%^&>");
-		request.put("mobile", "17740800827");
-		request.put("startTime", "2018-01-01");
-		request.put("endTime", "2018-05-17");
-		request.put("status", 0);
-		request.put("uid", 12495396);
-		request.put("pageSize", 2);
-		request.put("pageNow", 1);		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("昵称含有非法字符" + post);
-
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
-	}
+	
 	/**
 	 * 昵称为空
 	 */
 	@Test
 	public void postSearchGetUsersListTestNickNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495396);	
+		request.put("userId", userId);	
 		request.put("nickname", "");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -382,6 +378,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 昵称为空格
@@ -389,7 +387,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestNickNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495396);	
+		request.put("userId", userId);	
 		request.put("nickname", " ");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -401,8 +399,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("昵称为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 昵称为null
@@ -410,7 +410,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestNickNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495396);	
+		request.put("userId", userId);	
 		request.put("nickname", null);
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -424,6 +424,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 昵称为不传该参数
@@ -431,7 +433,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestNickNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 12495396);	
+		request.put("userId", userId);	
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-05-17");
@@ -444,6 +446,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 手机号为超11位
@@ -451,7 +455,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsOver11() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "15617843828456");
 		request.put("startTime", "2018-01-01");
@@ -464,8 +468,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号为超11位" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号小于11位
@@ -473,7 +479,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsLeast11() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "15617");
 		request.put("startTime", "2018-01-01");
@@ -486,8 +492,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号小于11位" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码为区号加固话（02160790211）
@@ -495,7 +503,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsAreaCodePlusSolid() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "02160790211");
 		request.put("startTime", "2018-01-01");
@@ -508,8 +516,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码为区号加固话（02160790211）" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号前+86
@@ -517,7 +527,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileBeforeAdd86() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "+8615617843828");
 		request.put("startTime", "2018-01-01");
@@ -530,8 +540,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号前+86" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号前加00
@@ -539,7 +551,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileBeforeAdd00() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "0015617843828");
 		request.put("startTime", "2018-01-01");
@@ -552,8 +564,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号前加00" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码前面加长途号码17951
@@ -561,7 +575,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileBeforeAdd17951() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "1795115617843828");
 		request.put("startTime", "2018-01-01");
@@ -574,8 +588,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码前面加长途号码17951" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号含有非法字符
@@ -583,7 +599,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "<167%#$^8&>");
 		request.put("startTime", "2018-01-01");
@@ -596,8 +612,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号含有非法字符" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号为0
@@ -605,7 +623,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", 0);
 		request.put("startTime", "2018-01-01");
@@ -618,8 +636,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号为0" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号为null
@@ -627,7 +647,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", null);
 		request.put("startTime", "2018-01-01");
@@ -642,6 +662,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 手机号为空
@@ -649,7 +671,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "");
 		request.put("startTime", "2018-01-01");
@@ -664,6 +686,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 手机号为空格
@@ -671,7 +695,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", " ");
 		request.put("startTime", "2018-01-01");
@@ -684,8 +708,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号为空格" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号为小数
@@ -693,7 +719,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "12.56894512");
 		request.put("startTime", "2018-01-01");
@@ -706,8 +732,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号为负数
@@ -715,7 +743,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "-12452");
 		request.put("startTime", "2018-01-01");
@@ -728,8 +756,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码为非1开头
@@ -737,7 +767,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsStartNon1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "45617843828");
 		request.put("startTime", "2018-01-01");
@@ -750,8 +780,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码为非1开头" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号码格式为xxx-xxxx-xxxx
@@ -759,7 +791,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileIsFormat344() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "156-1784-3828");
 		request.put("startTime", "2018-01-01");
@@ -772,8 +804,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码格式为xxx-xxxx-xxxx" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 手机号不传该参数
@@ -781,7 +815,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestMobileNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-05-17");
@@ -795,6 +829,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 注册时间(开始) 传错误格式
@@ -802,7 +838,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsErrorFormat() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018/01/01");
@@ -824,7 +860,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsLeastEndTime() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -839,6 +875,9 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
+		
 	}
 	/**
 	 * 开始时间大于结束时间
@@ -846,7 +885,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsMoreEndTime() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-03-01");
@@ -859,8 +898,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("开始时间大于结束时间" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 开始时间传时间戳
@@ -868,7 +909,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsTimeStamp() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "1527747350");
@@ -881,8 +922,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("开始时间传时间戳" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 开始时间传年月日
@@ -890,7 +933,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsYearMonthDay() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -905,6 +948,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 开始时间传时分秒
@@ -912,7 +957,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsHourMinSec() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "12:00:12");
@@ -934,7 +979,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", " ");
@@ -947,8 +992,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("开始时间传空格" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 开始时间传数字去掉中间格式
@@ -956,7 +1003,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "20180101");
@@ -969,8 +1016,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("开始时间传数字去掉中间格式" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 开始时间传空
@@ -978,7 +1027,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "");
@@ -993,6 +1042,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 开始时间传null
@@ -1000,7 +1051,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", null);
@@ -1015,6 +1066,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 开始时间不传该参数
@@ -1022,7 +1075,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("endTime", "2018-05-17");
@@ -1036,6 +1089,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 开始时间传负数
@@ -1043,7 +1098,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "-2018");
@@ -1056,8 +1111,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("开始时间传负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 开始时间传年月日最大值
@@ -1065,7 +1122,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsYearMonthDayMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "9999-12-31");
@@ -1078,8 +1135,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("开始时间传年月日最大值" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 开始时间传年月日最小时间
@@ -1087,7 +1146,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsYearMonthDayMin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "0001-01-01");
@@ -1102,6 +1161,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 开始时间传时分秒最大时间
@@ -1109,7 +1170,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsHourMinSecMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "23:59:59");
@@ -1131,7 +1192,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsHourMinSecMin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "00:00:00");
@@ -1153,7 +1214,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStartTimeIsYearMonthDayHourMinSec() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01 12:12:12");
@@ -1174,7 +1235,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsErrorFormat() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1196,7 +1257,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsTimeStamp() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1209,8 +1270,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间传时间戳" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 结束时间传年月日
@@ -1218,7 +1281,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsYearMonthDay() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1233,6 +1296,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 结束时间传时分秒
@@ -1240,7 +1305,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsHourMinSec() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1262,7 +1327,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1275,8 +1340,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间传空格" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 结束时间传数字去掉中间格式
@@ -1284,7 +1351,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1297,8 +1364,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间传数字去掉中间格式" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 结束时间传空
@@ -1306,7 +1375,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1321,6 +1390,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 结束时间传null
@@ -1328,7 +1399,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1343,6 +1414,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 结束时间不传该参数
@@ -1350,7 +1423,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1364,6 +1437,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 结束时间传负数
@@ -1371,7 +1446,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1384,8 +1459,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间传负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 结束时间传小数
@@ -1393,7 +1470,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1406,8 +1483,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间传小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 结束时间传年月日最大值
@@ -1415,7 +1491,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsYearMonDayMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1430,6 +1506,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 结束时间传时分秒最大时间
@@ -1437,7 +1515,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsHourMinSecMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1459,7 +1537,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsHourMinSecLeast() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1481,7 +1559,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsYearMonDayLeast() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1494,8 +1572,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间传年月日最小时间" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 结束时间传年月日时分秒
@@ -1503,7 +1583,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestEndTimeIsYearMonDayHourMinSec() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1525,7 +1605,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1540,6 +1620,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 状态为1锁定
@@ -1547,7 +1629,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusIsOne() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1562,6 +1644,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 状态为2全部
@@ -1569,7 +1653,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusIsTwo() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1584,6 +1668,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 状态为错误
@@ -1591,7 +1677,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1604,8 +1690,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为错误" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 状态为负数
@@ -1613,7 +1701,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1626,8 +1714,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 状态为小数
@@ -1635,7 +1725,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1648,8 +1738,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 状态为空格
@@ -1657,7 +1749,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1670,8 +1762,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为空格" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 状态为空
@@ -1679,7 +1773,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1694,6 +1788,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 状态为null
@@ -1701,7 +1797,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1716,6 +1812,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 状态为String
@@ -1723,7 +1821,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1745,7 +1843,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1758,8 +1856,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为最大值" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 状态为不传
@@ -1767,7 +1867,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestStatusNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1781,6 +1881,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * app端用户id错误
@@ -1788,7 +1890,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestUidIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1801,8 +1903,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("app端用户id错误" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * app端用户id超长
@@ -1810,7 +1914,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestUidIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1823,8 +1927,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("app端用户id超长" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * app端用户id传空
@@ -1832,7 +1938,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestUidIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1847,6 +1953,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * app端用户id传空格
@@ -1854,7 +1962,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestUidIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1876,7 +1984,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestUidIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1891,6 +1999,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * app端用户id传0
@@ -1898,7 +2008,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestUidIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1911,8 +2021,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("app端用户id传0" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数非法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * App端用户id传负数
@@ -1920,7 +2032,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestUidIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1933,8 +2045,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("App端用户id传负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数非法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * app端用户id传小数
@@ -1942,7 +2054,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestUidIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1964,7 +2076,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestUidIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1986,7 +2098,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestUidNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -1998,8 +2110,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("app端用户id不传" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	
 	/**
@@ -2008,7 +2122,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageSizeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2030,7 +2144,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageSizeIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2043,8 +2157,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示行数pageSize为0" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 每页显示行数pageSize为String
@@ -2052,7 +2168,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageSizeIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2074,7 +2190,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2096,7 +2212,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2118,7 +2234,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2140,7 +2256,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageSizeIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2153,8 +2269,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示行数pageSize为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	
 	/**
@@ -2163,7 +2281,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageSizeIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2176,8 +2294,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示行数pageSize为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 每页显示行数pageSize不传
@@ -2185,7 +2305,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageSizeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2206,7 +2326,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2228,7 +2348,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2250,7 +2370,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2272,7 +2392,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageNowIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2285,8 +2405,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页pageNow传小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 当前页pageNow传0
@@ -2294,7 +2416,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageNowIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
@@ -2307,8 +2429,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页pageNow传0" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 当前页pageNow不传
@@ -2316,7 +2440,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 	@Test
 	public void postSearchGetUsersListTestPageNowNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);				
+		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");

@@ -61,7 +61,8 @@ public class LockUserTest extends HttpUtil {
 		list =MetaOper.read(selectSql,dataType);
 		assertThat(list.get(0).get("LOCK_TYPE").toString()).isEqualTo("0");
 		assertThat(list.get(0).get("LOCK_DURATION").toString()).isEqualTo("1");
-		assertThat(list.get(0).get("MSG").toString()).isEqualTo("测试3");		
+		assertThat(list.get(0).get("MSG").toString()).isEqualTo("测试3");	
+		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("1");	
 	}
 	/**
 	 * 用户ID为未登录用户
