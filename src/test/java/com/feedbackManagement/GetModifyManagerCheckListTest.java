@@ -20,20 +20,21 @@ public class GetModifyManagerCheckListTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckListTestCorrectParameter() throws Exception {
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("status", 3);
 		request.put("mobile", "17740800827");
 		request.put("applyStartDate", "2018-5-10");
-		request.put("applyEndDate", "2018-5-18");
+		request.put("applyEndDate", "2018-6-7");
 		request.put("auditStartDate", "2018-5-19");
-		request.put("auditEndDate", "2018-5-21");
+		request.put("auditEndDate", "2018-6-8");
 		request.put("pageNo", 1);
 		request.put("pageSize", 5);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 状态status为错误值
@@ -44,16 +45,16 @@ public class GetModifyManagerCheckListTest extends HttpUtil {
 		request.put("status", 100);
 		request.put("mobile","17740800827");
 		request.put("applyStartDate", "2018-5-10");
-		request.put("applyEndDate", "2018-5-18");
+		request.put("applyEndDate", "2018-6-7");
 		request.put("auditStartDate", "2018-5-19");
-		request.put("auditEndDate", "2018-5-21");
+		request.put("auditEndDate", "2018-6-8");
 		request.put("pageNo", 1);
 		request.put("pageSize", 5);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态status为错误值" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("状态不合法！");
 	}
 	/**
 	 * 状态status为小数
@@ -64,9 +65,9 @@ public class GetModifyManagerCheckListTest extends HttpUtil {
 		request.put("status", 3.23);
 		request.put("mobile","17740800827");
 		request.put("applyStartDate", "20180510");
-		request.put("applyEndDate", "2018-5-18");
+		request.put("applyEndDate", "2018-6-7");
 		request.put("auditStartDate", "2018-5-19");
-		request.put("auditEndDate", "2018-5-21");
+		request.put("auditEndDate", "2018-6-8");
 		request.put("pageNo", 1);
 		request.put("pageSize", 5);
 		JSONObject post = super.UNSPost(url, request);
@@ -84,16 +85,16 @@ public class GetModifyManagerCheckListTest extends HttpUtil {
 		request.put("status", -3);
 		request.put("mobile","17740800827");
 		request.put("applyStartDate", "20180510");
-		request.put("applyEndDate", "2018-5-18");
+		request.put("applyEndDate", "2018-6-7");
 		request.put("auditStartDate", "2018-5-19");
-		request.put("auditEndDate", "2018-5-21");
+		request.put("auditEndDate", "2018-6-8");
 		request.put("pageNo", 1);
 		request.put("pageSize", 5);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态status为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("状态不合法！");
 	}
 	/**
 	 * 状态status为String
@@ -104,16 +105,16 @@ public class GetModifyManagerCheckListTest extends HttpUtil {
 		request.put("status", "fdsfs");
 		request.put("mobile","17740800827");
 		request.put("applyStartDate", "20180510");
-		request.put("applyEndDate", "2018-5-18");
+		request.put("applyEndDate", "2018-6-7");
 		request.put("auditStartDate", "2018-5-19");
-		request.put("auditEndDate", "2018-5-21");
+		request.put("auditEndDate", "2018-6-8");
 		request.put("pageNo", 1);
 		request.put("pageSize", 5);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态status为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(400);
+		//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 /**
  * 状态status为空格
@@ -124,16 +125,16 @@ public void postGetModifyManagerCheckListTeststatusIsSpace() throws Exception {
 	request.put("status", " ");
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("状态status为空格" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("状态不合法！");
 }
 
 /**
@@ -145,16 +146,16 @@ public void postGetModifyManagerCheckListTestStatusIsEmpty() throws Exception {
 	request.put("status", "");
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("状态status为空" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("状态不合法！");
 }
 /**
  * 状态status为null
@@ -165,16 +166,16 @@ public void postGetModifyManagerCheckListTestStatusIsNull() throws Exception {
 	request.put("status", null);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("状态status为null" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("状态不合法！");
 }
 /**
  * 状态status为超长
@@ -185,16 +186,16 @@ public void postGetModifyManagerCheckListTestStatusIsLong() throws Exception {
 	request.put("status", 999999999999999999L);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("状态status为超长" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 状态status不传
@@ -204,16 +205,16 @@ public void postGetModifyManagerCheckListTestStatusNonSubmissionParameters() thr
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("状态status不传" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("状态不合法！");
 }
 /**
  * 状态status传0待审核
@@ -224,16 +225,18 @@ public void postGetModifyManagerCheckListTestStatusIs0() throws Exception {
 	request.put("status", 0);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("状态status传0待审核" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 状态status传1审核通过
@@ -245,36 +248,40 @@ public void postGetModifyManagerCheckListTestStatusIs1() throws Exception {
 	request.put("status", 1);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("状态status传1审核通过" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 状态status传2审核失败
  */
 @Test
-public void postGetModifyManagerCheckListTestStatusI2s() throws Exception {
+public void postGetModifyManagerCheckListTestStatusIs2() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 1);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("状态status传2审核失败" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 状态status传3全查
@@ -285,16 +292,18 @@ public void postGetModifyManagerCheckListTestStatusIs3() throws Exception {
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("状态status传3全查" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 手机号mobile错误
@@ -305,16 +314,18 @@ public void postGetModifyManagerCheckListTestMobileIsError() throws Exception {
 	request.put("status", 3);
 	request.put("mobile", "12495396456");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("手机号mobile错误" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 手机号mobile超长
@@ -323,11 +334,11 @@ public void postGetModifyManagerCheckListTestMobileIsError() throws Exception {
 public void postGetModifyManagerCheckListTestMobileIsLong() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "1249539645612345465455521233");
+	request.put("mobile", "1249539645612345465455521233545466445");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
@@ -345,16 +356,19 @@ public void postGetModifyManagerCheckListTestMobileNumberIsLess11() throws Excep
 	request.put("status", 3);
 	request.put("mobile", "12495");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("手机号mobile小于11位" + post);
+	
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 手机号mobile前加00
@@ -365,16 +379,19 @@ public void postGetModifyManagerCheckListTestMobileIsBeforeAdd00() throws Except
 	request.put("status", 3);
 	request.put("mobile", "0012495396");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("手机号mobile前加00" + post);
+	
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 手机号mobile前+86
@@ -385,16 +402,16 @@ public void postGetModifyManagerCheckListTestMobileBeforeAdd86() throws Exceptio
 	request.put("status", 3);
 	request.put("mobile", "+8612495396");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("手机号mobile前+86" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("手机号不合法！");
 }
 /**
  * 输入11位的固话（固话+区号）
@@ -405,16 +422,18 @@ public void postGetModifyManagerCheckListTestMobileIsTelephone() throws Exceptio
 	request.put("status", 3);
 	request.put("mobile", "02136174886");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("输入11位的固话（固话+区号）" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 手机号mobile存在小数
@@ -423,18 +442,18 @@ public void postGetModifyManagerCheckListTestMobileIsTelephone() throws Exceptio
 public void postGetModifyManagerCheckListTestMobileIsDecimal() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "1.26");
+	request.put("mobile", 1.26);
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("手机号mobile存在小数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("手机号不合法！");
 }
 /**
  * 手机号mobile存在负数
@@ -443,18 +462,18 @@ public void postGetModifyManagerCheckListTestMobileIsDecimal() throws Exception 
 public void postGetModifyManagerCheckListTestMobileIsNegativeNumber() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
-	request.put("mobile", "-123456");
+	request.put("mobile", -123456);
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("手机号mobile存在负数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("手机号不合法！");
 }
 /**
  * 手机号mobile存在非法字符
@@ -465,16 +484,16 @@ public void postGetModifyManagerCheckListTestMobileIsIllegalCharacters() throws 
 	request.put("status", 3);
 	request.put("mobile", "<#$@$>");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("手机号mobile存在非法字符" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("手机号不合法！");
 }
 /**
  * 手机号mobile为空
@@ -484,16 +503,16 @@ public void postGetModifyManagerCheckListTestMobileIsEmpty() throws Exception {
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
 	request.put("mobile", "");
-	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyStartDate", "2018-5-10");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("手机号mobile为空" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
+	assertThat(post.get("status")).isEqualTo(0);
 	assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
@@ -505,16 +524,18 @@ public void postGetModifyManagerCheckListTestMobileIsNull() throws Exception {
 	request.put("status", 3);
 	request.put("mobile", null);
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("手机号mobile为null" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 手机号mobile为空格
@@ -525,16 +546,16 @@ public void postGetModifyManagerCheckListTestMobileIsSpace() throws Exception {
 	request.put("status", 3);
 	request.put("mobile", " ");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("手机号mobile为空格" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("手机号不合法！");
 }
 /**
  * 手机号mobile不传参数
@@ -544,16 +565,18 @@ public void postGetModifyManagerCheckListTestMobileNonSubmissionParameters() thr
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
 	request.put("applyStartDate", "2018/5/10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("手机号mobile不传参数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 提交时间头大于提交时间尾
@@ -563,17 +586,19 @@ public void postGetModifyManagerCheckListTestMobileIsMoreApplyEndDate() throws E
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
 	request.put("mobile","17740800827");
-	request.put("applyStartDate", "2018-5-20");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyStartDate", "2018-6-8");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头大于提交时间尾" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 提交时间头传错误格式
@@ -584,16 +609,16 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsErrorFormat() throw
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018/5/10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传错误格式" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 提交时间头小于提交时间尾
@@ -603,17 +628,19 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsLessApplyEndDate() 
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
 	request.put("mobile","17740800827");
-	request.put("applyStartDate", "2018/5/10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyStartDate", "2018-6-7");
+	request.put("applyEndDate", "2018-6-8");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头小于提交时间尾" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 提交时间头传时间戳
@@ -624,16 +651,18 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsTimeStamp() throws 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "1525685061");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传时间戳" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 提交时间头传年月日
@@ -644,16 +673,18 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDay() thro
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传年月日" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 提交时间头传时分秒
@@ -664,16 +695,16 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsHourMinSec() throws
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "10:22:56");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传时分秒" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 提交时间头传空格
@@ -684,16 +715,18 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsSpace() throws Exce
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", " ");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传空格" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 提交时间头传数字qu掉中间格式（20180524）
@@ -704,15 +737,15 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsNumber() throws Exc
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "20180510");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传数字qu掉中间格式（20180524）" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
+	assertThat(post.get("status")).isEqualTo(-1);
 	assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
@@ -724,16 +757,18 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsEmpty() throws Exce
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传空" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 提交时间头传null
@@ -744,16 +779,19 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsNull() throws Excep
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", null);
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传null" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
+	
 }
 /**
  * 提交时间头传负数
@@ -764,9 +802,9 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsNegativeNumber() th
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", -123456);
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
@@ -784,9 +822,9 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayMax() t
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "9999-12-31");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
@@ -804,16 +842,18 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayLeast()
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "0001-1-1");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传年月日最小时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 提交时间头传时分秒最大时间
@@ -824,16 +864,16 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsHourMinSecMax() thr
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "23:59:59");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传时分秒最大时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 提交时间头传时分秒最小时间
@@ -844,16 +884,16 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsHourMinSecLeast() t
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "00:00:00");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传时分秒最小时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 提交时间头传年月日时分秒
@@ -864,16 +904,16 @@ public void postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayHourMin
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10 12:12:22");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头传年月日时分秒" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 提交时间头不传参数
@@ -883,16 +923,18 @@ public void postGetModifyManagerCheckListTestApplyStartDateNonSubmissionParamete
 	Map<String, Object> request = new HashMap<String, Object>();
 	request.put("status", 3);
 	request.put("mobile","17740800827");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间头不传参数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 提交时间尾applyEndDate传错误格式
@@ -903,16 +945,16 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsErrorFormat() throws 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018/5/18");
+	request.put("applyEndDate", "2018/6/7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传错误格式" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 提交时间尾applyEndDate传时间戳
@@ -923,16 +965,18 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsTimeStamp() throws Ex
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "1526624377");
+	request.put("applyEndDate", "1528363461");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传时间戳" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 提交时间尾applyEndDate传年月日
@@ -943,16 +987,19 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDay() throws
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传年月日" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
+	
 }
 /**
  * 提交时间尾applyEndDate传时分秒
@@ -965,14 +1012,14 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsHourMinSec() throws E
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "12:12:22");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传时分秒" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 提交时间尾applyEndDate传数字去掉中间格式
@@ -985,14 +1032,16 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsNumber() throws Excep
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "20180518");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传数字去掉中间格式" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 提交时间尾applyEndDate传空
@@ -1005,14 +1054,16 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsEmpty() throws Except
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传空" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 提交时间尾applyEndDate传空格
@@ -1025,14 +1076,16 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsSpace() throws Except
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", " ");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传空格" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 提交时间尾applyEndDate传null
@@ -1045,14 +1098,16 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsNull() throws Excepti
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", null);
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传null" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 提交时间尾applyEndDate传负数
@@ -1065,14 +1120,16 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsNegativeNumber() thro
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "-1234565");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传负数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 提交时间尾applyEndDate传年月日最大时间
@@ -1085,14 +1142,16 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayMax() thr
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "9999-12-31");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传年月日最大时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 提交时间尾applyEndDate传年月日最小时间
@@ -1103,16 +1162,18 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayLeast() t
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "1-1-1");
+	request.put("applyEndDate", "0001-1-1");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传年月日最小时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 提交时间尾applyEndDate传时分秒最大时间
@@ -1125,14 +1186,14 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsHourMinSecMax() throw
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "23:59:59");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传时分秒最大时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 提交时间尾applyEndDate传时分秒最小时间
@@ -1145,14 +1206,14 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsHourMinSecLeast() thr
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "00:00:00");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传时分秒最小时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 提交时间尾applyEndDate传年月日时分秒
@@ -1165,14 +1226,14 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayHourMinSe
 	request.put("applyStartDate", "2018-5-10");
 	request.put("applyEndDate", "2018-5-18 15:22:33");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate传年月日时分秒" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 提交时间尾applyEndDate不传参数
@@ -1184,14 +1245,16 @@ public void postGetModifyManagerCheckListTestApplyEndDateIsNonSubmissionParamete
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("提交时间尾applyEndDate不传参数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 审核时间头auditStartDate传错误格式
@@ -1202,16 +1265,16 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsErrorFormat() throw
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018/5/19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传错误格式" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 审核时间头auditStartDate小于审核时间尾
@@ -1222,16 +1285,18 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsLessAuditEndDate() 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
-	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("applyEndDate", "2018-6-7");
+	request.put("auditStartDate", "2018-6-9");
+	request.put("auditEndDate", "2018-6-10");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate小于审核时间尾" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
+	assertThat(post.get("status")).isEqualTo(0);
 	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 审核时间头auditStartDate大于审核时间尾
@@ -1242,16 +1307,18 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsMoreAuditEndDate() 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
-	request.put("auditStartDate", "2018-5-22");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("applyEndDate", "2018-6-7");
+	request.put("auditStartDate", "2018-6-9");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate大于审核时间尾" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 审核时间头auditStartDate小于提交时间尾
@@ -1262,16 +1329,18 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsLessApplyEndDate() 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-9");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate小于提交时间尾" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 审核时间头auditStartDate传时间戳
@@ -1282,16 +1351,19 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsTimeStamp() throws 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "1526710777");
-	request.put("auditStartDate", "2018-5-9");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("applyEndDate", "2018-6-7");
+	request.put("auditStartDate", "1525857861");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传时间戳" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
+	
 }
 /**
  * 审核时间头auditStartDate传年月日
@@ -1302,16 +1374,18 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDay() thro
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
-	request.put("auditStartDate", "2018-5-9");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("applyEndDate", "2018-6-7");
+	request.put("auditStartDate", "2018-6-9");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传年月日" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 审核时间头auditStartDate传时分秒
@@ -1322,16 +1396,16 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsHourMinSec() throws
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "22:15:12");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传时分秒" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 }
 /**
  * 审核时间头auditStartDate传年月日最大时间
@@ -1342,16 +1416,18 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayMax() t
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "9999-12-31");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传年月日最大时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 审核时间头auditStartDate传年月日最小时间
@@ -1362,16 +1438,18 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayLeast()
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
-	request.put("auditStartDate", "1-1-1");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("applyEndDate", "2018-6-7");
+	request.put("auditStartDate", "0001-1-1");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传年月日最小时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 审核时间头auditStartDate传时分秒最大时间
@@ -1382,16 +1460,16 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsHourMinSecMax() thr
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "23:59:59");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传时分秒最大时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
+	
 }
 /**
  * 审核时间头auditStartDate传时分秒最小时间
@@ -1402,16 +1480,15 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsHourMinSecLeast() t
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "00:00:00");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传时分秒最小时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
 }
 /**
  * 审核时间头auditStartDate传空
@@ -1422,16 +1499,18 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsEmpty() throws Exce
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传年月日最小时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 审核时间头auditStartDatechuan 空格
@@ -1442,16 +1521,18 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsSpace() throws Exce
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", " ");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传空格" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 审核时间头auditStartDate传null
@@ -1462,16 +1543,18 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsNull() throws Excep
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", null);
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传null" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 审核时间头auditStartDatechuan 负数
@@ -1482,16 +1565,18 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsNegativeNumber() th
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
-	request.put("auditStartDate", "-123456789");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("applyEndDate", "2018-6-7");
+	request.put("auditStartDate", -123456789);
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传负数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
+	assertThat(post.get("status")).isEqualTo(0);
 	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 审核时间头auditStartDate传数字去掉中间格式
@@ -1502,16 +1587,19 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsNumber() throws Exc
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "20180519");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate传数字去掉中间格式" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
+	
 }
 /**
  * 审核时间头传年月日时分秒
@@ -1522,16 +1610,15 @@ public void postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayHourMin
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19 14:22:42");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头传年月日时分秒" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
 }
 /**
  * 审核时间头auditStartDate不传参数
@@ -1542,15 +1629,18 @@ public void postGetModifyManagerCheckListTestAuditStartDateNonSubmissionParamete
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("applyEndDate", "2018-6-7");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间头auditStartDate不传参数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
+	
 }
 /**
  * 审核时间尾auditStartDate传错误格式
@@ -1561,16 +1651,15 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsErrorFormat() throws 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018/5/21");
+	request.put("auditEndDate", "2018/6/8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾传错误格式" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
 }
 /**
  * 审核时间尾auditStartDate传年月日
@@ -1581,16 +1670,18 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDay() throws
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾传年月日" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 审核时间尾auditStartDate时分秒
@@ -1601,7 +1692,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSec() throws E
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "13:12:55");
 	request.put("pageNo", 1);
@@ -1609,8 +1700,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSec() throws E
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾时分秒" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
 }
 /**
  * 审核时间尾auditStartDatechuan 年月日最大时间
@@ -1621,7 +1711,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayMax() thr
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "9999-12-31");
 	request.put("pageNo", 1);
@@ -1629,8 +1719,10 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayMax() thr
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾传年月日最大时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 审核时间尾auditStartDate传年月日最小时间
@@ -1641,16 +1733,18 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayLeast() t
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "1/1/1");
+	request.put("auditEndDate", "0001-1-1");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾auditStartDate传年月日最小时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 审核时间尾auditStartDate传时间戳
@@ -1661,7 +1755,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsTimeStamp() throws Ex
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "1526883577");
 	request.put("pageNo", 1);
@@ -1669,8 +1763,10 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsTimeStamp() throws Ex
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾传时间戳" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 审核时间尾auditStartDate传时分秒最大时间
@@ -1681,7 +1777,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSecMax() throw
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "23:59:59");
 	request.put("pageNo", 1);
@@ -1689,8 +1785,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSecMax() throw
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾传时分秒最大时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
 }
 /**
  * 审核时间尾auditStartDate传时分秒最小时间
@@ -1701,7 +1796,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSecLeast() thr
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "00:00:00");
 	request.put("pageNo", 1);
@@ -1709,8 +1804,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsHourMinSecLeast() thr
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾auditStartDate传时分秒最小时间" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
 }
 /**
  * 审核时间尾auditStartDate传数字去掉中间格式。如201180524
@@ -1721,7 +1815,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsNumber() throws Excep
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "20180521");
 	request.put("pageNo", 1);
@@ -1729,8 +1823,10 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsNumber() throws Excep
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾传数字去掉中间格式" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 审核时间尾auditStartDate传负数
@@ -1741,7 +1837,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsNegativeNumber() thro
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", -20152222);
 	request.put("pageNo", 1);
@@ -1749,8 +1845,10 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsNegativeNumber() thro
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾传时间戳" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 审核时间尾auditStartDate传空
@@ -1761,7 +1859,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsEmpty() throws Except
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "");
 	request.put("pageNo", 1);
@@ -1769,8 +1867,10 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsEmpty() throws Except
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾传空" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 审核时间尾传空格
@@ -1781,7 +1881,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsSpace() throws Except
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", " ");
 	request.put("pageNo", 1);
@@ -1789,8 +1889,10 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsSpace() throws Except
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾传空格" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 审核时间尾auditStartDate传null
@@ -1801,7 +1903,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsNull() throws Excepti
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", null);
 	request.put("pageNo", 1);
@@ -1809,8 +1911,10 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsNull() throws Excepti
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾auditStartDate传null" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 审核时间尾auditStartDate传年月日时分秒
@@ -1821,7 +1925,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayHourMinSe
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "2018-5-21 16:12:55");
 	request.put("pageNo", 1);
@@ -1829,8 +1933,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayHourMinSe
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾传空" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
 }
 /**
  * 审核时间尾auditStartDate传String
@@ -1841,7 +1944,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsString() throws Excep
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "fgsfgdxxx");
 	request.put("pageNo", 1);
@@ -1849,8 +1952,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsString() throws Excep
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾传String" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
 }
 /**
  * 审核时间尾小于审核时间头
@@ -1861,7 +1963,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsLessAuditStartDate() 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "2018-5-12");
 	request.put("pageNo", 1);
@@ -1869,8 +1971,10 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsLessAuditStartDate() 
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾小于审核时间头" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 审核时间尾小于提交时间头
@@ -1881,7 +1985,7 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsLessApplyStartDate() 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("auditEndDate", "2018-5-9");
 	request.put("pageNo", 1);
@@ -1889,9 +1993,12 @@ public void postGetModifyManagerCheckListTestAuditEndDateIsLessApplyStartDate() 
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾小于提交时间头" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
+
 /**
  * 审核时间尾auditStartDate不传参数
  */
@@ -1901,15 +2008,17 @@ public void postGetModifyManagerCheckListTestAuditEndDateNonSubmissionParameters
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("审核时间尾不传参数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 /**
  * 当前页码pageNo传0
@@ -1920,16 +2029,18 @@ public void postGetModifyManagerCheckListTestPageNoIs0() throws Exception {
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-21");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 0);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("当前页码pageNo传0" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("auditManagerList").toString()).isEqualTo("[]");
 }
 /**
  * 当前页码pageNo传负数
@@ -1940,16 +2051,18 @@ public void postGetModifyManagerCheckListTestPageNoIsNegativeNumber() throws Exc
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", -1);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("当前页码pageNo传负数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 当前页码pageNo传小数
@@ -1960,16 +2073,18 @@ public void postGetModifyManagerCheckListTestPageNoIsDecimal() throws Exception 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1.23);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("当前页码pageNo传小数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 当前页码pageNo传String
@@ -1980,16 +2095,15 @@ public void postGetModifyManagerCheckListTestPageNoIsString() throws Exception {
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", "gdsfdsfs");
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("当前页码pageNo传String" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
 }
 /**
  * 当前页码pageNo传空
@@ -2000,16 +2114,16 @@ public void postGetModifyManagerCheckListTestPageNoIsEmpty() throws Exception {
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", "");
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("当前页码pageNo传空" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("页码和分页数不能为空！");
 }
 /**
  * 当前页码pageNo传空格
@@ -2020,16 +2134,16 @@ public void postGetModifyManagerCheckListTestPageNoIsSpace() throws Exception {
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", " ");
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("当前页码pageNo传空格" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("页码和分页数不能为空！");
 }
 /**
  * 当前页码pageNo传null
@@ -2040,16 +2154,16 @@ public void postGetModifyManagerCheckListTestPageNoIsNull() throws Exception {
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", null);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("当前页码pageNo传null" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("页码和分页数不能为空！");
 }
 /**
  * 当前页码pageNo传最大值
@@ -2060,16 +2174,20 @@ public void postGetModifyManagerCheckListTestPageNoIsMax() throws Exception {
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 999999999);
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("当前页码pageNo传最大值" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
+	assertThat(body.get("auditManagerList").toString()).isEqualTo("[]");
+	
 }
 /**
  * 当前页码pageNo不传
@@ -2080,15 +2198,15 @@ public void postGetModifyManagerCheckListTestPageNoNonSubmissionParameters() thr
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageSize", 5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("当前页码pageNo不传" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("页码和分页数不能为空！");
 }
 /**
  * 每页大小pageSize传0
@@ -2099,16 +2217,18 @@ public void postGetModifyManagerCheckListTestPageSizeIs0() throws Exception {
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
-	request.put("pageNo", 1);
+	request.put("auditEndDate", "2018-6-8");
+	request.put("pageNo", 2);
 	request.put("pageSize", 0);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("每页大小pageSize传0" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 每页大小pageSize传小数
@@ -2119,16 +2239,18 @@ public void postGetModifyManagerCheckListTestPageSizeIsDecimal() throws Exceptio
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 5.26);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("每页大小pageSize传小数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 每页大小pageSize传负数
@@ -2139,16 +2261,18 @@ public void postGetModifyManagerCheckListTestPageSizeIsNegativeNumber() throws E
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", -5);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("每页大小pageSize传负数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(0);
 }
 /**
  * 每页大小pageSize传String
@@ -2159,16 +2283,15 @@ public void postGetModifyManagerCheckListTestPageSizeIsString() throws Exception
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", "fsdfsdf");
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("每页大小pageSize传String" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(400);
 }
 
 /**
@@ -2180,16 +2303,16 @@ public void postGetModifyManagerCheckListTestPageSizeIsEmpty() throws Exception 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", "");
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("每页大小pageSize传空" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("页码和分页数不能为空！");
 }
 /**
  * 每页大小pageSize传空格
@@ -2200,16 +2323,16 @@ public void postGetModifyManagerCheckListTestPageSizeIsSpace() throws Exception 
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", " ");
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("每页大小pageSize传空格" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("页码和分页数不能为空！");
 }
 /**
  * 每页大小pageSize传null
@@ -2220,16 +2343,16 @@ public void postGetModifyManagerCheckListTestPageSizeIsNull() throws Exception {
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", null);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("每页大小pageSize传null" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("页码和分页数不能为空！");
 }
 /**
  * 每页大小pageSize不传参数
@@ -2240,15 +2363,15 @@ public void postGetModifyManagerCheckListTestPageSizeNonSubmissionParameters() t
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("每页大小pageSize不传参数" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(-1);
+	assertThat(post.get("msg")).isEqualTo("页码和分页数不能为空！");
 }
 /**
  * 每页大小pageSize传最大值
@@ -2259,16 +2382,18 @@ public void postGetModifyManagerCheckListTestPageSizeIsMax() throws Exception {
 	request.put("status", 3);
 	request.put("mobile","17740800827");
 	request.put("applyStartDate", "2018-5-10");
-	request.put("applyEndDate", "2018-5-18");
+	request.put("applyEndDate", "2018-6-7");
 	request.put("auditStartDate", "2018-5-19");
-	request.put("auditEndDate", "2018-5-12");
+	request.put("auditEndDate", "2018-6-8");
 	request.put("pageNo", 1);
 	request.put("pageSize", 999999999);
 	JSONObject post = super.UNSPost(url, request);
 	System.out.println("每页大小pageSize传最大值" + post);
 
-	assertThat(post.get("status")).isEqualTo(-3);
-	assertThat(post.get("msg")).isEqualTo("数据包错误！");
+	assertThat(post.get("status")).isEqualTo(0);
+	assertThat(post.get("msg")).isEqualTo("成功");
+	JSONObject body = (JSONObject)post.get("body");
+	assertThat(body.get("totalCount")).isEqualTo(1);
 }
 
 }

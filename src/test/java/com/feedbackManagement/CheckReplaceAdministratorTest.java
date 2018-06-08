@@ -165,7 +165,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 	public void postCheckReplaceAdministratorTestApplyIdIsDecimal() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("applyId", 1.23);
+		request.put("applyId", 1.234);
 		request.put("status", 2);
 		request.put("userId", 12491748);
 		request.put("userName", "梁保坤");
@@ -413,10 +413,10 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 	 */
 	@Test
 	public void postCheckReplaceAdministratorTestStatusIs0() throws Exception {
-		MetaOper.update(updateSql, dataType);
+		//MetaOper.update(updateSql, dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("applyId", 6);
-		request.put("status", 2);
+		request.put("status", 0);
 		request.put("userId", 12491748);
 		request.put("userName", "梁保坤");
 		request.put("errorMsg", 13723);		
@@ -425,6 +425,8 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("0");
+		assertThat(list.get(0).get("AUDIT_CONTENT").toString()).isEqualTo("13723");	
 	}
 	/**
 	 * 状态传1通过
@@ -444,6 +446,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("通过时，不用填写驳回原因！");
 	}
+	
 	/**
 	 * 状态传2驳回
 	 */
@@ -459,9 +462,12 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态传2驳回" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
-	}
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("2");
+		assertThat(list.get(0).get("AUDIT_CONTENT").toString()).isEqualTo("13723");	
+		}
 	/**
 	 * 状态传错误值
 	 */
@@ -639,7 +645,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人姓名传超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("msg")).isEqualTo("could not execute statement; nested exception is org.hibernate.exception.GenericJDBCException: could not execute statement");
 	}
 	/**
 	 * 审核人姓名含有非法字符
@@ -649,7 +655,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("applyId", 6);
-		request.put("status", "<$%@>");
+		request.put("status", 2);
 		request.put("userId", 12491748);
 		request.put("userName", "<#$@#$>");
 		request.put("errorMsg", 13723);		
@@ -764,7 +770,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("驳回原因id传错误值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("msg")).isEqualTo("申请id法！");
 	}
 	/**
 	 * 驳回原因id传负数
@@ -782,7 +788,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("驳回原因id传负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("msg")).isEqualTo("驳回时，审核原因不能为空！");
 	}
 	/**
 	 * 驳回原因id传小数
@@ -854,7 +860,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态为2驳回原因id传空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("msg")).isEqualTo("驳回时，审核原因不能为空！");
 	}
 	/**
 	 * 状态为2驳回原因id传null
@@ -949,7 +955,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 	 * 状态为0驳回原因id传null
 	 */
 	@Test
-	public void postCheckReplaceAdministratorTestErrorMsgIsEmptyStatusIsNull() throws Exception {
+	public void postCheckReplaceAdministratorTestErrorMsgIsNullEmptyStatusIs0() throws Exception {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("applyId", 6);
@@ -959,6 +965,23 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		request.put("errorMsg", "");		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为0驳回原因id传null" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+	}
+	/**
+	 * 状态为0驳回原因id不传
+	 */
+	@Test
+	public void postCheckReplaceAdministratorTestErrorMsgNonSubmissionParametersStatusIs0() throws Exception {
+		MetaOper.update(updateSql, dataType);
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("applyId", 6);
+		request.put("status", 0);
+		request.put("userId", 12491748);
+		request.put("userName", "梁保坤");
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("状态为0驳回原因id不传" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("申请id非法！");
@@ -978,8 +1001,10 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为1驳回原因id传空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("1");
 	}
 	/**
 	 * 状态为1驳回原因id传空
@@ -996,8 +1021,11 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为1驳回原因id传空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("1");
+		assertThat(list.get(0).get("AUDIT_CONTENT")).isEqualTo(null);
 	}
 	/**
 	 * 状态为1驳回原因id传null
@@ -1014,8 +1042,11 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为1驳回原因id传空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("1");
+		assertThat(list.get(0).get("AUDIT_CONTENT")).isEqualTo(null);
 	}
 	
 	
