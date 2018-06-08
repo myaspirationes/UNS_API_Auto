@@ -1,12 +1,15 @@
 package com.systemManagement;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.login.BackUserLoginTest;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,28 +19,51 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ModifyParameterConfigurationTest extends HttpUtil {
 // 修改参数配置接口
 	String url = "/uu-admin/SystemManager/setParaManager";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
+	List<Map<String,Object>> list2 ;
+	String selectSql = "SELECT * FROM T_AUDIT_MSG WHERE MSG_ID = 1";
+	String selectSql1 = "SELECT * FROM T_AUDIT_MSG_CATEGORY WHERE CATEGORY_ID = 1";
+	String selectSql2 = "SELECT * FROM T_AUDIT_MSG_CATEGORY WHERE CATEGORY_ID = 2";
+	String dataType = "uedb";
+	List<Map> lis = new ArrayList<Map>();
+	Map<Object, Object> map1 = new HashMap<Object, Object>();
+	Map<Object, Object> map2 = new HashMap<Object, Object>();
+	BackUserLoginTest login = new BackUserLoginTest();
+	String userId=login.userId;
+	//@BeforeClass
+	//public void beforeClass(){
+	//userId =new BackUserLoginTest().userId;
+//}
 
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestCorrectParameter() throws Exception {
+		map1.put("key", 1);
+		map1.put("value", "自动化测试1");
+		map2.put("key", 2);
+		map2.put("value", "自动化测试2");
+		lis.add(map1);
+		lis.add(map2);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
-		request.put("name", "自动化测试");
-		request.put("rules", "自动化测试用请勿删除");
-		request.put("status", 1);
+		request.put("paraId", 1);
+		request.put("name", "商户审核原因");
+		request.put("rules", lis);
+		request.put("status", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("userId或者roleId格式不正确");
+		list =MetaOper.read(selectSql,dataType);
+		list1 =MetaOper.read(selectSql1,dataType);
+		list2 =MetaOper.read(selectSql2,dataType);
+		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("0");
+		assertThat(list1.get(0).get("MSG_CONTENT").toString()).isEqualTo("自动化测试1");
+		assertThat(list2.get(0).get("MSG_CONTENT").toString()).isEqualTo("自动化测试2");
 	}
 	/**
 	 * 用户ID为未登录用户
@@ -46,7 +72,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -63,7 +89,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -80,7 +106,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<.@#$%>");
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -97,7 +123,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 123.123);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -114,7 +140,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -345);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -131,7 +157,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -148,7 +174,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "userId");
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -165,7 +191,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -182,7 +208,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -199,7 +225,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -215,7 +241,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	@Test
 	public void postModifyParameterConfigurationTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -400,7 +426,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestNameIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试dgdgfdsf法大师傅大师傅士大夫发生的事故和福建话剧他还发不发的速度");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -417,7 +443,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestNameIsIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "<$^@#￥￥#>");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -434,7 +460,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", " ");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -451,7 +477,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -468,7 +494,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", null);
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -501,7 +527,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestRulesIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除地方大师傅十分十分广泛大锅饭好好干黄瓜富含丰富的规范规定");
 		request.put("status", 1);
@@ -518,7 +544,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestRulesIsIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "<@$%$#^>");
 		request.put("status", 1);
@@ -535,7 +561,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestRulesIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "");
 		request.put("status", 1);
@@ -552,7 +578,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestRulesIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", " ");
 		request.put("status", 1);
@@ -569,7 +595,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestRulesIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", null);
 		request.put("status", 1);
@@ -586,7 +612,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestRulesNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("status", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -602,7 +628,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 99);
@@ -619,7 +645,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1.22);
@@ -636,7 +662,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", -1);
@@ -653,7 +679,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", "");
@@ -670,7 +696,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", " ");
@@ -687,7 +713,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", null);
@@ -704,7 +730,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", "但是犯得上发生");
@@ -721,7 +747,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		JSONObject post = super.UNSPost(url, request);
@@ -737,7 +763,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);
@@ -754,7 +780,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 0);
@@ -771,7 +797,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusIs1Again0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 0);
@@ -788,7 +814,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	public void postModifyParameterConfigurationTestStatusIs0Again1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("paraId", 10000000);
+		request.put("paraId", 1);
 		request.put("name", "自动化测试");
 		request.put("rules", "自动化测试用请勿删除");
 		request.put("status", 1);

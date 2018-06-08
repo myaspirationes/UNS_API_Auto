@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class UnLockedUserTest extends HttpUtil {
-// 搜索获取日志列表接口
+// 解锁用户锁定内容接口
 	String url = "/uu-admin/UUuserManage/unLockedUser";
 	String userId;
 	String deleteSql = "delete FROM T_USER_LOCK where LOCKED_USER_ID = 12495396 or MSG = '测试3' or MSG = '测试4'";
