@@ -48,7 +48,7 @@ public void beforeClass(){
 	/**
 	 * 用户ID为未登录用户
 	 */
-	@Test
+	//@Test
 	public void postGetUserAuthDetailsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12345678);	
@@ -64,7 +64,7 @@ public void beforeClass(){
 	/**
 	 * 用户ID为错误用户
 	 */
-	@Test
+	//@Test
 	public void postGetUserAuthDetailsTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12312313);	
@@ -219,7 +219,7 @@ public void beforeClass(){
 	/**
 	 * 用户ID为超长
 	 */
-	@Test
+	//@Test
 	public void postGetUserAuthDetailsTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 999999999999999999L);	
@@ -234,7 +234,7 @@ public void beforeClass(){
 	/**
 	 * 被查看用户ID为错误
 	 */
-	@Test
+	//@Test
 	public void postGetUserAuthDetailsTestUidIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", userId);	
@@ -249,7 +249,7 @@ public void beforeClass(){
 	/**
 	 * 被查看用户ID超长
 	 */
-	@Test
+	//@Test
 	public void postGetUserAuthDetailsTestUidIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", userId);	
