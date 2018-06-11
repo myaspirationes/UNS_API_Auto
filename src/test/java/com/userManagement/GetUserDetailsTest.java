@@ -44,8 +44,10 @@ public class GetUserDetailsTest extends HttpUtil {
 		System.out.println("用户ID为未登录用户" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("authorizationLoginList").toString()).isEqualTo("{}");
 	}
 	/**
 	 * 用户ID为错误用户
@@ -59,8 +61,10 @@ public class GetUserDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误用户" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数非法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("authorizationLoginList").toString()).isEqualTo("{}");
 	}
 	/**
 	 * 用户ID为非法字符
