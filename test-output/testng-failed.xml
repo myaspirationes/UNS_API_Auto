@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.login.ChangePasswordTest">
+      <class name="com.systemManagement.GetManagerParaListTest">
         <methods>
-          <include name="postChangePasswordTestNewPasswordIsLong"/>
+          <include name="beforeClass"/>
+          <include name="postGetManagerParaListTestUserIdIsError"/>
         </methods>
-      </class> <!-- com.login.ChangePasswordTest -->
+      </class> <!-- com.systemManagement.GetManagerParaListTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

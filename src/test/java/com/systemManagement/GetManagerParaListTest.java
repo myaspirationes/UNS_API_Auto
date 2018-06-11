@@ -42,7 +42,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 用户ID未登录
 	 */
-	@Test
+	//@Test
 	public void postGetManagerParaListTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -62,7 +62,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	@Test
 	public void postGetManagerParaListTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId",54145450);
 		request.put("keyWords", "超级管理员");
 		request.put("status", 1);
 		request.put("pageSize",1);
@@ -70,8 +70,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误ID" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId不存在数据库中");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -79,7 +79,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	@Test
 	public void postGetManagerParaListTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", "!@@#@##$@");
 		request.put("keyWords", "超级管理员");
 		request.put("status", 1);
 		request.put("pageSize",1);
@@ -87,8 +87,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+		
 	}
 	/**
 	 * 用户ID为小数
@@ -96,7 +96,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	@Test
 	public void postGetManagerParaListTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 5263.155);
 		request.put("keyWords", "超级管理员");
 		request.put("status", 1);
 		request.put("pageSize",1);
@@ -104,8 +104,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+		
 	}
 	/**
 	 * 用户ID为负数
@@ -113,7 +113,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	@Test
 	public void postGetManagerParaListTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", -5515225);
 		request.put("keyWords", "超级管理员");
 		request.put("status", 1);
 		request.put("pageSize",1);
@@ -121,8 +121,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId不存在数据库中");
 	}
 	/**
 	 * 用户ID为0
@@ -130,7 +130,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	@Test
 	public void postGetManagerParaListTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 0);
 		request.put("keyWords", "超级管理员");
 		request.put("status", 1);
 		request.put("pageSize",1);
@@ -138,8 +138,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId不存在数据库中");
 	}
 	/**
 	 * 用户ID为String
@@ -147,7 +147,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	@Test
 	public void postGetManagerParaListTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", "sdfsdfdsf");
 		request.put("keyWords", "超级管理员");
 		request.put("status", 1);
 		request.put("pageSize",1);
@@ -155,8 +155,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+		
 	}
 	/**
 	 * 用户ID为空格
@@ -164,7 +164,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	@Test
 	public void postGetManagerParaListTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", "   ");
 		request.put("keyWords", "超级管理员");
 		request.put("status", 1);
 		request.put("pageSize",1);
@@ -172,8 +172,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+		
 	}
 	/**
 	 * 用户ID为空
@@ -181,7 +181,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	@Test
 	public void postGetManagerParaListTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId","");
 		request.put("keyWords", "超级管理员");
 		request.put("status", 1);
 		request.put("pageSize",1);
@@ -189,8 +189,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId为空");
 	}
 	/**
 	 * 用户ID为null
@@ -198,7 +198,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	@Test
 	public void postGetManagerParaListTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", null);
 		request.put("keyWords", "超级管理员");
 		request.put("status", 1);
 		request.put("pageSize",1);
@@ -206,8 +206,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId为空");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -215,7 +215,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	@Test
 	public void postGetManagerParaListTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("keyWords", "超级管理员");
 		request.put("status", 1);
 		request.put("pageSize",1);
@@ -223,8 +223,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId为空");
 	}
 	/**
 	 * 关键字为错误
@@ -240,7 +240,7 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -257,7 +257,7 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -274,7 +274,7 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -292,7 +292,7 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为空" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -309,7 +309,7 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为null" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -326,7 +326,7 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -343,13 +343,13 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 查询状态为错误
 	 */
-	@Test
+	//@Test
 	public void postGetManagerParaListTestStatusIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -366,7 +366,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 查询状态为非法字符
 	 */
-	@Test
+	//@Test
 	public void postGetManagerParaListTestStatusIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -401,7 +401,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 查询状态为空格
 	 */
-	@Test
+	//@Test
 	public void postGetManagerParaListTestStatusIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -418,7 +418,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 查询状态为String
 	 */
-	@Test
+	//@Test
 	public void postGetManagerParaListTestStatusIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -468,7 +468,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 查询状态为小数
 	 */
-	@Test
+	//@Test
 	public void postGetManagerParaListTestStatusIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -485,7 +485,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 查询状态为负数
 	 */
-	@Test
+	//@Test
 	public void postGetManagerParaListTestStatusIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -547,8 +547,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页获取条数为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 每页获取条数为负数
@@ -564,8 +564,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页获取条数为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 每页获取条数为小数
@@ -581,8 +581,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页获取条数为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 每页获取条数为String
@@ -598,8 +598,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页获取条数为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 每页获取条数为空格
@@ -615,8 +615,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页获取条数为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 每页获取条数为空
@@ -632,8 +632,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页获取条数为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("pageSize为空");
 	}
 	/**
 	 * 每页获取条数为null
@@ -649,8 +649,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页获取条数为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("pageSize为空");
 	}
 	/**
 	 * 每页获取条数为超长
@@ -666,8 +666,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页获取条数为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 每页获取条数为非法字符
@@ -683,8 +683,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页获取条数为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 每页获取条数不传该参数
@@ -699,8 +699,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页获取条数不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("pageSize为空");
 	}
 	/**
 	 * 当前页数为0
@@ -716,8 +716,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 当前页数为负数
@@ -733,8 +733,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 当前页数为小数
@@ -750,8 +750,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 当前页数为String
@@ -767,8 +767,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 当前页数为空格
@@ -784,8 +784,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 当前页数为空
@@ -801,8 +801,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("pageNow为空");
 	}
 	/**
 	 * 当前页数为null
@@ -818,8 +818,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("pageNow为空");
 	}
 	/**
 	 * 当前页数为超长
@@ -835,8 +835,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 当前页数为非法字符
@@ -852,8 +852,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("user名或者pagesize或pagenow格式不正确");
 	}
 	/**
 	 * 当前页数不传该参数
@@ -868,8 +868,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("pageNow为空");
 	}
 	
 }
