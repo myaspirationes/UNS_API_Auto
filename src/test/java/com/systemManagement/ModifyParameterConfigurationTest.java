@@ -41,9 +41,9 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestCorrectParameter() throws Exception {
-		map1.put("key", "5");
+		map1.put("key", "15");
 		map1.put("value", "自动化测试1");
-		map2.put("key", "6");
+		map2.put("key", "16");
 		map2.put("value", "自动化测试2");
 		lis.add(map1);
 		lis.add(map2);
