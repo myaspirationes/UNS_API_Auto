@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class HomeDynamicListsTest extends HttpUtil {
-//获取举报原因列表接口
+//首页动态列表接口（支持筛选、搜索、插入陌生人动态）
 	String url = "/UU/dynamic";
 
 	JSONObject body;
@@ -40,7 +40,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		head.put("sync", 1);
 		head.put("uuid", uuid);
 		head.put("chcode", chcode);
-		head.put("cmd", 4704);
+		head.put("cmd", 520);//514
 	}
 
 	/**
@@ -1897,8 +1897,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("dynamicType", -1);
 		con.put("basicType", -1);
 		con.put("genderType", -1);
-		con.put("pageNow", 1.4);
-		con.put("pageSize", 10);
+		con.put("pageSize", 1.4);
+		con.put("pageNow", 10);
 		con.put("selectType", 1);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
@@ -1925,8 +1925,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("dynamicType", -1);
 		con.put("basicType", -1);
 		con.put("genderType", -1);
-		con.put("pageNow", -1);
-		con.put("pageSize", 10);
+		con.put("pageSize", -1);
+		con.put("pageNow", 10);
 		con.put("selectType", 1);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
