@@ -82,8 +82,8 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -202,7 +202,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("msg")).isEqualTo("userId为空");
 	}
 	/**
 	 * 用户ID为null
@@ -218,7 +218,9 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId为空");
+
 	}
 	/**
 	 * 用户ID不传该参数
@@ -233,7 +235,8 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId为空");
 	}
 	/**
 	 * 用户ID超长
@@ -301,7 +304,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		System.out.println("角色ID为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("roleId或者userId格式不正确");
+		assertThat(post.get("msg")).isEqualTo("roleId为空");
 	}
 	/**
 	 * 角色ID为空格
@@ -334,7 +337,8 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("roleId为空");
 	}
 	/**
 	 * 角色ID为String
@@ -366,7 +370,8 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("roleId为空");
 	}
 	/**
 	 * 角色ID为小数
@@ -451,7 +456,9 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色名称为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("roleName为空");
+
 	}
 	/**
 	 * 角色名称为空格
@@ -484,7 +491,9 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色名称为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("roleName为空");
+
 	}
 	/**
 	 * 角色名称为超长
@@ -532,7 +541,8 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色名称不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("roleName为空");
 	}
 	/**
 	 * 角色描述不传该参数
@@ -644,12 +654,12 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		request.put("roleId", 0);
 		request.put("roleName", "自动化测试角色");
 		request.put("roleDesc", "自动化测试用请勿删除");
-		request.put("status", 11111111111111L);
+		request.put("status", "11111111111111111111111111111111111111");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("新增成功");
 		list = MetaOper.read(selectSql,dataType);
 		assertThat(list.get(0).get("ROLE_STATUS").toString()).isEqualTo("11111111111111");
 	}
@@ -685,7 +695,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		System.out.println("角色状态为错误" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("新增成功");
 	}
 	/**
 	 * 角色状态为空
@@ -701,8 +711,8 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("新增成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("status为空");
 	}
 	/**
 	 * 角色状态为空格
@@ -735,8 +745,8 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("status为空");
 	}
 	/**
 	 * 角色状态为String
@@ -768,8 +778,8 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("status为空");
 	}
 	/**
 	 * 角色状态小数
@@ -842,7 +852,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		System.out.println("角色状态为1" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("新增成功");
 	}
 	@AfterClass
 	public void afterClass(){
