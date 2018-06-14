@@ -102,7 +102,7 @@ public class AuthenticateTest extends HttpUtil {
 	@Test
 	public void postAuthenticateTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492221);
+		con.put("userId", 12221);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");
@@ -124,7 +124,7 @@ public class AuthenticateTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户ID为非法字符
