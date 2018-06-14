@@ -99,8 +99,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 用户ID为小数
@@ -179,8 +178,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 用户ID为空格
@@ -397,8 +395,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 创建时间为大于结束时间
@@ -437,8 +434,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("创建时间为时间戳" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 创建时间为空
@@ -536,8 +532,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("创建时间为年月日" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 创建时间为时分秒
@@ -556,8 +551,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("创建时间为时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 创建时间为0
@@ -576,8 +570,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("创建时间为时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 
 
@@ -598,8 +591,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 
 	/**
@@ -619,8 +611,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间为时间戳" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 结束时间为空
@@ -718,8 +709,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间为年月日" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 结束时间为时分秒
@@ -738,8 +728,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间为时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 结束时间为0
@@ -758,8 +747,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间为时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	
 	
@@ -1001,8 +989,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为超长" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 角色状态为非法字符
@@ -1021,8 +1008,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为非法字符" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 角色状态为错误
@@ -1101,8 +1087,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为String" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 角色状态为null
@@ -1220,8 +1205,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录集为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 每页显示记录集为小数
@@ -1260,8 +1244,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录集为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 每页显示记录集为空格
@@ -1340,8 +1323,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录集为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 每页显示记录集不传该参数
@@ -1379,8 +1361,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录集为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	
 	/**
@@ -1400,8 +1381,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 当前页数为小数
@@ -1440,8 +1420,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 当前页数为空格
@@ -1520,8 +1499,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 当前页数不传该参数
@@ -1559,7 +1537,6 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 }

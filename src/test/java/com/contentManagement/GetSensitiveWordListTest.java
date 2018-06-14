@@ -13,20 +13,22 @@ import org.testng.annotations.Test;
 
 import com.example.HttpUtil;
 import com.example.LoginTest;
+import com.login.BackUserLoginTest;
 
 public class GetSensitiveWordListTest extends HttpUtil {
 //敏感词库列表接口
 	String url = "/uu-admin/sensitiveWord/getSensitiveWordList";
 
 	String chcode;
+	String userid;
 	@BeforeClass
 	public void  beforeClass(){
+		userid = new BackUserLoginTest().userId;
 	}
 	/**
 	 * 提交正确参数
 	 */
 	@Test
-<<<<<<< HEAD
 	public void postGetSensitiveWordListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
@@ -53,7 +55,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为未登录用户" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -71,7 +73,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为错误用户" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -88,7 +90,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为非法字符" + post);
 	
 		assertThat(post.get("status")).isEqualTo(400);
 	}
@@ -104,7 +106,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为小数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -121,7 +123,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为负数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -138,7 +140,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为0" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -155,7 +157,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为空格" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -172,7 +174,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为空" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -189,7 +191,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为null" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -206,7 +208,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为String" + post);
 	
 		assertThat(post.get("status")).isEqualTo(400);
 	}
@@ -216,13 +218,12 @@ public class GetSensitiveWordListTest extends HttpUtil {
 	@Test
 	public void postGetSensitiveWordListTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-//		request.put("userId", userid);
 		request.put("keyWord", "中国");
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID不传该参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -237,36 +238,14 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("keyWord", "中国");
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
-=======
-	public void postTheUserAddressTestCorrectParameter() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495324);
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-		
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan6uu");
-		head.put("ver", "1.2.0");
-		head.put("ln", "cn");
-		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("sync", 1);
-		head.put("uuid", 12495324);
-		head.put("chcode", "rd3p7fUEwnCNKyqMdND0NdKbX2bIK/6E");
-		head.put("cmd", 4504);
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
+		System.out.println("用户ID超长" + post);
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
 	/**
-<<<<<<< HEAD
 	 * 关键词为null
 	 */
 	@Test
@@ -278,7 +257,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("关键词为null" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -295,7 +274,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("关键词为非法字符" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -307,12 +286,11 @@ public class GetSensitiveWordListTest extends HttpUtil {
 	public void postGetSensitiveWordListTestKeyWordNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-//		request.put("keyWord", "中国");
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("关键词不传该参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -329,110 +307,71 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("关键词超长" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
 	/**
-	 * 每页显示记录集为非法字符
-=======
-	 * 用户ID为未登录用户
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
+	 * 每页显示记录集为负数
 	 */
 	@Test
-	public void postTheUserAddressTestUserIdNotLoggedIn() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12312313);
-		
+	public void postGetSensitiveWordListTestPageSizeIsNegativeNumber() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", -1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为负数" + post);
 	
-<<<<<<< HEAD
+		assertThat(post.get("status")).isEqualTo(500);
+	}
+	/**
+	 * 每页显示记录集为小数
+	 */
+	@Test
+	public void postGetSensitiveWordListTestPageSizeIsIsDecimal() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", 1.1);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为小数" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 每页显示记录集为String
+	 */
+	@Test
+	public void postGetSensitiveWordListTestPageSizeIsString() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", "aaa");
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为String" + post);
+
 		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
-	 * 每页显示记录集为错误
+	 * 每页显示记录集为空格
 	 */
 	@Test
-	public void postTheUserAddressTestPageSizeIsError() throws Exception {
-=======
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan6uu");
-		head.put("ver", "1.2.0");
-		head.put("ln", "cn");
-		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("sync", 1);
-		head.put("uuid", 12495324);
-		head.put("chcode", chcode);
-		head.put("cmd", 4504);
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
+	public void postGetSensitiveWordListTestPageSizeIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", " ");
+		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为未登录用户" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	
-	/**
-	 * 用户ID为错误用户
-	 */
-	@Test
-	public void postTheUserAddressTestUserIdIsError() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "12312sd313");
-		
-	
-<<<<<<< HEAD
-		assertThat(post.get("status")).isEqualTo(500);
-	}
-	/**
-	 * 每页显示记录集为0
-	 */
-	@Test
-	public void postGetSensitiveWordListTestPageSizeIsZero() throws Exception {
-=======
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan6uu");
-		head.put("ver", "1.2.0");
-		head.put("ln", "cn");
-		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("sync", 1);
-		head.put("uuid", 12495324);
-		head.put("chcode", chcode);
-		head.put("cmd", 4504);
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为错误用户" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-<<<<<<< HEAD
-		assertThat(post.get("status")).isEqualTo(500);
-=======
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-	}
-	/**
-	 * 用户ID为非法字符
-	 */
-	@Test
-	public void postTheUserAddressTestUserIdIllegalCharacters() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "<$%^>");
-		
-	
-<<<<<<< HEAD
+		System.out.println("每页显示记录集为空格" + post);
+
 		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
@@ -440,27 +379,14 @@ public class GetSensitiveWordListTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetSensitiveWordListTestPageSizeIsEmpty() throws Exception {
-=======
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan6uu");
-		head.put("ver", "1.2.0");
-		head.put("ln", "cn");
-		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("sync", 1);
-		head.put("uuid", 12495324);
-		head.put("chcode", chcode);
-		head.put("cmd", 4504);
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", "");
+		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为非法字符" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-<<<<<<< HEAD
+		System.out.println("每页显示记录集为空" + post);
+
 		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
@@ -468,34 +394,29 @@ public class GetSensitiveWordListTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetSensitiveWordListTestPageSizeIsNull() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userid);
 		request.put("keyWord", "中国");
 		request.put("pageSize", null);
 		request.put("pageNow", 1);
-		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
-	
+		System.out.println("每页显示记录集为null" + post);
+
 		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
-	 * 每页显示记录集为String
-=======
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
-	}
-	/**
-	 * 用户ID为小数
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
+	 * 每页显示记录集为超长
 	 */
 	@Test
-	public void postTheUserAddressTestUserIdIsDecimal() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12123123.33);
-		
-	
-<<<<<<< HEAD
+	public void postGetSensitiveWordListTestPageSizeIsLong() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", 1111111111111111111L);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为超长" + post);
+
 		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
@@ -503,172 +424,91 @@ public class GetSensitiveWordListTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetSensitiveWordListTestPageSizeNonSubmissionParameters() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userid);
 		request.put("keyWord", "中国");
 		request.put("pageNow", 1);
-=======
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan6uu");
-		head.put("ver", "1.2.0");
-		head.put("ln", "cn");
-		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("sync", 1);
-		head.put("uuid", 12495324);
-		head.put("chcode", chcode);
-		head.put("cmd", 4504);
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为小数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+		System.out.println("每页显示记录集不传该参数" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 用户ID为负数
+	 * 每页显示记录集为0
 	 */
-	//@Test
-	public void postTheUserAddressTestUserIdIsNegativeNumber() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", -121312);
-		
-	
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan6uu");
-		head.put("ver", "1.2.0");
-		head.put("ln", "cn");
-		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("sync", 1);
-		head.put("uuid", 12495324);
-		head.put("chcode", chcode);
-		head.put("cmd", 4504);
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为负数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-<<<<<<< HEAD
-		assertThat(post.get("status")).isEqualTo(400);
-=======
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-	}
-	/**
-	 * 用户ID为0
-	 */
-<<<<<<< HEAD
 	@Test
-	public void postTheUserAddressTestPageNowIsError() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+	public void postGetSensitiveWordListTestPageSizeIsZero() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", 0);
+		request.put("pageNow", 1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("每页显示记录集为0" + post);
+
+		assertThat(post.get("status")).isEqualTo(500);
+	}
+	
+	/**
+	 * 当前页数为负数
+	 */
+	@Test
+	public void postGetSensitiveWordListTestPageNowIsNegativeNumber() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userid);
 		request.put("keyWord", "中国");
 		request.put("pageSize", 10);
-		request.put("pageNow", 987654321L);
-=======
-	//@Test
-	public void postTheUserAddressTestUserIdIsZero() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 0);
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-		
-	
-<<<<<<< HEAD
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("没有查询到含有该关键字的敏感词");
+		request.put("pageNow", -1);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为负数" + post);
+
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 当前页数为小数
 	 */
 	@Test
-	public void postGetSensitiveWordListTestPageNowIsDecimal() throws Exception {
-=======
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan6uu");
-		head.put("ver", "1.2.0");
-		head.put("ln", "cn");
-		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("sync", 1);
-		head.put("uuid", 12495324);
-		head.put("chcode", chcode);
-		head.put("cmd", 4504);
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
+	public void postGetSensitiveWordListTestPageNowIsIsDecimal() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", 10);
+		request.put("pageNow", 1.1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为0" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常");
+		System.out.println("当前页数为小数" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 用户ID为空格
+	 * 当前页数为String
 	 */
 	@Test
-	public void postTheUserAddressTestUserIdIsSpace() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", " ");
-		
-	
-<<<<<<< HEAD
-		assertThat(post.get("status")).isEqualTo(500);
-	}
-	/**
-	 * 当前页数为0
-	 */
-	@Test
-	public void postGetSensitiveWordListTestPageNowIsZero() throws Exception {
-=======
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan6uu");
-		head.put("ver", "1.2.0");
-		head.put("ln", "cn");
-		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("sync", 1);
-		head.put("uuid", 12495324);
-		head.put("chcode", chcode);
-		head.put("cmd", 4504);
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
+	public void postGetSensitiveWordListTestPageNowIsString() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", 10);
+		request.put("pageNow", "aaa");
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为空格" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-<<<<<<< HEAD
-		assertThat(post.get("status")).isEqualTo(500);
-=======
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
+		System.out.println("当前页数为String" + post);
+
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
-	 * 用户ID为空
+	 * 当前页数为空格
 	 */
 	@Test
-	public void postTheUserAddressTestUserIdIsEmpty() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "");
-		
-	
-<<<<<<< HEAD
+	public void postGetSensitiveWordListTestPageNowIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", 10);
+		request.put("pageNow", " ");
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为空格" + post);
+
 		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
@@ -676,110 +516,74 @@ public class GetSensitiveWordListTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetSensitiveWordListTestPageNowIsEmpty() throws Exception {
-=======
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan6uu");
-		head.put("ver", "1.2.0");
-		head.put("ln", "cn");
-		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("sync", 1);
-		head.put("uuid", 12495324);
-		head.put("chcode", chcode);
-		head.put("cmd", 4504);
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", 10);
+		request.put("pageNow", "");
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为空" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-<<<<<<< HEAD
-		assertThat(post.get("status")).isEqualTo(500);
-=======
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-	}
-	/**
-	 * 用户ID不传该参数
-	 */
-	@Test
-	public void postTheUserAddressTestUserIdNonSubmissionParameters() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-	
-<<<<<<< HEAD
+		System.out.println("当前页数为空" + post);
+
 		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
-	 * 当前页数为String
+	 * 当前页数为null
 	 */
 	@Test
-	public void postGetSensitiveWordListTestPageNowIsString() throws Exception {
-=======
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan6uu");
-		head.put("ver", "1.2.0");
-		head.put("ln", "cn");
-		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("sync", 1);
-		head.put("uuid", 12495324);
-		head.put("chcode", chcode);
-		head.put("cmd", 4504);
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
+	public void postGetSensitiveWordListTestPageNowIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", 10);
+		request.put("pageNow", null);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID不传该参数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-<<<<<<< HEAD
+		System.out.println("当前页数为null" + post);
+
+		assertThat(post.get("status")).isEqualTo(500);
+	}
+	/**
+	 * 当前页数为超长
+	 */
+	@Test
+	public void postGetSensitiveWordListTestPageNowIsLong() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", 10);
+		request.put("pageNow", 1111111111111111111L);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为超长" + post);
+
 		assertThat(post.get("status")).isEqualTo(400);
-=======
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
 	}
 	/**
-	 * 用户ID超长
+	 * 当前页数不传该参数
 	 */
 	@Test
-	public void postTheUserAddressTestUserIdIsLong() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "123313546846846165687987984651513213135687987451513213565687879845115354548787413546222");
-		
-	
-		Map<String, Object> head = new HashMap<String, Object>();
-		head.put("aid", "lan6uu");
-		head.put("ver", "1.2.0");
-		head.put("ln", "cn");
-		head.put("mod", "ios");
-		head.put("de", "2011-07-13 00:00:00");
-		head.put("sync", 1);
-		head.put("uuid", 12495324);
-		head.put("chcode", chcode);
-		head.put("cmd", 4504);
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
+	public void postGetSensitiveWordListTestPageNowNonSubmissionParameters() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", 10);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID超长" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-<<<<<<< HEAD
-		assertThat(post.get("status")).isEqualTo(500);
-=======
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数异常！");
->>>>>>> 3799bad522fa1157f03cc0d0797caf06bd4d9db3
+		System.out.println("当前页数不传该参数" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
-	
-	
-	
+	/**
+	 * 当前页数为0
+	 */
+	@Test
+	public void postGetSensitiveWordListTestPageNowIsZero() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userid);
+		request.put("keyWord", "中国");
+		request.put("pageSize", 10);
+		request.put("pageNow", 0);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("当前页数为0" + post);
+
+		assertThat(post.get("status")).isEqualTo(500);
+	}
 }
