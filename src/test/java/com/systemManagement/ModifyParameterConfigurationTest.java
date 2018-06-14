@@ -831,6 +831,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestStatusIsNull() throws Exception {
+		MetaOper.update(updateSql, dataType);
 		map1.put("key", "1");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
@@ -842,7 +843,10 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态status传null" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("STATUS").toString()).isEqualTo("1");
 	}
 	/**
 	 * 状态status传String
@@ -868,6 +872,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestStatusNonSubmissionParameters() throws Exception {
+		MetaOper.update(updateSql, dataType);
 		map1.put("key", "1");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
@@ -880,6 +885,8 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("STATUS").toString()).isEqualTo("1");
 	}
 	/**
 	 * 状态status传1启用
