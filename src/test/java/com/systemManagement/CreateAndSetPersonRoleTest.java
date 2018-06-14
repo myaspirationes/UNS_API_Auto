@@ -37,7 +37,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 提交正确参数
 	 */
 	@Test
-	public void postGetRoleListTestCorrectParameter() throws Exception {
+	public void postCreateAndSetPersonRoleTestCorrectParameter() throws Exception {
 		userId =new BackUserLoginTest().userId;
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -55,7 +55,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID为未登录用户
 	 */
 	@Test
-	public void postGetRoleListTestUserIdNotLoggedIn() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -72,7 +72,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID为错误
 	 */
 	@Test
-	public void postGetRoleListTestUserIdIsError() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12345);
 		request.put("roleId", 0);
@@ -89,7 +89,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID为非法字符
 	 */
 	@Test
-	public void postGetRoleListTestUserIdIllegalCharacters() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<.@#$%>");
 		request.put("roleId", 0);
@@ -106,7 +106,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID为小数
 	 */
 	@Test
-	public void postGetRoleListTestUserIdIsDecimal() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 123.123);
 		request.put("roleId", 0);
@@ -123,7 +123,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID为负数
 	 */
 	@Test
-	public void postGetRoleListTestUserIdIsNegativeNumber() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -345);
 		request.put("roleId", 0);
@@ -140,7 +140,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID为0
 	 */
 	@Test
-	public void postGetRoleListTestUserIdIsZero() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);
 		request.put("roleId", 0);
@@ -157,7 +157,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID为String
 	 */
 	@Test
-	public void postGetRoleListTestUserIdIsString() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "userId");
 		request.put("roleId", 0);
@@ -174,7 +174,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID为空格
 	 */
 	@Test
-	public void postGetRoleListTestUserIdIsSpace() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
 		request.put("roleId", 0);
@@ -191,7 +191,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID为空
 	 */
 	@Test
-	public void postGetRoleListTestUserIdIsEmpty() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
 		request.put("roleId", 0);
@@ -208,7 +208,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID为null
 	 */
 	@Test
-	public void postGetRoleListTestUserIdIsNull() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
 		request.put("roleId", 0);
@@ -226,7 +226,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID不传该参数
 	 */
 	@Test
-	public void postGetRoleListTestUserIdNonSubmissionParameters() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("roleId", 0);
 		request.put("roleName", "自动化测试角色");
@@ -242,7 +242,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 用户ID超长
 	 */
 	@Test
-	public void postGetRoleListTestUserIdIsLong() throws Exception {
+	public void postCreateAndSetPersonRoleTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 123123123123213L);
 		request.put("roleId", 0);
@@ -259,7 +259,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色ID为非法字符
 	 */
 	@Test
-	public void postGetRoleListTestRoleIdIllegalCharacters() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", "<$$*((>");
@@ -276,7 +276,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色ID为错误
 	 */
 	@Test
-	public void postGetRoleListTestRoleIdIsError() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", "111111111");
@@ -293,7 +293,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色ID为空
 	 */
 	@Test
-	public void postGetRoleListTestRoleIdIsEmpty() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", "");
@@ -310,7 +310,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色ID为空格
 	 */
 	@Test
-	public void postGetRoleListTestRoleIdIsSpace() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", " ");
@@ -327,7 +327,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色ID为null
 	 */
 	@Test
-	public void postGetRoleListTestRoleIdIsNull() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", null);
@@ -344,7 +344,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色ID为String
 	 */
 	@Test
-	public void postGetRoleListTestRoleIdIsString() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", "aaa");
@@ -361,7 +361,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色ID为不传该参数
 	 */
 	@Test
-	public void postGetRoleListTestRoleIdNonSubmissionParameters() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleName", "自动化测试角色");
@@ -377,7 +377,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色ID为小数
 	 */
 	@Test
-	public void postGetRoleListTestRoleIdIsDecimal() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 9.9);
@@ -394,7 +394,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色ID为负数
 	 */
 	@Test
-	public void postGetRoleListTestRoleIdIsNegativeNumber() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", -9);
@@ -411,7 +411,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色ID为存在的
 	 */
 	@Test
-	public void postGetRoleListTestRoleIdNonExistent() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleIdNonExistent() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 999999);
@@ -428,7 +428,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色ID为0
 	 */
 	@Test
-	public void postGetRoleListTestRoleIdIsZero() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -446,7 +446,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色名称为空
 	 */
 	@Test
-	public void postGetRoleListTestRoleNameIsEmpty() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -464,7 +464,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色名称为空格
 	 */
 	@Test
-	public void postGetRoleListTestRoleNameIsSpace() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -481,7 +481,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色名称为null
 	 */
 	@Test
-	public void postGetRoleListTestRoleNameIsNull() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -499,7 +499,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色名称为超长
 	 */
 	@Test
-	public void postGetRoleListTestRoleNameIsLong() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleNameIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -515,7 +515,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色名称为非法字符
 	 */
 	@Test
-	public void postGetRoleListTestRoleNameIllegalCharacters() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleNameIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -532,7 +532,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色名称不传该参数
 	 */
 	@Test
-	public void postGetRoleListTestRoleNameNonSubmissionParameters() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -548,7 +548,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色描述不传该参数
 	 */
 	@Test
-	public void postGetRoleListTestRoleDescNonSubmissionParameters() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleDescNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -564,7 +564,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色描述为空
 	 */
 	@Test
-	public void postGetRoleListTestRoleDescIsEmpty() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleDescIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -581,7 +581,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色描述为空格
 	 */
 	@Test
-	public void postGetRoleListTestRoleDescIsSpace() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleDescIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -598,7 +598,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色描述为null
 	 */
 	@Test
-	public void postGetRoleListTestRoleDescIsNull() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleDescIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -615,7 +615,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色描述为超长
 	 */
 	@Test
-	public void postGetRoleListTestRoleDescIsLong() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleDescIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -631,7 +631,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色描述为非法字符
 	 */
 	@Test
-	public void postGetRoleListTestRoleDescIllegalCharacters() throws Exception {
+	public void postCreateAndSetPersonRoleTestRoleDescIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -648,7 +648,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色状态为超长
 	 */
 	@Test
-	public void postGetRoleListTestStatusIsLong() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatusIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -661,13 +661,13 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("新增成功");
 		list = MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("ROLE_STATUS").toString()).isEqualTo("11111111111111");
+		assertThat(list.get(0).get("ROLE_STATUS").toString()).isEqualTo("1");
 	}
 	/**
 	 * 角色状态非法字符
 	 */
 	@Test
-	public void postGetRoleListTestStatusIllegalCharacters() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatusIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -684,7 +684,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色状态为错误
 	 */
 	@Test
-	public void postGetRoleListTestStatus() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatus() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -701,7 +701,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色状态为空
 	 */
 	@Test
-	public void postGetRoleListTestStatusIsEmpty() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatusIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -718,7 +718,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色状态为空格
 	 */
 	@Test
-	public void postGetRoleListTestStatusIsSpace() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatusIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -735,7 +735,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色状态为null
 	 */
 	@Test
-	public void postGetRoleListTestStatusIsNull() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatusIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -752,7 +752,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色状态为String
 	 */
 	@Test
-	public void postGetRoleListTestStatusIsString() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatusIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -769,7 +769,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色状态不传该参数
 	 */
 	@Test
-	public void postGetRoleListTestStatusNonSubmissionParameters() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatusNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -785,7 +785,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色状态小数
 	 */
 	@Test
-	public void postGetRoleListTestStatusIsDecimal() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatusIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -802,7 +802,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色状态负数
 	 */
 	@Test
-	public void postGetRoleListTestStatusIsNegativeNumber() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatusIsNegativeNumber() throws Exception {
 
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -814,15 +814,15 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		System.out.println("角色状态负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("新增成功");
 		list = MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("ROLE_STATUS").toString()).isEqualTo("-1");
+		assertThat(list.get(0).get("ROLE_STATUS").toString()).isEqualTo("1");
 	}
 	/**
 	 * 角色状态为0
 	 */
 	@Test
-	public void postGetRoleListTestStatusIsZero() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatusIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
@@ -841,7 +841,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 	 * 角色状态为1
 	 */
 	@Test
-	public void postGetRoleListTestStatusIsOne() throws Exception {
+	public void postCreateAndSetPersonRoleTestStatusIsOne() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleId", 0);
