@@ -243,8 +243,8 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("id为：-11的角色不存在");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("角色id格式错误！");
 	}
 	/**
 	 * 角色id传非法字符
@@ -326,8 +326,8 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id传0" + post);
 
-		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("id为：0的角色不存在");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("角色id格式错误！");
 	}
 	
 }
