@@ -116,7 +116,7 @@ public class AuthenticationManagementListTest extends HttpUtil {
 	@Test
 	public void postAuthenticationManagementListTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 124922);
+		con.put("userId", 12422);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("aid", "lan66");

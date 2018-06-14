@@ -39,7 +39,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	@Test
 	public void postAuthenticateTestCorrectParameter() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("orderID", "orderID");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -379,7 +379,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	//@Test
 	public void postAuthenticateTestOrderIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("orderID", "orderID");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -410,7 +410,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	//@Test
 	public void postAuthenticateTestorderIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("orderID", "orderIDorderIDorderIDorderIDorderIDorderIDorderIDorderIDorderIDorderIDorderID");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -441,7 +441,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	//@Test
 	public void postAuthenticateTestorderIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("orderID", "");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -472,7 +472,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	//@Test
 	public void postAuthenticateTestOrderIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("orderID", " ");
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -503,7 +503,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	//@Test
 	public void postAuthenticateTestOrderIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("orderID", null);
 		
 		Map<String, Object> head = new HashMap<String, Object>();
@@ -534,7 +534,7 @@ public class CreateAnOrderTest extends HttpUtil {
 	//@Test
 	public void postAuthenticateTestOrderIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12492125);
+		con.put("userId", uuid);
 		con.put("orderID", "orderID");
 		
 		Map<String, Object> head = new HashMap<String, Object>();

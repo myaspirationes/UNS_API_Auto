@@ -31,11 +31,11 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestCorrectParameter() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		//CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
-		request.put("status", 2);
+		request.put("status", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
