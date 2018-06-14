@@ -21,7 +21,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 1249124);				
@@ -36,7 +36,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495325);		
@@ -52,7 +52,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12312313);		
@@ -67,7 +67,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^>");				
@@ -82,7 +82,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 121123.33);			
@@ -97,7 +97,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -121312);				
@@ -112,7 +112,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");					
@@ -128,7 +128,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");				
@@ -143,7 +143,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);		
@@ -158,7 +158,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);			
@@ -187,7 +187,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID为String
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", "fggf");
@@ -203,7 +203,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	/**
 	 * 用户ID超长
 	 */
-	//@Test
+	@Test
 	public void postContainerEditingDetailsTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 999999999999999999L);
@@ -342,13 +342,13 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	public void postContainerEditingDetailsTestContainerIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
-		request.put("containerId", 12.369);
+		request.put("containerId", 10.3);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器id为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+		//assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 容器id为负数
