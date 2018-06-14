@@ -520,8 +520,8 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("名称name传超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId或者roleId格式不正确");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 名称name含有非法字符
@@ -540,8 +540,8 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("名称name含有非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId或者roleId格式不正确");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 名称name传空格
@@ -560,8 +560,8 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("名称name传空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId或者roleId格式不正确");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 名称name传空
@@ -580,8 +580,8 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("名称name传空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId或者roleId格式不正确");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 名称name传null
@@ -600,8 +600,8 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("名称name传null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId或者roleId格式不正确");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 名称name不传参数
@@ -619,8 +619,8 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("名称name不传参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId或者roleId为空");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 规则列表rules超长
@@ -748,7 +748,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		System.out.println("状态status传错误" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("status不正确");
 	}
 	/**
 	 * 状态status传小数
@@ -767,7 +767,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		System.out.println("状态status传小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("status不正确");
 	}
 	/**
 	 * 状态status传负数
@@ -786,7 +786,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		System.out.println("状态status传负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("status不正确");
 	}
 	/**
 	 * 状态status传空
@@ -805,7 +805,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		System.out.println("状态status传空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("status不正确");
 	}
 	/**
 	 * 状态status传空格
@@ -824,7 +824,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		System.out.println("状态status传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("status不正确");
 	}
 	/**
 	 * 状态status传null
@@ -861,7 +861,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		System.out.println("状态status传String" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("status不正确");
 	}
 	/**
 	 * 状态status不传参
@@ -878,7 +878,8 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态status不传参" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 状态status传1启用
@@ -1247,8 +1248,6 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		list = MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("MSG_CONTENT")).isEqualTo(null);
-
+	
 	}
 }
