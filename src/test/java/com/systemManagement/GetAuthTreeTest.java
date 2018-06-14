@@ -212,7 +212,7 @@ public class GetAuthTreeTest extends HttpUtil {
 	/**
 	 * 角色ID为错误
 	 */
-	//@Test
+	@Test
 	public void postGetAuthTreeTestRoleIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -244,7 +244,7 @@ public class GetAuthTreeTest extends HttpUtil {
 	/**
 	 * 角色ID为小数
 	 */
-	//@Test
+	@Test
 	public void postGetAuthTreeTestRoleIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -259,7 +259,7 @@ public class GetAuthTreeTest extends HttpUtil {
 	/**
 	 * 角色ID为负数
 	 */
-	//@Test
+	@Test
 	public void postGetAuthTreeTestRoleIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -321,7 +321,7 @@ public class GetAuthTreeTest extends HttpUtil {
 	/**
 	 * 角色ID为0   //
 	 */
-	//@Test
+	@Test
 	public void postGetAuthTreeTestRoleIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
