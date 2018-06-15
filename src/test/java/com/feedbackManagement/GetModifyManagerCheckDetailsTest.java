@@ -20,10 +20,12 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 // 获取更换管理员审核详情接口
 	String url = "/uu-admin/modifyManager/getModifyManagerDetail";
 	String userId;
-	CheckReplaceAdministratorTest CheckReplaceAdministratorTest = new CheckReplaceAdministratorTest();
+	String updateSql = "UPDATE T_MODIFY_MANAGER_APPLY SET STATUS = 2 WHERE MANAGER_ID = 12495396";
+	String datatype = "uedb" ;
 	@BeforeClass
 	public void beforeClass(){
 	userId =new BackUserLoginTest().userId;
+	MetaOper.update(updateSql, datatype);
 }
 
 	/**
@@ -31,11 +33,11 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestCorrectParameter() throws Exception {
-		//CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
-		request.put("status", 3);
+		request.put("status", 2);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -48,24 +50,24 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestUserIdNotLoggedIn() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495399);				
+		request.put("userId", 12491748);				
 		request.put("applyId", 6);
 		request.put("status", 2);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功1");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
 		}
 	/**
 	 * 用户ID为错误用户
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestUserIdIsError() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495);				
 		request.put("applyId", 6);
@@ -74,15 +76,15 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误用户" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功1");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
 		}
 	/**
 	 * 用户ID为String
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestUserIdIsString() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "dfdsfds");				
 		request.put("applyId", 6);
@@ -99,7 +101,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestUserIdIsDecimal() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 124.95396);				
 		request.put("applyId", 6);
@@ -108,15 +110,15 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功1");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
 		}
 	/**
 	 * 用户ID为负数
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestUserIdIsNegativeNumber() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -12495396);				
 		request.put("applyId", 6);
@@ -133,7 +135,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestUserIdIsSpace() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");				
 		request.put("applyId", 6);
@@ -150,7 +152,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestUserIdIsEmpty() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");				
 		request.put("applyId", 6);
@@ -167,7 +169,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestUserIdIsNull() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);				
 		request.put("applyId", 6);
@@ -184,7 +186,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestUserIdNonSubmissionParameters() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("applyId", 6);
 		request.put("status", 2);
@@ -200,7 +202,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestUserIdIs0() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);				
 		request.put("applyId", 6);
@@ -217,7 +219,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestUserIdIsLong() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 999999999999999999L);				
 		request.put("applyId", 6);
@@ -227,14 +229,14 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 		System.out.println("用户ID为超长" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("用户Id不合法");
 		}
 	/**
 	 * 申请id为错误
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestApplyIdIsError() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 99);
@@ -251,24 +253,24 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestApplyIdIsDecimal() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
-		request.put("applyId", 6.3);
+		request.put("applyId", 7.3);
 		request.put("status", 2);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("申请id传小数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("申请数据不存在");
 		}
 	/**
 	 * 申请id传负数
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestApplyIdIsNegativeNumber() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", -6);
@@ -285,7 +287,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestApplyIdIsString() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", "fdgdsgs");
@@ -302,7 +304,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestApplyIdIs0() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 0);
@@ -319,7 +321,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestApplyIdIsMax() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 999999999);
@@ -336,7 +338,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestApplyIdNonSubmissionParameters() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("status", 2);
@@ -352,7 +354,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestApplyIdIsEmpty() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", "");
@@ -369,7 +371,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestApplyIdIsSpace() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", " ");
@@ -386,7 +388,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusIsError() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
@@ -403,24 +405,24 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusIsDecimal() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
-		request.put("status", 2.23);
+		request.put("status", 6.23);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态status传小数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("申请数据不存在");
 		}
 	/**
 	 * 状态status传负数
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusIsNegativeNumber() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
@@ -437,7 +439,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusIsEmpty() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
@@ -454,7 +456,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusIsSpace() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
@@ -471,7 +473,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusIsNull() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
@@ -488,7 +490,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusIsString() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
@@ -498,14 +500,13 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 		System.out.println("状态status传String" + post);
 	
 		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("成功");
 		}
 	/**
 	 * 状态status不传参数
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusNonSubmissionParameters() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);		
@@ -520,7 +521,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusIs0() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
@@ -537,7 +538,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusIs1() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
@@ -554,7 +555,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusIs2() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
@@ -571,7 +572,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetModifyManagerCheckDetailsTestStatusIsMax() throws Exception {
-		CheckReplaceAdministratorTest.postCheckReplaceAdministratorTestCorrectParameter();
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);				
 		request.put("applyId", 6);
