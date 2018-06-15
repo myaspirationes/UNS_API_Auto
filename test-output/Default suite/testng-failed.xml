@@ -6,7 +6,7 @@
       <class name="com.systemManagement.GetManagerParaListTest">
         <methods>
           <include name="beforeClass"/>
-          <include name="postGetManagerParaListTestUserIdIsError"/>
+          <include name="postGetManagerParaListTestKeyWordsNonSubmissionParameters"/>
         </methods>
       </class> <!-- com.systemManagement.GetManagerParaListTest -->
     </classes>

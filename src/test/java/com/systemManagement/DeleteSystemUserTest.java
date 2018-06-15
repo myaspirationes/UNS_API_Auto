@@ -24,7 +24,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 	List<Map<String,Object>> list ;
 	String sysUserId;
 	@BeforeClass
-	public void beforeClass() throws Exception {
+	public void beforeClass() {
 		userId =new BackUserLoginTest().userId;
 		
 		list = MetaOper.read(selectSql,dataType);
@@ -36,7 +36,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postDeleteSystemUserTestCorrectParameter() throws Exception {
-		new AddOrUpdateUserTest().postAddOrUpdateUserTestCorrectParameter();
+//		new AddOrUpdateUserTest().postAddOrUpdateUserTestCorrectParameter();
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("sysUserId", sysUserId);
@@ -53,15 +53,15 @@ public class DeleteSystemUserTest extends HttpUtil {
 	@Test
 	public void postDeleteSystemUserTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 100001142);
 		request.put("sysUserId", sysUserId);
 		
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 用户ID为错误
@@ -75,8 +75,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -89,8 +89,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 用户ID为小数
@@ -103,8 +102,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 用户ID为负数
@@ -117,8 +116,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 用户ID为0
@@ -126,13 +125,13 @@ public class DeleteSystemUserTest extends HttpUtil {
 	@Test
 	public void postDeleteSystemUserTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", sysUserId);
+		request.put("userId", 0);
 		request.put("sysUserId", sysUserId);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 用户ID为String
@@ -145,8 +144,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 用户ID为空格
@@ -160,7 +158,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID为空
@@ -174,7 +172,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID为null
@@ -187,7 +185,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -199,7 +198,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户ID超长
@@ -212,8 +212,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 被删除用户ID为非法字符
@@ -226,8 +226,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被删除用户ID为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 被删除用户ID为错误
@@ -240,8 +239,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被删除用户ID为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("没有此角色");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("删除用户不存在");
 	}
 	/**
 	 * 被删除用户ID为空
@@ -255,7 +254,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 		System.out.println("被删除用户ID为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 被删除用户ID为空格
@@ -269,7 +268,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 		System.out.println("被删除用户ID为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 被删除用户ID为null
@@ -282,7 +281,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被删除用户ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 被删除用户ID为String
@@ -295,8 +295,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被删除用户ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 被删除用户ID为不传该参数
@@ -308,7 +307,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被删除用户ID为不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 被删除用户ID为小数
@@ -321,8 +321,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被删除用户ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("删除用户不存在");
 	}
 	/**
 	 * 被删除用户ID为负数
@@ -335,8 +335,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被删除用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("删除失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("删除用户不存在");
 	}
 	/**
 	 * 被删除用户ID为不存在的
@@ -349,8 +349,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被删除用户ID为存在的" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("没有此角色");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("删除用户不存在");
 	}
 	/**
 	 * 被删除用户ID为0
@@ -363,8 +363,8 @@ public class DeleteSystemUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被删除用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("没有此角色");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("删除用户不存在");
 	}
 
 }

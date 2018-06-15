@@ -48,7 +48,7 @@ public void beforeClass(){
 	/**
 	 * 用户ID为未登录用户
 	 */
-	//@Test
+	@Test
 	public void postGetUserAuthDetailsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12345678);	
@@ -64,7 +64,7 @@ public void beforeClass(){
 	/**
 	 * 用户ID为错误用户
 	 */
-	//@Test
+	@Test
 	public void postGetUserAuthDetailsTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12312313);	
@@ -216,25 +216,11 @@ public void beforeClass(){
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("userId不能为空");
 	}
-	/**
-	 * 用户ID为超长
-	 */
-	//@Test
-	public void postGetUserAuthDetailsTestUserIdIsLong() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();		
-		request.put("userId", 999999999999999999L);	
-		request.put("uid", 12495005);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为超长" + post);
-
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数非法");
-	}
+	
 	/**
 	 * 被查看用户ID为错误
 	 */
-	//@Test
+	@Test
 	public void postGetUserAuthDetailsTestUidIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", userId);	
@@ -243,13 +229,13 @@ public void beforeClass(){
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被查看用户ID为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数非法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 被查看用户ID超长
 	 */
-	//@Test
+	@Test
 	public void postGetUserAuthDetailsTestUidIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", userId);	
@@ -258,8 +244,8 @@ public void beforeClass(){
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被查看用户ID超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数非法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 被查看用户ID为空
