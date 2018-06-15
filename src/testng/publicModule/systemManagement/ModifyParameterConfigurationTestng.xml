@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="修改参数配置接口" >
+	<test name="ModifyParameterConfigurationTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.systemManagement.ModifyParameterConfigurationTest">
+		      <methods>
+		       <include name="postModifyParameterConfigurationTestCorrectParameter"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdNotLoggedIn"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdIsError"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdIllegalCharacters"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdIsDecimal"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdIsNegativeNumber"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdIsZero"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdIsString"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdIsSpace"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdIsEmpty"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdIsNull"></include>
+		       <include name="postModifyParameterConfigurationTestParaIdIsError"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdNonSubmissionParameters"></include>
+		       <include name="postModifyParameterConfigurationTestUserIdIsLong"></include>
+		       <include name="postModifyParameterConfigurationTestParaIdIsNegativeNumber"></include>
+		       <include name="postModifyParameterConfigurationTestParaIdIsDecimal"></include>
+		       <include name="postModifyParameterConfigurationTestParaIdIsIllegalCharacters"></include>
+		       <include name="postModifyParameterConfigurationTestParaIdIsString"></include>
+		       <include name="postModifyParameterConfigurationTestParaIdIsEmpty"></include>
+		       <include name="postModifyParameterConfigurationTestParaIdIsSpace"></include>
+		       <include name="postModifyParameterConfigurationTestParaIdIsNull"></include>
+		       <include name="postModifyParameterConfigurationTestParaIdNonSubmissionParameters"></include>
+		       <include name="postModifyParameterConfigurationTestParaIdIsLong"></include>
+		       <include name="postModifyParameterConfigurationTestNameIsLong"></include>
+		       <include name="postModifyParameterConfigurationTestNameIsIllegalCharacters"></include>
+		       <include name="postModifyParameterConfigurationTestNameIsSpace"></include>
+		       <include name="postModifyParameterConfigurationTestNameIsEmpty"></include>
+		       <include name="postModifyParameterConfigurationTestNameIsNull"></include>
+		       <include name="postModifyParameterConfigurationTestNameNonSubmissionParameters"></include>
+		       <include name="postModifyParameterConfigurationTestRulesIsLong"></include>
+		       <include name="postModifyParameterConfigurationTestRulesIsIllegalCharacters"></include>
+		       <include name="postModifyParameterConfigurationTestRulesIsEmpty"></include>
+		       <include name="postModifyParameterConfigurationTestRulesIsSpace"></include>
+		       <include name="postModifyParameterConfigurationTestRulesIsNull"></include>
+		       <include name="postModifyParameterConfigurationTestRulesNonSubmissionParameters"></include>
+		       <include name="postModifyParameterConfigurationTestStatusIsError"></include>
+		       <include name="postModifyParameterConfigurationTestStatusIsDecimal"></include>
+		       <include name="postModifyParameterConfigurationTestStatusIsNegativeNumber"></include>
+		       <include name="postModifyParameterConfigurationTestStatusIsEmpty"></include>
+		       <include name="postModifyParameterConfigurationTestStatusIsSpace"></include>
+		       <include name="postModifyParameterConfigurationTestStatusIsNull"></include>
+		       <include name="postModifyParameterConfigurationTestStatusIsString"></include>
+		       <include name="postModifyParameterConfigurationTestStatusNonSubmissionParameters"></include>
+		       <include name="postModifyParameterConfigurationTestStatusIs1"></include>
+		       <include name="postModifyParameterConfigurationTestStatusIs0"></include>
+		       <include name="postModifyParameterConfigurationTestStatusIs1Again0"></include>
+		       <include name="postModifyParameterConfigurationTestStatusIs0Again1"></include>
+		       <include name="postModifyParameterConfigurationTestKeyIsError"></include>
+		       <include name="postModifyParameterConfigurationTestKeyIsString"></include>
+		       <include name="postModifyParameterConfigurationTestKeyIsLong"></include>
+		       <include name="postModifyParameterConfigurationTestKeyIsNegativeNumber"></include>
+		       <include name="postModifyParameterConfigurationTestKeyIsDecimal"></include>
+		       <include name="postModifyParameterConfigurationTestKeyIsEmpty"></include>
+		       <include name="postModifyParameterConfigurationTestKeyIsSpace"></include>
+		       <include name="postModifyParameterConfigurationTestKeyIsNull"></include>
+		       <include name="postModifyParameterConfigurationTestKeyNonSubmissionParameters"></include>
+		       <include name="postModifyParameterConfigurationTestValueIsLong"></include>
+		       <include name="postModifyParameterConfigurationTestValueIsIllegalCharacters"></include>
+		       <include name="postModifyParameterConfigurationTestValueIsEmpty"></include>
+		       <include name="postModifyParameterConfigurationTestValueIsSpace"></include>
+		       <include name="postModifyParameterConfigurationTestValueIsNull"></include>
+		       <include name="postModifyParameterConfigurationTestValueNonSubmissionParameters"></include>
+		       
+		       
+		       
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
