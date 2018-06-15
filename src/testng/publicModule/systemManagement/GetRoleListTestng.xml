@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="搜索获取角色列表接口" >
+	<test name="GetRoleListTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.systemManagement.GetRoleListTest">
+		      <methods>
+		       <include name="postGetRoleListTestCorrectParameter"></include>
+		       <include name="postGetRoleListTestUserIdNotLoggedIn"></include>
+		       <include name="postGetRoleListTestUserIdIsError"></include>
+		       <include name="postGetRoleListTestUserIdIllegalCharacters"></include>
+		       <include name="postGetRoleListTestUserIdIsDecimal"></include>
+		       <include name="postGetRoleListTestUserIdIsNegativeNumber"></include>
+		       <include name="postGetRoleListTestUserIdIsZero"></include>
+		       <include name="postGetRoleListTestUserIdIsString"></include>
+		       
+		       <include name="postGetRoleListTestUserIdIsSpace"></include>
+		       <include name="postGetRoleListTestUserIdIsEmpty"></include>
+		       <include name="postGetRoleListTestUserIdIsNull"></include>
+		       <include name="postGetRoleListTestUserIdNonSubmissionParameters"></include>
+		       <include name="postGetRoleListTestUserIdIsLong"></include>
+		       <include name="postGetRoleListTestRoleNameIsLong"></include>
+		       <include name="postGetRoleListTestRoleNameIllegalCharacters"></include>
+		       <include name="postGetRoleListTestRoleNameIsEmpty"></include>
+		       
+		       <include name="postGetRoleListTestRoleNameIsSpace"></include>
+		       <include name="postGetRoleListTestRoleNameIsNull"></include>
+		       <include name="postGetRoleListTestRoleNameNonSubmissionParameters"></include>
+		       <include name="postGetRoleListTestCreatTimeStartIsLong"></include>
+		       <include name="postGetRoleListTestCreatTimeStartGreaterThanCreatTimeEnd"></include>
+		       <include name="postGetRoleListTestCreatTimeStartIsTimeStamp"></include>
+		       
+		       <include name="postGetRoleListTestCorrectParameter"></include>
+		       <include name="postGetRoleListTestUserIdNotLoggedIn"></include>
+		       <include name="postGetRoleListTestUserIdIsError"></include>
+		       <include name="postGetRoleListTestUserIdIllegalCharacters"></include>
+		       <include name="postGetRoleListTestUserIdIsDecimal"></include>
+		       <include name="postGetRoleListTestUserIdIsNegativeNumber"></include>
+		       <include name="postGetRoleListTestUserIdIsZero"></include>
+		       <include name="postGetRoleListTestUserIdIsString"></include>
+		       
+		       <include name="postGetRoleListTestCreatTimeStartIsEmpty"></include>
+		       <include name="postGetRoleListTestCreatTimeStartIsSpace"></include>
+		       <include name="postGetRoleListTestCreatTimeStartIsNull"></include>
+		       <include name="postGetRoleListTestCreatTimeStartNonSubmissionParameters"></include>
+		       <include name="postGetRoleListTestCreatTimeStartIsYMD"></include>
+		       <include name="postGetRoleListTestCreatTimeStartIsHMS"></include>
+		       <include name="postGetRoleListTestCreatTimeStartIsZero"></include>
+		       <include name="postGetRoleListTestCreatTimeStartIsLeapYear"></include>
+		       
+		       <include name="postGetRoleListTestCreatTimeStartIsNonLeapYear"></include>
+		       <include name="postGetRoleListTestCreatTimeEndIsLong"></include>
+		       <include name="postGetRoleListTestCreatTimeEndIsTimeStamp"></include>
+		       <include name="postGetRoleListTestCreatTimeEndIsEmpty"></include>
+		       <include name="postGetRoleListTestCreatTimeEndIsSpace"></include>
+		       <include name="postGetRoleListTestCreatTimeEndIsNull"></include>
+		        
+		        <include name="postGetRoleListTestCreatTimeEndNonSubmissionParameters"></include>
+		       <include name="postGetRoleListTestCreatTimeEndIsYMD"></include>
+		       <include name="postGetRoleListTestCreatTimeEndIsHMS"></include>
+		       <include name="postGetRoleListTestCreatTimeEndIsZero"></include>
+		       <include name="postGetRoleListTestCreatTimeEndIsLeapYear"></include>
+		       <include name="postGetRoleListTestCreatTimeEndIsNonLeapYear"></include>
+		       <include name="postGetRoleListTesttatusIsLong"></include>
+		       <include name="postGetRoleListTesttatusIllegalCharacters"></include>
+		       
+		       <include name="postGetRoleListTesttatusIsError"></include>
+		       <include name="postGetRoleListTesttatusIsEmpty"></include>
+		       <include name="postGetRoleListTesttatusIsSpace"></include>
+		       <include name="postGetRoleListTesttatusIsString"></include>
+		       <include name="postGetRoleListTesttatusIsNull"></include>
+		       <include name="postGetRoleListTesttatusNonSubmissionParameters"></include>
+		       
+		        <include name="postGetRoleListTesttatusIsDecimal"></include>
+		       <include name="postGetRoleListTesttatusIsNegativeNumber"></include>
+		       <include name="postGetRoleListTesttatusIsZero"></include>
+		       <include name="postGetRoleListTestPageSizeIsNegativeNumber"></include>
+		       <include name="postGetRoleListTestPageSizeIsDecimal"></include>
+		       <include name="postGetRoleListTestPageSizeIsString"></include>
+		       <include name="postGetRoleListTestPageSizeIsSpace"></include>
+		       <include name="postGetRoleListTestPageSizeIsEmpty"></include>
+		       
+		       <include name="postGetRoleListTestPageSizeIsNull"></include>
+		       <include name="postGetRoleListTestPageSizeIsLong"></include>
+		       <include name="postGetRoleListTestPageSizeNonSubmissionParameters"></include>
+		       <include name="postGetRoleListTestPageSizeIsZero"></include>
+		       <include name="postGetRoleListTestPageNowIsNegativeNumber"></include>
+		       <include name="postGetRoleListTestPageNowIsDecimal"></include>
+		         
+		       <include name="postGetRoleListTestPageNowIsString"></include>
+		       <include name="postGetRoleListTestPageNowIsSpace"></include>
+		       <include name="postGetRoleListTestPageNowIsEmpty"></include>
+		       <include name="postGetRoleListTestPageNowIsNull"></include>
+		       <include name="postGetRoleListTestPageNowIsLong"></include>
+		       <include name="postGetRoleListTestPageNowNonSubmissionParameters"></include>
+		       <include name="postGetRoleListTestPageNowIsZero"></include>
+		       
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

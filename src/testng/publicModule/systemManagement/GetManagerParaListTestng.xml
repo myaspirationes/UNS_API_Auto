@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取参数管理列表接口" >
+	<test name="GetManagerParaListTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.systemManagement.GetManagerParaListTest">
+		      <methods>
+		       <include name="postGetManagerParaListTestCorrectParameter"></include>
+		       <include name="postGetManagerParaListTestUserIdNotLoggedIn"></include>
+		       <include name="postGetManagerParaListTestUserIdIsError"></include>
+		       <include name="postGetManagerParaListTestUserIdIllegalCharacters"></include>
+		       <include name="postGetManagerParaListTestUserIdIsDecimal"></include>
+		       <include name="postGetManagerParaListTestUserIdIsNegativeNumber"></include>
+		       <include name="postGetManagerParaListTestUserIdIsZero"></include>
+		       <include name="postGetManagerParaListTestUserIdIsString"></include>
+		       
+		       <include name="postGetManagerParaListTestUserIdIsSpace"></include>
+		       <include name="postGetManagerParaListTestUserIdIsEmpty"></include>
+		       <include name="postGetManagerParaListTestUserIdIsNull"></include>
+		       <include name="postGetManagerParaListTestUserIdNonSubmissionParameters"></include>
+		       <include name="postGetManagerParaListTestKeyWordsIsError"></include>
+		       <include name="postGetManagerParaListTestKeyWordsIllegalCharacters"></include>
+		       <include name="postGetManagerParaListTestKeyWordsIsSpace"></include>
+		       <include name="postGetManagerParaListTestKeyWordsIsEmpty"></include>
+		       
+		       <include name="postGetManagerParaListTestKeyWordsIsNull"></include>
+		       <include name="postGetManagerParaListTestKeyWordsNonSubmissionParameters"></include>
+		       <include name="postGetManagerParaListTestKeyWordsIsLong"></include>
+		       <include name="postGetManagerParaListTestStatusIsError"></include>
+		       <include name="postGetManagerParaListTestStatusIllegalCharacters"></include>
+		       <include name="postGetManagerParaListTestStatusIsEmpty"></include>
+		       <include name="postGetManagerParaListTestStatusIsSpace"></include>
+		       <include name="postGetManagerParaListTestStatusIsString"></include>
+		       <include name="postGetManagerParaListTestStatusIsNull"></include>
+		       <include name="postGetManagerParaListTestStatusNonSubmissionParameters"></include>
+		       
+		       <include name="postGetManagerParaListTestStatusIsDecimal"></include>
+		       <include name="postGetManagerParaListTestStatusIsNegativeNumber"></include>
+		       <include name="postGetManagerParaListTestStatusIsZero"></include>
+		       <include name="postGetManagerParaListTestStatusIsOne"></include>
+		       <include name="postGetManagerParaListTestPageSizeIsZero"></include>
+		       <include name="postGetManagerParaListTestPageSizeIsNegativeNumber"></include>
+		       <include name="postGetManagerParaListTestPageSizeIsIsDecimal"></include>
+		       <include name="postGetManagerParaListTestPageSizeIsString"></include>
+		       <include name="postGetManagerParaListTestPageSizeIsSpace"></include>
+		       <include name="postGetManagerParaListTestPageSizeIsEmpty"></include>
+	
+		       <include name="postGetManagerParaListTestPageSizeIsNull"></include>
+		       <include name="postGetManagerParaListTestPageSizeIsLong"></include>
+		       <include name="postGetManagerParaListTestPageSizeIllegalCharacters"></include>
+		       <include name="postGetManagerParaListTestPageSizeNonSubmissionParameters"></include>
+		       <include name="postGetManagerParaListTestPageNowIsZero"></include>
+		       <include name="postGetManagerParaListTestPageNowIsNegativeNumber"></include>
+		       <include name="postGetManagerParaListTestPageNowIsIsDecimal"></include>
+		       <include name="postGetManagerParaListTestPageNowIsString"></include>
+		       <include name="postGetManagerParaListTestPageNowIsSpace"></include>
+		       <include name="postGetManagerParaListTestPageNowIsEmpty"></include>    
+		       <include name="postGetManagerParaListTestPageNowIsNull"></include>
+		       <include name="postGetManagerParaListTestPageNowIsLong"></include>
+		       <include name="postGetManagerParaListTestpageNowIllegalCharacters"></include>
+		       <include name="postGetManagerParaListTestPageNowNonSubmissionParameters"></include>
+		       
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

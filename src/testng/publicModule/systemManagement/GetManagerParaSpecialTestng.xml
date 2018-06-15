@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取参数配置详情接口" >
+	<test name="GetManagerParaSpecialTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.systemManagement.GetManagerParaSpecialTest">
+		      <methods>
+		       <include name="postGetManagerParaSpecialTestCorrectParameter"></include>
+		       <include name="postGetManagerParaSpecialTestUserIdNotLoggedIn"></include>
+		       <include name="postGetManagerParaSpecialTestUserIdIsError"></include>
+		       <include name="postGetManagerParaSpecialTestUserIdIllegalCharacters"></include>
+		       <include name="postGetManagerParaSpecialTestUserIdIsDecimal"></include>
+		       <include name="postGetManagerParaSpecialTestUserIdIsNegativeNumber"></include>
+		       <include name="postGetManagerParaSpecialTestUserIdIsZero"></include>
+		       <include name="postGetManagerParaSpecialTestUserIdIsString"></include>
+		       
+		       <include name="postGetManagerParaSpecialTestUserIdIsSpace"></include>
+		       <include name="postGetManagerParaSpecialTestUserIdIsEmpty"></include>
+		       <include name="postGetManagerParaSpecialTestUserIdIsNull"></include>
+		       <include name="postGetManagerParaSpecialTestUserIdNonSubmissionParameters"></include>
+		       <include name="postGetManagerParaSpecialTestUserIdIsLong"></include>
+		       <include name="postGetManagerParaSpecialTestParaIdIsNegativeNumber"></include>
+		       <include name="postGetManagerParaSpecialTestParaIdIsDecimal"></include>
+		       <include name="postGetManagerParaSpecialTestParaIdIsIllegalCharacters"></include>
+		       
+		       <include name="postGetManagerParaSpecialTestParaIdIsString"></include>
+		       <include name="postGetManagerParaSpecialTestParaIdIsEmpty"></include>
+		       <include name="postGetManagerParaSpecialTestParaIdIsSpace"></include>
+		       <include name="postGetManagerParaSpecialTestParaIdIsNull"></include>
+		       <include name="postGetManagerParaSpecialTestParaIdNonSubmissionParameters"></include>
+		       <include name="postGetManagerParaSpecialTestParaIdIsLong"></include>
+		       
+		       
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
