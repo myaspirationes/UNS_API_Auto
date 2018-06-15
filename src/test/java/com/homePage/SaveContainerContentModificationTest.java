@@ -29,7 +29,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTesttCorrectParameter() throws Exception {
 		
 		MetaOper.read(selectSql, dataType);
@@ -61,7 +61,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 内容id 集合为错误
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestContentListIsError() throws Exception {
 		  		
 		MetaOper.read(selectSql, dataType);
@@ -87,7 +87,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 内容id 集合为非法字符
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestContentListIsIllegalCharacters() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -113,7 +113,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 内容id 集合为小数
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestContentListIsDecimal() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -139,7 +139,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 内容id 集合为负数
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestContentListIsNegativeNumber() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -165,7 +165,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 内容id 集合为空格
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestContentListIsSpace() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -191,7 +191,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 内容id 集合为空
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestContentListIsEmpty() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -216,7 +216,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 内容id 集合null
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestContentListIsNull() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -240,7 +240,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 内容id 集合为超长
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestContentListIsLong() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -265,7 +265,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 内容id 集合为String
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestContentListIsString() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -290,7 +290,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 内容id 集合为0
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestContentListIsZero() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -315,7 +315,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 内容id 集合不传该参数
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestContentListNonSubmissionParameters() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -340,7 +340,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 文字标题 titleText为超长
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestTitleTextIsLong() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -395,7 +395,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 文字标题 titleText为空格
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestTitleTextIsSpace() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
@@ -423,7 +423,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	/**
 	 * 文字标题 titleText为null
 	 */
-	//@Test
+	@Test
 	public void postSaveContainerContentModificationTestTitleTextIsNull() throws Exception {
 		  
 		MetaOper.read(selectSql, dataType);
