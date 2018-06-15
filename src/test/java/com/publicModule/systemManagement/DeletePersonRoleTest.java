@@ -176,7 +176,7 @@ public class DeletePersonRoleTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("userId不是admin用户");
+		assertThat(post.get("msg")).isEqualTo("userId为空");
 	}
 	/**
 	 * 用户ID为null
@@ -189,7 +189,9 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId为空");
+
 	}
 	/**
 	 * 用户ID不传该参数
@@ -201,7 +203,8 @@ public class DeletePersonRoleTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId为空");
 	}
 	/**
 	 * 用户ID超长

@@ -66,7 +66,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		System.out.println("用户ID为未登录用户" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("新增成功");
 	}
 	/**
 	 * 用户ID为错误
@@ -729,7 +729,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		System.out.println("角色状态为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("新增成功");
 	}
 	/**
 	 * 角色状态为null
@@ -835,7 +835,7 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("新增成功");
 		list = MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("ROLE_STATUS").toString()).isEqualTo("0");
+		assertThat(list.get(0).get("ROLE_STATUS").toString()).isEqualTo("1");//新增默认为1
 	}
 	/**
 	 * 角色状态为1
