@@ -4,7 +4,9 @@ import com.example.HttpUtil;
 import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -28,6 +30,10 @@ public class AddOrUpdateUserTest extends HttpUtil {
 	public void beforeClass(){
 	userId =new BackUserLoginTest().userId;
 }
+	@AfterMethod
+	public void afterMethod() throws Exception {
+		new DeleteSystemUserTest().postDeleteSystemUserTestCorrectParameter();
+	}
 	
 	/**
 	 * 提交正确参数
