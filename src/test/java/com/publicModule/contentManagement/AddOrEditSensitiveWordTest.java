@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 //import org.junit.Test;
@@ -38,6 +39,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 	public void BeforeMethod(){
 		MetaOper.delete(deleteSql, datatype);
 	}
+
 	/**
 	 * 提交正确参数
 	 */
@@ -67,7 +69,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为未登录用户" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("添加成功");
@@ -84,7 +86,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为错误用户" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("失败");
@@ -100,7 +102,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为非法字符" + post);
 	
 		assertThat(post.get("status")).isEqualTo(400);
 	}
@@ -115,7 +117,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为小数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -131,7 +133,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为负数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("失败");
@@ -147,7 +149,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为0" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -163,7 +165,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为空格" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -179,7 +181,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为空" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("失败");
@@ -195,7 +197,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为null" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -211,7 +213,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID为String" + post);
 	
 		assertThat(post.get("status")).isEqualTo(400);
 	}
@@ -225,7 +227,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID不传该参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("失败");
@@ -241,7 +243,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("用户ID超长" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -258,7 +260,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID为0" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("添加成功");
@@ -278,7 +280,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局哈哈哈789");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID为存在的" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("编辑成功");
@@ -294,7 +296,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID为负数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("编辑失败,没有找到这个敏感词");
@@ -310,7 +312,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID为小数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("编辑失败,没有找到这个敏感词");
@@ -326,7 +328,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID为String" + post);
 	
 		assertThat(post.get("status")).isEqualTo(400);
 	}
@@ -342,7 +344,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID为空格" + post);
 	
 		assertThat(post.get("status")).isEqualTo(500);
 	}
@@ -357,7 +359,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID为空" + post);
 	
 		assertThat(post.get("status")).isEqualTo(500);
 	}
@@ -372,7 +374,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID为null" + post);
 	
 		assertThat(post.get("status")).isEqualTo(500);
 	}
@@ -387,7 +389,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID为错误" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("编辑失败,没有找到这个敏感词");
@@ -403,7 +405,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID为非法字符" + post);
 	
 		assertThat(post.get("status")).isEqualTo(400);
 	}
@@ -417,7 +419,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID不传该参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(500);
 	}
@@ -432,7 +434,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词ID超长" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("编辑失败,没有找到这个敏感词");
@@ -449,10 +451,10 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", " ");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词为空格" + post);
 	
-		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("添加成功");
 	}
 	/**
 	 * 敏感词为空
@@ -465,7 +467,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词为空" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("添加失败");
@@ -481,7 +483,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", null);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词为null" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("添加失败");
@@ -498,7 +500,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "<.@#$%>");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词为非法字符" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("添加成功");
@@ -513,7 +515,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWordId", 0);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词不传该参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("添加失败");
@@ -529,7 +531,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "1234567890912903131451234567890912903131L1234567890912903131L1234567890912903131451234567890912903131L1234567890912903131L1234567890912903131451234567890912903131L1234567890912903131L1234567890912903131451234567890912903131L1234567890912903131L1234567890912903131451234567890912903131L1234567890912903131L");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词超长" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("添加失败");
@@ -546,20 +548,18 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 		request.put("sensitiveWord", "政治局");
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("敏感词为存在的" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("不可以添加重复敏感词");
 	}
-	
-//	@AfterClass
-//	public void afterClass(){
-//		/*List<Map<String,Object>> list ;
-//		list =MetaOper.read(selectSql,dataType);
-//		System.out.println("list======="+list);
-//		String userId = list.get(0).get("USER_ID").toString();*/
-//		
-//		MetaOper.delete(deleteSql, datatype);
-//		
-//	}
+	@AfterClass
+	public void afterClass(){
+
+
+		MetaOper.delete(deleteSql, datatype);
+		MetaOper.delete(deleteSql3, datatype);
+		MetaOper.delete(deleteSql2, datatype);
+
+	}
 }

@@ -788,8 +788,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("账号为非法字符" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 账号为错误

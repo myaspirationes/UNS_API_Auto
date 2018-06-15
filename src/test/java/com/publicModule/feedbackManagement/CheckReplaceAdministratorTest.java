@@ -6,6 +6,7 @@ import com.publicModule.login.BackUserLoginTest;
 
 import org.json.JSONObject;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -31,8 +32,8 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 	userId =new BackUserLoginTest().userId;
 }
 
-	@AfterClass
-	public void afterClass()
+	@AfterMethod
+	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 	}
@@ -1059,7 +1060,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 	 */
 	@Test
 	public void postCheckReplaceAdministratorTestErrorMsgNonSubmissionParametersStatusIs1() throws Exception {
-		//MetaOper.update(updateSql, dataType);
+		MetaOper.update(updateSql, dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("applyId", 6);
 		request.put("status", 1);

@@ -37,6 +37,10 @@ public class DeleteSystemUserTest extends HttpUtil {
 	@Test
 	public void postDeleteSystemUserTestCorrectParameter() throws Exception {
 //		new AddOrUpdateUserTest().postAddOrUpdateUserTestCorrectParameter();
+		userId =new BackUserLoginTest().userId;
+
+		list = MetaOper.read(selectSql,dataType);
+		sysUserId = list.get(0).get("USER_ID").toString();
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("sysUserId", sysUserId);

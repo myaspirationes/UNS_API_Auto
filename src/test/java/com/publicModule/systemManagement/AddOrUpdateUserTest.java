@@ -4,7 +4,9 @@ import com.example.HttpUtil;
 import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -28,6 +30,10 @@ public class AddOrUpdateUserTest extends HttpUtil {
 	public void beforeClass(){
 	userId =new BackUserLoginTest().userId;
 }
+	@AfterMethod
+	public void afterMethod() throws Exception {
+		new DeleteSystemUserTest().postDeleteSystemUserTestCorrectParameter();
+	}
 	
 	/**
 	 * 提交正确参数
@@ -757,8 +763,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录名称为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户登录名称为非法字符
@@ -1134,7 +1140,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("status", 0);
 		request.put("roles", "10000003");
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("email地址为空" + post);
+		System.out.println("email地址为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
