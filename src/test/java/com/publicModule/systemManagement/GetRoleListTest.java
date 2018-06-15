@@ -264,8 +264,7 @@ public class GetRoleListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 角色名称为超长
@@ -850,8 +849,7 @@ public class GetRoleListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 角色状态为错误状态
@@ -869,7 +867,7 @@ public class GetRoleListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为错误状态" + post);
 
-		assertThat(post.get("status")).isEqualTo(400);
+		assertThat(post.get("status")).isEqualTo(-1);
 	}
 	/**
 	 * 角色状态为空
@@ -887,8 +885,8 @@ public class GetRoleListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("状态不能为空！");
 	}
 	/**
 	 * 角色状态为空格
@@ -925,8 +923,7 @@ public class GetRoleListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("状态不能为空！");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 角色状态为null
@@ -944,7 +941,8 @@ public class GetRoleListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(400);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("状态不能为空！");
 	}
 	/**
 	 * 角色状态不传该参数
@@ -987,7 +985,7 @@ public class GetRoleListTest extends HttpUtil {
 	 * 角色状态为负数
 	 */
 	@Test
-	public void postGetRoleListTesttatus() throws Exception {
+	public void postGetRoleListTesttatusIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("roleName", "角色名称");
@@ -1038,7 +1036,7 @@ public class GetRoleListTest extends HttpUtil {
 		System.out.println("每页显示记录集为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("每页获取的条数不能为空！");
+		assertThat(post.get("msg")).isEqualTo("每页大小格式错误！");
 	}
 	/**
 	 * 每页显示记录集为小数
@@ -1131,8 +1129,8 @@ public class GetRoleListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录集为" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("每页获取的条数不能为空！");
 	}
 	/**
 	 * 每页显示记录集为超长
@@ -1281,7 +1279,7 @@ public class GetRoleListTest extends HttpUtil {
 		System.out.println("当前页数为" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("当前请求第几页不能为空");
+		assertThat(post.get("msg")).isEqualTo("当前请求第几页不能为空！");
 	}
 	/**
 	 * 当前页数为null

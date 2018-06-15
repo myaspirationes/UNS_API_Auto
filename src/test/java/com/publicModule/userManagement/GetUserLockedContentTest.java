@@ -51,7 +51,7 @@ public class GetUserLockedContentTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("操作成功");
 		list = MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("LOCK_ID").toString()).isNotEqualTo(null);
+		assertThat(list.get(0).get("LOCK_ID").toString()).isNotEqualTo(4311);
 	}
 	/**
 	 *用户ID未登录用户
@@ -66,7 +66,7 @@ public class GetUserLockedContentTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID未登录用户" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("操作成功");
 
 	}
@@ -83,7 +83,7 @@ public class GetUserLockedContentTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("操作成功");
 
 	}
@@ -116,7 +116,7 @@ public class GetUserLockedContentTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("操作成功");
 
 	}
@@ -133,8 +133,8 @@ public class GetUserLockedContentTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("用户ID为负数");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("处理人id格式错误！");
 
 	}
 	/**
@@ -151,7 +151,7 @@ public class GetUserLockedContentTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("处理人id不能为空！");
+		assertThat(post.get("msg")).isEqualTo("处理人id格式错误！");
 
 	}
 	/**
@@ -231,8 +231,8 @@ public class GetUserLockedContentTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("操作成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("处理人id不能为空！");
 
 	}
 	/**
@@ -362,8 +362,8 @@ public class GetUserLockedContentTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被查询用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("操作成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
 	}
 	/**
 	 * 被查询用户ID为小数
@@ -393,8 +393,8 @@ public class GetUserLockedContentTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被查询用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("操作成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id格式错误！");
 	}
 	/**
 	 * 被查询用户ID为0
@@ -409,8 +409,8 @@ public class GetUserLockedContentTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被查询用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("操作成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id格式错误！");
 	}
 
 
