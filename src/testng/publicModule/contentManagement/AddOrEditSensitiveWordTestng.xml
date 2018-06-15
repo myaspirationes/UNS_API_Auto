@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="//添加/编辑敏感词接口" >
+	<test name="AddOrEditSensitiveWordTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.contentManagement.AddOrEditSensitiveWordTest">
+		      <methods>
+		          <include name="postAddOrEditSensitiveWordTestCorrectParameter"></include>
+		          <include name="postAddOrEditSensitiveWordTestUserIdNotLoggedIn"></include>
+		          <include name="postAddOrEditSensitiveWordTestUserIdIsError"></include>
+		          <include name="postTheUserAddressTestUserIdIllegalCharacters"></include>
+		          <include name="postAddOrEditSensitiveWordTestUserIdIsDecimal"></include>
+		          <include name="postAddOrEditSensitiveWordTestUserIdIsNegativeNumber"></include>
+		          <include name="postAddOrEditSensitiveWordTestUserIdIsZero"></include>
+		          <include name="postAddOrEditSensitiveWordTestUserIdIsSpace"></include>
+		          <include name="postAddOrEditSensitiveWordTestUserIdIsEmpty"></include>
+		          <include name="postAddOrEditSensitiveWordTestUserIdIsNull"></include>
+		          <include name="postAddOrEditSensitiveWordTestUserIdIsString"></include>
+		          <include name="postAddOrEditSensitiveWordTestUserIdNonSubmissionParameters"></include>
+		          <include name="postAddOrEditSensitiveWordTestUserIdIsLong"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdIsZero"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdIsExistent"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdIsNegativeNumber"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdIsDecimal"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdIsString"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdIsSpace"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdIsEmpty"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdIsNull"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdIsError"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdIllegalCharacters"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdNonSubmissionParameters"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIdIsLong"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIsSpace"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIsEmpty"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIsNull"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIllegalCharacters"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordNonSubmissionParameters"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIsLong"></include>
+		          <include name="postAddOrEditSensitiveWordTestSensitiveWordIsExistent"></include>
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

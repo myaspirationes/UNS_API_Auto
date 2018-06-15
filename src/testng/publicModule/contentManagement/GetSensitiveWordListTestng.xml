@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="//敏感词库列表接口" >
+	<test name="GetSensitiveWordListTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.contentManagement.GetSensitiveWordListTest">
+		      <methods>
+		          <include name="postGetSensitiveWordListTestCorrectParameter"></include>
+		          <include name="postGetSensitiveWordListTestUserIdNotLoggedIn"></include>
+		          <include name="postGetSensitiveWordListTestUserIdIsError"></include>
+		          <include name="postTheUserAddressTestUserIdIllegalCharacters"></include>
+		          <include name="postGetSensitiveWordListTestUserIdIsDecimal"></include>
+		          <include name="postGetSensitiveWordListTestUserIdIsNegativeNumber"></include>
+		          <include name="postGetSensitiveWordListTestUserIdIsZero"></include>
+		          <include name="postGetSensitiveWordListTestUserIdIsSpace"></include>
+		          <include name="postGetSensitiveWordListTestUserIdIsEmpty"></include>
+		          <include name="postGetSensitiveWordListTestUserIdIsNull"></include>
+		          <include name="postGetSensitiveWordListTestUserIdIsString"></include>
+		          <include name="postGetSensitiveWordListTestUserIdNonSubmissionParameters"></include>
+		          <include name="postGetSensitiveWordListTestUserIdIsLong"></include>
+		          <include name="postGetSensitiveWordListTestKeyWordIsNull"></include>
+		          <include name="postGetSensitiveWordListTestKeyWordIllegalCharacters"></include>
+		          <include name="postGetSensitiveWordListTestKeyWordNonSubmissionParameters"></include>
+		          <include name="postGetSensitiveWordListTestKeyWordIsLong"></include>
+		          <include name="postGetSensitiveWordListTestPageSizeIsNegativeNumber"></include>
+		          <include name="postGetSensitiveWordListTestPageSizeIsIsDecimal"></include>
+		          <include name="postGetSensitiveWordListTestPageSizeIsString"></include>
+		          <include name="postGetSensitiveWordListTestPageSizeIsSpace"></include>
+		          <include name="postGetSensitiveWordListTestPageSizeIsEmpty"></include>
+		          <include name="postGetSensitiveWordListTestPageSizeIsNull"></include>
+		          <include name="postGetSensitiveWordListTestPageSizeIsLong"></include>
+		          <include name="postGetSensitiveWordListTestPageSizeNonSubmissionParameters"></include>
+		          <include name="postGetSensitiveWordListTestPageSizeIsZero"></include>
+		          <include name="postGetSensitiveWordListTestPageNowIsNegativeNumber"></include>
+		          <include name="postGetSensitiveWordListTestPageNowIsIsDecimal"></include>
+		          <include name="postGetSensitiveWordListTestPageNowIsString"></include>
+		          <include name="postGetSensitiveWordListTestPageNowIsSpace"></include>
+		          <include name="postGetSensitiveWordListTestPageNowIsEmpty"></include>
+		          <include name="postGetSensitiveWordListTestPageNowIsNull"></include>
+		          <include name="postGetSensitiveWordListTestPageNowIsLong"></include>
+		          <include name="postGetSensitiveWordListTestPageNowNonSubmissionParameters"></include>
+		          <include name="postGetSensitiveWordListTestPageNowIsZero"></include>
+		         
+		       
+		         
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
