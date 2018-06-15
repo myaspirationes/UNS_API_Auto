@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取权限树接口" >
+	<test name="GetAuthTreeTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.systemManagement.GetAuthTreeTest">
+		      <methods>
+		       <include name="postGetAuthTreeTestCorrectParameter"></include>
+		       <include name="postpostGetAuthTreeTestUserIdNotLoggedIn"></include>
+		       <include name="postGetAuthTreeTestUserIdIsError"></include>
+		       <include name="postGetAuthTreeTestUserIdIllegalCharacters"></include>
+		       <include name="postGetAuthTreeTestUserIdIsDecimal"></include>
+		       <include name="postGetAuthTreeTestUserIdIsNegativeNumber"></include>
+		       <include name="postGetAuthTreeTestUserIdIsSpace"></include>
+		       <include name="postGetAuthTreeTestUserIdIsEmpty"></include>
+		       
+		       <include name="postGetAuthTreeTestUserIdIsNull"></include>
+		       <include name="postGetAuthTreeTestUserIdIsZero"></include>
+		       <include name="postGetAuthTreeTestUserIdIsString"></include>
+		       <include name="postGetAuthTreeTestUserIdNonSubmissionParameters"></include>
+		       <include name="postGetAuthTreeTestRoleIdIsError"></include>
+		       <include name="postGetAuthTreeTestRoleIdIllegalCharacters"></include>
+		       <include name="postGetAuthTreeTestRoleIdIsDecimal"></include>
+		       <include name="postGetAuthTreeTestRoleIdIsNegativeNumber"></include>
+		       
+		       <include name="postGetAuthTreeTestRoleIdIsSpace"></include>
+		       <include name="postGetAuthTreeTestRoleIdIsEmpty"></include>
+		       <include name="postGetAuthTreeTestRoleIdIsNull"></include>
+		       <include name="postGetAuthTreeTestRoleIdIsZero"></include>
+		       <include name="postGetAuthTreeTestRoleIdIsString"></include>
+		       <include name="postGetAuthTreeTestRoleIdNonSubmissionParameters"></include>
+		       
+		       
+	
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

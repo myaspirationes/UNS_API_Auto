@@ -730,6 +730,9 @@ public class CreateAndSetPersonRoleTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("新增成功");
+		list = MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("ROLE_STATUS").toString()).isEqualTo("1");//新增默认为1
+
 	}
 	/**
 	 * 角色状态为null
