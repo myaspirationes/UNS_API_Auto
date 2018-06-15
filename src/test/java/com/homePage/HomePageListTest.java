@@ -102,7 +102,7 @@ public class HomePageListTest extends HttpUtil {
     @Test
     public void postHomePageSearchTestUserIdIsError() throws Exception {
         Map<String, Object> con = new HashMap<String, Object>();
-        con.put("userId", uuid);
+        con.put("userId", 1212);
         con.put("pageNow", 1);
         con.put("pageSize", 1);
 
@@ -123,8 +123,8 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("用户ID为错误用户" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo(-3);
-        assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+        assertThat(head1.get("st")).isEqualTo(-1);
+        assertThat(head1.get("msg")).isEqualTo("参数有误");
     }
     /**
      * 用户ID为非法字符
@@ -153,8 +153,8 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("用户ID为非法字符" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo("0");
-        assertThat(head1.get("msg")).isEqualTo("成功");
+        assertThat(head1.get("st")).isEqualTo(-1);
+        assertThat(head1.get("msg")).isEqualTo("参数有误");
     }
     /**
      * 用户ID为小数
@@ -183,8 +183,8 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("用户ID为小数" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo("0");
-        assertThat(head1.get("msg")).isEqualTo("成功");
+        assertThat(head1.get("st")).isEqualTo(-1);
+        assertThat(head1.get("msg")).isEqualTo("参数有误");
     }
     /**
      * 用户ID为负数
@@ -213,8 +213,8 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("用户ID为负数" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo(-3);
-        assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+        assertThat(head1.get("st")).isEqualTo(-1);
+        assertThat(head1.get("msg")).isEqualTo("参数有误");
     }
     /**
      * 用户ID为空
@@ -243,8 +243,8 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("用户ID为空" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo("0");
-        assertThat(head1.get("msg")).isEqualTo("成功");
+        assertThat(head1.get("st")).isEqualTo(-1);
+        assertThat(head1.get("msg")).isEqualTo("参数有误");
     }
     /**
      * 用户ID为空格
@@ -273,8 +273,8 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("用户ID为空格" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo("0");
-        assertThat(head1.get("msg")).isEqualTo("成功");
+        assertThat(head1.get("st")).isEqualTo(-1);
+        assertThat(head1.get("msg")).isEqualTo("参数有误");
     }
     /**
      * 用户ID为null
@@ -303,8 +303,8 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("用户ID为null" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo("0");
-        assertThat(head1.get("msg")).isEqualTo("成功");
+        assertThat(head1.get("st")).isEqualTo(-1);
+        assertThat(head1.get("msg")).isEqualTo("参数有误");
     }
     /**
      * 用户ID不传该参数
@@ -332,8 +332,8 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("用户ID不传该参数" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo("0");
-        assertThat(head1.get("msg")).isEqualTo("成功");
+        assertThat(head1.get("st")).isEqualTo(-1);
+        assertThat(head1.get("msg")).isEqualTo("参数有误");
     }
 
     /**
@@ -570,7 +570,7 @@ public class HomePageListTest extends HttpUtil {
         request.put("head", head);
 
         JSONObject post = super.UNSPost(url, request);
-        System.out.println("每页显示数量最大值" + post);
+        System.out.println("每页显示数量为非法字符" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
         assertThat(head1.get("st")).isEqualTo(-3);
@@ -602,8 +602,8 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("每页显示数量不传该参数" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo(0);
-        assertThat(head1.get("msg")).isEqualTo("成功");
+        assertThat(head1.get("st")).isEqualTo(-3);
+        assertThat(head1.get("msg")).isEqualTo("页面总数不能为空");
     }
     /**
      * 当前页码数量最大值

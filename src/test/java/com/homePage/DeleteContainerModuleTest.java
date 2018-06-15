@@ -20,7 +20,7 @@ public class DeleteContainerModuleTest extends HttpUtil {
 // 删除容器模块接口
 	String url = "/uu-admin/container/deleteHomePageContainer";
 	AddOrEditContainerTest AddOrEditContainerTest = new AddOrEditContainerTest();
-	String selectSql1 = "SELECT * from T_HOME_PAGE_CONTAINER order by CREAT_TIME desc";
+	String selectSql1 = "SELECT * from T_HOME_PAGE_CONTAINER WHERE TITLE = '接口测试'";
 	String updateSql = " UPDATE T_HOME_PAGE_CONTAINER SET IS_DELETE=0 where CONTAINER_ID = '1'";
 	
 	String dataType = "perCenter81";
@@ -31,7 +31,7 @@ public class DeleteContainerModuleTest extends HttpUtil {
 	@Test
 	public void postDeleteContainerModuleTestCorrectParameter() throws Exception {
 		MetaOper.update(updateSql, dataType);
-		list=MetaOper.read(selectSql1, dataType);
+		
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
 		request.put("containerId", 1);
@@ -41,6 +41,7 @@ public class DeleteContainerModuleTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		list=MetaOper.read(selectSql1, dataType);
 		assertThat(list.get(0).get("IS_DELETE").toString()).isEqualTo("1");
 	}
 	/**
@@ -308,7 +309,7 @@ public class DeleteContainerModuleTest extends HttpUtil {
 		MetaOper.update(updateSql, dataType);
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 12495324);	
-		request.put("containerId", 1.22);
+		request.put("containerId", 8.22);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为小数" + post);

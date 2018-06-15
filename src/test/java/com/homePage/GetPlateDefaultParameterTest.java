@@ -38,7 +38,7 @@ public class GetPlateDefaultParameterTest extends HttpUtil {
 	@Test
 	public void postGetPlateDefaultParameterTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12495324123");		
+		request.put("userId", 12495321);		
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
@@ -53,7 +53,7 @@ public class GetPlateDefaultParameterTest extends HttpUtil {
 	@Test
 	public void postGetPlateDefaultParameterTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12312312345");		
+		request.put("userId", 123112345);		
 		
 		
 		JSONObject post = super.UNSPost(url, request);

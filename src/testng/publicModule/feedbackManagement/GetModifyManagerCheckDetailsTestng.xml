@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="//获取更换管理员审核详情接口" >
+	<test name="GetModifyManagerCheckDetailsTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.feedbackManagement.GetModifyManagerCheckDetailsTest">
+		      <methods>
+		           <include name="postGetModifyManagerCheckDetailsTestCorrectParameter"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestUserIdNotLoggedIn"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestUserIdIsError"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestUserIdIsString"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestUserIdIsDecimal"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestUserIdIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestUserIdIsSpace"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestUserIdIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestUserIdIsNull"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestUserIdNonSubmissionParameters"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestUserIdIs0"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestUserIdIsLong"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestApplyIdIsError"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestApplyIdIsDecimal"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestApplyIdIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestApplyIdIsString"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestApplyIdIs0"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestApplyIdIsMax"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestApplyIdNonSubmissionParameters"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestApplyIdIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestApplyIdIsSpace"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusIsError"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusIsDecimal"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusIsSpace"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusIsNull"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusIsString"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusNonSubmissionParameters"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusIs0"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusIs1"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusIs2"></include>
+		           <include name="postGetModifyManagerCheckDetailsTestStatusIsMax"></include>
+		         
+		       
+		         
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

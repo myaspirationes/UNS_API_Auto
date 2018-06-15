@@ -24,7 +24,7 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	@Test
 	public void postGetFirstPagePlateContainersListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12495324");				
+		request.put("userId", 12495324);				
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -38,13 +38,13 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12495324123");		
+		request.put("userId", "12495323");		
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
@@ -53,14 +53,14 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 	@Test
 	public void postGetFirstPagePlateContainersListTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12312313");		
+		request.put("userId", "12312");		
 		
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误用户" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -74,8 +74,8 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(400);
+		//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为小数
@@ -88,8 +88,8 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为负数
@@ -102,8 +102,8 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为空格
@@ -117,8 +117,8 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
 	}
 	/**
 	 * 用户ID为空
@@ -132,8 +132,8 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
 	}
 	/**
 	 * 用户ID为null
@@ -146,8 +146,8 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
 	}
 	/**
 	 * 用户ID为0
@@ -161,8 +161,8 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -175,8 +175,8 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
 	}
 	/**
 	 * 用户ID为超长
@@ -189,8 +189,8 @@ public class GetFirstPagePlateContainersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(400);
+		//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	
 	

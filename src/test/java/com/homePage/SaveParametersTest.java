@@ -340,7 +340,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectCarousel,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("5");
 	}
 	/**
 	 * 轮播图播放时间为最大值
@@ -684,7 +684,7 @@ public class SaveParametersTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495324);
 		request.put("carousel", 1);
-		request.put("bigGunCount", 1);
+		//request.put("bigGunCount", 1);
 		request.put("goodsCount", 1);
 		request.put("usedCount", 1);
 		request.put("mixtureHigh", 1);
@@ -1204,7 +1204,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 混合橱窗容器高度为最大值
@@ -1271,7 +1271,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 混合橱窗容器高度为空格
@@ -1294,7 +1294,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 混合橱窗容器高度为null
@@ -1317,7 +1317,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 混合橱窗容器高度不传该参数
@@ -1339,7 +1339,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 达人橱窗高度为小数
@@ -1426,7 +1426,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 达人橱窗高度为最大值
@@ -1493,7 +1493,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 达人橱窗高度为空格
@@ -1516,7 +1516,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 达人橱窗高度为null
@@ -1539,7 +1539,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 达人橱窗高度不传该参数
@@ -1561,7 +1561,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 店铺板块高度为小数
@@ -1648,7 +1648,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 店铺板块高度为最大值
@@ -1714,7 +1714,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 店铺板块高度为空格
@@ -1737,7 +1737,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 店铺板块高度为null
@@ -1760,7 +1760,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 店铺板块高度不传该参数
@@ -1782,7 +1782,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 商品板块高度为小数
@@ -1869,7 +1869,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 商品板块高度为最大值
@@ -1935,7 +1935,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 商品板块高度为空格
@@ -1958,7 +1958,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 商品板块高度不传该参数
@@ -1980,7 +1980,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 二手橱窗高度为小数
@@ -2067,7 +2067,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("0");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 二手橱窗高度为最大值
@@ -2133,7 +2133,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 二手橱窗高度为空格
@@ -2156,7 +2156,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 二手橱窗高度为null
@@ -2179,7 +2179,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 	/**
 	 * 二手橱窗高度不传该参数
@@ -2201,7 +2201,7 @@ public class SaveParametersTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
         list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 
 	/**
