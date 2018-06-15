@@ -2,6 +2,7 @@ package com.publicModule.login;
 
 import com.example.HttpUtil;
 import org.json.JSONObject;
+import org.junit.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -12,9 +13,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GetWorkBenchListTest extends HttpUtil {
 	// 获取待处理工作列表接口
 	String url = "/uu-admin/workBench/workBenchList";
-	BackUserLoginTest login = new BackUserLoginTest();
-	String userId=login.userId;
+	String userId;
 	
+   @BeforeClass
+   public void beforeClass(){
+	   userId = new BackUserLoginTest().userId; 
+   }
 
 	/**
 	 * 提交正确参数

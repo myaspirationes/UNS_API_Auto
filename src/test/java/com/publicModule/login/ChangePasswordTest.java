@@ -14,7 +14,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ChangePasswordTest extends HttpUtil {
-	// 用户登录接口
+	// 修改密码接口
 	String url = "/uu-admin/BackUser/changePassWord";
 	
 	String dataType = "perCenter81";
@@ -638,12 +638,12 @@ public class ChangePasswordTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("oldPassWord", "123456");
-		request.put("newPassWord", "Abcdefg1234567890Abcdefg1234567890Abcdefg1234567890Abcdefg1234567890Abcdefg1234567890");
+		request.put("newPassWord", "asdasdasdasasdasdasdasasdasdasdasasdasdasdasasdasdasdasasdasdasdasasdasdasdas");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("新密码为超长字符" + post);
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数有误");	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");	
 
 		
 	}
