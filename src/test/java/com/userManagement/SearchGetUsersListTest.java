@@ -639,7 +639,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(0);
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 手机号为null
@@ -912,7 +912,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 		request.put("userId", userId);				
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
-		request.put("startTime", "1527747350");
+		request.put("startTime", "1525139662000");
 		request.put("endTime", "2018-05-17");
 		request.put("status", 0);
 		request.put("uid", 12495396);
@@ -925,7 +925,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(0);
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 开始时间传年月日
@@ -1019,7 +1019,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(0);
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 开始时间传空
@@ -1114,7 +1114,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(0);
+		assertThat(body.get("total")).isEqualTo(1);
 	}
 	/**
 	 * 开始时间传年月日最大值
@@ -1261,7 +1261,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 		request.put("nickname", "梦想家Even");
 		request.put("mobile", "17740800827");
 		request.put("startTime", "2018-01-01");
-		request.put("endTime", "1527747350");
+		request.put("endTime", "1526522062000");
 		request.put("status", 0);
 		request.put("uid", 12495396);
 		request.put("pageSize", 2);
@@ -2067,8 +2067,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("app端用户id传小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数非法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * app端用户id传String
@@ -2090,7 +2092,7 @@ public class SearchGetUsersListTest extends HttpUtil {
 		System.out.println("app端用户id传String" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数非法");
+		//assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * app端用户id不传

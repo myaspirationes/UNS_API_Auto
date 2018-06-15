@@ -28,7 +28,7 @@ public class DeletePersonRoleTest extends HttpUtil {
 	public void beforeClass() throws Exception {
 		MetaOper.delete(deleteSql,dataType);
 		userId =new BackUserLoginTest().userId;
-		new CreateAndSetPersonRoleTest().postGetRoleListTestCorrectParameter();
+		new CreateAndSetPersonRoleTest().postCreateAndSetPersonRoleTestCorrectParameter();
 		list = MetaOper.read(selectSql,dataType);
 		roleId = list.get(0).get("ROLE_ID").toString();
 }

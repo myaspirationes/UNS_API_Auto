@@ -45,7 +45,7 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestCorrectParameter() throws Exception {
-		map1.put("lockType", 0);
+		map1.put("lockType", 2);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");	
 		lis.add(map1);
@@ -68,7 +68,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestUserIdNotLoggedIn() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -94,7 +94,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-    ////@Test
+    @Test
 	public void postLockUserTestUserIdIsError() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -116,7 +116,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestUserIdIllegalCharacters() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -137,7 +137,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestUserIdIsDecimal() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -158,7 +158,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestUserIdIsNegativeNumber() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -179,7 +179,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestUserIdIsSpace() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -201,7 +201,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestUserIdIsEmpty() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -222,7 +222,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestUserIdIsNull() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -243,7 +243,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestUserIdIsZero() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -264,7 +264,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID为String
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestUserIdIsString() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -286,7 +286,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestUserIdNonSubmissionParameters() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -306,7 +306,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 用户ID为超长
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestUserIdIsLong() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -326,7 +326,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为小数
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestLockTypeIsDecimal() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 1.23);
@@ -336,7 +336,7 @@ public class LockUserTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
 		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定类型为小数" + post);
@@ -348,7 +348,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为负数
 	 */
-	////@Test
+	@Test
 	public void postLockUserTestLockTypeIsNegativeNumber() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", -1);
@@ -370,7 +370,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为0
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeIsZero() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -398,7 +398,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为1禁止交易
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeIs1() throws Exception {
 		map1.put("lockType", 1);
 		map1.put("lockTime", 1);
@@ -425,7 +425,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为2禁止评论
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeIs2() throws Exception {
 		//MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 2);
@@ -453,7 +453,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为3禁止发动态
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeIs3() throws Exception {
 		
 		map1.put("lockType", 3);
@@ -480,7 +480,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为4禁号
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeIs4() throws Exception {
 		map1.put("lockType", 4);
 		map1.put("lockTime", 1);
@@ -507,7 +507,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为5封号
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeIs5() throws Exception {
 		//MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 5);
@@ -536,7 +536,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为String
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeIsString() throws Exception {
 		map1.put("lockType", "dfdfds");
 		map1.put("lockTime", 1);
@@ -556,7 +556,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为空格
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeIsSpace() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", " ");
@@ -577,7 +577,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为空
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeIsEmpty() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", "");
@@ -600,7 +600,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为null
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeIsNull() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", null);
@@ -623,7 +623,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型为超长
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeIsLong() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 999999999999999999L);
@@ -645,7 +645,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定类型不提交
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTypeNonSubmissionParameters() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockTime", 1);
@@ -667,7 +667,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定时长为错误
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTimeIsError() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -690,7 +690,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定时长为1
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTimeIs1() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -718,7 +718,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定时长为3
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTimeIs3() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -745,7 +745,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定时长为7
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTimeIs7() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -772,7 +772,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定时长为15
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTimeIs15() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -799,7 +799,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定时长为30
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTimeIs30() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -826,7 +826,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定时长为100（永久）
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTimeIs0() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -854,7 +854,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定时长为负数
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTimeIsNegativeNumber() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -876,7 +876,7 @@ public class LockUserTest extends HttpUtil {
 	/**
 	 * 锁定时长为小数
 	 */
-	//@Test
+	@Test
 	public void postLockUserTestLockTimeIsDecimal() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
@@ -1114,7 +1114,7 @@ public class LockUserTest extends HttpUtil {
 	 * 处理意见为非法字符
 	 */
 	@Test
-	public void postLockUserOpinionIsIllegalCharacters() throws Exception {
+	public void postLockUserTestOpinionIsIllegalCharacters() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1186,7 +1186,7 @@ public class LockUserTest extends HttpUtil {
 	 * 处理人姓名为空
 	 */
 	@Test
-	public void postLockOperatorTestUserNameIsEmpty() throws Exception {
+	public void postLockUserTestOperatorNameIsEmpty() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1208,7 +1208,7 @@ public class LockUserTest extends HttpUtil {
 	 * 处理人姓名为空格
 	 */
 	@Test
-	public void postLockOperatorTestUserNameIsSpace() throws Exception {
+	public void postLockUserTestOperatorNameIsSpace() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1230,7 +1230,7 @@ public class LockUserTest extends HttpUtil {
 	 * 处理人姓名为null
 	 */
 	@Test
-	public void postLockOperatorTestUserNameIsNull() throws Exception {
+	public void postLockUserTestOperatorNameIsNull() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1252,7 +1252,7 @@ public class LockUserTest extends HttpUtil {
 	 * 处理人姓名非法字符
 	 */
 	@Test
-	public void postLockOperatorTestUserNameIsIllegalCharacters() throws Exception {
+	public void postLockUserTestOperatorNameIsIllegalCharacters() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1273,7 +1273,7 @@ public class LockUserTest extends HttpUtil {
 	 * 处理人姓名不传
 	 */
 	@Test
-	public void postLockOperatorTestUserNameIsNonSubmissionParameters() throws Exception {
+	public void postLockUserTestOperatorNameIsNonSubmissionParameters() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);

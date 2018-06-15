@@ -42,7 +42,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 用户ID未登录
 	 */
-	//@Test
+	@Test
 	public void postGetManagerParaListTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -349,7 +349,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 查询状态为错误
 	 */
-	//@Test
+	@Test
 	public void postGetManagerParaListTestStatusIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -366,7 +366,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 查询状态为非法字符
 	 */
-	//@Test
+	@Test
 	public void postGetManagerParaListTestStatusIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -401,7 +401,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 查询状态为空格
 	 */
-	//@Test
+	@Test
 	public void postGetManagerParaListTestStatusIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -418,7 +418,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 查询状态为String
 	 */
-	//@Test
+	@Test
 	public void postGetManagerParaListTestStatusIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -468,7 +468,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 查询状态为小数
 	 */
-	//@Test
+	@Test
 	public void postGetManagerParaListTestStatusIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -485,7 +485,7 @@ public class GetManagerParaListTest extends HttpUtil {
 	/**
 	 * 查询状态为负数
 	 */
-	//@Test
+	@Test
 	public void postGetManagerParaListTestStatusIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -528,7 +528,7 @@ public class GetManagerParaListTest extends HttpUtil {
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("查询状态名称为0" + post);
+		System.out.println("查询状态名称为1" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
