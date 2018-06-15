@@ -21,7 +21,7 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -38,7 +38,7 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 1249532412);	
+		request.put("userId", 12495326);	
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
@@ -50,10 +50,10 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12312313);	
+		request.put("userId", 1231231312);	
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误用户" + post);
@@ -64,7 +64,7 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^>");			
@@ -72,13 +72,13 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(400);
+		//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为小数
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 121123.33);
@@ -86,13 +86,13 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为负数
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -121312);	
@@ -100,13 +100,13 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为空格
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");		
@@ -115,13 +115,13 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
 	}
 	/**
 	 * 用户ID为空
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");	
@@ -129,13 +129,13 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
 	}
 	/**
 	 * 用户ID为null
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);	
@@ -143,13 +143,13 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
 	}
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);	
@@ -157,13 +157,13 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为String
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "fsddf");	
@@ -171,26 +171,26 @@ public class GetTheHomePageAllPlateContainersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(400);
+		//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID不传该参数
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();				
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("缺少参数:userId");
 	}
 	/**
 	 * 用户ID为超长
 	 */
-	//@Test
+	@Test
 	public void postGetTheHomePageAllPlateContainersTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", 999999999999999999L);	

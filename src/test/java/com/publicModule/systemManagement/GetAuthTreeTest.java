@@ -40,7 +40,7 @@ public class GetAuthTreeTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	//@Test
+	@Test
 	public void postpostGetAuthTreeTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);

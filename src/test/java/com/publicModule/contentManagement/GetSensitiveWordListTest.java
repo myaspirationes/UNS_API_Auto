@@ -275,7 +275,7 @@ public class GetSensitiveWordListTest extends HttpUtil {
 		System.out.println("关键词为非法字符" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("没有查询到含有该关键字的敏感词");
 	}
 	/**
 	 * 关键词不传该参数

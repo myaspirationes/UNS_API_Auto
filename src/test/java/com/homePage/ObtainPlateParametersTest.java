@@ -38,12 +38,12 @@ public class ObtainPlateParametersTest extends HttpUtil {
 	@Test
 	public void postObtainPlateParametersTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12495324123");		
+		request.put("userId", 12495321);		
 			
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
 	
-		assertThat(post.get("st")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
@@ -52,12 +52,12 @@ public class ObtainPlateParametersTest extends HttpUtil {
 	@Test
 	public void postObtainPlateParametersTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", "12312313");
+		request.put("userId", 123123131);
 						
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误用户" + post);
 
-		assertThat(post.get("st")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
@@ -71,8 +71,8 @@ public class ObtainPlateParametersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
 	
-		assertThat(post.get("st")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(400);
+		//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为小数
@@ -86,8 +86,8 @@ public class ObtainPlateParametersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 		
-		assertThat(post.get("st")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为负数
@@ -100,8 +100,8 @@ public class ObtainPlateParametersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 	
-		assertThat(post.get("st")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为空格
@@ -115,8 +115,8 @@ public class ObtainPlateParametersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
 	
-		assertThat(post.get("st")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为空
@@ -130,8 +130,8 @@ public class ObtainPlateParametersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 	
-		assertThat(post.get("st")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为null
@@ -145,8 +145,8 @@ public class ObtainPlateParametersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 	
-		assertThat(post.get("st")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID为0
@@ -160,8 +160,8 @@ public class ObtainPlateParametersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 	
-		assertThat(post.get("st")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -173,8 +173,8 @@ public class ObtainPlateParametersTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 	
-		assertThat(post.get("st")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	
 	
