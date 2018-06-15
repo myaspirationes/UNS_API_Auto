@@ -105,7 +105,7 @@ public class GetRoleDetailsTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");
+		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
 	}
 	/**
 	 * 用户ID为0
@@ -119,7 +119,7 @@ public class GetRoleDetailsTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");
+		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
 	}
 	/**
 	 * 用户ID为String
@@ -202,7 +202,7 @@ public class GetRoleDetailsTest extends HttpUtil {
 		System.out.println("用户ID为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数错误");
+		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
 	}
 	/**
 	 * 角色id为错误
@@ -215,7 +215,7 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isIn(1,-1);
 		assertThat(post.get("msg")).isEqualTo("id为：999的角色不存在");
 	}
 	/**
@@ -229,7 +229,7 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色id为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isIn(1,-1);
 		assertThat(post.get("msg")).isEqualTo("id为：1的角色不存在");
 	}
 	/**
