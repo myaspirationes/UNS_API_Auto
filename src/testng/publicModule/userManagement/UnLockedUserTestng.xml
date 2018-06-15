@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="解锁用户锁定内容接口" >
+	<test name="UnLockedUserTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.userManagement.UnLockedUserTest">
+		      <methods>
+		       <include name="postGetUserOperateLogTestCorrectParameter"></include>
+		       <include name="postGetUserOperateLogTestUserIdNotLoggedIn"></include>
+		       <include name="postGetUserOperateLogTestUserIdIsError"></include>
+		       <include name="postGetUserOperateLogTestUserIdIllegalCharacters"></include>
+		       <include name="postGetUserOperateLogTestUserIdIsDecimal"></include>
+		       <include name="postGetUserOperateLogTestUserIdIsNegativeNumber"></include>
+		       <include name="postGetUserOperateLogTestUserIdIsZero"></include>
+		       <include name="postGetUserOperateLogTestUserIdIsString"></include>
+		       <include name="postGetUserOperateLogTestUserIdIsSpace"></include>
+		       <include name="postGetUserOperateLogTestUserIdIsEmpty"></include>
+		       <include name="postGetUserOperateLogTestUserIdIsNull"></include>
+		       <include name="postGetUserOperateLogTestUserIdNonSubmissionParameters"></include>
+		       <include name="postGetUserOperateLogTestUserIdIsLong"></include>
+		       <include name="postGetUserOperateLogTestOperatorIdIsLong"></include>
+		       <include name="postGetUserOperateLogTestOperatorIdIllegalCharacters"></include>
+		       <include name="postGetUserOperateLogTestOperatorIdIsError"></include>
+		       <include name="postGetUserOperateLogTestOperatorIdIsEmpty"></include>
+		       <include name="postGetUserOperateLogTestOperatorIdIsSpace"></include>
+		       <include name="postGetUserOperateLogTestOperatorIdIsString"></include>
+		       <include name="postGetUserOperateLogTestOperatorINull"></include>
+		       <include name="postGetUserOperateLogTestOperatorIdNonSubmissionParameters"></include>
+		       <include name="postGetUserOperateLogTestOperatorIdIsDecimal"></include>
+		       <include name="postGetUserOperateLogTestOperatorIdIsNegativeNumber"></include>
+		       <include name="postGetUserOperateLogTestOperatorIdIsZero"></include>
+		       <include name="postGetUserOperateLogTestLockIdIsError"></include>
+		       <include name="postGetUserOperateLogTestLockIdIsEmpty"></include>
+		       <include name="postGetUserOperateLogTestLockIdIsSpace"></include>
+		       <include name="postGetUserOperateLogTestLockIdIsZero"></include>
+		       <include name="postGetUserOperateLogTestLockIdIsDecimal"></include>
+		       <include name="postGetUserOperateLogTestLockIdIsNegativeNumber"></include>
+		       <include name="postGetUserOperateLogTestLockIdIsString"></include>
+		       <include name="postGetUserOperateLogTestLockIdIsNull"></include>
+		       <include name="postGetUserOperateLogTestLockIdIllegalCharacters"></include>
+		       <include name="postGetUserOperateLogTestLockIdIsLong"></include>
+		       <include name="postGetUserOperateLogTestLockIdNonSubmissionParameters"></include>
+		       
+		      
+		       
+		       
+		       
+		         
+	
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

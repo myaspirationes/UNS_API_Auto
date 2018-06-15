@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="//获取用户认证详情接口" >
+<suite name="获取用户认证详情接口" >
 	<test name="GetUserAuthDetailsTest" >
 		<classes>
 		  
 		   <class name="com.publicModule.userManagement.GetUserAuthDetailsTest">
 		      <methods>
-		       
+		       <include name="postGetUserAuthDetailsTestCorrectParameter"></include>
+		       <include name="postGetUserAuthDetailsTestUserIdNotLoggedIn"></include>
+		       <include name="postGetUserAuthDetailsTestUserIdIsError"></include>
+		       <include name="postGetUserAuthDetailsTestUserIdIllegalCharacters"></include>
+		       <include name="postGetUserAuthDetailsTestUserIdIsDecimal"></include>
+		       <include name="postGetUserAuthDetailsTestUserIdIsNegativeNumber"></include>
+		       <include name="postGetUserAuthDetailsTestUserIdIsSpace"></include>
+		       <include name="postGetUserAuthDetailsTestUserIdIsEmpty"></include>
+		       <include name="postGetUserAuthDetailsTestUserIdIsNull"></include>
+		       <include name="postGetUserAuthDetailsTestUserIdIsZero"></include>
+		       <include name="postGetUserAuthDetailsTestUserIdIsString"></include>
+		       <include name="postGetUserAuthDetailsTestUserIdNonSubmissionParameters"></include>
+		       <include name="postGetUserAuthDetailsTestUidIsError"></include>
+		       <include name="postGetUserAuthDetailsTestUidIsLong"></include>
+		       <include name="postGetUserAuthDetailsTestUidIsEmpty"></include>
+		       <include name="postGetUserAuthDetailsTestUidIsIllegalCharacters"></include>
+		       <include name="postGetUserAuthDetailsTestUidIsDecimal"></include>
+		       <include name="postGetUserAuthDetailsTestUidIsNegativeNumber"></include>
+		       <include name="postGetUserAuthDetailsTestUidIsSpace"></include>
+		       <include name="postGetUserAuthDetailsTestUidIsNull"></include>
+		       <include name="postGetUserAuthDetailsTestUidIsString"></include>
+		       <include name="postGetUserAuthDetailsTestUidNonSubmissionParameters"></include>
 		         
-		          
-		         
-		          
-		         
-		       
-		         
+	
 		           
 		          <!-- <exclude name=""></exclude>-->
 		      </methods>
