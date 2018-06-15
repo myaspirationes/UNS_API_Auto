@@ -763,8 +763,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录名称为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户登录名称为非法字符
@@ -1140,7 +1140,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("status", 0);
 		request.put("roles", "10000003");
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("email地址为空" + post);
+		System.out.println("email地址为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
