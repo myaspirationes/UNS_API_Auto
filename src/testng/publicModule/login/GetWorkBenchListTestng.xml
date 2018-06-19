@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="//获取待处理工作列表接口" >
+	<test name="GetWorkBenchListTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.login.GetWorkBenchListTest">
+		      <methods>
+		          <include name="postGetWorkBenchListTestCorrectParameter"></include>
+		          <include name="postGetWorkBenchListTestBackUserIdNotLoggedIn"></include>
+		          <include name="postGetWorkBenchListTestUserIdIsNotBack"></include>
+		          <include name="postGetWorkBenchListTestUserIdIsError"></include>
+		          <include name="postGetWorkBenchListTestUserIdIllegalCharacters"></include>
+		          <include name="postGetWorkBenchListTestUserIdIsDecimal"></include>
+		          <include name="postGetWorkBenchListTestUserIdIsNegativeNumber"></include>
+		          <include name="postGetWorkBenchListTestUserIdIsSpace"></include>
+		          <include name="postGetWorkBenchListTestUserIdIsEmpty"></include>
+		          <include name="postGetWorkBenchListTestUserIdIsNull"></include>
+		          <include name="postGetWorkBenchListTestUserIdIsZero"></include>
+		          <include name="postGetWorkBenchListTestUserIdNonSubmissionParameters"></include>
+		        
+		         
+		          
+		         
+		          
+		         
+		       
+		         
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取角色详情接口" >
+	<test name="GetRoleDetailsTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.systemManagement.GetRoleDetailsTest">
+		      <methods>
+		       <include name="postGetRoleDetailsTestCorrectParameter"></include>
+		       <include name="postGetRoleDetailsTestUserIdNotLoggedIn"></include>
+		       <include name="postGetRoleDetailsTestUserIdIsError"></include>
+		       <include name="postGetRoleDetailsTestUserIdIllegalCharacters"></include>
+		       <include name="postGetRoleDetailsTestUserIdIsDecimal"></include>
+		       <include name="postGetRoleDetailsTestUserIdIsNegativeNumber"></include>
+		       <include name="postGetRoleDetailsTestUserIdIsZero"></include>
+		       <include name="postGetRoleDetailsTestUserIdIsString"></include>
+		       
+		       <include name="postGetRoleDetailsTestUserIdIsSpace"></include>
+		       <include name="postGetRoleDetailsTestUserIdIsEmpty"></include>
+		       <include name="postGetRoleDetailsTestUserIdIsNull"></include>
+		       <include name="postGetRoleDetailsTestUserIdNonSubmissionParameters"></include>
+		       <include name="postGetRoleDetailsTestUserIdIsLong"></include>
+		       <include name="postGetRoleDetailsTestroleIdIsError"></include>
+		       <include name="postGetRoleDetailsTestroleIdIsDecimal"></include>
+		       <include name="postGetRoleDetailsTestroleIdIsNegativeNumber"></include>
+		       
+		       <include name="postGetRoleDetailsTestroleIdIsIllegalCharacters"></include>
+		       <include name="postGetRoleDetailsTestroleIdIsEmpty"></include>
+		       <include name="postGetRoleDetailsTestroleIdIsSpace"></include>
+		       <include name="postGetRoleDetailsTestroleIdIsString"></include>
+		       <include name="postGetRoleDetailsTestroleIdNonSubmissionParameters"></include>
+		       <include name="postGetRoleDetailsTestroleIdIsZero"></include>
+		       
+		       
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

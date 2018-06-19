@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="搜索获取用户列表接口" >
+	<test name="SearchGetUsersListTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.userManagement.SearchGetUsersListTest">
+		      <methods>
+		       <include name="postSearchGetUsersListTestCorrectParameter"></include>
+		       <include name="postSearchGetUsersListTestUserIdNotLoggedIn"></include>
+		       <include name="postSearchGetUsersListTestUserIdIsError"></include>
+		       <include name="postSearchGetUsersListTestUserIdIllegalCharacters"></include>
+		       <include name="postSearchGetUsersListTestUserIdIsDecimal"></include>
+		       <include name="postSearchGetUsersListTestUserIdIsNegativeNumber"></include>
+		       <include name="postSearchGetUsersListTestUserIdIsSpace"></include>
+		       <include name="postSearchGetUsersListTestUserIdIsEmpty"></include>
+		       <include name="postSearchGetUsersListTestUserIdIsNull"></include>
+		       <include name="postSearchGetUsersListTestUserIdIsZero"></include>
+		       <include name="postSearchGetUsersListTestUserIdIsString"></include>
+		       <include name="postSearchGetUsersListTestUserIdNonSubmissionParameters"></include>
+		       <include name="postSearchGetUsersListTestUserIdIsLong"></include>
+		       <include name="postSearchGetUsersListTestNickNameIsLong"></include>
+		       <include name="postSearchGetUsersListTestNickNameIsEmpty"></include>
+		       <include name="postSearchGetUsersListTestNickNameIsSpace"></include>
+		       <include name="postSearchGetUsersListTestNickNameIsNull"></include>
+		       <include name="postSearchGetUsersListTestNickNameNonSubmissionParameters"></include>
+		       <include name="postSearchGetUsersListTestMobileIsOver11"></include>
+		       <include name="postSearchGetUsersListTestMobileIsLeast11"></include>
+		       <include name="postSearchGetUsersListTestMobileIsAreaCodePlusSolid"></include>
+		       <include name="postSearchGetUsersListTestMobileBeforeAdd86"></include>
+		       <include name="postSearchGetUsersListTestMobileBeforeAdd00"></include>
+		       <include name="postSearchGetUsersListTestMobileBeforeAdd17951"></include>
+		       <include name="postSearchGetUsersListTestMobileIsIllegalCharacters"></include>
+		       <include name="postSearchGetUsersListTestMobileIsZero"></include>
+		       <include name="postSearchGetUsersListTestMobileIsNull"></include>
+		       <include name="postSearchGetUsersListTestMobileIsEmpty"></include>
+		       <include name="postSearchGetUsersListTestMobileIsSpace"></include>
+		       <include name="postSearchGetUsersListTestMobileIsDecimal"></include>
+		       <include name="postSearchGetUsersListTestMobileIsNegativeNumber"></include>
+		       <include name="postSearchGetUsersListTestMobileIsStartNon1"></include>
+		       <include name="postSearchGetUsersListTestMobileIsFormat344"></include>
+		       <include name="postSearchGetUsersListTestMobileNonSubmissionParameters"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsErrorFormat"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsLeastEndTime"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsMoreEndTime"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsTimeStamp"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsYearMonthDay"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsHourMinSec"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsSpace"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsNumber"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsEmpty"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsNull"></include>
+		       <include name="postSearchGetUsersListTestStartTimeNonSubmissionParameters"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsNegativeNumber"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsYearMonthDayMax"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsYearMonthDayMin"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsHourMinSecMax"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsHourMinSecMin"></include>
+		       <include name="postSearchGetUsersListTestStartTimeIsYearMonthDayHourMinSec"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsErrorFormat"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsTimeStamp"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsYearMonthDay"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsHourMinSec"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsSpace"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsNumber"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsEmpty"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsNull"></include>
+		       <include name="postSearchGetUsersListTestEndTimeNonSubmissionParameters"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsNegativeNumber"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsDecimal"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsYearMonDayMax"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsHourMinSecMax"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsHourMinSecLeast"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsYearMonDayLeast"></include>
+		       <include name="postSearchGetUsersListTestEndTimeIsYearMonDayHourMinSec"></include>
+		       <include name="postSearchGetUsersListTestStatusIsZero"></include>
+		       <include name="postSearchGetUsersListTestStatusIsOne"></include>
+		       <include name="postSearchGetUsersListTestStatusIsTwo"></include>
+		       <include name="postSearchGetUsersListTestStatusIsError"></include>
+		       <include name="postSearchGetUsersListTestStatusIsNegativeNumber"></include>
+		       <include name="postSearchGetUsersListTestStatusIsDecimal"></include>
+		       <include name="postSearchGetUsersListTestStatusIsSpace"></include>
+		       <include name="postSearchGetUsersListTestStatusIsEmpty"></include>
+		       <include name="postSearchGetUsersListTestStatusIsNull"></include>
+		       <include name="postSearchGetUsersListTestStatusIsString"></include>
+		       <include name="postSearchGetUsersListTestStatusIsMax"></include>
+		       <include name="postSearchGetUsersListTestStatusNonSubmissionParameters"></include>
+		       <include name="postSearchGetUsersListTestUidIsError"></include>
+		       <include name="postSearchGetUsersListTestUidIsLong"></include>
+		       <include name="postSearchGetUsersListTestUidIsEmpty"></include>
+		       <include name="postSearchGetUsersListTestUidIsSpace"></include>
+		       <include name="postSearchGetUsersListTestUidIsNull"></include>
+		       <include name="postSearchGetUsersListTestUidIsZero"></include>
+		       <include name="postSearchGetUsersListTestUidIsNegativeNumber"></include>
+		       <include name="postSearchGetUsersListTestUidIsDecimal"></include>
+		       <include name="postSearchGetUsersListTestUidIsString"></include>
+		       <include name="postSearchGetUsersListTestUidNonSubmissionParameters"></include>
+		       <include name="postSearchGetUsersListTestPageSizeIsLong"></include>
+		       <include name="postSearchGetUsersListTestPageSizeIsZero"></include>
+		       <include name="postSearchGetUsersListTestPageSizeIsString"></include>
+		       <include name="postSearchGetUsersListTestPageSizeIsEmpty"></include>
+		       <include name="postSearchGetUsersListTestPageSizeIsSpace"></include>
+		       <include name="postSearchGetUsersListTestPageSizeIsNull"></include>
+		       <include name="postSearchGetUsersListTestPageSizeIsNegativeNumber"></include>
+		       <include name="postSearchGetUsersListTestPageSizeIsDecimal"></include>
+		       <include name="postSearchGetUsersListTestPageSizeNonSubmissionParameters"></include>
+		       <include name="postSearchGetUsersListTestPageNowIsEmpty"></include>
+		       <include name="postSearchGetUsersListTestPageNowIsSpace"></include>
+		       <include name="postSearchGetUsersListTestPageNowIsNull"></include>
+		       <include name="postSearchGetUsersListTestPageNowIsDecimal"></include>
+		       <include name="postSearchGetUsersListTestPageNowIsZero"></include>
+		       <include name="postSearchGetUsersListTestPageNowNonSubmissionParameters"></include>
+		      
+		       
+		       
+		       
+		         
+	
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

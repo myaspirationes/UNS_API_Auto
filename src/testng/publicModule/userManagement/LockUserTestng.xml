@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="锁定用户接口" >
+	<test name="LockUserTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.userManagement.LockUserTest">
+		      <methods>
+		       <include name="postLockUserTestCorrectParameter"></include>
+		       <include name="postLockUserTestUserIdNotLoggedIn"></include>
+		       <include name="postLockUserTestUserIdIsError"></include>
+		       <include name="postLockUserTestUserIdIllegalCharacters"></include>
+		       <include name="postLockUserTestUserIdIsDecimal"></include>
+		       <include name="postLockUserTestUserIdIsNegativeNumber"></include>
+		       <include name="postLockUserTestUserIdIsSpace"></include>
+		       <include name="postLockUserTestUserIdIsEmpty"></include>
+		       <include name="postLockUserTestUserIdIsNull"></include>
+		       <include name="postLockUserTestUserIdIsZero"></include>
+		       <include name="postLockUserTestUserIdIsString"></include>
+		       <include name="postLockUserTestUserIdNonSubmissionParameters"></include>
+		       <include name="postLockUserTestUserIdIsLong"></include>
+		       <include name="postLockUserTestLockTypeIsDecimal"></include>
+		       <include name="postLockUserTestLockTypeIsNegativeNumber"></include>
+		       <include name="postLockUserTestLockTypeIsZero"></include>
+		       <include name="postLockUserTestLockTypeIs1"></include>
+		       <include name="postLockUserTestLockTypeIs2"></include>
+		       <include name="postLockUserTestLockTypeIs3"></include>
+		       <include name="postLockUserTestLockTypeIs4"></include>
+		       <include name="postLockUserTestLockTypeIs5"></include>
+		       <include name="postLockUserTestLockTypeIsString"></include>
+		       <include name="postLockUserTestLockTypeIsSpace"></include>
+		       <include name="postLockUserTestLockTypeIsEmpty"></include>
+		       <include name="postLockUserTestLockTypeIsNull"></include>
+		       <include name="postLockUserTestLockTypeIsLong"></include>
+		       <include name="postLockUserTestLockTypeNonSubmissionParameters"></include>
+		       <include name="postLockUserTestLockTimeIsError"></include>
+		       <include name="postLockUserTestLockTimeIs1"></include>
+		       <include name="postLockUserTestLockTimeIs3"></include>
+		       <include name="postLockUserTestLockTimeIs7"></include>
+		       <include name="postLockUserTestLockTimeIs15"></include>
+		       <include name="postLockUserTestLockTimeIs30"></include>
+		       <include name="postLockUserTestLockTimeIs0"></include>
+		       <include name="postLockUserTestLockTimeIsNegativeNumber"></include>
+		       <include name="postLockUserTestLockTimeIsDecimal"></include>
+		       <include name="postLockUserTestLockTimeIsSpace"></include>
+		       <include name="postLockUserTestLockTimeIsNull"></include>
+		       <include name="postLockUserTestLockTimeIsString"></include>
+		       <include name="postLockUserTestLockTimeIsLong"></include>
+		       <include name="postLockUserTestLockTimeNonSubmissionParameters"></include>
+		       <include name="postLockUserTesTOpinionIsLong"></include>
+		       <include name="postLockUserTestOpinionIsEmpty"></include>
+		       <include name="postLockUserTestOpinionIsNull"></include>
+		       <include name="postLockUserTestOpinionIsSpace"></include>
+		       <include name="postLockUserTestOpinionIsIllegalCharacters"></include>
+		       <include name="postLockUserTestOpinionNonSubmissionParameters"></include>
+		       <include name="postLockUserTestOperatorNameIsError"></include>
+		       <include name="postLockUserTestOperatorNameIsEmpty"></include>
+		       <include name="postLockUserTestOperatorNameIsSpace"></include>
+		       <include name="postLockUserTestOperatorNameIsNull"></include>
+		       <include name="postLockUserTestOperatorNameIsIllegalCharacters"></include>
+		       <include name="postLockUserTestOperatorNameIsNonSubmissionParameters"></include>
+		       
+		       
+		       
+		         
+	
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

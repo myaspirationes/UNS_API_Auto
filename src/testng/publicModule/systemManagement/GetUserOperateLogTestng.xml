@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="搜索获取日志列表接口" >
+	<test name="GetUserOperateLogTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.systemManagement.GetUserOperateLogTest">
+		      <methods>
+		       <include name="postGetUserOperateLogTestCorrectParameter"></include>
+		       <include name="postGetUserOperateLogTestPageSizeIsZero"></include>
+		       <include name="postGetUserOperateLogTestPageSizeIsDecimal"></include>
+		       <include name="postGetUserOperateLogTestPageSizeIllegalCharacters"></include>
+		       <include name="postGetUserOperateLogTestPageSizeIsNegativeNumber"></include>
+		       <include name="postGetUserOperateLogTestPageSizeIsString"></include>
+		       <include name="postGetUserOperateLogTestPageSizeIsSpace"></include>
+		       <include name="postGetUserOperateLogTestPageSizeIsEmpty"></include>
+		       <include name="postGetUserOperateLogTestPageSizeIsNull"></include>
+		       <include name="postGetUserOperateLogTestPageSizeNonSubmissionParameters"></include>
+		       <include name="postGetUserOperateLogTestPageNowIsZero"></include>
+		       <include name="postGetUserOperateLogTestPageNowIsNegativeNumber"></include>
+		       <include name="postGetUserOperateLogTestPageNowIsDecimal"></include>
+		       <include name="postGetUserOperateLogTestPageNowIsString"></include>
+		       <include name="postGetUserOperateLogTestPageNowIsEmpty"></include>
+		       <include name="postGetUserOperateLogTestPageNowIsSpace"></include>
+		       <include name="postGetUserOperateLogTestPageNowIsNull"></include>
+		       <include name="postGetUserOperateLogTestPageNowIsMax"></include>
+		       <include name="postGetUserOperateLogTestPageNowNonSubmissionParameters"></include>
+		       <include name="postGetUserOperateLogTestCategoryIsDecimal"></include>
+		       <include name="postGetUserOperateLogTestCategoryIsNegativeNumber"></include>
+		       <include name="postGetUserOperateLogTestCategoryIsString"></include>
+		       <include name="postGetUserOperateLogTestCategoryIsEmpty"></include>
+		       <include name="postGetUserOperateLogTestCategoryIsSpace"></include>
+		       <include name="postGetUserOperateLogTestCategoryIsNull"></include>
+		       <include name="postGetUserOperateLogTestCategoryIsZero"></include>
+		       <include name="postGetUserOperateLogTestCategoryIsOne"></include>
+		       <include name="postGetUserOperateLogTestCategoryIsNegative"></include>
+		       <include name="postGetUserOperateLogTestCategoryNonSubmissionParameters"></include>
+		       <include name="postGetUserOperateLogTestuserNameNotLoggedIn"></include>
+		       <include name="postGetUserOperateLogTestuserNameIsError"></include>
+		       <include name="postGetUserOperateLogTestuserNameIsEmpty"></include>
+		       <include name="postGetUserOperateLogTestuserNameIsSpace"></include>
+		       <include name="postGetUserOperateLogTestuserNameIsNull"></include>
+		       <include name="postGetUserOperateLogTestuserNameIllegalCharacters"></include>
+		       <include name="postGetUserOperateLogTestuserNameIsZero"></include>
+		       <include name="postGetUserOperateLogTestuserNameIsDecimal"></include>
+		       <include name="postGetUserOperateLogTestuserNameIsNegativeNumber"></include>
+		       <include name="postGetUserOperateLogTestuserNameNonSubmissionParameters"></include>
+		       <include name="postGetUserOperateLogTestRealNameIsError"></include>
+		       <include name="postGetUserOperateLogTestRealNameIsEmpty"></include>
+		       <include name="postGetUserOperateLogTestRealNameIsSpace"></include>
+		       <include name="postGetUserOperateLogTestRealNameIsZero"></include>
+		       <include name="postGetUserOperateLogTestRealNameIsDecimal"></include>
+		       <include name="postGetUserOperateLogTestRealNameIsNegativeNumber"></include>
+		       <include name="postGetUserOperateLogTestRealNameIsNull"></include>
+		       <include name="postGetUserOperateLogTestRealNameIllegalCharacters"></include>
+		       <include name="postGetUserOperateLogTestRealNameIsLong"></include>
+		       <include name="postGetUserOperateLogTestRealNameNonSubmissionParameters"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeIsError"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeGreaterThanOperateEndTime"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeIsTimeStamp"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeIsYYYYMMDD"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeIsHHMMSS"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeIsSpace"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeRemoveTheFormat"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeIsEmpty"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeIsNull"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeIsNegativeNumber"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeYMDIsMax"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeIsMin"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeHMSIsMax"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeHMSIsMin"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeIsYMDHMS"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeNonSubmissionParameters"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeIsLeapYear"></include>
+		       <include name="postGetUserOperateLogTestOperateStartTimeNonLeapYear"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeIsError"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeIsTimeStamp"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeIsYYYYMMDD"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeIsHHMMSS"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeIsSpace"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeRemoveTheFormat"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeIsEmpty"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeIsNull"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeIsNegativeNumber"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeYMDIsMax"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeIsMin"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeHMSIsMax"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeHMSIsMin"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeIsYMDHMS"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeNonSubmissionParameters"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeIsLeapYear"></include>
+		       <include name="postGetUserOperateLogTestOperateEndTimeNonLeapYear"></include>
+		       
+		       
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

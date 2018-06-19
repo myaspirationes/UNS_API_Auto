@@ -21,7 +21,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -37,7 +37,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 1249532423);				
@@ -54,7 +54,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID为错误用户
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 1249532466);				
@@ -70,7 +70,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID为非法字符
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<@$%&*>");				
@@ -86,7 +86,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID为小数
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -12.3);				
@@ -102,7 +102,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID为负数
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -121312);				
@@ -118,7 +118,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID为空格
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");					
@@ -135,7 +135,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID为空
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");				
@@ -152,7 +152,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID为null
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);		
@@ -168,7 +168,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);			
@@ -185,7 +185,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID为String
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "dfdsf");			
@@ -202,7 +202,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID为超长
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "1111111111111111111111111");			
@@ -219,7 +219,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 用户ID不传该参数
 	 */
-	////@Test
+	//@Test
 	public void postJoinHomePageTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("type", 2);
@@ -235,7 +235,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为错误
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestType() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -251,7 +251,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为超长
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestTypeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -267,7 +267,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为String
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestTypeIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -283,7 +283,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为非法字符
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestTypeIsIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -299,7 +299,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为空
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -315,7 +315,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为空格
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -331,7 +331,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为0
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestTypeIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -347,7 +347,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为负数
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestTypeIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -363,7 +363,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为小数
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestTypeIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -379,7 +379,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为null
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -395,7 +395,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为1用户
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestTypeIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -411,7 +411,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为2商铺
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestTypeIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -427,7 +427,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type为3商品
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTesttypeIs3() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -443,7 +443,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 类型type不传该参数
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTesttypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -459,7 +459,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 容器ID为错误
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestContainerIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -475,7 +475,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 容器ID超长
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestContainerIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -491,7 +491,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 容器ID为空
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestContainerIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -507,7 +507,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 容器ID存在非法字符
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestContainerIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -523,7 +523,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 容器ID为小数
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestContainerIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -539,7 +539,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 容器ID为负数
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestContainerIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -555,7 +555,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 容器ID为空格
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestContainerIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -571,7 +571,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 容器ID为null
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestContainerIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -587,7 +587,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 容器ID为String
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestContainerIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				
@@ -603,7 +603,7 @@ public class JoinHomePageTest extends HttpUtil {
 	/**
 	 * 容器ID不传该参数
 	 */
-	//@Test
+	@Test
 	public void postJoinHomePageTestContainerIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495324);				

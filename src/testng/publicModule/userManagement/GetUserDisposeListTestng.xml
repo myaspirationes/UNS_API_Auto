@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取用户处理信息列表接口" >
+	<test name="GetUserDisposeListTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.userManagement.GetUserDisposeListTest">
+		      <methods>
+		       <include name="postGetUserDisposeListTestCorrectParameter"></include>
+		       <include name="postGetUserDisposeListTestUserIdNotLoggedIn"></include>
+		       <include name="postGetUserDisposeListTestUserIdIsError"></include>
+		       <include name="postGetUserDisposeListTestUserIdIllegalCharacters"></include>
+		       <include name="postGetUserDisposeListTestUserIdIsDecimal"></include>
+		       <include name="postGetUserDisposeListTestUserIdIsNegativeNumber"></include>
+		       <include name="postGetUserDisposeListTestUserIdIsSpace"></include>
+		       <include name="postGetUserDisposeListTestUserIdIsEmpty"></include>
+		       <include name="postGetUserDisposeListTestUserIdIsNull"></include>
+		       <include name="postGetUserDisposeListTestUserIdIsZero"></include>
+		       <include name="postGetUserDisposeListTestUserIdIsString"></include>
+		       <include name="postGetUserDisposeListTestUserIdNonSubmissionParameters"></include>
+		       <include name="postGetUserDisposeListTestUserIdIsLong"></include>
+		       
+		       
+		         
+	
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

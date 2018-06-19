@@ -45,7 +45,7 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "2.2.2");
-		head.put("cmd", "4893");
+		head.put("cmd", "4892");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -73,7 +73,7 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "4893");
+		head.put("cmd", "4892");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -101,7 +101,7 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "4893");
+		head.put("cmd", "4892");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -129,7 +129,7 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "4893");
+		head.put("cmd", "4892");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -157,7 +157,7 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "4893");
+		head.put("cmd", "4892");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -185,7 +185,7 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "4893");
+		head.put("cmd", "4892");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -213,7 +213,7 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "4893");
+		head.put("cmd", "4892");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -241,7 +241,7 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "4893");
+		head.put("cmd", "4892");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -269,7 +269,7 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "4893");
+		head.put("cmd", "4892");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -296,7 +296,7 @@ public class HomePageConfigurationParameterTest extends HttpUtil {
 
 		Map<String, Object> head = new HashMap<String, Object>();
 		head.put("ver", "1.2.1");
-		head.put("cmd", "4893");
+		head.put("cmd", "4892");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
