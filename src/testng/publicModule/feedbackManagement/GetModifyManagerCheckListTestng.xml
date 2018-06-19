@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="//获取更换管理员审核列表接口" >
+	<test name="GetModifyManagerCheckListTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.feedbackManagement.GetModifyManagerCheckListTest">
+		      <methods>
+		           <include name="postGetModifyManagerCheckListTestCorrectParameter"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusIsError"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusIsDecimal"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusIsString"></include>
+		           <include name="postGetModifyManagerCheckListTeststatusIsSpace"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusIsNull"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusIsLong"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusNonSubmissionParameters"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusIs0"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusIs1"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusIs2"></include>
+		           <include name="postGetModifyManagerCheckListTestStatusIs3"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileIsError"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileIsLong"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileNumberIsLess11"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileIsBeforeAdd00"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileBeforeAdd86"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileIsTelephone"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileIsDecimal"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileIsIllegalCharacters"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileIsNull"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileIsSpace"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileNonSubmissionParameters"></include>
+		           <include name="postGetModifyManagerCheckListTestMobileIsMoreApplyEndDate"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsErrorFormat"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsLessApplyEndDate"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsTimeStamp"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDay"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsHourMinSec"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsSpace"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsNull"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayMax"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayLeast"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsHourMinSecMax"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsHourMinSecLeast"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateIsYearMonthDayHourMinSec"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyStartDateNonSubmissionParameters"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsErrorFormat"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsTimeStamp"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDay"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsHourMinSec"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsSpace"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsNull"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayMax"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayLeast"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsHourMinSecMax"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsHourMinSecLeast"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsYearMonthDayHourMinSec"></include>
+		           <include name="postGetModifyManagerCheckListTestApplyEndDateIsNonSubmissionParameters"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsErrorFormat"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsLessAuditEndDate"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsMoreAuditEndDate"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsLessApplyEndDate"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsTimeStamp"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDay"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsHourMinSec"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayMax"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayLeast"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsHourMinSecMax"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsHourMinSecLeast"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsSpace"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsNull"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateIsYearMonthDayHourMinSec"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditStartDateNonSubmissionParameters"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsErrorFormat"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDay"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsHourMinSec"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayMax"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayLeast"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsTimeStamp"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsHourMinSecMax"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsHourMinSecLeast"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsSpace"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsNull"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsYearMonthDayHourMinSec"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsString"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsLessAuditStartDate"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateIsLessApplyStartDate"></include>
+		           <include name="postGetModifyManagerCheckListTestAuditEndDateNonSubmissionParameters"></include>
+		           <include name="postGetModifyManagerCheckListTestPageNoIs0"></include>
+		           <include name="postGetModifyManagerCheckListTestPageNoIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestPageNoIsDecimal"></include>
+		           <include name="postGetModifyManagerCheckListTestPageNoIsString"></include>
+		           <include name="postGetModifyManagerCheckListTestPageNoIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckListTestPageNoIsSpace"></include>
+		           <include name="postGetModifyManagerCheckListTestPageNoIsNull"></include>
+		           <include name="postGetModifyManagerCheckListTestPageNoIsMax"></include>
+		           <include name="postGetModifyManagerCheckListTestPageNoNonSubmissionParameters"></include>
+		           <include name="postGetModifyManagerCheckListTestPageSizeIs0"></include>
+		           <include name="postGetModifyManagerCheckListTestPageSizeIsDecimal"></include>
+		           <include name="postGetModifyManagerCheckListTestPageSizeIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestPageSizeIsString"></include>
+		           <include name="postGetModifyManagerCheckListTestPageSizeIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckListTestPageSizeIsSpace"></include>
+		           <include name="postGetModifyManagerCheckListTestPageSizeIsNull"></include>
+		           <include name="postGetModifyManagerCheckListTestPageSizeNonSubmissionParameters"></include>
+		           <include name="postGetModifyManagerCheckListTestPageSizeIsMax"></include>
+		           <include name="postGetModifyManagerCheckListTestUserIdIsNegativeNumber"></include>
+		           <include name="postGetModifyManagerCheckListTestUserIdIsDecimal"></include>
+		           <include name="postGetModifyManagerCheckListTestUserIdIsString"></include>
+		           <include name="postGetModifyManagerCheckListTestUserIdIsEmpty"></include>
+		           <include name="postGetModifyManagerCheckListTestUserIdIsSpace"></include>
+		           <include name="postGetModifyManagerCheckListTestUserIdIsnull"></include>
+		           <include name="postGetModifyManagerCheckListTestUserIdIsLong"></include>
+		           <include name="postGetModifyManagerCheckListTestUserIdNonSubmissionParameters"></include>
+		          
+		         
+		       
+		         
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

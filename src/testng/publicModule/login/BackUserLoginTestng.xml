@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="//用户登录接口" >
+	<test name="BackUserLoginTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.login.BackUserLoginTest">
+		      <methods>
+		          <include name="postBackUserLoginTestCorrectParameter"></include>
+		          <include name="postBackUserLoginTestNotBackUser"></include>
+		          <include name="postBackUserLoginTestUserNameIsError"></include>
+		          <include name="postBackUserLoginTestUserNameIllegalCharacters"></include>
+		          <include name="postBackUserLoginTestUserNameIsLong"></include>
+		          <include name="postBackUserLoginTestUserNameIsNull"></include>
+		          <include name="postBackUserLoginTestUserNameIsSpace"></include>
+		          <include name="postBackUserLoginTestUserNameIsEmpty"></include>
+		          <include name="postBackUserLoginTestUserNameUncommitted"></include>
+		          <include name="postBackUserLoginTestUserNameIsIntType"></include>
+		          <include name="postBackUserLoginTestPasswordIsError"></include>
+		          <include name="postBackUserLoginTestPasswordIllegalCharacters"></include>
+		          <include name="postBackUserLoginTestPasswordIsLong"></include>
+		          <include name="postBackUserLoginTestPasswordIsNull"></include>
+		          <include name="postBackUserLoginTestPasswordIsSpace"></include>
+		          <include name="postBackUserLoginTestPasswordIsEmpty"></include>
+		          <include name="postBackUserLoginTestPasswordUncommitted"></include>
+		          
+		         
+		          
+		         
+		       
+		         
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

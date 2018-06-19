@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="添加/编辑角色接口" >
+	<test name="CreateAndSetPersonRoleTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.systemManagement.CreateAndSetPersonRoleTest">
+		      <methods>
+		       <include name="postCreateAndSetPersonRoleTestCorrectParameter"></include>
+		       <include name="postCreateAndSetPersonRoleTestUserIdNotLoggedIn"></include>
+		       <include name="postCreateAndSetPersonRoleTestUserIdIsError"></include>
+		       <include name="postCreateAndSetPersonRoleTestUserIdIllegalCharacters"></include>
+		       <include name="postCreateAndSetPersonRoleTestUserIdIsDecimal"></include>
+		       
+		       <include name="postCreateAndSetPersonRoleTestUserIdIsNegativeNumber"></include>
+		       <include name="postCreateAndSetPersonRoleTestUserIdIsZero"></include>
+		       <include name="postCreateAndSetPersonRoleTestUserIdIsString"></include>
+		       <include name="postCreateAndSetPersonRoleTestUserIdIsSpace"></include>
+		       <include name="postCreateAndSetPersonRoleTestUserIdIsEmpty"></include>
+		       
+		       <include name="postCreateAndSetPersonRoleTestUserIdIsNull"></include>
+		       <include name="postCreateAndSetPersonRoleTestUserIdNonSubmissionParameters"></include>
+		       <include name="postCreateAndSetPersonRoleTestUserIdIsLong"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleIdIllegalCharacters"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleIdIsError"></include>
+		       
+		       <include name="postCreateAndSetPersonRoleTestRoleIdIsEmpty"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleIdIsSpace"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleIdIsNull"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleIdIsString"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleIdNonSubmissionParameters"></include>
+		       
+		       <include name="postCreateAndSetPersonRoleTestRoleIdIsDecimal"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleIdIsNegativeNumber"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleIdNonExistent"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleIdIsZero"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleNameIsEmpty"></include>
+		       
+		       <include name="postCreateAndSetPersonRoleTestRoleNameIsSpace"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleNameIsNull"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleNameIsLong"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleNameIllegalCharacters"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleNameNonSubmissionParameters"></include>
+		       
+		       <include name="postCreateAndSetPersonRoleTestRoleDescNonSubmissionParameters"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleDescIsEmpty"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleDescIsSpace"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleDescIsNull"></include>
+		       <include name="postCreateAndSetPersonRoleTestRoleDescIsLong"></include>
+		       
+		       <include name="postCreateAndSetPersonRoleTestRoleDescIllegalCharacters"></include>
+		       <include name="postCreateAndSetPersonRoleTestStatusIsLong"></include>
+		       <include name="postCreateAndSetPersonRoleTestStatusIllegalCharacters"></include>
+		       <include name="postCreateAndSetPersonRoleTestStatus"></include>
+		       <include name="postCreateAndSetPersonRoleTestStatusIsEmpty"></include>
+		       
+		       <include name="postCreateAndSetPersonRoleTestStatusIsSpace"></include>
+		       <include name="postCreateAndSetPersonRoleTestStatusIsNull"></include>
+		       <include name="postCreateAndSetPersonRoleTestStatusIsString"></include>
+		       <include name="postCreateAndSetPersonRoleTestStatusNonSubmissionParameters"></include>
+		       <include name="postCreateAndSetPersonRoleTestStatusIsDecimal"></include>
+		       
+		       <include name="postCreateAndSetPersonRoleTestStatusIsNegativeNumber"></include>
+		       <include name="postCreateAndSetPersonRoleTestStatusIsZero"></include>
+		       <include name="postCreateAndSetPersonRoleTestStatusIsOne"></include>
+		       
+	
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

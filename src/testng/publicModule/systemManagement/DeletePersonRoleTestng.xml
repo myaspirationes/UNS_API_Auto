@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="删除系统用户接口" >
+	<test name="DeleteSystemUserTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.systemManagement.DeleteSystemUserTest">
+		      <methods>
+		       <include name="postDeleteSystemUserTestCorrectParameter"></include>
+		       <include name="postDeleteSystemUserTestUserIdNotLoggedIn"></include>
+		       <include name="postDeleteSystemUserTestUserIdIsError"></include>
+		       <include name="postDeleteSystemUserTestUserIdIllegalCharacters"></include>
+		       <include name="postDeleteSystemUserTestUserIdIsDecimal"></include>
+		       <include name="postDeleteSystemUserTestUserIdIsNegativeNumber"></include>
+		       <include name="postDeleteSystemUserTestUserIdIsZero"></include>
+		       <include name="postDeleteSystemUserTestUserIdIsString"></include>
+		       
+		       <include name="postDeleteSystemUserTestUserIdIsSpace"></include>
+		       <include name="postDeleteSystemUserTestUserIdIsEmpty"></include>
+		       <include name="postDeleteSystemUserTestUserIdIsNull"></include>
+		       <include name="postDeleteSystemUserTestUserIdNonSubmissionParameters"></include>
+		       <include name="postDeleteSystemUserTestUserIdIsLong"></include>
+		       <include name="postDeleteSystemUserTestSysUserIdIllegalCharacters"></include>
+		       <include name="postDeleteSystemUserTestSysUserIdIsError"></include>
+		       <include name="postDeleteSystemUserTestSysUserIdIsEmpty"></include>
+		       
+		       <include name="postDeleteSystemUserTestSysUserIdIsSpace"></include>
+		       <include name="postDeleteSystemUserTestSysUserIdIsNull"></include>
+		       <include name="postDeleteSystemUserTestSysUserIdIsString"></include>
+		       <include name="postDeleteSystemUserTestSysUserIdNonSubmissionParameters"></include>
+		       <include name="postDeleteSystemUserTestSysUserIdIsDecimal"></include>
+		       <include name="postDeleteSystemUserTestSysUserIdIsNegativeNumber"></include>
+		       <include name="postDeleteSystemUserTestSysUserIdNonExistent"></include>
+		       <include name="postDeleteSystemUserTestSysUserIdIsZero"></include>
+		       
+	
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

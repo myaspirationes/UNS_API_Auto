@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取用户详情接口" >
+	<test name="GetUserDetailsTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.userManagement.GetUserDetailsTest">
+		      <methods>
+		       <include name="postGetUserDetailsTestCorrectParameter"></include>
+		       <include name="postGetUserDetailsTestUserIdNotLoggedIn"></include>
+		       <include name="postGetUserDetailsTestUserIdIsError"></include>
+		       <include name="postGetUserDetailsTestUserIdIllegalCharacters"></include>
+		       <include name="postGetUserDetailsTestUserIdIsDecimal"></include>
+		       <include name="postGetUserDetailsTestUserIdIsNegativeNumber"></include>
+		       <include name="postGetUserDetailsTestUserIdIsSpace"></include>
+		       <include name="postGetUserDetailsTestUserIdIsEmpty"></include>
+		       <include name="postGetUserDetailsTestUserIdIsNull"></include>
+		       <include name="postGetUserDetailsTestUserIdIsZero"></include>
+		       <include name="postGetUserDetailsTestUserIdIsString"></include>
+		       <include name="postGetUserDetailsTestUserIdNonSubmissionParameters"></include>
+		       <include name="postGetUserDetailsTestUserIdIsLong"></include>
+		       
+		         
+	
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

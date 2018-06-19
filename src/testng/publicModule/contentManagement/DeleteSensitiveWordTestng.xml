@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="//删除敏感词ID库接口" >
+	<test name="DeleteSensitiveWordTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.contentManagement.DeleteSensitiveWordTest">
+		      <methods>
+		          <include name="postDeleteSensitiveWordTestCorrectParameter"></include>
+		          <include name="postDeleteSensitiveWordTestUserIdNotLoggedIn"></include>
+		          <include name="postDeleteSensitiveWordTestUserIdIsError"></include>
+		          <include name="postTheUserAddressTestUserIdIllegalCharacters"></include>
+		          <include name="postDeleteSensitiveWordTestUserIdIsDecimal"></include>
+		          <include name="postDeleteSensitiveWordTestUserIdIsNegativeNumber"></include>
+		          <include name="postDeleteSensitiveWordTestUserIdIsZero"></include>
+		          <include name="postDeleteSensitiveWordTestUserIdIsSpace"></include>
+		          <include name="postDeleteSensitiveWordTestUserIdIsEmpty"></include>
+		          <include name="postDeleteSensitiveWordTestUserIdIsNull"></include>
+		          <include name="postDeleteSensitiveWordTestUserIdIsString"></include>
+		          <include name="postDeleteSensitiveWordTestUserIdNonSubmissionParameters"></include>
+		          <include name="postDeleteSensitiveWordTestUserIdIsLong"></include>
+		          <include name="postDeleteSensitiveWordTestSensitiveWordIdIsZero"></include>
+		          <include name="postDeleteSensitiveWordTestSensitiveWordIdIsNegativeNumber"></include>
+		          <include name="postDeleteSensitiveWordTestSensitiveWordIdIsDecimal"></include>
+		          <include name="postDeleteSensitiveWordTestSensitiveWordIdIsString"></include>
+		          <include name="postDeleteSensitiveWordTestSensitiveWordIdIsSpace"></include>
+		          <include name="postDeleteSensitiveWordTestSensitiveWordIdIsEmpty"></include>
+		          <include name="postDeleteSensitiveWordTestSensitiveWordIdIsNull"></include>
+		          <include name="postDeleteSensitiveWordTestSensitiveWordIdIsError"></include>
+		          <include name="postDeleteSensitiveWordTestSensitiveWordIdIllegalCharacters"></include>
+		          <include name="postDeleteSensitiveWordTestSensitiveWordIdNonSubmissionParameters"></include>
+		          <include name="postDeleteSensitiveWordTestSensitiveWordIdIsLong"></include>
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

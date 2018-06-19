@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="为角色配置权限接口" >
+	<test name="AssignPermissionsForRolesTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.systemManagement.AssignPermissionsForRolesTest">
+		      <methods>
+		       <include name="postAssignPermissionsForRolesTestCorrectParameter"></include>
+		       <include name="postAssignPermissionsForRolesTestUserIdIsError"></include>
+		       <include name="postAssignPermissionsForRolesTestUserIdIllegalCharacters"></include>
+		       <include name="postAssignPermissionsForRolesTestUserIdIsDecimal"></include>
+		       <include name="postAssignPermissionsForRolesTestUserIdIsNegativeNumber"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestUserIdIsZero"></include>
+		       <include name="postAssignPermissionsForRolesTestUserIdIsString"></include>
+		       <include name="postAssignPermissionsForRolesTestUserIdIsSpace"></include>
+		       <include name="postAssignPermissionsForRolesTestUserIdIsEmpty"></include>
+		       <include name="postAssignPermissionsForRolesTestUserIdIsNull"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestUserIdNonSubmissionParameters"></include>
+		       <include name="postAssignPermissionsForRolesTestUserIdIsLong"></include>
+		       <include name="postAssignPermissionsForRolesTestRoleIdIsError"></include>
+		       <include name="postAssignPermissionsForRolesTestRoleIdIsDecimal"></include>
+		       <include name="postAssignPermissionsForRolesTestRoleIdIsNegativeNumber"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestRoleIdIsIllegalCharacters"></include>
+		       <include name="postAssignPermissionsForRolesTestRoleIdIsEmpty"></include>
+		       <include name="postAssignPermissionsForRolesTestRoleIdIsSpace"></include>
+		       <include name="postAssignPermissionsForRolesTestRoleIdIsString"></include>
+		       <include name="postAssignPermissionsForRolesTestRoleIdNonSubmissionParameters"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestRoleIdIsZero"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuNameIsLong"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuNameIsEmpty"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuNameIsSpace"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuNameIsNull"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestMenuNameIsError"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuNameNonSubmissionParameters"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuIdIsError"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuIdIsDecimal"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuIdIsNegativeNumber"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestMenuIdIsEmpty"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuIdIsSpace"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuIdIsNull"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuIdNonSubmissionParameters"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuStatusIError"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestMenuStatusIsDecimal"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuStatusIsNegativeNumber"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuStatusIsSpace"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuStatusIsNull"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuStatusIsIllegalCharacters"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestMenuStatusNonSubmissionParameters"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuStatusIs0"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuStatusIs1"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuStatusIs1Again0"></include>
+		       <include name="postAssignPermissionsForRolesTestMenuStatusIs0Again1"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestFunctionIsLong"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIsEmpty"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIsSpace"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIsNull"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIsZero"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestFunctionNonSubmissionParameters"></include>
+		       <include name="postAssignPermissionsForRolesTestFuncitonNameIsLong"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionNameIsEmpty"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionNameIsSpace"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionNameIsNull"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestFunctionNameNonSubmissionParameters"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIdIsError"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIdIsDecimal"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIdIsNegativeNumber"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIdIsEmpty"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestFunctionIdIsSpace"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIdIsNull"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIdIsString"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIdNonSubmissionParameters"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionIdIsZero"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIsError"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIsDecimal"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIsNegativeNumber"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIsEmpty"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIsSpace"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIsNull"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIsString"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusNonSubmissionParameters"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIs1"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIs0"></include>
+		       
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIs1Again0"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIs0Again1"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIs0Again0"></include>
+		       <include name="postAssignPermissionsForRolesTestFunctionStatusIs1Again1"></include>
+		       
+		         
+	
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

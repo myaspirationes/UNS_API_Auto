@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="//审核更换管理员接口" >
+	<test name="CheckReplaceAdministratorTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.feedbackManagement.CheckReplaceAdministratorTest">
+		      <methods>
+		          <include name="postCheckReplaceAdministratorTestCorrectParameter"></include>
+		          <include name="postCheckReplaceAdministratorTestApplyIdIsError"></include>
+		          <include name="postCheckReplaceAdministratorTestApplyIdIsIllegalCharacters"></include>
+		          <include name="postCheckReplaceAdministratorTestApplyIdIs0"></include>
+		          <include name="postCheckReplaceAdministratorTestApplyIdIsSpace"></include>
+		          <include name="postCheckReplaceAdministratorTestApplyIdIsEmpty"></include>
+		          <include name="postCheckReplaceAdministratorTestApplyIdIsNull"></include>
+		          <include name="postCheckReplaceAdministratorTestApplyIdIsDecimal"></include>
+		          <include name="postCheckReplaceAdministratorTestApplyIdIsNegativeNumber"></include>
+		          <include name="postCheckReplaceAdministratorTestApplyIdNonSubmissionParameters"></include>
+		          <include name="postCheckReplaceAdministratorTestApplyIdIsNotLoggedIn"></include>
+		          <include name="postCheckReplaceAdministratorTestUserIdIsError"></include>
+		          <include name="postCheckReplaceAdministratorTestUserIdIsIllegalCharacters"></include>
+		          <include name="postCheckReplaceAdministratorTestUserIdIsDecimal"></include>
+		          <include name="postCheckReplaceAdministratorTestUserIdIsNegativeNumber"></include>
+		          <include name="postCheckReplaceAdministratorTestUserIdIsSpace"></include>
+		          <include name="postCheckReplaceAdministratorTestUserIdIsEmpty"></include>
+		          <include name="postCheckReplaceAdministratorTestUserIdIsNull"></include>
+		          <include name="postCheckReplaceAdministratorTestUserIdNonSubmissionParameters"></include>
+		          <include name="postCheckReplaceAdministratorTestUserIdIs0"></include>
+		          <include name="postCheckReplaceAdministratorTestUserIdIsLong"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusIs0"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusIs1"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusIs2"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusIsError"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusIsDecimal"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusIsNegativeNumber"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusIsSpace"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusIsEmpty"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusIsNull"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusIsIllegalCharacters"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusNonSubmissionParameters"></include>
+		          <include name="postCheckReplaceAdministratorTestStatusIsMax"></include>
+		          <include name="postCheckReplaceAdministratorTestUserNameIsLong"></include>
+		          <include name="postCheckReplaceAdministratorTestUserNameIsIllegalCharacters"></include>
+		          <include name="postCheckReplaceAdministratorTestUserNameIsEmpty"></include>
+		          <include name="postCheckReplaceAdministratorTestUserNameIsSpace"></include>
+		          <include name="postCheckReplaceAdministratorTestUserNameIs0"></include>
+		          <include name="postCheckReplaceAdministratorTestUserNameIsNull"></include>
+		          <include name="postCheckReplaceAdministratorTestUserNameNonSubmissionParameters"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsError"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsNegativeNumber"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsDecimal"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIs0StatusIs2"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsSpaceStatusIs2"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsEmptyStatusIs2"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsNullStatusIs2"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsMax"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgNonSubmissionParameters"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsSpaceStatusIs0"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsEmptyStatusIs0"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsNullEmptyStatusIs0"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgNonSubmissionParametersStatusIs0"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsSpaceStatusIs1"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsEmptyStatusIs1"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgIsNullStatusIs1"></include>
+		          <include name="postCheckReplaceAdministratorTestErrorMsgNonSubmissionParametersStatusIs1"></include>
+		          
+		          
+		         
+		       
+		         
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

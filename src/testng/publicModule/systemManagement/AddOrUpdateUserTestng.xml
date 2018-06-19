@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="添加/编辑系统用户接口" >
+	<test name="AddOrUpdateUserTest" >
+		<classes>
+		  
+		   <class name="com.publicModule.systemManagement.AddOrUpdateUserTest">
+		      <methods>
+		       <include name="postAddOrUpdateUserTestCorrectParameter"></include>
+		       <include name="postAddOrUpdateUserTestUserIdNotLoggedIn"></include>
+		       <include name="postAddOrUpdateUserTestUserIdIsError"></include>
+		       <include name="postAddOrUpdateUserTestUserIdIllegalCharacters"></include>
+		       <include name="postAddOrUpdateUserTestUserIdIsDecimal"></include>
+		       
+		       <include name="postAddOrUpdateUserTestUserIdIsNegativeNumber"></include>
+		       <include name="postAddOrUpdateUserTestUserIdIsZero"></include>
+		       <include name="postAddOrUpdateUserTestUserIdIsString"></include>
+		       <include name="postAddOrUpdateUserTestUserIdIsSpace"></include>
+		       <include name="postAddOrUpdateUserTestUserIdIsEmpty"></include>
+		       
+		       <include name="postAddOrUpdateUserTestUserIdIsNull"></include>
+		       <include name="postAddOrUpdateUserTestUserIdNonSubmissionParameters"></include>
+		       <include name="postAddOrUpdateUserTestUserIdIsLong"></include>
+		       <include name="postAddOrUpdateUserTestRoleIdIllegalCharacters"></include>
+		       <include name="postAddOrUpdateUserTestRoleIdIsError"></include>
+		       
+		       <include name="postAddOrUpdateUserTestRoleIdIsEmpty"></include>
+		       <include name="postAddOrUpdateUserTestRoleIdIsSpace"></include>
+		       <include name="postAddOrUpdateUserTestRoleIdIsNull"></include>
+		       <include name="postAddOrUpdateUserTestRoleIdIsString"></include>
+		       <include name="postAddOrUpdateUserTestRoleIdNonSubmissionParameters"></include>
+		       
+		       <include name="postAddOrUpdateUserTestRoleIdIsDecimal"></include>
+		       <include name="postAddOrUpdateUserTestRoleIdIsNegativeNumber"></include>
+		       <include name="postAddOrUpdateUserTestRoleIdNonExistent"></include>
+		       <include name="postAddOrUpdateUserTestRoleIdIsZero"></include>
+		       <include name="postAddOrUpdateUserTestRoleNameIsEmpty"></include>
+		       
+		       <include name="postAddOrUpdateUserTestRoleNameIsSpace"></include>
+		       <include name="postAddOrUpdateUserTestRoleNameIsNull"></include>
+		       <include name="postAddOrUpdateUserTestRoleNameIsLong"></include>
+		       <include name="postAddOrUpdateUserTestRoleNameIllegalCharacters"></include>
+		       <include name="postAddOrUpdateUserTestRoleNameNonSubmissionParameters"></include>
+		       
+		       <include name="postAddOrUpdateUserTestUserNameNonSubmissionParameters"></include>
+		       <include name="postAddOrUpdateUserTestUserNameIsEmpty"></include>
+		       <include name="postAddOrUpdateUserTestUserNameIsSpace"></include>
+		       <include name="postAddOrUpdateUserTestUserNameIsNull"></include>
+		       <include name="postAddOrUpdateUserTestUserNameIsLong"></include>
+		       
+		       <include name="postAddOrUpdateUserTestUserNameIllegalCharacters"></include>
+		       <include name="postAddOrUpdateUserTestUserPasswordNonSubmissionParameters"></include>
+		       <include name="postAddOrUpdateUserTestUserPasswordIsEmpty"></include>
+		       <include name="postAddOrUpdateUserTestUserPasswordIsSpace"></include>
+		       <include name="postAddOrUpdateUserTestUserPasswordIsNull"></include>
+		       
+		       <include name="postAddOrUpdateUserTestUserPasswordIsLong"></include>
+		       <include name="postAddOrUpdateUserTestUserPasswordIllegalCharacters"></include>
+		       <include name="postAddOrUpdateUserTestRealNameIsLong"></include>
+		       <include name="postAddOrUpdateUserTestRealNameIllegalCharacters"></include>
+		       <include name="postAddOrUpdateUserTestRealNameIsNull"></include>
+		       
+		       <include name="postAddOrUpdateUserTestRealNameIsEmpty"></include>
+		       <include name="postAddOrUpdateUserTestRealNameIsSpace"></include>
+		       <include name="postAddOrUpdateUserTestRealNameNonSubmissionParameters"></include>
+		       <include name="postAddOrUpdateUserTestEmailIsLong"></include>
+		       <include name="postAddOrUpdateUserTestEmailIllegalCharacters"></include>
+		       
+		       <include name="postAddOrUpdateUserTestEmailIsNull"></include>
+		       <include name="postAddOrUpdateUserTestEmailIsEmpty"></include>
+		       <include name="postAddOrUpdateUserTestEmailIsSpace"></include>
+		       <include name="postAddOrUpdateUserTestEmailNonSubmissionParameters"></include>
+		       <include name="postAddOrUpdateUserTestPhoneIsLong"></include>
+		       
+		       <include name="postAddOrUpdateUserTestPhoneIllegalCharacters"></include>
+		       <include name="postAddOrUpdateUserTestPhoneIsNull"></include>
+		       <include name="postAddOrUpdateUserTestPhoneIsEmpty"></include>
+		       <include name="postAddOrUpdateUserTestPhoneIsSpace"></include>
+		       <include name="postAddOrUpdateUserTestPhoneNonSubmissionParameters"></include>
+		       
+		       <include name="postAddOrUpdateUserTestStatusIsLong"></include>
+		       <include name="postAddOrUpdateUserTestStatusIllegalCharacters"></include>
+		       <include name="postAddOrUpdateUserTestStatus"></include>
+		       <include name="postAddOrUpdateUserTestStatusIsEmpty"></include>
+		       <include name="postAddOrUpdateUserTestStatusIsSpace"></include>
+		       
+		       <include name="postAddOrUpdateUserTestStatusIsNull"></include>
+		       <include name="postAddOrUpdateUserTestStatusIsString"></include>
+		       <include name="postAddOrUpdateUserTestStatusNonSubmissionParameters"></include>
+		       <include name="postAddOrUpdateUserTestStatusIsDecimal"></include>
+		       <include name="postAddOrUpdateUserTestStatusIsNegativeNumber"></include>
+		       
+		       <include name="postAddOrUpdateUserTestStatusIsZero"></include>
+		       <include name="postAddOrUpdateUserTestStatusIsOne"></include>
+		       <include name="postAddOrUpdateUserTestRolesIsLong"></include>
+		       <include name="postAddOrUpdateUserTestRolesIllegalCharacters"></include>
+		       <include name="postAddOrUpdateUserTestRolesIsNull"></include>
+		       
+		       <include name="postAddOrUpdateUserTestRolesIsEmpty"></include>
+		       <include name="postAddOrUpdateUserTestRolesIsSpace"></include>
+		       <include name="postAddOrUpdateUserTestRolesNonSubmissionParameters"></include>
+		       <include name="postAddOrUpdateUserTestRolesSelectMultiple"></include>
+		       
+		       
+		         
+	
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
