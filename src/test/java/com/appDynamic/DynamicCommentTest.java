@@ -2,11 +2,13 @@ package com.appDynamic;
 
 import com.example.HttpUtil;
 import com.example.LoginTest;
+import com.example.MetaOper;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,8 +23,13 @@ public class DynamicCommentTest extends HttpUtil {
 	String uuid;
 	String chcode;
 	Map<String, Object> head = new HashMap<String, Object>();
+	String seleceSql = "SELECT * FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'";
+	String dataType = "perCenter81";
+	String dynamicId;
+	List<Map<String,Object>> list ;
 	@BeforeClass
-	public void  beforeClass(){
+	public void  beforeClass() throws Exception {
+		new PublishDynamicsTest().postPublishDynamicsTestCorrectParameter();
 		LoginTest login = new LoginTest();
 		try {
 			body = login.getLoginTestChcodeBy177();
@@ -32,6 +39,8 @@ public class DynamicCommentTest extends HttpUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		list = MetaOper.read(seleceSql,dataType);
+		dynamicId = list.get(0).get("DYNAMIC_ID").toString();
 		head.put("aid", "lan6uu");
 		head.put("ver", "1.2.0");
 		head.put("ln", "cn");
@@ -47,9 +56,10 @@ public class DynamicCommentTest extends HttpUtil {
 	 */
 	@Test
 	public void postDynamicCommentTestCorrectParameter() throws Exception {
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 
-		con.put("dynamicId", 1319);
+		con.put("dynamicId", dynamicId);
 		con.put("remarkUser", "12491621");
 		con.put("content", "自动化评论");
 		
@@ -72,7 +82,7 @@ public class DynamicCommentTest extends HttpUtil {
 	public void postDynamicCommentTestDynamicIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 
-		con.put("dynamicId", 131119);
+		con.put("dynamicId", dynamicId);
 		con.put("remarkUser", uuid);
 		con.put("content", "自动化评论");
 
