@@ -2,7 +2,11 @@ package com.appDynamic;
 
 import com.example.HttpUtil;
 import com.example.LoginTest;
+import com.example.MetaOper;
+
 import org.json.JSONObject;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -16,7 +20,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PublishDynamicsTest extends HttpUtil {
 //发布动态接口
 	String url = "/UU/dynamic";
-
+	String deleteSql = "DELETE FROM T_DYNAMIC WHERE USER_ID = 12495396";
+	String dataType = "perCenter81";
 	JSONObject body;
 	String uuid;
 	String chcode;
@@ -42,6 +47,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		head.put("chcode", chcode);
 		head.put("cmd", 510);
 	}
+	
+	@AfterMethod
+	public void afterMethod()
+	{
+		MetaOper.delete(deleteSql, dataType);
+	}
 	/**
 	 * 提交正确参数
 	 */
@@ -50,7 +61,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -114,8 +125,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("用户id为最大值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	
 	/**
@@ -152,8 +163,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("用户id为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId type is error ");
 	}
 	/**
 	 * 用户id为空
@@ -189,8 +200,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("用户id为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId type is error ");
 	}
 	/**
 	 * 用户id为null
@@ -226,8 +237,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("用户id为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId can't be empty");
 	}
 	/**
 	 * 用户id为0
@@ -263,7 +274,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("用户id为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -300,8 +311,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("用户id为String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId type is error ");
 	}
 	/**
 	 * 用户id为小数
@@ -337,8 +348,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("用户id为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId type is error ");
 	}
 	/**
 	 * 用户id为负数
@@ -374,8 +385,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("用户id为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId type is error ");
 	}
 	/**
 	 * 用户id为不传参数
@@ -410,8 +421,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("用户id为不传参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId can't be empty");
 	}
 	/**
 	 * 用户id为未登录用户
@@ -447,7 +458,44 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("用户id为未登录用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 用户id为错误用户
+	 */
+	@Test
+	public void postPublishDynamicsTestuserIdIsError() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("userId", 1249);
+		con.put("fileIds", 1);
+		con.put("content", "老铁6666");
+		con.put("dynamicType", 0);
+		con.put("longitude", 13.26);
+		con.put("latitude", 13.19);
+		con.put("dynamicAddress", "如日商务园");
+		con.put("mapLongitude", 22.36);
+		con.put("mapLatitude", 38.26);
+		con.put("region", "浦东新区");
+		con.put("address", "上南路3855号");
+		con.put("fileId", 1319);
+		con.put("zoomLevel", 2.22);
+		con.put("powerType", 0);
+		con.put("atUserIds", 1319);
+		con.put("audioTime", 1319);
+		con.put("selectIds", 1319);
+		con.put("isShowArea", 1);
+		con.put("relayId", 1319);	
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户id为错误用户" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+	
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
