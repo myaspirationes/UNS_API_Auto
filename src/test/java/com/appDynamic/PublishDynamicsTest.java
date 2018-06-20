@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,7 +21,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PublishDynamicsTest extends HttpUtil {
 //发布动态接口
 	String url = "/UU/dynamic";
-	String deleteSql = "DELETE FROM T_DYNAMIC WHERE USER_ID = 12495396";
+	String deleteSql = "DELETE FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试' ";
+	String selectSql = "SELECT * FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'";
+	List<Map<String,Object>> list ;
 	String dataType = "perCenter81";
 	JSONObject body;
 	String uuid;
@@ -48,16 +51,30 @@ public class PublishDynamicsTest extends HttpUtil {
 		head.put("cmd", 510);
 	}
 	
-	@AfterMethod
-	public void afterMethod()
-	{
-		MetaOper.delete(deleteSql, dataType);
-	}
+	//@AfterMethod
+	//public void afterMethod()
+	//{
+		//MetaOper.delete(deleteSql, dataType);
+	//}
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postPublishDynamicsTestCorrectParameter() throws Exception {
+		LoginTest login = new LoginTest();
+		body = login.getLoginTestChcodeBy177();
+		uuid= (body.get("userId")).toString();
+		chcode= (body.get("checkCode")).toString();
+		head.put("aid", "lan6uu");
+		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", uuid);
+		head.put("chcode", chcode);
+		head.put("cmd", 510);
+		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -89,6 +106,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		
 	}
 	
 	/**
@@ -99,7 +118,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 999999999999999999L);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -137,7 +156,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -174,7 +193,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -211,7 +230,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -248,7 +267,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -285,7 +304,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "FGSFDGDSD");
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -322,7 +341,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1249.2396);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -359,7 +378,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -12495396);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -395,7 +414,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	public void postPublishDynamicsTestuserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -432,7 +451,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495325);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -469,7 +488,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1249);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -502,11 +521,11 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 文件id传超长
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsIsString() throws Exception {
+	public void postPublishDynamicsTestFileIdsIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 999999999999999999L);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -532,7 +551,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("文件id传超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -543,7 +562,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", "<@$@#$>");
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -580,7 +599,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", "");
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -617,7 +636,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", " ");
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -654,7 +673,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", null);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -691,7 +710,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 0);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -717,7 +736,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("文件id传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -727,7 +746,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	public void postPublishDynamicsTestFileIdsNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -764,7 +783,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", "aaa,bbb,ccc");
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -801,7 +820,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", "");
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -838,7 +857,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", " ");
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -875,7 +894,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", null);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -911,7 +930,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	public void postPublishDynamicsTestFileIdsNonSubmissionParametersNynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -1206,7 +1225,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 888);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -1243,7 +1262,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", -1);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -1280,7 +1299,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -1317,7 +1336,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", "");
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -1354,7 +1373,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", " ");
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -1391,7 +1410,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", null);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -1428,7 +1447,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", "ddjhj");
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
@@ -1465,7 +1484,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
 		con.put("dynamicAddress", "如日商务园");
@@ -1501,7 +1520,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", "bbjkjk");
 		con.put("latitude", 13.19);
@@ -1538,7 +1557,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", -13.66);
 		con.put("latitude", 13.19);
@@ -1575,7 +1594,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 62);
 		con.put("latitude", 13.33);
@@ -1612,7 +1631,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 0);
 		con.put("latitude", 13.19);
@@ -1649,7 +1668,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", "");
 		con.put("latitude", 13.19);
@@ -1686,7 +1705,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", " ");
 		con.put("latitude", 13.19);
@@ -1723,7 +1742,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", null);
 		con.put("latitude", 13.19);
@@ -1760,7 +1779,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("latitude", 13.19);
 		con.put("dynamicAddress", "如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。");
@@ -1796,7 +1815,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.23);
 		con.put("latitude", 13.19);
@@ -1833,7 +1852,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", " ");
 		con.put("latitude", 13.19);
@@ -1870,7 +1889,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 13.19);
@@ -1907,7 +1926,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 13.19);
@@ -1944,7 +1963,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 13.19);
@@ -1981,7 +2000,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 13.19);
@@ -2017,7 +2036,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", "dfsfsd");
@@ -2054,7 +2073,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", "");
@@ -2091,7 +2110,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", " ");
@@ -2128,7 +2147,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 0);
@@ -2165,7 +2184,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", -22.32);
@@ -2202,7 +2221,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 66);
@@ -2239,7 +2258,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", null);
@@ -2276,7 +2295,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("dynamicAddress", "如日商务园");
@@ -2312,7 +2331,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.22);
@@ -2349,7 +2368,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", " ");
@@ -2386,7 +2405,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2423,7 +2442,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2460,7 +2479,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2497,7 +2516,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2534,7 +2553,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2571,7 +2590,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2607,7 +2626,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2643,7 +2662,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2680,7 +2699,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2717,7 +2736,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2754,7 +2773,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2791,7 +2810,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2828,7 +2847,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2865,7 +2884,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2902,7 +2921,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2939,7 +2958,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -2976,7 +2995,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3012,7 +3031,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3049,7 +3068,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3086,7 +3105,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3123,7 +3142,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3159,7 +3178,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3196,7 +3215,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3233,7 +3252,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3270,7 +3289,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3307,7 +3326,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3344,7 +3363,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3381,7 +3400,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3417,7 +3436,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3454,7 +3473,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3491,7 +3510,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3528,7 +3547,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3565,7 +3584,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3602,7 +3621,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3639,7 +3658,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3675,7 +3694,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3712,7 +3731,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3749,7 +3768,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3786,7 +3805,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3823,7 +3842,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3860,7 +3879,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3897,7 +3916,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3934,7 +3953,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -3970,7 +3989,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4007,7 +4026,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4044,7 +4063,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4081,7 +4100,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4118,7 +4137,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4155,7 +4174,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4192,7 +4211,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4229,7 +4248,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4265,7 +4284,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4302,7 +4321,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4339,7 +4358,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4376,7 +4395,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4413,7 +4432,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4450,7 +4469,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4487,7 +4506,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4524,7 +4543,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4560,7 +4579,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4597,7 +4616,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4634,7 +4653,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4671,7 +4690,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4708,7 +4727,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4745,7 +4764,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4782,7 +4801,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4819,7 +4838,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4855,7 +4874,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4892,7 +4911,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4929,7 +4948,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -4966,7 +4985,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5003,7 +5022,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5040,7 +5059,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5077,7 +5096,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5114,7 +5133,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5151,7 +5170,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5188,7 +5207,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5225,7 +5244,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5262,7 +5281,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5299,7 +5318,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5336,7 +5355,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5373,7 +5392,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5410,7 +5429,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5447,7 +5466,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5484,7 +5503,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5521,7 +5540,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5558,7 +5577,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5595,7 +5614,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5632,7 +5651,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5669,7 +5688,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5706,7 +5725,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5742,7 +5761,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5779,7 +5798,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5816,7 +5835,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5853,7 +5872,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5890,7 +5909,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5927,7 +5946,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -5964,7 +5983,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6001,7 +6020,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6038,7 +6057,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6075,7 +6094,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6112,7 +6131,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6148,7 +6167,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6185,7 +6204,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6222,7 +6241,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6259,7 +6278,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6296,7 +6315,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6333,7 +6352,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6370,7 +6389,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6407,7 +6426,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6442,7 +6461,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
@@ -6479,7 +6498,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
