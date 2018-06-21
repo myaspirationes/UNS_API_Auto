@@ -55,7 +55,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	@Test
 	public void postContainerEditingDetailsTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12312313);		
+		request.put("userId", 123);		
 		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -85,7 +85,7 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 	@Test
 	public void postContainerEditingDetailsTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 121123.33);			
+		request.put("userId", 3.33);			
 		request.put("containerId", 3);
 		
 		JSONObject post = super.UNSPost(url, request);
