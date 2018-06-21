@@ -408,8 +408,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("参数验证失败");
 	}
 	/**
 	 * 分类为负数
@@ -467,8 +467,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("参数验证失败");
 	}
 	/**
 	 * 分类为空格

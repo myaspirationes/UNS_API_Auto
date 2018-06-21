@@ -655,7 +655,7 @@ public class DynamicCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("content不能为空");
+		assertThat(head1.get("msg")).isEqualTo("评论内容不能为空");
 	}
 	/**
 	 * 评论内容为空格
@@ -678,7 +678,7 @@ public class DynamicCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("content不能为空");
+		assertThat(head1.get("msg")).isEqualTo("评论内容不能为空");
 	}
 	/**
 	 * 评论内容为null
@@ -701,7 +701,7 @@ public class DynamicCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("content不能为空");
+		assertThat(head1.get("msg")).isEqualTo("未知错误");
 	}
 	/**
 	 * 评论内容不传该参数
@@ -723,7 +723,7 @@ public class DynamicCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("content不能为空");
+		assertThat(head1.get("msg")).isEqualTo("未知错误");
 	}
 
 
