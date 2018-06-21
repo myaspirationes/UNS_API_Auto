@@ -22,7 +22,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 	String chcode;
 	Map<String, Object> head = new HashMap<String, Object>();
 	@BeforeClass
-	public void  beforeClass(){
+	public void  beforeClass() throws Exception {
 		LoginTest login = new LoginTest();
 		try {
 			body = login.getLoginTestChcodeBy177();
@@ -32,6 +32,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		new PublishDynamicsTest().postPublishDynamicsTestCorrectParameter();
 		head.put("aid", "lan6uu");
 		head.put("ver", "1.2.0");
 		head.put("ln", "cn");
@@ -40,7 +41,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		head.put("sync", 1);
 		head.put("uuid", uuid);
 		head.put("chcode", chcode);
-		head.put("cmd", 520);//514
+		head.put("cmd", 520);//514  520
 	}
 
 	/**

@@ -2,11 +2,14 @@ package com.appDynamic;
 
 import com.example.HttpUtil;
 import com.example.LoginTest;
+import com.example.MetaOper;
 import org.json.JSONObject;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,9 +24,21 @@ public class DynamicRemarkTest extends HttpUtil {
 	String uuid;
 	String chcode;
 	Map<String, Object> head = new HashMap<String, Object>();
+	String selectSql = "select * FROM T_COMMENTBACK WHERE CONTENT = '自动化评论'";
+	String delDynamic = "DELETE FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'";
+	String delComment = "DELETE FROM T_COMMENTBACK WHERE CONTENT in ('自动化评论','<#$%^&**^%$#>','自动化评论回复')";
+	String dataType = "perCenter81";
+	List<Map<String,Object>> list ;
+	String remarkId;
+	String dynamicId;
 	@BeforeClass
-	public void  beforeClass(){
-		LoginTest login = new LoginTest();
+	public void  beforeClass() throws Exception {
+		new PublishDynamicsTest().postPublishDynamicsTestCorrectParameter();
+		new DynamicCommentTest().postDynamicCommentTestCorrectParameter();
+		list = MetaOper.read(selectSql,dataType);
+		remarkId = list.get(0).get("COMMENT_ID").toString();
+		dynamicId = list.get(0).get("ORIGIN_ID").toString();
+				LoginTest login = new LoginTest();
 		try {
 			body = login.getLoginTestChcodeBy177();
 			uuid= (body.get("userId")).toString();
@@ -42,32 +57,41 @@ public class DynamicRemarkTest extends HttpUtil {
 		head.put("chcode", chcode);
 		head.put("cmd", 1702);
 	}
+	@AfterClass
+	public void afterClass(){
+		MetaOper.delete(delComment,dataType);
+		MetaOper.delete(delDynamic,dataType);
+
+	}
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postDynamicRemarkTestCorrectParameter() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
 		
+		
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("remarkId", remarkId);
+		con.put("replyUserId", uuid);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
+
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
-		
+
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
+
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		String selSql = "select * from T_COMMENTBACK where COMMENT_ID ="+((JSONObject)post.get("body")).get("replyId").toString();
+		list = MetaOper.read(selSql,dataType);
+		assertThat(list.get(0).get("CONTENT").toString()).isEqualTo("自动化评论回复");
 	}
-	
+
 	/**
 	 * 评论ID超长
 	 */
@@ -76,22 +100,20 @@ public class DynamicRemarkTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("remarkId", 111111111111L);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
-		
+
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("评论ID超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("未知错误");
 	}
 	/**
 	 * 评论ID为小数
@@ -101,10 +123,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("remarkId", 15.11);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -115,8 +135,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("评论ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("评论id不是数字类型");
 	}
 
 	/**
@@ -127,10 +147,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("remarkId", 0);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -141,8 +159,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("评论ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("未知错误");
 	}
 
 	/**
@@ -151,12 +169,10 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestRemarkIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", -1511);
+		con.put("remarkId", -1453);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -167,8 +183,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("评论ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("评论id不是数字类型");
 	}
 
 	/**
@@ -179,10 +195,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("remarkId", "");
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -193,8 +207,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("评论ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("评论id不是数字类型");
 	}
 
 	/**
@@ -205,10 +219,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("remarkId", " ");
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -219,8 +231,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("评论ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("评论id不是数字类型");
 	}
 
 	/**
@@ -231,10 +243,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("remarkId", null);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -245,8 +255,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("评论ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("评论id不是数字类型");
 	}
 
 	/**
@@ -257,10 +267,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("remarkId", "aa");
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -271,8 +279,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("评论ID为字符串" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("评论id不是数字类型");
 	}
 
 	/**
@@ -282,10 +290,8 @@ public class DynamicRemarkTest extends HttpUtil {
 	public void postDynamicRemarkTestRemarkIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -296,8 +302,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("评论ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("评论id不是数字类型");
 	}
 
 	/**
@@ -308,10 +314,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("remarkId", 999999999);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -322,8 +326,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("评论ID超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("未知错误");
 	}
 
 
@@ -333,12 +337,10 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", 12491672);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("remarkId", remarkId);
+		con.put("replyUserId", 12495079);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -358,12 +360,12 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", 11671);
-		con.put("content", "老铁6666");
+		con.put("content", "自动化评论回复");
 		con.put("replyTargetId", 12491622);
 		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -383,12 +385,10 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", "ssss");
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -399,8 +399,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("用户ID为字符串" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("回复人id不是数字类型");
 	}
 
 	/**
@@ -409,12 +409,10 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", 1.1);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -425,8 +423,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("回复人id不是数字类型");
 	}
 
 	/**
@@ -435,12 +433,10 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", -9);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -451,8 +447,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("回复人id不是数字类型");
 	}
 
 	/**
@@ -461,12 +457,10 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", 0);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -478,7 +472,7 @@ public class DynamicRemarkTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("shibai");
 	}
 
 	/**
@@ -487,12 +481,10 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", "");
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -503,8 +495,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("回复人id不是数字类型");
 	}
 
 	/**
@@ -513,12 +505,10 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", " ");
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -529,8 +519,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("回复人id不是数字类型");
 	}
 
 	/**
@@ -539,12 +529,10 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", null);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -555,8 +543,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("回复人id不是数字类型");
 	}
 
 	/**
@@ -565,12 +553,10 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", 12491672231231L);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -581,8 +567,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("用户ID为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 
 	/**
@@ -591,11 +577,9 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("remarkId", remarkId);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -606,8 +590,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 
 	/**
@@ -616,12 +600,10 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestReplyUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", "<.#$%>");
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
+		con.put("content", "自动化评论回复");
+		con.put("dynamicId", dynamicId);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -632,531 +614,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("用户ID为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 回复内容非法字符
-	 */
-	@Test
-	public void postDynamicRemarkTestContentIllegalCharacters() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "<.#$%^&>");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("回复内容非法字符" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 回复内容为空
-	 */
-	@Test
-	public void postDynamicRemarkTestContentIsEmpty() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("回复内容为空" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 回复内容为空格
-	 */
-	@Test
-	public void postDynamicRemarkTestContentIsSpace() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", " ");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("回复内容为空格" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 回复内容为null
-	 */
-	@Test
-	public void postDynamicRemarkTestContentIsNull() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", null);
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("回复内容为null" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 回复内容超长
-	 */
-	@Test
-	public void postDynamicRemarkTestContentIsLong() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("回复内容超长" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 回复内容不传该参数
-	 */
-	@Test
-	public void postDynamicRemarkTestContentNonSubmissionParameters() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("回复内容不传该参数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-
-	/**
-	 * 被回复人ID和内容不符
-	 */
-	@Test
-	public void postDynamicRemarkTestReplyTargetIdNotTheSameAsRemarkContent() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 124912122);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复人ID和内容不符" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复人ID为小数
-	 */
-	@Test
-	public void postDynamicRemarkTestReplyTargetIdIsDecimal() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 1.12);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复人ID为小数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复人ID为0
-	 */
-	@Test
-	public void postDynamicRemarkTestReplyTargetIdIsZero() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 0);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复人ID为0" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复人ID为负数
-	 */
-	@Test
-	public void postDynamicRemarkTestReplyTargetIdIsNegativeNumber() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", -22);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复人ID为负数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复人ID为空
-	 */
-	@Test
-	public void postDynamicRemarkTestReplyTargetIdIsEmpty() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", "");
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复人ID为空" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复人ID为空格
-	 */
-	@Test
-	public void postDynamicRemarkTestReplyTargetIdIsSpace() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", " ");
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复人ID为空格" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复人ID为null
-	 */
-	@Test
-	public void postDynamicRemarkTestReplyTargetIdIsNull() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", null);
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复人ID为null" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复人ID为字符串
-	 */
-	@Test
-	public void postDynamicRemarkTestReplyTargetIdIsString() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", "aaa");
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复人ID为字符串" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复人ID不传该参数
-	 */
-	@Test
-	public void postDynamicRemarkTestReplyTargetIdNonSubmissionParameters() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("remarkContent", "名哦尼");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复人ID不传该参数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复者的评论超长
-	 */
-	@Test
-	public void postDynamicRemarkTestRemarkContentIsLong() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长被回复者的评论超长");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复者的评论超长" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复者的评论非法字符
-	 */
-	@Test
-	public void postDynamicRemarkTestRemarkContentIllegalCharacters() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "<.@#$$#>");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复者的评论非法字符" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复者的评论为空
-	 */
-	@Test
-	public void postDynamicRemarkTestRemarkContentIsEmpty() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复者的评论为空" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复者的评论为空格
-	 */
-	@Test
-	public void postDynamicRemarkTestRemarkContentIsSpace() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", " ");
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复者的评论为空格" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复者的评论为null
-	 */
-	@Test
-	public void postDynamicRemarkTestRemarkContentIsNull() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", null);
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复者的评论为null" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 被回复者的评论不传该参数
-	 */
-	@Test
-	public void postDynamicRemarkTestRemarkContentNonSubmissionParameters() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
-		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("dynamicId", 1319);
-
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("被回复者的评论不传该参数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("回复人id不是数字类型");
 	}
 
 	/**
@@ -1165,11 +624,9 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestDynamicIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
+		con.put("content", "自动化评论回复");
 		con.put("dynamicId", 1.9);
 
 
@@ -1181,8 +638,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("动态ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 动态ID为负数
@@ -1190,11 +647,9 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestDynamicIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
+		con.put("content", "自动化评论回复");
 		con.put("dynamicId", -19);
 
 
@@ -1215,11 +670,9 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestDynamicIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
+		con.put("content", "自动化评论回复");
 		con.put("dynamicId", 0);
 
 
@@ -1231,8 +684,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("动态ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 动态ID为字符串
@@ -1240,11 +693,9 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestDynamicIdIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
+		con.put("content", "自动化评论回复");
 		con.put("dynamicId", "aaa");
 
 
@@ -1256,8 +707,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("动态ID为字符串" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("未知错误");
 	}
 	/**
 	 * 动态ID为超长
@@ -1265,11 +716,9 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestDynamicIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
+		con.put("content", "自动化评论回复");
 		con.put("dynamicId", 131313131313131313L);
 
 
@@ -1281,8 +730,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("动态ID为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 动态ID为空
@@ -1290,11 +739,9 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestDynamicIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
+		con.put("content", "自动化评论回复");
 		con.put("dynamicId", "");
 
 
@@ -1306,8 +753,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("动态ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 动态ID为空格
@@ -1315,11 +762,9 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestDynamicIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
+		con.put("content", "自动化评论回复");
 		con.put("dynamicId", " ");
 
 
@@ -1331,8 +776,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("动态ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("未知错误");
 	}
 	/**
 	 * 动态ID为null
@@ -1340,11 +785,9 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestDynamicIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
+		con.put("content", "自动化评论回复");
 		con.put("dynamicId", null);
 
 
@@ -1356,8 +799,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("动态ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("动态id不能为空");
 	}
 	/**
 	 * 动态ID不传该参数
@@ -1365,11 +808,9 @@ public class DynamicRemarkTest extends HttpUtil {
 	@Test
 	public void postDynamicRemarkTestDynamicIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("remarkId", 1511);
+		con.put("remarkId", remarkId);
 		con.put("replyUserId", uuid);
-		con.put("content", "老铁6666");
-		con.put("replyTargetId", 12491622);
-		con.put("remarkContent", "名哦尼");
+		con.put("content", "自动化评论回复");
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1380,10 +821,159 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("动态ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("动态id不能为空");
+	}
+
+	/**
+	 * 回复内容超长
+	 */
+	@Test
+	public void postDynamicRemarkTestContentIsLong() throws Exception {
+
+
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("remarkId", remarkId);
+		con.put("replyUserId", uuid);
+		con.put("content", "自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复自动化评论回复");
+		con.put("dynamicId", dynamicId);
+
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("回复内容超长" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * 回复内容为非法字符
+	 */
+	@Test
+	public void postDynamicRemarkTestContentIllegalCharacters() throws Exception {
+
+
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("remarkId", remarkId);
+		con.put("replyUserId", uuid);
+		con.put("content", "<.$%^&>");
+		con.put("dynamicId", dynamicId);
+
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("回复内容为非法字符" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
+	/**
+	 * 回复内容为空
+	 */
+	@Test
+	public void postDynamicRemarkTestContentIsEmpty() throws Exception {
 
+
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("remarkId", remarkId);
+		con.put("replyUserId", uuid);
+		con.put("content", "");
+		con.put("dynamicId", dynamicId);
+
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("回复内容为空" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 回复内容为空格
+	 */
+	@Test
+	public void postDynamicRemarkTestContentIsSpace() throws Exception {
+
+
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("remarkId", remarkId);
+		con.put("replyUserId", uuid);
+		con.put("content", " ");
+		con.put("dynamicId", dynamicId);
+
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("回复内容为空格" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("未知错误");
+	}
+	/**
+	 * 回复内容为null
+	 */
+	@Test
+	public void postDynamicRemarkTestContentIsNull() throws Exception {
+
+
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("remarkId", remarkId);
+		con.put("replyUserId", uuid);
+		con.put("content", null);
+		con.put("dynamicId", dynamicId);
+
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("回复内容为null" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("回复内容不能为空");
+	}
+	/**
+	 * 回复内容不传该参数
+	 */
+	@Test
+	public void postDynamicRemarkTestContentNonSubmissionParameters() throws Exception {
+
+
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("remarkId", remarkId);
+		con.put("replyUserId", uuid);
+		con.put("dynamicId", dynamicId);
+
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("回复内容不传该参数" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("回复内容不能为空");
+	}
 
 
 

@@ -82,8 +82,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"1.1\"");
 	}
 	/**
 	 * 用户ID为负数
@@ -103,8 +103,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 	}
 	/**
 	 * 用户ID为0
@@ -124,8 +124,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 	}
 	/**
 	 * 用户ID为错误
@@ -154,7 +154,7 @@ public class MyDynamicListsTest extends HttpUtil {
 	@Test
 	public void postMyDynamicListsTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
+		con.put("userId", 12495097);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
 
@@ -187,8 +187,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"uuid\"");
 	}
 	/**
 	 * 用户ID为null
@@ -208,8 +208,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户id不能为空");
 	}
 	/**
 	 * 用户ID为空
@@ -229,8 +229,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"1.1\"");
 	}
 	/**
 	 * 用户ID为空格
@@ -250,8 +250,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \" \"");
 	}
 	/**
 	 * 用户ID为超长
@@ -271,8 +271,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -291,8 +291,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户id不能为空");
 	}
 
 	/**
@@ -313,8 +313,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("当前页码为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("java.lang.Double cannot be cast to java.lang.Integer");
 	}
 	/**
 	 * 当前页码为负数
@@ -397,8 +397,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("当前页码超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isIn("java.lang.Double cannot be cast to java.lang.Integer","java.lang.Long cannot be cast to java.lang.Integer");
 	}
 	/**
 	 * 当前页码为空
@@ -418,8 +418,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("当前页码为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isIn("java.lang.Double cannot be cast to java.lang.Integer","java.lang.String cannot be cast to java.lang.Integer");
 	}
 	/**
 	 * 当前页码为空格
@@ -439,8 +439,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("当前页码为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("java.lang.String cannot be cast to java.lang.Integer");
 	}
 	/**
 	 * 当前页码为null
@@ -501,8 +501,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("每页的个数为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("java.lang.Double cannot be cast to java.lang.Integer");
 	}
 	/**
 	 * 每页的个数为负数
@@ -585,8 +585,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("每页的个数超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isIn("java.lang.Long cannot be cast to java.lang.Integer","java.lang.Double cannot be cast to java.lang.Integer","java.lang.String cannot be cast to java.lang.Integer");
 	}
 	/**
 	 * 每页的个数为空
@@ -606,8 +606,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("每页的个数为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("java.lang.String cannot be cast to java.lang.Integer");
 	}
 	/**
 	 * 每页的个数为空格
@@ -627,8 +627,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("每页的个数为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isIn("java.lang.String cannot be cast to java.lang.Integer","java.lang.Double cannot be cast to java.lang.Integer");
 	}
 	/**
 	 * 每页的个数为null

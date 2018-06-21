@@ -41,9 +41,12 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 	@Test
 	public void postObtainDetailsOfDocumentPhotosTestIsAudit() throws Exception {
 		String updateSql = "UPDATE \"T_AUTH_PHOTO\" SET \"STATUS\"='0' WHERE USER_ID = 12495079";
+		//String updateSql1 = "UPDATE  T_AUTH_HOLD_PHOTO SET STATUS = 0 WHERE USER_ID = '12495079'";
+		//new HolderPhotoAuthenticateTest().postHolderPhotoAuthenticateTestCorrectParameter();
 		IdPhotoAuthenticateTest ida = new IdPhotoAuthenticateTest();
 		ida.postIdPhotoAuthenticateTestCorrectParameter();
 		MetaOper.update(updateSql, dataType);
+		//MetaOper.update(updateSql1,dataType);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 
@@ -51,7 +54,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		head.put("aid", "1and6uu");
 		head.put("de", "2011-07-13 00:00:00");
 		head.put("ver", "1.0");
-		head.put("cmd", "3908");
+		head.put("cmd", "3907");
 		head.put("uuid", uuid);
 		head.put("ln", "cn");
 		head.put("chcode", chcode);
@@ -67,7 +70,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		JSONObject body1 = (JSONObject) post.get("body");
 		
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(body1.get("statusTitle")).isEqualTo("您的照片正在审核中，请耐心等待~~");
+		assertThat(body1.get("statusTitle")).isEqualTo("你的照片正在审核中，请耐心等待~~");
 	}
 	/**
 	 * 提交成功的参数
@@ -169,7 +172,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("没有进行实名认证");
 	}
 	/**
 	 * 用户ID为错误用户
@@ -202,7 +205,7 @@ public class ObtainDetailsOfDocumentPhotosTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("msg")).isEqualTo("没有进行实名认证");
 	}
 	/**
 	 * 用户ID为非法字符
