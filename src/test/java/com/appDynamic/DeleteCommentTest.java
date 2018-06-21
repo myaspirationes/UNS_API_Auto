@@ -473,7 +473,7 @@ public class DeleteCommentTest extends HttpUtil {
 		System.out.println("评论人ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(-1);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**

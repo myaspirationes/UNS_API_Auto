@@ -30,15 +30,15 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
-	
+
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
@@ -49,16 +49,16 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -68,9 +68,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "123");
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -87,9 +87,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<.#$%^>");
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -105,16 +105,16 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 1.8);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -124,9 +124,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -1);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -143,9 +143,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -162,9 +162,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "userId");
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -180,9 +180,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -199,9 +199,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -218,9 +218,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -236,9 +236,9 @@ public class GetRoleListTest extends HttpUtil {
 	@Test
 	public void postGetRoleListTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -255,9 +255,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "123123123123123123123123123123123");
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -267,25 +267,25 @@ public class GetRoleListTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
-	 * 角色名称为超长
+	 * 地对地导弹为超长
 	 */
 	@Test
 	public void postGetRoleListTestRoleNameIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称角色名称角色名称角色名称角色名称角色名称角色名称角色名称角色名称角色名称角色名称角色名称");
+		request.put("roleName", "地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("角色名称为超长" + post);
+		System.out.println("地对地导弹为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
-	 * 角色名称为为非法字符
+	 * 地对地导弹为为非法字符
 	 */
 	@Test
 	public void postGetRoleListTestRoleNameIllegalCharacters() throws Exception {
@@ -293,18 +293,18 @@ public class GetRoleListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("roleName", "<.$%^>");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("角色名称为为非法字符" + post);
+		System.out.println("地对地导弹为为非法字符" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 角色名称为空
+	 * 地对地导弹为空
 	 */
 	@Test
 	public void postGetRoleListTestRoleNameIsEmpty() throws Exception {
@@ -312,18 +312,18 @@ public class GetRoleListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("roleName", "");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("角色名称为空" + post);
+		System.out.println("地对地导弹为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 角色名称为空格
+	 * 地对地导弹为空格
 	 */
 	@Test
 	public void postGetRoleListTestRoleNameIsSpace() throws Exception {
@@ -331,18 +331,18 @@ public class GetRoleListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("roleName", " ");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("角色名称为空格" + post);
+		System.out.println("地对地导弹为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 角色名称为null
+	 * 地对地导弹为null
 	 */
 	@Test
 	public void postGetRoleListTestRoleNameIsNull() throws Exception {
@@ -350,30 +350,30 @@ public class GetRoleListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("roleName", null);
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("角色名称为null" + post);
+		System.out.println("地对地导弹为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 角色名称传该参数
+	 * 地对地导弹传该参数
 	 */
 	@Test
 	public void postGetRoleListTestRoleNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("角色名称传该参数" + post);
+		System.out.println("地对地导弹传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -386,9 +386,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "20112345675675675675675675675678-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -405,9 +405,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartGreaterThanCreatTimeEnd() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-06-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -424,9 +424,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartIsTimeStamp() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "1528248480000");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -443,9 +443,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -462,9 +462,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", " ");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -481,9 +481,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", null);
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -500,8 +500,8 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -518,9 +518,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartIsYMD() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -537,9 +537,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartIsHMS() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "13:13:13");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -556,9 +556,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", 0);
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -575,9 +575,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartIsLeapYear() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2016-02-29");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -594,9 +594,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeStartIsNonLeapYear() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-02-29");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -613,9 +613,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeEndIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeEnd", "20112345675675675675675675675678-05-03");
-		request.put("creatTimeStart","2018-05-29");
+		request.put("creatTimeStart","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -633,9 +633,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeEndIsTimeStamp() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeEnd", "1528248480000");
-		request.put("creatTimeStart","2018-05-29");
+		request.put("creatTimeStart","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -652,9 +652,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeEndIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeEnd", "");
-		request.put("creatTimeStart","2018-05-29");
+		request.put("creatTimeStart","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -671,9 +671,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeEndIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeEnd", " ");
-		request.put("creatTimeStart","2018-05-29");
+		request.put("creatTimeStart","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -690,9 +690,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeEndIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeEnd", null);
-		request.put("creatTimeStart","2018-05-29");
+		request.put("creatTimeStart","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -709,8 +709,8 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeEndNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("roleName", "地对地导弹");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -727,9 +727,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeEndIsYMD() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeEnd", "2018-05-03");
-		request.put("creatTimeStart","2018-05-29");
+		request.put("creatTimeStart","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -746,9 +746,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeEndIsHMS() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeEnd", "13:13:13");
-		request.put("creatTimeStart","2018-05-29");
+		request.put("creatTimeStart","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -765,9 +765,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeEndIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeEnd", 0);
-		request.put("creatTimeStart","2018-05-29");
+		request.put("creatTimeStart","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -784,9 +784,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeEndIsLeapYear() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeEnd", "2016-02-29");
-		request.put("creatTimeStart","2018-05-29");
+		request.put("creatTimeStart","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -803,9 +803,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestCreatTimeEndIsNonLeapYear() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeEnd", "2018-02-29");
-		request.put("creatTimeStart","2018-05-29");
+		request.put("creatTimeStart","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -822,9 +822,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTesttatusIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 111111111111111L);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -840,9 +840,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTesttatusIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", "<.@$$>");
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -858,16 +858,17 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTesttatusIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 98787878);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为错误状态" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色状态为空
@@ -876,9 +877,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTesttatusIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", "");
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -895,9 +896,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTesttatusIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", " ");
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -914,9 +915,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTesttatusIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", "status");
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -932,9 +933,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTesttatusIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", null);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -951,9 +952,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTesttatusNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -969,16 +970,16 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTesttatusIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1.5);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -988,16 +989,16 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTesttatusIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色状态为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -1007,9 +1008,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTesttatusIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 0);
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -1026,9 +1027,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageSizeIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", -1);
 		request.put("pageNow", 1);
@@ -1045,9 +1046,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageSizeIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1.7);
 		request.put("pageNow", 1);
@@ -1064,9 +1065,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageSizeIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", "pageSize");
 		request.put("pageNow", 1);
@@ -1082,9 +1083,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", " ");
 		request.put("pageNow", 1);
@@ -1101,9 +1102,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", "");
 		request.put("pageNow", 1);
@@ -1120,9 +1121,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", null);
 		request.put("pageNow", 1);
@@ -1139,9 +1140,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageSizeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 1111111111111L);
 		request.put("pageNow", 1);
@@ -1157,9 +1158,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageSizeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -1175,9 +1176,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageSizeIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageSize", 0);
 		request.put("pageNow", 1);
@@ -1194,9 +1195,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageNowIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageNow", -1);
 		request.put("pageSize", 1);
@@ -1213,9 +1214,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageNowIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageNow", 1.7);
 		request.put("pageSize", 1);
@@ -1232,9 +1233,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageNowIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageNow", "pageSize");
 		request.put("pageSize", 1);
@@ -1250,9 +1251,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageNow", " ");
 		request.put("pageSize", 1);
@@ -1269,9 +1270,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageNow", "");
 		request.put("pageSize", 1);
@@ -1288,9 +1289,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageNow", null);
 		request.put("pageSize", 1);
@@ -1307,9 +1308,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageNowIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageNow", 1111111111111L);
 		request.put("pageSize", 1);
@@ -1325,9 +1326,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageNowNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -1343,9 +1344,9 @@ public class GetRoleListTest extends HttpUtil {
 	public void postGetRoleListTestPageNowIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("roleName", "角色名称");
+		request.put("roleName", "地对地导弹");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd","2018-05-29");
+		request.put("creatTimeEnd","2018-07-29");
 		request.put("status", 1);
 		request.put("pageNow", 0);
 		request.put("pageSize", 1);
