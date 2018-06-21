@@ -86,8 +86,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("用户id为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 用户id为负数
@@ -109,8 +109,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("用户id为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 用户id为小数
@@ -132,8 +132,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("用户id为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 用户id为String
@@ -155,8 +155,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("用户id为String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 用户id为0
@@ -178,8 +178,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("用户id为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 用户id为空
@@ -201,8 +201,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("用户id为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 用户id为空格
@@ -224,8 +224,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("用户id为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 用户id为null
@@ -247,8 +247,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("用户id为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 用户id不传参数
@@ -268,8 +268,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("用户id不传参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 用户id为超长
@@ -291,8 +291,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("用户id为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 用户id为未登录用户
@@ -300,7 +300,6 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 	@Test
 	public void postDynamicListUnderPostcardTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-
 		con.put("userId", 12495362);
 		con.put("pageSize", 5);
 		con.put("pageNow", 1);
@@ -314,7 +313,7 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("用户id为未登录用户" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -337,8 +336,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("每页条数传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 每页条数传小数
@@ -360,8 +359,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("每页条数传小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 每页条数传0
@@ -406,8 +405,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("每页条数传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 每页条数传空格
@@ -429,8 +428,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("每页条数传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 每页条数传null
@@ -452,8 +451,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("每页条数传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 每页条数传String
@@ -475,8 +474,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("每页条数传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 每页条数不传参数
@@ -497,8 +496,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("每页条数不传参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 页码传负数
@@ -520,8 +519,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("页码传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 页码传小数
@@ -543,8 +542,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("页码传小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 页码传0
@@ -589,8 +588,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("页码传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 页码传空格
@@ -612,8 +611,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("页码传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 页码传null
@@ -635,8 +634,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("页码传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 页码传传String
@@ -658,8 +657,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("页码传传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 页码传最大值
@@ -681,8 +680,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("页码传最大值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("没有更多数据！");
 	}
 	/**
 	 * 页码不传参数
@@ -703,8 +702,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("页码不传参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 明信片id传负数
@@ -726,8 +725,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("明信片id传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 明信片id传小数
@@ -749,8 +748,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("明信片id传小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 明信片id传0
@@ -795,8 +794,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("明信片id传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 明信片id传空格
@@ -818,8 +817,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("明信片id传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 明信片id传null
@@ -841,8 +840,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("明信片id传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 明信片id传最大值
@@ -865,7 +864,7 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");//开发没有对cardId进行校验
 	}
 	/**
 	 * 明信片id不传参数
@@ -886,8 +885,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("明信片id不传参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 查看用户id传错误
@@ -909,8 +908,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("查看用户id传错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 查看用户id传小数
@@ -932,8 +931,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("查看用户id传小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 查看用户id传负数
@@ -955,8 +954,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("查看用户id传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 查看用户id传0
@@ -978,8 +977,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("查看用户id传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 查看用户id传空
@@ -1001,8 +1000,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("查看用户id传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 查看用户id传空格
@@ -1024,8 +1023,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("查看用户id传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 查看用户id传null
@@ -1047,8 +1046,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("查看用户id传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空");
 	}
 	/**
 	 * 查看用户id传String
@@ -1070,8 +1069,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("查看用户id传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	/**
 	 * 查看用户id传最大值
@@ -1093,8 +1092,8 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("查看用户id传最大值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不合法");
 	}
 	
 	/**
@@ -1108,7 +1107,7 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		con.put("pageSize", 5);
 		con.put("pageNow", 1);
 		con.put("cardId", 1234);
-		con.put("targetId", 12495555);
+		con.put("targetId", 12491932);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -1117,7 +1116,7 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("查看用户id为未登录" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	

@@ -10,9 +10,12 @@ import java.util.Map;
 import org.json.JSONObject;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 //import org.junit.Test;
 import org.testng.annotations.Test;
 
+import com.appDynamic.DynamicCommentTest;
+import com.appDynamic.PublishDynamicsTest;
 import com.example.HttpUtil;
 import com.example.MetaOper;
 
@@ -21,30 +24,28 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	String url = "/uu-admin/container/saveOrEditContent";
 	String selectSql = "SELECT * from T_CONTAINER_CONTENT where CONTAINER_CON_ID = '1'";
 	String updateSql = "update T_CONTAINER_CONTENT set IS_DELETE = '0' where CONTAINER_CON_ID = '1'";
-	
+	String containerId;
+	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
 	String dataType = "perCenter81";
 	List<Map> lis = new ArrayList<Map>();
-	Map<Object, Object> map1 = new HashMap<Object, Object>();	
-	List<Map<String,Object>> list ;
+	Map<Object, Object> map1 = new HashMap<Object, Object>();
+	Map<Object, Object> ClobToString = new HashMap<Object, Object>();	
+	@BeforeMethod
+	public void  beforeMethod() throws Exception {
+		list1 = MetaOper.read(selectSql, dataType);
+		containerId = list1.get(0).get("CONTAINER_ID").toString();
+	}
+	
 	/**
 	 * 提交正确参数
 	 */
 	@Test
-	public void postSaveContainerContentModificationTesttCorrectParameter() throws Exception {
-		
-		MetaOper.read(selectSql, dataType);
-		MetaOper.update(updateSql, dataType);
-		list=MetaOper.read(selectSql, dataType);
-		String containerId = list.get(0).get("CONTAINER_ID").toString();
-		String contentId = list.get(0).get("CONTAINER_CON_ID").toString();
-		map1.put("titleText", "天空lala");
-		map1.put("fileId", 2);
-		map1.put("contentId", contentId);	
-		lis.add(map1);
+	public void postSaveContainerContentModificationTestCorrectParameter() throws Exception {
 		
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("containerId", containerId);
-		request.put("contentList", lis);
+		request.put("userId", 10000000);
 				
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -54,8 +55,8 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		MetaOper.read(selectSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		assertThat(list.get(0).get("FILE_ID").toString()).isEqualTo("2");
-		System.out.println(list.get(0).get("TITLE"));
-		//assertThat(list.get(0).get("TITLE").toString()).isEqualTo("天空lala");
+		System.out.println(list.get(0).get("TITLE"));	
+		//assertThat(list.get(0).get("TITLE").ClobToString("TITLE")).isEqualTo("天空lala");
 	}
 	
 	
