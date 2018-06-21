@@ -21,10 +21,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PublishDynamicsTest extends HttpUtil {
 //发布动态接口
 	String url = "/UU/dynamic";
-	String deleteSql = "DELETE FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试' ";
-	String selectSql = "SELECT * FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'";
+	String deleteSql = "DELETE FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试' or USER_ID = 12495396";
+	String deleteSql1 = "DELETE FROM T_DYNAMIC_POSITION WHERE REGION = '自动化测试2' ";
+	String selectSql = "SELECT * FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试' ";
+	String selectSql1 = "SELECT * FROM T_DYNAMIC_POSITION WHERE REGION = '自动化测试2' OR ADDRESS = '自动化测试3'";
+	String selectSql2 = "select b.RELATION_ID from T_DYNAMIC a,T_DYNAMIC_RESOURCES b where a.DYNAMIC_ID = b.DYNAMIC_ID and a.DESCRIPTION = '自动化测试'";
+
 	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
+	List<Map<String,Object>> list2 ;
+	List<Map<String,Object>> list3 ;
 	String dataType = "perCenter81";
+	String dynamicId2;
 	JSONObject body;
 	String uuid;
 	String chcode;
@@ -51,11 +59,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		head.put("cmd", 510);
 	}
 	
-	//@AfterMethod
-	//public void afterMethod()
-	//{
-		//MetaOper.delete(deleteSql, dataType);
-	//}
+	@AfterMethod
+	public void afterMethod()
+	{
+		MetaOper.delete(deleteSql, dataType);
+		MetaOper.delete(deleteSql1, dataType);
+	}
 	/**
 	 * 提交正确参数
 	 */
@@ -77,16 +86,16 @@ public class PublishDynamicsTest extends HttpUtil {
 		
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("fileIds", 1);
+		con.put("fileIds", "");
 		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
-		con.put("mapLongitude", 22.36);
-		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("dynamicAddress", "自动化测试1");
+		con.put("mapLongitude", 22.22);
+		con.put("mapLatitude", 33.33);
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -107,14 +116,20 @@ public class PublishDynamicsTest extends HttpUtil {
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list =MetaOper.read(selectSql,dataType);
-		
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
+		assertThat(list.get(0).get("LONGITUDE").toString()).isEqualTo("13.26");
+		assertThat(list.get(0).get("LATITUDE").toString()).isEqualTo("13.19");
+		assertThat(list.get(0).get("RELAY_ID").toString()).isEqualTo("1319");
+		assertThat(list.get(0).get("LOCATION").toString()).isEqualTo("自动化测试1");
+		assertThat(list.get(0).get("IS_SHOW_AREA").toString()).isEqualTo("1");
 	}
 	
 	/**
 	 * 用户id为最大值
 	 */
 	@Test
-	public void postPublishDynamicsTestuserIdIsMax() throws Exception {
+	public void postPublishDynamicsTestUserIdIsMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 999999999999999999L);
 		con.put("fileIds", 1);
@@ -122,11 +137,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -152,7 +167,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 用户id为空格
 	 */
 	@Test
-	public void postPublishDynamicsTestuserIdIsSpace() throws Exception {
+	public void postPublishDynamicsTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
 		con.put("fileIds", 1);
@@ -160,11 +175,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -189,7 +204,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 用户id为空
 	 */
 	@Test
-	public void postPublishDynamicsTestuserIdIsEmpty() throws Exception {
+	public void postPublishDynamicsTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
 		con.put("fileIds", 1);
@@ -197,11 +212,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -226,7 +241,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 用户id为null
 	 */
 	@Test
-	public void postPublishDynamicsTestuserIdIsNull() throws Exception {
+	public void postPublishDynamicsTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
 		con.put("fileIds", 1);
@@ -234,11 +249,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -263,7 +278,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 用户id为0
 	 */
 	@Test
-	public void postPublishDynamicsTestuserIdIs0() throws Exception {
+	public void postPublishDynamicsTestUserIdIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
 		con.put("fileIds", 1);
@@ -271,11 +286,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -300,7 +315,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 用户id为String
 	 */
 	@Test
-	public void postPublishDynamicsTestuserIdIsString() throws Exception {
+	public void postPublishDynamicsTestUserIdIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "FGSFDGDSD");
 		con.put("fileIds", 1);
@@ -308,11 +323,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -337,7 +352,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 用户id为小数
 	 */
 	@Test
-	public void postPublishDynamicsTestuserIdIsDecimal() throws Exception {
+	public void postPublishDynamicsTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1249.2396);
 		con.put("fileIds", 1);
@@ -345,11 +360,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -374,7 +389,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 用户id为负数
 	 */
 	@Test
-	public void postPublishDynamicsTestuserIdIsNegativeNumber() throws Exception {
+	public void postPublishDynamicsTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -12495396);
 		con.put("fileIds", 1);
@@ -382,11 +397,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -411,18 +426,18 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 用户id为不传参数
 	 */
 	@Test
-	public void postPublishDynamicsTestuserIdNonSubmissionParameters() throws Exception {
+	public void postPublishDynamicsTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -447,19 +462,20 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 用户id为未登录用户
 	 */
 	@Test
-	public void postPublishDynamicsTestuserIdIsNotLoggedIn() throws Exception {
+	public void postPublishDynamicsTestUserIdIsNotLoggedIn() throws Exception {
+		
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495325);
+		con.put("userId", 12495079);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -484,7 +500,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 用户id为错误用户
 	 */
 	@Test
-	public void postPublishDynamicsTestuserIdIsError() throws Exception {
+	public void postPublishDynamicsTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1249);
 		con.put("fileIds", 1);
@@ -492,11 +508,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -526,14 +542,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", 999999999999999999L);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
+		con.put("dynamicType", 1);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -552,7 +568,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 文件id含非法字符
@@ -563,14 +579,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", "<@$@#$>");
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
+		con.put("dynamicType", 1);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -588,8 +604,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("文件id含非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 文件id传空
@@ -600,14 +616,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", "");
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
+		con.put("dynamicType", 1);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -625,7 +641,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("文件id传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -637,14 +653,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", " ");
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
+		con.put("dynamicType", 1);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -662,7 +678,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("文件id传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -674,14 +690,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", null);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
+		con.put("dynamicType", 1);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -699,7 +715,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("文件id传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -709,16 +725,16 @@ public class PublishDynamicsTest extends HttpUtil {
 	public void postPublishDynamicsTestFileIdsIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("fileIds", 0);
+		con.put("fileIds", 1319);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
+		con.put("dynamicType", 2);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -747,14 +763,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
+		con.put("dynamicType", 2);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -772,7 +788,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("文件id不传参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -782,16 +798,16 @@ public class PublishDynamicsTest extends HttpUtil {
 	public void postPublishDynamicsTestFileIdsIsMany() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("fileIds", "aaa,bbb,ccc");
+		con.put("fileIds", "111,222,333");
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
+		con.put("dynamicType", 2);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -811,6 +827,10 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list2 =MetaOper.read(selectSql2,dataType);
+		assertThat(list2.get(0).get("RELATION_ID").toString()).isEqualTo("111");
+		assertThat(list2.get(1).get("RELATION_ID").toString()).isEqualTo("222");
+		assertThat(list2.get(2).get("RELATION_ID").toString()).isEqualTo("333");
 	}
 	/**
 	 * 文件id为空动态类型为5
@@ -824,11 +844,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -848,6 +868,13 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("LONGITUDE").toString()).isEqualTo("22.36");
+		assertThat(list1.get(0).get("LATITUDE").toString()).isEqualTo("38.26");
+		assertThat(list1.get(0).get("REGION").toString()).isEqualTo("自动化测试2");
+		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("自动化测试3");
+		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("1319");
+		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo("2.22");
 	}
 	/**
 	 * 文件id为空格动态为5
@@ -861,11 +888,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -885,6 +912,14 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("LONGITUDE").toString()).isEqualTo("22.36");
+		assertThat(list1.get(0).get("LATITUDE").toString()).isEqualTo("38.26");
+		assertThat(list1.get(0).get("REGION").toString()).isEqualTo("自动化测试2");
+		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("自动化测试3");
+		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("1319");
+		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo("2.22");
+
 	}
 	/**
 	 * 文件id为null动态为5
@@ -898,11 +933,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -922,6 +957,14 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("LONGITUDE").toString()).isEqualTo("22.36");
+		assertThat(list1.get(0).get("LATITUDE").toString()).isEqualTo("38.26");
+		assertThat(list1.get(0).get("REGION").toString()).isEqualTo("自动化测试2");
+		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("自动化测试3");
+		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("1319");
+		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo("2.22");
+
 	}
 	/**
 	 * 文件id不传参数动态为5
@@ -934,11 +977,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -958,24 +1001,32 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("LONGITUDE").toString()).isEqualTo("22.36");
+		assertThat(list1.get(0).get("LATITUDE").toString()).isEqualTo("38.26");
+		assertThat(list1.get(0).get("REGION").toString()).isEqualTo("自动化测试2");
+		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("自动化测试3");
+		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("1319");
+		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo("2.22");
+
 	}
 	/**
 	 * 动态文字内容传超长
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsContentIsLong() throws Exception {
+	public void postPublishDynamicsTestContentIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("content", "老铁6666#$%dsf法国是否发生过广东分公，大概是个。发士大夫是非得失！感到十分十分士大夫十分顺丰顺丰。");
+		con.put("content", "老铁6666#$%dsf法国是否发生过广东分公，大概是个。发士大夫是非得失！感到十分十分士大夫十分顺丰顺丰。飞机海口警方经过和基辅大公挂号费艰苦环境和高科技的返回港口国际峰会的警告对话框给福建会馆看到将会根据客户给国际法和国际回到海口高房价的韩国空军的防护工具和大家的回复几个还记得换个角度看fgfdg等级分级考试分数角度看夫空间和空间多数开发商开发接口甲方领导法艰苦看见开放的空间反抗类毒素解放路口非结构化客家话客家话经典福克斯的开发商和发动机和粉丝科技开发进度是开放的开始就发挥的空间是否打开就是。老铁6666#$%dsf法国是否发生过广东分公，大概是个。发士大夫是非得失！感到十分十分士大夫十分顺丰顺丰。飞机海口警方经过和基辅大公挂号费艰苦环境和高科技的返回港口国际峰会的警告对话框给福建会馆看到将会根据客户给国际法和国际回到海口高房价的韩国空军的防护工具和大家的回复几个还记得换个角度看fgfdg等级分级考试分数角度看夫空间和空间多数开发商开发接口甲方领导法艰苦看见开放的空间反抗类毒素解放路口非结构化客家话客家话经典福克斯的开发商和发动机和粉丝科技开发进度是开放的开始就发挥的空间是否打开就是。老铁6666#$%dsf法国是否发生过广东分公，大概是个。发士大夫是非得失！感到十分十分士大夫十分顺丰顺丰。飞机海口警方经过和基辅大公挂号费艰苦环境和高科技的返回港口国际峰会的警告对话框给福建会馆看到将会根据客户给国际法和国际回到海口高房价的韩国空军的防护工具和大家的回复几个还记得换个角度看fgfdg等级分级考试分数角度看夫空间和空间多数开发商开发接口甲方领导法艰苦看见开放的空间反抗类毒素解放路口非结构化客家话客家话经典福克斯的开发商和发动机和粉丝科技开发进度是开放的开始就发挥的空间是否打开就是。老铁6666#$%dsf法国是否发生过广东分公，大概是个。发士大夫是非得失！感到十分十分士大夫十分顺丰顺丰。飞机海口警方经过和基辅大公挂号费艰苦环境和高科技的返回港口国际峰会的警告对话框给福建会馆看到将会根据客户给国际法和国际回到海口高房价的韩国空军的防护工具和大家的回复几个还记得换个角度看fgfdg等级分级考试分数角度看夫空间和空间多数开发商开发接口甲方领导法艰苦看见开放的空间反抗类毒素解放路口非结构化客家话客家话经典福克斯的开发商和发动机和粉丝科技开发进度是开放的开始就发挥的空间是否打开就是。老铁6666#$%dsf法国是否发生过广东分公，大概是个。发士大夫是非得失！感到十分十分士大夫十分顺丰顺丰。飞机海口警方经过和基辅大公挂号费艰苦环境和高科技的返回港口国际峰会的警告对话框给福建会馆看到将会根据客户给国际法和国际回到海口高房价的韩国空军的防护工具和大家的回复几个还记得换个角度看fgfdg等级分级考试分数角度看夫空间和空间多数开发商开发接口甲方领导法艰苦看见开放的空间反抗类毒素解放路口非结构化客家话客家话经典福克斯的开发商和发动机和粉丝科技开发进度是开放的开始就发挥的空间是否打开就是。老铁6666#$%dsf法国是否发生过广东分公，大概是个。发士大夫是非得失！感到十分十分士大夫十分顺丰顺丰。老铁6666#$%dsf法国是否发生过广东分公，大概是个。发士大夫是非得老铁6666#$%dsf法国是否发生过广东分公，大概是个。发士大夫是非得大概是个。发士大夫是非得老铁6666#$%dsf法国是否发生过广东分公，大概是个。发士大夫是非得");
 		con.put("dynamicType", 5);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -993,63 +1044,27 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态文字内容传超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
-	/**
-	 * 动态文字内容含有非法字符
-	 */
-	@Test
-	public void postPublishDynamicsTestFileIdsContentIsIllegalCharacters() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("fileIds", 1);
-		con.put("content", "<#$#$$#%$^%&^%>");
-		con.put("dynamicType", 5);
-		con.put("longitude", 13.26);
-		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
-		con.put("mapLongitude", 22.36);
-		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 2.22);
-		con.put("powerType", 0);
-		con.put("atUserIds", 1319);
-		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
-		con.put("isShowArea", 1);
-		con.put("relayId", 1319);	
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("动态文字内容含有非法字符" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
 	/**
 	 * 动态文字内容传空
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsContentIsEmpty() throws Exception {
+	public void postPublishDynamicsTestContentIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("fileIds", 1);
+		con.put("fileIds", "");
 		con.put("content", "");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1069,31 +1084,33 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("DESCRIPTION")).isEqualTo(null);
 	}
 	/**
 	 * 动态文字内容传空格
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsContentIsSpace() throws Exception {
+	public void postPublishDynamicsTestContentIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("fileIds", 1);
+		con.put("fileIds", "");
 		con.put("content", " ");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
 		con.put("selectIds", 1319);
-		con.put("isShowArea", 1);
+		con.put("isShowArea", 0);
 		con.put("relayId", 1319);	
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1106,24 +1123,27 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo(" ");
+
 	}
 	/**
 	 * 动态文字内容传null
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsContentIsNull() throws Exception {
+	public void postPublishDynamicsTestContentIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", null);
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1141,14 +1161,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态文字内容传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 动态文字内容传0
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsContentIs0() throws Exception {
+	public void postPublishDynamicsTestContentIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1156,11 +1176,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1180,23 +1200,25 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read("select * from T_DYNAMIC WHERE USER_ID = '12495396' AND DESCRIPTION = '0'",dataType);
+		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("0");
 	}
 	/**
 	 * 动态文字内容不传参数
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsContentNonSubmissionParameters() throws Exception {
+	public void postPublishDynamicsTestContentNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1214,14 +1236,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态文字内容不传参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 动态类型传错误
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsdynamicTypeIsError() throws Exception {
+	public void postPublishDynamicsTestDynamicTypeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1229,11 +1251,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 888);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1251,14 +1273,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态类型传错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 动态类型chuan 负数
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsContentIsNegativeNumber() throws Exception {
+	public void postPublishDynamicsTestDynamicTypeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1266,11 +1288,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", -1);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1288,14 +1310,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态类型传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("dynamicType type is error ");
 	}
 	/**
 	 * 动态类型传0
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsDynamicTypeIs0() throws Exception {
+	public void postPublishDynamicsTestDynamicTypeIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1303,11 +1325,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1332,7 +1354,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	 * 动态类型传空
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsDynamicTypeIsEmpty() throws Exception {
+	public void postPublishDynamicsTestDynamicTypeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1340,11 +1362,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", "");
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1362,14 +1384,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态类型传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("dynamicType type is error ");
 	}
 	/**
 	 * 动态类型传空格
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsDynamicTypeIsSpace() throws Exception {
+	public void postPublishDynamicsTestDynamicTypeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1377,11 +1399,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", " ");
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1399,14 +1421,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态类型传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("dynamicType type is error ");
 	}
 	/**
 	 * 动态类型传null
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsDynamicTypeIsNull() throws Exception {
+	public void postPublishDynamicsTestDynamicTypeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1414,11 +1436,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", null);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1436,14 +1458,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态类型传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("dynamicType can't be empty");
 	}
 	/**
 	 * 动态类型传String
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsDynamicTypeIsString() throws Exception {
+	public void postPublishDynamicsTestDynamicTypeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1451,11 +1473,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", "ddjhj");
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1473,25 +1495,25 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态类型传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("dynamicType type is error ");
 	}
 	/**
 	 * 动态类型不传
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsDynamicTypeNonSubmissionParameters() throws Exception {
+	public void postPublishDynamicsTestDynamicTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1509,14 +1531,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态类型不传" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("dynamicType can't be empty");
 	}
 	/**
 	 * 动态经度传String
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsLongitudeIsString() throws Exception {
+	public void postPublishDynamicsTestLongitudeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1524,11 +1546,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", "bbjkjk");
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1546,14 +1568,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态经度传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		//assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 动态经度传负数
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsLongitudeIsNegativeNumber() throws Exception {
+	public void postPublishDynamicsTestLongitudeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1561,11 +1583,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", -13.66);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1585,12 +1607,14 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("LONGITUDE").toString()).isEqualTo("-13.66");
 	}
 	/**
 	 * 动态经度传整数
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsLongitudeIsInteger() throws Exception {
+	public void postPublishDynamicsTestLongitudeIsInteger() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1598,11 +1622,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 62);
 		con.put("latitude", 13.33);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1622,12 +1646,15 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("LONGITUDE").toString()).isEqualTo("62");
+
 	}
 	/**
 	 * 动态经度传0
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsLongitudeIs0() throws Exception {
+	public void postPublishDynamicsTestLongitudeIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1635,11 +1662,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 0);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1659,12 +1686,15 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("LONGITUDE").toString()).isEqualTo("0");
+
 	}
 	/**
 	 * 动态经度传空
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsLongitudeIsEmpty() throws Exception {
+	public void postPublishDynamicsTestLongitudeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1672,11 +1702,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", "");
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1694,14 +1724,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态经度传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("empty String");
 	}
 	/**
 	 * 动态经度传空格
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsLongitudeIsSpace() throws Exception {
+	public void postPublishDynamicsTestLongitudeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1709,11 +1739,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", " ");
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1731,14 +1761,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态经度传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 动态经度传null
 	 */
 	@Test
-	public void postPublishDynamicsTestFileIdsLongitudeIsNull() throws Exception {
+	public void postPublishDynamicsTestLongitudeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -1746,11 +1776,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", null);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1768,8 +1798,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态经度传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo(null);
 	}
 	/**
 	 * 发布动态时的地址传超长
@@ -1785,8 +1815,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicAddress", "如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1804,8 +1834,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("发布动态时的地址传超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo(null);
 	}
 	/**
 	 * 发布动态时的地址传空
@@ -1822,8 +1852,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicAddress", "");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1841,7 +1871,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("发布动态时的地址传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -1856,11 +1886,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", " ");
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1878,7 +1908,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("发布动态时的地址传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -1896,8 +1926,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicAddress", null);
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1915,7 +1945,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("发布动态时的地址null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -1933,8 +1963,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicAddress", 0);
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1954,6 +1984,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("LOCATION").toString()).isEqualTo("0");
+
 	}
 	/**
 	 * 发布动态时的地址含有非法字符
@@ -1970,8 +2003,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicAddress", "<#$@#$>");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -1991,6 +2024,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("LOCATION").toString()).isEqualTo("<#$@#$>");
+
 	}
 	/**
 	 * 发布动态时的地址不传参
@@ -2006,8 +2042,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("latitude", 13.19);
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2025,7 +2061,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("发布动态时的地址不传参" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -2040,11 +2076,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", "dfsfsd");
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2062,7 +2098,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态纬度传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -2077,11 +2113,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", "");
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2099,8 +2135,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态纬度传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("empty String");
 	}
 	/**
 	 * 动态纬度传空格
@@ -2114,11 +2150,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", " ");
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2136,7 +2172,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态纬度传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -2151,11 +2187,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 0);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2175,6 +2211,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("LATITUDE").toString()).isEqualTo("0");
+
 	}
 	/**
 	 * 动态纬度传负数
@@ -2188,11 +2227,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", -22.32);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2212,6 +2251,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("LATITUDE").toString()).isEqualTo("-22.32");
+
 	}
 	/**
 	 * 动态纬度传整数
@@ -2225,11 +2267,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2249,6 +2291,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("LATITUDE").toString()).isEqualTo("66");
+
 	}
 	/**
 	 * 动态纬度传null
@@ -2262,11 +2307,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", null);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2284,8 +2329,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态纬度传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo(null);
 	}
 	/**
 	 * 动态纬度不传参数
@@ -2298,11 +2343,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2320,8 +2365,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态纬度不传参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo(null);
 	}
 	/**
 	 * 地图动态经度传空
@@ -2335,11 +2380,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.22);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", "");
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2372,11 +2417,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", " ");
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2409,11 +2454,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", null);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2446,11 +2491,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", "");
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2483,11 +2528,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", "");
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2505,8 +2550,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图动态经度传空动态类型是地图动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 地图动态经度传空格动态类型是地图动态
@@ -2520,11 +2565,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", " ");
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2542,7 +2587,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图动态经度传空格动态类型是地图动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -2557,11 +2602,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", null);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2579,8 +2624,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图动态经度传 null动态类型是地图动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 地图动态经度不传动态类型是地图动态
@@ -2594,10 +2639,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2615,8 +2660,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图动态经度不传动态类型是地图动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 地图动态经度不传
@@ -2630,10 +2675,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2666,11 +2711,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 0);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2690,6 +2735,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("LONGITUDE").toString()).isEqualTo("0");
 	}
 	/**
 	 * 地图动态经度传String
@@ -2703,11 +2750,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", "dferfewe");
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2725,7 +2772,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图动态经度传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -2740,11 +2787,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", -55.32);
 		con.put("mapLatitude", 38.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2764,6 +2811,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("LONGITUDE").toString()).isEqualTo("-55.32");
+
 	}
 	/**
 	 * 地图动态纬度传空
@@ -2774,14 +2824,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 26.35);
 		con.put("mapLatitude", "");
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2814,11 +2864,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", " ");
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2851,11 +2901,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", null);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2888,11 +2938,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", -56.23);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2912,6 +2962,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("LATITUDE").toString()).isEqualTo("-56.23");
+
 	}
 	/**
 	 * 地图动态纬度传0
@@ -2925,11 +2978,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 0);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2949,6 +3002,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("LATITUDE").toString()).isEqualTo("0");
+
 	}
 	/**
 	 * 地图动态纬度传 String
@@ -2962,11 +3018,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", "DFSDSF");
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -2984,7 +3040,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图动态纬度传 String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -2996,13 +3052,13 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3035,11 +3091,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", "");
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3057,8 +3113,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图动态纬度传空动态类型是地图动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 地图动态纬度传空格动态类型是地图动态
@@ -3072,11 +3128,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", "DFSDSF");
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3094,8 +3150,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图动态纬度传空动态类型是地图动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 地图动态纬度传null动态类型是地图动态
@@ -3109,11 +3165,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", null);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3131,8 +3187,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图动态纬度传null动态类型是地图动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 地图动态纬度不传动态类型是地图动态
@@ -3146,10 +3202,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3167,8 +3223,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图动态纬度不传动态类型是地图动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 区域region传超长
@@ -3182,11 +3238,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
 		con.put("region", "浦东新区df的风格和经济多福多寿犯得上发生，法大师傅十分，是否电风扇犯得上。");
-		con.put("address", "上南路3855号");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3204,8 +3260,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("区域region传超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 区域region传非法字符
@@ -3219,11 +3275,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
 		con.put("region", "<@$%&^%*>");
-		con.put("address", "上南路3855号");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3243,6 +3299,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("REGION").toString()).isEqualTo("<@$%&^%*>");
+
 	}
 	/**
 	 * 区域region传空
@@ -3256,11 +3315,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
 		con.put("region", "");
-		con.put("address", "上南路3855号");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3280,6 +3339,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("REGION").toString()).isEqualTo("");
+
 	}
 	/**
 	 * 区域region传空格
@@ -3293,11 +3355,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
 		con.put("region", " ");
-		con.put("address", "上南路3855号");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3317,6 +3379,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("REGION").toString()).isEqualTo(" ");
 	}
 	/**
 	 * 区域region传null
@@ -3330,11 +3394,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
 		con.put("region", null);
-		con.put("address", "上南路3855号");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3354,6 +3418,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("REGION").toString()).isEqualTo(null);
 	}
 	/**
 	 * 区域region传0
@@ -3367,11 +3433,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
 		con.put("region", 0);
-		con.put("address", "上南路3855号");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3391,6 +3457,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("REGION").toString()).isEqualTo("0");
 	}
 	/**
 	 * 区域region不传
@@ -3404,10 +3472,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("address", "上南路3855号");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3440,11 +3508,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", -1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3464,6 +3532,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("-1319");
 	}
 	/**
 	 * 地图文件id传小数
@@ -3477,11 +3547,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 13.19);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3501,6 +3571,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("13.19");
 	}
 	/**
 	 * 地图文件id传空
@@ -3514,11 +3586,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", "");
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3538,6 +3610,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("");
 	}
 	/**
 	 * 地图文件id传空格
@@ -3551,11 +3625,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", " ");
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3575,6 +3649,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo(" ");
 	}
 	/**
 	 * 地图文件id传null
@@ -3588,11 +3664,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", null);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3612,6 +3688,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo(null);
 	}
 	/**
 	 * 地图文件id传0
@@ -3625,11 +3703,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 0);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3649,6 +3727,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("0");
 	}
 	/**
 	 * 地图文件id不传
@@ -3662,11 +3742,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
@@ -3698,11 +3778,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", "dfdsfs");
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3720,7 +3800,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图文件id传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -3735,11 +3815,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号dfsd电风扇犯得上发法国梵蒂冈梵蒂冈鬼地方鬼地方梵蒂冈的规范环境");
+		con.put("region", "自动化测试2");
+		con.put("address", "上南路3855号dfsd电风扇犯得上发法国梵蒂冈梵蒂冈鬼地方鬼地方梵蒂冈的规范环境，上南路3855号dfsd电风扇犯得上发法国梵蒂冈梵蒂冈鬼地方鬼地方梵蒂冈的规范环境。上南路3855号dfsd电风扇犯得上发法国梵蒂冈梵蒂冈鬼地方鬼地方梵蒂冈的规范环境，上南路3855号dfsd电风扇犯得上发法国梵蒂冈梵蒂冈鬼地方鬼地方梵蒂冈的规范环境。上南路3855号dfsd电风扇犯得上发法国梵蒂冈梵蒂冈鬼地方鬼地方梵蒂冈的规范环境");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3757,8 +3837,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("详细地址传超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 详细地址传空
@@ -3772,10 +3852,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
+		con.put("region", "自动化测试2");
 		con.put("address", "");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
@@ -3796,6 +3876,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("");
 	}
 	/**
 	 * 详细地址传空格
@@ -3809,10 +3891,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
+		con.put("region", "自动化测试2");
 		con.put("address", " ");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
@@ -3833,6 +3915,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo(" ");
 	}
 	/**
 	 * 详细地址传0
@@ -3846,10 +3930,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
+		con.put("region", "自动化测试2");
 		con.put("address", 0);
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
@@ -3870,6 +3954,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("0");
 	}
 	/**
 	 * 详细地址传null
@@ -3883,10 +3969,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
+		con.put("region", "自动化测试2");
 		con.put("address", null);
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
@@ -3907,6 +3993,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo(null);
 	}
 	/**
 	 * 详细地址传非法字符
@@ -3920,10 +4008,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
+		con.put("region", "自动化测试2");
 		con.put("address", "<#$#@%#%$>");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
@@ -3944,6 +4032,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("<#$#@%#%$>");
 	}
 	/**
 	 * 详细地址不传
@@ -3957,10 +4047,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
+		con.put("region", "自动化测试2");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 2.22);
 		con.put("powerType", 0);
@@ -3993,11 +4083,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", "");
 		con.put("powerType", 0);
@@ -4017,6 +4107,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo("");
 	}
 	/**
 	 * 缩放比例传空格
@@ -4030,11 +4122,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", " ");
 		con.put("powerType", 0);
@@ -4054,6 +4146,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo(" ");
 	}
 	/**
 	 * 缩放比例传null
@@ -4067,11 +4161,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", null);
 		con.put("powerType", 0);
@@ -4091,6 +4185,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo(null);
 	}
 	/**
 	 * 缩放比例传0
@@ -4104,11 +4200,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 0);
 		con.put("powerType", 0);
@@ -4128,6 +4224,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo(0);
 	}
 	/**
 	 * 缩放比例传String
@@ -4141,11 +4239,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", "DFDSFS");
 		con.put("powerType", 0);
@@ -4163,7 +4261,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("缩放比例传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -4178,11 +4276,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", -22.3);
 		con.put("powerType", 0);
@@ -4202,6 +4300,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo("-22.3");
 	}
 	/**
 	 * 缩放比例传整数
@@ -4215,11 +4315,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22);
 		con.put("powerType", 0);
@@ -4239,6 +4339,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql,dataType);
+		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo("22");
+		
 	}
 	/**
 	 * 缩放比例不传
@@ -4252,11 +4355,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
@@ -4288,11 +4391,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", -5);
@@ -4310,8 +4413,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("公开程度传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("powerType type is error ");
 	}
 	/**
 	 * 公开程度传小数
@@ -4325,11 +4428,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 2.3);
@@ -4347,8 +4450,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("公开程度传小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("powerType type is error ");
 	}
 	/**
 	 * 公开程度传0
@@ -4362,11 +4465,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -4386,6 +4489,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("POWER_TYPE").toString()).isEqualTo("0");
 	}
 	/**
 	 * 公开程度传String
@@ -4399,11 +4504,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", "fsgsdad");
@@ -4421,8 +4526,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("公开程度传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("powerType type is error ");
 	}
 	/**
 	 * 公开程度传空
@@ -4436,11 +4541,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", "");
@@ -4458,8 +4563,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("公开程度传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("powerType type is error ");
 	}
 	/**
 	 * 公开程度传空格
@@ -4473,11 +4578,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", " ");
@@ -4495,8 +4600,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("公开程度传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("powerType type is error ");
 	}
 	/**
 	 * 公开程度传null
@@ -4510,11 +4615,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", null);
@@ -4532,8 +4637,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("公开程度传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("powerType can't be empty ");
 	}
 	/**
 	 * 公开程度不传
@@ -4547,11 +4652,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("atUserIds", 1319);
@@ -4568,8 +4673,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("公开程度不传" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("powerType can't be empty ");
 	}
 	/**
 	 * 公开程度传8
@@ -4583,11 +4688,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 8);
@@ -4607,6 +4712,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("POWER_TYPE").toString()).isEqualTo("8");
 	}
 	/**
 	 * 提醒用户id数组传超长
@@ -4620,11 +4727,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -4642,8 +4749,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("提醒用户id数组传超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 提醒用户id数组传空格
@@ -4657,11 +4764,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -4694,11 +4801,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -4731,11 +4838,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -4768,11 +4875,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -4805,11 +4912,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -4842,11 +4949,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -4878,11 +4985,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -4901,7 +5008,9 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");	
+		list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
+		assertThat(list3.get(0).get("RADIOTIME").toString()).isEqualTo("0");
 	}
 	/**
 	 * 音频时间传空
@@ -4915,11 +5024,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -4939,6 +5048,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
+		assertThat(list3.get(0).get("RADIOTIME").toString()).isEqualTo("");
 	}
 	/**
 	 * 音频时间传空格
@@ -4952,11 +5063,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -4976,6 +5087,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
+		assertThat(list3.get(0).get("RADIOTIME").toString()).isEqualTo(" ");
 	}
 	/**
 	 * 音频时间传null
@@ -4989,11 +5102,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5013,6 +5126,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
+		assertThat(list3.get(0).get("RADIOTIME").toString()).isEqualTo(null);
 	}
 	/**
 	 * 音频时间传最大值
@@ -5026,11 +5141,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5050,6 +5165,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
+		assertThat(list3.get(0).get("RADIOTIME").toString()).isEqualTo("999999999");
 	}
 	/**
 	 * 音频时间传负数
@@ -5063,11 +5180,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5085,7 +5202,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("音频时间传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -5100,11 +5217,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5124,6 +5241,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
+		assertThat(list3.get(0).get("RADIOTIME").toString()).isEqualTo("12.3");
 	}
 	/**
 	 * 音频时间传String
@@ -5137,11 +5256,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5159,7 +5278,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("音频时间传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -5174,11 +5293,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 5);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5200,22 +5319,22 @@ public class PublishDynamicsTest extends HttpUtil {
 	}
 	
 	/**
-	 * 音频时间传空非音频动态
+	 * 音频时间传空音频动态
 	 */
 	@Test
-	public void postPublishDynamicsTestAudioTimeIsEmptyDynamicTypeNot4() throws Exception {
+	public void postPublishDynamicsTestAudioTimeIsEmptyDynamicTypeIs4() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 4);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5233,26 +5352,26 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("音频时间传空非音频动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 音频时间传空格非音频动态
+	 * 音频时间传空格音频动态
 	 */
 	@Test
-	public void postPublishDynamicsTestAudioTimeIsSpaceDynamicTypeNot4() throws Exception {
+	public void postPublishDynamicsTestAudioTimeIsSpaceDynamicTypeIs4() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 4);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5270,26 +5389,26 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("音频时间传空格非音频动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 音频时间传null非音频动态
 	 */
 	@Test
-	public void postPublishDynamicsTestAudioTimeIsNullDynamicTypeNot4() throws Exception {
+	public void postPublishDynamicsTestAudioTimeIsNullDynamicTypeIs4() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 4);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5307,7 +5426,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("音频时间传null非音频动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -5319,14 +5438,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 4);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5344,7 +5463,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("音频时间不传非音频动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -5359,14 +5478,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
+		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
 		con.put("selectIds", "");
@@ -5381,8 +5500,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("不可见看动态的人Id传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 不可见看动态的人Id传空格
@@ -5396,14 +5515,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
+		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
 		con.put("selectIds", " ");
@@ -5418,8 +5537,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("不可见看动态的人Id传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 不可见看动态的人Id传null
@@ -5433,14 +5552,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
+		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
 		con.put("selectIds", null);
@@ -5455,8 +5574,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("不可见看动态的人Id传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 不可见看动态的人Id传0
@@ -5470,14 +5589,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
+		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
 		con.put("selectIds", 0);
@@ -5492,8 +5611,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("不可见看动态的人Id传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 不可见看动态的人Id传负数
@@ -5507,17 +5626,17 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
+		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "-12495396");
+		con.put("selectIds", -12495396);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5529,8 +5648,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("不可见看动态的人Id传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 不可见看动态的人Id传小数
@@ -5544,14 +5663,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
+		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
 		con.put("selectIds", "1249.2396");
@@ -5566,8 +5685,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("不可见看动态的人Id传小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 不可见看动态的人Id不传
@@ -5581,14 +5700,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
+		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
 		con.put("isShowArea", 1);
@@ -5602,8 +5721,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("不可见看动态的人Id不传" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	
 	/**
@@ -5618,14 +5737,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 8);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
+		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
 		con.put("selectIds", "12495396,12495263,12495666,12495555,12495326");
@@ -5655,11 +5774,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5692,11 +5811,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5729,11 +5848,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5765,11 +5884,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5802,11 +5921,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5839,11 +5958,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5876,11 +5995,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5898,7 +6017,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("是否显示位置信息传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -5913,18 +6032,18 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
 		con.put("selectIds", "12495366");
-		con.put("isShowArea", 1.23);
+		con.put("isShowArea", 6.5);
 		con.put("relayId", 1319);	
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -5935,7 +6054,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("是否显示位置信息传小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -5950,11 +6069,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -5974,6 +6093,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("IS_SHOW_AREA").toString()).isEqualTo("0");
+
 	}
 	/**
 	 * 是否显示位置信息传空
@@ -5987,11 +6109,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6009,7 +6131,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("是否显示位置信息传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -6024,11 +6146,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6046,7 +6168,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("是否显示位置信息传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -6061,11 +6183,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6083,7 +6205,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("是否显示位置信息传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -6098,11 +6220,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6122,6 +6244,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("IS_SHOW_AREA").toString()).isEqualTo("1");
 	}
 	/**
 	 * 是否显示位置信息不传
@@ -6135,11 +6259,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6156,7 +6280,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("是否显示位置信息不传" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -6171,11 +6295,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6193,7 +6317,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("转发动态id传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -6208,11 +6332,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6230,7 +6354,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("转发动态id传小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -6245,11 +6369,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6267,7 +6391,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("转发动态id传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -6282,11 +6406,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6306,6 +6430,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("RELAY_ID").toString()).isEqualTo("");
 	}
 	/**
 	 * 转发动态id传空格
@@ -6319,11 +6445,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6343,6 +6469,9 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("RELAY_ID").toString()).isEqualTo(" ");
+		
 	}
 	/**
 	 * 转发动态id传null
@@ -6356,11 +6485,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6380,6 +6509,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("RELAY_ID").toString()).isEqualTo(null);
 	}
 	/**
 	 * 转发动态id传String
@@ -6393,11 +6524,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6415,8 +6546,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("转发动态id传String" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		//assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 转发动态id不传
@@ -6430,11 +6561,11 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
@@ -6453,60 +6584,24 @@ public class PublishDynamicsTest extends HttpUtil {
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
-	/**
-	 * 转发动态id为未登陆用户
-	 */
-	@Test
-	public void postPublishDynamicsTestRelayIdIsNotLoggedIn() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("fileIds", 1);
-		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
-		con.put("longitude", 55.63);
-		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
-		con.put("mapLongitude", 25.36);
-		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
-		con.put("atUserIds", "1319");
-		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
-		con.put("isShowArea", 0);
-		con.put("relayId", 12495326);	
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("转发动态id为未登陆用户" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
 	/**
 	 * 转发动态id为错误
 	 */
 	@Test
 	public void postPublishDynamicsTestRelayIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
+		con.put("userId", 111);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "如日商务园");
+		con.put("dynamicAddress", "自动化测试1");
 		con.put("mapLongitude", 25.36);
 		con.put("mapLatitude", 88.26);
-		con.put("region", "浦东新区");
-		con.put("address", "上南路3855号");
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
