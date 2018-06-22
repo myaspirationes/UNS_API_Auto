@@ -72,6 +72,36 @@ public class HomeDynamicListsTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
+	 * 开启附近陌生人
+	 */
+	@Test
+	public void postHomeDynamicListsTestOpenNearbyStrangers() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("userId", uuid);
+		con.put("dynamicType", -1);
+		con.put("basicType", -1);
+		con.put("genderType", -1);
+		con.put("pageNow", 1);
+		con.put("pageSize", 10);
+		con.put("selectType", 0);
+		con.put("indirectFriend", 0);
+		con.put("stranger", 0);
+		con.put("keyContent", "");
+		con.put("longitude", "121.51419305272026");
+		con.put("latitude", "31.15694861603254");
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("开启附近陌生人" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+	}
+	/**
 	 * 用户ID为小数
 	 */
 	@Test
