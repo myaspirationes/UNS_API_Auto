@@ -1116,7 +1116,7 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		System.out.println("查看用户id为未登录" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	

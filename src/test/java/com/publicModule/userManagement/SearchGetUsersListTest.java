@@ -215,10 +215,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为null
@@ -239,10 +237,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为0
@@ -307,10 +303,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID为超长
@@ -1690,8 +1684,6 @@ public class SearchGetUsersListTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("参数非法");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 状态为负数
@@ -1758,10 +1750,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为空格" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 状态为空
@@ -1782,10 +1772,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为空" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 状态为null
@@ -1806,10 +1794,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为null" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 状态为String
@@ -1873,10 +1859,8 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为不传" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * app端用户id错误

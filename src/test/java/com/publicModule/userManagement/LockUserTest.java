@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.json.JSONObject;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 //import org.junit.Test;
 import org.testng.annotations.Test;
 
@@ -19,7 +20,7 @@ import com.publicModule.login.BackUserLoginTest;
 public class LockUserTest extends HttpUtil {
 // 锁定用户接口
 	String url = "/uu-admin/UUuserManage/lockedUser/";
-	String selectSql = "SELECT * FROM T_USER_LOCK where LOCKED_USER_ID = 12495396 AND MSG = '测试3'";
+	String selectSql = "SELECT * FROM T_USER_LOCK where LOCKED_USER_ID = 12495396 OR MSG = '测试3'";
 	String deleteSql = "delete FROM T_USER_LOCK where LOCKED_USER_ID = 12495396 or MSG = '测试3' or MSG = '测试4'";
 	String updateSql = "update T_USER_LOCK set LOCK_DURATION = 1 where LOCKED_USER_ID = 12495396 ";
 	List<Map<String,Object>> list ;
@@ -31,8 +32,8 @@ public class LockUserTest extends HttpUtil {
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;
 		
-	@AfterClass
-	public void afterClass()
+	@AfterMethod
+	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 	}
@@ -80,7 +81,7 @@ public class LockUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
 		
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("操作成功");
 		MetaOper.read(selectSql, dataType);
 		list =MetaOper.read(selectSql,dataType);
@@ -107,8 +108,8 @@ public class LockUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误用户" + post);
 	
-		assertThat(post.get("status")).isEqualTo(500);
-		
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("被锁定用户不存在");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -170,8 +171,8 @@ public class LockUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
-		
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id格式错误！");
 	}
 	/**
 	 * 用户ID为空格
@@ -192,7 +193,7 @@ public class LockUserTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
 	}
 	/**
@@ -213,7 +214,7 @@ public class LockUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 	
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
 	}
 	/**
@@ -234,7 +235,7 @@ public class LockUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 	
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
 	}
 	/**
@@ -255,8 +256,8 @@ public class LockUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
-		//assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id格式错误！");
 	}
 	/**
 	 * 用户ID为String
@@ -297,7 +298,7 @@ public class LockUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
 	}
 	/**
@@ -318,7 +319,8 @@ public class LockUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("被锁定用户不存在");
 		}
 	/**
 	 * 锁定类型为小数
@@ -326,7 +328,7 @@ public class LockUserTest extends HttpUtil {
 	@Test
 	public void postLockUserTestLockTypeIsDecimal() throws Exception {
 		MetaOper.read(selectSql, dataType);
-		map1.put("lockType", 1.23);
+		map1.put("lockType", 9.23);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");
 		lis.add(map1);
@@ -339,7 +341,7 @@ public class LockUserTest extends HttpUtil {
 		System.out.println("锁定类型为小数" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
 		}
 	/**
@@ -361,8 +363,8 @@ public class LockUserTest extends HttpUtil {
 		System.out.println("锁定类型为负数" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("锁定类型格式错误！");
 	}
 	/**
 	 * 锁定类型为0
@@ -568,7 +570,7 @@ public class LockUserTest extends HttpUtil {
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定类型为空格" + post);
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("锁定类型不能为空！");
 	}
 	/**
@@ -591,7 +593,7 @@ public class LockUserTest extends HttpUtil {
 		System.out.println("锁定类型为空" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("锁定类型不能为空！");
 	}
 	/**
@@ -614,7 +616,7 @@ public class LockUserTest extends HttpUtil {
 		System.out.println("锁定类型为null" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("锁定类型不能为空！");
 	}
 	/**
@@ -659,7 +661,7 @@ public class LockUserTest extends HttpUtil {
 	
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("msg")).isEqualTo("锁定类型不能为空！");
 	}
 	/**
 	 * 锁定时长为错误
@@ -867,8 +869,8 @@ public class LockUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定时长为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("锁定时长格式错误！");
 	}
 	/**
 	 * 锁定时长为小数
@@ -877,7 +879,7 @@ public class LockUserTest extends HttpUtil {
 	public void postLockUserTestLockTimeIsDecimal() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
-		map1.put("lockTime", 3.26);
+		map1.put("lockTime", 50.26);
 		map1.put("opinion", "测试3");
 		
 		lis.add(map1);
@@ -912,7 +914,7 @@ public class LockUserTest extends HttpUtil {
 		System.out.println("锁定时长为空格" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("锁定时长不能为空！");
 	}
 	/**
@@ -935,7 +937,7 @@ public class LockUserTest extends HttpUtil {
 		System.out.println("锁定时长为null" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("锁定时长不能为空！");
 	}
 	/**
@@ -1051,7 +1053,7 @@ public class LockUserTest extends HttpUtil {
 		assertThat(post.get("msg")).isEqualTo("操作成功");	
 		MetaOper.read(selectSql, dataType);
 		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("MSG")).isEqualTo("");
+		assertThat(list.get(0).get("MSG")).isEqualTo(null);
 		
 		MetaOper.delete(deleteSql, dataType);
 	}
@@ -1155,7 +1157,7 @@ public class LockUserTest extends HttpUtil {
 		assertThat(post.get("msg")).isEqualTo("操作成功");
 		MetaOper.read(selectSql, dataType);
 		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("MSG").toString()).isEqualTo("");
+		assertThat(list.get(0).get("MSG")).isEqualTo(null);
 	}
 	/**
 	 * 处理人姓名为错误
@@ -1198,8 +1200,8 @@ public class LockUserTest extends HttpUtil {
 		System.out.println("处理人姓名为空" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("处理人姓名不能为空！");
 	}
 	/**
 	 * 处理人姓名为空格
@@ -1220,8 +1222,8 @@ public class LockUserTest extends HttpUtil {
 		System.out.println("处理人姓名为空格" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("处理人姓名不能为空！");
 	}
 	/**
 	 * 处理人姓名为null
@@ -1242,7 +1244,7 @@ public class LockUserTest extends HttpUtil {
 		System.out.println("处理人姓名为null" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("处理人姓名不能为空！");
 	}
 	/**
@@ -1263,8 +1265,8 @@ public class LockUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理人姓名非法字符" + post);
 		
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 处理人姓名不传
@@ -1284,7 +1286,7 @@ public class LockUserTest extends HttpUtil {
 		System.out.println("处理人姓名不传" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("处理人姓名不能为空！");
 	}
 	
