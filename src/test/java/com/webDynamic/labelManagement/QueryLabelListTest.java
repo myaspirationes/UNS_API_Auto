@@ -114,7 +114,7 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", -9);
-		request.put("labelName", 1);
+		request.put("type", 1);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);

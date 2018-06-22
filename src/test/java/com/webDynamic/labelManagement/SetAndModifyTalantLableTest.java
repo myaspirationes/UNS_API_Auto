@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SetAndModifyTalantLableTest extends HttpUtil {
 	//添加/编辑达人标签接口
-	String url = "/uu-admin/labelManage/setAndModifyTalantLable`";
+	String url = "/uu-admin/labelManage/setAndModifyTalantLable";
 
 
 	String userid;
