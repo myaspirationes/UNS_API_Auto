@@ -11,7 +11,6 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//import org.junit.Test;
 
 public class HomeDynamicListsTest extends HttpUtil {
 //首页动态列表接口（支持筛选、搜索、插入陌生人动态）
@@ -58,7 +57,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("pageSize", 10);
 		con.put("selectType", 1);
 		con.put("indirectFriend", 0);
-		con.put("stranger", 1);
+		con.put("stranger", 0);
 		con.put("keyContent", "");
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

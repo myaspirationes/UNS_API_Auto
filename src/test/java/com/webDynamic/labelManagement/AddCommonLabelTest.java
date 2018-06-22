@@ -42,7 +42,7 @@ public class AddCommonLabelTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 标签名为超长
