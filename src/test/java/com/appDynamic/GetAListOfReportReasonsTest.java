@@ -69,7 +69,7 @@ public class GetAListOfReportReasonsTest extends HttpUtil {
 	@Test
 	public void postGetAListOfReportReasonsTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 1.1);
+		con.put("userId", 3.1);
 
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

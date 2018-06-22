@@ -2,27 +2,41 @@ package com.appDynamic;
 
 import com.example.HttpUtil;
 import com.example.LoginTest;
+import com.example.MetaOper;
 import org.json.JSONObject;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
+import java.rmi.MarshalException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 //import org.junit.Test;
 
-public class MyDynamicListsTest extends HttpUtil {
-//我的动态列表
-	String url = "/UU/dynamic";
+public class DeleteCommentTest extends HttpUtil {
+//删除评论
+	String url = "/UU/comment";
 
 	JSONObject body;
 	String uuid;
 	String chcode;
 	Map<String, Object> head = new HashMap<String, Object>();
+	String selectSql = "SELECT * FROM T_COMMENTBACK WHERE CONTENT = '自动化评论'";
+	String dataType = "perCenter81";
+	String delDynamic = "DELETE FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'";
+	String delComment = "DELETE FROM T_COMMENTBACK WHERE CONTENT in ('自动化评论','<#$%^&**^%$#>','自动化评论回复')";
+	List<Map<String,Object>> list ;
+	String commentId;
+	String dynamicId;
 	@BeforeClass
-	public void  beforeClass(){
+	public void  beforeClass() throws Exception {
+//		new PublishDynamicsTest().postPublishDynamicsTestCorrectParameter();
+//		new DynamicCommentTest().postDynamicCommentTestCorrectParameter();
+//		list = MetaOper.read(selectSql,dataType);
+//		commentId = list.get(0).get("COMMENT_ID").toString();
+//		dynamicId = list.get(0).get("ORIGIN_ID").toString();
 		LoginTest login = new LoginTest();
 		try {
 			body = login.getLoginTestChcodeBy177();
@@ -40,18 +54,40 @@ public class MyDynamicListsTest extends HttpUtil {
 		head.put("sync", 1);
 		head.put("uuid", uuid);
 		head.put("chcode", chcode);
-		head.put("cmd", 521);
+		head.put("cmd", 4002);
+	}
+	@BeforeMethod
+	public void  beforeMethod() throws Exception {
+		new PublishDynamicsTest().postPublishDynamicsTestCorrectParameter();
+		new DynamicCommentTest().postDynamicCommentTestCorrectParameter();
+		list = MetaOper.read(selectSql, dataType);
+		commentId = list.get(0).get("COMMENT_ID").toString();
+		dynamicId = list.get(0).get("ORIGIN_ID").toString();
+	}
+	@AfterMethod
+	public void afterMethod(){
+		MetaOper.delete(delComment,dataType);
+		MetaOper.delete(delDynamic,dataType);
+
+	}
+	@AfterClass
+	public void afterClass(){
+		MetaOper.delete(delComment,dataType);
+		MetaOper.delete(delDynamic,dataType);
+
 	}
 
 	/**
 	 * 提交正确参数
 	 */
 	@Test
-	public void postMyDynamicListsTestCorrectParameter() throws Exception {
+	public void postDeleteCommentTestCorrectParameter() throws Exception {
+
+
 		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
 		con.put("userId", uuid);
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
+		con.put("commentId", commentId);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -65,614 +101,635 @@ public class MyDynamicListsTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 用户ID为小数
+	 * 动态ID错误
 	 */
 	@Test
-	public void postMyDynamicListsTestUserIdIsDecimal() throws Exception {
+	public void postDeleteCommentTestDynamicIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 1.1);
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
+		con.put("dynamicId", 0000001);
+		con.put("userId", uuid);
+		con.put("commentId", commentId);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为小数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("For input string: \"1.1\"");
-	}
-	/**
-	 * 用户ID为负数
-	 */
-	@Test
-	public void postMyDynamicListsTestUserIdIsNegativeNumber() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", -1);
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为负数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
-	}
-	/**
-	 * 用户ID为0
-	 */
-	@Test
-	public void postMyDynamicListsTestUserIdIsZero() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 0);
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为0" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
-	}
-	/**
-	 * 用户ID为错误
-	 */
-	@Test
-	public void postMyDynamicListsTestUserIdIsError() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 123);
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID" + post);
+		System.out.println("动态ID错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 用户ID未登录
+	 * 动态ID负数
 	 */
 	@Test
-	public void postMyDynamicListsTestUserIdNotLoggedIn() throws Exception {
+	public void postDeleteCommentTestDynamicIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 12495097);
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
+		con.put("dynamicId", -1);
+		con.put("userId", uuid);
+		con.put("commentId", commentId);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID未登录" + post);
+		System.out.println("动态ID负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 用户ID为字符串
+	 * 动态ID小数
 	 */
 	@Test
-	public void postMyDynamicListsTestUserIdIsString() throws Exception {
+	public void postDeleteCommentTestDynamicIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", "uuid");
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
+		con.put("dynamicId", 9.9);
+		con.put("userId", uuid);
+		con.put("commentId", commentId);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID" + post);
+		System.out.println("动态ID小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("For input string: \"uuid\"");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * 用户ID为null
+	 * 动态ID为0
 	 */
 	@Test
-	public void postMyDynamicListsTestUserIdIsNull() throws Exception {
+	public void postDeleteCommentTestDynamicIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", null);
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
+		con.put("dynamicId", 0);
+		con.put("userId", uuid);
+		con.put("commentId", commentId);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为null" + post);
+		System.out.println("动态ID为0" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("shiabi");
+	}
+	/**
+	 * 动态ID为字符串
+	 */
+	@Test
+	public void postDeleteCommentTestDynamicIdIsString() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", "dynamicId");
+		con.put("userId", uuid);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("动态ID为字符串" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("用户id不能为空");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * 用户ID为空
+	 * 动态ID为空
 	 */
 	@Test
-	public void postMyDynamicListsTestUserIdIsEmpty() throws Exception {
+	public void postDeleteCommentTestDynamicIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", "");
+		con.put("userId", uuid);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("动态ID为空" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * 动态ID为null
+	 */
+	@Test
+	public void postDeleteCommentTestDynamicIdIsNull() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", null);
+		con.put("userId", uuid);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("动态ID为null" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+	}
+	/**
+	 * 动态ID空格
+	 */
+	@Test
+	public void postDeleteCommentTestDynamicIdIsSpace() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", " ");
+		con.put("userId", uuid);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("动态ID空格" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * 动态ID为超长
+	 */
+	@Test
+	public void postDeleteCommentTestDynamicIdIsLong() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", 123123123123123123L);
+		con.put("userId", uuid);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("动态ID为超长" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("shibai");
+	}
+	/**
+	 * 动态ID不传该参数
+	 */
+	@Test
+	public void postDeleteCommentTestDynamicIdNonSubmissionParameters() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("userId", uuid);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("动态ID不传该参数" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+	}
+	/**
+	 * 评论人ID为未登录
+	 */
+	@Test
+	public void postDeleteCommentTestUserIdNotLoggedIn() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
+		con.put("userId", 12495079);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("评论人ID为未登录" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("shibai");
+	}
+	/**
+	 * 评论人ID为空
+	 */
+	@Test
+	public void postDeleteCommentTestUserIdIsEmpty() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
 		con.put("userId", "");
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
+		con.put("commentId", commentId);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为空" + post);
+		System.out.println("评论人ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("For input string: \"1.1\"");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * 用户ID为空格
+	 * 评论人ID为null
 	 */
 	@Test
-	public void postMyDynamicListsTestUserIdIsSpace() throws Exception {
+	public void postDeleteCommentTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
+		con.put("userId", null);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("评论人ID为null" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+	}
+	/**
+	 * 评论人ID为超长
+	 */
+	@Test
+	public void postDeleteCommentTestUserIdIsLong() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
+		con.put("userId", 1234561234512345L);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("评论人ID为超长" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("shibai");
+	}
+	/**
+	 * 评论人ID不传该参数
+	 */
+	@Test
+	public void postDeleteCommentTestUserIdNonSubmissionParameters() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("评论人ID不传该参数" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
+	}
+	/**
+	 * 评论人ID为0
+	 */
+	@Test
+	public void postDeleteCommentTestUserIdIsZero() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
+		con.put("userId", 0);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("评论人ID为0" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("shibai");
+	}
+	/**
+	 * 评论人ID为负数
+	 */
+	@Test
+	public void postDeleteCommentTestUserIdIsNegativeNumber() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
+		con.put("userId", -9);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("评论人ID为负数" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 评论人ID为小数
+	 */
+	@Test
+	public void postDeleteCommentTestUserIdIsDecimal() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
+		con.put("userId", 1.1);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("评论人ID为小数" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * 评论人ID为字符串
+	 */
+	@Test
+	public void postDeleteCommentTestUserIdIsString() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
+		con.put("userId", "uuid");
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("评论人ID为字符串" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * 评论人ID为错误
+	 */
+	@Test
+	public void postDeleteCommentTestUserIdIsError() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
+		con.put("userId", 121);
+		con.put("commentId", commentId);
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("评论人ID为错误" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("shibai");
+	}
+	/**
+	 * 评论人ID为空格
+	 */
+	@Test
+	public void postDeleteCommentTestUserIdIsSpace() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
 		con.put("userId", " ");
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
+		con.put("commentId", commentId);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为空格" + post);
+		System.out.println("评论人ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("For input string: \" \"");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * 用户ID为超长
+	 * 评论ID为负数
 	 */
 	@Test
-	public void postMyDynamicListsTestUserIdIsLong() throws Exception {
+	public void postDeleteCommentTestCommentIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 123123123123123L);
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
+		con.put("dynamicId", dynamicId);
+		con.put("userId", uuid);
+		con.put("commentId", -2);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID为超长" + post);
+		System.out.println("评论ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
+		assertThat(head1.get("msg")).isEqualTo("没有数据");
 	}
+
 	/**
-	 * 用户ID不传该参数
+	 * 评论ID为0
 	 */
 	@Test
-	public void postMyDynamicListsTestUserIdNonSubmissionParameters() throws Exception {
+	public void postDeleteCommentTestCommentIdIsZero() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("pageNow", 1);
-		con.put("pageSize", 10);
+		con.put("dynamicId", dynamicId);
+		con.put("userId", uuid);
+		con.put("commentId", 0);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID不传该参数" + post);
+		System.out.println("评论ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("用户id不能为空");
+		assertThat(head1.get("msg")).isEqualTo("没有数据");
 	}
-
 	/**
-	 * 当前页码为小数
+	 * 评论ID为超长
 	 */
 	@Test
-	public void postMyDynamicListsTestPageNowIsDecimal() throws Exception {
+	public void postDeleteCommentTestCommentIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
 		con.put("userId", uuid);
-		con.put("pageNow", 1.4);
-		con.put("pageSize", 10);
+		con.put("commentId", "9999999999999999999999");
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("当前页码为小数" + post);
+		System.out.println("评论ID为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("java.lang.Double cannot be cast to java.lang.Integer");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * 当前页码为负数
+	 * 评论ID为小数
 	 */
 	@Test
-	public void postMyDynamicListsTestPageNowIsNegativeNumber() throws Exception {
+	public void postDeleteCommentTestCommentIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
 		con.put("userId", uuid);
-		con.put("pageNow", -1);
-		con.put("pageSize", 10);
+		con.put("commentId", 9.9);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("当前页码为负数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 当前页码为0
-	 */
-	@Test
-	public void postMyDynamicListsTestPageNowIsZero() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("pageNow", 0);
-		con.put("pageSize", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("当前页码为0" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 当前页码最大值
-	 */
-	@Test
-	public void postMyDynamicListsTestPageNowIsMax() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("pageNow", 999999999);
-		con.put("pageSize", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("当前页码最大值" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 当前页码超长
-	 */
-	@Test
-	public void postMyDynamicListsTestPageNowIsLong() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("pageNow", 99999999999999L);
-		con.put("pageSize", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("当前页码超长" + post);
+		System.out.println("评论ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isIn("java.lang.Double cannot be cast to java.lang.Integer","java.lang.Long cannot be cast to java.lang.Integer");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * 当前页码为空
+	 * 评论ID为最大值
 	 */
 	@Test
-	public void postMyDynamicListsTestPageNowIsEmpty() throws Exception {
+	public void postDeleteCommentTestCommentIdIsMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
 		con.put("userId", uuid);
-		con.put("pageNow", "");
-		con.put("pageSize", 10);
+		con.put("commentId", 999999999999999999L);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("当前页码为空" + post);
+		System.out.println("评论ID为最大值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isIn("java.lang.Double cannot be cast to java.lang.Integer","java.lang.String cannot be cast to java.lang.Integer");
+		assertThat(head1.get("msg")).isEqualTo("没有数据");
 	}
 	/**
-	 * 当前页码为空格
+	 * 评论ID为空
 	 */
 	@Test
-	public void postMyDynamicListsTestPageNowIsSpace() throws Exception {
+	public void postDeleteCommentTestCommentIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
 		con.put("userId", uuid);
-		con.put("pageNow", " ");
-		con.put("pageSize", 10);
+		con.put("commentId", "");
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("当前页码为空格" + post);
+		System.out.println("评论ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("java.lang.String cannot be cast to java.lang.Integer");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * 当前页码为null
+	 * 评论ID为空格
 	 */
 	@Test
-	public void postMyDynamicListsTestPageNowIsNull() throws Exception {
+	public void postDeleteCommentTestCommentIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
 		con.put("userId", uuid);
-		con.put("pageNow", null);
-		con.put("pageSize", 10);
+		con.put("commentId", " ");
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("当前页码为null" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 当前页码不传该参数
-	 */
-	@Test
-	public void postMyDynamicListsTestPageNowNonSubmissionParameters() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("pageSize", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("当前页码不传该参数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 每页的个数为小数
-	 */
-	@Test
-	public void postMyDynamicListsTestPageSizeIsDecimal() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("pageSize", 1.4);
-		con.put("pageNow", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("每页的个数为小数" + post);
+		System.out.println("评论ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("java.lang.Double cannot be cast to java.lang.Integer");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * 每页的个数为负数
+	 * 评论ID为null
 	 */
 	@Test
-	public void postMyDynamicListsTestPageSizeIsNegativeNumber() throws Exception {
+	public void postDeleteCommentTestCommentIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
 		con.put("userId", uuid);
-		con.put("pageSize", -1);
-		con.put("pageNow", 10);
+		con.put("commentId", null);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("每页的个数为负数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 每页的个数为0
-	 */
-	@Test
-	public void postMyDynamicListsTestPageSizeIsZero() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("pageSize", 0);
-		con.put("pageNow", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("每页的个数为0" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 每页的个数最大值
-	 */
-	@Test
-	public void postMyDynamicListsTestPageSizeIsMax() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("pageSize", 999999999);
-		con.put("pageNow", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("每页的个数最大值" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 每页的个数超长
-	 */
-	@Test
-	public void postMyDynamicListsTestPageSizeIsLong() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("pageSize", 99999999999999L);
-		con.put("pageNow", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("每页的个数超长" + post);
+		System.out.println("评论ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isIn("java.lang.Long cannot be cast to java.lang.Integer","java.lang.Double cannot be cast to java.lang.Integer","java.lang.String cannot be cast to java.lang.Integer");
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
-	 * 每页的个数为空
+	 * 评论ID不传该参数
 	 */
 	@Test
-	public void postMyDynamicListsTestPageSizeIsEmpty() throws Exception {
+	public void postDeleteCommentTestCommentIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("dynamicId", dynamicId);
 		con.put("userId", uuid);
-		con.put("pageSize", "");
-		con.put("pageNow", 10);
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("每页的个数为空" + post);
+		System.out.println("评论ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("java.lang.String cannot be cast to java.lang.Integer");
-	}
-	/**
-	 * 每页的个数为空格
-	 */
-	@Test
-	public void postMyDynamicListsTestPageSizeIsSpace() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("pageSize", " ");
-		con.put("pageNow", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("每页的个数为空格" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isIn("java.lang.String cannot be cast to java.lang.Integer","java.lang.Double cannot be cast to java.lang.Integer");
-	}
-	/**
-	 * 每页的个数为null
-	 */
-	@Test
-	public void postMyDynamicListsTestPageSizeIsNull() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("pageSize", null);
-		con.put("pageNow", 10);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("每页的个数为null" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 每页的个数不传该参数
-	 */
-	@Test
-	public void postMyDynamicListsTestPageSizeNonSubmissionParameters() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("pageNow", 10);
-		con.put("selectType", 1);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("每页的个数不传该参数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 
+	
 
 
 }

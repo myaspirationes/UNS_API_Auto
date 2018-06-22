@@ -11,7 +11,6 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//import org.junit.Test;
 
 public class HomeDynamicListsTest extends HttpUtil {
 //首页动态列表接口（支持筛选、搜索、插入陌生人动态）
@@ -22,7 +21,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 	String chcode;
 	Map<String, Object> head = new HashMap<String, Object>();
 	@BeforeClass
-	public void  beforeClass(){
+	public void  beforeClass() throws Exception {
 		LoginTest login = new LoginTest();
 		try {
 			body = login.getLoginTestChcodeBy177();
@@ -32,6 +31,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		new PublishDynamicsTest().postPublishDynamicsTestCorrectParameter();
 		head.put("aid", "lan6uu");
 		head.put("ver", "1.2.0");
 		head.put("ln", "cn");
@@ -40,7 +40,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		head.put("sync", 1);
 		head.put("uuid", uuid);
 		head.put("chcode", chcode);
-		head.put("cmd", 520);//514
+		head.put("cmd", 520);//514  520
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("pageSize", 10);
 		con.put("selectType", 1);
 		con.put("indirectFriend", 0);
-		con.put("stranger", 1);
+		con.put("stranger", 0);
 		con.put("keyContent", "");
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值

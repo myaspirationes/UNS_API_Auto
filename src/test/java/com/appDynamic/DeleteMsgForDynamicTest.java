@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class DeleteMsgForDynamicTest extends HttpUtil {
-//动态消息全部清空（清空某个）
+//动态消息全部清空（清空某个）  废弃
 	String url = "/UU/deleteMsg";
 
 	JSONObject body;
