@@ -1651,7 +1651,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicType type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态类型不传
@@ -1724,7 +1724,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态经度传负数
@@ -1917,7 +1917,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态经度传null
@@ -2067,9 +2067,9 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("LOCATION")).isEqualTo(" ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
+		//list =MetaOper.read(selectSql,dataType);
+		//assertThat(list.get(0).get("LOCATION")).isEqualTo(" ");
 	}
 	/**
 	 * 发布动态时的地址null
@@ -2335,7 +2335,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态纬度传0
@@ -2565,9 +2565,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read("SELECT * FROM T_DYNAMIC_POSITION WHERE ZOOM_LEVEL = '2.22'",dataType);
-		assertThat(list1.get(0).get("LONGITUDE").toString()).isEqualTo(null);
+		assertThat(head1.get("msg")).isEqualTo("成功");//非地图动态 数据库不进行保存
 	}
 	/**
 	 * 地图动态经度传null
@@ -2604,9 +2602,9 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		
-	}
+		assertThat(head1.get("msg")).isEqualTo("成功");//非地图动态 数据库不进行保存
+		//list2 = MetaOper.read("SELECT * FROM T_DYNAMIC_POSITION ", dataType)	
+		}
 	/**
 	 * 地图动态经度传空格
 	 */
@@ -2642,7 +2640,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");//非地图动态 数据库不进行保存
 	}
 	/**
 	 * 地图动态经度传空动态类型是地图动态
@@ -2825,7 +2823,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");//非地图动态 数据库不进行保存
 	}
 	/**
 	 * 地图动态经度传0
@@ -2978,7 +2976,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");//非地图动态 数据库不进行保存该条数据
 	}
 	/**
 	 * 地图动态纬度传空格
@@ -3015,7 +3013,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");//非地图动态 数据库不进行保存该条数据
 	}
 	/**
 	 * 地图动态纬度传null
@@ -3052,7 +3050,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");//非地图动态 数据库不进行保存该条数据
 	}
 	/**
 	 * 地图动态纬度传负数
@@ -3205,7 +3203,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");//非地图动态 数据库不进行保存该条数据
 	}
 	/**
 	 * 地图动态纬度传空动态类型是地图动态

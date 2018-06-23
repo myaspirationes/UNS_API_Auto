@@ -28,7 +28,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 	String selectSql2 = "SELECT * FROM T_USER_COMPLAINT WHERE DESCRIBES = '自动化测试' OR USER_ID = 12495396";
 	String delDynamic = "DELETE FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'";
 	String delComment = "DELETE FROM T_COMMENTBACK WHERE CONTENT in ('自动化评论','<#$%^&**^%$#>','自动化评论回复')";
-	String delComplaint = "DELETE FROM T_USER_COMPLAINT WHERE DESCRIBES = '自动化评论'";
+	String delComplaint = "DELETE FROM T_USER_COMPLAINT WHERE DESCRIBES = '自动化测试'";
 	List<Map<String,Object>> list ;
 	List<Map<String,Object>> list1 ;
 	List<Map<String,Object>> list2 ;
@@ -185,7 +185,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户id为负数
@@ -257,7 +257,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法!");
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 用户id为空
@@ -693,7 +693,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("参数非法!");
 		}
 	
 	/**
@@ -792,7 +792,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("输入内容最多为50个字");
 	}
 	/**
 	 * 举报内容传空格
@@ -815,10 +815,10 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		System.out.println("举报内容传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list2 =MetaOper.read(selectSql2,dataType);
-		assertThat(list2.get(0).get("DESCRIBES").toString()).isEqualTo(" ");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("输入内容最少为5个字");
+		//list2 =MetaOper.read(selectSql2,dataType);
+		//assertThat(list2.get(0).get("DESCRIBES").toString()).isEqualTo(" ");
 	}
 	/**
 	 * 举报内容传空
@@ -919,7 +919,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("null");
+		assertThat(head1.get("msg")).isEqualTo("成功");
 		list2 =MetaOper.read(selectSql2,dataType);
 		assertThat(list2.get(0).get("DESCRIBES")).isEqualTo(null);
 	}
@@ -1089,7 +1089,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法!");
+		assertThat(head1.get("msg")).isEqualTo("type非法");
 	}
 	/**
 	 * 举报类型不传
@@ -1136,7 +1136,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("type非法");
 	}
 	/**
 	 * 举报类型传0targetId传评论id
@@ -1160,7 +1160,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("动态不存在");
 	}
 	/**
 	 * 举报类型传1targetId传动态id
@@ -1184,7 +1184,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("评论不存在");
 	}
 	
 
