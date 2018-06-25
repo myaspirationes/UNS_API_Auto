@@ -86,8 +86,20 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 	 */
 	@Test
 	public void postReportDynamicsOrCommentsTestCorrectParameterReportDynamic() throws Exception {
+		LoginTest login = new LoginTest();
+		body = login.getLoginTestChcodeBy177();
+		uuid= (body.get("userId")).toString();
+		chcode= (body.get("checkCode")).toString();		
+		head.put("aid", "lan6uu");
+		head.put("ver", "1.0");
+		head.put("ln", "cn");
+		head.put("mod", "ios");
+		head.put("de", "2011-07-13 00:00:00");
+		head.put("sync", 1);
+		head.put("uuid", uuid);
+		head.put("chcode", chcode);
+		head.put("cmd", 510);
 		Map<String, Object> con = new HashMap<String, Object>();
-
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
 		con.put("reasonId", 2);

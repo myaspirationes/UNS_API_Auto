@@ -1,35 +1,66 @@
 package com.webDynamic.commentManagement;
 
+import com.appDynamic.DynamicCommentTest;
+import com.appDynamic.PublishDynamicsTest;
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
-
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetCommentdetailTest extends HttpUtil {
-	// 搜索获取评论列表接口
+	// 获取评论详情接口
 	String url = "/uu-admin/SystemManager/getUserList";
 	
 	String dataType = "perCenter81";
-	
-	BackUserLoginTest login = new BackUserLoginTest();
-	String userId=login.userId;
-	
-	
+	String delDynamic = "DELETE FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'";
+	String selDynamic = "SELECT * FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'";
+	String selComment = "SELECT * FROM T_COMMENTBACK WHERE CONTENT = '自动化评论'";
+	String delComment = "DELETE FROM T_COMMENTBACK WHERE CONTENT in ('自动化评论','<#$%^&**^%$#>','自动化评论回复')";
+	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
+	String commentId;
+	String dynamicId;
+	@BeforeMethod
+	public void  beforeMethod() throws Exception {
+		new PublishDynamicsTest().postPublishDynamicsTestCorrectParameter();
+		new DynamicCommentTest().postDynamicCommentTestCorrectParameter();
+		list = MetaOper.read(selComment, dataType);
+		list1 = MetaOper.read(selDynamic,dataType);
+		dynamicId = list1.get(0).get("DYNAMIC_ID").toString();
+		commentId = list.get(0).get("COMMENT_ID").toString();
+	}
+	@AfterMethod
+	public void afterMethod()
+	{
+		MetaOper.delete(delComment, dataType);
+		MetaOper.delete(delDynamic,dataType);
+	}
+	@AfterClass
+	public void afterClass(){
+		MetaOper.delete(delComment, dataType);
+		MetaOper.delete(delDynamic,dataType);
+	}
 			
 	
 	/**
 	 * 提交正确参数
 	 */
-//	@Test
+	@Test
 	public void postGetCommentdetailTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("commentId", 1453);
-		request.put("category", 1);
+		request.put("commentId", commentId);
+		request.put("category", 2);
 		request.put("classify", 1);
+		request.put("userId", 12495396);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 

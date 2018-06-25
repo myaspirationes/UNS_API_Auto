@@ -44,7 +44,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		containerId = list1.get(0).get("CONTAINER_ID").toString();
 		contentId = list1.get(0).get("CONTAINER_CON_ID").toString();
 	}
-
+	
 
 	/**
 	 * 提交正确参数
@@ -67,8 +67,11 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		assertThat(post.get("msg")).isEqualTo("成功");
 		MetaOper.read(selectSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
+		String ClobToString = list.get(0).get("TITLE").toString();
 		assertThat(list.get(0).get("FILE_ID").toString()).isEqualTo("1");
+		assertThat(ClobToString).isEqualTo("1");
 		System.out.println(list.get(0).get("TITLE"));	
+		//String content = ClobToString((Clob)obj[1]); 
 		//Clob clob = (Clob)(list.get(0).get("TITLE"));
 		//String content = clob.getSubString((long)1,(int)clob.length());
 		//assertThat(content).isEqualTo("天空lala");

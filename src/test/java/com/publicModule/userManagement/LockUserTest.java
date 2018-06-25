@@ -53,7 +53,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
+		request.put("operatorName", "admin");
 		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
