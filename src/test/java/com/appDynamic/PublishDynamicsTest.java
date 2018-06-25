@@ -17,7 +17,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//import org.junit.Test;
+
 
 public class PublishDynamicsTest extends HttpUtil {
 //发布动态接口
@@ -28,7 +28,6 @@ public class PublishDynamicsTest extends HttpUtil {
 	String selectSql = "SELECT * FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'  ";
 	String selectSql1 = "SELECT * FROM T_DYNAMIC_POSITION WHERE REGION = '自动化测试2' OR ADDRESS = '自动化测试3'";
 	String selResource = "select b.RELATION_ID from T_DYNAMIC a,T_DYNAMIC_RESOURCES b where a.DYNAMIC_ID = b.DYNAMIC_ID and a.DESCRIPTION = '自动化测试'";
-	//String selResource = "SELECT * FROM T_DYNAMIC_RESOURCES FROM T_DYNAMIC a,WHERE "
 	List<Map<String,Object>> list ;
 	List<Map<String,Object>> list1 ;
 	List<Map<String,Object>> list2 ;
@@ -61,14 +60,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		head.put("chcode", chcode);
 		head.put("cmd", 510);
 	}
-	//@AfterMethod
+	@AfterMethod
 	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 		MetaOper.delete(deleteSql1, dataType);
 		MetaOper.delete(deleteSql2, dataType);
 	}
-	//@AfterClass
+	@AfterClass
 	public void afterClass(){
 		MetaOper.delete(deleteSql, dataType);
 		MetaOper.delete(deleteSql1, dataType);
@@ -2714,7 +2713,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 地图动态经度传 null动态类型是地图动态
@@ -2899,7 +2898,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 地图动态经度传负数
@@ -3012,8 +3011,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图动态纬度传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");//非地图动态 数据库不进行保存该条数据
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");//非地图动态 数据库不进行保存该条数据
 	}
 	/**
 	 * 地图动态纬度传null
@@ -3773,10 +3772,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图文件id传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read(selectSql1,dataType);
-		assertThat(list1.get(0).get("FILE_ID")).isEqualTo(" ");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
+		//list1 =MetaOper.read(selectSql1,dataType);
+		//assertThat(list1.get(0).get("FILE_ID")).isEqualTo(" ");
 	}
 	/**
 	 * 地图文件id传null
@@ -3929,7 +3928,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 详细地址传超长
@@ -4274,10 +4273,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("缩放比例传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read(selectSql1,dataType);
-		assertThat(list1.get(0).get("ZOOM_LEVEL")).isEqualTo(" ");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
+		//list1 =MetaOper.read(selectSql1,dataType);
+		//assertThat(list1.get(0).get("ZOOM_LEVEL")).isEqualTo(" ");
 	}
 	/**
 	 * 缩放比例传null
@@ -4392,7 +4391,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 缩放比例传负数
@@ -6341,7 +6340,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 是否显示位置信息传null
