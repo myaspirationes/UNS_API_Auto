@@ -161,7 +161,7 @@ public class DeleteCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("用户id错误");
 	}
 	/**
 	 * 动态ID为0

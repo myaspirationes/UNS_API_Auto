@@ -80,8 +80,8 @@ public class GetAListOfReportReasonsTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户id值有误");
 	}
 	/**
 	 * 用户ID为负数
@@ -100,8 +100,8 @@ public class GetAListOfReportReasonsTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户id值有误");
 	}
 	/**
 	 * 用户ID为0
@@ -137,7 +137,7 @@ public class GetAListOfReportReasonsTest extends HttpUtil {
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID" + post);
+		System.out.println("用户ID为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(0);
@@ -180,8 +180,8 @@ public class GetAListOfReportReasonsTest extends HttpUtil {
 		System.out.println("用户ID" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户id值有误");
 	}
 	/**
 	 * 用户ID为null
@@ -200,8 +200,8 @@ public class GetAListOfReportReasonsTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据异常");
 	}
 	/**
 	 * 用户ID为空
@@ -220,8 +220,8 @@ public class GetAListOfReportReasonsTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户id值有误");
 	}
 	/**
 	 * 用户ID为空格
@@ -240,8 +240,8 @@ public class GetAListOfReportReasonsTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户id值有误");
 	}
 	/**
 	 * 用户ID为超长
@@ -260,8 +260,8 @@ public class GetAListOfReportReasonsTest extends HttpUtil {
 		System.out.println("用户ID为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户id值有误");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -279,8 +279,8 @@ public class GetAListOfReportReasonsTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据异常");
 	}
 
 }

@@ -1,9 +1,11 @@
 package com.webDynamic.complaintManagement;
 
+import com.appDynamic.ReportDynamicsOrCommentsTest;
 import com.example.HttpUtil;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -25,6 +27,10 @@ public class ProcessComplaintTest extends HttpUtil {
 		userid = new BackUserLoginTest().userId;
 		
 	}
+	@BeforeMethod
+	public void beforeMethod() throws Exception {
+		new ReportDynamicsOrCommentsTest().postReportDynamicsOrCommentsTestCorrectParameterReportDynamic();
+	}
 
 	/**
 	 * 提交正确参数
@@ -32,11 +38,11 @@ public class ProcessComplaintTest extends HttpUtil {
 	@Test
 	public void postProcessComplaintTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("complaintsNO", 123);
+		request.put("complaintsNO", 100000686);
 		request.put("processPeople", "处理人");
 		request.put("processInstructions", "处理说明");
-		request.put("processOpinion", "处理意见");
-		request.put("processOperate", "处理操作");
+		request.put("processOpinion", 13767);
+		request.put("processOperate", 0);
 		request.put("userId", userid);
 		
 		JSONObject post = super.UNSPost(url, request);
