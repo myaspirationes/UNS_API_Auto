@@ -45,7 +45,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 	String selectMenuStatus="SELECT MENU_STATUS FROM UUDBSIT.TB_ROLE_MENU_FUNCTION WHERE ROLE_ID='10000001' AND MENU_FUNCTION_ID=13708";
 	String selectFunctionStatus="SELECT MENU_FUNCTION_AUTH FROM UUDBSIT.TB_ROLE_MENU_FUNCTION WHERE ROLE_ID='10000001' AND MENU_FUNCTION_ID=13709";
 	
-	@AfterMethod
+//	@AfterMethod
 	public void afterMethod() 
 	{
 //		重置数据库用户角色菜单状态
@@ -377,7 +377,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		System.out.println("菜单名称menuName传空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("");
 	}
 	/**
 	 * 菜单名称menuName传空格
@@ -390,7 +390,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		System.out.println("菜单名称menuName传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("");
 	}
 	/**
 	 * 菜单名称menuName传null
@@ -403,7 +403,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		System.out.println("菜单名称menuName传null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("");
 	}
 	/**
 	 * 菜单名称menuName传错误值
@@ -416,7 +416,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		System.out.println("菜单名称menuName传错误值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("");
 	}
 	/**
 	 * 菜单名称menuName不传参数
@@ -429,7 +429,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		System.out.println("菜单名称menuName不传参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("");
 	}
 	/**
 	 * 菜单id传错误值
@@ -454,8 +454,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单id传小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+//		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 菜单id传负数
@@ -467,8 +467,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单id传负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+//		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 菜单id传空
@@ -480,8 +480,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单id传空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+//		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 菜单id传空格
@@ -493,8 +493,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单id传空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+//		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 菜单id传null
@@ -506,8 +506,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单id传null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+//		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 菜单id不传参数
@@ -519,8 +519,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单id不传参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+//		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 菜单是否被选中menuStatus传错误值
@@ -689,7 +689,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能描述function传超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -767,7 +767,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能名称funcitonName传超长字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(400);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -780,7 +780,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能名称funcitonName传空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -793,7 +793,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能名称funcitonName传空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -806,7 +806,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能名称funcitonName传null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -819,7 +819,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能名称funcitonName不传参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -833,7 +833,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		System.out.println("功能id传错误" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("");
 	}
 	/**
 	 * 功能id传小数
@@ -846,7 +846,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		System.out.println("功能id传小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("");
 	}
 	
 	/**
@@ -860,7 +860,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		System.out.println("功能id传负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("");
 	}
 	/**
 	 * 功能id传空
@@ -873,7 +873,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		System.out.println("功能id传空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("");
 	}
 	/**
 	 * 功能id传空格
@@ -886,7 +886,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		System.out.println("功能id传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("");
 	}
 	/**
 	 * 功能id传null
@@ -899,7 +899,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		System.out.println("功能id传null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("");
 	}
 	/**
 	 * 功能id传String
