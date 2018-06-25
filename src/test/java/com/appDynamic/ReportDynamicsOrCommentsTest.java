@@ -98,7 +98,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		head.put("sync", 1);
 		head.put("uuid", uuid);
 		head.put("chcode", chcode);
-		head.put("cmd", 510);
+		head.put("cmd", 518);
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
