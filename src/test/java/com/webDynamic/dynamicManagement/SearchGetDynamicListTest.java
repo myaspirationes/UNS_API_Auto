@@ -20,7 +20,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;
-	@BeforeMethod
+	//@BeforeMethod
 	public void  beforeMethod() throws Exception {
 		new PublishDynamicsTest().postPublishDynamicsTestCorrectParameter();
 	}
@@ -33,8 +33,8 @@ public class SearchGetDynamicListTest extends HttpUtil {
  	@Test
 	public void postSearchGetDynamicListTestTypeCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("UserId", 12495396);
-		request.put("nickName", "自动化测试");
+		request.put("UserId", 10000000);
+		request.put("nickName", "梦想家Even");
 		request.put("keyWord", "测试");
 		request.put("creatTimeStart", "2018-05-03");
 		request.put("creatTimeEnd", "2018-07-20");

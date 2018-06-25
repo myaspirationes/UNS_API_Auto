@@ -20,7 +20,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//import org.junit.Test;
+
 
 public class DynamicCheckManageTest extends HttpUtil {
 //动态审核处理接口

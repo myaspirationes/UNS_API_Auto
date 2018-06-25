@@ -1,41 +1,61 @@
 package com.webDynamic.commentManagement;
 
+import com.appDynamic.DynamicCommentTest;
+import com.appDynamic.PublishDynamicsTest;
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
-
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DisposeCommentTest extends HttpUtil {
 	// 处理评论接口
-	String url = "/uu-admin/commentManage/queryCommentDesc";
+	String url = "/uu-admin/commentManage/auditComment";
 	
 	String dataType = "perCenter81";
-	
+	String selDynamic = "SELECT * FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试' AND USER_ID = 12495396";
+	String selComment = "SELECT * FROM T_COMMENTBACK WHERE CONTENT = '自动化评论'";
+	String delDynamic = "DELETE FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'";
+	String delComment = "DELETE FROM T_COMMENTBACK WHERE CONTENT in ('自动化评论','<#$%^&**^%$#>','自动化评论回复')";
+	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
+	String commentId;
+	String targetId;
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;
-	
+	@BeforeMethod
+	public void  beforeMethod() throws Exception {
+		new PublishDynamicsTest().postPublishDynamicsTestCorrectParameter();
+		new DynamicCommentTest().postDynamicCommentTestCorrectParameter();
+		list = MetaOper.read(selDynamic, dataType);
+		list1 = MetaOper.read(selComment, dataType);
+		commentId = list1.get(0).get("COMMENT_ID").toString();
+		targetId = list.get(0).get("DYNAMIC_ID").toString();
+	}
 	
 			
 	
 	/**
 	 * 提交正确参数
 	 */
-//	@Test
+	@Test
 	public void postDisposeCommentTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("commentId", 1453);
+		request.put("commentId", commentId);
 		request.put("category", 1);
 		request.put("classify", 1);
-		request.put("userId", 1234567);
-		request.put("userName", "测试");
+		request.put("userId", userId);
+		request.put("userName", "admin");
 		request.put("auditContent", "审核说明");
 		request.put("auditMsg", 13770);
 		request.put("auditOption", 0);
-		request.put("commentUserId", 12495005);
+		request.put("commentUserId", 12495396);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 

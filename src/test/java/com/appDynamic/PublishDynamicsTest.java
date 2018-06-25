@@ -77,7 +77,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestCorrectParameter() throws Exception {
 		LoginTest login = new LoginTest();
 		body = login.getLoginTestChcodeBy177();
@@ -137,7 +137,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 提交正确参数:创建印象自动触发
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestCorrectParameterAutoImpression() throws Exception {
 		LoginTest login = new LoginTest();
 		body = login.getLoginTestChcodeBy177();
@@ -197,7 +197,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 提交正确参数:注册自动触发
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestCorrectParameterAutoRegister() throws Exception {
 		LoginTest login = new LoginTest();
 		body = login.getLoginTestChcodeBy177();
@@ -257,7 +257,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 用户id为最大值
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestUserIdIsMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 999999999999999999L);
@@ -295,7 +295,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 用户id为空格
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestUserIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", " ");
@@ -327,12 +327,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户id为空
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "");
@@ -364,12 +364,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户id为null
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestUserIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", null);
@@ -401,12 +401,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId can't be empty");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户id为0
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestUserIdIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 0);
@@ -443,7 +443,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 用户id为String
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestUserIdIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", "FGSFDGDSD");
@@ -475,12 +475,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户id为小数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1249.2396);
@@ -512,12 +512,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户id为负数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", -12495396);
@@ -549,12 +549,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户id为不传参数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("fileIds", 1);
@@ -585,12 +585,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId can't be empty");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 用户id为未登录用户
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestUserIdIsNotLoggedIn() throws Exception {
 		
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -628,7 +628,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 用户id为错误用户
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 1249);
@@ -665,7 +665,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id传超长
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestFileIdsIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -702,7 +702,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id含非法字符
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestFileIdsIsIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -739,7 +739,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id传空
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestFileIdsIsEmpty() throws Exception {
 		//postPublishDynamicsTestCorrectParameter();
 		Map<String, Object> con = new HashMap<String, Object>();
@@ -779,7 +779,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id传空格
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestFileIdsIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -818,7 +818,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id传null
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestFileIdsIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -857,11 +857,11 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id传0
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestFileIdsIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
-		con.put("fileIds", 1319);
+		con.put("fileIds", 0);
 		con.put("content", "自动化测试");
 		con.put("dynamicType", 2);
 		con.put("longitude", 13.26);
@@ -896,7 +896,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id不传参数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestFileIdsNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -934,7 +934,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id传多个
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestFileIdsIsMany() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -975,7 +975,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id为空动态类型为5
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestFileIdsIsEmptyDynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1017,7 +1017,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id为空格动态为5
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestFileIdsIsSpaceDynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1066,7 +1066,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id为null动态为5
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestFileIdsIsNullNynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1115,7 +1115,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id不传参数动态为5
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestFileIdsNonSubmissionParametersNynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1163,7 +1163,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态文字内容传超长
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestContentIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1201,7 +1201,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态文字内容传空
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestContentIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1240,7 +1240,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态文字内容传空格
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestContentIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1274,13 +1274,13 @@ public class PublishDynamicsTest extends HttpUtil {
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list =MetaOper.read("SELECT * FROM T_DYNAMIC WHERE USER_ID = 12495396",dataType);
-		assertThat(list.get(0).get("DESCRIPTION")).isEqualTo(null);
+		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo(" ");
 
 	}
 	/**
 	 * 动态文字内容传null
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestContentIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1319,7 +1319,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态文字内容传0
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestContentIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1358,7 +1358,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态文字内容不传参数
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestContentNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1396,7 +1396,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态类型传错误
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestDynamicTypeIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1433,7 +1433,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态类型chuan 负数
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestDynamicTypeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1465,12 +1465,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicType type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态类型传0
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestDynamicTypeIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1507,7 +1507,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态类型传空
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestDynamicTypeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1539,12 +1539,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicType type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！  ");
 	}
 	/**
 	 * 动态类型传空格
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestDynamicTypeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1576,12 +1576,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicType type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态类型传null
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestDynamicTypeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1613,12 +1613,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicType can't be empty");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态类型传String
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestDynamicTypeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1655,7 +1655,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态类型不传
 	 */
-	@Test
+	//////@Test
 	public void postPublishDynamicsTestDynamicTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1686,12 +1686,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicType can't be empty");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态经度传String
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLongitudeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1728,7 +1728,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态经度传负数
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLongitudeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1767,7 +1767,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态经度传整数
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLongitudeIsInteger() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1807,7 +1807,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态经度传0
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLongitudeIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1847,7 +1847,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态经度传空
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLongitudeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1879,12 +1879,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("empty String");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态经度传空格
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLongitudeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1921,7 +1921,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态经度传null
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLongitudeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1953,12 +1953,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo(null);
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 发布动态时的地址传超长
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestDynamicAddressIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -1989,12 +1989,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo(null);
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 发布动态时的地址传空
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestDynamicAddressIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2034,7 +2034,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 发布动态时的地址传空格
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestDynamicAddressIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2073,7 +2073,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 发布动态时的地址null
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestDynamicAddressIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2112,7 +2112,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 发布动态时的地址传0
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestDynamicAddressIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2152,7 +2152,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 发布动态时的地址含有非法字符
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestDynamicAddressIsIllegalCharacters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2192,7 +2192,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 发布动态时的地址不传参
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestDynamicAddressNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2222,13 +2222,15 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("发布动态时的地址不传参" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("LOCATION")).isEqualTo(null);
 	}
 	/**
 	 * 动态纬度传String
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLatitudeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2260,12 +2262,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态纬度传空
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLatitudeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2297,12 +2299,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("empty String");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态纬度传空格
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLatitudeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2339,7 +2341,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态纬度传0
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLatitudeIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2379,7 +2381,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态纬度传负数
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLatitudeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2419,7 +2421,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态纬度传整数
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLatitudeIsInteger() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2459,7 +2461,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 动态纬度传null
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLatitudeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2491,12 +2493,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo(null);
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态纬度不传参数
 	 */
-	@Test
+	////@Test
 	public void postPublishDynamicsTestLatitudeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2527,12 +2529,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo(null);
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 地图动态经度传空
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLongitudeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2569,7 +2571,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态经度传null
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLongitudeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2607,7 +2609,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态经度传空格
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLongitudeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2644,7 +2646,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态经度传空动态类型是地图动态
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLongitudeIsEmptyDynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2681,7 +2683,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态经度传空格动态类型是地图动态
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLongitudeIsSpaceDynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2718,7 +2720,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态经度传 null动态类型是地图动态
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLongitudeIsNullDynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2755,7 +2757,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态经度不传动态类型是地图动态
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLongitudeNonSubmissionParametersDynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2791,7 +2793,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态经度不传
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLongitudeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2827,7 +2829,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态经度传0
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLongitudeIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2866,7 +2868,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态经度传String
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLongitudeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2903,7 +2905,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态经度传负数
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLongitudeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2943,7 +2945,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态纬度传空
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLatitudeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -2980,7 +2982,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态纬度传空格
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLatitudeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -3017,13 +3019,13 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态纬度传null
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLatitudeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 0);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
 		con.put("dynamicAddress", "自动化测试1");
@@ -3054,7 +3056,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态纬度传负数
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLatitudeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -3094,7 +3096,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态纬度传0
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLatitudeIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -3134,7 +3136,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态纬度传 String
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLatitudeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -3166,12 +3168,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 地图动态纬度不传
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLatitudeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -3207,7 +3209,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态纬度传空动态类型是地图动态
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLatitudeIsEmptyDynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -3244,7 +3246,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态纬度传空格动态类型是地图动态
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLatitudeIsSpaceDynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -3276,12 +3278,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 地图动态纬度传null动态类型是地图动态
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLatitudeIsnullDynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -3318,7 +3320,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 地图动态纬度不传动态类型是地图动态
 	 */
-	@Test
+	//@Test
 	public void postPublishDynamicsTestMapLatitudeNonSubmissionParametersDynamicTypeIs5() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -4084,6 +4086,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		list1 =MetaOper.read(selectSql1,dataType);
 		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("0");
 	}
+	
 	/**
 	 * 详细地址传null
 	 */
@@ -4545,7 +4548,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("powerType type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 公开程度传小数
@@ -4582,7 +4585,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("powerType type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 公开程度传0
@@ -4658,7 +4661,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("powerType type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 公开程度传空
@@ -4695,7 +4698,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("powerType type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 公开程度传空格
@@ -4732,7 +4735,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("powerType type is error ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！ ");
 	}
 	/**
 	 * 公开程度传null
@@ -4769,7 +4772,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("powerType can't be empty ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 公开程度不传
@@ -4805,7 +4808,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("powerType can't be empty ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 公开程度传8
@@ -4849,7 +4852,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 提醒用户id数组传超长
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAtUserIdsIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -4886,7 +4889,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 提醒用户id数组传空格
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAtUserIdsIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -4923,7 +4926,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 提醒用户id数组传空
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAtUserIdsIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -4963,7 +4966,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 提醒用户id数组传 null
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAtUserIdsIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5002,7 +5005,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 提醒用户id数组传0
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAtUserIdsIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5041,7 +5044,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 提醒用户id数组传多个
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAtUserIdsIsMany() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5082,7 +5085,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 提醒用户id数组不传
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAtUserIdsNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5120,7 +5123,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传0
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5159,7 +5162,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传空
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5198,7 +5201,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传空格
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5237,7 +5240,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传null
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5276,7 +5279,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传最大值
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeIsMax() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5315,7 +5318,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传负数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5352,7 +5355,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传小数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5391,7 +5394,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传String
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5428,7 +5431,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间不传
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5465,7 +5468,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传空音频动态
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeIsEmptyDynamicTypeIs4() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5504,7 +5507,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传空格音频动态
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeIsSpaceDynamicTypeIs4() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5541,7 +5544,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传null非音频动态
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeIsNullDynamicTypeIs4() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5578,7 +5581,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间不传音频动态
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestAudioTimeNonSubmissionParametersDynamicTypeNot4() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5616,7 +5619,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id传空
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5653,7 +5656,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id传空格
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5690,7 +5693,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id传null
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5727,7 +5730,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id传0
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5764,7 +5767,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id传负数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5801,7 +5804,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id传小数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5838,7 +5841,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id不传
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5875,7 +5878,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id传多个
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIsMany() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5915,7 +5918,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id传空动态类型非7或8
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIsEmptyDynamicTypeNot7Or8() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5955,7 +5958,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id传空格动态类型非7或8
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIsSpaceDynamicTypeNot7Or8() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5995,7 +5998,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id不传动态类型非7或8
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsNonSubmissionParametersDynamicTypeNot7Or8() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6034,7 +6037,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 不可见看动态的人Id传null动态类型非7或8
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIsNullDynamicTypeNot7Or8() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6074,7 +6077,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 可见看动态的人Id传多个
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIsManyDynamicTypeIs7() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6116,7 +6119,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 可见看动态的人Id传用户本人id
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestSelectIdsIsUserIdDynamicTypeIs7() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6157,7 +6160,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 是否显示位置信息传负数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestIsShowAreaIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6194,7 +6197,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 是否显示位置信息传小数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestIsShowAreaIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6231,7 +6234,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 是否显示位置信息传0
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestIsShowAreaIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6271,7 +6274,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 是否显示位置信息传空
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestIsShowAreaIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6308,7 +6311,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 是否显示位置信息传空格
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestIsShowAreaIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6345,7 +6348,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 是否显示位置信息传null
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestIsShowAreaIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6382,7 +6385,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 是否显示位置信息传1
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestIsShowAreaIs1() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6421,7 +6424,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 是否显示位置信息不传
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestIsShowAreaNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6457,7 +6460,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 转发动态id传负数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestRelayIdIsNegativeNumber() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6494,7 +6497,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 转发动态id传小数
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestRelayIdIsDecimal() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6531,7 +6534,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 转发动态id传0
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestRelayIdIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6568,7 +6571,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 转发动态id传空
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestRelayIdIsEmpty() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6607,7 +6610,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 转发动态id传空格
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestRelayIdIsSpace() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6647,7 +6650,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 转发动态id传null
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestRelayIdIsNull() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6686,7 +6689,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 转发动态id传String
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestRelayIdIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6718,12 +6721,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("For input string: \"SDFDSFSD\"");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 转发动态id不传
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestRelayIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -6761,7 +6764,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 转发动态id为错误
 	 */
-	@Test
+	////////@Test
 	public void postPublishDynamicsTestRelayIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 111);
