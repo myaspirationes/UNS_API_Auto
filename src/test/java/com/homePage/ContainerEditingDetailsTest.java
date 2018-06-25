@@ -362,8 +362,8 @@ public class ContainerEditingDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器id为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(500);
-		
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("容器id不能为负数");
 	}
 	/**
 	 * 容器id不传

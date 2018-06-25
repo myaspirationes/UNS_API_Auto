@@ -32,12 +32,16 @@ public class LockUserTest extends HttpUtil {
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;
 		
-	@AfterMethod
+	//@AfterMethod
 	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 	}
-	
+	//@AfterClass
+	public void afterClass()
+	{
+		MetaOper.delete(deleteSql, dataType);
+	}
 	/**
 	 * 提交正确参数
 	 */
@@ -328,7 +332,7 @@ public class LockUserTest extends HttpUtil {
 	@Test
 	public void postLockUserTestLockTypeIsDecimal() throws Exception {
 		MetaOper.read(selectSql, dataType);
-		map1.put("lockType", 9.23);
+		map1.put("lockType", 20.3);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");
 		lis.add(map1);
@@ -879,7 +883,7 @@ public class LockUserTest extends HttpUtil {
 	public void postLockUserTestLockTimeIsDecimal() throws Exception {
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
-		map1.put("lockTime", 50.26);
+		map1.put("lockTime", 8.88);
 		map1.put("opinion", "测试3");
 		
 		lis.add(map1);
