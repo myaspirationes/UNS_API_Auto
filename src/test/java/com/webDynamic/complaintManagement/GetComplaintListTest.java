@@ -32,9 +32,9 @@ public class GetComplaintListTest extends HttpUtil {
 	@Test
 	public void postGetComplaintListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("functionCategory", 1);
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");

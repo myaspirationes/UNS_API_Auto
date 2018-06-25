@@ -37,7 +37,7 @@ public class GetComplainDetailTest extends HttpUtil {
 	public void postGetComplainDetailTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("complaintId", 0);
+		request.put("complaintId", 100000686);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
