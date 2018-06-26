@@ -53,7 +53,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -73,7 +73,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -112,7 +112,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -230,7 +230,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -250,7 +250,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码传负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -270,7 +270,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码传小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -408,8 +408,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("参数验证失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 分类为负数
@@ -467,8 +467,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("参数验证失败");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
 	}
 	/**
 	 * 分类为空格
@@ -488,7 +488,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("分类为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
 	}
 	/**
 	 * 分类为null
@@ -505,10 +505,10 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("operateEndTime", "2018-05-29");
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("分类" + post);
+		System.out.println("分类为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
 	}
 	/**
 	 * 分类传0操作日志
@@ -587,7 +587,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("分类不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
 	}
 	/**
 	 * 用户登录账号为未登录账号
@@ -618,7 +618,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
-		request.put("userName", "admina");
+		request.put("userName","admin" );
 		request.put("realName", "admin");
 		request.put("operateStartTime", "2018-05-03");
 		request.put("operateEndTime", "2018-05-29");
@@ -626,7 +626,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号错误用户名" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -666,7 +666,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -706,7 +706,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为非法字符串" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -726,7 +726,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -746,7 +746,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -766,7 +766,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -805,7 +805,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -825,7 +825,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -845,7 +845,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -865,7 +865,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -885,7 +885,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -905,7 +905,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -925,7 +925,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -945,7 +945,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -965,7 +965,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -984,7 +984,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 
@@ -1006,7 +1006,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间传错误格式" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间大于结束时间
@@ -1046,7 +1046,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间传时间戳" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间传年月日
@@ -1086,7 +1086,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间传时分秒" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间传空格
@@ -1106,7 +1106,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间去掉格式
@@ -1126,7 +1126,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间去掉格式" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间为空
@@ -1146,7 +1146,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间传null
@@ -1166,7 +1166,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间传null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间传负数
@@ -1186,7 +1186,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间传负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间传年月日最大值
@@ -1205,7 +1205,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传年月日最大值" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(-1);//应该查不到数据
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -1226,7 +1226,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间传年月日最小值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间传时分秒最大值
@@ -1246,7 +1246,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间传时分秒最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间传时分秒最小值
@@ -1266,7 +1266,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间传时分秒最小值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间传年月日时分秒
@@ -1286,7 +1286,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间传年月日时分秒" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间不传该参数
@@ -1305,7 +1305,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作开始时间闰年2月
@@ -1345,7 +1345,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作开始时间非论年2月" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间传错误格式
@@ -1365,7 +1365,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间传错误格式" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 
 	/**
@@ -1386,7 +1386,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间传时间戳" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间传年月日
@@ -1426,7 +1426,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间传时分秒" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间传空格
@@ -1446,7 +1446,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间去掉格式
@@ -1466,7 +1466,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间去掉格式" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间为空
@@ -1486,7 +1486,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间传null
@@ -1506,7 +1506,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间传null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间传负数
@@ -1526,7 +1526,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间传负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间传年月日最大值
@@ -1545,7 +1545,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传年月日最大值" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -1566,7 +1566,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间传年月日最小值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间传时分秒最大值
@@ -1586,7 +1586,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间传时分秒最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间传时分秒最小值
@@ -1606,7 +1606,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间传时分秒最小值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间传年月日时分秒
@@ -1626,7 +1626,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间传年月日时分秒" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间不传该参数
@@ -1645,7 +1645,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 操作结束时间闰年2月
@@ -1685,7 +1685,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		System.out.println("操作结束时间非论年2月" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 
 }

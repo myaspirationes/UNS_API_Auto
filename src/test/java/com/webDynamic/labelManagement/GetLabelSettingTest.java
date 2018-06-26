@@ -44,7 +44,7 @@ public class GetLabelSettingTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作用户ID为未登录
@@ -71,8 +71,8 @@ public class GetLabelSettingTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为错误用户" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 操作用户ID为非法字符
@@ -85,8 +85,7 @@ public class GetLabelSettingTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 操作用户ID为小数
@@ -113,8 +112,8 @@ public class GetLabelSettingTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 操作用户ID为空格
@@ -127,8 +126,8 @@ public class GetLabelSettingTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg").toString()).isEqualTo("null");
 	}
 	/**
 	 * 操作用户ID为null
@@ -141,8 +140,8 @@ public class GetLabelSettingTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg").toString()).isEqualTo("null");
 	}
 	/**
 	 * 操作用户ID为超长
@@ -155,8 +154,7 @@ public class GetLabelSettingTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 操作用户ID为String
@@ -169,8 +167,7 @@ public class GetLabelSettingTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 操作用户ID为0
@@ -197,8 +194,8 @@ public class GetLabelSettingTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg").toString()).isEqualTo("null");
 	}
 	/**
 	 * 操作用户ID不传该参数
@@ -210,8 +207,8 @@ public class GetLabelSettingTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg").toString()).isEqualTo("null");
 	}
 
 
