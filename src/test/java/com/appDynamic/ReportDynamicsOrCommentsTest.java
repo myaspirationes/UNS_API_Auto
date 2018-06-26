@@ -86,6 +86,12 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 	 */
 	@Test
 	public void postReportDynamicsOrCommentsTestCorrectParameterReportDynamic() throws Exception {
+		new PublishDynamicsTest().postPublishDynamicsTestCorrectParameter();
+		new DynamicCommentTest().postDynamicCommentTestCorrectParameter();
+		list = MetaOper.read(selectSql, dataType);
+		list1 = MetaOper.read(selectSql1, dataType);
+		commentId = list1.get(0).get("COMMENT_ID").toString();
+		targetId = list.get(0).get("DYNAMIC_ID").toString();
 		LoginTest login = new LoginTest();
 		body = login.getLoginTestChcodeBy177();
 		uuid= (body.get("userId")).toString();
