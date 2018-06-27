@@ -181,7 +181,7 @@ public class DeleteCommentTest extends HttpUtil {
 		System.out.println("动态ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
@@ -286,7 +286,7 @@ public class DeleteCommentTest extends HttpUtil {
 		System.out.println("动态ID为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("非法数据");
 	}
 	/**
