@@ -47,7 +47,7 @@ public class GetComplaintListTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 功能分类为0评论
@@ -56,8 +56,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsComment() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -79,8 +79,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsDynamic() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 1);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -102,8 +102,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsCommodity() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 2);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -125,8 +125,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsOrders() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 3);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -148,8 +148,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsCommunities() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 4);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -171,8 +171,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsUser() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 5);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -194,8 +194,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 124921745);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -217,8 +217,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 1.1);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -240,8 +240,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", -1);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -263,8 +263,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", "functionCategory");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -286,8 +286,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", " ");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -309,8 +309,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", " ");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -332,8 +332,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestFunctionCategoryIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", null);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -354,8 +354,8 @@ public class GetComplaintListTest extends HttpUtil {
 	@Test
 	public void postGetComplaintListTestFunctionCategoryNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -377,8 +377,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestComplaintStartTimeGreaterThanComplaintEndTime() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-06-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-06-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -401,7 +401,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "1529391256000");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -425,7 +425,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "2018-03-28");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -449,7 +449,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "9999-12-31");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -473,7 +473,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "0000-01-01");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -497,7 +497,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -521,7 +521,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "23:59:59");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -545,7 +545,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "00:00:00");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -569,7 +569,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "2018-03-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -593,7 +593,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "9999-12-31 23:59:59");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -617,7 +617,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "0000-01-01 00:00:00");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -641,7 +641,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "20180529171230");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -665,7 +665,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "SSSS");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -689,7 +689,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", "");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -713,7 +713,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", " ");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -737,7 +737,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", null);
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -761,7 +761,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", 1.1);
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -785,7 +785,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", -1);
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -809,7 +809,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintStartTime", 0);
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -832,7 +832,7 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestComplaintStartTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -855,7 +855,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "1529391256000");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -879,7 +879,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "2018-03-28");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -903,7 +903,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "9999-12-31");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -927,7 +927,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "0000-01-01");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -951,7 +951,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "17:12:30");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -975,7 +975,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "23:59:59");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -999,7 +999,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "00:00:00");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1023,7 +1023,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "2018-03-29 17:12:30");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1047,7 +1047,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "9999-12-31 23:59:59");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1071,7 +1071,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "0000-01-01 00:00:00");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1095,7 +1095,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "20180529171230");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1119,7 +1119,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "SSSS");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1143,7 +1143,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", "");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1167,7 +1167,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", " ");
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1191,7 +1191,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", null);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1215,7 +1215,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", 1.1);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1239,7 +1239,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", -1);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1263,7 +1263,7 @@ public class GetComplaintListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
 		request.put("complaintEndTime", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1286,7 +1286,7 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestComplaintEndTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1308,8 +1308,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesIsElectricitySupplier() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 0);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1331,8 +1331,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesIsCommodity() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1354,8 +1354,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesIsSocial() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 2);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1377,8 +1377,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", -1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1400,8 +1400,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1.1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1423,8 +1423,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", "businessCategories");
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1446,8 +1446,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", "");
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1469,8 +1469,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", " ");
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1492,8 +1492,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", null);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1515,8 +1515,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 999999999);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1538,8 +1538,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1111111111111L);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1561,8 +1561,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestBusinessCategoriesNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("status", 1);
 		request.put("complaintObject", "x");
 		request.put("keyWord", "xx");
@@ -1583,8 +1583,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusIsProcessed() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 0);
 		request.put("complaintObject", "x");
@@ -1606,8 +1606,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusIsUnprocessed() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -1629,8 +1629,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 9);
 		request.put("complaintObject", "x");
@@ -1652,8 +1652,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1.9);
 		request.put("complaintObject", "x");
@@ -1675,8 +1675,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", -1);
 		request.put("complaintObject", "x");
@@ -1698,8 +1698,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", "status");
 		request.put("complaintObject", "x");
@@ -1721,8 +1721,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 999999999);
 		request.put("complaintObject", "x");
@@ -1744,8 +1744,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 999999999999L);
 		request.put("complaintObject", "x");
@@ -1767,8 +1767,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", " ");
 		request.put("complaintObject", "x");
@@ -1790,8 +1790,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", "");
 		request.put("complaintObject", "x");
@@ -1813,8 +1813,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", null);
 		request.put("complaintObject", "x");
@@ -1836,8 +1836,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestStatusNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("complaintObject", "x");
 		request.put("keyWord", "xx");
@@ -1858,8 +1858,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestComplaintObjectIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "complaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObjectcomplaintObject");
@@ -1881,8 +1881,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestComplaintObject() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "<.@#$%>");
@@ -1904,8 +1904,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestComplaintObjectIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "");
@@ -1927,8 +1927,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestComplaintObjectIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", " ");
@@ -1950,8 +1950,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestComplaintObjectIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", null);
@@ -1973,8 +1973,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestComplaintObjectNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("keyWord", "xx");
@@ -1995,8 +1995,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestKeyWordIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2018,8 +2018,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestKeyWordIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2041,8 +2041,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestKeyWordIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2064,8 +2064,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestKeyWordIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2087,8 +2087,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestKeyWordIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2110,8 +2110,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestKeyWordNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2132,8 +2132,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageNowIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2155,8 +2155,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageNowIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2178,8 +2178,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageNowIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2201,8 +2201,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageNowIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2224,8 +2224,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageNowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2247,8 +2247,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageNowIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2270,8 +2270,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2293,8 +2293,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2316,8 +2316,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2339,8 +2339,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageNowNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2361,8 +2361,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageSizeIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2384,8 +2384,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageSizeIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2407,8 +2407,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageSizeIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2430,8 +2430,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageSizeIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2453,8 +2453,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageSizeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2476,8 +2476,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageSizeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2499,8 +2499,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2522,8 +2522,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2545,8 +2545,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2568,8 +2568,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestPageSizeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2590,8 +2590,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestOperateUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2613,8 +2613,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestOperateUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2636,8 +2636,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestOperateUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2659,8 +2659,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestOperateUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2682,8 +2682,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestOperateUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2705,8 +2705,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestOperateUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2728,8 +2728,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestOperateUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2751,8 +2751,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestOperateUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2774,8 +2774,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestOperateUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2797,8 +2797,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestOperateUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");
@@ -2820,8 +2820,8 @@ public class GetComplaintListTest extends HttpUtil {
 	public void postGetComplaintListTestOperateUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
+		request.put("complaintStartTime", "2018-05-29");
+		request.put("complaintEndTime", "2018-05-29");
 		request.put("businessCategories", 1);
 		request.put("status", 1);
 		request.put("complaintObject", "x");

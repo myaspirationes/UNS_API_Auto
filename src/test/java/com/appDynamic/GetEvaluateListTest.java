@@ -94,7 +94,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("userId格式错误");
 	}
 	/**
 	 * 用户ID为负数
@@ -116,7 +116,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("userId格式错误");
 	}
 	/**
 	 * 用户ID为0
@@ -138,7 +138,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("userId格式错误");
 	}
 	/**
 	 * 用户ID为错误
@@ -146,7 +146,7 @@ public class GetEvaluateListTest extends HttpUtil {
 	@Test
 	public void postGetEvaluateListTestUserIdIsError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", 123);
+		con.put("userId", 0123456);
 		con.put("dynamicId", dynamicId);
 		con.put("pageSize", 20);
 		con.put("pageNow", 1);
@@ -160,7 +160,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("当前用户不存在");
 	}
 	/**
 	 * 用户ID未登录
@@ -204,7 +204,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("userId格式错误");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -226,7 +226,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("userId格式错误");
 	}
 	/**
 	 * 用户ID为null
@@ -248,7 +248,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("userId格式错误");
 	}
 	/**
 	 * 用户ID为空
@@ -270,7 +270,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("userId格式错误");
 	}
 	/**
 	 * 用户ID为空格
@@ -292,7 +292,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("userId格式错误");
 	}
 	/**
 	 * 用户ID为超长
@@ -314,7 +314,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("userId格式错误");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -335,7 +335,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("userId格式错误");
 	}
 	
 	/**
@@ -358,7 +358,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("dynamicId格式错误");
 	}
 	/**
 	 * 动态ID为负数
@@ -380,7 +380,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("dynamicId格式错误");
 	}
 	/**
 	 * 动态ID为0
@@ -402,7 +402,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("该动态已被删除,无法查看！");
+		assertThat(head1.get("msg")).isEqualTo("dynamicId格式错误");
 	}
 	/**
 	 * 动态ID为错误
@@ -424,7 +424,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("该动态已被删除,无法查看！");
+		assertThat(head1.get("msg")).isEqualTo("当前动态不存在");
 	}
 	/**
 	 * 动态ID为字符串
@@ -446,7 +446,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("dynamicId格式错误");
 	}
 	/**
 	 * 动态ID为非法字符
@@ -468,7 +468,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("dynamicId格式错误");
 	}
 	/**
 	 * 动态ID为null
@@ -490,7 +490,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("dynamicId格式错误");
 	}
 	/**
 	 * 动态ID为空
@@ -512,7 +512,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("dynamicId格式错误");
 	}
 	/**
 	 * 动态ID为空格
@@ -534,7 +534,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("dynamicId格式错误");
 	}
 	/**
 	 * 动态ID为超长
@@ -556,7 +556,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("该动态已被删除,无法查看！");
+		assertThat(head1.get("msg")).isEqualTo("dynamicId格式错误");
 	}
 	/**
 	 * 动态ID不传该参数
@@ -577,7 +577,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("dynamicId不是数字类型");
+		assertThat(head1.get("msg")).isEqualTo("dynamicId格式错误");
 	}
 	
 	/**
@@ -600,7 +600,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("每页显示数量格式错误");
 	}
 	/**
 	 * 每页显示数量为负数
@@ -622,7 +622,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("每页显示数量格式错误");
 	}
 	/**
 	 * 每页显示数量为0
@@ -644,29 +644,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("该动态已被删除,无法查看！");
-	}
-	/**
-	 * 每页显示数量为错误
-	 */
-	@Test
-	public void postGetEvaluateListTestPageSizeIsError() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("dynamicId", dynamicId);
-		con.put("pageSize", 654987L);
-		con.put("pageNow", 1);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("每页显示数量为错误" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("该动态已被删除,无法查看！");
+		assertThat(head1.get("msg")).isEqualTo("每页显示数量格式错误");
 	}
 	/**
 	 * 每页显示数量为字符串
@@ -688,7 +666,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("每页显示数量格式错误");
 	}
 	/**
 	 * 每页显示数量为非法字符
@@ -710,7 +688,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("每页显示数量格式错误");
 	}
 	/**
 	 * 每页显示数量为null
@@ -732,7 +710,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
+		assertThat(head1.get("msg")).isEqualTo("每页显示数量格式错误");
 	}
 	/**
 	 * 每页显示数量为空
@@ -754,7 +732,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("每页显示数量格式错误");
 	}
 	/**
 	 * 每页显示数量为空格
@@ -776,7 +754,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("每页显示数量格式错误");
 	}
 	/**
 	 * 每页显示数量为超长
@@ -798,7 +776,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("该动态已被删除,无法查看！");
+		assertThat(head1.get("msg")).isEqualTo("每页显示数量格式错误");
 	}
 	/**
 	 * 每页显示数量不传该参数
@@ -819,7 +797,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
+		assertThat(head1.get("msg")).isEqualTo("每页显示数量格式错误");
 	}
 	
 	/**
@@ -842,7 +820,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("当前页数格式错误");
 	}
 	/**
 	 * 当前页数为负数
@@ -864,7 +842,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("当前页数格式错误");
 	}
 	/**
 	 * 当前页数为0
@@ -886,29 +864,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("该动态已被删除,无法查看！");
-	}
-	/**
-	 * 当前页数为错误
-	 */
-	@Test
-	public void postGetEvaluateListTestPageNowIsError() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("dynamicId", dynamicId);
-		con.put("pageSize", 20);
-		con.put("pageNow", 198765L);
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("当前页数为错误" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("该动态已被删除,无法查看！");
+		assertThat(head1.get("msg")).isEqualTo("当前页数格式错误");
 	}
 	/**
 	 * 当前页数为字符串
@@ -930,7 +886,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("当前页数格式错误");
 	}
 	/**
 	 * 当前页数为非法字符
@@ -952,7 +908,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("当前页数格式错误");
 	}
 	/**
 	 * 当前页数为null
@@ -974,7 +930,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
+		assertThat(head1.get("msg")).isEqualTo("当前页数格式错误");
 	}
 	/**
 	 * 当前页数为空
@@ -996,7 +952,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("当前页数格式错误");
 	}
 	/**
 	 * 当前页数为空格
@@ -1018,7 +974,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("当前页数格式错误");
 	}
 	/**
 	 * 当前页数为超长
@@ -1040,7 +996,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("该动态已被删除,无法查看！");
+		assertThat(head1.get("msg")).isEqualTo("当前页数格式错误");
 	}
 	/**
 	 * 当前页数不传该参数
@@ -1061,7 +1017,7 @@ public class GetEvaluateListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
+		assertThat(head1.get("msg")).isEqualTo("当前页数格式错误");
 	}
 
 }

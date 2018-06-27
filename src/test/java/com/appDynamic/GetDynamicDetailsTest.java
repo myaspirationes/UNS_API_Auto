@@ -130,7 +130,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID为错误
@@ -149,8 +149,8 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		System.out.println("用户ID" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 用户ID未登录

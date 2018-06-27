@@ -99,8 +99,8 @@ public class GetLaudListTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo(1);
+		assertThat(head1.get("msg")).isEqualTo("错误,用户id格式违法");
 	}
 	/**
 	 * 用户ID为负数
@@ -121,8 +121,8 @@ public class GetLaudListTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("st")).isEqualTo(1);
+		assertThat(head1.get("msg")).isEqualTo("错误,用户id格式违法");
 	}
 	/**
 	 * 用户ID为0
@@ -143,8 +143,8 @@ public class GetLaudListTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法！");
+		assertThat(head1.get("st")).isEqualTo(1);
+		assertThat(head1.get("msg")).isEqualTo("错误,用户id格式违法");
 	}
 	/**
 	 * 用户ID为错误
@@ -165,8 +165,8 @@ public class GetLaudListTest extends HttpUtil {
 		System.out.println("用户ID为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isIn("成功", "扎心了,该动态没人点赞");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("错误,用户id格式违法");
 	}
 	/**
 	 * 用户ID未登录
@@ -209,8 +209,8 @@ public class GetLaudListTest extends HttpUtil {
 		System.out.println("用户ID为字符串" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo(1);
+		assertThat(head1.get("msg")).isEqualTo("错误,用户id格式违法");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -231,8 +231,8 @@ public class GetLaudListTest extends HttpUtil {
 		System.out.println("用户ID为非法字符" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo(1);
+		assertThat(head1.get("msg")).isEqualTo("错误,用户id格式违法");
 	}
 	/**
 	 * 用户ID为null
@@ -319,8 +319,8 @@ public class GetLaudListTest extends HttpUtil {
 		System.out.println("用户ID为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
+		assertThat(head1.get("st")).isEqualTo(1);
+		assertThat(head1.get("msg")).isEqualTo("错误,用户id格式违法");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -386,7 +386,7 @@ public class GetLaudListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(1);
-		assertThat(head1.get("msg")).isEqualTo("没有这条动态");
+		assertThat(head1.get("msg")).isEqualTo("错误,动态id格式违法");
 	}
 	/**
 	 * 动态ID为0
@@ -408,7 +408,7 @@ public class GetLaudListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(1);
-		assertThat(head1.get("msg")).isEqualTo("没有这条动态");
+		assertThat(head1.get("msg")).isEqualTo("错误,动态id格式违法");
 	}
 	/**
 	 * 动态ID为错误
@@ -430,7 +430,7 @@ public class GetLaudListTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(1);
-		assertThat(head1.get("msg")).isEqualTo("没有这条动态");
+		assertThat(head1.get("msg")).isEqualTo("错误,动态id格式违法");
 	}
 	/**
 	 * 动态ID为字符串
@@ -495,8 +495,8 @@ public class GetLaudListTest extends HttpUtil {
 		System.out.println("动态ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(1);
-		assertThat(head1.get("msg")).isEqualTo("错误,请输入动态id");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 动态ID为空
@@ -517,8 +517,8 @@ public class GetLaudListTest extends HttpUtil {
 		System.out.println("动态ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(1);
-		assertThat(head1.get("msg")).isEqualTo("错误,动态id格式违法");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 动态ID为空格
@@ -539,8 +539,8 @@ public class GetLaudListTest extends HttpUtil {
 		System.out.println("动态ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(1);
-		assertThat(head1.get("msg")).isEqualTo("错误,动态id格式违法");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 动态ID为超长
@@ -582,8 +582,8 @@ public class GetLaudListTest extends HttpUtil {
 		System.out.println("动态ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(1);
-		assertThat(head1.get("msg")).isEqualTo("错误,请输入动态id");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	
 	/**

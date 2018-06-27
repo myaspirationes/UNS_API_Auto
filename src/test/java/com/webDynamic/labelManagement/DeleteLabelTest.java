@@ -4,6 +4,7 @@ import com.example.HttpUtil;
 import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -21,6 +22,8 @@ public class DeleteLabelTest extends HttpUtil {
 	//删除标签
 	String url = "/uu-admin/labelManage/deleteLabel";
 	String	selectSql = "SELECT * FROM T_TALENT_LABEL WHERE LABEL_NAME = '自动化标签'";
+	String delLabel = "DELETE FROM T_LABEL WHERE LABEL_MSG IN ('自动化标签','<.!@#$%^>','',' ')";
+	String delTalentLabel = "DELETE FROM T_TALENT_LABEL WHERE LABEL_NAME IN ('自动化标签','<.!@#$%^>','',' ')";
 	List<Map<String,Object>> list ;
 	Long labelId;
 	int type;
@@ -35,29 +38,59 @@ public class DeleteLabelTest extends HttpUtil {
 		
 	}
 	@BeforeMethod
-	public void beforeMethod(){
+	public void beforeMethod() throws Exception {
+		new SetAndModifyTalantLableTest().postSetAndModifyTalantLableTestCorrectParameter();
 		list = MetaOper.read(selectSql,dataType);
 		labelId = Long.parseLong(list.get(0).get("LABEL_ID").toString());
 		type = Integer.parseInt(list.get(0).get("LABEL_TYPE").toString());
 	}
-
+	@AfterMethod
+	public void afterMethod(){
+		MetaOper.delete(delLabel,dataType);
+		MetaOper.delete(delTalentLabel,dataType);
+	}
 
 	/**
-	 * 提交正确参数
+	 * 删除普通表标签
 	 */
 	@Test
-	public void postDeleteLabelTestCorrectParameter() throws Exception {
+	public void postDeleteLabelTestDeleteTLabel() throws Exception {
+		new AddCommonLabelTest().postSetAndModifyTalantLableTestCorrectParameter();
+		String selTlabel = "SELECT * FROM T_LABEL WHERE LABEL_MSG = '自动化标签'";
+		list = MetaOper.read(selTlabel,dataType);
+		labelId = Long.parseLong(list.get(0).get("LABEL_ID").toString());
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("userId", userid);
+		request.put("labelId", labelId);
+		request.put("type", 4);
+
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("删除普通表标签" + post);
+	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功！");
+		list = MetaOper.read(selTlabel,dataType);
+		assertThat(list.get(0).get("DELETED").toString()).isEqualTo("1");
+	}
+	/**
+	 * 删除达人表标签
+	 */
+	@Test
+	public void postDeleteLabelTestDeleteTalentLabel() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
 		request.put("labelId", labelId);
 		request.put("type", type);
 
-		
+
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
-	
+		System.out.println("删除达人表标签" + post);
+
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功！");
+		list = MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("DELETED").toString()).isEqualTo("1");
 	}
 	/**
 	 * 操作用户ID为未登录
@@ -88,8 +121,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为错误用户" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 操作用户ID为非法字符
@@ -104,8 +137,7 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 操作用户ID为小数
@@ -121,7 +153,7 @@ public class DeleteLabelTest extends HttpUtil {
 		System.out.println("操作用户ID为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作用户ID为负数
@@ -136,8 +168,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 操作用户ID为空格
@@ -152,8 +184,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 操作用户ID为null
@@ -168,8 +200,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 操作用户ID为超长
@@ -184,8 +216,7 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 操作用户ID为String
@@ -200,8 +231,7 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 操作用户ID为0
@@ -247,8 +277,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 标签ID为超长
@@ -281,8 +311,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签ID为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 标签ID为空
@@ -298,8 +328,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签ID为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 标签ID为为非法字符
@@ -315,8 +345,7 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签ID为为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 标签ID为为null
@@ -332,8 +361,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签ID为为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 标签ID为不传该参数
@@ -348,8 +377,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签ID为不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 标签ID为0
@@ -400,8 +429,7 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签ID为字符串" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 
 	/**
@@ -487,8 +515,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签类型为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常！");
 	}/**
 	 * 标签类型为0
 	 */
@@ -503,8 +531,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签类型为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常！");
 	}/**
 	 * 标签类型为空
 	 */
@@ -519,8 +547,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签类型为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}/**
 	 * 标签类型为空格
 	 */
@@ -535,8 +563,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签类型为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}/**
 	 * 标签类型为null
 	 */
@@ -551,8 +579,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签类型为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}/**
 	 * 标签类型为小数
 	 */
@@ -583,8 +611,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签类型为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常！");
 	}/**
 	 * 标签类型不传该参数
 	 */
@@ -598,8 +626,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签类型不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}/**
 	 * 标签类型为字符串
 	 */
@@ -614,8 +642,7 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签类型为字符串" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功！");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 
 }

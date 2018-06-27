@@ -30,8 +30,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -50,8 +50,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495323);
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -70,8 +70,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 95323);
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -90,8 +90,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<$%^>");
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -109,8 +109,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 1249.5323);
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -129,8 +129,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -12495323);
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -138,8 +138,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id格式错误！");
 	}
 	/**
 	 * 用户ID为0
@@ -149,8 +149,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -158,8 +158,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id格式错误！");
 	}
 	/**
 	 * 用户ID为String
@@ -169,8 +169,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "AAA");
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -188,8 +188,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -208,8 +208,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -228,8 +228,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -247,8 +247,8 @@ public class GetUserListTest extends HttpUtil {
 	public void postGetUserListTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userName", "张");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -267,8 +267,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹地对地导弹");
-		request.put("creatTimeStart", "2011-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "2011-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -287,8 +287,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "<.#$%>");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -307,8 +307,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", null);
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -327,8 +327,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -347,8 +347,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", " ");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -366,8 +366,8 @@ public class GetUserListTest extends HttpUtil {
 	public void postGetUserListTestuserNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -387,7 +387,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeStart", "191111111912-028-026 1222:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -395,7 +395,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 创建时间为大于结束时间
@@ -405,8 +406,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "2019-07-12 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "2019-07-12");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -426,7 +427,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeStart", "1529338959000");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -434,7 +435,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("创建时间为时间戳" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 创建时间为空
@@ -445,7 +447,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeStart", "");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -453,8 +455,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("创建时间为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 创建时间为空格
@@ -465,7 +467,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeStart", " ");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -473,8 +475,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("创建时间为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 创建时间为null
@@ -485,7 +487,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeStart", null);
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -504,7 +506,7 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -524,7 +526,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeStart", "2018-07-06");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -532,7 +534,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("创建时间为年月日" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 创建时间为时分秒
@@ -543,7 +546,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeStart", "12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -551,7 +554,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("创建时间为时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 创建时间为0
@@ -562,7 +566,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeStart", 0);
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -570,7 +574,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("创建时间为时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 
 
@@ -583,7 +588,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeEnd", "191111111912-028-026 1222:13:14");
-		request.put("creatTimeStart", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -591,7 +596,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 
 	/**
@@ -603,7 +609,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeEnd", "1529338959000");
-		request.put("creatTimeStart", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -611,7 +617,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间为时间戳" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 结束时间为空
@@ -622,7 +629,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeEnd", "");
-		request.put("creatTimeStart", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -630,8 +637,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 结束时间为空格
@@ -642,7 +649,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeEnd", " ");
-		request.put("creatTimeStart", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -650,8 +657,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 结束时间为null
@@ -662,7 +669,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeEnd", null);
-		request.put("creatTimeStart", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -681,7 +688,7 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -701,7 +708,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeEnd", "2018-07-06");
-		request.put("creatTimeStart", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -709,7 +716,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间为年月日" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 结束时间为时分秒
@@ -720,7 +728,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeEnd", "12:13:14");
-		request.put("creatTimeStart", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -728,7 +736,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间为时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	/**
 	 * 结束时间为0
@@ -739,7 +748,7 @@ public class GetUserListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
 		request.put("creatTimeEnd", 0);
-		request.put("creatTimeStart", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -747,7 +756,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("结束时间为时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
 	}
 	
 	
@@ -759,8 +769,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", 99999999999999999L);
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -779,8 +789,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "<.@#$%>");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -788,8 +798,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("账号为非法字符" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 账号为错误
@@ -799,8 +809,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", 123456);
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -819,8 +829,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -839,8 +849,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", " ");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -859,8 +869,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -879,8 +889,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", null);
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -899,8 +909,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("status", 2);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
@@ -918,8 +928,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", 0.8);
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -938,8 +948,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", -1);
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -958,8 +968,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", 0);
 		request.put("status", 2);
 		request.put("pageSize", 10);
@@ -980,8 +990,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 99999999999999999L);
 		request.put("pageSize", 10);
@@ -999,8 +1009,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", "<.@%$^>");
 		request.put("pageSize", 1);
@@ -1018,8 +1028,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 9999);
 		request.put("pageSize", 1);
@@ -1038,8 +1048,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", "");
 		request.put("pageSize", 1);
@@ -1058,8 +1068,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", " ");
 		request.put("pageSize", 1);
@@ -1078,8 +1088,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", "aa");
 		request.put("pageSize", 1);
@@ -1097,8 +1107,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", null);
 		request.put("pageSize", 1);
@@ -1117,8 +1127,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("pageSize", 1);
 		request.put("pageNow", 1);
@@ -1136,8 +1146,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2.9);
 		request.put("pageSize", 1);
@@ -1156,8 +1166,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", -2);
 		request.put("pageSize", 1);
@@ -1176,8 +1186,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 0);
 		request.put("pageSize", 1);
@@ -1196,8 +1206,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", -1);
@@ -1205,7 +1215,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录集为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("每页大小格式错误！");
 	}
 	/**
 	 * 每页显示记录集为小数
@@ -1215,8 +1226,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 1.1);
@@ -1235,8 +1246,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", "aaa");
@@ -1254,8 +1265,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", " ");
@@ -1274,8 +1285,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", "");
@@ -1294,8 +1305,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", null);
@@ -1314,8 +1325,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", -1);
@@ -1333,8 +1344,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageNow", 1);
@@ -1352,8 +1363,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 0);
@@ -1361,7 +1372,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录集为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("每页大小格式错误！");
 	}
 	
 	/**
@@ -1372,8 +1384,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageNow", -1);
@@ -1381,7 +1393,8 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("当前页格式错误！");
 	}
 	/**
 	 * 当前页数为小数
@@ -1391,8 +1404,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageNow", 1.1);
@@ -1411,8 +1424,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageNow", "aaa");
@@ -1430,8 +1443,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageNow", " ");
@@ -1450,8 +1463,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageNow", "");
@@ -1470,8 +1483,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageNow", null);
@@ -1490,8 +1503,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageNow", -1);
@@ -1509,8 +1522,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageSize", 1);
@@ -1528,8 +1541,8 @@ public class GetUserListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("userName", "地对地导弹");
-		request.put("creatTimeStart", "1991-08-06 12:13:14");
-		request.put("creatTimeEnd", "2018-08-06 12:13:14");
+		request.put("creatTimeStart", "1991-08-06");
+		request.put("creatTimeEnd", "2018-08-06");
 		request.put("account", "lingfeng");
 		request.put("status", 2);
 		request.put("pageNow", 0);
@@ -1537,6 +1550,7 @@ public class GetUserListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("当前页格式错误！");
 	}
 }
