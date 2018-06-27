@@ -4,6 +4,7 @@ import com.example.HttpUtil;
 import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -25,14 +26,20 @@ public class AddOrUpdateUserTest extends HttpUtil {
 	String deleteSql = "DELETE FROM T_WEB_USER WHERE USER_NAME = 'lingfeng'";
 	String dataType = "perCenter81";
 	String selectSql = "SELECT * FROM T_WEB_USER WHERE USER_NAME = 'lingfeng'";
+	String selectSql1 = "SELECT * FROM T_WEB_USER WHERE USER_NAME = 'test'";
 	List<Map<String,Object>> list ;
 	@BeforeClass
 	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
+		userId =new BackUserLoginTest().userId;
 }
 	@AfterMethod
-	public void afterMethod() throws Exception {
-		new DeleteSystemUserTest().postDeleteSystemUserTestCorrectParameter();
+	public void afterMethod(){
+		try {
+			new DeleteSystemUserTest().postDeleteSystemUserTestCorrectParameter();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -40,10 +47,11 @@ public class AddOrUpdateUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postAddOrUpdateUserTestCorrectParameter() throws Exception {
+		userId =new BackUserLoginTest().userId;
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("sysUserId", 0);
-		request.put("userName", "lingfeng");
+		request.put("userName", "zhanglingfeng");
 		request.put("userPassword", "123456");
 		request.put("realName", "张领峰");
 		request.put("email", "zlf0923@126.com");
@@ -343,8 +351,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("不存在此角色信息");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户ID验证有误");
 	}
 	/**
 	 * 角色ID为空
@@ -488,24 +496,24 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("roleId或者userId格式不正确");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户ID验证有误");
 	}
 	/**
 	 * 角色ID为存在的
 	 */
 	@Test
 	public void postAddOrUpdateUserTestRoleIdNonExistent() throws Exception {
-		list = MetaOper.read(selectSql,dataType);
+		list = MetaOper.read(selectSql1,dataType);
 		sysUserId = list.get(0).get("USER_ID").toString();
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("sysUserId", sysUserId);
-		request.put("userName", "lingfeng");
-		request.put("userPassword", "123456");
+		request.put("userName", "test");
+		request.put("userPassword", "zlf123456");
 		request.put("realName", "张领峰123");
 		request.put("email", "zlf0923@126.com");
-		request.put("phone", "13764771995");
+		request.put("phone", "15616115463");
 		request.put("status", 0);
 		request.put("roles", "10000003");
 		JSONObject post = super.UNSPost(url, request);
@@ -700,8 +708,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录名称为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名不能为空");
 	}
 	/**
 	 * 用户登录名称为空格
@@ -721,8 +729,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录名称为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名不能为空");
 	}
 	/**
 	 * 用户登录名称为null
@@ -753,7 +761,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("sysUserId", 0);
-		request.put("userName", 5168489546321512348L);
+		request.put("userName", "5asdjwoieqwe16sdfsidfs8489rtkeprt546woerpwoe3215ploidkmvmv12348");
 		request.put("userPassword", "123456");
 		request.put("realName", "张领峰");
 		request.put("email", "zlf0923@126.com");
@@ -1079,8 +1087,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("email地址为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("邮件格式不正确");
 	}
 	/**
 	 * email地址为null
@@ -1121,8 +1129,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("email地址为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("邮件格式不正确");
 	}
 	/**
 	 * email地址为空格
@@ -1142,8 +1150,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("email地址为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("邮件格式不正确");
 	}
 	/**
 	 * email地址不传该参数
@@ -1184,8 +1192,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("手机号码格式不正确");
 	}
 	/**
 	 * 手机号码为非法字符
@@ -1205,8 +1213,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("手机号码格式不正确");
 	}
 	/**
 	 * 手机号码为null
@@ -1247,8 +1255,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("手机号码格式不正确");
 	}
 	/**
 	 * 手机号码为空格
@@ -1268,8 +1276,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("手机号码格式不正确");
 	}
 	/**
 	 * 手机号码不传该参数
@@ -1497,8 +1505,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名状态");
 	}
 	/**
 	 * 状态为0
