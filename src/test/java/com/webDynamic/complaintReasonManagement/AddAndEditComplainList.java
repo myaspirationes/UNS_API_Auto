@@ -3,6 +3,8 @@ package com.webDynamic.complaintReasonManagement;
 import com.example.HttpUtil;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,25 +13,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class AddAndEditComplainList extends HttpUtil {
 	// 添加/编辑投诉原因接口
-	String url = "/uu-admin/SystemManager/getComplaintsList";
+	String url = "/uu-admin/complainManage/addUpdateComplainReason";
 	
 	String dataType = "perCenter81";
 	
-	BackUserLoginTest login = new BackUserLoginTest();
-	String userId=login.userId;
-	
+	String userId;
+	@BeforeClass
+	public void beforeClass(){
+	userId =new BackUserLoginTest().userId;
+}
 	
 			
 	
 	/**
 	 * 提交正确参数：type为0
 	 */
-//	@Test
+	@Test
 	public void postDeleteComplainReasonTestTypeIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 0);
-		request.put("reason", "投诉原因test");
-		request.put("UserId", userId);
+		request.put("reason", "投诉原因接口test");
+		request.put("userId", 10000000);
 		request.put("reasionId", 0);
 
 		JSONObject post = super.UNSPost(url, request);

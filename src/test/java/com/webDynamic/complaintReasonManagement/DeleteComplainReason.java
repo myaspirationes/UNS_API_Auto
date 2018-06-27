@@ -3,6 +3,8 @@ package com.webDynamic.complaintReasonManagement;
 import com.example.HttpUtil;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,8 +17,11 @@ public class DeleteComplainReason extends HttpUtil {
 	
 	String dataType = "perCenter81";
 	
-	BackUserLoginTest login = new BackUserLoginTest();
-	String userId=login.userId;
+	String userId;
+	@BeforeClass
+	public void beforeClass(){
+	userId =new BackUserLoginTest().userId;
+}
 	
 	
 			
@@ -24,10 +29,10 @@ public class DeleteComplainReason extends HttpUtil {
 	/**
 	 * 提交正确参数
 	 */
-//	@Test
+	@Test
 	public void postDeleteComplainReasonTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("complaintId", 100000621);
+		request.put("complaintId", 13724);
 		request.put("operateUserId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
