@@ -20,13 +20,13 @@ public class DeleteSystemUserTest extends HttpUtil {
 	String url = "/uu-admin/BackUser/deleteUser";
 	String userId;
 	String dataType = "perCenter81";
-	String selectSql = "SELECT * FROM T_WEB_USER WHERE USER_NAME = 'lingfeng'";
+	String selectSql = "SELECT * FROM T_WEB_USER WHERE USER_NAME = 'lingfeng' or USER_NICK_NAME = '张领峰'";
 	List<Map<String,Object>> list ;
 	String sysUserId;
 	@BeforeClass
-	public void beforeClass() {
+	public void beforeClass() throws Exception {
 		userId =new BackUserLoginTest().userId;
-		
+		new AddOrUpdateUserTest().postAddOrUpdateUserTestCorrectParameter();
 		list = MetaOper.read(selectSql,dataType);
 		sysUserId = list.get(0).get("USER_ID").toString();
 }
@@ -36,9 +36,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postDeleteSystemUserTestCorrectParameter() throws Exception {
-//		new AddOrUpdateUserTest().postAddOrUpdateUserTestCorrectParameter();
 		userId =new BackUserLoginTest().userId;
-
 		list = MetaOper.read(selectSql,dataType);
 		sysUserId = list.get(0).get("USER_ID").toString();
 		Map<String, Object> request = new HashMap<String, Object>();
