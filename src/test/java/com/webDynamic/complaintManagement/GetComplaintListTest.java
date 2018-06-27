@@ -32,16 +32,16 @@ public class GetComplaintListTest extends HttpUtil {
 	@Test
 	public void postGetComplaintListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("functionCategory", 0);
-		request.put("complaintStartTime", "2018-05-29 17:12:30");
-		request.put("complaintEndTime", "2018-05-29 17:12:30");
-		request.put("businessCategories", 1);
-		request.put("status", 1);
-		request.put("complaintObject", "x");
-		request.put("keyWord", "xx");
+//		request.put("functionCategory", "");
+//		request.put("complaintStartTime", "2018-04-29 13:13:13");
+//		request.put("complaintEndTime", "2018-06-29 13:13:13");
+//		request.put("businessCategories", 1);
+//		request.put("status", 1);
+//		request.put("complaintObject", "x");
+// 		request.put("keyWord", "");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -64,7 +64,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为0评论" + post);
@@ -87,7 +87,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为1动态" + post);
@@ -110,7 +110,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为2商品" + post);
@@ -133,7 +133,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为3订单" + post);
@@ -156,7 +156,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为4社群" + post);
@@ -179,7 +179,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为5用户" + post);
@@ -202,7 +202,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为错误" + post);
@@ -225,7 +225,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为小数" + post);
@@ -248,7 +248,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为负数" + post);
@@ -271,7 +271,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为字符串" + post);
@@ -294,7 +294,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为空" + post);
@@ -317,7 +317,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为空格" + post);
@@ -340,7 +340,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类为null" + post);
@@ -362,7 +362,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("功能分类不传该参数" + post);
@@ -385,7 +385,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间大于投诉结束时间" + post);
@@ -408,7 +408,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间为时间戳" + post);
@@ -432,7 +432,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传年月日" + post);
@@ -456,7 +456,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传年月日最大值" + post);
@@ -480,7 +480,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传年月日最小值" + post);
@@ -504,7 +504,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -528,7 +528,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -552,7 +552,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传时分秒最小值" + post);
@@ -576,7 +576,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传年月日时分秒" + post);
@@ -600,7 +600,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传年月日时分秒最大值" + post);
@@ -624,7 +624,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传年月日时分秒最小值" + post);
@@ -648,7 +648,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传年月日时分秒去掉中间值" + post);
@@ -672,7 +672,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传字符串" + post);
@@ -696,7 +696,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传空" + post);
@@ -720,7 +720,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传空格" + post);
@@ -744,7 +744,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传null" + post);
@@ -768,7 +768,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传小数" + post);
@@ -792,7 +792,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传负数" + post);
@@ -816,7 +816,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间传0" + post);
@@ -839,7 +839,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉开始时间不传该参数" + post);
@@ -862,7 +862,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间为时间戳" + post);
@@ -886,7 +886,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传年月日" + post);
@@ -910,7 +910,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传年月日最大值" + post);
@@ -934,7 +934,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传年月日最小值" + post);
@@ -958,7 +958,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -982,7 +982,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -1006,7 +1006,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传时分秒最小值" + post);
@@ -1030,7 +1030,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传年月日时分秒" + post);
@@ -1054,7 +1054,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传年月日时分秒最大值" + post);
@@ -1078,7 +1078,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传年月日时分秒最小值" + post);
@@ -1102,7 +1102,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传年月日时分秒去掉中间值" + post);
@@ -1126,7 +1126,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传字符串" + post);
@@ -1150,7 +1150,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传空" + post);
@@ -1174,7 +1174,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传空格" + post);
@@ -1198,7 +1198,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传null" + post);
@@ -1222,7 +1222,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传小数" + post);
@@ -1246,7 +1246,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传负数" + post);
@@ -1270,7 +1270,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间传0" + post);
@@ -1293,7 +1293,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉结束时间不传该参数" + post);
@@ -1316,7 +1316,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型为0电商" + post);
@@ -1339,7 +1339,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型为1二手商品" + post);
@@ -1362,7 +1362,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型为2社交" + post);
@@ -1385,7 +1385,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型为负数" + post);
@@ -1408,7 +1408,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型为小数" + post);
@@ -1431,7 +1431,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型为字符串" + post);
@@ -1454,7 +1454,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型为空" + post);
@@ -1477,7 +1477,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型为空格" + post);
@@ -1500,7 +1500,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型为null" + post);
@@ -1523,7 +1523,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型为最大值" + post);
@@ -1546,7 +1546,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型为超长" + post);
@@ -1568,7 +1568,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("业务类型不传该参数" + post);
@@ -1591,7 +1591,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为0已处理" + post);
@@ -1614,7 +1614,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为1未处理" + post);
@@ -1637,7 +1637,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为错误" + post);
@@ -1660,7 +1660,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为小数" + post);
@@ -1683,7 +1683,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为负数" + post);
@@ -1706,7 +1706,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为字符串" + post);
@@ -1729,7 +1729,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为最大值" + post);
@@ -1752,7 +1752,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为超长" + post);
@@ -1775,7 +1775,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为空格" + post);
@@ -1798,7 +1798,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为空" + post);
@@ -1821,7 +1821,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为null" + post);
@@ -1843,7 +1843,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为不传该参数" + post);
@@ -1866,7 +1866,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉对象名称为超长" + post);
@@ -1889,7 +1889,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉对象名称为非法字符" + post);
@@ -1912,7 +1912,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉对象为名称为空" + post);
@@ -1935,7 +1935,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉对象名称为空格" + post);
@@ -1958,7 +1958,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉对象名称为null" + post);
@@ -1980,7 +1980,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉对象名称不传该参数" + post);
@@ -2003,7 +2003,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "keyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWordkeyWord");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为超长" + post);
@@ -2026,7 +2026,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "<.#$%^>");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为非法字符" + post);
@@ -2049,7 +2049,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为空" + post);
@@ -2072,7 +2072,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", " ");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为空格" + post);
@@ -2095,7 +2095,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", null);
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为null" + post);
@@ -2117,7 +2117,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("complaintObject", "x");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字不传该参数" + post);
@@ -2140,7 +2140,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1.2);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为小数" + post);
@@ -2163,7 +2163,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", -1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -2186,7 +2186,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", "pageNow");
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为字符串" + post);
@@ -2209,7 +2209,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 0);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为0" + post);
@@ -2232,7 +2232,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 999999999);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为最大值" + post);
@@ -2255,7 +2255,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 111111111111L);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为超长" + post);
@@ -2278,7 +2278,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", "");
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为空" + post);
@@ -2301,7 +2301,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", " ");
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为空格" + post);
@@ -2324,7 +2324,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", null);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为null" + post);
@@ -2346,7 +2346,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("complaintObject", "x");
 		request.put("keyWord", "xx");
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页数为不传该参数" + post);
@@ -2369,7 +2369,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageSize", 1.2);
 		request.put("pageNow", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页条数为小数" + post);
@@ -2392,7 +2392,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageSize", -1);
 		request.put("pageNow", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -2415,7 +2415,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageSize", "pageSize");
 		request.put("pageNow", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页条数为字符串" + post);
@@ -2438,7 +2438,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageSize", 0);
 		request.put("pageNow", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页条数为0" + post);
@@ -2461,7 +2461,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageSize", 999999999);
 		request.put("pageNow", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页条数为最大值" + post);
@@ -2484,7 +2484,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageSize", 111111111111L);
 		request.put("pageNow", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页条数为超长" + post);
@@ -2507,7 +2507,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageSize", "");
 		request.put("pageNow", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页条数为空" + post);
@@ -2530,7 +2530,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageSize", " ");
 		request.put("pageNow", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页条数为空格" + post);
@@ -2553,7 +2553,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageSize", null);
 		request.put("pageNow", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页条数为null" + post);
@@ -2575,7 +2575,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("complaintObject", "x");
 		request.put("keyWord", "xx");
 		request.put("pageNow", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页条数为不传该参数" + post);
@@ -2598,7 +2598,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", userid);
+		request.put("userId", userid);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID未登录" + post);
@@ -2621,7 +2621,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", 123);
+		request.put("userId", 123);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为错误" + post);
@@ -2644,7 +2644,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", 123123123123123L);
+		request.put("userId", 123123123123123L);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为超长" + post);
@@ -2667,7 +2667,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", "operateUserId");
+		request.put("userId", "userId");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为字符串" + post);
@@ -2690,7 +2690,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", 1.1);
+		request.put("userId", 1.1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为小数" + post);
@@ -2713,7 +2713,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", -1);
+		request.put("userId", -1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为负数" + post);
@@ -2736,7 +2736,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", 0);
+		request.put("userId", 0);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为0" + post);
@@ -2759,7 +2759,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", " ");
+		request.put("userId", " ");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空格" + post);
@@ -2782,7 +2782,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", "");
+		request.put("userId", "");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空" + post);
@@ -2805,7 +2805,7 @@ public class GetComplaintListTest extends HttpUtil {
 		request.put("keyWord", "xx");
 		request.put("pageNow", 1);
 		request.put("pageSize", 5);
-		request.put("operateUserId", null);
+		request.put("userId", null);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为null" + post);

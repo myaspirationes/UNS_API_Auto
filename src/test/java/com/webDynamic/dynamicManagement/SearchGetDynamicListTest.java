@@ -1,9 +1,12 @@
 package com.webDynamic.dynamicManagement;
 
+import com.appDynamic.PublishDynamicsTest;
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
-
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,28 +14,31 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchGetDynamicListTest extends HttpUtil {
 	// 搜索获取动态列表接口
-	String url = "/uu-admin/SystemManager/getUserList";
+	String url = "/uu-admin/dynamicManage/dynamicList";
 	
 	String dataType = "perCenter81";
 	
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;
-	
+	//@BeforeMethod
+	public void  beforeMethod() throws Exception {
+		new PublishDynamicsTest().postPublishDynamicsTestCorrectParameter();
+	}
 	
 			
 	
 	/**
 	 * 提交正确参数
 	 */
-//	@Test
+ 	@Test
 	public void postSearchGetDynamicListTestTypeCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("UserId", userId);
-		request.put("nickName", "自动化测试");
+		request.put("UserId", 10000000);
+		request.put("nickName", "梦想家Even");
 		request.put("keyWord", "测试");
 		request.put("creatTimeStart", "2018-05-03");
-		request.put("creatTimeEnd", "2018-06-20");
-		request.put("status", 0);
+		request.put("creatTimeEnd", "2018-07-20");
+		request.put("status", -1);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -45,7 +51,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-//	@Test
+	@Test
 	public void postSearchGetDynamicListTestUserIdIsNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 10000001);

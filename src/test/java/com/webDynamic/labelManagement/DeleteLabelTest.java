@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import com.example.LoginTest;
 
 public class DeleteLabelTest extends HttpUtil {
-	//获取标签管理列表接口
+	//删除标签
 	String url = "/uu-admin/labelManage/deleteLabel";
 	String	selectSql = "SELECT * FROM T_TALENT_LABEL WHERE LABEL_NAME = '自动化标签'";
 	List<Map<String,Object>> list ;

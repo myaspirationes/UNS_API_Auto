@@ -5,6 +5,7 @@ import com.example.LoginTest;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.collections.CollectionUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +56,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 0);
 		con.put("keyContent", "");
@@ -66,6 +67,36 @@ public class HomeDynamicListsTest extends HttpUtil {
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 开启附近陌生人
+	 */
+	@Test
+	public void postHomeDynamicListsTestOpenNearbyStrangers() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("userId", uuid);
+		con.put("dynamicType", -1);
+		con.put("basicType", -1);
+		con.put("genderType", -1);
+		con.put("pageNow", 1);
+		con.put("pageSize", 10);
+		con.put("selectType", 1);
+		con.put("indirectFriend", 0);
+		con.put("stranger", 0);
+		con.put("keyContent", "");
+		con.put("longitude", "121.51419305272026");
+		con.put("latitude", "31.15694861603254");
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("开启附近陌生人" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(0);
@@ -83,7 +114,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -96,8 +127,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"1.1\"");
 	}
 	/**
 	 * 用户ID为负数
@@ -111,7 +142,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -123,9 +154,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 用户ID为0
@@ -139,7 +171,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -152,8 +184,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 用户ID为错误
@@ -167,7 +199,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -177,11 +209,12 @@ public class HomeDynamicListsTest extends HttpUtil {
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID" + post);
+		System.out.println("用户ID为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 用户ID未登录
@@ -195,7 +228,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -223,7 +256,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -233,11 +266,11 @@ public class HomeDynamicListsTest extends HttpUtil {
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("用户ID" + post);
+		System.out.println("用户ID为字符串" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"uuid\"");
 	}
 	/**
 	 * 用户ID为null
@@ -251,7 +284,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -264,8 +297,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 用户ID为空
@@ -279,7 +312,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -292,8 +325,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"\"");
 	}
 	/**
 	 * 用户ID为空格
@@ -307,7 +340,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -320,8 +353,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \" \"");
 	}
 	/**
 	 * 用户ID为超长
@@ -335,7 +368,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -347,9 +380,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -362,7 +396,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -375,11 +409,11 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
-	 * 动态类型为字符串
+	 * 动态类型为字符串//接口不做校验这参数默认-1
 	 */
 	@Test
 	public void postHomeDynamicListsTestDynamicTypeIsString() throws Exception {
@@ -390,7 +424,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -418,7 +452,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -447,7 +481,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -457,7 +491,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("动态类型" + post);
+		System.out.println("动态类型为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(0);
@@ -475,7 +509,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -503,7 +537,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -531,7 +565,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -559,7 +593,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -587,7 +621,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -615,7 +649,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -643,7 +677,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -671,7 +705,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -699,7 +733,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -727,7 +761,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -755,7 +789,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -765,7 +799,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		request.put("head", head);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("动态类型" + post);
+		System.out.println("动态类型为9活动" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(0);
@@ -783,7 +817,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -811,7 +845,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -839,7 +873,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -867,7 +901,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -895,7 +929,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -923,7 +957,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -950,7 +984,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -967,7 +1001,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 基本类型为小数
+	 * 基本类型为小数//参数不做校验直接都以-1处理
 	 */
 	@Test
 	public void postHomeDynamicListsTestBasicTypeIsDecimal() throws Exception {
@@ -978,7 +1012,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1006,7 +1040,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1034,7 +1068,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1062,7 +1096,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1090,7 +1124,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1118,7 +1152,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1146,7 +1180,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1174,7 +1208,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1202,7 +1236,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1229,7 +1263,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1253,11 +1287,11 @@ public class HomeDynamicListsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("dynamicType", -1);
-		con.put("basicType", 11111111111L);
+		con.put("basicType", 11111111111111111L);
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1285,7 +1319,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", 0);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1313,7 +1347,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", 1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1341,7 +1375,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1369,7 +1403,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -2);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1397,7 +1431,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", 2);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1425,7 +1459,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", 1.1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1453,7 +1487,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", "ssss");
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1481,7 +1515,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", 999999999);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1509,7 +1543,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", 999999999999L);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1526,7 +1560,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 性别为空
+	 * 性别为空//性别不做校验
 	 */
 	@Test
 	public void postHomeDynamicListsTestGenderTypeIsEmpty() throws Exception {
@@ -1537,7 +1571,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", "");
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1565,7 +1599,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", " ");
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1593,7 +1627,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", null);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1620,7 +1654,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("basicType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1648,7 +1682,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1.4);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1661,8 +1695,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("当前页码为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"1.4\"");
 	}
 	/**
 	 * 当前页码为负数
@@ -1676,7 +1710,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", -1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1688,9 +1722,12 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
+		JSONObject body = (JSONObject) post.get("body");
 
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
+		//CollectionUtils.isEmpty
 	}
 	/**
 	 * 当前页码为0
@@ -1704,7 +1741,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 0);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1716,9 +1753,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 当前页码最大值
@@ -1732,7 +1770,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 999999999);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1760,7 +1798,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 99999999999999L);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1773,8 +1811,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("当前页码超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"99999999999999\"");
 	}
 	/**
 	 * 当前页码为空
@@ -1788,7 +1826,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", "");
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1801,8 +1839,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("当前页码为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"\"");
 	}
 	/**
 	 * 当前页码为空格
@@ -1816,7 +1854,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", " ");
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1829,8 +1867,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("当前页码为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \" \"");
 	}
 	/**
 	 * 当前页码为null
@@ -1844,7 +1882,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", null);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1857,8 +1895,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("当前页码为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 当前页码不传该参数
@@ -1871,7 +1909,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("basicType", -1);
 		con.put("genderType", -1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1884,8 +1922,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("当前页码不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 每页的个数为小数
@@ -1899,7 +1937,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageSize", 1.4);
 		con.put("pageNow", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1912,8 +1950,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("每页的个数为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"1.4\"");
 	}
 	/**
 	 * 每页的个数为负数
@@ -1927,7 +1965,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageSize", -1);
 		con.put("pageNow", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1939,9 +1977,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页的个数为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 每页的个数为0
@@ -1955,7 +1994,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageSize", 0);
 		con.put("pageNow", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -1967,9 +2006,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页的个数为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 每页的个数最大值
@@ -1983,7 +2023,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageSize", 999999999);
 		con.put("pageNow", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2011,7 +2051,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageSize", 99999999999999L);
 		con.put("pageNow", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2024,8 +2064,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("每页的个数超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"99999999999999\"");
 	}
 	/**
 	 * 每页的个数为空
@@ -2039,7 +2079,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageSize", "");
 		con.put("pageNow", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2052,8 +2092,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("每页的个数为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"\"");
 	}
 	/**
 	 * 每页的个数为空格
@@ -2067,7 +2107,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageSize", " ");
 		con.put("pageNow", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2080,8 +2120,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("每页的个数为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \" \"");
 	}
 	/**
 	 * 每页的个数为null
@@ -2095,7 +2135,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageSize", null);
 		con.put("pageNow", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2108,8 +2148,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("每页的个数为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 每页的个数不传该参数
@@ -2122,7 +2162,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("basicType", -1);
 		con.put("genderType", -1);
 		con.put("pageNow", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2135,8 +2175,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("每页的个数不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 排序为0时间排序
@@ -2178,7 +2218,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2206,7 +2246,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1.1);
+		con.put("selectType", 0.1);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2218,9 +2258,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("排序为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 排序为负数
@@ -2246,9 +2287,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("排序为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 排序为字符串
@@ -2274,9 +2316,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("排序为字符串" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 排序为最大值
@@ -2302,9 +2345,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("排序为最大值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 排序为超长
@@ -2330,9 +2374,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("排序为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 排序为空
@@ -2386,9 +2431,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("排序为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 排序为null
@@ -2415,8 +2461,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("排序为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 排序不传该参数
@@ -2442,8 +2488,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("排序不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 
 	/**
@@ -2458,7 +2504,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 1);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2486,7 +2532,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 1);
 		con.put("stranger", 0);
 		con.put("keyContent", "");
@@ -2514,7 +2560,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2542,7 +2588,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 0);
 		con.put("keyContent", "");
@@ -2570,7 +2616,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2598,7 +2644,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", -9);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2626,7 +2672,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", null);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2639,8 +2685,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("间接朋友为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 间接朋友为最大值
@@ -2654,7 +2700,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 999999999);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2682,7 +2728,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 999999999999L);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2695,8 +2741,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("间接朋友为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"999999999999\"");
 	}
 	/**
 	 * 间接朋友为字符串
@@ -2710,7 +2756,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", "indirectFriend");
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2723,8 +2769,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("间接朋友为字符串" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 间接朋友为空格
@@ -2738,7 +2784,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", " ");
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2751,8 +2797,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("间接朋友为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \" \"");
 	}
 	/**
 	 * 间接朋友为空
@@ -2766,7 +2812,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", "");
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -2779,8 +2825,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("间接朋友为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"\"");
 	}
 	/**
 	 * 间接朋友不传该参数
@@ -2794,7 +2840,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
 
@@ -2806,8 +2852,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("间接朋友不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 陌生人不传该参数
@@ -2821,7 +2867,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("keyContent", "");
 
@@ -2833,8 +2879,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("陌生人不传该参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 陌生人为空
@@ -2848,7 +2894,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", "");
 		con.put("keyContent", "");
@@ -2860,9 +2906,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("陌生人为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 陌生人为空格
@@ -2876,7 +2923,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", " ");
 		con.put("keyContent", "");
@@ -2888,9 +2935,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("陌生人为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 陌生人为字符串
@@ -2904,7 +2952,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", "aaaaaa");
 		con.put("keyContent", "");
@@ -2916,9 +2964,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("陌生人为字符串" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 陌生人为超长
@@ -2932,7 +2981,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 111111111111L);
 		con.put("keyContent", "");
@@ -2944,9 +2993,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("陌生人为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 陌生人为最大值
@@ -2960,7 +3010,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 999999999);
 		con.put("keyContent", "");
@@ -2988,7 +3038,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", null);
 		con.put("keyContent", "");
@@ -3001,8 +3051,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("陌生人为null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 陌生人为负数
@@ -3016,7 +3066,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", -1);
 		con.put("keyContent", "");
@@ -3028,9 +3078,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("陌生人为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 陌生人为小数
@@ -3044,7 +3095,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1.8);
 		con.put("keyContent", "");
@@ -3056,9 +3107,10 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("陌生人为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-
+		JSONObject body = (JSONObject) post.get("body");
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 关键字查询不传该参数
@@ -3072,7 +3124,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 
@@ -3099,7 +3151,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", null);
@@ -3127,7 +3179,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", " ");
@@ -3155,7 +3207,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "");
@@ -3183,7 +3235,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "FGHJKLKJHGFGHJKJHGFDDFGHJKLKJHGDCFVKJHGFDFGHJKJHGFDFGHJYTRTYUIIUYFGHJghjkjhhfkfasdfasdfaskjdfhasdfFGHJKLKJHGFGHJKJHGFDDFGHJKLKJHGDCFVKJHGFDFGHJKJHGFDFGHJYTRTYUIIUYFGHJghjkjhhfkfasdfasdfaskjdfhasdfFGHJKLKJHGFGHJKJHGFDDFGHJKLKJHGDCFVKJHGFDFGHJKJHGFDFGHJYTRTYUIIUYFGHJghjkjhhfkfasdfasdfaskjdfhasdfFGHJKLKJHGFGHJKJHGFDDFGHJKLKJHGDCFVKJHGFDFGHJKJHGFDFGHJYTRTYUIIUYFGHJghjkjhhfkfasdfasdfaskjdfhasdfFGHJKLKJHGFGHJKJHGFDDFGHJKLKJHGDCFVKJHGFDFGHJKJHGFDFGHJYTRTYUIIUYFGHJghjkjhhfkfasdfasdfaskjdfhasdfFGHJKLKJHGFGHJKJHGFDDFGHJKLKJHGDCFVKJHGFDFGHJKJHGFDFGHJYTRTYUIIUYFGHJghjkjhhfkfasdfasdfaskjdfhasdfFGHJKLKJHGFGHJKJHGFDDFGHJKLKJHGDCFVKJHGFDFGHJKJHGFDFGHJYTRTYUIIUYFGHJghjkjhhfkfasdfasdfaskjdfhasdf");
@@ -3211,7 +3263,7 @@ public class HomeDynamicListsTest extends HttpUtil {
 		con.put("genderType", -1);
 		con.put("pageNow", 1);
 		con.put("pageSize", 10);
-		con.put("selectType", 1);
+		con.put("selectType", 0);
 		con.put("indirectFriend", 0);
 		con.put("stranger", 1);
 		con.put("keyContent", "<.@#$%^>");

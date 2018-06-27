@@ -642,8 +642,8 @@ public class ChangePasswordTest extends HttpUtil {
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("新密码为超长字符" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");	
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("密码有误,长度在3至8位");	
 
 		
 	}
