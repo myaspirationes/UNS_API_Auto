@@ -32,12 +32,12 @@ public class LockUserTest extends HttpUtil {
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;
 		
-	//@AfterMethod
+	@AfterMethod
 	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 	}
-	//@AfterClass
+	@AfterClass
 	public void afterClass()
 	{
 		MetaOper.delete(deleteSql, dataType);
@@ -47,7 +47,7 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestCorrectParameter() throws Exception {
-		map1.put("lockType", 2);
+		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");	
 		lis.add(map1);
@@ -62,7 +62,7 @@ public class LockUserTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("操作成功");
 		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("LOCK_TYPE").toString()).isEqualTo("2");
+		assertThat(list.get(0).get("LOCK_TYPE").toString()).isEqualTo("0");
 		assertThat(list.get(0).get("LOCK_DURATION").toString()).isEqualTo("1");
 		assertThat(list.get(0).get("MSG").toString()).isEqualTo("测试3");
 		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("1");	
@@ -79,8 +79,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495333);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
@@ -105,8 +105,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 1249);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -127,8 +127,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "<#%%#$>");
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为非法字符" + post);
@@ -148,8 +148,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "12.361245");
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
@@ -169,8 +169,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", -12495326);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);			
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
@@ -190,8 +190,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
@@ -212,8 +212,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
@@ -233,8 +233,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);			
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
@@ -254,8 +254,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 0);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
@@ -275,8 +275,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "dfdsfdsd");
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为String" + post);
@@ -296,8 +296,8 @@ public class LockUserTest extends HttpUtil {
 		map1.put("opinion", "测试3");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
@@ -317,8 +317,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 999999999999999999L);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
@@ -332,7 +332,7 @@ public class LockUserTest extends HttpUtil {
 	@Test
 	public void postLockUserTestLockTypeIsDecimal() throws Exception {
 		MetaOper.read(selectSql, dataType);
-		map1.put("lockType", 20.3);
+		map1.put("lockType", 8.3);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");
 		lis.add(map1);
@@ -346,7 +346,7 @@ public class LockUserTest extends HttpUtil {
 	
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
+		assertThat(post.get("msg")).isEqualTo("锁定类型格式错误！");
 		}
 	/**
 	 * 锁定类型为负数
@@ -360,8 +360,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定类型为负数" + post);
@@ -383,8 +383,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定类型为0" + post);
@@ -410,8 +410,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定类型为1" + post);
@@ -438,8 +438,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定类型为2" + post);
@@ -465,8 +465,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定类型为3" + post);
@@ -492,8 +492,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定类型为4" + post);
@@ -520,8 +520,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定类型为5" + post);
@@ -547,7 +547,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
+		request.put("operatorName", "admin");
 		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
@@ -569,7 +569,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
+		request.put("operatorName", "admin");
 		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
@@ -590,7 +590,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
+		request.put("operatorName", "admin");
 		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
@@ -613,7 +613,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
+		request.put("operatorName", "admin");
 		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
@@ -636,7 +636,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
+		request.put("operatorName", "admin");
 		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
@@ -657,7 +657,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
+		request.put("operatorName", "admin");
 		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
@@ -680,7 +680,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
+		request.put("operatorName", "admin");
 		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
@@ -688,7 +688,7 @@ public class LockUserTest extends HttpUtil {
 	
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("msg")).isEqualTo("锁定时长格式错误！");
 	}
 	/**
 	 * 锁定时长为1
@@ -703,7 +703,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
+		request.put("operatorName", "admin");
 		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
@@ -731,7 +731,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
+		request.put("operatorName", "admin");
 		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
@@ -758,7 +758,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
+		request.put("operatorName", "admin");
 		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
@@ -785,8 +785,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定时长为15" + post);
@@ -812,8 +812,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定时长为30" + post);
@@ -839,8 +839,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定时长为100" + post);
@@ -867,8 +867,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定时长为负数" + post);
@@ -889,14 +889,14 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定时长为小数" + post);
 		
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("锁定时长格式错误！");
 	}
 	/**
 	 * 锁定时长为空格
@@ -911,8 +911,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定时长为空格" + post);
@@ -934,8 +934,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定时长为null" + post);
@@ -957,8 +957,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定时长为String" + post);
@@ -980,8 +980,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定时长为超长" + post);
@@ -1002,15 +1002,15 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("锁定时长为不传" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("锁定时长不能为空！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("锁定时长不能为空！");
 	}
 	/**
 	 * 处理意见为超长
@@ -1025,8 +1025,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理意见为超长" + post);
@@ -1047,8 +1047,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理意见为空" + post);
@@ -1074,8 +1074,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理意见为null" + post);
@@ -1100,8 +1100,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理意见为空格" + post);
@@ -1126,8 +1126,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理意见为非法字符" + post);
@@ -1151,8 +1151,8 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorName", "BeJson");
-		request.put("operatorId", 12491738);
+		request.put("operatorName", "admin");
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理意见不提交" + post);
@@ -1161,7 +1161,7 @@ public class LockUserTest extends HttpUtil {
 		assertThat(post.get("msg")).isEqualTo("操作成功");
 		MetaOper.read(selectSql, dataType);
 		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("MSG")).isEqualTo(null);
+		assertThat(list.get(0).get("MSG").toString()).isEqualTo(" ");
 	}
 	/**
 	 * 处理人姓名为错误
@@ -1176,14 +1176,14 @@ public class LockUserTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
 		request.put("operatorName", "BeJsonfsdf");
-		request.put("operatorId", 12491738);
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理人姓名为错误" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("操作用户名称不匹配");
 	}
 	/**
 	 * 处理人姓名为空
@@ -1198,7 +1198,7 @@ public class LockUserTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
 		request.put("operatorName", "");
-		request.put("operatorId", 12491738);
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理人姓名为空" + post);
@@ -1220,7 +1220,7 @@ public class LockUserTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
 		request.put("operatorName", " ");
-		request.put("operatorId", 12491738);
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理人姓名为空格" + post);
@@ -1242,7 +1242,7 @@ public class LockUserTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
 		request.put("operatorName", null);
-		request.put("operatorId", 12491738);
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理人姓名为null" + post);
@@ -1264,13 +1264,13 @@ public class LockUserTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
 		request.put("operatorName", "<$%@$>");
-		request.put("operatorId", 12491738);
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理人姓名非法字符" + post);
 		
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户名称不匹配");
 	}
 	/**
 	 * 处理人姓名不传
@@ -1284,7 +1284,7 @@ public class LockUserTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495396);
-		request.put("operatorId", 12491738);
+		request.put("operatorId", userId);
 		request.put("userLockDTO", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理人姓名不传" + post);
