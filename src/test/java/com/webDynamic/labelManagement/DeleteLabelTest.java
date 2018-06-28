@@ -105,8 +105,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为未登录" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id不存在！");
 	}
 	/**
 	 * 操作用户ID为错误用户
@@ -122,7 +122,7 @@ public class DeleteLabelTest extends HttpUtil {
 		System.out.println("操作用户ID为错误用户" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数异常！");
+		assertThat(post.get("msg")).isEqualTo("用户id不存在！");
 	}
 	/**
 	 * 操作用户ID为非法字符
@@ -152,8 +152,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id不存在！");
 	}
 	/**
 	 * 操作用户ID为负数
@@ -169,7 +169,7 @@ public class DeleteLabelTest extends HttpUtil {
 		System.out.println("操作用户ID为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数异常！");
+		assertThat(post.get("msg")).isEqualTo("用户id不存在！");
 	}
 	/**
 	 * 操作用户ID为空格
@@ -246,8 +246,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id不存在！");
 	}
 	/**
 	 * 操作用户ID为空
@@ -262,8 +262,8 @@ public class DeleteLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 操作用户ID不传该参数

@@ -4,6 +4,7 @@ import com.example.HttpUtil;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -25,6 +26,10 @@ public class QueryLabelListTest extends HttpUtil {
 		userid = new BackUserLoginTest().userId;
 		
 	}
+	@BeforeMethod
+	public void beforeMethod() throws Exception {
+		new AddCommonLabelTest().postSetAndModifyTalantLableTestCorrectParameter();
+	}
 
 	/**
 	 * 提交正确参数
@@ -33,7 +38,7 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		
@@ -41,7 +46,7 @@ public class QueryLabelListTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作用户ID为未登录
@@ -50,7 +55,7 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 12495079);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
@@ -66,14 +71,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 1111111111);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为错误用户" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 操作用户ID为非法字符
@@ -82,14 +87,13 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", "<.!@#!@#>");
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 操作用户ID为小数
@@ -98,14 +102,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 1.5);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作用户ID为负数
@@ -114,14 +118,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", -9);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 操作用户ID为空格
@@ -130,14 +134,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", "");
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
 	}
 	/**
 	 * 操作用户ID为null
@@ -146,14 +150,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", null);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
 	}
 	/**
 	 * 操作用户ID为超长
@@ -162,14 +166,13 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", "112121212121212121212");
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 操作用户ID为String
@@ -178,14 +181,13 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", "userId");
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为String" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 操作用户ID为0
@@ -194,7 +196,7 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 0);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
@@ -210,14 +212,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", "");
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
 	}
 	/**
 	 * 操作用户ID不传该参数
@@ -225,20 +227,21 @@ public class QueryLabelListTest extends HttpUtil {
 	@Test
 	public void postQueryLabelListTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
 	}
 	/**
 	 * 类型ID为1星座
 	 */
 	@Test
 	public void postQueryLabelListTestTypeIsConstellation() throws Exception {
+		new SetAndModifyTalantLableTest().postSetAndModifyTalantLableTestCorrectParameter();
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
 		request.put("type", 1);
@@ -246,44 +249,46 @@ public class QueryLabelListTest extends HttpUtil {
 
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("类型ID" + post);
+		System.out.println("类型ID为1星座" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 类型ID为2属相
 	 */
 	@Test
 	public void postQueryLabelListTestTypeIsSignOfTheZodiac() throws Exception {
+		new SetAndModifyTalantLableTest().postSetAndModifyTalantLableTestCorrectParameter();
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 1);
+		request.put("type", 2);
 		request.put("labelName", "自动化标签");
 
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("类型ID" + post);
+		System.out.println("类型ID为2属相" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 类型ID为3年代
 	 */
 	@Test
 	public void postQueryLabelListTestTypeIsTime() throws Exception {
+		new SetAndModifyTalantLableTest().postSetAndModifyTalantLableTestCorrectParameter();
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 1);
+		request.put("type", 3);
 		request.put("labelName", "自动化标签");
 
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("类型ID" + post);
+		System.out.println("类型ID为3年代" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 类型ID为4普通
@@ -300,7 +305,7 @@ public class QueryLabelListTest extends HttpUtil {
 		System.out.println("类型ID为4普通" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 类型ID为错误值
@@ -316,8 +321,8 @@ public class QueryLabelListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型ID为错误值" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 类型ID为小数
@@ -326,7 +331,7 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestTypeIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 1.9);
+		request.put("type", 4.9);
 		request.put("labelName", "自动化标签");
 
 
@@ -334,7 +339,7 @@ public class QueryLabelListTest extends HttpUtil {
 		System.out.println("类型ID为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}/**
 	 * 类型ID为负数
 	 */
@@ -347,10 +352,10 @@ public class QueryLabelListTest extends HttpUtil {
 
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("类型ID" + post);
+		System.out.println("类型ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 类型ID为0
@@ -366,8 +371,8 @@ public class QueryLabelListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 类型ID为字符串
@@ -383,8 +388,7 @@ public class QueryLabelListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型ID" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 类型ID为空格
@@ -400,8 +404,8 @@ public class QueryLabelListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型ID为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
 	}
 	/**
 	 * 类型ID为空
@@ -417,8 +421,8 @@ public class QueryLabelListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型类型ID为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
 	}
 	/**
 	 * 类型ID为null
@@ -434,8 +438,8 @@ public class QueryLabelListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
 	}
 	/**
 	 * 类型ID为最大值
@@ -451,8 +455,8 @@ public class QueryLabelListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型ID为最大值" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常！");
 	}
 	/**
 	 * 类型ID为超长
@@ -461,15 +465,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestTypeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 111111111111111L);
+		request.put("type", 411111111111111L);
 		request.put("labelName", "自动化标签");
 
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型ID为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 类型ID不传该参数
@@ -484,8 +487,8 @@ public class QueryLabelListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
 	}
 
 	/**
@@ -495,14 +498,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestLabelNameNotTheSameAsType() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("类型名" + post);
+		System.out.println("类型名与类型ID不符" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 类型名为超长
@@ -511,14 +514,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestLabelNameIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签自动化标签");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型名为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("org.hibernate.exception.SQLGrammarException: could not extract ResultSet");
 	}
 	/**
 	 * 类型名为非法字符
@@ -527,14 +530,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestLabelNameIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "<.@#$%^&>");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型名为非法字符" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 类型名为空
@@ -543,14 +546,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestLabelNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", "");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型名为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 类型名为空格
@@ -559,14 +562,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestLabelNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", " ");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型名为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 类型名为null
@@ -575,14 +578,14 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestLabelNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 1);
+		request.put("type", 4);
 		request.put("labelName", null);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("类型名" + post);
+		System.out.println("类型名为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 类型名不传该参数
@@ -591,12 +594,12 @@ public class QueryLabelListTest extends HttpUtil {
 	public void postQueryLabelListTestLabelNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);
-		request.put("type", 1);
+		request.put("type", 4);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("类型名不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 }

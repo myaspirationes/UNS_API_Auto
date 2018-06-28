@@ -99,7 +99,7 @@ public class GetLabelSettingTest extends HttpUtil {
 		System.out.println("操作用户ID为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作用户ID为负数
