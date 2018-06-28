@@ -60,14 +60,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		head.put("chcode", chcode);
 		head.put("cmd", 510);
 	}
-	@AfterMethod
+	//@AfterMethod
 	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 		MetaOper.delete(deleteSql1, dataType);
 		MetaOper.delete(deleteSql2, dataType);
 	}
-	@AfterClass
+	//@AfterClass
 	public void afterClass(){
 		MetaOper.delete(deleteSql, dataType);
 		MetaOper.delete(deleteSql1, dataType);
@@ -3852,7 +3852,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图文件id传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list1 =MetaOper.read(selectSql1,dataType);
 		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("0");
@@ -4081,7 +4081,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("详细地址传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list1 =MetaOper.read(selectSql1,dataType);
 		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("0");
@@ -4430,7 +4430,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("缩放比例传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list1 =MetaOper.read(selectSql1,dataType);
 		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo("-22.3");
@@ -4832,7 +4832,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 8);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 12495001);
+		con.put("selectIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5036,7 +5036,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("提醒用户id数组传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
 		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("0");
@@ -5194,7 +5194,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");//不是音频动态 数据库未保存
 		//list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
 		//assertThat(list3.get(0).get("RADIOTIME")).isEqualTo(null);
 	}
@@ -5233,7 +5233,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");//不是音频动态 数据库未保存
 		//list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
 		//assertThat(list3.get(0).get("RADIOTIME").toString()).isEqualTo(" ");
 	}
@@ -5272,7 +5272,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");//不是音频动态 数据库未保存
 		//list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
 		//assertThat(list3.get(0).get("RADIOTIME").toString()).isEqualTo(null);
 	}
@@ -5311,7 +5311,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("成功");//不是音频动态 数据库未保存
 		//list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
 		//assertThat(list3.get(0).get("RADIOTIME").toString()).isEqualTo("999999999");
 	}
@@ -5468,7 +5468,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 音频时间传空音频动态
 	 */
-	////////@Test
+	@Test
 	public void postPublishDynamicsTestAudioTimeIsEmptyDynamicTypeIs4() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
@@ -5478,15 +5478,15 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
 		con.put("dynamicAddress", "自动化测试1");
-		con.put("mapLongitude", 25.36);
-		con.put("mapLatitude", 88.26);
-		con.put("region", "自动化测试2");
-		con.put("address", "自动化测试3");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 22.3);
+		//con.put("mapLongitude", 25.36);
+		//con.put("mapLatitude", 88.26);
+		//con.put("region", "自动化测试2");
+		//con.put("address", "自动化测试3");
+		//con.put("fileId", 1319);
+		//con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
-		con.put("audioTime", 56);
+		con.put("audioTime", 5);
 		con.put("selectIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
@@ -5542,7 +5542,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
-	 * 音频时间传null非音频动态
+	 * 音频时间传null音频动态
 	 */
 	////////@Test
 	public void postPublishDynamicsTestAudioTimeIsNullDynamicTypeIs4() throws Exception {
@@ -5572,7 +5572,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("音频时间传null非音频动态" + post);
+		System.out.println("音频时间传null音频动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
