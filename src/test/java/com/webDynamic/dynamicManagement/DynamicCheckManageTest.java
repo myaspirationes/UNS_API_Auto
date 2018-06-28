@@ -143,7 +143,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		request.put("disposeOperation", 0);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("操作用户ID" + post);
+		System.out.println("操作用户ID为错误" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
@@ -964,7 +964,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		request.put("userId", 1000000);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
-		request.put("disposeOpinion", 1.23);
+		request.put("disposeOpinion", 8.23);
 		request.put("disposeOperation", 0);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -985,7 +985,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
-		request.put("disposeOperation", -2);
+		request.put("disposeOperation", -10);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理操作传负数" + post);
