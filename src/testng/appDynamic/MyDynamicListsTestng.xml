@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="我的动态列表" >
+	<test name="MyDynamicListsTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.MyDynamicListsTest">
+		      <methods>
+		          <include name="postMyDynamicListsTestCorrectParameter"></include>
+		          <include name="postMyDynamicListsTestUserIdIsDecimal"></include>
+		          <include name="postMyDynamicListsTestUserIdIsNegativeNumber"></include>
+		          <include name="postMyDynamicListsTestUserIdIsZero"></include>
+		          <include name="postMyDynamicListsTestUserIdIsError"></include>
+		          <include name="postMyDynamicListsTestUserIdNotLoggedIn"></include>
+		          <include name="postMyDynamicListsTestUserIdIsString"></include>
+		          <include name="postMyDynamicListsTestUserIdIsNull"></include>
+		          <include name="postMyDynamicListsTestUserIdIsEmpty"></include>
+		          <include name="postMyDynamicListsTestUserIdIsSpace"></include>
+		          <include name="postMyDynamicListsTestUserIdIsLong"></include>
+		          <include name="postMyDynamicListsTestUserIdNonSubmissionParameters"></include>
+		          <include name="postMyDynamicListsTestPageNowIsDecimal"></include>
+		          <include name="postMyDynamicListsTestPageNowIsNegativeNumber"></include>
+		          <include name="postMyDynamicListsTestPageNowIsZero"></include>
+		          <include name="postMyDynamicListsTestPageNowIsMax"></include>
+		          <include name="postMyDynamicListsTestPageNowIsLong"></include>
+		          <include name="postMyDynamicListsTestPageNowIsEmpty"></include>
+		          <include name="postMyDynamicListsTestPageNowIsSpace"></include>
+		          <include name="postMyDynamicListsTestPageNowIsNull"></include>
+		          <include name="postMyDynamicListsTestPageNowNonSubmissionParameters"></include>
+		          <include name="postMyDynamicListsTestPageSizeIsDecimal"></include>
+		          <include name="postMyDynamicListsTestPageSizeIsNegativeNumber"></include>
+		          <include name="postMyDynamicListsTestPageSizeIsZero"></include>
+		          <include name="postMyDynamicListsTestPageSizeIsMax"></include>
+		          <include name="postMyDynamicListsTestPageSizeIsLong"></include>
+		          <include name="postMyDynamicListsTestPageSizeIsEmpty"></include>
+		          <include name="postMyDynamicListsTestPageSizeIsSpace"></include>
+		          <include name="postMyDynamicListsTestPageSizeIsNull"></include>
+		          <include name="postMyDynamicListsTestPageSizeNonSubmissionParameters"></include>
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

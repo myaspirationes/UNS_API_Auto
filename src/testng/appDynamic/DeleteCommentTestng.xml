@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="删除评论" >
+	<test name="DeleteCommentTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.DeleteCommentTest">
+		      <methods>
+		          <include name="postDeleteCommentTestCorrectParameter"></include>
+		          <include name="postDeleteCommentTestDynamicIdIsError"></include>
+		          <include name="postDeleteCommentTestDynamicIdIsNegativeNumber"></include>
+		          <include name="postDeleteCommentTestDynamicIdIsDecimal"></include>
+		          <include name="postDeleteCommentTestDynamicIdIsZero"></include>
+		          <include name="postDeleteCommentTestDynamicIdIsString"></include>
+		          <include name="postDeleteCommentTestDynamicIdIsEmpty"></include>
+		          <include name="postDeleteCommentTestDynamicIdIsNull"></include>
+		          <include name="postDeleteCommentTestDynamicIdIsSpace"></include>
+		          <include name="postDeleteCommentTestDynamicIdIsLong"></include>
+		          <include name="postDeleteCommentTestDynamicIdNonSubmissionParameters"></include>
+		          <include name="postDeleteCommentTestUserIdNotLoggedIn"></include>
+		          <include name="postDeleteCommentTestUserIdIsEmpty"></include>
+		          <include name="postDeleteCommentTestUserIdIsNull"></include>
+		          <include name="postDeleteCommentTestUserIdIsLong"></include>
+		          <include name="postDeleteCommentTestUserIdNonSubmissionParameters"></include>
+		          <include name="postDeleteCommentTestUserIdIsZero"></include>
+		          <include name="postDeleteCommentTestUserIdIsNegativeNumber"></include>
+		          <include name="postDeleteCommentTestUserIdIsDecimal"></include>
+		          <include name="postDeleteCommentTestUserIdIsString"></include>
+		          <include name="postDeleteCommentTestUserIdIsError"></include>
+		          <include name="postDeleteCommentTestUserIdIsSpace"></include>
+		          <include name="postDeleteCommentTestCommentIdIsNegativeNumber"></include>
+		          <include name="postDeleteCommentTestCommentIdIsZero"></include>
+		          <include name="postDeleteCommentTestCommentIdIsLong"></include>
+		          <include name="postDeleteCommentTestCommentIdIsDecimal"></include>
+		          <include name="postDeleteCommentTestCommentIdIsMax"></include>
+		          <include name="postDeleteCommentTestCommentIdIsEmpty"></include>
+		          <include name="postDeleteCommentTestCommentIdIsSpace"></include>
+		          <include name="postDeleteCommentTestCommentIdIsNull"></include>
+		          <include name="postDeleteCommentTestCommentIdNonSubmissionParameters"></include>
+		         
+		          
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

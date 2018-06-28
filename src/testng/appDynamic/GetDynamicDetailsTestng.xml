@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取动态详情接口" >
+	<test name="GetDynamicDetailsTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.GetDynamicDetailsTest">
+		      <methods>
+		          <include name="postGetDynamicDetailsTestCorrectParameter"></include>
+		          <include name="postGetDynamicDetailsTestUserIdIsDecimal"></include>
+		          <include name="postGetDynamicDetailsTestUserIdIsNegativeNumber"></include>
+		          <include name="postGetDynamicDetailsTestUserIdIsZero"></include>
+		          <include name="postGetDynamicDetailsTestUserIdIsError"></include>
+		          <include name="postGetDynamicDetailsTestUserIdNotLoggedIn"></include>
+		          <include name="postGetDynamicDetailsTestUserIdIsString"></include>
+		          <include name="postGetDynamicDetailsTestUserIdIllegalCharacters"></include>
+		          <include name="postGetDynamicDetailsTestUserIdIsNull"></include>
+		          <include name="postGetDynamicDetailsTestUserIdIsEmpty"></include>
+		          <include name="postGetDynamicDetailsTestUserIdIsSpace"></include>
+		          <include name="postGetDynamicDetailsTestUserIdIsLong"></include>
+		         <include name="postGetDynamicDetailsTestUserIdNonSubmissionParameters"></include>
+		         <include name="postGetDynamicDetailsTestDynamicIdIsDecimal"></include>
+		         <include name="postGetDynamicDetailsTestDynamicIdIsNegativeNumber"></include>
+		         <include name="postGetDynamicDetailsTestDynamicIdIsZero"></include>
+		         <include name="postGetDynamicDetailsTestDynamicIdIsError"></include>
+		         <include name="postGetDynamicDetailsTestDynamicIdIsString"></include>
+		         <include name="postGetDynamicDetailsTestDynamicIdIllegalCharacters"></include>
+		         <include name="postGetDynamicDetailsTestDynamicIdIsNull"></include>
+		         <include name="postGetDynamicDetailsTestDynamicIdIsEmpty"></include>
+		         <include name="postGetDynamicDetailsTestDynamicIdIsSpace"></include>
+		         <include name="postGetDynamicDetailsTestDynamicIdIsLong"></include>
+		         <include name="postGetDynamicDetailsTestDynamicIdNonSubmissionParameters"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

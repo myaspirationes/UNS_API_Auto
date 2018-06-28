@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取评价列表接口" >
+	<test name="GetEvaluateListTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.GetEvaluateListTest">
+		      <methods>
+		          <include name="postGetEvaluateListTestCorrectParameter"></include>
+		          <include name="postGetEvaluateListTestUserIdIsDecimal"></include>
+		          <include name="postGetEvaluateListTestUserIdIsNegativeNumber"></include>
+		          <include name="postGetEvaluateListTestUserIdIsZero"></include>
+		          <include name="postGetEvaluateListTestUserIdIsError"></include>
+		          <include name="postGetEvaluateListTestUserIdNotLoggedIn"></include>
+		          <include name="postGetEvaluateListTestUserIdIsString"></include>
+		          <include name="postGetEvaluateListTestUserIdIllegalCharacters"></include>
+		          <include name="postGetEvaluateListTestUserIdIsNull"></include>
+		          <include name="postGetEvaluateListTestUserIdIsEmpty"></include>
+		          <include name="postGetEvaluateListTestUserIdIsSpace"></include>
+		          <include name="postGetEvaluateListTestUserIdIsLong"></include>
+		         <include name="postGetEvaluateListTestUserIdNonSubmissionParameters"></include>
+		         <include name="postGetEvaluateListTestDynamicIdIsDecimal"></include>
+		         <include name="postGetEvaluateListTestDynamicIdIsNegativeNumber"></include>
+		         <include name="postGetEvaluateListTestDynamicIdIsZero"></include>
+		         <include name="postGetEvaluateListTestDynamicIdIsError"></include>
+		         <include name="postGetEvaluateListTestDynamicIdIsString"></include>
+		         <include name="postGetEvaluateListTestDynamicIdIllegalCharacters"></include>
+		         <include name="postGetEvaluateListTestDynamicIdIsNull"></include>
+		         <include name="postGetEvaluateListTestDynamicIdIsEmpty"></include>
+		         <include name="postGetEvaluateListTestDynamicIdIsSpace"></include>
+		         <include name="postGetEvaluateListTestDynamicIdIsLong"></include>
+		         <include name="postGetEvaluateListTestDynamicIdNonSubmissionParameters"></include>
+		         <include name="postGetEvaluateListTestPageSizeIsDecimal"></include>
+		         <include name="postGetEvaluateListTestPageSizeIsNegativeNumber"></include>
+		         <include name="postGetEvaluateListTestPageSizeIsZero"></include>
+		         <include name="postGetEvaluateListTestPageSizeIsString"></include>
+		         <include name="postGetEvaluateListTestPageSizeIllegalCharacters"></include>
+		         <include name="postGetEvaluateListTestPageSizeIsNull"></include>
+		         <include name="postGetEvaluateListTestPageSizeIsEmpty"></include>
+		         <include name="postGetEvaluateListTestPageSizeIsSpace"></include>
+		         <include name="postGetEvaluateListTestPageSizeIsLong"></include>
+		         <include name="postGetEvaluateListTestPageSizeNonSubmissionParameters"></include>
+		         <include name="postGetEvaluateListTestPageNowIsDecimal"></include>
+		         <include name="postGetEvaluateListTestPageNowIsNegativeNumber"></include>
+		         <include name="postGetEvaluateListTestPageNowIsZero"></include>
+		         <include name="postGetEvaluateListTestPageNowIsString"></include>
+		         <include name="postGetEvaluateListTestPageNowIllegalCharacters"></include>
+		         <include name="postGetEvaluateListTestPageNowIsNull"></include>
+		         <include name="postGetEvaluateListTestPageNowIsEmpty"></include>
+		         <include name="postGetEvaluateListTestPageNowIsSpace"></include>
+		         <include name="postGetEvaluateListTestPageNowIsLong"></include>
+		         <include name="postGetEvaluateListTestPageNowNonSubmissionParameters"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
