@@ -91,7 +91,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为小数" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 用户ID为负数
@@ -109,7 +109,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为负数" + post);		
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 用户ID为0
@@ -127,7 +127,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为0" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 用户ID为错误
@@ -145,7 +145,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为错误" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 用户ID未登录
@@ -163,7 +163,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID未登录" + post);		 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 用户ID为字符串
@@ -199,7 +199,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为null" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 用户ID为空
@@ -217,7 +217,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 用户ID为空格
@@ -235,7 +235,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空格" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 用户ID为超长
@@ -253,7 +253,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为超长" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -270,7 +270,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID不传该参数" + post);
     	assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 动态id为错误
@@ -291,7 +291,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为错误" + post);
     	assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("此动态无效");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 		//list =MetaOper.read(selDispose,dataType);
 		//assertThat(list.get(0).get("DISPOSE_SOURCE").toString()).isEqualTo("2");
 		
@@ -312,7 +312,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为负数" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("此动态无效");
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 动态id为小数
@@ -332,7 +332,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("此动态无效");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 动态id为String
@@ -367,8 +367,8 @@ public class DynamicCheckManageTest extends HttpUtil {
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为0" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("此动态无效");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 动态id为空
@@ -465,7 +465,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("此动态无效");
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 处理人传错误
@@ -485,7 +485,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理人传超长
@@ -505,7 +505,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理人传空
@@ -525,7 +525,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理人传空格
@@ -545,7 +545,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 处理人传null
@@ -565,7 +565,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 处理人不传参数
@@ -584,7 +584,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 处理说明传超长
@@ -604,7 +604,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理说明传非法字符
@@ -640,7 +640,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		request.put("disposeOperation", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理说明传空" + post);
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		list =MetaOper.read(selDispose,dataType);
 		assertThat(list.get(0).get("DISPOSE_EXPLAIN")).isEqualTo(null);
@@ -659,7 +659,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		request.put("disposeOperation", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理说明传空格" + post);
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		list =MetaOper.read(selDispose,dataType);
 		assertThat(list.get(0).get("DISPOSE_EXPLAIN").toString()).isEqualTo(" ");
@@ -681,7 +681,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		System.out.println("处理说明传null" + post);
 		 
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		list =MetaOper.read(selDispose,dataType);
 		assertThat(list.get(0).get("DISPOSE_EXPLAIN")).isEqualTo(null);
@@ -693,7 +693,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeExpiainNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", 10000000);
 		request.put("userName", "admin");
 		request.put("disposeOpinion", 0);
 		request.put("disposeOperation", 0);
@@ -702,7 +702,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		System.out.println("处理说明不传" + post);
 		 
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		list =MetaOper.read(selDispose,dataType);
 		assertThat(list.get(0).get("DISPOSE_EXPLAIN")).isEqualTo(null);
@@ -725,7 +725,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 处理意见传空
@@ -745,7 +745,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理意见传空格
@@ -765,7 +765,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理意见传null
@@ -785,7 +785,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理意见传String
@@ -825,7 +825,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 处理意见传0
@@ -932,7 +932,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理意见传负数
@@ -952,7 +952,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 处理意见传小数
@@ -972,7 +972,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 处理操作传负数
@@ -992,7 +992,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 处理操作传小数
@@ -1012,7 +1012,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理操作传空
@@ -1032,7 +1032,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理操作传空格
@@ -1052,7 +1052,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理操作传null
@@ -1072,7 +1072,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理操作传String
@@ -1171,8 +1171,8 @@ public class DynamicCheckManageTest extends HttpUtil {
 		System.out.println("处理操作不传" + post);
 		 
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 
 

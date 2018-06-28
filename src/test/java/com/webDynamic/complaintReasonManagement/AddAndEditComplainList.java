@@ -27,12 +27,12 @@ public class AddAndEditComplainList extends HttpUtil {
 	public void beforeClass(){
 	userId =new BackUserLoginTest().userId;
 }
-	@AfterMethod
+	//@AfterMethod
 	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 	}
-	@AfterClass
+	//@AfterClass
 	public void afterClass(){
 		MetaOper.delete(deleteSql, dataType);
 	}
@@ -46,7 +46,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 0);
 		request.put("reason", "自动化测试投诉原因");
-		request.put("userId", userId);
+		request.put("userId", 100000000);
 		request.put("reasionId", 0);
 		request.put("category", 5);
 		JSONObject post = super.UNSPost(url, request);
@@ -726,7 +726,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		request.put("type", 4);
 		request.put("reason", "自动化测试");
 		request.put("userId", userId);
-		request.put("reasionId", 1);
+		request.put("reasionId", 13849);
 		request.put("category", 3);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交reasonId为1" + post);
