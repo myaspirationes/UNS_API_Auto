@@ -239,7 +239,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		MetaOper.delete("DELETE FROM UUDBSIT.TB_ROLE_MENU_FUNCTION WHERE ROLE_ID='1'", dataType);
 		
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("状态值有误");
+		assertThat(post.get("msg")).isEqualTo("权限值不存在");
 		
 
 	}
@@ -256,7 +256,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		MetaOper.delete("DELETE FROM UUDBSIT.TB_ROLE_MENU_FUNCTION WHERE ROLE_ID='0'", dataType);
 		
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("状态值有误");
+		assertThat(post.get("msg")).isEqualTo("权限值不存在");
 	}
 	
 	/**
@@ -351,8 +351,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 //		删除错误的roleId
 		MetaOper.delete("DELETE FROM UUDBSIT.TB_ROLE_MENU_FUNCTION WHERE ROLE_ID='0'", dataType);
 		
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("权限值不存在");
 	}
 	/**
 	 * 菜单名称menuName传超长
