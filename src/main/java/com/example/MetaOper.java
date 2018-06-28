@@ -23,7 +23,7 @@ public class MetaOper {
         String dataType = "perCenter81";
 		
 		//String selectSql = "SELECT * FROM t_wallet";
-    	String selectSql1 = "SELECT to_char(TITLE) from T_CONTAINER_CONTENT where CONTAINER_CON_ID = '1'";
+    	//String selectSql1 = "SELECT to_char(TITLE) from T_CONTAINER_CONTENT where CONTAINER_CON_ID = '1'";
 
 
 		
@@ -34,12 +34,12 @@ public class MetaOper {
 				orderNo =orderNo+map.get("orderNo").toString()+",";
 			}*/
 				List<Map<String,Object>> list ;
-			list =MetaOper.read(selectSql1,dataType);
-			System.out.println("list======="+list.toString());
+			//list =MetaOper.read(selectSql1,dataType);
+			//System.out.println("list======="+list.toString());
 			
-			String str=list.toString().substring(17,list.toString().length()-22);
+			//String str=list.toString().substring(17,list.toString().length()-22);
 			//String CODE = list.get(0).get("TITLE").toString();
-			System.out.println("CODE==="+str);
+			//System.out.println("CODE==="+str);
  }
 
 
