@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取点赞列表接口" >
+	<test name="GetLaudListTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.GetLaudListTest">
+		      <methods>
+		          <include name="postGetLaudListTestCorrectParameter"></include>
+		          <include name="postGetLaudListTestUserIdIsDecimal"></include>
+		          <include name="postGetLaudListTestUserIdIsNegativeNumber"></include>
+		          <include name="postGetLaudListTestUserIdIsZero"></include>
+		          <include name="postGetLaudListTestUserIdIsError"></include>
+		          <include name="postGetLaudListTestUserIdNotLoggedIn"></include>
+		          <include name="postGetLaudListTestUserIdIsString"></include>
+		          <include name="postGetLaudListTestUserIdIllegalCharacters"></include>
+		          <include name="postGetLaudListTestUserIdIsNull"></include>
+		          <include name="postGetLaudListTestUserIdIsEmpty"></include>
+		          <include name="postGetLaudListTestUserIdIsSpace"></include>
+		          <include name="postGetLaudListTestUserIdIsLong"></include>
+		          <include name="postGetLaudListTestUserIdNonSubmissionParameters"></include>
+		          <include name="postGetLaudListTestDynamicIdIsDecimal"></include>
+		          <include name="postGetLaudListTestDynamicIdIsNegativeNumber"></include>
+		          <include name="postGetLaudListTestDynamicIdIsZero"></include>
+		          <include name="postGetLaudListTestDynamicIdIsError"></include>
+		          <include name="postGetLaudListTestDynamicIdIsString"></include>
+		          <include name="postGetLaudListTestDynamicIdIllegalCharacters"></include>
+		          <include name="postGetLaudListTestDynamicIdIsNull"></include>
+		          <include name="postGetLaudListTestDynamicIdIsEmpty"></include>
+		          <include name="postGetLaudListTestDynamicIdIsSpace"></include>
+		          <include name="postGetLaudListTestDynamicIdIsLong"></include>
+		          <include name="postGetLaudListTestDynamicIdNonSubmissionParameters"></include>
+		          <include name="postGetLaudListTestPageSizeIsDecimal"></include>
+		          <include name="postGetLaudListTestPageSizeIsNegativeNumber"></include>
+		          <include name="postGetLaudListTestPageSizeIsZero"></include>
+		          <include name="postGetLaudListTestPageSizeIsError"></include>
+		          <include name="postGetLaudListTestPageSizeIsString"></include>
+		          <include name="postGetLaudListTestPageSizeIsNull"></include>
+		          <include name="postGetLaudListTestPageSizeIsEmpty"></include>
+		          <include name="postGetLaudListTestPageSizeIsSpace"></include>
+		          <include name="postGetLaudListTestPageSizeIsLong"></include>
+		          <include name="postGetLaudListTestPageSizeNonSubmissionParameters"></include>
+		          <include name="postGetLaudListTestPageNowIsDecimal"></include>
+		          <include name="postGetLaudListTestPageNowIsNegativeNumber"></include>
+		          <include name="postGetLaudListTestPageNowIsZero"></include>
+		          <include name="postGetLaudListTestPageNowIsError"></include>
+		          <include name="postGetLaudListTestPageNowIsString"></include>
+		          <include name="postGetLaudListTestPageNowIsNull"></include>
+		          <include name="postGetLaudListTestPageNowIsEmpty"></include>
+		          <include name="postGetLaudListTestPageNowIsSpace"></include>
+		          <include name="postGetLaudListTestPageNowIsLong"></include>
+		          <include name="postGetLaudListTestPageNowNonSubmissionParameters"></include>
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

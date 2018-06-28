@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="动态评论回复接口" >
+	<test name="DynamicRemarkTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.DynamicRemarkTest">
+		      <methods>
+		          <include name="postDynamicRemarkTestCorrectParameter"></include>
+		          <include name="postDynamicRemarkTestRemarkIdIsLong"></include>
+		          <include name="postDynamicRemarkTestRemarkIdIsDecimal"></include>
+		          <include name="postDynamicRemarkTestRemarkIdIsZero"></include>
+		          <include name="postDynamicRemarkTestRemarkIdIsNegativeNumber"></include>
+		          <include name="postDynamicRemarkTestRemarkIdIsEmpty"></include>
+		          <include name="postDynamicRemarkTestRemarkIdIsSpace"></include>
+		          <include name="postDynamicRemarkTestRemarkIdIsNull"></include>
+		          <include name="postDynamicRemarkTestRemarkIdIsString"></include>
+		          <include name="postDynamicRemarkTestRemarkIdNonSubmissionParameters"></include>
+		          <include name="postDynamicRemarkTestRemarkIdNonExistent"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdNotLoggedIn"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdIsError"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdIsString"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdIsDecimal"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdIsNegativeNumber"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdIsZero"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdIsEmpty"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdIsSpace"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdIsNull"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdIsLong"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdNonSubmissionParameters"></include>
+		          <include name="postDynamicRemarkTestReplyUserIdIllegalCharacters"></include>
+		          <include name="postDynamicRemarkTestDynamicIdIsDecimal"></include>
+		          <include name="postDynamicRemarkTestDynamicIdIsNegativeNumber"></include>
+		          <include name="postDynamicRemarkTestDynamicIdIsZero"></include>
+		          <include name="postDynamicRemarkTestDynamicIdIsString"></include>
+		          <include name="postDynamicRemarkTestDynamicIdIsLong"></include>
+		          <include name="postDynamicRemarkTestDynamicIdIsEmpty"></include>
+		          <include name="postDynamicRemarkTestDynamicIdIsSpace"></include>
+		          <include name="postDynamicRemarkTestDynamicIdIsNull"></include>
+		          <include name="postDynamicRemarkTestDynamicIdNonSubmissionParameters"></include>
+		          <include name="postDynamicRemarkTestContentIsLong"></include>
+		          <include name="postDynamicRemarkTestContentIllegalCharacters"></include>
+		          <include name="postDynamicRemarkTestContentIsEmpty"></include>
+		          <include name="postDynamicRemarkTestContentIsSpace"></include>
+		          <include name="postDynamicRemarkTestContentIsNull"></include>
+		          <include name="postDynamicRemarkTestContentNonSubmissionParameters"></include>
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

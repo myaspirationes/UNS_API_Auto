@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="首页动态列表接口（支持筛选、搜索、插入陌生人动态）" >
+	<test name="HomeDynamicListsTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.HomeDynamicListsTest">
+		      <methods>
+		          <include name="postHomeDynamicListsTestCorrectParameter"></include>
+		          <include name="postHomeDynamicListsTestOpenNearbyStrangers"></include>
+		          <include name="postHomeDynamicListsTestUserIdIsDecimal"></include>
+		          <include name="postHomeDynamicListsTestUserIdIsNegativeNumber"></include>
+		          <include name="postHomeDynamicListsTestUserIdIsZero"></include>
+		          <include name="postHomeDynamicListsTestUserIdIsError"></include>
+		          <include name="postHomeDynamicListsTestUserIdNotLoggedIn"></include>
+		          <include name="postHomeDynamicListsTestUserIdIsString"></include>
+		          <include name="postHomeDynamicListsTestUserIdIsNull"></include>
+		          <include name="postHomeDynamicListsTestUserIdIsEmpty"></include>
+		          <include name="postHomeDynamicListsTestUserIdIsSpace"></include>
+		          <include name="postHomeDynamicListsTestUserIdIsLong"></include>
+		          <include name="postHomeDynamicListsTestUserIdNonSubmissionParameters"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsString"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsDecimal"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsNegativeNumber"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsMax"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsZero"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsOne"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsTwo"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsThree"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsFour"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsFives"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsSix"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsSeven"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsEight"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsNine"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsTen"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsEleven"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeNegativeOne"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsEmpty"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsSpace"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeIsNull"></include>
+		          <include name="postHomeDynamicListsTestDynamicTypeNonSubmissionParameters"></include>
+		          <include name="postHomeDynamicListsTestBasicTypeIsDecimal"></include>
+		          <include name="postHomeDynamicListsTestBasicTypeIsNegativeNumber"></include>
+		          <include name="postHomeDynamicListsTestBasicTypeIsNegativeNumberOne"></include>
+		          <include name="postHomeDynamicListsTestBasicTypeIsZero"></include>
+		          <include name="postHomeDynamicListsTestBasicTypeIsString"></include>
+		          <include name="postHomeDynamicListsTestBasicTypeIsEmpty"></include>
+		          <include name="postHomeDynamicListsTestBasicTypeIsSpace"></include>
+		          <include name="postHomeDynamicListsTestBasicTypeIsNull"></include>
+		          <include name="postHomeDynamicListsTestBasicTypeIsMax"></include>
+		          <include name="postHomeDynamicListsTestBasicTypeNonSubmissionParameters"></include>
+		          <include name="postHomeDynamicListsTestBasicTypeIsLong"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsZero"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsOne"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsNegativeOne"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsNegativeTwo"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsTwo"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsDecimal"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsString"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsMax"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsLong"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsEmpty"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsSpace"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeIsNull"></include>
+		          <include name="postHomeDynamicListsTestGenderTypeNonSubmissionParameters"></include>
+		          <include name="postHomeDynamicListsTestPageNowIsDecimal"></include>
+		          <include name="postHomeDynamicListsTestPageNowIsNegativeNumber"></include>
+		          <include name="postHomeDynamicListsTestPageNowIsZero"></include>
+		          <include name="postHomeDynamicListsTestPageNowIsMax"></include>
+		          <include name="postHomeDynamicListsTestPageNowIsLong"></include>
+		          <include name="postHomeDynamicListsTestPageNowIsEmpty"></include>
+		          <include name="postHomeDynamicListsTestPageNowIsSpace"></include>
+		          <include name="postHomeDynamicListsTestPageNowIsNull"></include>
+		          <include name="postHomeDynamicListsTestPageNowNonSubmissionParameters"></include>
+		          <include name="postHomeDynamicListsTestPageSizeIsDecimal"></include>
+		          <include name="postHomeDynamicListsTestPageSizeIsNegativeNumber"></include>
+		          <include name="postHomeDynamicListsTestPageSizeIsZero"></include>
+		          <include name="postHomeDynamicListsTestPageSizeIsMax"></include>
+		          <include name="postHomeDynamicListsTestPageSizeIsLong"></include>
+		          <include name="postHomeDynamicListsTestPageSizeIsEmpty"></include>
+		          <include name="postHomeDynamicListsTestPageSizeIsSpace"></include>
+		          <include name="postHomeDynamicListsTestPageSizeIsNull"></include>
+		          <include name="postHomeDynamicListsTestPageSizeNonSubmissionParameters"></include>
+		          <include name="postHomeDynamicListsTestSelectTypeIsZero"></include>
+		          <include name="postHomeDynamicListsTestSelectTypeIsOne"></include>
+		          <include name="postHomeDynamicListsTestSelectTypeIsDecimal"></include>
+		          <include name="postHomeDynamicListsTestSelectTypeIsNegativeNumber"></include>
+		          <include name="postHomeDynamicListsTestSelectTypeIsString"></include>
+		          <include name="postHomeDynamicListsTestSelectTypeIsMax"></include>
+		          <include name="postHomeDynamicListsTestSelectTypeIsLong"></include>
+		          <include name="postHomeDynamicListsTestSelectTypeIsEmpty"></include>
+		          <include name="postHomeDynamicListsTestSelectTypeIsSpace"></include>
+		          <include name="postHomeDynamicListsTestSelectTypeIsNull"></include>
+		          <include name="postHomeDynamicListsTestSelectTypeNonSubmissionParameters"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendAndStrangerCheckTogether"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendIsCheck"></include>
+		          <include name="postHomeDynamicListsTestIndirectStrangerIsCheck"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendAndStrangerDoNotCheck"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendIsDecimal"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendIsNegativeNumber"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendIsNull"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendIsMax"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendIsLong"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendIsString"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendIsSpace"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendIsEmpty"></include>
+		          <include name="postHomeDynamicListsTestIndirectFriendNonSubmissionParameters"></include>
+		          <include name="postHomeDynamicListsTestStrangerNonSubmissionParameters"></include>
+		          <include name="postHomeDynamicListsTestStrangerIsEmpty"></include>
+		          <include name="postHomeDynamicListsTestStrangerIsSpace"></include>
+		          <include name="postHomeDynamicListsTestStrangerIsString"></include>
+		          <include name="postHomeDynamicListsTestStrangerIsLong"></include>
+		          <include name="postHomeDynamicListsTestStrangerIsMax"></include>
+		          <include name="postHomeDynamicListsTestStrangerIsNull"></include>
+		          <include name="postHomeDynamicListsTestStrangerIsNegativeNumber"></include>
+		          <include name="postHomeDynamicListsTestStrangerIsDecimal"></include>
+		          <include name="postHomeDynamicListsTestKeyContentNonSubmissionParameters"></include>
+		          <include name="postHomeDynamicListsTestKeyContentIsNull"></include>
+		          <include name="postHomeDynamicListsTestKeyContentIsSpace"></include>
+		          <include name="postHomeDynamicListsTestKeyContentIsEmpty"></include>
+		          <include name="postHomeDynamicListsTestKeyContentIsLong"></include>
+		          <include name="postHomeDynamicListsTestKeyContentIllegalCharacters"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

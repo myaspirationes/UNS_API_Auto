@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="评论接口" >
+	<test name="DynamicCommentTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.DynamicCommentTest">
+		      <methods>
+		          <include name="postDynamicCommentTestCorrectParameter"></include>
+		          <include name="postDynamicCommentTestDynamicIdIsError"></include>
+		          <include name="postDynamicCommentTestDynamicIdIsNegativeNumber"></include>
+		          <include name="postDynamicCommentTestDynamicIdIsDecimal"></include>
+		          <include name="postDynamicCommentTestDynamicIdIsZero"></include>
+		          <include name="postDynamicCommentTestDynamicIdIsString"></include>
+		          <include name="postDynamicCommentTestDynamicIdIsEmpty"></include>
+		          <include name="postDynamicCommentTestDynamicIdIsNull"></include>
+		          <include name="postDynamicCommentTestDynamicIdIsSpace"></include>
+		          <include name="postDynamicCommentTestDynamicIdIsLong"></include>
+		          <include name="postDynamicCommentTestDynamicIdNonSubmissionParameters"></include>
+		          <include name="postDynamicCommentTestremarkUserIsError"></include>
+		          <include name="postDynamicCommentTestremarkUserIsString"></include>
+		          <include name="postDynamicCommentTestremarkUserIsDecimal"></include>
+		          <include name="postDynamicCommentTestremarkUserIsNegativeNumber"></include>
+		          <include name="postDynamicCommentTestremarkUserIsZero"></include>
+		          <include name="postDynamicCommentTestremarkUserIsSpace"></include>
+		          <include name="postDynamicCommentTestremarkUserIsEmpty"></include>
+		          <include name="postDynamicCommentTestremarkUserIsNull"></include>
+		          <include name="postDynamicCommentTestremarkUserNonSubmissionParameters"></include>
+		          <include name="postDynamicCommentTestremarkUserIsLong"></include>
+		          <include name="postDynamicCommentTestremarkUserNotLoggedIn"></include>
+		          <include name="postDynamicCommentTestContent"></include>
+		          <include name="postDynamicCommentTestContentIsLong"></include>
+		          <include name="postDynamicCommentTestContentIsEmpty"></include>
+		          <include name="postDynamicCommentTestContentIsSpace"></include>
+		          <include name="postDynamicCommentTestContentIsNull"></include>
+		          <include name="postDynamicCommentTestContentNonSubmissionParameters"></include>
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
