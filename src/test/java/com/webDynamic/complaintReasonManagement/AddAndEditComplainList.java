@@ -531,7 +531,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为0
 	 */
-	//@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
