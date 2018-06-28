@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="动态评论回复接口" >
+	<test name="DynamicRemarkTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.DynamicRemarkTest">
+		      <methods>
+		          <include name="postDynamicsAndCommentsTestCorrectParameterPraiseDynamic"></include>
+		          <include name="postDynamicsAndCommentsTestCorrectParameterPraiseComment"></include>
+		          <include name="postDynamicsAndCommentsTestCorrectParameterCancelPraiseDynamic"></include>
+		          <include name="postDynamicsAndCommentsTestCorrectParameterCancelPraiseComment"></include>
+		          <include name="postDynamicsAndCommentsTestCorrectParameterPraiseDynamicAgainPraise"></include>
+		          <include name="postDynamicsAndCommentsTestCorrectParameterPraiseCommentAgainPraise"></include>
+		          <include name="postDynamicsAndCommentsTestCorrectParameterCancelPraiseDynamicAgainCancel"></include>
+		          <include name="postDynamicsAndCommentsTestCorrectParameterCancelPraiseDynamicAgainPraise"></include>
+		          <include name="postDynamicsAndCommentsTestUserIdIsNegativeNumber"></include>
+		          <include name="postDynamicsAndCommentsTestUserIdIsDecimal"></include>
+		          <include name="postDynamicsAndCommentsTestUserIdIsMax"></include>
+		          <include name="postDynamicsAndCommentsTestUserIdIsNotLoggedIn"></include>
+		          <include name="postDynamicsAndCommentsTestUserIdIsError"></include>
+		          <include name="postDynamicsAndCommentsTestUserIdIsEmpty"></include>
+		          <include name="postDynamicsAndCommentsTestUserIdIsSpace"></include>
+		          <include name="postDynamicsAndCommentsTestUserIdIsNull"></include>
+		          <include name="postDynamicsAndCommentsTestUserIdNonSubmissionParameters"></include>
+		          <include name="postDynamicsAndCommentsTestUserIdIs0"></include>
+		          <include name="postDynamicsAndCommentsTestTargetIdIsNegativeNumber"></include>
+		          <include name="postDynamicsAndCommentsTestTargetIdIsDecimal"></include>
+		          <include name="postDynamicsAndCommentsTestTargetIdIs0"></include>
+		          <include name="postDynamicsAndCommentsTestTargetIdIsEmpty"></include>
+		          <include name="postDynamicsAndCommentsTestTargetIdIsSpace"></include>
+		          <include name="postDynamicsAndCommentsTestTargetIdIsNull"></include>
+		          <include name="postDynamicsAndCommentsTestTargetIdIsString"></include>
+		          <include name="postDynamicsAndCommentsTestTargetIdIsMax"></include>
+		          <include name="postDynamicsAndCommentsTestTargetIdNonSubmissionParameters"></include>
+		          <include name="postDynamicsAndCommentsTestOperateIsNegativeNumber"></include>
+		          <include name="postDynamicsAndCommentsTestOperateIsDecimal"></include>
+		          <include name="postDynamicsAndCommentsTestOperateIsSpace"></include>
+		          <include name="postDynamicsAndCommentsTestOperateIsNull"></include>
+		          <include name="postDynamicsAndCommentsTestOperateIsString"></include>
+		          <include name="postDynamicsAndCommentsTestOperateNonSubmissionParameters"></include>
+		          <include name="postDynamicsAndCommentsTestOperateIsError"></include>
+		          <include name="postDynamicsAndCommentsTestTypeIsNegativeNumber"></include>
+		          <include name="postDynamicsAndCommentsTestTypeIsDecimal"></include>
+		          <include name="postDynamicsAndCommentsTestTypeIsEmpty"></include>
+		          <include name="postDynamicsAndCommentsTestTypeIsSpace"></include>
+		          <include name="postDynamicsAndCommentsTestTypeIsNull"></include>
+		          <include name="postDynamicsAndCommentsTestTypeIsString"></include>
+		          <include name="postDynamicsAndCommentsTestTypeNonSubmissionParameters"></include>
+		          <include name="postDynamicsAndCommentsTestTypeIsError"></include>
+		         
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
