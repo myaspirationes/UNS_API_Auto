@@ -857,7 +857,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	/**
 	 * 文件id传0
 	 */
-	////////@Test
+	@Test
 	public void postPublishDynamicsTestFileIdsIs0() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);

@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -18,24 +19,30 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class DeleteComplainReason extends HttpUtil {
 	// 删除投诉原因接口
-	String url = "/uu-admin/complaint/deleteComplaintReason";
+	String url = "/uu-admin/complainManage/deleteComplainReason";
 	
-	String dataType = "perCenter81";
+	String dataType = "uedb";
 	String selectSql = "SELECT * FROM T_AUDIT_MSG WHERE MSG_CONTENT = '自动化测试投诉原因'";
 	String deleteSql = "DELETE FROM T_AUDIT_MSG WHERE MSG_CONTENT = '自动化测试投诉原因'";
 	List<Map<String,Object>> list ;
 	String userId;
+	String complaintId;
 	@BeforeClass
 	public void beforeClass(){
 	userId =new BackUserLoginTest().userId;
-	//new AddAndEditComplainList().postAddAndEditComplainListTestCategoryIs0();
 }
-	@AfterMethod
+	@BeforeMethod
+	public void  beforeMethod() throws Exception {
+		new AddAndEditComplainList().postAddAndEditComplainListTestTypeIs0();
+		list = MetaOper.read(selectSql, dataType);
+		complaintId = list.get(0).get("MSG_ID").toString();
+	}
+	//@AfterMethod
 	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 	}
-	@AfterClass
+	//@AfterClass
 	public void afterClass(){
 		MetaOper.delete(deleteSql, dataType);
 	}
@@ -48,8 +55,8 @@ public class DeleteComplainReason extends HttpUtil {
 	@Test
 	public void postDeleteComplainReasonTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("complaintId", 13724);
-		request.put("operateUserId", userId);
+		request.put("reasionId", 13953);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -209,7 +216,7 @@ public class DeleteComplainReason extends HttpUtil {
 //		@Test
 		public void postDeleteComplainReasonTestOperateUserIdIsError() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
+			request.put("complaintId", complaintId);
 			request.put("operateUserId", 1002);
 
 			JSONObject post = super.UNSPost(url, request);
@@ -225,7 +232,7 @@ public class DeleteComplainReason extends HttpUtil {
 //		@Test
 		public void postDeleteComplainReasonTestOperateUserIdIsString() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
+			request.put("complaintId", complaintId);
 			request.put("operateUserId", "1000000");
 
 			JSONObject post = super.UNSPost(url, request);
@@ -241,7 +248,7 @@ public class DeleteComplainReason extends HttpUtil {
 //		@Test
 		public void postDeleteComplainReasonTestOperateUserIdIsDecimal() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
+			request.put("complaintId", complaintId);
 			request.put("operateUserId", 1.2);
 
 			JSONObject post = super.UNSPost(url, request);
@@ -257,7 +264,7 @@ public class DeleteComplainReason extends HttpUtil {
 //		@Test
 		public void postDeleteComplainReasonTestOperateUserIdIsNegative() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
+			request.put("complaintId", complaintId);
 			request.put("operateUserId", -1);
 
 			JSONObject post = super.UNSPost(url, request);
@@ -273,7 +280,7 @@ public class DeleteComplainReason extends HttpUtil {
 //		@Test
 		public void postDeleteComplainReasonTestOperateUserIdIsZero() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
+			request.put("complaintId", complaintId);
 			request.put("operateUserId", 0);
 
 			JSONObject post = super.UNSPost(url, request);
@@ -289,7 +296,7 @@ public class DeleteComplainReason extends HttpUtil {
 //		@Test
 		public void postDeleteComplainReasonTestOperateUserIdIsIllegalCharacter() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
+			request.put("complaintId", complaintId);
 			request.put("operateUserId", "#$%^&");
 
 			JSONObject post = super.UNSPost(url, request);
@@ -305,7 +312,7 @@ public class DeleteComplainReason extends HttpUtil {
 //		@Test
 		public void postDeleteComplainReasonTestOperateUserIdIsLong() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
+			request.put("complaintId", complaintId);
 			request.put("operateUserId","54312132132454513213456548678");
 
 			JSONObject post = super.UNSPost(url, request);
@@ -321,7 +328,7 @@ public class DeleteComplainReason extends HttpUtil {
 //		@Test
 		public void postDeleteComplainReasonTestOperateUserIdIsEmpty() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
+			request.put("complaintId", complaintId);
 			request.put("operateUserId","");
 
 			JSONObject post = super.UNSPost(url, request);
@@ -337,7 +344,7 @@ public class DeleteComplainReason extends HttpUtil {
 //		@Test
 		public void postDeleteComplainReasonTestOperateUserIdIsSpace() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
+			request.put("complaintId", complaintId);
 			request.put("operateUserId"," ");
 
 			JSONObject post = super.UNSPost(url, request);
@@ -353,7 +360,7 @@ public class DeleteComplainReason extends HttpUtil {
 //		@Test
 		public void postDeleteComplainReasonTestOperateUserIdIsNull() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
+			request.put("complaintId", complaintId);
 			request.put("operateUserId",null);
 
 			JSONObject post = super.UNSPost(url, request);
@@ -369,7 +376,7 @@ public class DeleteComplainReason extends HttpUtil {
 //		@Test
 		public void postDeleteComplainReasonTestOperateUserIdNotCommitted() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
+			request.put("complaintId", complaintId);
 
 			JSONObject post = super.UNSPost(url, request);
 			System.out.println("不提交operateUserId" + post);
