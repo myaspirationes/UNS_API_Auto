@@ -57,7 +57,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("containerId", containerId);
-		request.put("userId", 10000000);
+		request.put("userId", 12495396);
 		request.put("contentList", lis);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -529,7 +529,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		System.out.println("文本id为负数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("文本id不能为负数");
 	}
 	
 	/**
@@ -576,9 +576,9 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		System.out.println("文本id为空" + post);
 		MetaOper.read(selectSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("FILE_ID")).isEqualTo(null);
+		assertThat(post.get("status")).isEqualTo(500);
+		//assertThat(post.get("msg")).isEqualTo("成功");
+		//assertThat(list.get(0).get("FILE_ID")).isEqualTo(null);
 		
 	}
 	/**
@@ -597,10 +597,10 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		request.put("containerId", containerId);
 		request.put("userId", 12495396);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("文本id为空" + post);
+		System.out.println("文本id为空格" + post);
 		MetaOper.read(selectSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(500);
 		//assertThat(post.get("msg")).isEqualTo("成功");
 		//assertThat(list.get(0).get("FILE_ID").toString()).isEqualTo(" ");
 		
@@ -621,7 +621,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		request.put("containerId", containerId);
 		request.put("userId", 12495396);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("文本id为空" + post);
+		System.out.println("文本id为null" + post);
 		MetaOper.read(selectSql, dataType);
 		list=MetaOper.read(selectSql, dataType);
 		assertThat(post.get("status")).isEqualTo(0);
@@ -653,7 +653,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 * 文本id不传该参数
 	 */
 	@Test
-	public void postSaveContainerContentModificationTestfileIdNonSubmissionParameters() throws Exception {
+	public void postSaveContainerContentModificationTestFileIdNonSubmissionParameters() throws Exception {
 		map1.put("titleText", "测试");
 		map1.put("contentId", contentId);	
 		lis.add(map1);
