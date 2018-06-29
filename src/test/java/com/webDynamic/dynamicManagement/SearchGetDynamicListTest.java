@@ -78,7 +78,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		System.out.println("用户ID为未登录用户" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	
 	/**
@@ -1392,10 +1392,8 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("状态值有误");
 	}
 	/**
 	 * 状态为负数
@@ -1415,7 +1413,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		System.out.println("状态为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("状态值有误");
 	}
 	/**
 	 * 状态为小数
@@ -1435,7 +1433,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		System.out.println("状态为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("状态值有误");
 	}
 	/**
 	 * 状态为空

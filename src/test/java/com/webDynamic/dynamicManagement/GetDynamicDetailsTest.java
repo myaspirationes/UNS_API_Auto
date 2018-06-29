@@ -38,19 +38,19 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		list = MetaOper.read(selectSql, dataType);
 		dynamicId = list.get(0).get("DYNAMIC_ID").toString();
 	}
-	//@AfterMethod
+	@AfterMethod
 	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 	}
-	//@AfterClass
+	@AfterClass
 	public void afterClass(){
 		MetaOper.delete(deleteSql, dataType);
 	}
 	/**
 	 * 提交正确参数
 	 */
-	//@Test
+	@Test
 	public void postGetDynamicDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);

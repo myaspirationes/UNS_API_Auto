@@ -60,14 +60,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		head.put("chcode", chcode);
 		head.put("cmd", 510);
 	}
-	//@AfterMethod
+	@AfterMethod
 	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 		MetaOper.delete(deleteSql1, dataType);
 		MetaOper.delete(deleteSql2, dataType);
 	}
-	//@AfterClass
+	@AfterClass
 	public void afterClass(){
 		MetaOper.delete(deleteSql, dataType);
 		MetaOper.delete(deleteSql1, dataType);
@@ -106,7 +106,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("region", "自动化测试2");
 		con.put("address", "自动化测试3");
 		con.put("fileId", 1319);
-		con.put("zoomLevel", 2.22);
+		con.put("zoomLevel", 2);
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);

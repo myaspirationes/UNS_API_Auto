@@ -32,7 +32,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	List<Map<String,Object>> list ;
 	List<Map<String,Object>> list1 ;
 	String dataType = "perCenter81";
-	List<Map> lis = new ArrayList<Map>();
+
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;
 	@BeforeMethod
@@ -50,7 +50,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestCorrectParameter() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -77,7 +77,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestContentListIsError() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -98,7 +98,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestContentListIsIllegalCharacters() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -119,7 +119,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestContentListIsDecimal() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -140,7 +140,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestContentListIsNegativeNumber() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -161,7 +161,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestContentListIsSpace() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -182,7 +182,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestContentListIsEmpty() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -202,7 +202,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestContentListIsNull() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -222,7 +222,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestContentListIsLong() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -243,7 +243,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestContentListIsString() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -264,7 +264,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestContentListIsZero() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -285,7 +285,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestContentListNonSubmissionParameters() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
-		map1.put("titleText", "自动化测试");
+		List<Map> lis = new ArrayList<Map>();map1.put("titleText", "自动化测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -305,6 +305,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestTitleTextIsLong() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();
 		map1.put("titleText", "天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfds天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送天空地方大师傅fdsfdsfdsf地方大师傅似的非官方的是发风格的服饰的双方发生反对士大夫十分大师发动反攻各个地和梵蒂冈梵蒂冈的固体液体已经结婚大话黄飞鸿官方的方式发送");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -326,6 +327,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestTitleTextIsEmpty() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();
 		map1.put("titleText", "");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -350,6 +352,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestTitleTextIsSpace() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();
 		map1.put("titleText", " ");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -374,6 +377,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestTitleTextIsNull() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();
 		map1.put("titleText", null);
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -388,16 +392,14 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		MetaOper.read(selectSql1, dataType);
-		list1=MetaOper.read(selectSql1, dataType);
-		assertThat(list1.toString().substring(17,21)).isEqualTo("null");
-	}
+		}
 	/**
 	 * 文字标题 titleText为非法字符
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestTitleTextIsIllegalCharacters() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();
 		map1.put("titleText", "<@#%&*>");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -415,7 +417,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		MetaOper.read(selectSql, dataType);
 		MetaOper.read(selectSql1, dataType);
 		list1=MetaOper.read(selectSql1, dataType);
-		assertThat(list1.toString().substring(17,21)).isEqualTo("null");
+		assertThat(list1.toString().substring(17,24)).isEqualTo("<@#%&*>");
 	}
 	/**
 	 * 文字标题 titleText为0
@@ -423,6 +425,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	@Test
 	public void postSaveContainerContentModificationTestTitleTextIsZero() throws Exception {
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();
 		map1.put("titleText", 0);
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -448,7 +451,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestTitleTextNonSubmissionParameters() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -469,7 +472,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestFileIdIsString() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", "gssdgs");
 		map1.put("contentId", contentId);	
@@ -490,7 +493,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestFileIdIsLong() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", "999999999999999999L");
 		map1.put("contentId", contentId);	
@@ -512,7 +515,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestFileIdIsDecimal() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", "1.23");
 		map1.put("contentId", contentId);	
@@ -533,7 +536,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestFileIdIsNegativeNumber() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", -3);
 		map1.put("contentId", contentId);	
@@ -555,7 +558,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestFileIdIsZero() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 0);
 		map1.put("contentId", contentId);	
@@ -581,7 +584,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestFileIdIsEmpty() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", "");
 		map1.put("contentId", contentId);	
@@ -598,7 +601,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		list=MetaOper.read(selectSql, dataType);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("FILE_ID")).isEqualTo(null);
+		//assertThat(list.get(0).get("FILE_ID")).isEqualTo(null);
 		
 	}
 	/**
@@ -606,7 +609,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestFileIdIsSpace() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", " ");
 		map1.put("contentId", contentId);	
@@ -623,7 +626,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		list=MetaOper.read(selectSql, dataType);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("FILE_ID").toString()).isEqualTo(" ");
+		//assertThat(list.get(0).get("FILE_ID").toString()).isEqualTo(" ");
 		
 	}
 	/**
@@ -631,7 +634,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestFileIdIsNull() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", null);
 		map1.put("contentId", contentId);	
@@ -648,7 +651,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		list=MetaOper.read(selectSql, dataType);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("FILE_ID")).isEqualTo(null);
+		//assertThat(list.get(0).get("FILE_ID")).isEqualTo(null);
 		
 	}
 	/**
@@ -656,7 +659,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestFileIdIsIllegalCharacters() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", "<@$^&>");
 		map1.put("contentId", contentId);	
@@ -677,7 +680,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestFileIdNonSubmissionParameters() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("contentId", contentId);	
 		lis.add(map1);
@@ -698,7 +701,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContentIdIsError() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", 8888888);	
@@ -724,7 +727,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContentIdIsString() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", "fggdd");	
@@ -745,7 +748,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContentIdIsIllegalCharacters() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", "<#$%>");	
@@ -766,7 +769,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContentIdIsEmpty() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", "");	
@@ -787,7 +790,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContentIdIsSpace() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", " ");	
@@ -808,7 +811,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContentIdIsNull() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", null);	
@@ -829,7 +832,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContentIdIsNegativeNumber() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", -2);	
@@ -856,7 +859,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContentIdIsDecimal() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", 6.6);	
@@ -882,7 +885,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContentIdIsZero() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", 0);	
@@ -904,7 +907,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContentIdIsLong() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", 999999999999999999L);	
@@ -930,7 +933,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContentIdNonSubmissionParameters() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		lis.add(map1);
@@ -943,14 +946,14 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		System.out.println("内容id不传该参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(500);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		//assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 容器id为错误
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContainerIdIsError() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -971,7 +974,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContainerIdIsIllegalCharacters() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", " ");	
@@ -991,7 +994,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContainerIdIsLong() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1011,7 +1014,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContainerIdIsString() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1032,7 +1035,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContainerIdIsNegativeNumber() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1053,7 +1056,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContainerIdIsDecimal() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1075,7 +1078,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContainerIdIsZero() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1096,6 +1099,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContainerIdIsEmpty() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
 		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
@@ -1118,7 +1122,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContainerIdIsSpace() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1140,7 +1144,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContainerIdIsNull() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1162,7 +1166,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestContainerIdNonSubmissionParameters() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1182,7 +1186,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestUserIdIsEmpty() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1195,8 +1199,8 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("userId传空" + post);
 	
-		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("userId不能为空");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId不能为空");
 		
 	}
 	/**
@@ -1204,7 +1208,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestUserIdIsNull() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1217,8 +1221,8 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("userId传null" + post);
 	
-		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("userId不能为空");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId不能为空");
 		
 	}
 	/**
@@ -1226,7 +1230,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestUserIdIsSpace() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1239,8 +1243,8 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("userId传空格" + post);
 	
-		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("userId不能为空");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId不能为空");
 		
 	}
 	/**
@@ -1248,7 +1252,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestUserIdIsError() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1261,8 +1265,8 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("userId为错误" + post);
 	
-		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("userId不存在");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId不存在");
 		
 	}
 	/**
@@ -1270,7 +1274,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestUserIdNotLoggedIn() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1283,8 +1287,8 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("userId为未登录" + post);
 	
-		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("容器id不能为空");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 		
 	}
 	/**
@@ -1292,7 +1296,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestUserIdIsLong() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1305,8 +1309,8 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("userId为超长" + post);
 	
-		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("userId不存在");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId不存在");
 		
 	}
 	/**
@@ -1314,7 +1318,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestUserIdIsString() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1336,7 +1340,7 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveContainerContentModificationTestUserIdNonSubmissionParameters() throws Exception {
-		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		List<Map> lis = new ArrayList<Map>();Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("titleText", "测试");
 		map1.put("fileId", 1);
 		map1.put("contentId", contentId);	
@@ -1348,8 +1352,8 @@ public class SaveContainerContentModificationTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("userId不传" + post);
 	
-		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("userId不能为空");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("userId不能为空");
 		
 	}
 }
