@@ -140,7 +140,7 @@ public class DeleteCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("动态id错误");
+		assertThat(head1.get("msg")).isEqualTo("动态id或用户id错误");
 	}
 	/**
 	 * 动态ID小数
@@ -161,7 +161,7 @@ public class DeleteCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("动态id错误");
+		assertThat(head1.get("msg")).isEqualTo("动态id或用户id错误");
 	}
 	/**
 	 * 动态ID为0
@@ -203,7 +203,7 @@ public class DeleteCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("动态id错误");
+		assertThat(head1.get("msg")).isEqualTo("动态id或用户id错误");
 	}
 	/**
 	 * 动态ID为空
@@ -224,7 +224,7 @@ public class DeleteCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("动态id错误");
+		assertThat(head1.get("msg")).isEqualTo("动态id或用户id错误");
 	}
 	/**
 	 * 动态ID为null
@@ -266,7 +266,7 @@ public class DeleteCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("动态id错误");
+		assertThat(head1.get("msg")).isEqualTo("动态id或用户id错误");
 	}
 	/**
 	 * 动态ID为超长
@@ -349,7 +349,7 @@ public class DeleteCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("动态id或用户id错误");
 	}
 	/**
 	 * 评论人ID为null
@@ -391,7 +391,7 @@ public class DeleteCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("shibai");
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 评论人ID不传该参数
@@ -431,8 +431,8 @@ public class DeleteCommentTest extends HttpUtil {
 		System.out.println("评论人ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("shibai");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("动态id或用户id错误");
 	}
 	/**
 	 * 评论人ID为负数
@@ -452,8 +452,8 @@ public class DeleteCommentTest extends HttpUtil {
 		System.out.println("评论人ID为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("动态id或用户id错误");
 	}
 	/**
 	 * 评论人ID为小数
@@ -474,7 +474,7 @@ public class DeleteCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("动态id或用户id错误");
 	}
 	/**
 	 * 评论人ID为字符串
@@ -495,7 +495,7 @@ public class DeleteCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("动态id或用户id错误");
 	}
 	/**
 	 * 评论人ID为错误
@@ -515,8 +515,8 @@ public class DeleteCommentTest extends HttpUtil {
 		System.out.println("评论人ID为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("shibai");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 评论人ID为空格
@@ -537,7 +537,7 @@ public class DeleteCommentTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("动态id或用户id错误");
 	}
 	/**
 	 * 评论ID为负数

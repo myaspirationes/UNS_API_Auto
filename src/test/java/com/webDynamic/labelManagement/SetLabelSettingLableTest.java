@@ -46,7 +46,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为错误
@@ -68,7 +68,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("用户ID为错误" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为未登录
@@ -90,7 +90,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("用户ID为未登录" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为非法字符
@@ -112,7 +112,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("用户ID为非法字符" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为空
@@ -134,7 +134,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("用户ID为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为空格
@@ -156,7 +156,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("用户ID为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为null
@@ -178,7 +178,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("用户ID为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为超长
@@ -200,7 +200,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("用户ID为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为小数
@@ -222,7 +222,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("用户ID为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为负数
@@ -244,7 +244,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("用户ID为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为0
@@ -266,7 +266,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为不传该参数
@@ -287,7 +287,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("用户ID为不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 
 	/**
@@ -310,7 +310,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座属相标签数量为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座属相标签数量为负数
@@ -332,7 +332,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座属相标签数量为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座属相标签数量为0
@@ -354,7 +354,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座属相标签数量为0" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座属相标签数量为最大值
@@ -376,7 +376,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座属相标签数量为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座属相标签数量为超长
@@ -398,7 +398,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座属相标签数量为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座属相标签数量为字符串
@@ -420,7 +420,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座属相标签数量为字符串" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座属相标签数量为空
@@ -442,7 +442,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座属相标签数量为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座属相标签数量为空格
@@ -464,7 +464,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座属相标签数量为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座属相标签数量为null
@@ -486,7 +486,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座属相标签数量为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座属相标签数量不传该参数
@@ -507,7 +507,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座属相标签数量不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量为小数
@@ -529,7 +529,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量为负数
@@ -551,7 +551,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量为0
@@ -573,7 +573,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量为0" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量为最大值
@@ -595,7 +595,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量为超长
@@ -617,7 +617,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量为字符串
@@ -639,7 +639,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量为字符串" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量为空
@@ -661,7 +661,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量为空格
@@ -683,7 +683,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量为null
@@ -705,7 +705,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量不传该参数
@@ -726,7 +726,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代标签数量为小数
@@ -748,7 +748,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代标签数量为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代标签数量为负数
@@ -770,7 +770,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代标签数量为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代标签数量为0
@@ -792,7 +792,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代标签数量为0" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代标签数量为最大值
@@ -814,7 +814,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代标签数量为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代标签数量为超长
@@ -836,7 +836,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代标签数量为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代标签数量为字符串
@@ -858,7 +858,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代标签数量为字符串" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代标签数量为空
@@ -880,7 +880,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代标签数量为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代标签数量为空格
@@ -902,7 +902,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代标签数量为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代标签数量为null
@@ -924,7 +924,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代标签数量为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代标签数量不传该参数
@@ -945,7 +945,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代标签数量不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 
 	/**
@@ -968,7 +968,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通标签数量为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通标签数量为负数
@@ -990,7 +990,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通标签数量为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通标签数量为0
@@ -1012,7 +1012,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通标签数量为0" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通标签数量为最大值
@@ -1034,7 +1034,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通标签数量为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通标签数量为超长
@@ -1056,7 +1056,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通标签数量为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通标签数量为字符串
@@ -1078,7 +1078,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通标签数量为字符串" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通标签数量为空
@@ -1100,7 +1100,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通标签数量为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通标签数量为空格
@@ -1122,7 +1122,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通标签数量为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通标签数量为null
@@ -1144,7 +1144,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通标签数量为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通标签数量不传该参数
@@ -1165,7 +1165,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通标签数量不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 
 	/**
@@ -1188,7 +1188,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座专属标签数量是否显示全部为1选择" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部为0为选择
@@ -1210,7 +1210,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座专属标签数量是否显示全部为0为选择" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部为小数
@@ -1232,7 +1232,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座专属标签数量是否显示全部为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部为负数
@@ -1254,7 +1254,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部为最大值
@@ -1276,7 +1276,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座专属标签数量是否显示全部为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部为超长
@@ -1298,7 +1298,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座专属标签数量是否显示全部为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部为字符串
@@ -1320,7 +1320,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座专属标签数量是否显示全部为字符串" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部为空格
@@ -1342,7 +1342,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座专属标签数量是否显示全部为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部为空
@@ -1364,7 +1364,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座专属标签数量是否显示全部为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部为null
@@ -1386,7 +1386,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座专属标签数量是否显示全部为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部不传该参数
@@ -1407,7 +1407,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("星座专属标签数量是否显示全部不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 
 	/**
@@ -1430,7 +1430,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量是否显示全部为1选择" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部为0为选择
@@ -1452,7 +1452,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量是否显示全部为0为选择" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部为小数
@@ -1474,7 +1474,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量是否显示全部为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部为负数
@@ -1496,7 +1496,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部为最大值
@@ -1518,7 +1518,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量是否显示全部为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部为超长
@@ -1540,7 +1540,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量是否显示全部为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部为字符串
@@ -1562,7 +1562,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量是否显示全部为字符串" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部为空格
@@ -1584,7 +1584,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量是否显示全部为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部为空
@@ -1606,7 +1606,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量是否显示全部为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部为null
@@ -1628,7 +1628,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量是否显示全部为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部不传该参数
@@ -1649,7 +1649,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("属相专属标签数量是否显示全部不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为1选择
@@ -1671,7 +1671,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代专属标签数量是否显示全部为1选择" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为0为选择
@@ -1693,7 +1693,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代专属标签数量是否显示全部为0为选择" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为小数
@@ -1715,7 +1715,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代专属标签数量是否显示全部为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为负数
@@ -1737,7 +1737,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为最大值
@@ -1759,7 +1759,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代专属标签数量是否显示全部为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为超长
@@ -1781,7 +1781,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代专属标签数量是否显示全部为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为字符串
@@ -1803,7 +1803,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代专属标签数量是否显示全部为字符串" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为空格
@@ -1825,7 +1825,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代专属标签数量是否显示全部为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为空
@@ -1847,7 +1847,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代专属标签数量是否显示全部为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为null
@@ -1869,7 +1869,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代专属标签数量是否显示全部为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部不传该参数
@@ -1890,7 +1890,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("年代专属标签数量是否显示全部不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为1选择
@@ -1912,7 +1912,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通专属标签数量是否显示全部为1选择" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为0为选择
@@ -1934,7 +1934,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通专属标签数量是否显示全部为0为选择" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为小数
@@ -1956,7 +1956,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通专属标签数量是否显示全部为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为负数
@@ -1978,7 +1978,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为最大值
@@ -2000,7 +2000,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通专属标签数量是否显示全部为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为超长
@@ -2022,7 +2022,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通专属标签数量是否显示全部为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为字符串
@@ -2044,7 +2044,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通专属标签数量是否显示全部为字符串" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为空格
@@ -2066,7 +2066,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通专属标签数量是否显示全部为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为空
@@ -2088,7 +2088,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通专属标签数量是否显示全部为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为null
@@ -2110,7 +2110,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通专属标签数量是否显示全部为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部不传该参数
@@ -2131,7 +2131,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通专属标签数量是否显示全部不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 
 
