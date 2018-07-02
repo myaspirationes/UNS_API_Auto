@@ -195,7 +195,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交错误的category值
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestCategoryIs7() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 7);
@@ -218,7 +218,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交category为负数
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestCategoryIsNegtive() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", -9);
@@ -241,7 +241,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交category为正确的String类型
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestCategoryIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", "ddd");
@@ -262,7 +262,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交category为特殊字符
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestCategoryIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", "#$%%^&");
@@ -283,7 +283,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交category为超长字符
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestCategoryIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", "1234678745451122121554544646444444444444454444444");
@@ -304,7 +304,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交category为小数
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestCategoryIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 12.3);
@@ -327,7 +327,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交category为空格
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestCategoryIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", " ");
@@ -348,7 +348,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交category为空
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestCategoryIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", "");
@@ -369,7 +369,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交category为null
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestCategoryIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", null);
@@ -390,7 +390,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 不提交category参数
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestCategoryNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("reason", "自动化测试投诉原因");
@@ -410,7 +410,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交reason为特殊字符
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestReasonIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -452,7 +452,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交reason为超长字符
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestReasonIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -473,7 +473,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交reason为空格
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestReasonIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -494,7 +494,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交reason为空
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestReasonIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -515,7 +515,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交reason为null
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestReasonIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -536,7 +536,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 不提交reason参数
 	 */
-	//////@Test
+	@Test
 	public void postSearchGetComplaintsListTestReasonNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -667,7 +667,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交userId为正确的string型
 	 */
-	////@Test
+	@Test
 	public void postSearchGetComplaintsListTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -688,7 +688,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交userId为非法字符
 	 */
-	////@Test
+	@Test
 	public void postSearchGetComplaintsListTestUserIdIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -709,7 +709,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交userId为超长字符
 	 */
-	////@Test
+	@Test
 	public void postSearchGetComplaintsListTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -730,7 +730,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交userId为空格
 	 */
-	////@Test
+	@Test
 	public void postSearchGetComplaintsListTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -751,7 +751,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交userId为空
 	 */
-	////@Test
+	@Test
 	public void postSearchGetComplaintsListTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -772,7 +772,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交userId为null
 	 */
-	////@Test
+	@Test
 	public void postSearchGetComplaintsListTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -793,7 +793,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 不提交userId参数
 	 */
-	////@Test
+	@Test
 	public void postSearchGetComplaintsListTestUserIdNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1171,7 +1171,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageSize为10000
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageSizeIs10000() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1191,7 +1191,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageSize为string型
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageSizeIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1210,7 +1210,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageSize为负数
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageSizeIsNegative() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1232,7 +1232,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageSize为小数
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageSizeIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1252,7 +1252,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageSize为0
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageSizeIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1274,7 +1274,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageSize为非法字符串
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageSizeIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1293,7 +1293,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageSize为超长
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageSizeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1312,7 +1312,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageSize为空
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1334,7 +1334,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageSize为空格
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1356,7 +1356,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageSize为null
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1378,7 +1378,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 不提交pageSize
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageSizeNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1399,7 +1399,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageNow为10000
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageNowIs10000() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1420,7 +1420,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageNow为string型
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageNowIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1438,7 +1438,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageNow为小数
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageNowIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1459,7 +1459,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageNow为负数
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageNowIsNegative() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1480,7 +1480,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageNow为0
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageNowIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1501,7 +1501,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageNow为特殊字符
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageNowIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1519,7 +1519,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageNow为超长字符
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageNowIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1537,7 +1537,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageNow为空格
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1560,7 +1560,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 提交pageNow为null
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
@@ -1581,7 +1581,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	/**
 	 * 不提交pageNow
 	 */
-	//@Test
+	@Test
 	public void postSearchGetComplaintsListTestPageNowNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);

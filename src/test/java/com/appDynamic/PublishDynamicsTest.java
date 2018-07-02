@@ -125,7 +125,6 @@ public class PublishDynamicsTest extends HttpUtil {
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list =MetaOper.read(selectSql,dataType);
-		list1 =MetaOper.read(selectSql1,dataType);
 		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
 		assertThat(list.get(0).get("LONGITUDE").toString()).isEqualTo("13.26");
 		assertThat(list.get(0).get("LATITUDE").toString()).isEqualTo("13.19");
@@ -185,7 +184,6 @@ public class PublishDynamicsTest extends HttpUtil {
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list =MetaOper.read(selectSql,dataType);
-		list1 =MetaOper.read(selectSql1,dataType);
 		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
 		assertThat(list.get(0).get("LONGITUDE").toString()).isEqualTo("13.26");
 		assertThat(list.get(0).get("LATITUDE").toString()).isEqualTo("13.19");
@@ -245,7 +243,6 @@ public class PublishDynamicsTest extends HttpUtil {
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list =MetaOper.read(selectSql,dataType);
-		list1 =MetaOper.read(selectSql1,dataType);
 		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
 		assertThat(list.get(0).get("LONGITUDE").toString()).isEqualTo("13.26");
 		assertThat(list.get(0).get("LATITUDE").toString()).isEqualTo("13.19");

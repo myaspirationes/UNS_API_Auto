@@ -495,7 +495,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为错误的
 	 */
-	//@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -513,7 +513,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为未登录的
 	 */
-	////@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsNotLogin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -531,7 +531,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为0
 	 */
-	//@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -550,7 +550,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为负数
 	 */
-	////@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsNegative() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -569,7 +569,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为小数
 	 */
-	////@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -588,7 +588,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为正确的string型
 	 */
-	////@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -607,7 +607,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为非法字符
 	 */
-	////@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -626,7 +626,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为超长字符
 	 */
-	////@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -645,7 +645,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为空格
 	 */
-	////@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -664,7 +664,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为空
 	 */
-	////@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -683,7 +683,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交userId为null
 	 */
-	////@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -702,7 +702,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 不提交userId参数
 	 */
-	////@Test
+	@Test
 	public void postAddAndEditComplainListTestUserIdNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 4);
@@ -734,7 +734,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		list = MetaOper.read(selectSql, dataType);
-		assertThat(list.get(0).get("MSG_CONTENT").toString()).isEqualTo("自动化测试投诉原因");
+		assertThat(list.get(0).get("MSG_CONTENT").toString()).isEqualTo("自动化测试");
 		assertThat(list.get(0).get("CATEGORY_ID").toString()).isEqualTo("1");
 	}
 	
@@ -901,7 +901,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	/**
 	 * 提交category为1
 	 */
-	////@Test
+	@Test
 		public void postAddAndEditComplainListTestCategoryIs1() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -921,7 +921,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为2
 		 */
-		////@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIs2() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -941,7 +941,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为3
 		 */
-		////@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIs3() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -961,7 +961,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为4
 		 */
-		////@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIs4() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -981,7 +981,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为5
 		 */
-		////@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIs5() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -1001,7 +1001,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为错误
 		 */
-		//@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIsError() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -1018,7 +1018,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为小数
 		 */
-		//@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIsDecimal() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -1036,7 +1036,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为负数
 		 */
-		//@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIsNegativeNumber() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -1054,7 +1054,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为0
 		 */
-		//@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIs0() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -1072,7 +1072,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为String
 		 */
-		//@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIsString() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -1090,7 +1090,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为空
 		 */
-		//@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIsEmpty() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -1108,7 +1108,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为空格
 		 */
-		//@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIsSpace() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -1126,7 +1126,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category为null
 		 */
-		//@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIsNull() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);
@@ -1144,7 +1144,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		/**
 		 * 提交category不提交
 		 */
-		//@Test
+		@Test
 		public void postAddAndEditComplainListTestCategoryIsNotCommit() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("type", 0);

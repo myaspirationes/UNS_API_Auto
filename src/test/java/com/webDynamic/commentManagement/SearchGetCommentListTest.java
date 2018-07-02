@@ -73,7 +73,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类为错误
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIsError() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -95,7 +95,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类为负数
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIsNegativeNumber() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -117,7 +117,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类为小数
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIsDecimal() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -139,7 +139,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类为String
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIsString() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -162,7 +162,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类为0
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIs0() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -187,7 +187,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类为空
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIsEmpty() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -212,7 +212,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类为空格
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIsSpace() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -237,7 +237,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类为null
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIsNull() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -262,7 +262,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类不传参数
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryNonSubmissionParameters() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -286,7 +286,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类为超长
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIsLong() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -309,7 +309,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类传1
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIs1() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -333,7 +333,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类传2
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIs2() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -356,7 +356,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 分类传3
 		 */
-		//@Test
+		@Test
 		public void postSearchGetCommentListCategoryIs3() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -380,7 +380,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 用户名id传负数
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListUserIdIsNegativeNumber() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", -1000000);
@@ -403,7 +403,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 用户名id传小数
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListUserIdIsDecimal() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", 12.3);
@@ -427,7 +427,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 用户名id传空
 		 */
-		////////////@Test
+		@Test
 		public void postSearchGetCommentListUserIdIsEmpty() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", "");
@@ -450,7 +450,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 用户名id传空格
 		 */
-		////////////@Test
+		@Test
 		public void postSearchGetCommentListUserIdIsSpace() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", " ");
@@ -473,7 +473,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 用户名id传null
 		 */
-		////////////@Test
+		@Test
 		public void postSearchGetCommentListUserIdIsNull() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", null);
@@ -496,7 +496,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 用户名id传0
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListUserIdIs0() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", 0);
@@ -518,7 +518,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 用户名id传String
 		 */
-		////////////@Test
+		@Test
 		public void postSearchGetCommentListUserIdIsString() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", "GRGDFH");
@@ -541,7 +541,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 用户名id不传参数
 		 */
-		////////////@Test
+		@Test
 		public void postSearchGetCommentListUserIdNonSubmissionParameters() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("category", 2);
@@ -563,7 +563,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 用户名id传错误
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListUserIdIsError() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", 111);
@@ -587,7 +587,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 用户名id为未登录
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListUserIdNotLoggedIn() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", 10000004);
@@ -610,7 +610,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传错误格式
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsErrorFormat() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -633,7 +633,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传时间戳
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsTimeStamp() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -656,7 +656,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传数字
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsNumber() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -679,7 +679,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传年月日
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsYMD() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -702,7 +702,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传年月日最大值
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsYMDMax() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -726,7 +726,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传时分秒
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsHMS() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -749,7 +749,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传时分秒最大值
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsHMSMax() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -772,7 +772,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传 时分秒最小值
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsHMSMin() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -795,7 +795,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传年月日最小值
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsYMDMin() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -818,7 +818,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传0
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIs0() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -841,7 +841,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传负数
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsNegativeNumber() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -864,7 +864,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传小数
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsDecimal() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -887,7 +887,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传空
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsEmpty() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -910,7 +910,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传空格
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsSpace() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -933,7 +933,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传null
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsNull() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -956,7 +956,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间大于创建结束时间
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsMoreOperateEndTime() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -980,7 +980,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传字符串
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsString() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1003,7 +1003,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传闰年2月29
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsLeapYear2Mon29() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1026,7 +1026,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传非闰年2月29
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsNotLeapYear2Mon29() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1049,7 +1049,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间传年月日时分秒
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeIsYMDHMS() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1072,7 +1072,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建开始时间不传参数
 		 */
-		//////////@Test
+		@Test
 		public void postSearchGetCommentListOperateStartTimeNonSubmissionParameters() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1094,7 +1094,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传错误格式
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsErrorFormat() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1117,7 +1117,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传数字
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsNumber() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1140,7 +1140,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传字符串
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsString() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1163,7 +1163,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传年月日
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsYMD() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1186,7 +1186,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传年月日最大时间
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsYMDMax() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1209,7 +1209,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间chuan 年月日最小时间
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsYMDMin() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1233,7 +1233,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间chuan 时分秒
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsHMS() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1256,7 +1256,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间chuan 时分秒最大时间
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsHMSMax() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1279,7 +1279,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传时分秒最小时间
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsHMSMin() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1302,7 +1302,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传0
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIs0() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1325,7 +1325,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传空
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsEmpty() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1348,7 +1348,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传null
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsNull() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1371,7 +1371,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传闰年2月29
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsLeapYear2Mon29() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1394,7 +1394,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传非闰年2月29
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsMotLeapYear2Mon29() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1417,7 +1417,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传超长
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsLong() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1440,7 +1440,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 创建结束时间传年月日时分秒
 		 */
-		////////@Test
+		@Test
 		public void postSearchGetCommentListOperateEndTimeIsYMDHMS() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1922,7 +1922,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 发表评论人昵称传空
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListNickNameIsEmpty() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1945,7 +1945,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 发表评论人昵称传空格
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListNickNameIsSpace() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1968,7 +1968,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 发表评论人昵称传null
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListNickNameIsNull() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -1991,7 +1991,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 发表评论人昵称传超长
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListNickNameIsLong() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2015,7 +2015,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 发表评论人昵称传0
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListNickNameIs0() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2039,7 +2039,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 发表评论人昵称不传参数
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListNickNameNonSubmissionParameters() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2061,7 +2061,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 被评论目标传超长
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListCommentUserIsLong() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2085,7 +2085,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 被评论目标传空
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListCommentUserIsEmpty() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2108,7 +2108,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 被评论目标传空格
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListCommentUserIsSpace() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2131,7 +2131,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 被评论目标传null
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListCommentUserIsNull() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2154,7 +2154,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 被评论目标传0
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListCommentUserIs0() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2178,7 +2178,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 被评论目标不传参数
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListCommentUserNonSubmissionParameters() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2200,7 +2200,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 每页获取的条数传负数
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageSizeIsNegativeNumber() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2223,7 +2223,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 每页获取的条数传小数
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageSizeIsDecimal() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2245,7 +2245,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 每页获取的条数传0
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageSizeIs0() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2269,7 +2269,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 每页获取的条数传空
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageSizeIsEmpty() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2292,7 +2292,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 每页获取的条数传空格
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageSizeIsSpace() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2315,7 +2315,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 每页获取的条数传String
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageSizeIsString() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2338,7 +2338,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 每页获取的条数传最大值
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageSizeIsMax() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2361,7 +2361,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 每页获取的条数不传
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageSizeNonSubmissionParameters() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2383,7 +2383,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 当前请求第几页传负数
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageNowIsNegativeNumber() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2406,7 +2406,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 当前请求第几页传小数
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageNowIsDecimal() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2430,7 +2430,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 当前请求第几页传0
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageNowIs0() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2454,7 +2454,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 当前请求第几页传空格
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageNowIsSpace() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2477,7 +2477,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 当前请求第几页传空
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageNowIsEmpty() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2500,7 +2500,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 当前请求第几页传null
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageNowIsNull() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2523,7 +2523,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 当前请求第几页传String
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageNowIsString() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2546,7 +2546,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 当前请求第几页传最大值
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageNowIsMax() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);
@@ -2570,7 +2570,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 		/**
 		 * 当前请求第几页不传参数
 		 */
-		////@Test
+		@Test
 		public void postSearchGetCommentListPageNowNonSubmissionParameters() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
 			request.put("userId", userId);

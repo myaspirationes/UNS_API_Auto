@@ -221,7 +221,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	/**
 	 * 动态id为错误
 	 */
-	//@Test
+	@Test
 	public void postGetDynamicDetailsTestDynamicIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		new DynamicCommentTest().postDynamicCommentTestCorrectParameter();
@@ -240,7 +240,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	/**
 	 * 动态id为负数
 	 */
-	//@Test
+	@Test
 	public void postGetDynamicDetailsTestDynamicIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", -1141);
@@ -256,7 +256,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	/**
 	 * 动态id为小数
 	 */
-	//@Test
+	@Test
 	public void postGetDynamicDetailsTestDynamicIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", 11.41);
@@ -270,7 +270,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	/**
 	 * 动态id为String
 	 */
-	//@Test
+	@Test
 	public void postGetDynamicDetailsTestDynamicIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", "hgfhgf");
@@ -284,7 +284,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	/**
 	 * 动态id为0
 	 */
-	//@Test
+	@Test
 	public void postGetDynamicDetailsTestDynamicIdIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", 0);
@@ -298,7 +298,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	/**
 	 * 动态id为空
 	 */
-	//@Test
+	@Test
 	public void postGetDynamicDetailsTestDynamicIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", "");
@@ -312,7 +312,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	/**
 	 * 动态id为空格
 	 */
-	//@Test
+	@Test
 	public void postGetDynamicDetailsTestDynamicIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", " ");
@@ -326,7 +326,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	/**
 	 * 动态id为null
 	 */
-	//@Test
+	@Test
 	public void postGetDynamicDetailsTestDynamicIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", null);
@@ -340,7 +340,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	/**
 	 * 动态id不传参数
 	 */
-	//@Test
+	@Test
 	public void postGetDynamicDetailsTestDynamicIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", 1000000);
@@ -353,7 +353,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	/**
 	 * 动态id为超长
 	 */
-	//@Test
+	@Test
 	public void postGetDynamicDetailsTestDynamicIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", 999999999999999999L);
