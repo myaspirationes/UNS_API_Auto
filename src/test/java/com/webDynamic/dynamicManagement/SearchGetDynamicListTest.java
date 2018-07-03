@@ -510,7 +510,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为超长
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsLong() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -530,7 +530,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间大于结束时间
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsMoreoperateEndTime() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsMoreoperateEndTime() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -552,7 +552,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为时间戳
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsTimeStamp() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsTimeStamp() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -572,7 +572,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为空
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsEmpty() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -592,7 +592,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为空格
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsSpace() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -612,7 +612,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为null
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsNull() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -632,7 +632,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为负数
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsNegativeNumber() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -652,7 +652,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为小数
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsDecimal() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -672,7 +672,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为年月日
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsYMD() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsYMD() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -692,7 +692,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为时分秒
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsHMS() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsHMS() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -712,7 +712,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为闰年2月29日
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsLeapYear2Mon29() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsLeapYear2Mon29() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -732,7 +732,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为非闰年2月29日
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsNotLeapYear2Mon29() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsNotLeapYear2Mon29() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -752,7 +752,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为数字去掉中间格式
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsNumber() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -772,7 +772,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间为错误格式
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsErrorFormat() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsErrorFormat() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -792,7 +792,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间不传该参数
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeNonSubmissionParameters() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -811,7 +811,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间传年月日最大时间
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsYMDMax() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsYMDMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -833,7 +833,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间传年月日最小时间
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsYMDMin() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsYMDMin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -853,7 +853,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间传时分秒最大时间
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsHMSMax() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsHMSMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -873,7 +873,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间传时分秒最小时间
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsHMSMin() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsHMSMin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -893,7 +893,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建开始时间传年月日时分秒
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateStartTimeIsYMDHMS() throws Exception {
+	public void postSearchGetDynamicListTestOperateStartTimeIsYMDHMS() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -914,7 +914,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为超长
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsLong() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -934,7 +934,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为时间戳
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsTimeStamp() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsTimeStamp() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -954,7 +954,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为空
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsEmpty() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -974,7 +974,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为空格
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsSpace() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -994,7 +994,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为null
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsNull() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1014,7 +1014,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为负数
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsNegativeNumber() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1034,7 +1034,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为小数
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsDecimal() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1054,7 +1054,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为年月日
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsYMD() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsYMD() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1074,7 +1074,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为时分秒
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsHMS() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsHMS() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1094,7 +1094,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为闰年2月29日
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsLeapYear2Mon29() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsLeapYear2Mon29() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1114,7 +1114,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为非闰年2月29日
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsNotLeapYear2Mon29() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsNotLeapYear2Mon29() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1134,7 +1134,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为中间格式错误
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsErrorFormat() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsErrorFormat() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1154,7 +1154,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为去掉中间格式
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsNumber() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1174,7 +1174,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间不传该参数
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeNonSubmissionParameters() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1193,7 +1193,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为年月日最大时间
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsYMDMax() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsYMDMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1213,7 +1213,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为年月日最小时间
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsYMDMin() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsYMDMin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1235,7 +1235,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为时分秒最大时间
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsHMSMax() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsHMSMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1255,7 +1255,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为时分秒最小时间
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsHMSMin() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsHMSMin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1275,7 +1275,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 创建结束时间为年月日时分秒
 	 */
 	@Test
-	public void postSearchGetDynamicListTestoperateEndTimeIsYMDHMS() throws Exception {
+	public void postSearchGetDynamicListTestOperateEndTimeIsYMDHMS() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");
@@ -1359,7 +1359,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 	 * 状态为-1全部
 	 */
 	@Test
-	public void postSearchGetDynamicListTestStatusIsall() throws Exception {
+	public void postSearchGetDynamicListTestStatusIsAll() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("nickName", "梦想家Even");

@@ -28,7 +28,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 	String selectSql2 = "SELECT * FROM T_USER_COMPLAINT WHERE DESCRIBES = '自动化测试' OR USER_ID = 12495396";
 	String delDynamic = "DELETE FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'";
 	String delComment = "DELETE FROM T_COMMENTBACK WHERE CONTENT in ('自动化评论','<#$%^&**^%$#>','自动化评论回复')";
-	String delComplaint = "DELETE FROM T_USER_COMPLAINT WHERE DESCRIBES = '自动化测试'";
+	String delComplaint = "DELETE FROM T_USER_COMPLAINT WHERE DESCRIBES = '自动化测试' OR USER_ID = 12495396";
 	List<Map<String,Object>> list ;
 	List<Map<String,Object>> list1 ;
 	List<Map<String,Object>> list2 ;
@@ -108,7 +108,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 2);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -124,7 +124,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list2 =MetaOper.read(selectSql2,dataType);
 		assertThat(list2.get(0).get("TYPE").toString()).isEqualTo("9");
-		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("2");
+		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("10");
 		assertThat(list2.get(0).get("REASON").toString()).isEqualTo("自动化测试举报");
 		assertThat(list2.get(0).get("DESCRIBES").toString()).isEqualTo("自动化测试");
 	}
@@ -137,7 +137,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", commentId);
-		con.put("reasonId", 2);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 1);
@@ -153,7 +153,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list2 =MetaOper.read(selectSql2,dataType);
 		assertThat(list2.get(0).get("TYPE").toString()).isEqualTo("10");
-		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("2");
+		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("10");
 		assertThat(list2.get(0).get("REASON").toString()).isEqualTo("自动化测试举报");
 		assertThat(list2.get(0).get("DESCRIBES").toString()).isEqualTo("自动化测试");
 	}
@@ -166,7 +166,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", 12495079);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -190,7 +190,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", 1249);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -214,7 +214,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", -12495396);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -238,7 +238,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", 124.95396);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -262,7 +262,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", 0);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -286,7 +286,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", "");
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -310,7 +310,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", " ");
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -334,7 +334,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", null);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -356,7 +356,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 	public void postReportDynamicsOrCommentsTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -380,7 +380,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", "fgfggffg");
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -404,7 +404,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", -123);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -428,7 +428,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", 1249.1621);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -452,7 +452,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", 0);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -465,7 +465,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("动态不存在");
 	}
 	/**
 	 * 动态id传错误
@@ -476,7 +476,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", 11111111);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -489,7 +489,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("动态不存在");
 	}
 	/**
 	 * 动态id传String
@@ -500,7 +500,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", "dvfdfds");
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -524,7 +524,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", "");
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -548,7 +548,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", " ");
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -572,7 +572,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", null);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -595,7 +595,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		Map<String, Object> con = new HashMap<String, Object>();
 
 		con.put("userId", uuid);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -619,7 +619,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", -1);
+		con.put("reasonId", -8);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -634,7 +634,33 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list2 =MetaOper.read(selectSql2,dataType);
-		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("-1");
+		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("8");
+	}
+	/**
+	 * 举报原因id传错误
+	 */
+	@Test
+	public void postReportDynamicsOrCommentsTestReasonIdIsError() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+
+		con.put("userId", uuid);
+		con.put("targetId", targetId);
+		con.put("reasonId", 2);
+		con.put("reason", "自动化测试举报");
+		con.put("content", "自动化测试");
+		con.put("type", 0);
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("举报原因id传错误" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+	
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+		list2 =MetaOper.read(selectSql2,dataType);
+		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("8");
 	}
 	/**
 	 * 举报原因id传小数
@@ -645,7 +671,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1.23);
+		con.put("reasonId", 10.23);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -660,7 +686,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list2 =MetaOper.read(selectSql2,dataType);
-		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("1");
+		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("10");
 
 	}
 	/**
@@ -736,7 +762,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	
 	/**
@@ -797,7 +823,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试d发顺丰的风格统一特，个人退热贴，天太热太热，而台湾太热太热太热特.自动化测试d发顺丰的风格统一特，个人退热贴，天太热太热，而台湾太热太热太热特。自动化测试d发顺丰的风格统一特，个人退热贴，天太热太热，而台湾太热太热太热特。自动化测试d发顺丰的风格统一特，个人退热贴，天太热太热，而台湾太热太热太热特。自动化测试d发顺丰的风格统一特，个人退热贴，天太热太热，而台湾太热太热太热特。自动化测试d发顺丰的风格统一特，个人退热贴，天太热太热，而台湾太热太热太热特");
 		con.put("type", 0);
@@ -821,7 +847,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", " ");
 		con.put("type", 0);
@@ -847,7 +873,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "");
 		con.put("type", 0);
@@ -859,10 +885,10 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		System.out.println("举报内容传空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list2 =MetaOper.read(selectSql2,dataType);
-		assertThat(list2.get(0).get("DESCRIBES")).isEqualTo(null);
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("输入内容最少为5个字");
+		//list2 =MetaOper.read(selectSql2,dataType);
+		//assertThat(list2.get(0).get("DESCRIBES")).isEqualTo(null);
 	}
 	/**
 	 * 举报内容传null
@@ -873,7 +899,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", null);
 		con.put("type", 0);
@@ -899,7 +925,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "<#$$^#$^*&^*^>");
 		con.put("type", 0);
@@ -925,7 +951,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("type", 0);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -950,7 +976,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", -1);
@@ -974,7 +1000,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 2.3);
@@ -998,7 +1024,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", "");
@@ -1022,7 +1048,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", " ");
@@ -1046,7 +1072,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", null);
@@ -1070,7 +1096,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", "FSGDGDFG");
@@ -1094,7 +1120,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 999999999);
@@ -1118,7 +1144,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -1141,7 +1167,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 6);
@@ -1165,7 +1191,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", commentId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 0);
@@ -1189,7 +1215,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 
 		con.put("userId", uuid);
 		con.put("targetId", targetId);
-		con.put("reasonId", 1);
+		con.put("reasonId", 10);
 		con.put("reason", "自动化测试举报");
 		con.put("content", "自动化测试");
 		con.put("type", 1);

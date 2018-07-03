@@ -124,8 +124,8 @@ public class MyDynamicListsTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为错误
@@ -230,7 +230,7 @@ public class MyDynamicListsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("For input string: \"1.1\"");
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"\"");
 	}
 	/**
 	 * 用户ID为空格

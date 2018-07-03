@@ -27,12 +27,12 @@ public class AddAndEditComplainList extends HttpUtil {
 	public void beforeClass(){
 	userId =new BackUserLoginTest().userId;
 }
-	//@AfterMethod
+	@AfterMethod
 	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 	}
-	//@AfterClass
+	@AfterClass
 	public void afterClass(){
 		MetaOper.delete(deleteSql, dataType);
 	}

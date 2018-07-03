@@ -33,12 +33,12 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void  beforeMethod() throws Exception {
 		new AddAndEditComplainList().postAddAndEditComplainListTestTypeIs0();
 	}
-	@AfterMethod
+	//@AfterMethod
 		public void afterMethod()
 		{
 			MetaOper.delete(deleteSql, dataType);
 		}
-	@AfterClass
+	//@AfterClass
 		public void afterClass(){
 			MetaOper.delete(deleteSql, dataType);
 		}
@@ -50,8 +50,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 	@Test
 	public void postSearchGetComplaintsListTestCategoryIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("category", 1);
-		request.put("reason", "暴力色情");
+		request.put("category", 4);
+		request.put("keyComplain", "自动化测试");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);

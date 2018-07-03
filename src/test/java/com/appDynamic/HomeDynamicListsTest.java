@@ -2258,10 +2258,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("排序为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-		JSONObject body = (JSONObject) post.get("body");
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 排序为负数
@@ -2287,10 +2285,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("排序为负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-		JSONObject body = (JSONObject) post.get("body");
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 排序为字符串
@@ -2316,10 +2312,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("排序为字符串" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-		JSONObject body = (JSONObject) post.get("body");
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 排序为最大值
@@ -2345,10 +2339,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("排序为最大值" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-		JSONObject body = (JSONObject) post.get("body");
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 排序为超长
@@ -2374,10 +2366,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("排序为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
-		JSONObject body = (JSONObject) post.get("body");
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 排序为空
@@ -2907,9 +2897,9 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("陌生人为空" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		JSONObject body = (JSONObject) post.get("body");
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"\"");
+		//assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 陌生人为空格
@@ -2936,9 +2926,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("陌生人为空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		JSONObject body = (JSONObject) post.get("body");
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \" \"");
 	}
 	/**
 	 * 陌生人为字符串
@@ -2965,9 +2954,9 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("陌生人为字符串" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		JSONObject body = (JSONObject) post.get("body");
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"aaaaaa\"");
+		//assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 陌生人为超长
@@ -2994,9 +2983,8 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("陌生人为超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		JSONObject body = (JSONObject) post.get("body");
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"111111111111\"");
 	}
 	/**
 	 * 陌生人为最大值
@@ -3108,9 +3096,9 @@ public class HomeDynamicListsTest extends HttpUtil {
 		System.out.println("陌生人为小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 		JSONObject body = (JSONObject) post.get("body");
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("For input string: \"1.8\"");
+		//assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 关键字查询不传该参数
