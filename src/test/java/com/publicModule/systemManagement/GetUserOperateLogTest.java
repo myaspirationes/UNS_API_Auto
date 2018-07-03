@@ -33,8 +33,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -55,8 +55,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为0" + post);
@@ -76,8 +76,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为小数" + post);
@@ -97,8 +97,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为非法字符" + post);
@@ -117,8 +117,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为负数" + post);
@@ -138,8 +138,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为String" + post);
@@ -158,8 +158,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为空格" + post);
@@ -179,8 +179,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为空" + post);
@@ -200,8 +200,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为null" + post);
@@ -220,8 +220,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数不传该参数" + post);
@@ -241,8 +241,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为0" + post);
@@ -262,8 +262,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码传负数" + post);
@@ -283,8 +283,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码传小数" + post);
@@ -304,8 +304,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码传String" + post);
@@ -324,8 +324,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为空" + post);
@@ -345,8 +345,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为空格" + post);
@@ -366,8 +366,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为null" + post);
@@ -387,8 +387,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为最大值" + post);
@@ -407,8 +407,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码不传该参数" + post);
@@ -428,8 +428,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 1.3);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为小数" + post);
@@ -449,8 +449,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", -3);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为负数" + post);
@@ -470,8 +470,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", "String");
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为String" + post);
@@ -490,14 +490,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", "");
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 分类为空格
@@ -511,14 +511,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", " ");
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 分类为null
@@ -532,14 +532,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", null);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 分类传0操作日志
@@ -553,8 +553,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类传0操作日志" + post);
@@ -574,8 +574,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类传1业务日志" + post);
@@ -595,8 +595,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", -1);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类传-1全部日志" + post);
@@ -615,14 +615,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("pageNow", 1);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户登录账号为未登录账号
@@ -636,8 +636,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为未登录账号" + post);
@@ -657,8 +657,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName","admin" );
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号错误用户名" + post);
@@ -678,8 +678,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为空" + post);
@@ -699,8 +699,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", " ");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为空格" + post);
@@ -720,8 +720,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", null);
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为null" + post);
@@ -741,8 +741,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "<.#$%>");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为非法字符串" + post);
@@ -762,8 +762,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", 0);
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为0" + post);
@@ -783,8 +783,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", 1.5);
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为小数" + post);
@@ -804,8 +804,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", -1);
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为负数" + post);
@@ -824,8 +824,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号不传该参数" + post);
@@ -845,8 +845,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "adminw");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为错误" + post);
@@ -866,8 +866,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为空" + post);
@@ -887,8 +887,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", " ");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为空格" + post);
@@ -908,8 +908,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", 0);
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为0" + post);
@@ -929,8 +929,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", 1.4);
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为小数" + post);
@@ -950,8 +950,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", -1);
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为负数" + post);
@@ -971,8 +971,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", null);
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为null" + post);
@@ -992,8 +992,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "<.$%^>");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为非法字符" + post);
@@ -1013,8 +1013,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "adminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadmin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为超长" + post);
@@ -1033,8 +1033,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为不传该参数" + post);
@@ -1056,7 +1056,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "201805-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传错误格式" + post);
@@ -1076,8 +1076,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2020-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2020-06-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间大于结束时间" + post);
@@ -1098,7 +1098,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "1528248480000");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传时间戳" + post);
@@ -1118,8 +1118,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传年月日" + post);
@@ -1140,7 +1140,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "13:13:13");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传时分秒" + post);
@@ -1160,7 +1160,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", " ");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传空格" + post);
@@ -1181,7 +1181,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "20180503");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间去掉格式" + post);
@@ -1202,7 +1202,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间为空" + post);
@@ -1223,7 +1223,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", null);
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传null" + post);
@@ -1244,7 +1244,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", -1);
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传负数" + post);
@@ -1265,13 +1265,13 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "9999-12-31");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传年月日最大值" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);//应该查不到数据
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);//应该查不到数据
+		assertThat(post.get("msg")).isEqualTo("时间格式错误");
 	}
 	/**
 	 * 操作开始时间传年月日最小值
@@ -1286,13 +1286,13 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "0000-01-01");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传年月日最小值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("时间格式校验失败","失败");
+		assertThat(post.get("msg")).isIn("时间格式错误","失败");
 	}
 	/**
 	 * 操作开始时间传时分秒最大值
@@ -1307,7 +1307,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "23:59:59");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传时分秒最大值" + post);
@@ -1328,7 +1328,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "00:00:00");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传时分秒最小值" + post);
@@ -1349,13 +1349,13 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "2018-05-03 13:13:13");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传年月日时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("时间格式校验失败","失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作开始时间不传该参数
@@ -1369,7 +1369,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间不传该参数" + post);
@@ -1389,8 +1389,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2016-02-29");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2016-02-29 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间闰年2月" + post);
@@ -1410,8 +1410,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-02-29");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-02-29 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间非论年2月" + post);
@@ -1432,7 +1432,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "201805-03");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传错误格式" + post);
@@ -1454,7 +1454,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "1528248480000");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传时间戳" + post);
@@ -1474,8 +1474,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateEndTime", "2018-05-03");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-03 12:12:12");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传年月日" + post);
@@ -1496,7 +1496,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "13:13:13");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传时分秒" + post);
@@ -1517,7 +1517,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", " ");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传空格" + post);
@@ -1538,7 +1538,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "20180503");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间去掉格式" + post);
@@ -1559,7 +1559,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间为空" + post);
@@ -1580,7 +1580,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", null);
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传null" + post);
@@ -1601,7 +1601,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", -1);
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传负数" + post);
@@ -1622,13 +1622,13 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "9999-12-31");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传年月日最大值" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式错误");
 	}
 	/**
 	 * 操作结束时间传年月日最小值
@@ -1643,13 +1643,13 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "0000-01-01");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传年月日最小值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("时间格式校验失败","失败");
+		assertThat(post.get("msg")).isIn("时间格式错误","失败");
 	}
 	/**
 	 * 操作结束时间传时分秒最大值
@@ -1664,7 +1664,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "23:59:59");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传时分秒最大值" + post);
@@ -1685,7 +1685,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "00:00:00");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传时分秒最小值" + post);
@@ -1706,13 +1706,13 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "2018-05-03 13:13:13");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传年月日时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("时间格式校验失败","失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作结束时间不传该参数
@@ -1726,7 +1726,7 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间不传该参数" + post);
@@ -1746,8 +1746,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateEndTime", "2016-02-29");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateEndTime", "2016-02-29 12:12:12");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间闰年2月" + post);
@@ -1768,13 +1768,13 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "2018-02-29");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间非论年2月" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("时间格式校验失败","失败");
+		assertThat(post.get("msg")).isIn("时间格式错误","失败");
 	}
 	/**
 	 * 用户ID为字符串
@@ -1788,8 +1788,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为字符串" + post);
@@ -1808,8 +1808,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
@@ -1829,8 +1829,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
@@ -1850,8 +1850,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
@@ -1871,8 +1871,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
@@ -1891,8 +1891,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
@@ -1912,8 +1912,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
@@ -1933,8 +1933,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误" + post);
@@ -1953,8 +1953,8 @@ public class GetUserOperateLogTest extends HttpUtil {
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);

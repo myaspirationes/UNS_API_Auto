@@ -75,7 +75,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID为未登录" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在！");
 	}
 	/**
 	 * 操作用户ID错误用户
@@ -90,7 +90,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID错误用户" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在！");
 	}
 	/**
 	 * 操作用户ID为非法字符
@@ -195,7 +195,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误");
+		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误");
 	}
 	/**
 	 * 操作用户ID为String
@@ -225,7 +225,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID为0" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误");
+		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误！");
 	}
 	/**
 	 * 操作用户ID不传该参数
