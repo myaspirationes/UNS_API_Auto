@@ -179,7 +179,7 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数不合法");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户id为空
@@ -1107,7 +1107,7 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		con.put("pageSize", 5);
 		con.put("pageNow", 1);
 		con.put("cardId", 1234);
-		con.put("targetId", 12491932);
+		con.put("targetId", 12495079);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
 		request.put("head", head);
@@ -1117,7 +1117,7 @@ public class DynamicListUnderPostcardTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("该用户还没有发过动态哦！");
 	}
 	
 

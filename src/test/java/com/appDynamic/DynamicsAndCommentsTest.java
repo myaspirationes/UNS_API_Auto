@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class DynamicsAndCommentsTest extends HttpUtil {
-//动态和评论接口
+//动态和评论点赞接口
 	String url = "/UU/dynamic";
 	String dataType = "perCenter81";
 	String selectSql = "SELECT * FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试' AND USER_ID = 12495396";
@@ -222,7 +222,7 @@ public class DynamicsAndCommentsTest extends HttpUtil {
 		System.out.println("点赞评论之后再次点赞" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("已经赞过！");
 		list3 =MetaOper.read(selectSql1,dataType);
 		assertThat(list3.get(0).get("PRAISE_NUM").toString()).isEqualTo("1");
@@ -550,7 +550,7 @@ public class DynamicsAndCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("没有此动态！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 目标Id传0
@@ -596,7 +596,7 @@ public class DynamicsAndCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("没有此动态！");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 目标Id传空格
@@ -893,7 +893,7 @@ public class DynamicsAndCommentsTest extends HttpUtil {
 		System.out.println("操作先传1再传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("没有此动态评论");
 	}
 	/**
@@ -1054,7 +1054,7 @@ public class DynamicsAndCommentsTest extends HttpUtil {
 		System.out.println("类型type传错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("没有此动态评论");
 	}
 
