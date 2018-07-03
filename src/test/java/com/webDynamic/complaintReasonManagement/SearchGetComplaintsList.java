@@ -33,12 +33,12 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void  beforeMethod() throws Exception {
 		new AddAndEditComplainList().postAddAndEditComplainListTestTypeIs0();
 	}
-	//@AfterMethod
+	@AfterMethod
 		public void afterMethod()
 		{
 			MetaOper.delete(deleteSql, dataType);
 		}
-	//@AfterClass
+	@AfterClass
 		public void afterClass(){
 			MetaOper.delete(deleteSql, dataType);
 		}

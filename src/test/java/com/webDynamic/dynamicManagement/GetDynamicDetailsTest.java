@@ -73,7 +73,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);		 
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -88,7 +88,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);	 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数非法");
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 用户ID为0
@@ -102,7 +102,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);		 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 用户ID为错误
@@ -161,7 +161,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);		 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 用户ID为空
@@ -175,7 +175,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);		 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 用户ID为空格
@@ -189,7 +189,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);		 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 用户ID为超长
@@ -203,7 +203,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);	 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -216,7 +216,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);		 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 动态id为错误
@@ -228,7 +228,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		list = MetaOper.read("SELECT * FROM T_COMMENTBACK WHERE CONTENT = '自动化评论'", dataType);
 		dynamicId = list.get(0).get("COMMENT_ID").toString();
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为错误" + post);
@@ -244,7 +244,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	public void postGetDynamicDetailsTestDynamicIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", -1141);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为负数" + post);
@@ -260,7 +260,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	public void postGetDynamicDetailsTestDynamicIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", 11.41);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为小数" + post);		 
@@ -274,7 +274,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	public void postGetDynamicDetailsTestDynamicIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", "hgfhgf");
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为String" + post);		 
@@ -288,7 +288,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	public void postGetDynamicDetailsTestDynamicIdIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", 0);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为0" + post);		 
@@ -302,12 +302,12 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	public void postGetDynamicDetailsTestDynamicIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", "");
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为空" + post);		 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 动态id为空格
@@ -316,12 +316,12 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	public void postGetDynamicDetailsTestDynamicIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", " ");
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为空格" + post);		 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 动态id为null
@@ -330,12 +330,12 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	public void postGetDynamicDetailsTestDynamicIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", null);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为null" + post);		 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 动态id不传参数
@@ -343,12 +343,12 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	@Test
 	public void postGetDynamicDetailsTestDynamicIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id不传参数" + post);		 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数不能为空");
+		assertThat(post.get("msg")).isEqualTo("参数错误");
 	}
 	/**
 	 * 动态id为超长
@@ -357,7 +357,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 	public void postGetDynamicDetailsTestDynamicIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", 999999999999999999L);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为超长" + post);		 

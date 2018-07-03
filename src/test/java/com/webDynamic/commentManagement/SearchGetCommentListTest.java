@@ -181,7 +181,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			assertThat(post.get("status")).isEqualTo(0);
 			assertThat(post.get("msg")).isEqualTo("成功");
 			JSONObject body = (JSONObject)post.get("body");
-			assertThat(body.get("total")).isEqualTo(0);
+			assertThat(body.get("total")).isEqualTo(2);
 		
 	}
 		/**
@@ -206,7 +206,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			assertThat(post.get("status")).isEqualTo(0);
 			assertThat(post.get("msg")).isEqualTo("成功");
 			JSONObject body = (JSONObject)post.get("body");
-			assertThat(body.get("total")).isEqualTo(0);
+			assertThat(body.get("total")).isEqualTo(2);
 		
 	}
 		/**
@@ -231,7 +231,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			assertThat(post.get("status")).isEqualTo(0);
 			assertThat(post.get("msg")).isEqualTo("成功");
 			JSONObject body = (JSONObject)post.get("body");
-			assertThat(body.get("total")).isEqualTo(0);
+			assertThat(body.get("total")).isEqualTo(2);
 		
 	}
 		/**
@@ -256,7 +256,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			assertThat(post.get("status")).isEqualTo(0);
 			assertThat(post.get("msg")).isEqualTo("成功");
 			JSONObject body = (JSONObject)post.get("body");
-			assertThat(body.get("total")).isEqualTo(0);
+			assertThat(body.get("total")).isEqualTo(2);
 		
 	}
 		/**
@@ -280,7 +280,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			assertThat(post.get("status")).isEqualTo(0);
 			assertThat(post.get("msg")).isEqualTo("成功");
 			JSONObject body = (JSONObject)post.get("body");
-			assertThat(body.get("total")).isEqualTo(0);
+			assertThat(body.get("total")).isEqualTo(2);
 		
 	}
 		/**
@@ -422,7 +422,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			assertThat(post.get("status")).isEqualTo(0);
 			assertThat(post.get("msg")).isEqualTo("成功");
 			JSONObject body = (JSONObject)post.get("body");
-			assertThat(body.get("total")).isEqualTo(0);
+			assertThat(body.get("total")).isEqualTo(2);
 	}
 		/**
 		 * 用户名id传空
@@ -582,7 +582,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			assertThat(post.get("status")).isEqualTo(0);
 			assertThat(post.get("msg")).isEqualTo("成功");
 			JSONObject body = (JSONObject)post.get("body");
-			assertThat(body.get("total")).isEqualTo(0);
+			assertThat(body.get("total")).isEqualTo(2);
 	}
 		/**
 		 * 用户名id为未登录
@@ -1871,7 +1871,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			assertThat(post.get("status")).isEqualTo(0);
 			assertThat(post.get("msg")).isEqualTo("成功");
 			JSONObject body = (JSONObject)post.get("body");
-			assertThat(body.get("total")).isEqualTo(0);
+			assertThat(body.get("total")).isEqualTo(2);
 	}
 		/**
 		 * 评论内容关键字传非法字符

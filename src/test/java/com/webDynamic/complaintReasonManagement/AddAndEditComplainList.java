@@ -20,6 +20,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	
 	String dataType = "uedb";
 	String selectSql = "SELECT * FROM T_AUDIT_MSG WHERE MSG_CONTENT = '自动化测试投诉原因'";
+	String selectSqlEdit = "SELECT * FROM T_AUDIT_MSG WHERE MSG_ID = '13766'";
 	String deleteSql = "DELETE FROM T_AUDIT_MSG WHERE MSG_CONTENT = '自动化测试投诉原因' OR MSG_CONTENT = '123456'";
 	List<Map<String,Object>> list ;
 	String userId;
@@ -43,10 +44,11 @@ public class AddAndEditComplainList extends HttpUtil {
 	 */
 	@Test
 	public void postAddAndEditComplainListTestTypeIs0() throws Exception {
+		userId =new BackUserLoginTest().userId;
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("type", 0);
 		request.put("reason", "自动化测试投诉原因");
-		request.put("userId", 100000000);
+		request.put("userId", userId);
 		request.put("reasionId", 0);
 		request.put("category", 5);
 		JSONObject post = super.UNSPost(url, request);
@@ -718,7 +720,7 @@ public class AddAndEditComplainList extends HttpUtil {
 	}
 	
 	/**
-	 * 提交reasonId为1
+	 * 提交reasonId为编辑
 	 */
 	@Test
 	public void postAddAndEditComplainListTestReasonIdIs1() throws Exception {
@@ -733,9 +735,9 @@ public class AddAndEditComplainList extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		list = MetaOper.read(selectSql, dataType);
+		list = MetaOper.read(selectSqlEdit, dataType);
 		assertThat(list.get(0).get("MSG_CONTENT").toString()).isEqualTo("自动化测试");
-		assertThat(list.get(0).get("CATEGORY_ID").toString()).isEqualTo("1");
+		assertThat(list.get(0).get("CATEGORY_ID").toString()).isEqualTo("3");
 	}
 	
 	/**
