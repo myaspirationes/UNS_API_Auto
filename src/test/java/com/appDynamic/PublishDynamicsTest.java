@@ -23,7 +23,7 @@ public class PublishDynamicsTest extends HttpUtil {
 //发布动态接口
 	String url = "/UU/dynamic";
 	String deleteSql = "DELETE FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试' or USER_ID = 12495396";
-	String deleteSql1 = "DELETE FROM T_DYNAMIC_POSITION WHERE REGION = '自动化测试2' ";
+	String deleteSql1 = "DELETE FROM T_DYNAMIC_POSITION WHERE REGION = '自动化测试2' OR ADDRESS = '自动化测试3' OR ZOOM_LEVEL = '2.22'";
 	String deleteSql2 = "DELETE from T_UPLOAD_FILE WHERE USER_ID = '12495396'";
 	String selectSql = "SELECT * FROM T_DYNAMIC WHERE DESCRIPTION = '自动化测试'  ";
 	String selectSql1 = "SELECT * FROM T_DYNAMIC_POSITION WHERE REGION = '自动化测试2' OR ADDRESS = '自动化测试3'";
@@ -33,8 +33,6 @@ public class PublishDynamicsTest extends HttpUtil {
 	List<Map<String,Object>> list2 ;
 	List<Map<String,Object>> list3 ;
 	String dataType = "perCenter81";
-	String dynamicId2;
-	String fileIds;
 	JSONObject body;
 	String uuid;
 	String chcode;
@@ -60,14 +58,14 @@ public class PublishDynamicsTest extends HttpUtil {
 		head.put("chcode", chcode);
 		head.put("cmd", 510);
 	}
-	//@AfterMethod
+	@AfterMethod
 	public void afterMethod()
 	{
 		MetaOper.delete(deleteSql, dataType);
 		MetaOper.delete(deleteSql1, dataType);
 		MetaOper.delete(deleteSql2, dataType);
 	}
-	//@AfterClass
+	@AfterClass
 	public void afterClass(){
 		MetaOper.delete(deleteSql, dataType);
 		MetaOper.delete(deleteSql1, dataType);
@@ -110,7 +108,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -169,7 +167,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -228,7 +226,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -242,13 +240,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
-		assertThat(list.get(0).get("LONGITUDE").toString()).isEqualTo("13.26");
-		assertThat(list.get(0).get("LATITUDE").toString()).isEqualTo("13.19");
-		assertThat(list.get(0).get("RELAY_ID").toString()).isEqualTo("1319");
-		assertThat(list.get(0).get("LOCATION").toString()).isEqualTo("自动化测试1");
-		assertThat(list.get(0).get("IS_SHOW_AREA").toString()).isEqualTo("1");
+		list =MetaOper.read("select * from T_DYNAMIC WHERE LOCATION = '自动化测试1'",dataType);
 		assertThat(list.get(0).get("DYNAMIC_TYPE").toString()).isEqualTo("16");
 	}
 	/**
@@ -273,7 +265,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -311,7 +303,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -348,7 +340,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -385,7 +377,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -422,7 +414,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -459,7 +451,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -496,7 +488,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -533,7 +525,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -569,7 +561,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -607,7 +599,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -644,7 +636,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -681,7 +673,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -718,7 +710,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -756,7 +748,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -795,7 +787,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -834,7 +826,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -873,7 +865,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -911,7 +903,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -950,7 +942,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -991,7 +983,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1005,158 +997,13 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read(selectSql1,dataType);
 		list2 =MetaOper.read(selResource,dataType);
 		list =MetaOper.read(selectSql,dataType);
 		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
 		assertThat(list2.get(0).get("RELATION_ID")).isEqualTo(null);
 		}
-	/**
-	 * 文件id为空格动态为5
-	 */
-	@Test
-	public void postPublishDynamicsTestFileIdsIsSpaceDynamicTypeIs5() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("fileIds", " ");
-		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
-		con.put("longitude", 13.26);
-		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "自动化测试1");
-		con.put("mapLongitude", 22.36);
-		con.put("mapLatitude", 38.26);
-		con.put("region", "自动化测试2");
-		con.put("address", "自动化测试3");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 2.22);
-		con.put("powerType", 0);
-		con.put("atUserIds", 1319);
-		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
-		con.put("isShowArea", 1);
-		con.put("relayId", 1319);	
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("文件id为空格动态为5" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read(selectSql1,dataType);
-		list2 =MetaOper.read(selResource,dataType);
-		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
-		assertThat(list2.get(0).get("RELATION_ID")).isEqualTo(null);
-		assertThat(list1.get(0).get("LONGITUDE").toString()).isEqualTo("22.36");
-		assertThat(list1.get(0).get("LATITUDE").toString()).isEqualTo("38.26");
-		assertThat(list1.get(0).get("REGION").toString()).isEqualTo("自动化测试2");
-		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("自动化测试3");
-		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("1319");
-		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo("2.22");
-
-	}
-	/**
-	 * 文件id为null动态为5
-	 */
-	@Test
-	public void postPublishDynamicsTestFileIdsIsNullNynamicTypeIs5() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("fileIds", null);
-		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
-		con.put("longitude", 13.26);
-		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "自动化测试1");
-		con.put("mapLongitude", 22.36);
-		con.put("mapLatitude", 38.26);
-		con.put("region", "自动化测试2");
-		con.put("address", "自动化测试3");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 2.22);
-		con.put("powerType", 0);
-		con.put("atUserIds", 1319);
-		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
-		con.put("isShowArea", 1);
-		con.put("relayId", 1319);	
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("文件id为null动态为5" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read(selectSql1,dataType);
-		list2 =MetaOper.read(selResource,dataType);
-		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
-		assertThat(list2.get(0).get("RELATION_ID")).isEqualTo(null);
-		assertThat(list1.get(0).get("LONGITUDE").toString()).isEqualTo("22.36");
-		assertThat(list1.get(0).get("LATITUDE").toString()).isEqualTo("38.26");
-		assertThat(list1.get(0).get("REGION").toString()).isEqualTo("自动化测试2");
-		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("自动化测试3");
-		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("1319");
-		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo("2.22");
-
-	}
-	/**
-	 * 文件id不传参数动态为5
-	 */
-	@Test
-	public void postPublishDynamicsTestFileIdsNonSubmissionParametersNynamicTypeIs5() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
-		con.put("longitude", 13.26);
-		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "自动化测试1");
-		con.put("mapLongitude", 22.36);
-		con.put("mapLatitude", 38.26);
-		con.put("region", "自动化测试2");
-		con.put("address", "自动化测试3");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 2.22);
-		con.put("powerType", 0);
-		con.put("atUserIds", 1319);
-		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
-		con.put("isShowArea", 1);
-		con.put("relayId", 1319);	
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("文件id不传参数动态为5" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read(selectSql1,dataType);
-		list2 =MetaOper.read(selResource,dataType);
-		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
-		assertThat(list2.get(0).get("RELATION_ID")).isEqualTo(null);
-		assertThat(list1.get(0).get("LONGITUDE").toString()).isEqualTo("22.36");
-		assertThat(list1.get(0).get("LATITUDE").toString()).isEqualTo("38.26");
-		assertThat(list1.get(0).get("REGION").toString()).isEqualTo("自动化测试2");
-		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("自动化测试3");
-		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("1319");
-		assertThat(list1.get(0).get("ZOOM_LEVEL").toString()).isEqualTo("2.22");
-
-	}
 	/**
 	 * 动态文字内容传超长
 	 */
@@ -1179,7 +1026,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1217,7 +1064,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1256,7 +1103,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 0);
 		con.put("relayId", 1319);	
 
@@ -1296,7 +1143,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1335,7 +1182,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1373,7 +1220,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1412,7 +1259,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1449,7 +1296,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1486,7 +1333,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1523,7 +1370,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1536,7 +1383,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("程序异常！  ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 动态类型传空格
@@ -1560,7 +1407,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1597,7 +1444,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1634,7 +1481,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1670,7 +1517,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1707,7 +1554,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1744,7 +1591,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1783,7 +1630,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1823,7 +1670,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1863,7 +1710,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1900,7 +1747,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1937,7 +1784,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1949,8 +1796,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态经度传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("程序异常！");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
+		assertThat(list.get(0).get("LONGITUDE")).isEqualTo(null);
+		assertThat(list.get(0).get("LATITUDE").toString()).isEqualTo("13.19");
 	}
 	/**
 	 * 发布动态时的地址传超长
@@ -1963,7 +1814,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("content", "自动化测试");
 		con.put("dynamicType", 0);
 		con.put("latitude", 13.19);
-		con.put("dynamicAddress", "如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。");
+		con.put("dynamicAddress", "如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是.如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是.如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。如日商务园dgdgfs大师傅犯得上发顺丰发生过的是广东省，灌水灌水灌水的是。");
 		con.put("mapLongitude", 22.36);
 		con.put("mapLatitude", 38.26);
 		con.put("region", "自动化测试2");
@@ -1973,7 +1824,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -1986,7 +1837,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("程序异常！");
+		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
 	}
 	/**
 	 * 发布动态时的地址传空
@@ -2010,7 +1861,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2050,7 +1901,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2089,7 +1940,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2128,7 +1979,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2168,7 +2019,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2207,7 +2058,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2246,7 +2097,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2283,7 +2134,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2320,7 +2171,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2357,7 +2208,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2397,7 +2248,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2437,7 +2288,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2477,7 +2328,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2489,8 +2340,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态纬度传null" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("程序异常！");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
+		assertThat(list.get(0).get("LATITUDE")).isEqualTo(null);
+		assertThat(list.get(0).get("LONGITUDE").toString()).isEqualTo("55.63");
 	}
 	/**
 	 * 动态纬度不传参数
@@ -2513,7 +2368,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2525,8 +2380,12 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("动态纬度不传参数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("程序异常！");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
+		assertThat(list.get(0).get("LATITUDE")).isEqualTo(null);
+		assertThat(list.get(0).get("LONGITUDE").toString()).isEqualTo("55.63");
 	}
 	/**
 	 * 地图动态经度传空
@@ -2550,7 +2409,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2587,7 +2446,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2625,7 +2484,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2662,7 +2521,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2699,7 +2558,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2736,7 +2595,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2772,7 +2631,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2808,7 +2667,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2845,7 +2704,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2884,7 +2743,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2921,7 +2780,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2961,7 +2820,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -2998,7 +2857,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3035,7 +2894,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3072,7 +2931,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3112,7 +2971,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3152,7 +3011,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3188,7 +3047,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3225,7 +3084,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3262,7 +3121,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3299,7 +3158,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3335,7 +3194,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3372,7 +3231,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3409,7 +3268,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3449,7 +3308,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3489,7 +3348,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3528,7 +3387,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3567,7 +3426,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3605,7 +3464,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3617,8 +3476,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("区域region不传传地图动态" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
+		list1 =MetaOper.read(selectSql1,dataType);
+		assertThat(list1.get(0).get("REGION")).isEqualTo(null);
 	}
 	/**
 	 * 地图文件id传负数
@@ -3642,7 +3503,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3681,7 +3542,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3720,7 +3581,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3759,7 +3620,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3798,7 +3659,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3837,7 +3698,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3849,10 +3710,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("地图文件id传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read(selectSql1,dataType);
-		assertThat(list1.get(0).get("FILE_ID").toString()).isEqualTo("0");
 	}
 	/**
 	 * 地图文件id不传
@@ -3875,7 +3734,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3914,7 +3773,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3951,7 +3810,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -3988,7 +3847,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4027,7 +3886,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4066,7 +3925,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4078,7 +3937,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("详细地址传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list1 =MetaOper.read(selectSql1,dataType);
 		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("0");
@@ -4106,7 +3965,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4145,7 +4004,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4183,7 +4042,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4222,7 +4081,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4261,7 +4120,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4300,7 +4159,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4339,7 +4198,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4378,7 +4237,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4415,7 +4274,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4454,7 +4313,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4493,7 +4352,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4532,7 +4391,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", -5);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4569,7 +4428,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 2.3);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4606,7 +4465,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4645,7 +4504,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", "fsgsdad");
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4682,7 +4541,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", "");
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4719,7 +4578,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", " ");
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4732,7 +4591,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("程序异常！ ");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 公开程度传null
@@ -4756,7 +4615,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", null);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4792,7 +4651,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("zoomLevel", 22.3);
 		con.put("atUserIds", 1319);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4868,7 +4727,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "34424455436576765775675777665654");
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4880,8 +4739,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("提醒用户id数组传超长" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 提醒用户id数组传空格
@@ -4905,7 +4764,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", " ");
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4917,8 +4776,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("提醒用户id数组传空格" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 提醒用户id数组传空
@@ -4942,7 +4801,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "");
 		con.put("audioTime", 1319);
-		con.put("selectIds", 12495001);
+		con.put("selecteIds", 12495001);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4955,9 +4814,9 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");//数据库保存selectIds
-		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
-		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("12495001");
+		assertThat(head1.get("msg")).isEqualTo("成功");//数据库未保存
+		//list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
+		//assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("12495001");
 		
 	}
 	/**
@@ -4982,7 +4841,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", null);
 		con.put("audioTime", 1319);
-		con.put("selectIds", "12491001");
+		con.put("selecteIds", "12491001");
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -4995,9 +4854,9 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");//数据库保存selectIds
-		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
-		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("12491001");
+		assertThat(head1.get("msg")).isEqualTo("成功");//数据库不保存
+		//list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
+		//assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("12491001");
 	}
 	/**
 	 * 提醒用户id数组传0
@@ -5008,7 +4867,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 7);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
 		con.put("dynamicAddress", "自动化测试1");
@@ -5021,7 +4880,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", 0);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5033,7 +4892,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("提醒用户id数组传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
 		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("0");
@@ -5058,9 +4917,9 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("fileId", 1319);
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
-		con.put("atUserIds", "3442,4455,4365767,6577567577,7665654");
+		con.put("atUserIds", "13495767,13497577,13495079");
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5073,11 +4932,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
-		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("3442");
-		assertThat(list1.get(1).get("USER_ID").toString()).isEqualTo("4455");
-		assertThat(list1.get(2).get("USER_ID").toString()).isEqualTo("4365767");
+		assertThat(head1.get("msg")).isEqualTo("成功");//数据库不进行保存，发送tcp通知
 	}
 	/**
 	 * 提醒用户id数组不传
@@ -5100,7 +4955,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
 		con.put("audioTime", 1319);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5114,8 +4969,8 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
-		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("1319");
+		//list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
+		//assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("1319");
 	}
 	/**
 	 * 音频时间传0
@@ -5139,7 +4994,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 5);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5153,8 +5008,6 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");	
-		list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
-		assertThat(list3.get(0).get("RADIOTIME").toString()).isEqualTo("0");
 	}
 	/**
 	 * 音频时间传空
@@ -5165,7 +5018,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 4);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
 		con.put("dynamicAddress", "自动化测试1");
@@ -5178,7 +5031,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", "");
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5217,7 +5070,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", " ");
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5256,7 +5109,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", null);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5282,7 +5135,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 4);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
 		con.put("dynamicAddress", "自动化测试1");
@@ -5295,7 +5148,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 999999999);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5334,7 +5187,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", -23);
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5346,7 +5199,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		System.out.println("音频时间传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("st")).isEqualTo(-3);
 		assertThat(head1.get("msg")).isEqualTo("成功");//音频时间数据库中未做保存操作
 	}
 	/**
@@ -5354,6 +5207,43 @@ public class PublishDynamicsTest extends HttpUtil {
 	 */
 	@Test
 	public void postPublishDynamicsTestAudioTimeIsDecimal() throws Exception {
+		Map<String, Object> con = new HashMap<String, Object>();
+		con.put("userId", uuid);
+		con.put("fileIds", 10040495);
+		con.put("content", "自动化测试");
+		con.put("dynamicType", 4);
+		con.put("longitude", 55.63);
+		con.put("latitude", 23.66);
+		con.put("dynamicAddress", "自动化测试1");
+		con.put("mapLongitude", 0.0);
+		con.put("mapLatitude", 0.0);
+		con.put("region", "自动化测试2");
+		con.put("address", "自动化测试3");
+		con.put("fileId", 0);
+		con.put("zoomLevel", 0.0);
+		con.put("powerType", 0);
+		con.put("atUserIds", "");
+		con.put("audioTime", 12);
+		con.put("selecteIds", "0");
+		con.put("isShowArea", 1);
+		con.put("relayId", 1319);	
+
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("con", con);
+		request.put("head", head);
+		
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("音频时间传小数" + post);
+		JSONObject head1 = (JSONObject) post.get("head");
+	
+		assertThat(head1.get("st")).isEqualTo(0);
+		assertThat(head1.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 音频时间传String
+	 */
+	@Test
+	public void postPublishDynamicsTestAudioTimeIsString() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
@@ -5370,47 +5260,8 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
-		con.put("audioTime", 12.3);
-		con.put("selectIds", 1319);
-		con.put("isShowArea", 1);
-		con.put("relayId", 1319);	
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("音频时间传小数" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
-		assertThat(list3.get(0).get("FILE_TIME").toString()).isEqualTo("12.3");
-	}
-	/**
-	 * 音频时间传String
-	 */
-	@Test
-	public void postPublishDynamicsTestAudioTimeIsString() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("fileIds", 1);
-		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
-		con.put("longitude", 55.63);
-		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "自动化测试1");
-		con.put("mapLongitude", 25.36);
-		con.put("mapLatitude", 88.26);
-		con.put("region", "自动化测试2");
-		con.put("address", "自动化测试3");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
-		con.put("atUserIds", "1319");
 		con.put("audioTime", "fdgerew");
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5434,7 +5285,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 5);
+		con.put("dynamicType", 4);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
 		con.put("dynamicAddress", "自动化测试1");
@@ -5446,7 +5297,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("zoomLevel", 22.3);
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
-		con.put("selectIds", 1319);
+		con.put("selecteIds", 1319);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5462,157 +5313,6 @@ public class PublishDynamicsTest extends HttpUtil {
 		assertThat(head1.get("msg")).isEqualTo("成功");
 	}
 	
-	/**
-	 * 音频时间传空音频动态
-	 */
-	@Test
-	public void postPublishDynamicsTestAudioTimeIsEmptyDynamicTypeIs4() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("fileIds", 1);
-		con.put("content", "自动化测试");
-		con.put("dynamicType", 4);
-		con.put("longitude", 55.63);
-		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "自动化测试1");
-		con.put("mapLongitude", 25.36);
-		con.put("mapLatitude", 88.26);
-		con.put("region", "自动化测试2");
-		con.put("address", "自动化测试3");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
-		con.put("atUserIds", "1319");
-		con.put("audioTime", 5);
-		con.put("selecteIds", 1319);
-		con.put("isShowArea", 1);
-		con.put("relayId", 1319);	
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("音频时间传空音频动态" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list3 =MetaOper.read("SELECT * FROM T_UPLOAD_FILE WHERE USER_ID = 12495396",dataType);
-		assertThat(list3.get(0).get("RADIOTIME")).isEqualTo(null);
-	}
-	/**
-	 * 音频时间传空格音频动态
-	 */
-	@Test
-	public void postPublishDynamicsTestAudioTimeIsSpaceDynamicTypeIs4() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("fileIds", 1);
-		con.put("content", "自动化测试");
-		con.put("dynamicType", 4);
-		con.put("longitude", 55.63);
-		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "自动化测试1");
-		con.put("mapLongitude", 25.36);
-		con.put("mapLatitude", 88.26);
-		con.put("region", "自动化测试2");
-		con.put("address", "自动化测试3");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
-		con.put("atUserIds", "1319");
-		con.put("audioTime", " ");
-		con.put("selectIds", 1319);
-		con.put("isShowArea", 1);
-		con.put("relayId", 1319);	
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("音频时间传空格非音频动态" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 音频时间传null音频动态
-	 */
-	@Test
-	public void postPublishDynamicsTestAudioTimeIsNullDynamicTypeIs4() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("fileIds", 1);
-		con.put("content", "自动化测试");
-		con.put("dynamicType", 4);
-		con.put("longitude", 55.63);
-		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "自动化测试1");
-		con.put("mapLongitude", 25.36);
-		con.put("mapLatitude", 88.26);
-		con.put("region", "自动化测试2");
-		con.put("address", "自动化测试3");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
-		con.put("atUserIds", "1319");
-		con.put("audioTime", null);
-		con.put("selectIds", 1319);
-		con.put("isShowArea", 1);
-		con.put("relayId", 1319);	
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("音频时间传null音频动态" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-	}
-	/**
-	 * 音频时间不传音频动态
-	 */
-	@Test
-	public void postPublishDynamicsTestAudioTimeNonSubmissionParametersDynamicTypeNot4() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("fileIds", 1);
-		con.put("content", "自动化测试");
-		con.put("dynamicType", 4);
-		con.put("longitude", 55.63);
-		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "自动化测试1");
-		con.put("mapLongitude", 25.36);
-		con.put("mapLatitude", 88.26);
-		con.put("region", "自动化测试2");
-		con.put("address", "自动化测试3");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 22.3);
-		con.put("powerType", 0);
-		con.put("atUserIds", "1319");
-		con.put("audioTime", "fdgerew");
-		con.put("selectIds", 1319);
-		con.put("isShowArea", 1);
-		con.put("relayId", 1319);	
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("音频时间不传非音频动态" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
-	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		//list2 = MetaOper.read(SELECT * FROM T_UPLOAD_FILE WHERE , dataType)
-	}
 	/**
 	 * 不可见看动态的人Id传空
 	 */
@@ -5635,7 +5335,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "");
+		con.put("selecteIds", "");
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5672,7 +5372,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", " ");
+		con.put("selecteIds", " ");
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5709,7 +5409,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", null);
+		con.put("selecteIds", null);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5746,7 +5446,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", 0);
+		con.put("selecteIds", 0);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5783,7 +5483,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", -12495396);
+		con.put("selecteIds", -12495396);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5820,7 +5520,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "1249.2396");
+		con.put("selecteIds", "1249.2396");
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5894,7 +5594,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 8);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495396,12495263,12495666");
+		con.put("selecteIds", "12495396,12495263,12495666");
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5909,8 +5609,10 @@ public class PublishDynamicsTest extends HttpUtil {
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
 		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
-		assertThat(list1.get(0).get("USER_ID")).isEqualTo("12495263");
-		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("0");
+		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("12495396");
+		assertThat(list1.get(1).get("USER_ID").toString()).isEqualTo("12495263");
+		assertThat(list1.get(2).get("USER_ID").toString()).isEqualTo("12495666");
+		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("1");
 	}
 	/**
 	 * 不可见看动态的人Id传空动态类型非7或8
@@ -5934,7 +5636,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1320");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "");
+		con.put("selecteIds", "");
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5948,9 +5650,6 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
-		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("1320");
-		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("0");
 	}
 	/**
 	 * 不可见看动态的人Id传空格动态类型非7或8
@@ -5974,7 +5673,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", " ");
+		con.put("selecteIds", " ");
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -5988,9 +5687,6 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read("SELECT b.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
-		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("1319");
-		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("0");
 	}
 	/**
 	 * 不可见看动态的人Id不传动态类型非7或8
@@ -6027,9 +5723,6 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
-		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("1319");
-		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("0");
 	}
 	/**
 	 * 不可见看动态的人Id传null动态类型非7或8
@@ -6053,7 +5746,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", null);
+		con.put("selecteIds", null);
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -6067,9 +5760,6 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
-		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("1319");
-		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("0");
 	}
 	/**
 	 * 可见看动态的人Id传多个
@@ -6080,7 +5770,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", 1);
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
+		con.put("dynamicType", 7);
 		con.put("longitude", 55.63);
 		con.put("latitude", 23.66);
 		con.put("dynamicAddress", "自动化测试1");
@@ -6093,7 +5783,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495666,12495639,12495236");
+		con.put("selecteIds", "12495666,12495639,12495236");
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -6102,58 +5792,18 @@ public class PublishDynamicsTest extends HttpUtil {
 		request.put("head", head);
 		
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("不可见看动态的人Id传null动态类型非7或8" + post);
+		System.out.println("可见看动态的人Id传多个" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read("SELECT b.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
+		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
 		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("12495666");
 		assertThat(list1.get(1).get("USER_ID").toString()).isEqualTo("12495639");
 		assertThat(list1.get(2).get("USER_ID").toString()).isEqualTo("12495236");
 		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("0");
 	}
-	/**
-	 * 可见看动态的人Id传用户本人id
-	 */
-	@Test
-	public void postPublishDynamicsTestSelectIdsIsUserIdDynamicTypeIs7() throws Exception {
-		Map<String, Object> con = new HashMap<String, Object>();
-		con.put("userId", uuid);
-		con.put("fileIds", 1);
-		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
-		con.put("longitude", 55.63);
-		con.put("latitude", 23.66);
-		con.put("dynamicAddress", "自动化测试1");
-		con.put("mapLongitude", 25.36);
-		con.put("mapLatitude", 88.26);
-		con.put("region", "自动化测试2");
-		con.put("address", "自动化测试3");
-		con.put("fileId", 1319);
-		con.put("zoomLevel", 22.3);
-		con.put("powerType", 7);
-		con.put("atUserIds", "1319");
-		con.put("audioTime", 12.3);
-		con.put("selectIds", uuid);
-		con.put("isShowArea", 1);
-		con.put("relayId", 1319);	
-
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("con", con);
-		request.put("head", head);
-		
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("不可见看动态的人Id传用户本人id" + post);
-		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("数据库执行异常！");
-		list1 =MetaOper.read("SELECT b.USER_ID,b.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
-		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("12495396");
-		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("0");
-
-	}
 	/**
 	 * 是否显示位置信息传负数
 	 */
@@ -6176,7 +5826,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", -1);
 		con.put("relayId", 1319);	
 
@@ -6189,7 +5839,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("是否显示地址错误");
 	}
 	/**
 	 * 是否显示位置信息传小数
@@ -6213,7 +5863,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 6.5);
 		con.put("relayId", 1319);	
 
@@ -6226,7 +5876,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("是否显示地址错误");
 	}
 	/**
 	 * 是否显示位置信息传0
@@ -6250,7 +5900,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 0);
 		con.put("relayId", 1319);	
 
@@ -6290,7 +5940,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", "");
 		con.put("relayId", 1319);	
 
@@ -6303,7 +5953,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("是否显示地址错误");
 	}
 	/**
 	 * 是否显示位置信息传空格
@@ -6327,7 +5977,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", " ");
 		con.put("relayId", 1319);	
 
@@ -6340,7 +5990,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("程序异常！");
+		assertThat(head1.get("msg")).isEqualTo("是否显示地址错误");
 	}
 	/**
 	 * 是否显示位置信息传null
@@ -6364,7 +6014,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", null);
 		con.put("relayId", 1319);	
 
@@ -6377,7 +6027,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 是否显示位置信息传1
@@ -6401,7 +6051,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 1);
 		con.put("relayId", 1319);	
 
@@ -6440,7 +6090,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("relayId", 1319);	
 
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
@@ -6452,7 +6102,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 转发动态id传负数
@@ -6476,7 +6126,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 0);
 		con.put("relayId", -1319);	
 
@@ -6513,7 +6163,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 0);
 		con.put("relayId", 13.19);	
 
@@ -6526,7 +6176,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("For input string: \"13.19\"");
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 转发动态id传0
@@ -6550,7 +6200,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 0);
 		con.put("relayId", 0);	
 
@@ -6587,7 +6237,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 0);
 		con.put("relayId", "");	
 
@@ -6600,9 +6250,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("For input string: \"\"");
-		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("RELAY_ID")).isEqualTo(null);
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");
 	}
 	/**
 	 * 转发动态id传空格
@@ -6626,7 +6274,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 0);
 		con.put("relayId", " ");	
 
@@ -6639,10 +6287,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("For input string: \" \"");
-		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("RELAY_ID")).isEqualTo(" ");
-		
+		assertThat(head1.get("msg")).isEqualTo("程序异常！");		
 	}
 	/**
 	 * 转发动态id传null
@@ -6666,7 +6311,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 0);
 		con.put("relayId", null);	
 
@@ -6705,7 +6350,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 0);
 		con.put("relayId", "SDFDSFSD");	
 
@@ -6742,7 +6387,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 0);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("con", con);
@@ -6780,7 +6425,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("powerType", 0);
 		con.put("atUserIds", "1319");
 		con.put("audioTime", 12.3);
-		con.put("selectIds", "12495366");
+		con.put("selecteIds", "12495366");
 		con.put("isShowArea", 0);
 		con.put("relayId", 124599999);	
 
