@@ -281,7 +281,7 @@ public class AddCommonLabelTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签ID为负数" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
+		assertThat(post.get("msg")).isEqualTo("标签id格式错误！");
 	}
 	/**
 	 * 标签ID为null
@@ -313,8 +313,7 @@ public class AddCommonLabelTest extends HttpUtil {
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("标签ID为最大值" + post);
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 标签ID为超长

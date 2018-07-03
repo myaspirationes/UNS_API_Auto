@@ -22,7 +22,7 @@ public class SetAndModifyTalantLableTest extends HttpUtil {
 	//添加/编辑达人标签接口
 	String url = "/uu-admin/labelManage/setAndModifyTalantLable";
 	String	delLabel = "DELETE FROM T_TALENT_LABEL WHERE LABEL_NAME IN ('自动化标签','<.!@%^>','',' ')";
-	String selLabel = "SELECT * FROM T_TALENT_LABEL WHERE LABEL_NAME IN ('自动化标签','<.!@%^>','',' ')";
+	String selLabel = "SELECT * FROM T_TALENT_LABEL WHERE LABEL_NAME IN ('自动化标签','<.!@%^>','',' ','自动化标签编辑后')";
 	String dataType = "perCenter81";
 	String userid;
 	List<Map<String,Object>> list ;
@@ -731,7 +731,7 @@ public class SetAndModifyTalantLableTest extends HttpUtil {
 		list = MetaOper.read(selLabel,dataType);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("保存成功");
-		assertThat(list.get(0).get("LABEL_ID").toString()).isEqualTo(body.get("lableID").toString());
+		assertThat(list.get(0).get("LABEL_ID").toString()).isEqualTo(body.get("lableId").toString());
 	}
 	/**
 	 * 标签ID为已存在的编辑
@@ -750,8 +750,8 @@ public class SetAndModifyTalantLableTest extends HttpUtil {
 		System.out.println("标签ID为已存在的编辑" + post);
 		list = MetaOper.read(selLabel,dataType);
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("保存成功");
-		assertThat(list.get(0).get("LABEL_ID").toString()).isEqualTo(body.get("lableID").toString());
+		assertThat(post.get("msg")).isEqualTo("编辑成功");
+		assertThat(list.get(0).get("LABEL_ID").toString()).isEqualTo(body.get("lableId").toString());
 	}
 	/**
 	 * 标签ID为不存在的错误ID

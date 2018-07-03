@@ -138,8 +138,8 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户ID为负数
@@ -442,7 +442,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键词keyWord为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		JSONObject body = (JSONObject)post.get("body");
 		assertThat(body.get("total")).isEqualTo(0);
@@ -1352,7 +1352,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为2隐藏" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -1452,8 +1452,8 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 状态为空格
@@ -1472,8 +1472,8 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 状态为null
@@ -1533,7 +1533,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		System.out.println("状态为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("状态值有误");
 	}
 	/**
 	 * 状态为不传该参数
