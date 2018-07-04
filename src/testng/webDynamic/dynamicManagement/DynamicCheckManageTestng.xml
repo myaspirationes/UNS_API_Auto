@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="动态审核处理接口" >
+	<test name="DynamicCheckManageTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.dynamicManagement.DynamicCheckManageTest">
+		      <methods>
+		          <include name="postDynamicCheckManageTestCorrectParameter"></include>
+		          <include name="postDynamicCheckManageTestUserIdIsDecimal"></include>
+		          <include name="postDynamicCheckManageTestUserIdIsNegativeNumber"></include>
+		          <include name="postDynamicCheckManageTestUserIdIsZero"></include>
+		          <include name="postDynamicCheckManageTestUserIdIsError"></include>
+		          <include name="postDynamicCheckManageTestUserIdNotLoggedIn"></include>
+		          <include name="postDynamicCheckManageTestUserIdIsString"></include>
+		          <include name="postDynamicCheckManageTestUserIdIsNull"></include>
+		          <include name="postDynamicCheckManageTestUserIdIsEmpty"></include>
+		          <include name="postDynamicCheckManageTestUserIdIsSpace"></include>
+		          <include name="postDynamicCheckManageTestUserIdIsLong"></include>
+		          <include name="postDynamicCheckManageTestUserIdNonSubmissionParameters"></include>
+		          <include name="postDynamicCheckManageTestDynamicIdIsError"></include>
+		          <include name="postDynamicCheckManageTestDynamicIdIsNegativeNumber"></include>
+		          <include name="postDynamicCheckManageTestDynamicIdIsDecimal"></include>
+		          <include name="postDynamicCheckManageTestDynamicIdIsString"></include>
+		          <include name="postDynamicCheckManageTestDynamicIdIs0"></include>
+		         <include name=" postDynamicCheckManageTestDynamicIdIsEmpty"></include>
+		          <include name="postDynamicCheckManageTestDynamicIdIsSpace"></include>
+		          <include name="postDynamicCheckManageTestDynamicIdIsNull"></include>
+		          <include name="postDynamicCheckManageTestDynamicIdNonSubmissionParameters"></include>
+		          <include name="postDynamicCheckManageTestDynamicIdIsLong"></include>
+		          <include name="postDynamicCheckManageTestUserNameIsError"></include>
+		          <include name="postDynamicCheckManageTestUserNameIsLong"></include>
+		          <include name="postDynamicCheckManageTestUserNameIsEmpty"></include>
+		          <include name="postDynamicCheckManageTestUserNameIsSpace"></include>
+		          <include name="postDynamicCheckManageTestUserNameIsNull"></include>
+		          <include name="postDynamicCheckManageTestUserNameNonSubmissionParameters"></include>
+		          <include name="postDynamicCheckManageTestDioposeExpiainIsLong"></include>
+		          <include name="postDynamicCheckManageTestDioposeExpiainIsIllegalCharacters"></include>
+		          <include name="postDynamicCheckManageTestDioposeExpiainIsEmpty"></include>
+		          <include name="postDynamicCheckManageTestDioposeExpiainIsSpace"></include>
+		          <include name="postDynamicCheckManageTestDioposeExpiainIsNull"></include>
+		          <include name="postDynamicCheckManageTestDioposeExpiainNonSubmissionParameters"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIsError"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIsEmpty"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIsSpace"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIsNull"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIsString"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIsLong"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIs0"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIs1"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIs2"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIs3"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionNonSubmissionParameters"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIsNegativeNumber"></include>
+		          <include name="postDynamicCheckManageTestDioposeOpinionIsDecimal"></include>
+		          <include name="postDynamicCheckManageTestDioposeOperationIsNegativeNumber"></include>
+		          <include name="postDynamicCheckManageTestDioposeOperationIsDecimal"></include>
+		          <include name="postDynamicCheckManageTestDioposeOperationIsEmpty"></include>
+		          <include name="postDynamicCheckManageTestDioposeOperationIsSpace"></include>
+		          <include name="postDynamicCheckManageTestDioposeOperationIsNull"></include>
+		          <include name="postDynamicCheckManageTestDioposeOperationIsString"></include>
+		          <include name="postDynamicCheckManageTestDioposeOperationIsLong"></include>
+		          <include name="postDynamicCheckManageTestDioposeOperationIs0"></include>
+		          <include name="postDynamicCheckManageTestDioposeOperationIs1"></include>
+		          <include name="postDynamicCheckManageTestDioposeOperationNonSubmissionParameters"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

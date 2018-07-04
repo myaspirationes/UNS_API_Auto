@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取评论详情接口" >
+	<test name="GetCommentdetailTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.commentManagement.GetCommentdetailTest">
+		      <methods>
+		          <include name="postGetCommentdetailTestCorrectParameter"></include>
+		          <include name="postGetCommentdetailCommentIdIsNegativeNumber"></include>
+		          <include name="postGetCommentdetailCommentIdIsError"></include>
+		          <include name="postGetCommentdetailCommentIdIsDecimal"></include>
+		          <include name="postGetCommentdetailCommentIdIsString"></include>
+		          <include name="postGetCommentdetailCommentIdIs0"></include>
+		          <include name="postGetCommentdetailCommentIdIsEmpty"></include>
+		          <include name="postGetCommentdetailCommentIdIsSpace"></include>
+		          <include name="postGetCommentdetailCommentIdIsNull"></include>
+		          <include name="postGetCommentdetailCommentIdNonSubmissionParameters"></include>
+		          <include name="postGetCommentdetailCommentIdIsLong"></include>
+		          <include name="postGetCommentdetailCategoryIsNegativeNumber"></include>
+		          <include name="postGetCommentdetailCategoryIsDecimal"></include>
+		          <include name="postGetCommentdetailCategoryIsEmpty"></include>
+		          <include name="postGetCommentdetailCategoryIsSpace"></include>
+		          <include name="postGetCommentdetailcategoryIsNull"></include>
+		          <include name="postGetCommentdetailCategoryIs0"></include>
+		          <include name="postGetCommentdetailCategorysString"></include>
+		          <include name="postGetCommentdetailCategoryIsError"></include>
+		          <include name="postGetCommentdetailCategoryIsMax"></include>
+		          <include name="postGetCommentdetailCategoryIs1"></include>
+		          <include name="postGetCommentdetailCategoryIs2"></include>
+		          <include name="postGetCommentdetailCategoryIs3"></include>
+		          <include name="postGetCommentdetailCategoryIs4"></include>
+		          <include name="postGetCommentdetailClassifyIs1"></include>
+		          <include name="postGetCommentdetailClassifyIs2"></include>
+		          <include name="postGetCommentdetailClassifyIs3"></include>
+		          <include name="postGetCommentdetailClassifyIs4"></include>
+		          <include name="postGetCommentdetailClassifyIs5"></include>
+		          <include name="postGetCommentdetailClassifyIsNegativeNumber"></include>
+		          <include name="postGetCommentdetailClassifyIsSpace"></include>
+		          <include name="postGetCommentdetailClassifyIsEmpty"></include>
+		          <include name="postGetCommentdetailClassifyIsNull"></include>
+		          <include name="postGetCommentdetailClassifyIsError"></include>
+		          <include name="postGetCommentdetailClassifyIsMax"></include>
+		          <include name="postGetCommentdetailCclassifyNonSubmissionParameters"></include>
+		          <include name="postGetCommentdetailClassifyIs0"></include>
+		          
+		          
+		         
+		          
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

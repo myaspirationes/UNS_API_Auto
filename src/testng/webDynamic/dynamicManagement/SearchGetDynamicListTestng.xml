@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="搜索获取动态列表接口" >
+	<test name="SearchGetDynamicListTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.dynamicManagement.SearchGetDynamicListTest">
+		      <methods>
+		          <include name="postSearchGetDynamicListTestTypeCorrectParameter"></include>
+		          <include name="postSearchGetDynamicListTestUserIdIsNotLoggedIn"></include>
+		          <include name="postSearchGetDynamicListTestUserIdIsError"></include>
+		          <include name="postSearchGetDynamicListTestUserIdIsIllegalCharacters"></include>
+		          <include name="postSearchGetDynamicListTestUserIdIsDecimal"></include>
+		          <include name="postSearchGetDynamicListTestUserIdIsNegativeNumberr"></include>
+		          <include name="postSearchGetDynamicListTestUserIdIsSpace"></include>
+		          <include name="postSearchGetDynamicListTestUserIdIsEmpty"></include>
+		          <include name="postSearchGetDynamicListTestUserIdIsNull"></include>
+		          <include name="postSearchGetDynamicListTestUserIdIsLong"></include>
+		          <include name="postSearchGetDynamicListTestUserIdIs0"></include>
+		          <include name="postSearchGetDynamicListTestUserIdNonSubmissionParameters"></include>
+		          <include name="postSearchGetDynamicListTestNickNameIsLong"></include>
+		          <include name="postSearchGetDynamicListTestNickNameIsIllegalCharacters"></include>
+		          <include name="postSearchGetDynamicListTestNickNameIsEmpty"></include>
+		          <include name="postSearchGetDynamicListTestNickNameIsSpace"></include>
+		          <include name="postSearchGetDynamicListTestNickNameIsnull"></include>
+		          <include name="postSearchGetDynamicListTestNickNameNonSubmissionParameters"></include>
+		          <include name="postSearchGetDynamicListTestKeyWordIsLong"></include>
+		          <include name="postSearchGetDynamicListTestKeyWordIsIllegalCharacters"></include>
+		          <include name="postSearchGetDynamicListTestKeyWordIsEmpty"></include>
+		          <include name="postSearchGetDynamicListTestKeyWordIsSpace"></include>
+		          <include name="postSearchGetDynamicListTestKeyWordNonSubmissionParameters"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsLong"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsMoreoperateEndTime"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsTimeStamp"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsEmpty"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsSpace"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsNull"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsNegativeNumber"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsDecimal"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsYMD"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsHMS"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsLeapYear2Mon29"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsNotLeapYear2Mon29"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsNumber"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsErrorFormat"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeNonSubmissionParameters"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsYMDMax"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsYMDMin"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsHMSMax"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsHMSMin"></include>
+		          <include name="postSearchGetDynamicListTestOperateStartTimeIsYMDHMS"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsLong"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsTimeStamp"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsEmpty"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsSpace"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsNull"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsNegativeNumber"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsDecimal"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsYMD"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsHMS"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsLeapYear2Mon29"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsNotLeapYear2Mon29"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsErrorFormat"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsNumber"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeNonSubmissionParameters"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsYMDMax"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsYMDMin"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsHMSMax"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsHMSMin"></include>
+		          <include name="postSearchGetDynamicListTestOperateEndTimeIsYMDHMS"></include>
+		          <include name="postSearchGetDynamicListTestStatusIs0"></include>
+		          <include name="postSearchGetDynamicListTestStatusIs1"></include>
+		          <include name="postSearchGetDynamicListTestStatusIs2"></include>
+		          <include name="postSearchGetDynamicListTestStatusIsAll"></include>
+		          <include name="postSearchGetDynamicListTestStatusIsError"></include>
+		          <include name="postSearchGetDynamicListTestStatusIsNegativeNumber"></include>
+		          <include name="postSearchGetDynamicListTestStatusIsDecimal"></include>
+		          <include name="postSearchGetDynamicListTestStatusIsEmpty"></include>
+		          <include name="postSearchGetDynamicListTestStatusIsSpace"></include>
+		          <include name="postSearchGetDynamicListTestStatusIsNull"></include>
+		          <include name="postSearchGetDynamicListTestStatusIsString"></include>
+		          <include name="postSearchGetDynamicListTestStatusIsMax"></include>
+		          <include name="postSearchGetDynamicListTestStatusNonSubmissionParameters"></include>
+		          <include name="postSearchGetDynamicListTestPageSizeIs0"></include>
+		          <include name="postSearchGetDynamicListTestPageSizeIsLong"></include>
+		          <include name="postSearchGetDynamicListTestPageSizeIsNegativeNumber"></include>
+		          <include name="postSearchGetDynamicListTestPageSizeIsDecimal"></include>
+		          <include name="postSearchGetDynamicListTestPageSizeIsString"></include>
+		          <include name="postSearchGetDynamicListTestPageSizeIsSpace"></include>
+		          <include name="postSearchGetDynamicListTestPageSizeIsEmpty"></include>
+		          <include name="postSearchGetDynamicListTestPageSizeIsNull"></include>
+		          <include name="postSearchGetDynamicListTestPageSizeNonSubmissionParameters"></include>
+		          <include name="postSearchGetDynamicListTestPageNowIsNegativeNumber"></include>
+		          <include name="postSearchGetDynamicListTestPageNowIsDecimal"></include>
+		          <include name="postSearchGetDynamicListTestPageNowIsString"></include>
+		          <include name="postSearchGetDynamicListTestPageNowIsSpace"></include>
+		          <include name="postSearchGetDynamicListTestPageNowIsEmpty"></include>
+		          <include name="postSearchGetDynamicListTestPageNowIsNull"></include>
+		          <include name="postSearchGetDynamicListTestPageNowIsLong"></include>
+		          <include name="postSearchGetDynamicListTestPageNowNonSubmissionParameters"></include>
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

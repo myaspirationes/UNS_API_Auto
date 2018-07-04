@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="处理评论接口" >
+	<test name="DisposeCommentTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.commentManagement.DisposeCommentTest">
+		      <methods>
+		          <include name="postDisposeCommentTestCorrectParameter"></include>
+		          <include name="postDisposeCommentTestCommentIdIsNegativeNumber"></include>
+		          <include name="postDisposeCommentTestCommentIdIsError"></include>
+		          <include name="postDisposeCommentTestCommentIdIsDecimal"></include>
+		          <include name="postDisposeCommentTestCommentIdIsString"></include>
+		          <include name="postDisposeCommentTestCommentIdIs0"></include>
+		          <include name="postDisposeCommentTestCommentIdIsEmpty"></include>
+		          <include name="postDisposeCommentTestCommentIdIsSpace"></include>
+		          <include name="postDisposeCommentTestCommentIdIsNull"></include>
+		          <include name="postDisposeCommentTestCommentIdNonSubmissionParameters"></include>
+		          <include name="postDisposeCommentTestCommentIdIsLong"></include>
+		          <include name="postDisposeCommentTestCategoryIsNegativeNumber"></include>
+		          <include name="postDisposeCommentTestCategoryIsDecimal"></include>
+		          <include name="postDisposeCommentTestCategoryIsEmpty"></include>
+		          <include name="postDisposeCommentTestCategoryIsSpace"></include>
+		          <include name="postDisposeCommentTestCategoryIsNull"></include>
+		          <include name="postDisposeCommentTestCategoryIs0"></include>
+		          <include name="postDisposeCommentTestCategorysString"></include>
+		          <include name="postDisposeCommentTestCategoryIsError"></include>
+		          <include name="postDisposeCommentTestCategoryIsMax"></include>
+		          <include name="postDisposeCommentTestCategoryIs1"></include>
+		          <include name="postDisposeCommentTestCategoryIs2"></include>
+		          <include name="postDisposeCommentTestCategoryIs3"></include>
+		          <include name="postDisposeCommentTestCategoryIs4"></include>
+		          <include name="postDisposeCommentTestClassifyIs1"></include>
+		          <include name="postDisposeCommentTestClassifyIs2"></include>
+		          <include name="postDisposeCommentTestClassifyIs3"></include>
+		          <include name="postDisposeCommentTestClassifyIs4"></include>
+		          <include name="postDisposeCommentTestClassifyIsNegativeNumber"></include>
+		          <include name="postDisposeCommentTestClassifyIsSpace"></include>
+		          <include name="postDisposeCommentTestClassifyIsEmpty"></include>
+		          <include name="postDisposeCommentTestClassifyIsNull"></include>
+		          <include name="postDisposeCommentTestClassifyIsError"></include>
+		          <include name="postDisposeCommentTestClassifyIsMax"></include>
+		          <include name="postDisposeCommentTestClassifyNonSubmissionParameters"></include>
+		          <include name="postDisposeCommentTestClassifyIs0"></include>
+		          <include name="postDisposeCommentTestUserIdNotLoggedIn"></include>
+		          <include name="postDisposeCommentTestUserIdIsError"></include>
+		          <include name="postDisposeCommentTestUserIdIs0"></include>
+		          <include name="postDisposeCommentTestUserIdIsNegativeNumber"></include>
+		          <include name="postDisposeCommentTestUserIdIsDecimal"></include>
+		          <include name="postDisposeCommentTestUserIdIsEmpty"></include>
+		          <include name="postDisposeCommentTestUserIdIsSpace"></include>
+		          <include name="postDisposeCommentTestUserIdIsNull"></include>
+		          <include name="postDisposeCommentTestUserIdIsString"></include>
+		          <include name="postDisposeCommentTestUserIdIsMax"></include>
+		          <include name="postDisposeCommentTestUserIdNonSubmissionParameters"></include>
+		          <include name="postDisposeCommentTestUserNameIsError"></include>
+		          <include name="postDisposeCommentTestUserNameIsLong"></include>
+		          <include name="postDisposeCommentTestUserNameIs0"></include>
+		          <include name="postDisposeCommentTestUserNameIsEmpty"></include>
+		          <include name="postDisposeCommentTestUserNameIsSpace"></include>
+		          <include name="postDisposeCommentTestUserNameIsNull"></include>
+		          <include name="postDisposeCommentTestUserNameNonSubmissionParameters"></include>
+		          <include name="postDisposeCommentTestAuditContentIsLong"></include>
+		          <include name="postDisposeCommentTestAuditContentIsEmpty"></include>
+		          <include name="postDisposeCommentTestAuditContentIsSpace"></include>
+		          <include name="postDisposeCommentTestAuditContentIsNull"></include>
+		          <include name="postDisposeCommentTestAuditContentIsIllegalCharacters"></include>
+		          <include name="postDisposeCommentTestAuditContentNonSubmissionParameters"></include>
+		          <include name="postDisposeCommentTestAuditContentIsEmptyAuditOptionIs1"></include>
+		          <include name="postDisposeCommentTestAuditContentIsSpaceAuditOptionIs1"></include>
+		          <include name="postDisposeCommentTestAuditContentIsNullAuditOptionIs1"></include>
+		          <include name="postDisposeCommentTestAuditContentNonSubmissionParametersAuditOptionIs1"></include>
+		          <include name="postDisposeCommentTestAuditMsgIsError"></include>
+		          <include name="postDisposeCommentTestAuditMsgIsNegativeNumber"></include>
+		          <include name="postDisposeCommentTestAuditMsgIsDecimal"></include>
+		          <include name="postDisposeCommentTestAuditMsgIs0"></include>
+		          <include name="postDisposeCommentTestAuditMsgIsString"></include>
+		          <include name="postDisposeCommentTestAuditMsgIsEmpty"></include>
+		          <include name="postDisposeCommentTestAuditMsgIsSpace"></include>
+		          <include name="postDisposeCommentTestAuditMsgIsNull"></include>
+		          <include name="postDisposeCommentTestAuditMsgIsLong"></include>
+		          <include name="postDisposeCommentTestAuditMsgNonSubmissionParameters"></include>
+		          <include name="postDisposeCommentTestAuditOptionIs0"></include>
+		          <include name="postDisposeCommentTestAuditOptionIs1"></include>
+		          <include name="postDisposeCommentTestAuditOptionIsError"></include>
+		          <include name="postDisposeCommentTestAuditOptionIsNegativeNumber"></include>
+		          <include name="postDisposeCommentTestAuditOptionIsDecimal"></include>
+		          <include name="postDisposeCommentTestAuditOptionIsEmpty"></include>
+		          <include name="postDisposeCommentTestAuditOptionIsSpace"></include>
+		          <include name="postDisposeCommentTestAuditOptionIsNull"></include>
+		          <include name="postDisposeCommentTestAuditOptionIsString"></include>
+		          <include name="postDisposeCommentTestAuditOptionIsMax"></include>
+		          <include name="postDisposeCommentTestAuditOptionNonSubmissionParameters"></include>
+		          <include name="postDisposeCommentTestCommentUserIdIsError"></include>
+		          <include name="postDisposeCommentTestCommentUserIdIsNotLoggedIn"></include>
+		          <include name="postDisposeCommentTestCommentUserIdIsMax"></include>
+		          <include name="postDisposeCommentTestCommentUserIdIsEmpty"></include>
+		          <include name="postDisposeCommentTestCommentUserIdIsSpace"></include>
+		          <include name="postDisposeCommentTestCommentUserIdIsNull"></include>
+		          <include name="postDisposeCommentTestCommentUserIdIs0"></include>
+		          <include name="postDisposeCommentTestCommentUserIdIsNegativeNumber"></include>
+		          <include name="postDisposeCommentTestCommentUserIdIsDecimal"></include>
+		          <include name="postDisposeCommentTestCommentUserIdIsString"></include>
+		          <include name="postDisposeCommentTestCommentUserIdNonSubmissionParameters"></include>
+		          
+		         
+		          
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

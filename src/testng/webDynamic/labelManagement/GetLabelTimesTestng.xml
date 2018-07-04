@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取年代列表接口" >
+	<test name="GetLabelTimesTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.labelManagement.GetLabelTimesTest">
+		      <methods>
+		          <include name="postGetLabelTimesTestCorrectParameter"></include>
+		          <include name="postGetLabelTimesTestUserIdNotLoggedIn"></include>
+		          <include name="postGetLabelTimesTestUserIdIsError"></include>
+		          <include name="postGetLabelTimesTestUserIdIllegalCharacters"></include>
+		          <include name="postGetLabelTimesTestUserIdIsDecimal"></include>
+		          <include name="postGetLabelTimesTestUserIdIsNegativeNumber"></include>
+		          <include name="postGetLabelTimesTestUserIdIsSpace"></include>
+		          <include name="postGetLabelTimesTestUserIdIsNull"></include>
+		          <include name="postGetLabelTimesTestUserIdIsLong"></include>
+		          <include name="postGetLabelTimesTestUserIdIsString"></include>
+		          <include name="postGetLabelTimesTestUserIdIsZero"></include>
+		          <include name="postGetLabelTimesTestUserIdIsEmpty"></include>
+		          <include name="postGetLabelTimesTestUserIdNonSubmissionParameters"></include>
+		          
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

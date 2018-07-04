@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取投诉列表接口" >
+	<test name="GetComplaintListTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.complaintManagement.GetComplaintListTest">
+		      <methods>
+		          <include name="postGetComplaintListTestCorrectParameter"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsComment"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsDynamic"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsCommodity"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsOrders"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsCommunities"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsUser"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsError"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsDecimal"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsNegativeNumber"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsEmpty"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsSpace"></include>
+		          <include name="postGetComplaintListTestFunctionCategoryIsNull"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeGreaterThanComplaintEndTime"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsTimeStamp"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsYMD"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsYMDMax"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsYMDMin"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsHMS"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsHMSMax"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsHMSMin"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsYMDHMS"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsYMDHMSMax"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsYMDHMSMin"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeRemoveTheFormat"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsString"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsEmpty"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsSpace"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsNull"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsDecimal"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsNegativeNumber"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeIsZero"></include>
+		          <include name="postGetComplaintListTestComplaintStartTimeNonSubmissionParameters"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsTimeStamp"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsYMD"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsYMDMax"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsYMDMin"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsHMS"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsHMSMax"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsHMSMin"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsYMDHMS"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsYMDHMSMax"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsYMDHMSMin"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeRemoveTheFormat"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsString"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsEmpty"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsSpace"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsNull"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsDecimal"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsNegativeNumber"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeIsZero"></include>
+		          <include name="postGetComplaintListTestComplaintEndTimeNonSubmissionParameters"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesIsElectricitySupplier"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesIsCommodity"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesIsSocial"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesIsNegativeNumber"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesIsDecimal"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesIsString"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesIsEmpty"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesIsSpace"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesIsNull"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesIsMax"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesIsLong"></include>
+		          <include name="postGetComplaintListTestBusinessCategoriesNonSubmissionParameters"></include>
+		          <include name="postGetComplaintListTestStatusIsProcessed"></include>
+		          <include name="postGetComplaintListTestStatusIsUnprocessed"></include>
+		          <include name="postGetComplaintListTestStatusIsError"></include>
+		          <include name="postGetComplaintListTestStatusIsDecimal"></include>
+		          <include name="postGetComplaintListTestStatusIsNegativeNumber"></include>
+		          <include name="postGetComplaintListTestStatusIsString"></include>
+		          <include name="postGetComplaintListTestStatusIsMax"></include>
+		          <include name="postGetComplaintListTestStatusIsLong"></include>
+		          <include name="postGetComplaintListTestStatusIsSpace"></include>
+		          <include name="postGetComplaintListTestStatusIsEmpty"></include>
+		          <include name="postGetComplaintListTestStatusIsNull"></include>
+		          <include name="postGetComplaintListTestStatusNonSubmissionParameters"></include>
+		          <include name="postGetComplaintListTestComplaintObjectIsLong"></include>
+		          <include name="postGetComplaintListTestComplaintObject"></include>
+		          <include name="postGetComplaintListTestComplaintObjectIsEmpty"></include>
+		          <include name="postGetComplaintListTestComplaintObjectIsSpace"></include>
+		          <include name="postGetComplaintListTestComplaintObjectIsNull"></include>
+		          <include name="postGetComplaintListTestComplaintObjectNonSubmissionParameters"></include>
+		          <include name="postGetComplaintListTestKeyWordIsLong"></include>
+		          <include name="postGetComplaintListTestKeyWordIllegalCharacters"></include>
+		          <include name="postGetComplaintListTestKeyWordIsEmpty"></include>
+		          <include name="postGetComplaintListTestKeyWordIsSpace"></include>
+		          <include name="postGetComplaintListTestKeyWordIsNull"></include>
+		          <include name="postGetComplaintListTestKeyWordNonSubmissionParameters"></include>
+		          <include name="postGetComplaintListTestPageNowIsDecimal"></include>
+		          <include name="postGetComplaintListTestPageNowIsNegativeNumber"></include>
+		          <include name="postGetComplaintListTestPageNowIsString"></include>
+		          <include name="postGetComplaintListTestPageNowIsZero"></include>
+		          <include name="postGetComplaintListTestPageNowIsMax"></include>
+		          <include name="postGetComplaintListTestPageNowIsLong"></include>
+		          <include name="postGetComplaintListTestPageNowIsEmpty"></include>
+		          <include name="postGetComplaintListTestPageNowIsSpace"></include>
+		          <include name="postGetComplaintListTestPageNowIsNull"></include>
+		          <include name="postGetComplaintListTestPageNowNonSubmissionParameters"></include>
+		          <include name="postGetComplaintListTestPageSizeIsDecimal"></include>
+		          <include name="postGetComplaintListTestPageSizeIsNegativeNumber"></include>
+		          <include name="postGetComplaintListTestPageSizeIsString"></include>
+		          <include name="postGetComplaintListTestPageSizeIsZero"></include>
+		          <include name="postGetComplaintListTestPageSizeIsMax"></include>
+		          <include name="postGetComplaintListTestPageSizeIsLong"></include>
+		          <include name="postGetComplaintListTestPageSizeIsEmpty"></include>
+		          <include name="postGetComplaintListTestPageSizeIsSpace"></include>
+		          <include name="postGetComplaintListTestPageSizeIsNull"></include>
+		          <include name="postGetComplaintListTestPageSizeNonSubmissionParameters"></include>
+		          <include name="postGetComplaintListTestOperateUserIdNotLoggedIn"></include>
+		          <include name="postGetComplaintListTestOperateUserIdIsError"></include>
+		          <include name="postGetComplaintListTestOperateUserIdIsLong"></include>
+		          <include name="postGetComplaintListTestOperateUserIdIsString"></include>
+		          <include name="postGetComplaintListTestOperateUserIdIsDecimal"></include>
+		          <include name="postGetComplaintListTestOperateUserIdIsNegativeNumber"></include>
+		          <include name="postGetComplaintListTestOperateUserIdIsZero"></include>
+		          <include name="postGetComplaintListTestOperateUserIdIsSpace"></include>
+		          <include name="postGetComplaintListTestOperateUserIdIsEmpty"></include>
+		          <include name="postGetComplaintListTestOperateUserIdIsNull"></include>
+		          <include name="postGetComplaintListTestOperateUserIdNonSubmissionParameters"></include>
+		         
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

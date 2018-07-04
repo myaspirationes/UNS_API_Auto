@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="投诉信息处理接口" >
+	<test name="ProcessComplaintTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.complaintManagement.ProcessComplaintTest">
+		      <methods>
+		          <include name="postProcessComplaintTestCorrectParameter"></include>
+		          <include name="postProcessComplaintTestUserIdNotLoggedIn"></include>
+		          <include name="postProcessComplaintTestUserIdIsError"></include>
+		          <include name="postProcessComplaintTestUserIdIllegalCharacters"></include>
+		          <include name="postProcessComplaintTestUserIdIsDecimal"></include>
+		          <include name="postProcessComplaintTestUserIdIsNegativeNumber"></include>
+		          <include name="postProcessComplaintTestUserIdIsSpace"></include>
+		          <include name="postProcessComplaintTestUserIdIsNull"></include>
+		          <include name="postProcessComplaintTestUserIdIsLong"></include>
+		          <include name="postProcessComplaintTestUserIdIsString"></include>
+		          <include name="postProcessComplaintTestUserIdIsZero"></include>
+		          <include name="postProcessComplaintTestUserIdIsEmpty"></include>
+		          <include name="postProcessComplaintTestUserIdNonSubmissionParameters"></include>
+		          <include name="postProcessComplaintTestComplaintsNOIsLong"></include>
+		          <include name="postProcessComplaintTestComplaintsNOIsDecimal"></include>
+		          <include name="postProcessComplaintTestComplaintsNOIsNegativeNumber"></include>
+		          <include name="postProcessComplaintTestComplaintsNOIsZero"></include>
+		          <include name="postProcessComplaintTestComplaintsNOIsString"></include>
+		          <include name="postProcessComplaintTestComplaintsNOIsSpace"></include>
+		          <include name="postProcessComplaintTestComplaintsNOIsEmpty"></include>
+		          <include name="postProcessComplaintTestComplaintsNONonExistent"></include>
+		          <include name="postProcessComplaintTestComplaintsNOIsNull"></include>
+		          <include name="postProcessComplaintTestComplaintsNONonSubmissionParameters"></include>
+		          <include name="postProcessComplaintTestProcessPeopleIsLong"></include>
+		          <include name="postProcessComplaintTestProcessPeopleIllegalCharacters"></include>
+		          <include name="postProcessComplaintTestProcessPeopleIsEmpty"></include>
+		          <include name="postProcessComplaintTestProcessPeopleIsSpace"></include>
+		          <include name="postProcessComplaintTestProcessPeopleIsNull"></include>
+		          <include name="postProcessComplaintTestProcessPeopleNonSubmissionParameters"></include>
+		          <include name="postProcessComplaintTestProcessInstructionsIsLong"></include>
+		          <include name="postProcessComplaintTestProcessInstructionsIsEmpty"></include>
+		          <include name="postProcessComplaintTestProcessInstructionsIsSpace"></include>
+		          <include name="postProcessComplaintTestProcessInstructionsIsNull"></include>
+		          <include name="postProcessComplaintTestProcessInstructionsIllegalCharacters"></include>
+		          <include name="postProcessComplaintTestProcessInstructionsNonSubmissionParameters"></include>
+		          <include name="postProcessComplaintTestProcessOpinionIsError"></include>
+		          <include name="postProcessComplaintTestProcessOpinionIsNegativeNumber"></include>
+		          <include name="postProcessComplaintTestProcessOpinionIsDecimal"></include>
+		          <include name="postProcessComplaintTestProcessOpinionIsZero"></include>
+		         <include name="postProcessComplaintTestProcessOpinionIsString"></include>
+		         <include name="postProcessComplaintTestProcessOpinionIsEmpty"></include>
+		         <include name="postProcessComplaintTestProcessOpinionIsSpace"></include>
+		         <include name="postProcessComplaintTestProcessOpinionIsNull"></include>
+		         <include name="postProcessComplaintTestProcessOpinionIsMax"></include>
+		         <include name="postProcessComplaintTestProcessOpinionIsLong"></include>
+		         <include name="postProcessComplaintTestProcessOpinionNonSubmissionParameters"></include>
+		         <include name="postProcessComplaintTestProcessOpinionNotYetProcessed"></include>
+		         <include name="postProcessComplaintTestProcessOpinionNoComment"></include>
+		         <include name="postProcessComplaintTestProcessOpinionNoTrading"></include>
+		         <include name="postProcessComplaintTestProcessOpinionProposeToProhibitPublicationOfNews"></include>
+		         <include name="postProcessComplaintTestProcessOpinionSuggestedTitle"></include>
+		         <include name="postProcessComplaintTestProcessOpinionSuggestedTitle"></include>
+		         <include name="postProcessComplaintTestProcessOperateNormal"></include>
+		         <include name="postProcessComplaintTestProcessOperateHide"></include>
+		         <include name="postProcessComplaintTestProcessOperateNotYetProcessed"></include>
+		         <include name="postProcessComplaintTestProcessOperateProductShelves"></include>
+		         <include name="postProcessComplaintTestProcessOperateNoComment"></include>
+		         <include name="postProcessComplaintTestProcessOperateNoTrading"></include>
+		         <include name="postProcessComplaintTestProcessOperateProposeToProhibitPublicationOfNews"></include>
+		         <include name="postProcessComplaintTestProcessOperateProposedBan"></include>
+		         <include name="postProcessComplaintTestProcessOperateInconsistentThanProcessOpinion"></include>
+		         <include name="postProcessComplaintTestProcessOperateIsDecimal"></include>
+		         <include name="postProcessComplaintTestProcessOperateIsNegativeNumber"></include>
+		         <include name="postProcessComplaintTestProcessOperateIsEmpty"></include>
+		         <include name="postProcessComplaintTestProcessOperateIsSpace"></include>
+		         <include name="postProcessComplaintTestProcessOperateIsMax"></include>
+		         <include name="postProcessComplaintTestProcessOperateIsLong"></include>
+		         <include name="postProcessComplaintTestProcessOperateIsNull"></include>
+		         <include name="postProcessComplaintTestProcessOperateNonSubmissionParameters"></include>
+		         
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取标签管理列表接口" >
+	<test name="QueryLabelListTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.labelManagement.QueryLabelListTest">
+		      <methods>
+		          <include name="postQueryLabelListTestCorrectParameter"></include>
+		          <include name="postQueryLabelListTestUserIdNotLoggedIn"></include>
+		          <include name="postQueryLabelListTestUserIdIsError"></include>
+		          <include name="postQueryLabelListTestUserIdIllegalCharacters"></include>
+		          <include name="postQueryLabelListTestUserIdIsDecimal"></include>
+		          <include name="postQueryLabelListTestUserIdIsNegativeNumber"></include>
+		          <include name="postQueryLabelListTestUserIdIsSpace"></include>
+		          <include name="postQueryLabelListTestUserIdIsNull"></include>
+		          <include name="postQueryLabelListTestUserIdIsLong"></include>
+		          <include name="postQueryLabelListTestUserIdIsString"></include>
+		          <include name="postQueryLabelListTestUserIdIsZero"></include>
+		          <include name="postQueryLabelListTestUserIdIsEmpty"></include>
+		          <include name="postQueryLabelListTestUserIdNonSubmissionParameters"></include>
+		          <include name="postQueryLabelListTestTypeIsConstellation"></include>
+		          <include name="postQueryLabelListTestTypeIsSignOfTheZodiac"></include>
+		          <include name="postQueryLabelListTestTypeIsTime"></include>
+		          <include name="postQueryLabelListTestTypeIsOrdinary"></include>
+		          <include name="postQueryLabelListTestTypeIsError"></include>
+		          <include name="postQueryLabelListTestTypeIsDecimal"></include>
+		          <include name="postQueryLabelListTestTypeIllegalCharacters"></include>
+		          <include name="postQueryLabelListTestTypeIsZero"></include>
+		          <include name="postQueryLabelListTestTypeIsString"></include>
+		          <include name="postQueryLabelListTestTypeIsSpace"></include>
+		          <include name="postQueryLabelListTestTypeIsEmpty"></include>
+		          <include name="postQueryLabelListTestTypeIsNull"></include>
+		          <include name="postQueryLabelListTestTypeIsMax"></include>
+		          <include name="postQueryLabelListTestTypeIsLong"></include>
+		          <include name="postQueryLabelListTestTypeNonSubmissionParameters"></include>
+		          <include name="postQueryLabelListTestLabelNameNotTheSameAsType"></include>
+		          <include name="postQueryLabelListTestLabelNameIsLong"></include>
+		          <include name="postQueryLabelListTestLabelNameIllegalCharacters"></include>
+		          <include name="postQueryLabelListTestLabelNameIsEmpty"></include>
+		          <include name="postQueryLabelListTestLabelNameIsSpace"></include>
+		          <include name="postQueryLabelListTestLabelNameIsNull"></include>
+		          <include name="postQueryLabelListTestLabelNameNonSubmissionParameters"></include>
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

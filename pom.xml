@@ -285,9 +285,46 @@
 						<suiteXmlFile>./src/testng/publicModule/userManagement/LockUserTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/publicModule/userManagement/SearchGetUsersListTestng.xml</suiteXmlFile>
 						<suiteXmlFile>./src/testng/publicModule/userManagement/UnLockedUserTestng.xml</suiteXmlFile>
+						<!--APP动态模块 -->
+						<suiteXmlFile>./src/testng/appDynamic/DeleteCommentTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/DynamicCommentTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/DynamicListUnderPostcardTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/DynamicRemarkTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/DynamicsAndCommentsTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/GetAListOfReportReasonsTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/GetDynamicDetailsTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/GetEvaluateListTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/GetLaudListTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/HomeDynamicListsTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/MyDynamicListsTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/PublishDynamicsTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/appDynamic/ReportDynamicsOrCommentsTestng.xml</suiteXmlFile>
+						<!--WEB动态模块 -->
+						<suiteXmlFile>./src/testng/webDynamic/commentManagement/DisposeCommentTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/commentManagement/GetCommentdetailTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/commentManagement/SearchGetCommentListTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/complaintManagement/GetComplainDetailTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/complaintManagement/GetComplaintListTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/complaintManagement/ProcessComplaintTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/complaintReasonManagement/AddAndEditComplainListng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/complaintReasonManagement/DeleteComplainReasonng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/complaintReasonManagement/SearchGetComplaintsListng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/dynamicManagement/DynamicCheckManageTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/dynamicManagement/GetDynamicDetailsTestmg.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/dynamicManagement/SearchGetDynamicListTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/labelManagement/AddCommonLabelTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/labelManagement/DeleteLabelTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/labelManagement/GetLabelSettingTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/labelManagement/GetLabelTimesTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/labelManagement/QueryLabelListTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/labelManagement/SetAndModifyTalantLableTestng.xml</suiteXmlFile>
+						<suiteXmlFile>./src/testng/webDynamic/labelManagement/SetLabelSettingLableTestng.xml</suiteXmlFile>
+
 						
-
-
+						
+						
+						
+						
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

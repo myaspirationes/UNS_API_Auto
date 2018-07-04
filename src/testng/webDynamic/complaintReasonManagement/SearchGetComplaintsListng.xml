@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="搜索获取投诉原因列表接口" >
+	<test name="SearchGetComplaintsList" >
+		<classes>
+		  
+		   <class name="com.webDynamic.complaintManagement.SearchGetComplaintsList">
+		      <methods>
+		          <include name="postSearchGetComplaintsListTestCategoryIs0"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIs1"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIs2"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIs3"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIs4"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIs5"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIs6"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIs7"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIsNegtive"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIsString"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIsIllegalCharacter"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIsLong"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIsDecimal"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIsSpace"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIsEmpty"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryIsNull"></include>
+		          <include name="postSearchGetComplaintsListTestCategoryNotCommitted"></include>
+		          <include name="postSearchGetComplaintsListTestReasonIsIllegalCharacter"></include>
+		          <include name="postSearchGetComplaintsListTestReasonIsInt"></include>
+		          <include name="postSearchGetComplaintsListTestReasonIsLong"></include>
+		          <include name="postSearchGetComplaintsListTestReasonIsSpace"></include>
+		          <include name="postSearchGetComplaintsListTestReasonIsEmpty"></include>
+		          <include name="postSearchGetComplaintsListTestReasonIsNull"></include>
+		          <include name="postSearchGetComplaintsListTestReasonNotCommitted"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdIsError"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdIsNotLogin"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdIsZero"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdIsNegative"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdIsDecimal"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdIsString"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdIsIllegalCharacter"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdIsLong"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdIsSpace"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdIsEmpty"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdIsNull"></include>
+		          <include name="postSearchGetComplaintsListTestUserIdNotCommitted"></include>
+		          <include name="postSearchGetComplaintsListTestbeginCreateDateIsErrorFormat"></include>
+		          <include name="postSearchGetComplaintsListTestbeginCreateDateIsTimestamp"></include>
+		          <include name="postSearchGetComplaintsListTestbeginCreateDateIsIllegalCharacter"></include>
+		          <include name="postSearchGetComplaintsListTestbeginCreateDateIsLong"></include>
+		          <include name="postSearchGetComplaintsListTestbeginCreateDateIsInt"></include>
+		          <include name="postSearchGetComplaintsListTestbeginCreateDateIsSpace"></include>
+		          <include name="postSearchGetComplaintsListTestbeginCreateDateIsEmpty"></include>
+		          <include name="postSearchGetComplaintsListTestbeginCreateDateIsNull"></include>
+		          <include name="postSearchGetComplaintsListTestbeginCreateDateNotCommitted"></include>
+		          <include name="postSearchGetComplaintsListTestendCreateDateIsErrorFormat"></include>
+		          <include name="postSearchGetComplaintsListTestendCreateDateIsTimestamp"></include>
+		          <include name="postSearchGetComplaintsListTestendCreateDateIsIllegalCharacter"></include>
+		          <include name="postSearchGetComplaintsListTestendCreateDateIsLong"></include>
+		          <include name="postSearchGetComplaintsListTestendCreateDateIsSpace"></include>
+		          <include name="postSearchGetComplaintsListTestendCreateDateIsEmpty"></include>
+		          <include name="postSearchGetComplaintsListTestendCreateDateIsNull"></include>
+		          <include name="postSearchGetComplaintsListTestendCreateDateNotCommitted"></include>
+		          <include name="postSearchGetComplaintsListTestPageSizeIs10000"></include>
+		          <include name="postSearchGetComplaintsListTestPageSizeIsString"></include>
+		          <include name="postSearchGetComplaintsListTestPageSizeIsNegative"></include>
+		          <include name="postSearchGetComplaintsListTestPageSizeIsDecimal"></include>
+		          <include name="postSearchGetComplaintsListTestPageSizeIsZero"></include>
+		          <include name="postSearchGetComplaintsListTestPageSizeIsIllegalCharacter"></include>
+		          <include name="postSearchGetComplaintsListTestPageSizeIsLong"></include>
+		          <include name="postSearchGetComplaintsListTestPageSizeIsEmpty"></include>
+		          <include name="postSearchGetComplaintsListTestPageSizeIsSpace"></include>
+		          <include name="postSearchGetComplaintsListTestPageSizeIsNull"></include>
+		          <include name="postSearchGetComplaintsListTestPageSizeNotCommitted"></include>
+		          <include name="postSearchGetComplaintsListTestPageNowIs10000"></include>
+		          <include name="postSearchGetComplaintsListTestPageNowIsString"></include>
+		          <include name="postSearchGetComplaintsListTestPageNowIsDecimal"></include>
+		          <include name="postSearchGetComplaintsListTestPageNowIsNegative"></include>
+		          <include name="postSearchGetComplaintsListTestPageNowIsZero"></include>
+		          <include name="postSearchGetComplaintsListTestPageNowIsIllegalCharacter"></include>
+		          <include name="postSearchGetComplaintsListTestPageNowIsLong"></include>
+		          <include name="postSearchGetComplaintsListTestPageNowIsSpace"></include>
+		          <include name="postSearchGetComplaintsListTestPageNowIsNull"></include>
+		          <include name="postSearchGetComplaintsListTestPageNowNotCommitted"></include>
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

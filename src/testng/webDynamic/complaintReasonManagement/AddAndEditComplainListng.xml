@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="添加/编辑投诉原因接口" >
+	<test name="AddAndEditComplainList" >
+		<classes>
+		  
+		   <class name="com.webDynamic.complaintManagement.AddAndEditComplainList">
+		      <methods>
+		          <include name="postAddAndEditComplainListTestTypeIs0"></include>
+		          <include name="postAddAndEditComplainListTestTypeIs1"></include>
+		          <include name="postAddAndEditComplainListTestTypeIs2"></include>
+		          <include name="postAddAndEditComplainListTestTypeIs3"></include>
+		          <include name="postAddAndEditComplainListTestTypeIs4"></include>
+		          <include name="postAddAndEditComplainListTestTypeIs5"></include>
+		          <include name="postAddAndEditComplainListTestTypeIsError"></include>
+		          <include name="postAddAndEditComplainListTestTypeIsNegative"></include>
+		          <include name="postAddAndEditComplainListTestTypeIsString"></include>
+		          <include name="postAddAndEditComplainListTestTypeIsIllegalCharacter"></include>
+		          <include name="postAddAndEditComplainListTestTypeIsLong"></include>
+		          <include name="postAddAndEditComplainListTestTypeIsDecimal"></include>
+		          <include name="postAddAndEditComplainListTestTypeIsSpace"></include>
+		          <include name="postAddAndEditComplainListTestTypeIsEmpty"></include>
+		          <include name="postAddAndEditComplainListTestTypeIsNull"></include>
+		          <include name="postAddAndEditComplainListTestTypeNotCommitted"></include>
+		          <include name="postAddAndEditComplainListTestReasonIsIllegalCharacter"></include>
+		          <include name="postAddAndEditComplainListTestReasonIsInt"></include>
+		          <include name="postAddAndEditComplainListTestReasonIsLong"></include>
+		          <include name="postAddAndEditComplainListTestReasonIsSpace"></include>
+		          <include name="postAddAndEditComplainListTestReasonIsEmpty"></include>
+		          <include name="postAddAndEditComplainListTestReasonIsNull"></include>
+		          <include name="postAddAndEditComplainListTestReasonNotCommitted"></include>
+		          <include name="postAddAndEditComplainListTestUserIdIsError"></include>
+		          <include name="postAddAndEditComplainListTestUserIdIsNotLogin"></include>
+		          <include name="postAddAndEditComplainListTestUserIdIsZero"></include>
+		          <include name="postAddAndEditComplainListTestUserIdIsNegative"></include>
+		          <include name="postAddAndEditComplainListTestUserIdIsDecimal"></include>
+		          <include name="postAddAndEditComplainListTestUserIdIsString"></include>
+		          <include name="postAddAndEditComplainListTestUserIdIsIllegalCharacter"></include>
+		          <include name="postAddAndEditComplainListTestUserIdIsLong"></include>
+		          <include name="postAddAndEditComplainListTestUserIdIsSpace"></include>
+		          <include name="postAddAndEditComplainListTestUserIdIsEmpty"></include>
+		          <include name="postAddAndEditComplainListTestUserIdIsNull"></include>
+		          <include name="postAddAndEditComplainListTestUserIdNotCommitted"></include>
+		          <include name="postAddAndEditComplainListTestReasonIdIs1"></include>
+		          <include name="postAddAndEditComplainListTestReasonIdIsError"></include>
+		          <include name="postAddAndEditComplainListTestReasonIdIsString"></include>
+		          <include name="postAddAndEditComplainListTestReasonIdIsNegative"></include>
+		          <include name="postAddAndEditComplainListTestReasonIdIsDecimal"></include>
+		          <include name="postAddAndEditComplainListTestReasonIdIsIllegalCharacter"></include>
+		          <include name="postAddAndEditComplainListTestReasonIdIsSpace"></include>
+		          <include name="postAddAndEditComplainListTestReasonIdIsEmpty"></include>
+		          <include name="postAddAndEditComplainListTestReasonIdIsNull"></include>
+		          <include name="postAddAndEditComplainListTestReasonIdNotCommitted"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIs1"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIs2"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIs3"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIs4"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIs5"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIsError"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIsDecimal"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIsNegativeNumber"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIs0"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIsString"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIsEmpty"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIsSpace"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIsNull"></include>
+		          <include name="postAddAndEditComplainListTestCategoryIsNotCommit"></include>
+		         
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

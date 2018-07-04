@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取标签设置接口" >
+	<test name="GetLabelSettingTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.labelManagement.GetLabelSettingTest">
+		      <methods>
+		          <include name="postDeleteLabelTestCorrectParameter"></include>
+		          <include name="postDeleteLabelTestUserIdNotLoggedIn"></include>
+		          <include name="postDeleteLabelTestUserIdIsError"></include>
+		          <include name="postDeleteLabelTestUserIdIllegalCharacters"></include>
+		          <include name="postDeleteLabelTestUserIdIsDecimal"></include>
+		          <include name="postDeleteLabelTestUserIdIsNegativeNumber"></include>
+		          <include name="postDeleteLabelTestUserIdIsSpace"></include>
+		          <include name="postDeleteLabelTestUserIdIsNull"></include>
+		          <include name="postDeleteLabelTestUserIdIsLong"></include>
+		          <include name="postDeleteLabelTestUserIdIsString"></include>
+		          <include name="postDeleteLabelTestUserIdIsZero"></include>
+		          <include name="postDeleteLabelTestUserIdIsEmpty"></include>
+		          <include name="postDeleteLabelTestUserIdNonSubmissionParameters"></include>
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
