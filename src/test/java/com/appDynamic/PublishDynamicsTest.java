@@ -997,7 +997,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list2 =MetaOper.read(selResource,dataType);
+		list2 =MetaOper.read("select b.RELATION_ID from T_DYNAMIC a,T_DYNAMIC_RESOURCES b where a.DYNAMIC_ID = b.DYNAMIC_ID and a.DESCRIPTION = '自动化测试'",dataType);
 		list =MetaOper.read(selectSql,dataType);
 		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
 		assertThat(list2.get(0).get("RELATION_ID")).isEqualTo(null);
@@ -4894,8 +4894,6 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
-		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("0");
 	}
 	/**
 	 * 提醒用户id数组传多个
@@ -5797,7 +5795,7 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC B WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
+		list1 =MetaOper.read("SELECT a.USER_ID,a.TYPE FROM T_DYNAMIC_POWER a,T_DYNAMIC b WHERE a.DYNAMIC_ID = b.DYNAMIC_ID AND b.DESCRIPTION = '自动化测试'",dataType);
 		assertThat(list1.get(0).get("USER_ID").toString()).isEqualTo("12495666");
 		assertThat(list1.get(1).get("USER_ID").toString()).isEqualTo("12495639");
 		assertThat(list1.get(2).get("USER_ID").toString()).isEqualTo("12495236");

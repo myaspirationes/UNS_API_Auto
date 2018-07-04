@@ -631,10 +631,8 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		System.out.println("举报原因id传负数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list2 =MetaOper.read(selectSql2,dataType);
-		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("8");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("reasonId错误");
 	}
 	/**
 	 * 举报原因id传错误
@@ -658,9 +656,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list2 =MetaOper.read(selectSql2,dataType);
-		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("8");
+		assertThat(head1.get("msg")).isEqualTo("reasonId错误");
 	}
 	/**
 	 * 举报原因id传小数
@@ -683,11 +679,8 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		System.out.println("举报原因id传小数" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list2 =MetaOper.read(selectSql2,dataType);
-		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("10");
-
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("reasonId错误");
 	}
 	/**
 	 * 举报原因id传0
@@ -710,10 +703,8 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		System.out.println("举报原因id传0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 	
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("成功");
-		list2 =MetaOper.read(selectSql2,dataType);
-		assertThat(list2.get(0).get("REASON_TYPE").toString()).isEqualTo("0");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("reasonId错误");
 	}
 	/**
 	 * 举报原因id传空
@@ -737,7 +728,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("参数非法!");
+		assertThat(head1.get("msg")).isEqualTo("reasonId错误");
 		}
 	
 	/**
@@ -762,7 +753,7 @@ public class ReportDynamicsOrCommentsTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("程序异常！");
+		assertThat(head1.get("msg")).isEqualTo("reasonId错误");
 	}
 	
 	/**
