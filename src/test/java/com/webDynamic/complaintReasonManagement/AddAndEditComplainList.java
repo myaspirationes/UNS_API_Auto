@@ -186,7 +186,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		System.out.println("提交错误的type值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("msg")).isEqualTo("类型输入有误");
 	}
 	
 	/**
@@ -281,7 +281,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		System.out.println("提交type为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("msg")).isEqualTo("类型输入有误");
 	}
 	
 	/**
@@ -416,7 +416,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		System.out.println("提交reason为超长字符" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("处理异常,失败");
 	}
 	
 	/**
@@ -509,7 +509,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		System.out.println("提交userId为错误的" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 	}
 	
 	/**
@@ -527,7 +527,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		System.out.println("提交userId为未登录的" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 	}
 	
 	/**
@@ -546,7 +546,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		System.out.println("提交userId为0" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("msg")).isEqualTo("请求参数userId为非法数据！");
 	}
 	
 	/**
@@ -584,7 +584,7 @@ public class AddAndEditComplainList extends HttpUtil {
 		System.out.println("提交userId为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 	}
 	
 	/**
@@ -602,8 +602,8 @@ public class AddAndEditComplainList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交userId为正确的string型" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 	}
 	
 	/**
@@ -1015,7 +1015,7 @@ public class AddAndEditComplainList extends HttpUtil {
 			System.out.println("提交category为错误" + post);
 
 			assertThat(post.get("status")).isEqualTo(-3);
-			assertThat(post.get("msg")).isEqualTo("成功");
+			assertThat(post.get("msg")).isEqualTo("分类错误");
 	}
 		/**
 		 * 提交category为小数
@@ -1027,12 +1027,12 @@ public class AddAndEditComplainList extends HttpUtil {
 			request.put("reason", "自动化测试投诉原因");
 			request.put("userId", userId);
 			request.put("reasionId", 0);
-			request.put("category", 6.6);
+			request.put("category", 9.6);
 			JSONObject post = super.UNSPost(url, request);
 			System.out.println("提交category为小数" + post);
 
 			assertThat(post.get("status")).isEqualTo(-3);
-			assertThat(post.get("msg")).isEqualTo("成功");
+			assertThat(post.get("msg")).isEqualTo("分类错误");
 			
 		}
 		/**
@@ -1050,7 +1050,7 @@ public class AddAndEditComplainList extends HttpUtil {
 			System.out.println("提交category为负数" + post);
 
 			assertThat(post.get("status")).isEqualTo(-3);
-			assertThat(post.get("msg")).isEqualTo("成功");
+			assertThat(post.get("msg")).isEqualTo("分类错误");
 			
 		}
 		/**
@@ -1068,7 +1068,7 @@ public class AddAndEditComplainList extends HttpUtil {
 			System.out.println("提交category为0" + post);
 
 			assertThat(post.get("status")).isEqualTo(-3);
-			assertThat(post.get("msg")).isEqualTo("成功");
+			assertThat(post.get("msg")).isEqualTo("分类错误");
 			
 		}
 		/**
@@ -1104,7 +1104,7 @@ public class AddAndEditComplainList extends HttpUtil {
 			System.out.println("提交category为空" + post);
 
 			assertThat(post.get("status")).isEqualTo(-3);
-			assertThat(post.get("msg")).isEqualTo("成功");
+			assertThat(post.get("msg")).isEqualTo("分类为空");
 			
 		}
 		/**
@@ -1122,7 +1122,7 @@ public class AddAndEditComplainList extends HttpUtil {
 			System.out.println("提交category为空格" + post);
 
 			assertThat(post.get("status")).isEqualTo(-3);
-			assertThat(post.get("msg")).isEqualTo("成功");
+			assertThat(post.get("msg")).isEqualTo("分类为空");
 			
 		}
 		/**
@@ -1140,7 +1140,7 @@ public class AddAndEditComplainList extends HttpUtil {
 			System.out.println("提交category为null" + post);
 
 			assertThat(post.get("status")).isEqualTo(-3);
-			assertThat(post.get("msg")).isEqualTo("成功");
+			assertThat(post.get("msg")).isEqualTo("分类为空");
 			
 		}
 		/**
@@ -1157,7 +1157,7 @@ public class AddAndEditComplainList extends HttpUtil {
 			System.out.println("提交category不提交" + post);
 
 			assertThat(post.get("status")).isEqualTo(-3);
-			assertThat(post.get("msg")).isEqualTo("成功");
+			assertThat(post.get("msg")).isEqualTo("分类为空");
 			
 		}
 
