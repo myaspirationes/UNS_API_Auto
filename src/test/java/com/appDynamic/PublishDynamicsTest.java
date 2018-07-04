@@ -95,7 +95,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", "");
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 0);
+		con.put("dynamicType", 14);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
 		con.put("dynamicAddress", "自动化测试1");
@@ -997,10 +997,6 @@ public class PublishDynamicsTest extends HttpUtil {
 	
 		assertThat(head1.get("st")).isEqualTo(0);
 		assertThat(head1.get("msg")).isEqualTo("成功");
-		list2 =MetaOper.read("select b.RELATION_ID from T_DYNAMIC a,T_DYNAMIC_RESOURCES b where a.DYNAMIC_ID = b.DYNAMIC_ID and a.DESCRIPTION = '自动化测试'",dataType);
-		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("DESCRIPTION").toString()).isEqualTo("自动化测试");
-		assertThat(list2.get(0).get("RELATION_ID")).isEqualTo(null);
 		}
 	
 	
