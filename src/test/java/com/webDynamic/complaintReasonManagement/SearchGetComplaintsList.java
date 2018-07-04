@@ -50,8 +50,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 	@Test
 	public void postSearchGetComplaintsListTestCategoryIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("category", 4);
-		request.put("keyComplain", "自动化测试");
+		request.put("category", 0);
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -73,7 +73,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		new AddAndEditComplainList().postAddAndEditComplainListTestTypeIs1();
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 1);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -94,7 +94,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 2);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -115,7 +115,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIs3() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 3);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -136,7 +136,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIs4() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -157,7 +157,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIs5() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 5);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -178,7 +178,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIs6() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 6);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -196,10 +196,10 @@ public class SearchGetComplaintsList extends HttpUtil {
 	 * 提交错误的category值
 	 */
 	@Test
-	public void postSearchGetComplaintsListTestCategoryIs7() throws Exception {
+	public void postSearchGetComplaintsListTestCategoryIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 7);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -209,10 +209,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交错误的category值" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("分类错误");
 	}
 	
 	/**
@@ -222,7 +220,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIsNegtive() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", -9);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -232,10 +230,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交category为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("分类错误");
 	}
 	
 	/**
@@ -245,7 +241,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", "ddd");
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -266,7 +262,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", "#$%%^&");
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -287,7 +283,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", "1234678745451122121554544646444444444444454444444");
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -308,7 +304,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 12.3);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -318,10 +314,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交category为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("分类错误");
 	}
 	
 	/**
@@ -331,7 +325,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", " ");
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -341,8 +335,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交category为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
 	/**
@@ -352,7 +346,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", "");
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -362,8 +356,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交category为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
 	/**
@@ -373,7 +367,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestCategoryIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", null);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -383,8 +377,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交category为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
 	/**
@@ -393,7 +387,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	@Test
 	public void postSearchGetComplaintsListTestCategoryNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -403,39 +397,18 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("不提交category参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
-	}
-	
-	/**
-	 * 提交reason为特殊字符
-	 */
-	@Test
-	public void postSearchGetComplaintsListTestReasonIsIllegalCharacter() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("category", 4);
-		request.put("reason", "!@#$%^&*");
-		request.put("beginCreateDate", "2017-06-12");
-		request.put("endCreateDate", "2019-06-12");
-		request.put("userId", userId);
-		request.put("pageSize", 10);
-		request.put("pageNow", 1);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交reason为特殊字符" + post);
-
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
 	/**
-	 * 提交reason为int型
+	 * 提交keyComplain为特殊字符
 	 */
 	@Test
-	public void postSearchGetComplaintsListTestReasonIsInt() throws Exception {
+	public void postSearchGetComplaintsListTestkeyComplainIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", 123);
+		request.put("keyComplain", "!@#$%^&*");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -443,62 +416,20 @@ public class SearchGetComplaintsList extends HttpUtil {
 		request.put("pageNow", 1);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交reason为int型" + post);
-
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
-	}
-	
-	/**
-	 * 提交reason为超长字符
-	 */
-	@Test
-	public void postSearchGetComplaintsListTestReasonIsLong() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("category", 4);
-		request.put("reason", "是绝对不被封为瑞文月份护额发货的精神病jbzxnbclhrfsafl啊手机卡可是当时觉得还是觉得sjdhasjhsjdhajcbxznmcbu事件发生的数据库的数据库都很费劲大家的看法和");
-		request.put("beginCreateDate", "2017-06-12");
-		request.put("endCreateDate", "2019-06-12");
-		request.put("userId", userId);
-		request.put("pageSize", 10);
-		request.put("pageNow", 1);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交reason为int型" + post);
-
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
-	}
-	
-	/**
-	 * 提交reason为空格
-	 */
-	@Test
-	public void postSearchGetComplaintsListTestReasonIsSpace() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("category", 4);
-		request.put("reason", " ");
-		request.put("beginCreateDate", "2017-06-12");
-		request.put("endCreateDate", "2019-06-12");
-		request.put("userId", userId);
-		request.put("pageSize", 10);
-		request.put("pageNow", 1);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交reason为空格" + post);
+		System.out.println("提交keyComplain为特殊字符" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
 	/**
-	 * 提交reason为空
+	 * 提交keyComplain为int型
 	 */
 	@Test
-	public void postSearchGetComplaintsListTestReasonIsEmpty() throws Exception {
+	public void postSearchGetComplaintsListTestkeyComplainIsInt() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "");
+		request.put("keyComplain", 123);
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -506,20 +437,20 @@ public class SearchGetComplaintsList extends HttpUtil {
 		request.put("pageNow", 1);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交reason为空" + post);
+		System.out.println("提交keyComplain为int型" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
 	/**
-	 * 提交reason为null
+	 * 提交keyComplain为超长字符
 	 */
 	@Test
-	public void postSearchGetComplaintsListTestReasonIsNull() throws Exception {
+	public void postSearchGetComplaintsListTestkeyComplainIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", null);
+		request.put("keyComplain", "是绝对不被封为瑞文月份护额发货的精神病jbzxnbclhrfsafl啊手机卡可是当时觉得还是觉得sjdhasjhsjdhajcbxznmcbu事件发生的数据库的数据库都很费劲大家的看法和。是绝对不被封为瑞文月份护额发货的精神病jbzxnbclhrfsafl啊手机卡可是当时觉得还是觉得sjdhasjhsjdhajcbxznmcbu事件发生的数据库的数据库都很费劲大家的看法和");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", userId);
@@ -527,17 +458,80 @@ public class SearchGetComplaintsList extends HttpUtil {
 		request.put("pageNow", 1);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交reason为null" + post);
+		System.out.println("提交keyComplain为超长字符" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
 	/**
-	 * 不提交reason参数
+	 * 提交keyComplain为空格
 	 */
 	@Test
-	public void postSearchGetComplaintsListTestReasonNotCommitted() throws Exception {
+	public void postSearchGetComplaintsListTestkeyComplainIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("category", 4);
+		request.put("keyComplain", " ");
+		request.put("beginCreateDate", "2017-06-12");
+		request.put("endCreateDate", "2019-06-12");
+		request.put("userId", userId);
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("提交keyComplain为空格" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	
+	/**
+	 * 提交keyComplain为空
+	 */
+	@Test
+	public void postSearchGetComplaintsListTestkeyComplainIsEmpty() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("category", 4);
+		request.put("keyComplain", "");
+		request.put("beginCreateDate", "2017-06-12");
+		request.put("endCreateDate", "2019-06-12");
+		request.put("userId", userId);
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("提交keyComplain为空" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	
+	/**
+	 * 提交keyComplain为null
+	 */
+	@Test
+	public void postSearchGetComplaintsListTestkeyComplainIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("category", 4);
+		request.put("keyComplain", null);
+		request.put("beginCreateDate", "2017-06-12");
+		request.put("endCreateDate", "2019-06-12");
+		request.put("userId", userId);
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("提交keyComplain为null" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	
+	/**
+	 * 不提交keyComplain参数
+	 */
+	@Test
+	public void postSearchGetComplaintsListTestkeyComplainNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
 		request.put("beginCreateDate", "2017-06-12");
@@ -547,7 +541,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		request.put("pageNow", 1);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("不提交reason参数" + post);
+		System.out.println("不提交keyComplain参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -560,7 +554,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", 11);
@@ -570,10 +564,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交userId为错误的" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 	}
 	
 	/**
@@ -583,7 +575,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdIsNotLogin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", 10000006);
@@ -593,8 +585,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交userId为未登录的" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 	}
 	
 	/**
@@ -604,7 +596,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", 0);
@@ -614,10 +606,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交userId为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("请求参数错误！");
 	}
 	
 	/**
@@ -627,7 +617,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdIsNegative() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", -1);
@@ -638,7 +628,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		System.out.println("提交userId为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数异常！");
+		assertThat(post.get("msg")).isEqualTo("请求参数错误！");
 	}
 	
 	/**
@@ -648,7 +638,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", 1.2);
@@ -658,10 +648,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交userId为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 	}
 	
 	/**
@@ -671,7 +659,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", "ddd");
@@ -692,7 +680,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", "!@#$%^&*");
@@ -713,7 +701,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", "313212333333333333333345454545454545454545454545879999999");
@@ -734,7 +722,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", " ");
@@ -745,7 +733,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		System.out.println("提交userId为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
+		assertThat(post.get("msg")).isEqualTo("请求参数错误！");
 	}
 	
 	/**
@@ -755,7 +743,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", "");
@@ -766,7 +754,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		System.out.println("提交userId为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
+		assertThat(post.get("msg")).isEqualTo("请求参数错误！");
 	}
 	
 	/**
@@ -776,7 +764,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("userId", null);
@@ -787,7 +775,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		System.out.println("提交userId为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
+		assertThat(post.get("msg")).isEqualTo("请求参数错误！");
 	}
 	
 	/**
@@ -797,7 +785,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestUserIdNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 	
@@ -808,7 +796,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		System.out.println("不提交userId参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("请求参数不能为空！");
+		assertThat(post.get("msg")).isEqualTo("请求参数错误！");
 	}
 	
 	/**
@@ -818,7 +806,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestbeginCreateDateIsErrorFormat() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017/06/12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 10);
@@ -827,10 +815,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交beginCreateDate为错误的时间格式" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -840,7 +826,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestbeginCreateDateIsTimestamp() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "1529049251");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 10);
@@ -849,10 +835,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交beginCreateDate为时间戳" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -862,7 +846,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestbeginCreateDateIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "!@#%$%^&");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 10);
@@ -871,10 +855,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交beginCreateDate为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -884,7 +866,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestbeginCreateDateIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "654513216574685354563455315142541532415454568768");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 10);
@@ -893,10 +875,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交beginCreateDate为超长字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -906,7 +886,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestbeginCreateDateIsInt() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", 1529049251);
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 10);
@@ -915,10 +895,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交beginCreateDate为int型" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -928,7 +906,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestbeginCreateDateIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", " ");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 10);
@@ -937,8 +915,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交beginCreateDate为int型" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -948,7 +926,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestbeginCreateDateIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 10);
@@ -957,8 +935,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交beginCreateDate为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -968,7 +946,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestbeginCreateDateIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", null);
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 10);
@@ -988,7 +966,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestbeginCreateDateNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
@@ -1008,7 +986,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestendCreateDateIsErrorFormat() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2017/06/12");
 		request.put("pageSize", 10);
@@ -1017,10 +995,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交endCreateDate为错误的时间格式" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -1030,7 +1006,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestendCreateDateIsTimestamp() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "1529049251");
 		request.put("pageSize", 10);
@@ -1039,10 +1015,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交endCreateDate为时间戳" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -1052,7 +1026,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestendCreateDateIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "!@#$%^&*");
 		request.put("pageSize", 10);
@@ -1061,10 +1035,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交endCreateDate为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -1074,7 +1046,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestendCreateDateIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2132132465787777777777746546546546546546546546521221111165644666666666666");
 		request.put("pageSize", 10);
@@ -1083,10 +1055,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交endCreateDate为超长字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -1096,7 +1066,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestendCreateDateIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", " ");
 		request.put("pageSize", 10);
@@ -1105,8 +1075,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交endCreateDate为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -1116,7 +1086,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestendCreateDateIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "");
 		request.put("pageSize", 10);
@@ -1125,8 +1095,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交endCreateDate为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("日期格式不对");
 	}
 	
 	/**
@@ -1136,7 +1106,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestendCreateDateIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", null);
 		request.put("pageSize", 10);
@@ -1156,7 +1126,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestendCreateDateNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
@@ -1175,7 +1145,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageSizeIs10000() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 10000);
@@ -1195,7 +1165,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageSizeIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", "gg");
@@ -1214,7 +1184,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageSizeIsNegative() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", -1);
@@ -1236,7 +1206,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageSizeIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 1.3);
@@ -1256,7 +1226,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageSizeIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", 0);
@@ -1278,7 +1248,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageSizeIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", "!@#$%^&*");
@@ -1297,7 +1267,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageSizeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", "346437648374879387489738974837483784837483646383473879473");
@@ -1316,7 +1286,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", "");
@@ -1327,8 +1297,6 @@ public class SearchGetComplaintsList extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
 	}
 	
 	/**
@@ -1338,7 +1306,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", " ");
@@ -1349,8 +1317,6 @@ public class SearchGetComplaintsList extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
 	}
 	
 	/**
@@ -1360,7 +1326,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageSize", null);
@@ -1371,8 +1337,6 @@ public class SearchGetComplaintsList extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
 	}
 	
 	/**
@@ -1381,8 +1345,8 @@ public class SearchGetComplaintsList extends HttpUtil {
 	@Test
 	public void postSearchGetComplaintsListTestPageSizeNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("category", 0);
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageNow", 1);
@@ -1392,8 +1356,6 @@ public class SearchGetComplaintsList extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
 	}
 	
 	/**
@@ -1403,10 +1365,11 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageNowIs10000() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
 		request.put("pageNow", 10000);
+		request.put("pageSize", 10);
 		request.put("userId", userId);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交pageNow为10000" + post);
@@ -1424,9 +1387,10 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageNowIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
+		request.put("pageSize", 10);
 		request.put("pageNow", "dd");
 		request.put("userId", userId);
 		JSONObject post = super.UNSPost(url, request);
@@ -1442,9 +1406,10 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageNowIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
+		request.put("pageSize", 10);
 		request.put("pageNow", 9.2);
 		request.put("userId", userId);
 		JSONObject post = super.UNSPost(url, request);
@@ -1463,9 +1428,10 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageNowIsNegative() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
+		request.put("pageSize", 10);
 		request.put("pageNow", -1);
 		request.put("userId", userId);
 		JSONObject post = super.UNSPost(url, request);
@@ -1484,9 +1450,10 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageNowIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
+		request.put("pageSize", 10);
 		request.put("pageNow", 0);
 		request.put("userId", userId);
 		JSONObject post = super.UNSPost(url, request);
@@ -1505,9 +1472,10 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageNowIsIllegalCharacter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
+		request.put("pageSize", 10);
 		request.put("pageNow", "!@#$%^&*");
 		request.put("userId", userId);
 		JSONObject post = super.UNSPost(url, request);
@@ -1523,9 +1491,10 @@ public class SearchGetComplaintsList extends HttpUtil {
 	public void postSearchGetComplaintsListTestPageNowIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
+		request.put("pageSize", 10);
 		request.put("pageNow", 999999999999999999L);
 		request.put("userId", userId);
 		JSONObject post = super.UNSPost(url, request);
@@ -1540,10 +1509,11 @@ public class SearchGetComplaintsList extends HttpUtil {
 	@Test
 	public void postSearchGetComplaintsListTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("category", 0);
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
+		request.put("pageSize", 10);
 		request.put("pageNow", " ");
 		request.put("userId", userId);
 		JSONObject post = super.UNSPost(url, request);
@@ -1551,8 +1521,6 @@ public class SearchGetComplaintsList extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
 	}
 	
 
@@ -1563,19 +1531,18 @@ public class SearchGetComplaintsList extends HttpUtil {
 	@Test
 	public void postSearchGetComplaintsListTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("category", 0);
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
+		request.put("pageSize", 10);
 		request.put("pageNow", null);
 		request.put("userId", userId);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交pageNow为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");	
 	}
 	
 	/**
@@ -1584,17 +1551,16 @@ public class SearchGetComplaintsList extends HttpUtil {
 	@Test
 	public void postSearchGetComplaintsListTestPageNowNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("category", 4);
-		request.put("reason", "自动化测试投诉原因");
+		request.put("category", 0);
+		request.put("keyComplain", "违法");
 		request.put("beginCreateDate", "2017-06-12");
 		request.put("endCreateDate", "2019-06-12");
+		request.put("pageSize", 10);
 		request.put("userId", userId);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("不提交pageNow" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("totalcount")).isEqualTo(0);
 	}
 }

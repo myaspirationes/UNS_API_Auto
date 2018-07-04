@@ -67,8 +67,8 @@ public class DeleteComplainReason extends HttpUtil {
 			JSONObject post = super.UNSPost(url, request);
 			System.out.println("提交reasionId为错误的" + post);
 
-			assertThat(post.get("status")).isEqualTo(-3);
-			assertThat(post.get("msg")).isEqualTo("失败");
+			assertThat(post.get("status")).isEqualTo(0);
+			assertThat(post.get("msg")).isEqualTo("成功");
 		
 	}
 		
@@ -211,8 +211,8 @@ public class DeleteComplainReason extends HttpUtil {
 			JSONObject post = super.UNSPost(url, request);
 			System.out.println("提交userId为错误的" + post);
 
-			assertThat(post.get("status")).isEqualTo(0);
-			assertThat(post.get("msg")).isEqualTo("成功");
+			assertThat(post.get("status")).isEqualTo(-3);
+			assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 		}
 		
 		/**
@@ -244,7 +244,7 @@ public class DeleteComplainReason extends HttpUtil {
 			System.out.println("提交userId为小数" + post);
 
 			assertThat(post.get("status")).isEqualTo(-3);
-			assertThat(post.get("msg")).isEqualTo("请求参数userId为非法数据！");
+			assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 		}
 	
 		/**
@@ -276,7 +276,7 @@ public class DeleteComplainReason extends HttpUtil {
 			System.out.println("提交userId为0" + post);
 
 			assertThat(post.get("status")).isEqualTo(-3);
-			assertThat(post.get("msg")).isEqualTo("请求参数userId为非法数据！");
+			assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 		}
 		
 		/**
