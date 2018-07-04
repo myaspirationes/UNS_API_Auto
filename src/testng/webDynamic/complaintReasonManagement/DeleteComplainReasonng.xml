@@ -4,7 +4,7 @@
 	<test name="DeleteComplainReason" >
 		<classes>
 		  
-		   <class name="com.webDynamic.complaintManagement.DeleteComplainReason">
+		   <class name="com.webDynamic.complaintReasonManagement.DeleteComplainReason">
 		      <methods>
 		          <include name="postDeleteComplainReasonTestCorrectParameter"></include>
 		          <include name="postDeleteComplainReasonTestReasionIdIsError"></include>

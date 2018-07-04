@@ -4,7 +4,7 @@
 	<test name="AddAndEditComplainList" >
 		<classes>
 		  
-		   <class name="com.webDynamic.complaintManagement.AddAndEditComplainList">
+		   <class name="com.webDynamic.complaintReasonManagement.AddAndEditComplainList">
 		      <methods>
 		          <include name="postAddAndEditComplainListTestTypeIs0"></include>
 		          <include name="postAddAndEditComplainListTestTypeIs1"></include>
