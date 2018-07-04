@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="动态评论回复接口" >
+<suite name="动态和评论点赞接口" >
 	<test name="DynamicRemarkTest" >
 		<classes>
 		  
