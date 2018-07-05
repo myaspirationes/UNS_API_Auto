@@ -20,7 +20,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 	String url = "/uu-admin/BackUser/deleteUser";
 	String userId;
 	String dataType = "perCenter81";
-	String selectSql = "SELECT * FROM T_WEB_USER WHERE USER_NAME = 'lingfeng' or USER_NICK_NAME = '张领峰'";
+	String selectSql = "SELECT * FROM T_WEB_USER WHERE USER_NAME = 'lingfeng'";
 	List<Map<String,Object>> list ;
 	String sysUserId;
 	@BeforeClass

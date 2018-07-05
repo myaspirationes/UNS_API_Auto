@@ -9,6 +9,7 @@ import java.util.Map;
 import org.json.JSONObject;
 //import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 //import org.junit.Test;
 import org.testng.annotations.Test;
 
@@ -27,7 +28,7 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 	String sensitiveWordId;
 	String dataType = "perCenter81";
 	@BeforeClass
-	public void  beforeClass() throws Exception{
+	public void beforeClass() throws Exception{
 		userid = new BackUserLoginTest().userId;
 		new AddOrEditSensitiveWordTest().postAddOrEditSensitiveWordTestCorrectParameter();
 		list = MetaOper.read(selectSql,dataType);
@@ -61,7 +62,7 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为未登录用户" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("删除成功");
 	}
 	
@@ -77,7 +78,7 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误用户" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
@@ -106,7 +107,7 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
@@ -121,8 +122,8 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("数据错误");
 	}
 	/**
 	 * 用户ID为0
@@ -136,8 +137,8 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("删除失败,数据不正常");
 	}
 	/**
 	 * 用户ID为空格
@@ -151,8 +152,8 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("删除失败,数据不正常");
 	}
 	/**
 	 * 用户ID为空
@@ -166,8 +167,8 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("删除失败,数据不正常");
 	}
 	/**
 	 * 用户ID为null
@@ -181,8 +182,8 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("删除失败,数据不正常");
 	}
 	/**
 	 * 用户ID为String
@@ -209,8 +210,8 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("删除失败,数据不正常");
 	}
 	/**
 	 * 用户ID超长
@@ -224,8 +225,8 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID超长" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("数据错误");
 	}
 	
 	/**
@@ -241,7 +242,7 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		System.out.println("敏感词ID为0" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("删除失败,Id不正常");
+		assertThat(post.get("msg")).isEqualTo("删除失败,数据不正常");
 	}
 	/**
 	 * 敏感词ID为负数
@@ -255,8 +256,8 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("敏感词ID为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("角色id数值不符合要求");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("数据错误");
 	}
 	/**
 	 * 敏感词ID为小数
@@ -270,8 +271,8 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("敏感词ID为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("敏感词id错误");
 	}
 	/**
 	 * 敏感词ID为String
@@ -300,7 +301,7 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		System.out.println("敏感词ID为空格" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("删除失败,Id不正常");
+		assertThat(post.get("msg")).isEqualTo("删除失败,数据不正常");
 	}
 	/**
 	 * 敏感词ID为空
@@ -315,7 +316,7 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		System.out.println("敏感词ID为空" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("删除失败,Id不正常");
+		assertThat(post.get("msg")).isEqualTo("删除失败,数据不正常");
 	}
 	/**
 	 * 敏感词ID为null
@@ -330,7 +331,7 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		System.out.println("敏感词ID为null" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("删除失败,Id不正常");
+		assertThat(post.get("msg")).isEqualTo("删除失败,数据不正常");
 	}
 	/**
 	 * 敏感词ID为错误
@@ -344,8 +345,8 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("敏感词ID为错误" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(1);
+		assertThat(post.get("msg")).isEqualTo("敏感词id错误");
 	}
 	/**
 	 * 敏感词ID为非法字符
@@ -373,7 +374,7 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		System.out.println("敏感词ID不传该参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
-		assertThat(post.get("msg")).isEqualTo("删除失败,Id不正常");
+		assertThat(post.get("msg")).isEqualTo("删除失败,数据不正常");
 	}
 	/**
 	 * 敏感词ID超长
