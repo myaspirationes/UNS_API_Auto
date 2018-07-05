@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="删除投诉原因接口" >
+	<test name="DeleteComplainReason" >
+		<classes>
+		  
+		   <class name="com.webDynamic.complaintReasonManagement.DeleteComplainReason">
+		      <methods>
+		          <include name="postDeleteComplainReasonTestCorrectParameter"></include>
+		          <include name="postDeleteComplainReasonTestReasionIdIsError"></include>
+		          <include name="postDeleteComplainReasonTestReasionIdIsString"></include>
+		          <include name="postDeleteComplainReasonTestReasionIdIsNegative"></include>
+		          <include name="postDeleteComplainReasonTestReasionIdIsDecimal"></include>
+		          <include name="postDeleteComplainReasonTestReasionIdIsIllegalCharacter"></include>
+		          <include name="postDeleteComplainReasonTestReasionIdIsSpace"></include>
+		          <include name="postDeleteComplainReasonTestReasionIdIsEmpty"></include>
+		          <include name="postDeleteComplainReasonTestReasionIdIsNull"></include>
+		          <include name="postDeleteComplainReasonTestReasionIdNotCommitted"></include>
+		         <include name="postDeleteComplainReasonTestUserIdIsError"></include>
+		          <include name="postDeleteComplainReasonTestUserIdIsString"></include>
+		          <include name="postDeleteComplainReasonTestUserIdIsDecimal"></include>
+		          <include name="postDeleteComplainReasonTestUserIdIsNegative"></include>
+		          <include name="postDeleteComplainReasonTestUserIdIsZero"></include>
+		          <include name="postDeleteComplainReasonTestUserIdIsIllegalCharacter"></include>
+		          <include name="postDeleteComplainReasonTestUserIdIsLong"></include>
+		          <include name="postDeleteComplainReasonTestUserIdIsEmpty"></include>
+		          <include name="postDeleteComplainReasonTestUserIdIsSpace"></include>
+		          <include name="postDeleteComplainReasonTestUserIdIsNull"></include>
+		          <include name="postDeleteComplainReasonTestUserIdNotCommitted"></include>
+		          
+		          
+		          
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

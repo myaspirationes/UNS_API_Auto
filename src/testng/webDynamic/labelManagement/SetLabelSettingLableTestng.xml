@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="设置标签设置接口" >
+	<test name="SetLabelSettingLableTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.labelManagement.SetLabelSettingLableTest">
+		      <methods>
+		          <include name="postSetAndModifyTalantLableTestCorrectParameter"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsError"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdNotLoggedIn"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIllegalCharacters"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsDecimal"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsNegativeNumber"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsZero"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdNonSubmissionParameters"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationNumIsDecimal"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationNumIsNegativeNumber"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationNumIsZero"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationNumIsMax"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationNumIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationNumIsString"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationNumIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationNumIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationNumIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationNumNonSubmissionParameters"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignNumIsDecimal"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignNumIsNegativeNumber"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignNumIsZero"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignNumIsMax"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignNumIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignNumIsString"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignNumIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignNumIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignNumIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignNumNonSubmissionParameters"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeNumIsDecimal"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeNumIsNegativeNumber"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeNumIsZero"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeNumIsMax"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeNumIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeNumIsString"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeNumIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeNumIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeNumIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeNumNonSubmissionParameters"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonNumIsDecimal"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonNumIsNegativeNumber"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonNumIsZero"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonNumIsMax"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonNumIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonNumIsString"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonNumIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonNumIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonNumIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonNumNonSubmissionParameters"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationIsAllIsOne"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationIsAllIsZero"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationIsAllIsDecimal"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationIsAllIsNegativeNumber"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationIsAllIsMax"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationIsAllIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationIsAllIsString"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationIsAllIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationIsAllIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationIsAllIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestConstellationIsAllNonSubmissionParameters"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignIsALLIsOne"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignIsALLIsZero"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignIsALLIsDecimal"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignIsALLIsNegativeNumber"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignIsALLIsMax"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignIsALLIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignIsALLIsString"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignIsALLIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignIsALLIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignIsALLIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestChineseZodiacSignIsALLNonSubmissionParameters"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeIsALLIsOne"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeIsALLIsZero"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeIsALLIsDecimal"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeIsALLIsNegativeNumber"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeIsALLIsMax"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeIsALLIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeIsALLIsString"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeIsALLIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeIsALLIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeIsALLIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestTimeIsALLNonSubmissionParameters"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonIsAllIsOne"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonIsAllIsZero"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonIsAllIsDecimal"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonIsAllIsNegativeNumber"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonIsAllIsMax"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonIsAllIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonIsAllIsString"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonIsAllIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonIsAllIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonIsAllIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestCommonIsAllNonSubmissionParameters"></include>
+		          
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

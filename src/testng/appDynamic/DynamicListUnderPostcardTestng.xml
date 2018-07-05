@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="明信片下的动态列表接口" >
+	<test name="DynamicListUnderPostcardTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.DynamicListUnderPostcardTest">
+		      <methods>
+		          <include name="postDynamicListUnderPostcardTestCorrectParameter"></include>
+		          <include name="postDynamicListUnderPostcardTestUserIdIsError"></include>
+		          <include name="postDynamicListUnderPostcardTestUserIdIsNegativeNumber"></include>
+		          <include name="postDynamicListUnderPostcardTestUserIdIsDecimal"></include>
+		          <include name="postDynamicListUnderPostcardTestUserIdIsString"></include>
+		          <include name="postDynamicListUnderPostcardTestUserIdIs0"></include>
+		          <include name="postDynamicListUnderPostcardTestUserIdIsEmpty"></include>
+		          <include name="postDynamicListUnderPostcardTestUserIdIsSpace"></include>
+		          <include name="postDynamicListUnderPostcardTestUserIdIsNull"></include>
+		          <include name="postDynamicListUnderPostcardTestUserIdNonSubmissionParameters"></include>
+		          <include name="postDynamicListUnderPostcardTestUserIdIsLong"></include>
+		          <include name="postDynamicListUnderPostcardTestUserIdNotLoggedIn"></include>
+		          <include name="postDynamicListUnderPostcardTestPageSizeIsNegativeNumber"></include>
+		          <include name="postDynamicListUnderPostcardTestPageSizeIsDecimal"></include>
+		          <include name="postDynamicListUnderPostcardTestPageSizeIs0"></include>
+		          <include name="postDynamicListUnderPostcardTestPageSizeIsEmpty"></include>
+		          <include name="postDynamicListUnderPostcardTestPageSizeIsSpace"></include>
+		          <include name="postDynamicListUnderPostcardTestPageSizeIsNull"></include>
+		          <include name="postDynamicListUnderPostcardTestPageSizeIsString"></include>
+		          <include name="postDynamicListUnderPostcardTestPageSizeNonSubmissionParameters"></include>
+		          <include name="postDynamicListUnderPostcardTestPageNowIsNegativeNumber"></include>
+		          <include name="postDynamicListUnderPostcardTestPageNowIsDecimal"></include>
+		          <include name="postDynamicListUnderPostcardTestPageNowIs0"></include>
+		          <include name="postDynamicListUnderPostcardTestPageNowIsEmpty"></include>
+		          <include name="postDynamicListUnderPostcardTestPageNowIsSpace"></include>
+		          <include name="postDynamicListUnderPostcardTestPageNowIsNull"></include>
+		          <include name="postDynamicListUnderPostcardTestPageNowIsString"></include>
+		          <include name="postDynamicListUnderPostcardTestPageNowIsMax"></include>
+		          <include name="postDynamicListUnderPostcardTestPageNowNonSubmissionParameters"></include>
+		          <include name="postDynamicListUnderPostcardTestCardIdIsNegativeNumber"></include>
+		          <include name="postDynamicListUnderPostcardTestCardIdIsDecimal"></include>
+		          <include name="postDynamicListUnderPostcardTestCardIdIs0"></include>
+		          <include name="postDynamicListUnderPostcardTestCardIdIsEmpty"></include>
+		          <include name="postDynamicListUnderPostcardTestCardIdIsSpace"></include>
+		          <include name="postDynamicListUnderPostcardTestCardIdIsNull"></include>
+		          <include name="postDynamicListUnderPostcardTestCardIdIsMax"></include>
+		          <include name="postDynamicListUnderPostcardTestCardIdNonSubmissionParameters"></include>
+		          <include name="postDynamicListUnderPostcardTestTargetIdIsError"></include>
+		          <include name="postDynamicListUnderPostcardTestTargetIdIsDecimal"></include>
+		          <include name="postDynamicListUnderPostcardTestTargetIdIsNegativeNumber"></include>
+		          <include name="postDynamicListUnderPostcardTestTargetIdIs0"></include>
+		          <include name="postDynamicListUnderPostcardTestTargetIdIsEmpty"></include>
+		          <include name="postDynamicListUnderPostcardTestTargetIdIsSpace"></include>
+		          <include name="postDynamicListUnderPostcardTestTargetIdIsNull"></include>
+		          <include name="postDynamicListUnderPostcardTestTargetIdIsString"></include>
+		          <include name="postDynamicListUnderPostcardTestTargetIdIsLong"></include>
+		          <include name="postDynamicListUnderPostcardTestTargetIdIsNotLoggedIn"></include>
+		       
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

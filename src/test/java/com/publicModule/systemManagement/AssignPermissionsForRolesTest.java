@@ -45,7 +45,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 	String selectMenuStatus="SELECT MENU_STATUS FROM UUDBSIT.TB_ROLE_MENU_FUNCTION WHERE ROLE_ID='10000001' AND MENU_FUNCTION_ID=13708";
 	String selectFunctionStatus="SELECT MENU_FUNCTION_AUTH FROM UUDBSIT.TB_ROLE_MENU_FUNCTION WHERE ROLE_ID='10000001' AND MENU_FUNCTION_ID=13709";
 	
-//	@AfterMethod
+	@AfterMethod
 	public void afterMethod() 
 	{
 //		重置数据库用户角色菜单状态
@@ -76,6 +76,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		request=setRole.setRoleRightListMenuId("userId", userId,userId);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
+		System.out.println("请求参数" + request);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
@@ -238,7 +239,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		MetaOper.delete("DELETE FROM UUDBSIT.TB_ROLE_MENU_FUNCTION WHERE ROLE_ID='1'", dataType);
 		
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("");
+		assertThat(post.get("msg")).isEqualTo("权限值不存在");
 		
 
 	}
@@ -255,7 +256,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		MetaOper.delete("DELETE FROM UUDBSIT.TB_ROLE_MENU_FUNCTION WHERE ROLE_ID='0'", dataType);
 		
 		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("权限值为数值");
+		assertThat(post.get("msg")).isEqualTo("权限值不存在");
 	}
 	
 	/**
@@ -350,8 +351,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 //		删除错误的roleId
 		MetaOper.delete("DELETE FROM UUDBSIT.TB_ROLE_MENU_FUNCTION WHERE ROLE_ID='0'", dataType);
 		
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("权限值不存在");
 	}
 	/**
 	 * 菜单名称menuName传超长
@@ -532,8 +533,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单是否被选中menuStatus传错误值" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("状态值有误");
 	}
 	/**
 	 * 菜单是否被选中menuStatus传小数
@@ -545,8 +546,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单是否被选中menuStatus传小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("状态值有误");
 	}
 	/**
 	 * 菜单是否被选中menuStatus传负数
@@ -558,8 +559,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单是否被选中menuStatus传负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("状态值有误");
 	}
 	/**
 	 * 菜单是否被选中menuStatus传空格
@@ -571,8 +572,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单是否被选中menuStatus传空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("状态值有误");
 	}
 	/**
 	 * 菜单是否被选中menuStatus传null
@@ -584,8 +585,8 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单是否被选中menuStatus传null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("状态值有误");
 	}
 	/**
 	 * 菜单是否被选中menuStatus传非法字符

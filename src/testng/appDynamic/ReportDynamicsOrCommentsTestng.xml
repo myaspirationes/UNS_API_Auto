@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="举报动态/评论接口" >
+	<test name="ReportDynamicsOrCommentsTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.ReportDynamicsOrCommentsTest">
+		      <methods>
+		          <include name="postReportDynamicsOrCommentsTestCorrectParameterReportDynamic"></include>
+		          <include name="postReportDynamicsOrCommentsTestCorrectParameterReportComment"></include>
+		          <include name="postReportDynamicsOrCommentsTestUserIdIsNotLoggedIn"></include>
+		          <include name="postReportDynamicsOrCommentsTestUserIdIsError"></include>
+		          <include name="postReportDynamicsOrCommentsTestUserIdIsNegativeNumber"></include>
+		          <include name="postReportDynamicsOrCommentsTestUserIdIsDecimal"></include>
+		          <include name="postReportDynamicsOrCommentsTestUserIdIs0"></include>
+		          <include name="postReportDynamicsOrCommentsTestUserIdIsEmpty"></include>
+		          <include name="postReportDynamicsOrCommentsTestUserIdIsSpace"></include>
+		          <include name="postReportDynamicsOrCommentsTestUserIdIsNull"></include>
+		          <include name="postReportDynamicsOrCommentsTestUserIdNonSubmissionParameters"></include>
+		          <include name="postReportDynamicsOrCommentsTestUserIdIsString"></include>
+		          <include name="postReportDynamicsOrCommentsTestTargetIdIsNegativeNumber"></include>
+		          <include name="postReportDynamicsOrCommentsTestTargetIdIsDecimal"></include>
+		          <include name="postReportDynamicsOrCommentsTestTargetIdIs0"></include>
+		          <include name="postReportDynamicsOrCommentsTestTargetIdIsError"></include>
+		          <include name="postReportDynamicsOrCommentsTestTargetIdIsString"></include>
+		          <include name="postReportDynamicsOrCommentsTestTargetIdIsEmpty"></include>
+		          <include name="postReportDynamicsOrCommentsTestTargetIdIsSpace"></include>
+		          <include name="postReportDynamicsOrCommentsTestTargetIdIsnull"></include>
+		          <include name="postReportDynamicsOrCommentsTestTargetIdNonSubmissionParameters"></include>
+		          <include name="postReportDynamicsOrCommentsTestReasonIdIsNegativeNumber"></include>
+		          <include name="postReportDynamicsOrCommentsTestReasonIdIsDecimal"></include>
+		          <include name="postReportDynamicsOrCommentsTestReasonIdIs0"></include>
+		          <include name="postReportDynamicsOrCommentsTestReasonIdIsEmpty"></include>
+		          <include name="postReportDynamicsOrCommentsTestReasonIdIsSpace"></include>
+		          <include name="postReportDynamicsOrCommentsTestReasonIdIsNull"></include>
+		          <include name="postReportDynamicsOrCommentsTestReasonIdNonSubmissionParameters"></include>
+		          <include name="postReportDynamicsOrCommentsTestContentIsLong"></include>
+		          <include name="postReportDynamicsOrCommentsTestContentIsSpace"></include>
+		          <include name="postReportDynamicsOrCommentsTestContentIsEmpty"></include>
+		          <include name="postReportDynamicsOrCommentsTestContentIsNull"></include>
+		          <include name="postReportDynamicsOrCommentsTestContentIsIllegalCharacters"></include>
+		          <include name="postReportDynamicsOrCommentsTestContentNonSubmissionParameters"></include>
+		          <include name="postReportDynamicsOrCommentsTestTypeIsNegativeNumber"></include>
+		          <include name="postReportDynamicsOrCommentsTestTypeIsDecimal"></include>
+		          <include name="postReportDynamicsOrCommentsTestTypeIsEmpty"></include>
+		          <include name="postReportDynamicsOrCommentsTestTypeIsSpace"></include>
+		          <include name="postReportDynamicsOrCommentsTestTypeIsNull"></include>
+		          <include name="postReportDynamicsOrCommentsTestTypeIsString"></include>
+		          <include name="postReportDynamicsOrCommentsTestTypeIsMax"></include>
+		          <include name="postReportDynamicsOrCommentsTestTypeIsNonSubmissionParameters"></include>
+		          <include name="postReportDynamicsOrCommentsTestTypeIsError"></include>
+		          <include name="postReportDynamicsOrCommentsTestTypeIs0targetIdIsCommentId"></include>
+		          <include name="postReportDynamicsOrCommentsTestTypeIs1targetIdIsDynamicId"></include>
+		         
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

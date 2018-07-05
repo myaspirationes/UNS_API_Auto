@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取举报原因列表接口" >
+	<test name="GetAListOfReportReasonsTest" >
+		<classes>
+		  
+		   <class name="com.appDynamic.GetAListOfReportReasonsTest">
+		      <methods>
+		          <include name="postGetAListOfReportReasonsTestCorrectParameter"></include>
+		          <include name="postGetAListOfReportReasonsTestUserIdIsDecimal"></include>
+		          <include name="postGetAListOfReportReasonsTestUserIdIsNegativeNumber"></include>
+		          <include name="postGetAListOfReportReasonsTestUserIdIsZero"></include>
+		          <include name="postGetAListOfReportReasonsTestUserIdIsError"></include>
+		          <include name="postGetAListOfReportReasonsTestUserIdNotLoggedIn"></include>
+		          <include name="postGetAListOfReportReasonsTestUserIdIsString"></include>
+		          <include name="postGetAListOfReportReasonsTestUserIdIsNull"></include>
+		          <include name="postGetAListOfReportReasonsTestUserIdIsEmpty"></include>
+		          <include name="postGetAListOfReportReasonsTestUserIdIsSpace"></include>
+		          <include name="postGetAListOfReportReasonsTestUserIdIsLong"></include>
+		          <include name="postGetAListOfReportReasonsTestUserIdNonSubmissionParameters"></include>
+		         
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

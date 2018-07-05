@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="获取投诉信息详情接口" >
+	<test name="GetComplainDetailTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.complaintManagement.GetComplainDetailTest">
+		      <methods>
+		          <include name="postGetComplainDetailTestCorrectParameter"></include>
+		          <include name="postGetComplainDetailTestUserIdNotLoggedIn"></include>
+		          <include name="postGetComplainDetailTestUserIdIsError"></include>
+		          <include name="postGetComplainDetailTestUserIdIllegalCharacters"></include>
+		          <include name="postGetComplainDetailTestUserIdIsDecimal"></include>
+		          <include name="postGetComplainDetailTestUserIdIsNegativeNumber"></include>
+		          <include name="postGetComplainDetailTestUserIdIsSpace"></include>
+		          <include name="postGetComplainDetailTestUserIdIsEmpty"></include>
+		          <include name="postGetComplainDetailTestUserIdIsNull"></include>
+		          <include name="postGetComplainDetailTestUserIdIsLong"></include>
+		          <include name="postGetComplainDetailTestUserIdIsString"></include>
+		          <include name="postGetComplainDetailTestUserIdIsZero"></include>
+		          <include name="postGetComplainDetailTestUserIdNonSubmissionParameters"></include>
+		          <include name="postGetComplainDetailTestComplaintIdIsLong"></include>
+		          <include name="postGetComplainDetailTestComplaintIdIsDecimal"></include>
+		          <include name="postGetComplainDetailTestComplaintIdIsNegativeNumber"></include>
+		          <include name="postGetComplainDetailTestComplaintIdIsZero"></include>
+		          <include name="postGetComplainDetailTestComplaintIdIsString"></include>
+		          <include name="postGetComplainDetailTestComplaintIdIsEmpty"></include>
+		          <include name="postGetComplainDetailTestComplaintIdIsSpace"></include>
+		          <include name="postGetComplainDetailTestComplaintIdNonExistent"></include>
+		          <include name="postGetComplainDetailTestComplaintIdIsNull"></include>
+		          <include name="postGetComplainDetailTestComplaintIdNonSubmissionParameters"></include>
+		          <include name="postGetComplainDetailTestComplaintIdIsMax"></include>
+		         
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

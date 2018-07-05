@@ -58,7 +58,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 10000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -91,7 +91,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为小数" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 用户ID为负数
@@ -109,7 +109,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为负数" + post);		
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 用户ID为0
@@ -127,7 +127,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为0" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 用户ID为错误
@@ -143,9 +143,9 @@ public class DynamicCheckManageTest extends HttpUtil {
 		request.put("disposeOperation", 0);
 
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("操作用户ID" + post);
+		System.out.println("操作用户ID为错误" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 用户ID未登录
@@ -163,7 +163,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID未登录" + post);		 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 用户ID为字符串
@@ -199,7 +199,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为null" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 用户ID为空
@@ -217,7 +217,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 用户ID为空格
@@ -235,7 +235,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为空格" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 用户ID为超长
@@ -253,7 +253,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为超长" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 用户ID不传该参数
@@ -270,7 +270,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID不传该参数" + post);
     	assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 动态id为错误
@@ -282,7 +282,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		dynamicId = list.get(0).get("COMMENT_ID").toString();
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -291,10 +291,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为错误" + post);
     	assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("此动态无效");
-		//list =MetaOper.read(selDispose,dataType);
-		//assertThat(list.get(0).get("DISPOSE_SOURCE").toString()).isEqualTo("2");
-		
+		assertThat(post.get("msg")).isEqualTo("此动态无效");		
 	}
 	/**
 	 * 动态id为负数
@@ -303,7 +300,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDynamicIdIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", -1234);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -312,7 +309,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为负数" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("此动态无效");
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 动态id为小数
@@ -321,7 +318,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDynamicIdIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", 11.41);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -341,7 +338,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDynamicIdIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", "hgfhgf");
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -359,7 +356,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDynamicIdIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", 0);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -367,8 +364,8 @@ public class DynamicCheckManageTest extends HttpUtil {
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("动态id为0" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("此动态无效");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 动态id为空
@@ -377,7 +374,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDynamicIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", "");
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -395,7 +392,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDynamicIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", " ");
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -415,7 +412,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDynamicIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", null);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -434,7 +431,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	@Test
 	public void postDynamicCheckManageTestDynamicIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -454,7 +451,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDynamicIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", 999999999999999999L);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -465,7 +462,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("此动态无效");
+		assertThat(post.get("msg")).isEqualTo("用户id或动态id错误");
 	}
 	/**
 	 * 处理人传错误
@@ -474,7 +471,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestUserNameIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "测试");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -485,7 +482,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理人传超长
@@ -494,7 +491,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestUserNameIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin代表进空间看看进步空间看尽可能你考虑进来快捷键零零进来看看吗， 接口脚。");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -505,7 +502,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理人传空
@@ -514,7 +511,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestUserNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -525,7 +522,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
 	}
 	/**
 	 * 处理人传空格
@@ -534,7 +531,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestUserNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", " ");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -545,7 +542,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 处理人传null
@@ -554,7 +551,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestUserNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", null);
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -565,7 +562,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 处理人不传参数
@@ -574,7 +571,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestUserNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
 		request.put("disposeOperation", 0);
@@ -584,7 +581,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("数据为空");
 	}
 	/**
 	 * 处理说明传超长
@@ -593,7 +590,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeExpiainIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试df发射点犯得上看见了将来可能你的机会迪斯科解放单反决定开发贷款累计");
 		request.put("disposeOpinion", 0);
@@ -613,7 +610,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeExpiainIsIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "<@#@$@#%%>");
 		request.put("disposeOpinion", 0);
@@ -633,7 +630,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeExpiainIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "");
 		request.put("disposeOpinion", 0);
@@ -652,7 +649,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeExpiainIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", " ");
 		request.put("disposeOpinion", 0);
@@ -671,7 +668,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeExpiainIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", null);
 		request.put("disposeOpinion", 0);
@@ -693,7 +690,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeExpiainNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("disposeOpinion", 0);
 		request.put("disposeOperation", 0);
@@ -714,7 +711,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 5);
@@ -725,7 +722,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 处理意见传空
@@ -734,7 +731,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", "");
@@ -744,8 +741,10 @@ public class DynamicCheckManageTest extends HttpUtil {
 		System.out.println("处理意见传空" + post);
 		 
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");//不传时默认0
+		list =MetaOper.read(selDispose,dataType);
+		assertThat(list.get(0).get("DISPOSE_OPERATION").toString()).isEqualTo("0");
 	}
 	/**
 	 * 处理意见传空格
@@ -754,7 +753,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", " ");
@@ -764,8 +763,10 @@ public class DynamicCheckManageTest extends HttpUtil {
 		System.out.println("处理意见传空格" + post);
 		 
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selDispose,dataType);
+		assertThat(list.get(0).get("DISPOSE_OPERATION").toString()).isEqualTo("0");
 	}
 	/**
 	 * 处理意见传null
@@ -774,7 +775,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", null);
@@ -784,8 +785,10 @@ public class DynamicCheckManageTest extends HttpUtil {
 		System.out.println("处理意见传null" + post);
 		 
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selDispose,dataType);
+		assertThat(list.get(0).get("DISPOSE_OPERATION").toString()).isEqualTo("0");
 	}
 	/**
 	 * 处理意见传String
@@ -794,7 +797,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", "DFDSFDD");
@@ -814,7 +817,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 999999999999999999L);
@@ -825,7 +828,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 处理意见传0
@@ -834,7 +837,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -856,7 +859,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 1);
@@ -878,7 +881,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 2);
@@ -900,7 +903,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIs3() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 3);
@@ -922,7 +925,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOperation", 0);
@@ -931,8 +934,10 @@ public class DynamicCheckManageTest extends HttpUtil {
 		System.out.println("处理意见不传" + post);
 		 
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		list =MetaOper.read(selDispose,dataType);
+		assertThat(list.get(0).get("DISPOSE_OPERATION").toString()).isEqualTo("0");
 	}
 	/**
 	 * 处理意见传负数
@@ -941,7 +946,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", -1);
@@ -952,7 +957,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 处理意见传小数
@@ -961,10 +966,10 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOpinionIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
-		request.put("disposeOpinion", 1.23);
+		request.put("disposeOpinion", 8.23);
 		request.put("disposeOperation", 0);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -972,7 +977,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 处理操作传负数
@@ -981,18 +986,18 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOperationIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
-		request.put("disposeOperation", -2);
+		request.put("disposeOperation", -10);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理操作传负数" + post);
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 处理操作传小数
@@ -1001,18 +1006,18 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOperationIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
-		request.put("disposeOperation", 2.3);
+		request.put("disposeOperation", 9.3);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("处理操作传小数" + post);
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数有误");
 	}
 	/**
 	 * 处理操作传空
@@ -1021,7 +1026,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOperationIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -1032,7 +1037,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 处理操作传空格
@@ -1041,7 +1046,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOperationIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -1052,7 +1057,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 处理操作传null
@@ -1061,7 +1066,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOperationIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -1072,7 +1077,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 		 
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 处理操作传String
@@ -1081,7 +1086,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOperationIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -1101,7 +1106,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOperationIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -1121,7 +1126,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOperationIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -1141,7 +1146,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOperationIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -1163,7 +1168,7 @@ public class DynamicCheckManageTest extends HttpUtil {
 	public void postDynamicCheckManageTestDioposeOperationNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("dynamicId", dynamicId);
-		request.put("userId", 1000000);
+		request.put("userId", userId);
 		request.put("userName", "admin");
 		request.put("dioposeExpiain", "自动化测试");
 		request.put("disposeOpinion", 0);
@@ -1171,8 +1176,8 @@ public class DynamicCheckManageTest extends HttpUtil {
 		System.out.println("处理操作不传" + post);
 		 
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 
 

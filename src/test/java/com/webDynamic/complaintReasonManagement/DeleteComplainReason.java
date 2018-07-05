@@ -1,34 +1,51 @@
 package com.webDynamic.complaintReasonManagement;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
+import com.webDynamic.complaintReasonManagement.AddAndEditComplainList;
 import org.json.JSONObject;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DeleteComplainReason extends HttpUtil {
 	// 删除投诉原因接口
-	String url = "/uu-admin/complaint/deleteComplaintReason";
+	String url = "/uu-admin/complainManage/deleteComplainReason";
 	
-	String dataType = "perCenter81";
-	
-	BackUserLoginTest login = new BackUserLoginTest();
-	String userId=login.userId;
-	
-	
-			
-	
+	String dataType = "uedb";
+	String selectSql = "SELECT * FROM T_AUDIT_MSG WHERE MSG_CONTENT = '自动化测试投诉原因'";
+	String deleteSql = "DELETE FROM T_AUDIT_MSG WHERE MSG_CONTENT = '自动化测试投诉原因'";
+	List<Map<String,Object>> list ;
+	String userId;
+	String reasionId;
+	@BeforeClass
+	public void beforeClass(){
+	userId =new BackUserLoginTest().userId;
+}
+	@BeforeMethod
+	public void  beforeMethod() throws Exception {
+		new AddAndEditComplainList().postAddAndEditComplainListTestTypeIs0();
+		list = MetaOper.read(selectSql, dataType);
+		reasionId = list.get(0).get("MSG_ID").toString();
+	}
+
 	/**
 	 * 提交正确参数
 	 */
-//	@Test
+	@Test
 	public void postDeleteComplainReasonTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("complaintId", 100000621);
-		request.put("operateUserId", userId);
+		request.put("reasionId", reasionId);
+		request.put("userId", userId);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -39,322 +56,322 @@ public class DeleteComplainReason extends HttpUtil {
 		
 		
 		/**
-		 * 提交complaintId为错误的
+		 * 提交reasionId为错误的
 		 */
-//		@Test
-		public void postDeleteComplainReasonTestComplaintIdIsError() throws Exception {
+		@Test
+		public void postDeleteComplainReasonTestReasionIdIsError() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 001);
-			request.put("operateUserId", userId);
+			request.put("reasionId", 001);
+			request.put("userId", userId);
 
 			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交complaintId为错误的" + post);
+			System.out.println("提交reasionId为错误的" + post);
 
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
+			assertThat(post.get("status")).isEqualTo(0);
+			assertThat(post.get("msg")).isEqualTo("成功");
 		
 	}
 		
 		/**
-		 * 提交complaintId为正确的String型
+		 * 提交reasionId为正确的String型
 		 */
-//		@Test
-		public void postDeleteComplainReasonTestComplaintIdIsString() throws Exception {
+		@Test
+		public void postDeleteComplainReasonTestReasionIdIsString() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", "100000621");
-			request.put("operateUserId", userId);
+			request.put("reasionId", "dgdfgd");
+			request.put("userId", userId);
 
 			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交complaintId为正确的String型" + post);
+			System.out.println("提交reasionId为正确的String型" + post);
+
+			assertThat(post.get("status")).isEqualTo(400);
+			//assertThat(post.get("msg")).isEqualTo("成功");
+		}
+		
+		/**
+		 * 提交reasionId为负数
+		 */
+		@Test
+		public void postDeleteComplainReasonTestReasionIdIsNegative() throws Exception {
+			Map<String, Object> request = new HashMap<String, Object>();
+			request.put("reasionId", -1);
+			request.put("userId", userId);
+
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("提交reasionId为负数" + post);
+
+			assertThat(post.get("status")).isEqualTo(-1);
+			assertThat(post.get("msg")).isEqualTo("原因Id输入有误");
+		}
+	
+		/**
+		 * 提交reasionId为小数
+		 */
+		@Test
+		public void postDeleteComplainReasonTestReasionIdIsDecimal() throws Exception {
+			Map<String, Object> request = new HashMap<String, Object>();
+			request.put("reasionId", 2.1);
+			request.put("userId", userId);
+
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("提交reasionId为小数" + post);
 
 			assertThat(post.get("status")).isEqualTo(0);
 			assertThat(post.get("msg")).isEqualTo("成功");
 		}
-		
+	
 		/**
-		 * 提交complaintId为负数
+		 * 提交reasionId为非法字符
 		 */
-//		@Test
-		public void postDeleteComplainReasonTestComplaintIdIsNegative() throws Exception {
+		@Test
+		public void postDeleteComplainReasonTestReasionIdIsIllegalCharacter() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", -1);
-			request.put("operateUserId", userId);
+			request.put("reasionId", "!#%#^&");
+			request.put("userId", userId);
 
 			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交complaintId为负数" + post);
+			System.out.println("提交reasionId为非法字符" + post);
+
+			assertThat(post.get("status")).isEqualTo(400);
+			//assertThat(post.get("msg")).isEqualTo("失败");
+		}
+		
+		/**
+		 * 提交reasionId为空格
+		 */
+		@Test
+		public void postDeleteComplainReasonTestReasionIdIsSpace() throws Exception {
+			Map<String, Object> request = new HashMap<String, Object>();
+			request.put("reasionId", " ");
+			request.put("userId", userId);
+
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("提交reasionId为空格" + post);
 
 			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
+			assertThat(post.get("msg")).isEqualTo("原因Id输入有误");
+		}
+		
+		/**
+		 * 提交reasionId为空
+		 */
+		@Test
+		public void postDeleteComplainReasonTestReasionIdIsEmpty() throws Exception {
+			Map<String, Object> request = new HashMap<String, Object>();
+			request.put("reasionId", "");
+			request.put("userId", userId);
+
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("提交reasionId为空" + post);
+
+			assertThat(post.get("status")).isEqualTo(-1);
+			assertThat(post.get("msg")).isEqualTo("原因Id输入有误");
+		}
+		
+		/**
+		 * 提交reasionId为null
+		 */
+		@Test
+		public void postDeleteComplainReasonTestReasionIdIsNull() throws Exception {
+			Map<String, Object> request = new HashMap<String, Object>();
+			request.put("reasionId", null);
+			request.put("userId", userId);
+
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("提交reasionId为null" + post);
+
+			assertThat(post.get("status")).isEqualTo(-1);
+			assertThat(post.get("msg")).isEqualTo("原因Id输入有误");
+		}
+		
+		/**
+		 * 不提交reasionId参数
+		 */
+		@Test
+		public void postDeleteComplainReasonTestReasionIdNotCommitted() throws Exception {
+			Map<String, Object> request = new HashMap<String, Object>();
+			request.put("userId", userId);
+
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("不提交reasionId参数" + post);
+
+			assertThat(post.get("status")).isEqualTo(-1);
+			assertThat(post.get("msg")).isEqualTo("原因Id输入有误");
+		}
+		
+		/**
+		 * 提交userId为错误的
+		 */
+		@Test
+		public void postDeleteComplainReasonTestUserIdIsError() throws Exception {
+			Map<String, Object> request = new HashMap<String, Object>();
+			request.put("reasionId", reasionId);
+			request.put("userId", 1002);
+
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("提交userId为错误的" + post);
+
+			assertThat(post.get("status")).isEqualTo(-3);
+			assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
+		}
+		
+		/**
+		 * 提交userId为正确的String
+		 */
+		@Test
+		public void postDeleteComplainReasonTestUserIdIsString() throws Exception {
+			Map<String, Object> request = new HashMap<String, Object>();
+			request.put("reasionId", reasionId);
+			request.put("userId", "dfdsfs");
+
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("提交userId为正确的String" + post);
+
+			assertThat(post.get("status")).isEqualTo(400);
+			//assertThat(post.get("msg")).isEqualTo("请求参数userId为非法数据！");
+		}
+		
+		/**
+		 * 提交userId为小数
+		 */
+		@Test
+		public void postDeleteComplainReasonTestUserIdIsDecimal() throws Exception {
+			Map<String, Object> request = new HashMap<String, Object>();
+			request.put("reasionId", reasionId);
+			request.put("userId", 1.2);
+
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("提交userId为小数" + post);
+
+			assertThat(post.get("status")).isEqualTo(-3);
+			assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 		}
 	
 		/**
-		 * 提交complaintId为小数
+		 * 提交userId为负数
 		 */
-//		@Test
-		public void postDeleteComplainReasonTestComplaintIdIsDecimal() throws Exception {
+		@Test
+		public void postDeleteComplainReasonTestUserIdIsNegative() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 1.1);
-			request.put("operateUserId", userId);
+			request.put("reasionId", reasionId);
+			request.put("userId", -1);
 
 			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交complaintId为小数" + post);
+			System.out.println("提交userId为负数" + post);
 
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
-		}
-	
-		/**
-		 * 提交complaintId为非法字符
-		 */
-//		@Test
-		public void postDeleteComplainReasonTestComplaintIdIsIllegalCharacter() throws Exception {
-			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", "!#%#^&");
-			request.put("operateUserId", userId);
-
-			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交complaintId为非法字符" + post);
-
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
+			assertThat(post.get("status")).isEqualTo(-3);
+			assertThat(post.get("msg")).isEqualTo("请求参数userId为非法数据！");
 		}
 		
 		/**
-		 * 提交complaintId为空格
+		 * 提交userId为0
 		 */
-//		@Test
-		public void postDeleteComplainReasonTestComplaintIdIsSpace() throws Exception {
+		@Test
+		public void postDeleteComplainReasonTestUserIdIsZero() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", " ");
-			request.put("operateUserId", userId);
+			request.put("reasionId", reasionId);
+			request.put("userId", 0);
 
 			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交complaintId为空格" + post);
+			System.out.println("提交userId为0" + post);
 
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
+			assertThat(post.get("status")).isEqualTo(-3);
+			assertThat(post.get("msg")).isEqualTo("请求参数用户ID不存在！");
 		}
 		
 		/**
-		 * 提交complaintId为空
+		 * 提交userId为非法字符
 		 */
-//		@Test
-		public void postDeleteComplainReasonTestComplaintIdIsEmpty() throws Exception {
+		@Test
+		public void postDeleteComplainReasonTestUserIdIsIllegalCharacter() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", "");
-			request.put("operateUserId", userId);
+			request.put("reasionId", reasionId);
+			request.put("userId", "#$%^&");
 
 			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交complaintId为空" + post);
+			System.out.println("提交userId为非法字符" + post);
 
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
+			assertThat(post.get("status")).isEqualTo(400);
+			//assertThat(post.get("msg")).isEqualTo("请求参数userId为非法数据！");
 		}
 		
 		/**
-		 * 提交complaintId为null
+		 * 提交userId为超长字符
 		 */
-//		@Test
-		public void postDeleteComplainReasonTestComplaintIdIsNull() throws Exception {
+		@Test
+		public void postDeleteComplainReasonTestUserIdIsLong() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", null);
-			request.put("operateUserId", userId);
+			request.put("reasionId", reasionId);
+			request.put("userId","54312132132454513213456548678");
 
 			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交complaintId为null" + post);
+			System.out.println("提交userId为超长字符" + post);
 
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
+			assertThat(post.get("status")).isEqualTo(400);
+			//assertThat(post.get("msg")).isEqualTo("请求参数userId为非法数据！");
 		}
 		
 		/**
-		 * 不提交complaintId参数
+		 * 提交userId为空
 		 */
-//		@Test
-		public void postDeleteComplainReasonTestComplaintIdNotCommitted() throws Exception {
+		@Test
+		public void postDeleteComplainReasonTestUserIdIsEmpty() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("operateUserId", userId);
+			request.put("reasionId", reasionId);
+			request.put("userId","");
 
 			JSONObject post = super.UNSPost(url, request);
-			System.out.println("不提交complaintId参数" + post);
+			System.out.println("提交userId为空" + post);
 
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
+			assertThat(post.get("status")).isEqualTo(-3);
+			assertThat(post.get("msg")).isEqualTo("请求参数userId为非法数据！");
 		}
 		
 		/**
-		 * 提交operateUserId为错误的
+		 * 提交userId为空格
 		 */
-//		@Test
-		public void postDeleteComplainReasonTestOperateUserIdIsError() throws Exception {
+		@Test
+		public void postDeleteComplainReasonTestUserIdIsSpace() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
-			request.put("operateUserId", 1002);
+			request.put("reasionId", reasionId);
+			request.put("userId"," ");
 
 			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交operateUserId为错误的" + post);
+			System.out.println("提交userId为空格" + post);
 
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
+			assertThat(post.get("status")).isEqualTo(-3);
+			assertThat(post.get("msg")).isEqualTo("请求参数userId为非法数据！");
 		}
 		
 		/**
-		 * 提交operateUserId为正确的String
+		 * 提交userId为null
 		 */
-//		@Test
-		public void postDeleteComplainReasonTestOperateUserIdIsString() throws Exception {
+		@Test
+		public void postDeleteComplainReasonTestUserIdIsNull() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
-			request.put("operateUserId", "1000000");
+			request.put("reasionId", reasionId);
+			request.put("userId",null);
 
 			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交operateUserId为正确的String" + post);
+			System.out.println("提交userId为null" + post);
 
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
+			assertThat(post.get("status")).isEqualTo(-3);
+			assertThat(post.get("msg")).isEqualTo("请求参数userId为非法数据！");
 		}
 		
 		/**
-		 * 提交operateUserId为小数
+		 * 不提交userId
 		 */
-//		@Test
-		public void postDeleteComplainReasonTestOperateUserIdIsDecimal() throws Exception {
+		@Test
+		public void postDeleteComplainReasonTestUserIdNotCommitted() throws Exception {
 			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
-			request.put("operateUserId", 1.2);
+			request.put("reasionId", reasionId);
 
 			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交operateUserId为小数" + post);
+			System.out.println("不提交userId" + post);
 
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
-		}
-	
-		/**
-		 * 提交operateUserId为负数
-		 */
-//		@Test
-		public void postDeleteComplainReasonTestOperateUserIdIsNegative() throws Exception {
-			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
-			request.put("operateUserId", -1);
-
-			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交operateUserId为负数" + post);
-
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
-		}
-		
-		/**
-		 * 提交operateUserId为0
-		 */
-//		@Test
-		public void postDeleteComplainReasonTestOperateUserIdIsZero() throws Exception {
-			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
-			request.put("operateUserId", 0);
-
-			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交operateUserId为0" + post);
-
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
-		}
-		
-		/**
-		 * 提交operateUserId为非法字符
-		 */
-//		@Test
-		public void postDeleteComplainReasonTestOperateUserIdIsIllegalCharacter() throws Exception {
-			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
-			request.put("operateUserId", "#$%^&");
-
-			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交operateUserId为非法字符" + post);
-
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
-		}
-		
-		/**
-		 * 提交operateUserId为超长字符
-		 */
-//		@Test
-		public void postDeleteComplainReasonTestOperateUserIdIsLong() throws Exception {
-			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
-			request.put("operateUserId","54312132132454513213456548678");
-
-			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交operateUserId为超长字符" + post);
-
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
-		}
-		
-		/**
-		 * 提交operateUserId为空
-		 */
-//		@Test
-		public void postDeleteComplainReasonTestOperateUserIdIsEmpty() throws Exception {
-			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
-			request.put("operateUserId","");
-
-			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交operateUserId为空" + post);
-
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
-		}
-		
-		/**
-		 * 提交operateUserId为空格
-		 */
-//		@Test
-		public void postDeleteComplainReasonTestOperateUserIdIsSpace() throws Exception {
-			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
-			request.put("operateUserId"," ");
-
-			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交operateUserId为空格" + post);
-
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
-		}
-		
-		/**
-		 * 提交operateUserId为null
-		 */
-//		@Test
-		public void postDeleteComplainReasonTestOperateUserIdIsNull() throws Exception {
-			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
-			request.put("operateUserId",null);
-
-			JSONObject post = super.UNSPost(url, request);
-			System.out.println("提交operateUserId为null" + post);
-
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
-		}
-		
-		/**
-		 * 不提交operateUserId
-		 */
-//		@Test
-		public void postDeleteComplainReasonTestOperateUserIdNotCommitted() throws Exception {
-			Map<String, Object> request = new HashMap<String, Object>();
-			request.put("complaintId", 100000621);
-
-			JSONObject post = super.UNSPost(url, request);
-			System.out.println("不提交operateUserId" + post);
-
-			assertThat(post.get("status")).isEqualTo(-1);
-			assertThat(post.get("msg")).isEqualTo("失败");
+			assertThat(post.get("status")).isEqualTo(-3);
+			assertThat(post.get("msg")).isEqualTo("请求参数userId为非法数据！");
 		}
 
 }

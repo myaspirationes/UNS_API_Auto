@@ -376,8 +376,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("用户ID为错误" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("未知错误");
 	}
 	/**
 	 * 用户ID为字符串
@@ -471,8 +471,8 @@ public class DynamicRemarkTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo(0);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("未知错误");
 	}
 
 	/**
@@ -568,7 +568,7 @@ public class DynamicRemarkTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("失败");
+		assertThat(head1.get("msg")).isEqualTo("回复人id错误");
 	}
 
 	/**
@@ -754,7 +754,7 @@ public class DynamicRemarkTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("动态id不能为空");
+		assertThat(head1.get("msg")).isEqualTo("动态id错误");
 	}
 	/**
 	 * 动态ID为空格
@@ -777,7 +777,7 @@ public class DynamicRemarkTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("动态id不能为空");
+		assertThat(head1.get("msg")).isEqualTo("动态id错误");
 	}
 	/**
 	 * 动态ID为null
@@ -898,7 +898,7 @@ public class DynamicRemarkTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("回复内容不能为空");
+		assertThat(head1.get("msg")).isEqualTo("回复内容错误");
 	}
 	/**
 	 * 回复内容为空格
@@ -923,7 +923,7 @@ public class DynamicRemarkTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("回复内容不能为空");
+		assertThat(head1.get("msg")).isEqualTo("回复内容错误");
 	}
 	/**
 	 * 回复内容为null

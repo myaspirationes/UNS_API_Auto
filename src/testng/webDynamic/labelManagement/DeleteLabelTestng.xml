@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="删除标签" >
+	<test name="DeleteLabelTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.labelManagement.DeleteLabelTest">
+		      <methods>
+		          <include name="postDeleteLabelTestDeleteTLabel"></include>
+		          <include name="postDeleteLabelTestDeleteTalentLabel"></include>
+		          <include name="postDeleteLabelTestUserIdNotLoggedIn"></include>
+		          <include name="postDeleteLabelTestUserIdIsError"></include>
+		          <include name="postDeleteLabelTestUserIdIllegalCharacters"></include>
+		          <include name="postDeleteLabelTestUserIdIsDecimal"></include>
+		          <include name="postDeleteLabelTestUserIdIsNegativeNumber"></include>
+		          <include name="postDeleteLabelTestUserIdIsSpace"></include>
+		          <include name="postDeleteLabelTestUserIdIsNull"></include>
+		          <include name="postDeleteLabelTestUserIdIsLong"></include>
+		          <include name="postDeleteLabelTestUserIdIsString"></include>
+		          <include name="postDeleteLabelTestUserIdIsZero"></include>
+		          <include name="postDeleteLabelTestUserIdIsEmpty"></include>
+		          <include name="postDeleteLabelTestUserIdNonSubmissionParameters"></include>
+		          <include name="postDeleteLabelTestLabelIdIsLong"></include>
+		          <include name="postDeleteLabelTestLabelIdIsSpace"></include>
+		          <include name="postDeleteLabelTestLabelIdIsEmpty"></include>
+		          <include name="postDeleteLabelTestLabelIdIllegalCharacters"></include>
+		          <include name="postDeleteLabelTestLabelIdIsNull"></include>
+		          <include name="postDeleteLabelTestLabelIdNonSubmissionParameters"></include>
+		          <include name="postDeleteLabelTestLabelIdIsZero"></include>
+		          <include name="postDeleteLabelTestLabelIdIsError"></include>
+		          <include name="postDeleteLabelTestLabelIdIsString"></include>
+		          <include name="postDeleteLabelTestLabelIdIsNegativeNumber"></include>
+		          <include name="postDeleteLabelTestLabelIdIsDecimal"></include>
+		          <include name="postDeleteLabelTestLabelIdIsMax"></include>
+		          <include name="postDeleteLabelTestTypeIs1"></include>
+		          <include name="postDeleteLabelTestTypeIsError"></include>
+		          <include name="postDeleteLabelTestTypeIsZero"></include>
+		          <include name="postDeleteLabelTestTypeIsEmpty"></include>
+		          <include name="postDeleteLabelTestTypeIsSpace"></include>
+		          <include name="postDeleteLabelTestTypeIsNull"></include>
+		          <include name="postDeleteLabelTestTypeIsDecimal"></include>
+		          <include name="postDeleteLabelTestTypeIsNegativeNumber"></include>
+		          <include name="postDeleteLabelTestTypeNonSubmissionParameters"></include>
+		          <include name="postDeleteLabelTestTypeIsString"></include>
+		          
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

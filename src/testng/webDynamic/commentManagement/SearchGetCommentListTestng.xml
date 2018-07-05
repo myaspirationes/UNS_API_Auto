@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="搜索获取评论列表接口" >
+	<test name="SearchGetCommentListTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.commentManagement.SearchGetCommentListTest">
+		      <methods>
+		          <include name="postSearchGetCommentListTestCorrectParameter"></include>
+		          <include name="postSearchGetCommentListCategoryIsError"></include>
+		          <include name="postSearchGetCommentListCategoryIsNegativeNumber"></include>
+		          <include name="postSearchGetCommentListCategoryIsDecimal"></include>
+		          <include name="postSearchGetCommentListCategoryIsString"></include>
+		          <include name="postSearchGetCommentListCategoryIs0"></include>
+		          <include name="postSearchGetCommentListCategoryIsEmpty"></include>
+		          <include name="postSearchGetCommentListCategoryIsSpace"></include>
+		          <include name="postSearchGetCommentListCategoryIsNull"></include>
+		          <include name="postSearchGetCommentListCategoryNonSubmissionParameters"></include>
+		          <include name="postSearchGetCommentListCategoryIsLong"></include>
+		          <include name="postSearchGetCommentListCategoryIs1"></include>
+		          <include name="postSearchGetCommentListCategoryIs2"></include>
+		          <include name="postSearchGetCommentListCategoryIs3"></include>
+		          <include name="postSearchGetCommentListUserIdIsNegativeNumber"></include>
+		          <include name="postSearchGetCommentListUserIdIsDecimal"></include>
+		          <include name="postSearchGetCommentListUserIdIsEmpty"></include>
+		          <include name="postSearchGetCommentListUserIdIsSpace"></include>
+		          <include name="postSearchGetCommentListUserIdIsNull"></include>
+		          <include name="postSearchGetCommentListUserIdIs0"></include>
+		          <include name="postSearchGetCommentListUserIdIsString"></include>
+		          <include name="postSearchGetCommentListUserIdNonSubmissionParameters"></include>
+		          <include name="postSearchGetCommentListUserIdIsError"></include>
+		          <include name="postSearchGetCommentListUserIdNotLoggedIn"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsErrorFormat"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsTimeStamp"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsNumber"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsYMD"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsYMDMax"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsHMS"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsHMSMax"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsHMSMin"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsYMDMin"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIs0"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsNegativeNumber"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsDecimal"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsEmpty"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsSpace"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsNull"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsMoreOperateEndTime"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsString"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsLeapYear2Mon29"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsNotLeapYear2Mon29"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeIsYMDHMS"></include>
+		          <include name="postSearchGetCommentListOperateStartTimeNonSubmissionParameters"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsErrorFormat"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsNumber"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsString"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsYMD"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsYMDMax"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsYMDMin"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsHMS"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsHMSMax"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsHMSMin"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIs0"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsEmpty"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsNull"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsLeapYear2Mon29"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsMotLeapYear2Mon29"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsLong"></include>
+		          <include name="postSearchGetCommentListOperateEndTimeIsYMDHMS"></include>
+		          <include name="postSearchGetCommentListStatusIs0"></include>
+		          <include name="postSearchGetCommentListStatusIs1"></include>
+		          <include name="postSearchGetCommentListStatusIs2"></include>
+		          <include name="postSearchGetCommentListStatusIsAll"></include>
+		          <include name="postSearchGetCommentListStatusIsError"></include>
+		          <include name="postSearchGetCommentListStatusIsNegativeNumber"></include>
+		          <include name="postSearchGetCommentListStatusIsDecimal"></include>
+		          <include name="postSearchGetCommentListStatusIsString"></include>
+		          <include name="postSearchGetCommentListStatusIsEmpty"></include>
+		          <include name="postSearchGetCommentListStatusIsSpace"></include>
+		          <include name="postSearchGetCommentListStatusIsNull"></include>
+		          <include name="postSearchGetCommentListStatusIsLong"></include>
+		          <include name="postSearchGetCommentListStatusNonSubmissionParameters"></include>
+		          <include name="postSearchGetCommentListKeyWordIsEmpty"></include>
+		          <include name="postSearchGetCommentListKeyWordIsSpace"></include>
+		          <include name="postSearchGetCommentListKeyWordIsNull"></include>
+		          <include name="postSearchGetCommentListKeyWordIsLong"></include>
+		          <include name="postSearchGetCommentListKeyWordIs0"></include>
+		          <include name="postSearchGetCommentListKeyWordIsIllegalCharacters"></include>
+		          <include name="postSearchGetCommentListKeyWordNonSubmissionParameters"></include>
+		          <include name="postSearchGetCommentListNickNameIsEmpty"></include>
+		          <include name="postSearchGetCommentListNickNameIsSpace"></include>
+		          <include name="postSearchGetCommentListNickNameIsNull"></include>
+		          <include name="postSearchGetCommentListNickNameIsLong"></include>
+		          <include name="postSearchGetCommentListNickNameIs0"></include>
+		          <include name="postSearchGetCommentListNickNameNonSubmissionParameters"></include>
+		          <include name="postSearchGetCommentListCommentUserIsLong"></include>
+		          <include name="postSearchGetCommentListCommentUserIsEmpty"></include>
+		          <include name="postSearchGetCommentListCommentUserIsSpace"></include>
+		          <include name="postSearchGetCommentListCommentUserIsNull"></include>
+		          <include name="postSearchGetCommentListCommentUserIs0"></include>
+		          <include name="postSearchGetCommentListCommentUserNonSubmissionParameters"></include>
+		          <include name="postSearchGetCommentListPageSizeIsNegativeNumber"></include>
+		          <include name="postSearchGetCommentListPageSizeIsDecimal"></include>
+		          <include name="postSearchGetCommentListPageSizeIs0"></include>
+		          <include name="postSearchGetCommentListPageSizeIsEmpty"></include>
+		          <include name="postSearchGetCommentListPageSizeIsSpace"></include>
+		          <include name="postSearchGetCommentListPageSizeIsString"></include>
+		          <include name="postSearchGetCommentListPageSizeIsMax"></include>
+		          <include name="postSearchGetCommentListPageSizeNonSubmissionParameters"></include>
+		          <include name="postSearchGetCommentListPageNowIsNegativeNumber"></include>
+		          <include name="postSearchGetCommentListPageNowIsDecimal"></include>
+		          <include name="postSearchGetCommentListPageNowIs0"></include>
+		          <include name="postSearchGetCommentListPageNowIsSpace"></include>
+		          <include name="postSearchGetCommentListPageNowIsEmpty"></include>
+		          <include name="postSearchGetCommentListPageNowIsNull"></include>
+		          <include name="postSearchGetCommentListPageNowIsString"></include>
+		          <include name="postSearchGetCommentListPageNowIsMax"></include>
+		          <include name="postSearchGetCommentListPageNowNonSubmissionParameters"></include>
+		          
+		         
+		          
+		           
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>

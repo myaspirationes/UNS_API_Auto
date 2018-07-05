@@ -75,7 +75,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID为未登录" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误！");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在！");
 	}
 	/**
 	 * 操作用户ID错误用户
@@ -90,7 +90,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID错误用户" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误！");
+		assertThat(post.get("msg")).isEqualTo("操作用户不存在！");
 	}
 	/**
 	 * 操作用户ID为非法字符
@@ -105,7 +105,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID为非法字符" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误！");
+		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误");
 	}
 	/**
 	 * 操作用户ID为小数
@@ -120,7 +120,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误！");
+		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误");
 	}
 	/**
 	 * 操作用户ID为负数
@@ -135,7 +135,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误！");
+		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误");
 	}
 	/**
 	 * 操作用户ID为空格
@@ -150,7 +150,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误！");
+		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误");
 	}
 	/**
 	 * 操作用户ID为空
@@ -195,7 +195,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误！");
+		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误");
 	}
 	/**
 	 * 操作用户ID为String
@@ -210,7 +210,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("操作用户ID为String" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误！");
+		assertThat(post.get("msg")).isEqualTo("操作用户id格式错误");
 	}
 	/**
 	 * 操作用户ID为0
@@ -253,7 +253,8 @@ public class GetComplainDetailTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("投诉编号超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(500);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误");
 	}
 	/**
 	 * 投诉编号为小数
@@ -268,7 +269,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("投诉编号为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误！");
+		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误");
 	}
 	/**
 	 * 投诉编号为负数
@@ -283,7 +284,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("投诉编号为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误！");
+		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误");
 	}
 	/**
 	 * 投诉编号为0
@@ -313,7 +314,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("投诉编号为字符串" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误！");
+		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误");
 	}
 	/**
 	 * 投诉编号为空
@@ -343,7 +344,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("投诉编号为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误！");
+		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误");
 	}
 	/**
 	 * 投诉编号为不存在
@@ -358,7 +359,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("投诉编号为不存在" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("当前投诉详情不存在");
+		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误");
 	}
 	/**
 	 * 投诉编号为null
@@ -402,7 +403,7 @@ public class GetComplainDetailTest extends HttpUtil {
 		System.out.println("投诉编号为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("当前投诉详情不存在");
+		assertThat(post.get("msg")).isEqualTo("投诉编号格式错误");
 	}
 
 }

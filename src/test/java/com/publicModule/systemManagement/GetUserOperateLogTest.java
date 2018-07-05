@@ -1,7 +1,9 @@
 package com.publicModule.systemManagement;
 
 import com.example.HttpUtil;
+import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -14,20 +16,25 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GetUserOperateLogTest extends HttpUtil {
 // 搜索获取日志列表接口
 	String url = "/uu-admin/BackUser/getUserOperateLog";
-
+	String userId;
+	@BeforeClass
+	public void beforeClass(){
+		userId = new BackUserLoginTest().userId;
+	}
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postGetUserOperateLogTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -42,19 +49,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageSizeIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 0);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("每页显示条数失败");
 	}
 	/**
 	 * 每页显示记录数为小数
@@ -62,13 +70,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageSizeIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 1.4);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为小数" + post);
@@ -82,13 +91,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageSizeIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", "<.$%^&>");
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为非法字符" + post);
@@ -101,19 +111,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageSizeIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", -10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("每页显示条数失败");
 	}
 	/**
 	 * 每页显示记录数为String
@@ -121,13 +132,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageSizeIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", "pageSize");
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为String" + post);
@@ -140,18 +152,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", " ");
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
@@ -160,18 +173,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", "");
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
@@ -180,18 +194,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", null);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
@@ -200,17 +215,18 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageSizeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("每页显示记录数不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
@@ -219,19 +235,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageNowIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 0);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("当前页失败");
 	}
 	/**
 	 * 当前页码传负数
@@ -239,19 +256,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageNowIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", -1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码传负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("当前页失败");
 	}
 	/**
 	 * 当前页码传小数
@@ -259,13 +277,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageNowIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1.5);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码传小数" + post);
@@ -279,13 +298,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageNowIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", "pageNow");
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码传String" + post);
@@ -298,18 +318,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", "");
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
@@ -318,18 +339,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", " ");
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
@@ -338,18 +360,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", null);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
@@ -358,13 +381,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageNowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1999999999);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码为最大值" + post);
@@ -378,17 +402,18 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestPageNowNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("当前页码不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
@@ -397,13 +422,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestCategoryIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 1.3);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为小数" + post);
@@ -417,19 +443,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestCategoryIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
-		request.put("category", -1);
+		request.put("category", -3);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
 	}
 	/**
 	 * 分类为String
@@ -437,13 +464,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestCategoryIsString() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", "String");
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为String" + post);
@@ -456,19 +484,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestCategoryIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", "");
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 分类为空格
@@ -476,19 +505,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestCategoryIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", " ");
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 分类为null
@@ -496,19 +526,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestCategoryIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", null);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 分类传0操作日志
@@ -516,13 +547,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestCategoryIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类传0操作日志" + post);
@@ -536,13 +568,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestCategoryIsOne() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类传1业务日志" + post);
@@ -556,13 +589,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestCategoryIsNegative() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", -1);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类传-1全部日志" + post);
@@ -576,18 +610,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestCategoryNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("分类不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("业务分类格式违法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 用户登录账号为未登录账号
@@ -595,18 +630,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestuserNameNotLoggedIn() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为未登录账号" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -615,13 +651,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestuserNameIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName","admin" );
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号错误用户名" + post);
@@ -635,18 +672,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestuserNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -655,13 +693,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestuserNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", " ");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为空格" + post);
@@ -675,18 +714,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestuserNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", null);
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -695,13 +735,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestuserNameIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "<.#$%>");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为非法字符串" + post);
@@ -715,13 +756,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestuserNameIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", 0);
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为0" + post);
@@ -735,13 +777,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestuserNameIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", 1.5);
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为小数" + post);
@@ -755,13 +798,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestuserNameIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", -1);
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号为负数" + post);
@@ -775,17 +819,18 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestuserNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录账号不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -794,13 +839,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestRealNameIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "adminw");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为错误" + post);
@@ -814,13 +860,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestRealNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为空" + post);
@@ -834,13 +881,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestRealNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", " ");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为空格" + post);
@@ -854,13 +902,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestRealNameIsZero() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", 0);
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为0" + post);
@@ -874,13 +923,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestRealNameIsDecimal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", 1.4);
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为小数" + post);
@@ -894,13 +944,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestRealNameIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", -1);
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为负数" + post);
@@ -914,13 +965,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestRealNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", null);
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为null" + post);
@@ -934,13 +986,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestRealNameIllegalCharacters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "<.$%^>");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为非法字符" + post);
@@ -954,13 +1007,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestRealNameIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "adminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadmin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为超长" + post);
@@ -974,12 +1028,13 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestRealNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户真实姓名为不传该参数" + post);
@@ -994,19 +1049,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "201805-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传错误格式" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作开始时间大于结束时间
@@ -1014,13 +1070,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeGreaterThanOperateEndTime() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2020-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2020-06-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间大于结束时间" + post);
@@ -1034,19 +1091,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeIsTimeStamp() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "1528248480000");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传时间戳" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作开始时间传年月日
@@ -1054,13 +1112,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeIsYYYYMMDD() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传年月日" + post);
@@ -1074,39 +1133,40 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeIsHHMMSS() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "13:13:13");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传时分秒" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
-	}
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");	}
 	/**
 	 * 操作开始时间传空格
 	 */
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", " ");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作开始时间去掉格式
@@ -1114,19 +1174,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeRemoveTheFormat() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "20180503");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间去掉格式" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作开始时间为空
@@ -1134,19 +1195,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作开始时间传null
@@ -1154,19 +1216,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", null);
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作开始时间传负数
@@ -1174,19 +1237,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", -1);
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作开始时间传年月日最大值
@@ -1194,19 +1258,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeYMDIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "9999-12-31");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传年月日最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);//应该查不到数据
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("时间格式错误");
 	}
 	/**
 	 * 操作开始时间传年月日最小值
@@ -1214,19 +1279,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeIsMin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "0000-01-01");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传年月日最小值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式错误","失败");
 	}
 	/**
 	 * 操作开始时间传时分秒最大值
@@ -1234,19 +1300,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeHMSIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "23:59:59");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传时分秒最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作开始时间传时分秒最小值
@@ -1254,19 +1321,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeHMSIsMin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "00:00:00");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传时分秒最小值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作开始时间传年月日时分秒
@@ -1274,19 +1342,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeIsYMDHMS() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "2018-05-03 13:13:13");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间传年月日时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作开始时间不传该参数
@@ -1294,18 +1363,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作开始时间闰年2月
@@ -1313,13 +1383,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeIsLeapYear() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2016-02-29");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2016-02-29 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间闰年2月" + post);
@@ -1333,19 +1404,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateStartTimeNonLeapYear() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-02-29");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-02-29 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作开始时间非论年2月" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","失败");
 	}
 	/**
 	 * 操作结束时间传错误格式
@@ -1353,19 +1425,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeIsError() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "201805-03");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传错误格式" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 
 	/**
@@ -1374,19 +1447,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeIsTimeStamp() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateStartTime", "1528248480000");
-		request.put("operateEndTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传时间戳" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作结束时间传年月日
@@ -1394,13 +1468,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeIsYYYYMMDD() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateEndTime", "2018-05-03");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateEndTime", "2018-05-03 12:12:12");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传年月日" + post);
@@ -1414,19 +1489,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeIsHHMMSS() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "13:13:13");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传时分秒" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作结束时间传空格
@@ -1434,19 +1510,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", " ");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作结束时间去掉格式
@@ -1454,19 +1531,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeRemoveTheFormat() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "20180503");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间去掉格式" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作结束时间为空
@@ -1474,19 +1552,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作结束时间传null
@@ -1494,19 +1573,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", null);
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作结束时间传负数
@@ -1514,19 +1594,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeIsNegativeNumber() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", -1);
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作结束时间传年月日最大值
@@ -1534,19 +1615,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeYMDIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "9999-12-31");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传年月日最大值" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("时间格式错误");
 	}
 	/**
 	 * 操作结束时间传年月日最小值
@@ -1554,19 +1636,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeIsMin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "0000-01-01");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传年月日最小值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式错误","失败");
 	}
 	/**
 	 * 操作结束时间传时分秒最大值
@@ -1574,19 +1657,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeHMSIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "23:59:59");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传时分秒最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作结束时间传时分秒最小值
@@ -1594,19 +1678,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeHMSIsMin() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "00:00:00");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传时分秒最小值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式校验失败","时间格式错误");
 	}
 	/**
 	 * 操作结束时间传年月日时分秒
@@ -1614,19 +1699,20 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeIsYMDHMS() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "2018-05-03 13:13:13");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间传年月日时分秒" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作结束时间不传该参数
@@ -1634,18 +1720,19 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 操作结束时间闰年2月
@@ -1653,13 +1740,14 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeIsLeapYear() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
-		request.put("operateEndTime", "2016-02-29");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateEndTime", "2016-02-29 12:12:12");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间闰年2月" + post);
@@ -1673,19 +1761,205 @@ public class GetUserOperateLogTest extends HttpUtil {
 	@Test
 	public void postGetUserOperateLogTestOperateEndTimeNonLeapYear() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
 		request.put("pageSize", 10);
 		request.put("pageNow", 1);
 		request.put("category", 0);
 		request.put("userName", "admin");
 		request.put("realName", "admin");
 		request.put("operateEndTime", "2018-02-29");
-		request.put("operateStartTime", "2018-05-29");
+		request.put("operateStartTime", "2018-05-29 12:12:12");
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作结束时间非论年2月" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("时间格式校验失败");
+		assertThat(post.get("msg")).isIn("时间格式错误","失败");
 	}
+	/**
+	 * 用户ID为字符串
+	 */
+	@Test
+	public void postGetUserOperateLogTestUserIdIsString() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", "userId");
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+		request.put("category", 0);
+		request.put("userName", "admin");
+		request.put("realName", "admin");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
 
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID为字符串" + post);
+
+		assertThat(post.get("status")).isEqualTo(400);
+	}
+	/**
+	 * 用户ID为空格
+	 */
+	@Test
+	public void postGetUserOperateLogTestUserIdIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", " ");
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+		request.put("category", 0);
+		request.put("userName", "admin");
+		request.put("realName", "admin");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID为空格" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * 用户ID为null
+	 */
+	@Test
+	public void postGetUserOperateLogTestUserIdIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", null);
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+		request.put("category", 0);
+		request.put("userName", "admin");
+		request.put("realName", "admin");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID为null" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * 用户ID为空
+	 */
+	@Test
+	public void postGetUserOperateLogTestUserIdIsEmpty() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", "");
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+		request.put("category", 0);
+		request.put("userName", "admin");
+		request.put("realName", "admin");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID为空" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * 用户ID为超长
+	 */
+	@Test
+	public void postGetUserOperateLogTestUserIdIsLong() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", 123123123123123123L);
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+		request.put("category", 0);
+		request.put("userName", "admin");
+		request.put("realName", "admin");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID为超长" + post);
+
+		assertThat(post.get("status")).isEqualTo(400);
+	}
+	/**
+	 * 用户ID为小数
+	 */
+	@Test
+	public void postGetUserOperateLogTestUserIdIsDecimal() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", 1.1);
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+		request.put("category", 0);
+		request.put("userName", "admin");
+		request.put("realName", "admin");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID为小数" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 用户ID为负数
+	 */
+	@Test
+	public void postGetUserOperateLogTestUserIdIsNegativeNumber() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", -1);
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+		request.put("category", 0);
+		request.put("userName", "admin");
+		request.put("realName", "admin");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID为负数" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id失败");
+	}
+	/**
+	 * 用户ID为错误
+	 */
+	@Test
+	public void postGetUserOperateLogTestUserIdIsError() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", 123);
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+		request.put("category", 0);
+		request.put("userName", "admin");
+		request.put("realName", "admin");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID为错误" + post);
+
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+	}
+	/**
+	 * 用户ID不传该参数
+	 */
+	@Test
+	public void postGetUserOperateLogTestUserIdNonSubmissionParameters() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("pageSize", 10);
+		request.put("pageNow", 1);
+		request.put("category", 0);
+		request.put("userName", "admin");
+		request.put("realName", "admin");
+		request.put("operateStartTime", "2018-05-03 12:12:12");
+		request.put("operateEndTime", "2018-05-29 12:12:12");
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("用户ID不传该参数" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
+	}
 }

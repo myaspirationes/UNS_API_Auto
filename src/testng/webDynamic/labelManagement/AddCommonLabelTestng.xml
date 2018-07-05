@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="添加/编辑普通标签接口" >
+	<test name="AddCommonLabelTest" >
+		<classes>
+		  
+		   <class name="com.webDynamic.labelManagement.AddCommonLabelTest">
+		      <methods>
+		          <include name="postSetAndModifyTalantLableTestCorrectParameter"></include>
+		          <include name="postSetAndModifyTalantLableTestLabelNameIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestLabelNameIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestLabelNameIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestLabelNameIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestLabelNameIllegalCharacters"></include>
+		          <include name="postSetAndModifyTalantLableTestLabelNameNonSubmissionParameters"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdIsAdd"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdIsEdit"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdIsError"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdIsString"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdIsNegativeNumber"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdIsMax"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdIsDecimal"></include>
+		          <include name="postSetAndModifyTalantLableTestLableIdNonSubmissionParameters"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsError"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdNotLoggedIn"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIllegalCharacters"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsSpace"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsEmpty"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsNull"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsLong"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsDecimal"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsNegativeNumber"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdIsZero"></include>
+		          <include name="postSetAndModifyTalantLableTestUserIdNonSubmissionParameters"></include>
+		        
+		          <!-- <exclude name=""></exclude>-->
+		      </methods>
+		    </class>
+		   
+		</classes>
+		
+	</test>
+
+</suite>
