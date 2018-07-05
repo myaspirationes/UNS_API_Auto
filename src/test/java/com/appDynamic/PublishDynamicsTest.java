@@ -95,7 +95,7 @@ public class PublishDynamicsTest extends HttpUtil {
 		con.put("userId", uuid);
 		con.put("fileIds", "");
 		con.put("content", "自动化测试");
-		con.put("dynamicType", 14);
+		con.put("dynamicType", 0);
 		con.put("longitude", 13.26);
 		con.put("latitude", 13.19);
 		con.put("dynamicAddress", "自动化测试1");
