@@ -248,10 +248,8 @@ public class GetUserLockedContentTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被查询用户ID超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("操作成功");
-		list = MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("LOCK_ID").toString()).isNotEqualTo(null);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
 	}
 	/**
 	 * 被查询用户ID为非法字符
@@ -282,11 +280,9 @@ public class GetUserLockedContentTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("被查询用户ID为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("操作成功");
-		list = MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("LOCK_ID").toString()).isNotEqualTo(null);
-	}
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
+}
 	/**
 	 * 被查询用户ID为空
 	 */
@@ -379,7 +375,7 @@ public class GetUserLockedContentTest extends HttpUtil {
 		System.out.println("被查询用户ID为小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户id不能为空！");
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
 	}/**
 	 * 被查询用户ID为负数
 	 */

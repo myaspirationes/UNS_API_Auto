@@ -26,9 +26,6 @@ public class LockUserTest extends HttpUtil {
 	List<Map<String,Object>> list ;
 	List<Map<String,Object>> list1 ;
 	String dataType = "perCenter81";
-	List<Map> lis = new ArrayList<Map>();
-	Map<Object, Object> map1 = new HashMap<Object, Object>();
-	Map<Object, Object> map2 = new HashMap<Object, Object>();
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;
 		
@@ -47,6 +44,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestCorrectParameter() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");	
@@ -72,6 +71,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestUserIdNotLoggedIn() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -98,7 +99,9 @@ public class LockUserTest extends HttpUtil {
 	 */
     @Test
 	public void postLockUserTestUserIdIsError() throws Exception {
-		MetaOper.read(selectSql, dataType);
+    	List<Map> lis = new ArrayList<Map>();
+    	Map<Object, Object> map1 = new HashMap<Object, Object>();
+    	MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");
@@ -120,6 +123,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestUserIdIllegalCharacters() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -141,6 +146,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestUserIdIsDecimal() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -162,6 +169,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestUserIdIsNegativeNumber() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -183,6 +192,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestUserIdIsSpace() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -205,6 +216,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestUserIdIsEmpty() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -226,6 +239,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestUserIdIsNull() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -247,6 +262,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestUserIdIsZero() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -268,6 +285,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestUserIdIsString() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -290,6 +309,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestUserIdNonSubmissionParameters() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -310,6 +331,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestUserIdIsLong() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -331,6 +354,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIsDecimal() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 8.3);
 		map1.put("lockTime", 1);
@@ -353,6 +378,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIsNegativeNumber() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", -1);
 		map1.put("lockTime", 1);
@@ -375,6 +402,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIsZero() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -403,6 +432,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIs1() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("lockType", 1);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");
@@ -430,7 +461,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIs2() throws Exception {
-		//MetaOper.read(selectSql, dataType);
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("lockType", 2);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");
@@ -458,7 +490,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIs3() throws Exception {
-		
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("lockType", 3);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");		
@@ -485,6 +518,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIs4() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("lockType", 4);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");
@@ -512,7 +547,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIs5() throws Exception {
-		//MetaOper.read(selectSql, dataType);
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("lockType", 5);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");
@@ -541,6 +577,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIsString() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		map1.put("lockType", "dfdfds");
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");		
@@ -561,6 +599,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIsSpace() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", " ");
 		map1.put("lockTime", 1);
@@ -582,6 +622,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIsEmpty() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", "");
 		map1.put("lockTime", 1);
@@ -605,6 +647,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIsNull() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", null);
 		map1.put("lockTime", 1);
@@ -628,6 +672,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeIsLong() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 999999999999999999L);
 		map1.put("lockTime", 1);
@@ -650,6 +696,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTypeNonSubmissionParameters() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockTime", 1);
 		map1.put("opinion", "测试3");
@@ -672,6 +720,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIsError() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 99);
@@ -695,6 +745,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIs1() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -723,6 +775,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIs3() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 3);
@@ -750,6 +804,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIs7() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 7);
@@ -777,6 +833,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIs15() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 15);
@@ -804,6 +862,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIs30() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 30);
@@ -831,6 +891,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIs0() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 100);
@@ -859,6 +921,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIsNegativeNumber() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", -15);
@@ -881,6 +945,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIsDecimal() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 8.88);
@@ -903,6 +969,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIsSpace() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", " ");
@@ -926,6 +994,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIsNull() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", null);
@@ -949,6 +1019,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestLockTimeIsString() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", "dfdsfs");
@@ -965,13 +1037,14 @@ public class LockUserTest extends HttpUtil {
 	
 	
 		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 锁定时长为超长
 	 */
 	@Test
 	public void postLockUserTestLockTimeIsLong() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 999999999999999999L);
@@ -988,13 +1061,14 @@ public class LockUserTest extends HttpUtil {
 	
 	
 		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 锁定时长为不传
 	 */
 	@Test
 	public void postLockUserTestLockTimeNonSubmissionParameters() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("opinion", "测试3");
@@ -1017,6 +1091,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTesTOpinionIsLong() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1033,13 +1109,14 @@ public class LockUserTest extends HttpUtil {
 	
 	
 		assertThat(post.get("status")).isEqualTo(500);
-		//assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
 	 * 处理意见为空
 	 */
 	@Test
 	public void postLockUserTestOpinionIsEmpty() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1066,6 +1143,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestOpinionIsNull() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1092,6 +1171,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestOpinionIsSpace() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1118,6 +1199,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestOpinionIsIllegalCharacters() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1144,6 +1227,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestOpinionNonSubmissionParameters() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1161,13 +1246,15 @@ public class LockUserTest extends HttpUtil {
 		assertThat(post.get("msg")).isEqualTo("操作成功");
 		MetaOper.read(selectSql, dataType);
 		list =MetaOper.read(selectSql,dataType);
-		assertThat(list.get(0).get("MSG").toString()).isEqualTo(" ");
+		assertThat(list.get(0).get("MSG")).isEqualTo(null);
 	}
 	/**
 	 * 处理人姓名为错误
 	 */
 	@Test
 	public void postLockUserTestOperatorNameIsError() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1190,6 +1277,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestOperatorNameIsEmpty() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1212,6 +1301,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestOperatorNameIsSpace() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1234,6 +1325,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestOperatorNameIsNull() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1256,6 +1349,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestOperatorNameIsIllegalCharacters() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);
@@ -1277,6 +1372,8 @@ public class LockUserTest extends HttpUtil {
 	 */
 	@Test
 	public void postLockUserTestOperatorNameIsNonSubmissionParameters() throws Exception {
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
 		MetaOper.read(selectSql, dataType);
 		map1.put("lockType", 0);
 		map1.put("lockTime", 1);

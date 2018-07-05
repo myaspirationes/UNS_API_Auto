@@ -23,7 +23,6 @@ public class AddOrUpdateUserTest extends HttpUtil {
 	String url = "/uu-admin/BackUser/addOrUpdateUser";
 	String userId;
 	String sysUserId;
-	String deleteSql = "DELETE FROM T_WEB_USER WHERE USER_NAME = 'lingfeng'";
 	String dataType = "perCenter81";
 	String selectSql = "SELECT * FROM T_WEB_USER WHERE USER_NAME = 'lingfeng'";
 	String selectSql1 = "SELECT * FROM T_WEB_USER WHERE USER_NAME = 'test'";
@@ -51,9 +50,9 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("sysUserId", 0);
-		request.put("userName", "zhanglingfeng");
+		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -74,7 +73,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -95,7 +94,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -116,7 +115,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -136,7 +135,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -157,7 +156,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -178,7 +177,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -199,7 +198,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -219,7 +218,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -240,7 +239,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -261,7 +260,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -281,7 +280,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -302,7 +301,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -323,7 +322,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", "<$$*((>");
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -343,7 +342,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 9876543212813L);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -364,7 +363,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", "");
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -385,7 +384,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", " ");
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -406,7 +405,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", null);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -427,7 +426,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", "aaa");
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -446,7 +445,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -467,7 +466,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 9.9);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -488,7 +487,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", -9);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -511,7 +510,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", sysUserId);
 		request.put("userName", "test");
 		request.put("userPassword", "zlf123456");
-		request.put("realName", "张领峰123");
+		request.put("realName", "自动化测试123");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "15616115463");
 		request.put("status", 0);
@@ -532,7 +531,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -554,7 +553,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("roleName", "");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -575,7 +574,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("roleName", " ");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -596,7 +595,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("roleName", null);
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -617,7 +616,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("roleName", "自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色自动化测试角色");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -638,7 +637,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("roleName", "<.#$%^&>");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -658,7 +657,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("sysUserId", 0);
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -679,7 +678,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("sysUserId", 0);
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -700,7 +699,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -721,7 +720,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", " ");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -729,8 +728,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户登录名称为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("用户名不能为空");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
 	 * 用户登录名称为null
@@ -742,7 +741,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", null);
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -763,7 +762,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "5asdjwoieqwe16sdfsidfs8489rtkeprt546woerpwoe3215ploidkmvmv12348");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -784,7 +783,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "<@#$%^&*!>");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -805,7 +804,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -826,7 +825,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -847,7 +846,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", " ");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -868,7 +867,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", null);
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -889,7 +888,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", 5168489546321512348L);
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -910,7 +909,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "<@#$%^&*!>");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -932,7 +931,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰萨迪克拉斯蒂我饿哦请问萨市中心消息称王企鹅我怕是流动性权重拍咯点击查看城西小学");
+		request.put("realName", "自动化测试萨迪克拉斯蒂我饿哦请问萨市中心消息称王企鹅我怕是流动性权重拍咯点击查看城西小学");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1058,7 +1057,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlfasjioijweoijdasdasnxzmcksdlaweq0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1079,7 +1078,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "<.@#$%>");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1100,7 +1099,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", null);
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1108,8 +1107,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("email地址为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * email地址为空
@@ -1121,7 +1120,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1142,7 +1141,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", " ");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1163,7 +1162,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
 		request.put("roles", "10000003");
@@ -1184,7 +1183,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "1376477199519951995199519951995");
 		request.put("status", 0);
@@ -1205,7 +1204,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "<.@#$%>");
 		request.put("status", 0);
@@ -1226,7 +1225,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", null);
 		request.put("status", 0);
@@ -1234,8 +1233,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("手机号码为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 手机号码为空
@@ -1247,7 +1246,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "");
 		request.put("status", 0);
@@ -1268,7 +1267,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", " ");
 		request.put("status", 0);
@@ -1289,7 +1288,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("status", 0);
 		request.put("roles", "10000003");
@@ -1310,7 +1309,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 1234567890);
@@ -1318,8 +1317,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名状态");
 	}
 	/**
 	 * 状态为非法字符
@@ -1331,7 +1330,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", "<.@#$%>");
@@ -1351,7 +1350,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 99);
@@ -1359,8 +1358,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为错误" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("用户名状态");
 	}
 	/**
 	 * 状态为空
@@ -1372,7 +1371,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", "");
@@ -1380,8 +1379,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 状态为空格
@@ -1393,7 +1392,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", " ");
@@ -1401,8 +1400,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 状态为null
@@ -1414,7 +1413,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", null);
@@ -1422,8 +1421,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("状态为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 状态为String
@@ -1435,7 +1434,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", "aaa");
@@ -1455,7 +1454,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("roles", "10000003");
@@ -1475,7 +1474,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0.5);
@@ -1497,7 +1496,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", -1);
@@ -1518,7 +1517,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1539,7 +1538,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 1);
@@ -1561,7 +1560,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1569,8 +1568,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("角色id有误");
 	}
 	/**
 	 * 角色为非法字符
@@ -1582,7 +1581,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1590,8 +1589,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色为非法字符" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("角色id有误");
 	}
 	/**
 	 * 角色为null
@@ -1603,7 +1602,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1611,8 +1610,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 角色为空
@@ -1624,7 +1623,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1632,8 +1631,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("角色id有误");
 	}
 	/**
 	 * 角色为空格
@@ -1645,7 +1644,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1653,8 +1652,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("msg")).isEqualTo("角色id有误");
 	}
 	/**
 	 * 角色不传该参数
@@ -1666,7 +1665,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
@@ -1686,7 +1685,7 @@ public class AddOrUpdateUserTest extends HttpUtil {
 		request.put("sysUserId", 0);
 		request.put("userName", "lingfeng");
 		request.put("userPassword", "123456");
-		request.put("realName", "张领峰");
+		request.put("realName", "自动化测试");
 		request.put("email", "zlf0923@126.com");
 		request.put("phone", "13764771995");
 		request.put("status", 0);
