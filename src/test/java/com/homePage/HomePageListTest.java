@@ -93,7 +93,7 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("用户ID为未登陆" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo("0");
+        assertThat(head1.get("st")).isEqualTo(0);
         assertThat(head1.get("msg")).isEqualTo("成功");
     }
     /**
@@ -403,8 +403,8 @@ public class HomePageListTest extends HttpUtil {
     public void postHomePageSearchTestPageSizeIsNegativeNumber() throws Exception {
         Map<String, Object> con = new HashMap<String, Object>();
         con.put("userId", uuid);
-        con.put("pageNow", 1);
-        con.put("pageSize", -1);
+        con.put("pageNow", "1");
+        con.put("pageSize", "-1");
 
 
         Map<String, Object> head = new HashMap<String, Object>();
@@ -423,8 +423,8 @@ public class HomePageListTest extends HttpUtil {
         System.out.println("每页显示数量为负数" + post);
         JSONObject head1 = (JSONObject) post.get("head");
 
-        assertThat(head1.get("st")).isEqualTo(0);
-        assertThat(head1.get("msg")).isEqualTo("成功");
+        assertThat(head1.get("st")).isEqualTo(-3);
+        assertThat(head1.get("msg")).isEqualTo("数据包错误！");
     }
     /**
      * 每页显示数量为小数
@@ -672,8 +672,8 @@ public class HomePageListTest extends HttpUtil {
     public void postHomePageSearchTestPageNowIsNegativeNumber() throws Exception {
         Map<String, Object> con = new HashMap<String, Object>();
         con.put("userId", uuid);
-        con.put("pageNow", -1);
-        con.put("pageSize", 1);
+        con.put("pageNow", "-1");
+        con.put("pageSize", "1");
 
 
         Map<String, Object> head = new HashMap<String, Object>();
@@ -693,7 +693,7 @@ public class HomePageListTest extends HttpUtil {
         JSONObject head1 = (JSONObject) post.get("head");
 
         assertThat(head1.get("st")).isEqualTo(0);
-        assertThat(head1.get("msg")).isEqualTo("成功");
+        assertThat(head1.get("msg")).isEqualTo("数据包错误！");
     }
     /**
      * 当前页码数量为小数
