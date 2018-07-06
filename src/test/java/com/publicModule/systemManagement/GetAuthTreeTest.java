@@ -112,8 +112,8 @@ public class GetAuthTreeTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id格式违法,不能大于8位");
 	}
 	/**
 	 * 用户ID为空格
@@ -175,8 +175,8 @@ public class GetAuthTreeTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("操作用户不存在");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id格式违法");
 	}
 	/**
 	 * 用户ID为String
@@ -268,8 +268,8 @@ public class GetAuthTreeTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("角色用户id格式违法");
 	}
 	/**
 	 * 角色ID为空格
@@ -331,8 +331,8 @@ public class GetAuthTreeTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("角色ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("角色用户id格式违法");
 	}
 	/**
 	 * 角色ID为String

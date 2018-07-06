@@ -554,7 +554,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("属相专属标签数量为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(400);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 属相专属标签数量为0
@@ -774,7 +775,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("年代标签数量为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(400);
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 年代标签数量为0
@@ -1284,7 +1286,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("星座专属标签数量是否显示全部为最大值" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部为超长
@@ -2011,7 +2013,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		System.out.println("普通专属标签数量是否显示全部为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为超长

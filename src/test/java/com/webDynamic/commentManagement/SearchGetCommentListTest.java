@@ -2346,6 +2346,29 @@ public class SearchGetCommentListTest extends HttpUtil {
 		
 	}
 		/**
+		 * 每页获取的条数传null
+		 */
+		@Test
+		public void postSearchGetCommentListPageSizeIsNull() throws Exception {
+			Map<String, Object> request = new HashMap<String, Object>();
+			request.put("userId", userId);
+			request.put("category", 2);
+			request.put("operateStartTime", "2018-05-03");
+			request.put("operateEndTime", "2018-10-20");
+			request.put("status", 0);
+			request.put("kewWord", "点评");
+			request.put("nickName", "梦想家Even");
+			request.put("commentUser", "梦想家Even");
+			request.put("pageSize", null);
+			request.put("pageNow", 1);
+			JSONObject post = super.UNSPost(url, request);
+			System.out.println("每页获取的条数传null" + post);
+
+			assertThat(post.get("status")).isEqualTo(0);
+			assertThat(post.get("msg")).isEqualTo("pageSize及pageNow 输入值不正确!");
+		
+	}
+		/**
 		 * 每页获取的条数不传
 		 */
 		@Test

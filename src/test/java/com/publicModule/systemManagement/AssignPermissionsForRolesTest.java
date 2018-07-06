@@ -442,7 +442,7 @@ public class AssignPermissionsForRolesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("菜单id传错误值" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(500);
 //		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**

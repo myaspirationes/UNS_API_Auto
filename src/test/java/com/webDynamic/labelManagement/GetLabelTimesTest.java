@@ -118,7 +118,7 @@ public class GetLabelTimesTest extends HttpUtil {
 		System.out.println("操作用户ID为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg").toString()).isEqualTo("null");
+		assertThat(post.get("msg").toString()).isEqualTo("参数异常");
 	}
 	/**
 	 * 操作用户ID为null
@@ -132,7 +132,7 @@ public class GetLabelTimesTest extends HttpUtil {
 		System.out.println("操作用户ID为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg").toString()).isEqualTo("null");
+		assertThat(post.get("msg").toString()).isEqualTo("参数异常");
 	}
 	/**
 	 * 操作用户ID为超长
@@ -171,8 +171,8 @@ public class GetLabelTimesTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("操作用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("添加成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 操作用户ID为空
@@ -186,7 +186,7 @@ public class GetLabelTimesTest extends HttpUtil {
 		System.out.println("操作用户ID为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg").toString()).isEqualTo("null");
+		assertThat(post.get("msg").toString()).isEqualTo("参数异常");
 	}
 	/**
 	 * 操作用户ID不传该参数
@@ -199,7 +199,7 @@ public class GetLabelTimesTest extends HttpUtil {
 		System.out.println("操作用户ID不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg").toString()).isEqualTo("null");
+		assertThat(post.get("msg").toString()).isEqualTo("参数异常");
 	}
 
 

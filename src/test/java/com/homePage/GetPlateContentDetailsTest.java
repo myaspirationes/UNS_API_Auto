@@ -310,8 +310,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		System.out.println("容器ID为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		assertThat(post.get("body").toString()).isEqualTo("{}");
+		assertThat(post.get("msg")).isEqualTo("容器id不能为负数");
 	}
 	/**
 	 * 容器ID为空格

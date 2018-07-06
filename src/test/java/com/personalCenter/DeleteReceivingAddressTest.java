@@ -112,7 +112,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 	/**
 	 * 地址id错误信息
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdError() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 1249545);
@@ -315,7 +315,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 	/**
 	 * 地址id不传该参数
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("userId", 12495324);
@@ -343,7 +343,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 	/**
 	 * 地址id为超长
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestAddressIdIsLong() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 45232555558L);
@@ -547,7 +547,7 @@ public class DeleteReceivingAddressTest extends HttpUtil {
 	/**
 	 * 用户ID不提交
 	 */
-	//@Test
+	@Test
 	public void postDeleteReceivingAddressTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> con = new HashMap<String, Object>();
 		con.put("addressId", 124953245);

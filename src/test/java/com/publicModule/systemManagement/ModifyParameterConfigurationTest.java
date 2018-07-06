@@ -22,35 +22,24 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	List<Map<String,Object>> list ;
 	List<Map<String,Object>> list1 ;
 	List<Map<String,Object>> list2 ;
-	String selectSql = "SELECT * FROM T_AUDIT_MSG WHERE MSG_ID = 1";
+	String selectSql = "SELECT * FROM T_AUDIT_MSG WHERE MSG_ID = 6";
 	String selectSql1 = "SELECT * FROM T_AUDIT_MSG_CATEGORY WHERE CATEGORY_ID = 1";
 	String selectSql2 = "SELECT * FROM T_AUDIT_MSG WHERE MSG_CONTENT = '自动化测试1' ";
-	String deleteSql = "DELETE FROM T_AUDIT_MSG WHERE MSG_CONTENT = '自动化测试1' ";			
 	String updateSql = "UPDATE T_AUDIT_MSG_CATEGORY SET STATUS = 1 WHERE CATEGORY_ID = 1 ";
 	String dataType = "uedb";
 	List<Map> lis = new ArrayList<Map>();
 	Map<Object, Object> map1 = new HashMap<Object, Object>();
-	Map<Object, Object> map2 = new HashMap<Object, Object>();
 	BackUserLoginTest login = new BackUserLoginTest();
 	String userId=login.userId;	
 	
-	@AfterClass
-	public void afterClass()
-	{
-		MetaOper.delete(deleteSql, dataType);
-	}
-
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestCorrectParameter() throws Exception {
-		map1.put("key", "0");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试1");
-		map2.put("key", "1");
-		map2.put("value", "自动化测试勿删除");
 		lis.add(map1);
-		lis.add(map2);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("paraId", 1);
@@ -64,21 +53,20 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 		assertThat(post.get("msg")).isEqualTo("成功");
 		list = MetaOper.read(selectSql,dataType);
 		list1 = MetaOper.read(selectSql1,dataType);
-		list2 = MetaOper.read(selectSql2,dataType);
 		assertThat(list1.get(0).get("STATUS").toString()).isEqualTo("0");
-		assertThat(list2.get(0).get("MSG_CONTENT").toString()).isEqualTo("自动化测试1");
-		assertThat(list.get(0).get("MSG_CONTENT").toString()).isEqualTo("自动化测试勿删除");
+		assertThat(list.get(0).get("CATEGORY_ID").toString()).isEqualTo("1");
+		assertThat(list.get(0).get("MSG_CONTENT").toString()).isEqualTo("自动化测试1");
 	}
 	/**
 	 * 用户ID为未登录用户
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdNotLoggedIn() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495396);
+		request.put("userId", 10000006);
 		request.put("paraId", 1);
 		request.put("name", "商户审核原因");
 		request.put("rules", lis);
@@ -94,11 +82,11 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdIsError() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495366);
+		request.put("userId", 111);
 		request.put("paraId", 1);
 		request.put("name", "商户审核原因");
 		request.put("rules", lis);
@@ -114,11 +102,11 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdIllegalCharacters() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", 12495366);
+		request.put("userId", "#@$$");
 		request.put("paraId", 1);
 		request.put("name", "商户审核原因");
 		request.put("rules", lis);
@@ -134,7 +122,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdIsDecimal() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -154,7 +142,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdIsNegativeNumber() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -174,7 +162,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdIsZero() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -194,7 +182,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdIsString() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -214,7 +202,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdIsSpace() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -234,7 +222,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdIsEmpty() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -254,7 +242,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdIsNull() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -274,7 +262,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestParaIdIsError() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -293,7 +281,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdNonSubmissionParameters() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -312,7 +300,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestUserIdIsLong() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -349,7 +337,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestParaIdIsDecimal() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -369,7 +357,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestParaIdIsIllegalCharacters() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -389,7 +377,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestParaIdIsString() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -409,7 +397,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestParaIdIsEmpty() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -429,7 +417,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestParaIdIsSpace() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -449,7 +437,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestParaIdIsNull() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -469,7 +457,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestParaIdNonSubmissionParameters() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -488,7 +476,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestParaIdIsLong() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -507,7 +495,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestNameIsLong() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -527,7 +515,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestNameIsIllegalCharacters() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -547,7 +535,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestNameIsSpace() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -567,7 +555,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestNameIsEmpty() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -587,7 +575,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestNameIsNull() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -607,7 +595,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestNameNonSubmissionParameters() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -626,7 +614,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestRulesIsLong() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -644,7 +632,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestRulesIsIllegalCharacters() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -662,7 +650,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestRulesIsEmpty() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -680,7 +668,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestRulesIsSpace() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -698,7 +686,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestRulesIsNull() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -717,7 +705,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestRulesNonSubmissionParameters() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -735,7 +723,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestStatusIsError() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -754,7 +742,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestStatusIsDecimal() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -773,7 +761,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestStatusIsNegativeNumber() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -792,7 +780,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestStatusIsEmpty() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -811,7 +799,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestStatusIsSpace() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -831,7 +819,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	@Test
 	public void postModifyParameterConfigurationTestStatusIsNull() throws Exception {
 		MetaOper.update(updateSql, dataType);
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -852,7 +840,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestStatusIsString() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -872,7 +860,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	@Test
 	public void postModifyParameterConfigurationTestStatusNonSubmissionParameters() throws Exception {
 		MetaOper.update(updateSql, dataType);
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -892,7 +880,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestStatusIs1() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -914,7 +902,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestStatusIs0() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -937,7 +925,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	@Test
 	public void postModifyParameterConfigurationTestStatusIs1Again0() throws Exception {
 		MetaOper.update(updateSql, dataType);
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -960,7 +948,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	@Test
 	public void postModifyParameterConfigurationTestStatusIs0Again1() throws Exception {
 		MetaOper.update(updateSql, dataType);
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "自动化测试勿删除");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -1179,7 +1167,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestValueIsEmpty() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", "");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -1200,7 +1188,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestValueIsSpace() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", " ");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -1221,7 +1209,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestValueIsNull() throws Exception {
-		map1.put("key", "1");
+		map1.put("key", "6");
 		map1.put("value", null);
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
@@ -1242,7 +1230,9 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 	 */
 	@Test
 	public void postModifyParameterConfigurationTestValueNonSubmissionParameters() throws Exception {
-		map1.put("key", "1");
+		List<Map> lis = new ArrayList<Map>();
+		Map<Object, Object> map1 = new HashMap<Object, Object>();
+		map1.put("key", "6");
 		lis.add(map1);
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
@@ -1254,6 +1244,7 @@ public class ModifyParameterConfigurationTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-	
+		list = MetaOper.read(selectSql,dataType);
+		assertThat(list.get(0).get("MSG_CONTENT")).isEqualTo(null);
 	}
 }
