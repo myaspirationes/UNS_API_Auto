@@ -27,9 +27,10 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 	String userid;	
 	String sensitiveWordId;
 	String dataType = "perCenter81";
-	@BeforeMethod
-	public void  beforeMethod() throws Exception{
-		userid = new BackUserLoginTest().userId;	
+
+	@BeforeClass
+	public void beforeClass() throws Exception{
+		userid = new BackUserLoginTest().userId;
 		new AddOrEditSensitiveWordTest().postAddOrEditSensitiveWordTestCorrectParameter();
 		list = MetaOper.read(selectSql,dataType);
 		sensitiveWordId = list.get(0).get("SENSITIVE_ID").toString();
@@ -79,7 +80,9 @@ public class DeleteSensitiveWordTest extends HttpUtil {
 		System.out.println("用户ID为错误用户" + post);
 	
 		assertThat(post.get("status")).isEqualTo(1);
+
 		assertThat(post.get("msg")).isEqualTo("敏感词id错误");
+
 	}
 	/**
 	 * 用户ID为非法字符
