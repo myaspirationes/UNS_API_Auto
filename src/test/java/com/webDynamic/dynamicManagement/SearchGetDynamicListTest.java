@@ -138,7 +138,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
@@ -260,8 +260,6 @@ public class SearchGetDynamicListTest extends HttpUtil {
 
 		assertThat(post.get("status")).isEqualTo(-3);
 		assertThat(post.get("msg")).isEqualTo("用户id值不正确!");
-		//JSONObject body = (JSONObject)post.get("body");
-		//assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * 用户ID不传该参数

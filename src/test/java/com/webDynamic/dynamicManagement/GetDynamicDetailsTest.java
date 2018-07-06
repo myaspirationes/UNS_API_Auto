@@ -73,7 +73,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);		 
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");//小数验证不了
 	}
 	/**
@@ -116,7 +116,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID" + post);		 
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");//没对这个校验做
 	}
 	/**
@@ -130,7 +130,7 @@ public class GetDynamicDetailsTest extends HttpUtil {
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID未登录" + post);
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**

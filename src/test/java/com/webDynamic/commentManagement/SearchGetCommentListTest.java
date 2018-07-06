@@ -203,7 +203,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			JSONObject post = super.UNSPost(url, request);
 			System.out.println("分类为空" + post);
 
-			assertThat(post.get("status")).isEqualTo(0);
+			assertThat(post.get("status")).isEqualTo(-1);
 			assertThat(post.get("msg")).isEqualTo("成功");
 	}
 		/**
@@ -225,7 +225,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			JSONObject post = super.UNSPost(url, request);
 			System.out.println("分类为空格" + post);
 
-			assertThat(post.get("status")).isEqualTo(0);
+			assertThat(post.get("status")).isEqualTo(-1);
 			assertThat(post.get("msg")).isEqualTo("成功");
 	}
 		/**
@@ -247,7 +247,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			JSONObject post = super.UNSPost(url, request);
 			System.out.println("分类为null" + post);
 
-			assertThat(post.get("status")).isEqualTo(0);
+			assertThat(post.get("status")).isEqualTo(-1);
 			assertThat(post.get("msg")).isEqualTo("成功");
 		
 	}
@@ -269,7 +269,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			JSONObject post = super.UNSPost(url, request);
 			System.out.println("分类不传参数" + post);
 
-			assertThat(post.get("status")).isEqualTo(0);
+			assertThat(post.get("status")).isEqualTo(-1);
 			assertThat(post.get("msg")).isEqualTo("成功");		
 	}
 		/**
@@ -1834,7 +1834,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			JSONObject post = super.UNSPost(url, request);
 			System.out.println("评论内容关键字传超长" + post);
 
-			assertThat(post.get("status")).isEqualTo(0);
+			assertThat(post.get("status")).isEqualTo(-1);
 			assertThat(post.get("msg")).isEqualTo("成功");//传错时不做判断
 		
 	}
@@ -1857,7 +1857,7 @@ public class SearchGetCommentListTest extends HttpUtil {
 			JSONObject post = super.UNSPost(url, request);
 			System.out.println("评论内容关键字传0" + post);
 
-			assertThat(post.get("status")).isEqualTo(0);
+			assertThat(post.get("status")).isEqualTo(-1);
 			assertThat(post.get("msg")).isEqualTo("成功");//keyWord传错时不做判断
 	}
 		/**

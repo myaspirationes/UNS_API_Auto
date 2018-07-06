@@ -335,7 +335,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交category为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
@@ -356,7 +356,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交category为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
@@ -377,7 +377,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交category为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
@@ -397,7 +397,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("不提交category参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
@@ -1295,7 +1295,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交pageSize为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
@@ -1315,7 +1315,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交pageSize为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
@@ -1335,7 +1335,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交pageSize为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
@@ -1354,7 +1354,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("不提交pageSize" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
@@ -1519,10 +1519,28 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交pageNow为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
-	
+	/**
+	 * 提交pageNow为空
+	 */
+	@Test
+	public void postSearchGetComplaintsListTestPageNowIsEmpty() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("category", 0);
+		request.put("keyComplain", "违法");
+		request.put("beginCreateDate", "2017-06-12");
+		request.put("endCreateDate", "2019-06-12");
+		request.put("pageSize", 10);
+		request.put("pageNow", "");
+		request.put("userId", userId);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("提交pageNow为空" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("成功");	
+	}
 
 
 	/**
@@ -1541,7 +1559,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交pageNow为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");	
 	}
 	
@@ -1560,7 +1578,7 @@ public class SearchGetComplaintsList extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("不提交pageNow" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 }
