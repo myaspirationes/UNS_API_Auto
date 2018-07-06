@@ -45,6 +45,7 @@ public class AddOrEditSensitiveWordTest extends HttpUtil {
 	 */
 	@Test
 	public void postAddOrEditSensitiveWordTestCorrectParameter() throws Exception {
+		userid = new BackUserLoginTest().userId;
 		MetaOper.delete(deleteSql, datatype);
 		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
 		request.put("userId", userid);

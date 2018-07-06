@@ -54,7 +54,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("成功！");
 		list =MetaOper.read(selectSql,dataType);
 		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("2");
 		assertThat(list.get(0).get("AUDIT_CONTENT").toString()).isEqualTo("13723");	
@@ -129,7 +129,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("申请Id传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 申请Id传空
@@ -147,7 +147,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("申请Id传空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 申请Id传null
@@ -165,7 +165,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("申请Id传null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 申请Id传小数
@@ -201,7 +201,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("申请Id传负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("msg")).isEqualTo("申请id不存在！");
 	}
 	/**
 	 * 申请Id不传参数
@@ -218,7 +218,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("申请Id不传参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请id非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 审核人id为未登录用户
@@ -308,7 +308,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人id为负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户id非法！");
+		assertThat(post.get("msg")).isEqualTo("审核人信息不匹配！");
 	}
 	/**
 	 * 审核人id为空格
@@ -326,7 +326,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人id为空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户id非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 审核人id为空
@@ -344,7 +344,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人id为空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户id非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 审核人id为null
@@ -362,7 +362,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人id为null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户id非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 审核人id不传该参数
@@ -379,7 +379,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人id不传该参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户id非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 审核人id为0
@@ -397,7 +397,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人id为0" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户id非法！");
+		assertThat(post.get("msg")).isEqualTo("审核人信息不匹配！");
 	}
 	/**
 	 * 审核人id为超长
@@ -415,7 +415,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人id为超长" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户id非法！");
+		assertThat(post.get("msg")).isEqualTo("审核人信息不匹配！");
 	}
 	/**
 	 * 状态传0审核中
@@ -433,7 +433,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态传0审核中" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("审核参数异常！");
 	}
 	/**
 	 * 状态传1通过
@@ -470,7 +470,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态传2驳回" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("成功！");
 		list =MetaOper.read(selectSql,dataType);
 		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("2");
 		assertThat(list.get(0).get("AUDIT_CONTENT").toString()).isEqualTo("13723");	
@@ -491,7 +491,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态传错误值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("审核参数异常！");
 	}
 	/**
 	 * 状态传小数
@@ -509,7 +509,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态传小数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("审核参数异常！");
 	}
 	/**
 	 * 状态传负数
@@ -527,7 +527,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态传负数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("审核参数异常！");
 	}
 	/**
 	 * 状态传空格
@@ -545,7 +545,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 状态传空
@@ -563,7 +563,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态传空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 状态传null
@@ -581,7 +581,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态传null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 状态传非法字符
@@ -616,7 +616,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态不传参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 状态传最大值
@@ -634,7 +634,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态传最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("审核参数异常！");
 	}
 	/**
 	 * 审核人姓名传超长
@@ -688,7 +688,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人姓名传空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核人姓名不能为空！");
+		assertThat(post.get("msg")).isEqualTo("审核人信息不匹配！");
 	}
 	/**
 	 * 审核人姓名传空格
@@ -706,7 +706,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人姓名传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核人姓名不能为空！");
+		assertThat(post.get("msg")).isEqualTo("审核人信息不匹配！");
 	}
 	/**
 	 * 审核人姓名传0
@@ -742,7 +742,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人姓名传null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核人姓名不能为空！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 审核人姓名不传参数
@@ -759,7 +759,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("审核人姓名不传参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核人姓名不能为空！");
+		assertThat(post.get("msg")).isEqualTo("参数不能为空！");
 	}
 	/**
 	 * 驳回原因id传错误值
@@ -938,7 +938,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态为0驳回原因id传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("审核参数异常！");
 	}
 	/**
 	 * 状态为0驳回原因id传空
@@ -956,7 +956,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态为0驳回原因id传空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("审核参数异常！");
 	}
 	/**
 	 * 状态为0驳回原因id传null
@@ -974,7 +974,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态为0驳回原因id传null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("审核参数异常！");
 	}
 	/**
 	 * 状态为0驳回原因id不传
@@ -991,7 +991,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态为0驳回原因id不传" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("审核状态非法！");
+		assertThat(post.get("msg")).isEqualTo("审核参数异常！");
 	}
 	/**
 	 * 状态为1驳回原因id传空格
@@ -1009,7 +1009,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态为1驳回原因id传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("成功！");
 		list =MetaOper.read(selectSql,dataType);
 		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("1");
 	}
@@ -1029,7 +1029,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态为1驳回原因id传空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("成功！");
 		list =MetaOper.read(selectSql,dataType);
 		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("1");
 		assertThat(list.get(0).get("AUDIT_CONTENT")).isEqualTo(null);
@@ -1050,7 +1050,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态为1驳回原因id传空" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("成功！");
 		list =MetaOper.read(selectSql,dataType);
 		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("1");
 		assertThat(list.get(0).get("AUDIT_CONTENT")).isEqualTo(null);
@@ -1070,7 +1070,7 @@ public class CheckReplaceAdministratorTest extends HttpUtil {
 		System.out.println("状态为1驳回原因id不传" + post);
 
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("成功！");
 		list =MetaOper.read(selectSql,dataType);
 		assertThat(list.get(0).get("STATUS").toString()).isEqualTo("1");
 		//assertThat(list.get(0).get("AUDIT_CONTENT")).isEqualTo(null);

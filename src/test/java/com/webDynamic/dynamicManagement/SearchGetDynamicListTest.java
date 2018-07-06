@@ -1574,7 +1574,7 @@ public class SearchGetDynamicListTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		JSONObject body = (JSONObject)post.get("body");
-		assertThat(body.get("total")).isEqualTo(0);
+		assertThat(body.get("dynamicList").toString()).isEqualTo("[]");
 	}
 	/**
 	 * 每页显示记录集pageSize为超长

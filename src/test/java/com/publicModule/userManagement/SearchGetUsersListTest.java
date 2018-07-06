@@ -1997,8 +1997,10 @@ public class SearchGetUsersListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("app端用户id传0" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("参数非法");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		JSONObject body = (JSONObject)post.get("body");
+		assertThat(body.get("total")).isEqualTo(0);
 	}
 	/**
 	 * App端用户id传负数

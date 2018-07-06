@@ -342,7 +342,7 @@ public class ShareTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId不合法");
+		assertThat(head1.get("msg")).isEqualTo("参数非法");
 	}
 	/**
 	 * 用户ID不传该参数

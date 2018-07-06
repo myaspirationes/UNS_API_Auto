@@ -485,8 +485,7 @@ public class JoinHomePageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID超长" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 容器ID为空
@@ -501,8 +500,7 @@ public class JoinHomePageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为空" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 容器ID存在非法字符
@@ -517,8 +515,7 @@ public class JoinHomePageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID存在非法字符" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 容器ID为小数
@@ -549,8 +546,8 @@ public class JoinHomePageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为负数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("容器id不能为负数");
 	}
 	/**
 	 * 容器ID为空格
@@ -565,8 +562,7 @@ public class JoinHomePageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为空格" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 容器ID为null
@@ -581,8 +577,7 @@ public class JoinHomePageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为null" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
 	}
 	/**
 	 * 容器ID为String
@@ -597,8 +592,7 @@ public class JoinHomePageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为String" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(400);
 	}
 	/**
 	 * 容器ID不传该参数
@@ -613,8 +607,8 @@ public class JoinHomePageTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID不传该参数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("status")).isEqualTo(500);
+		//assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
 }

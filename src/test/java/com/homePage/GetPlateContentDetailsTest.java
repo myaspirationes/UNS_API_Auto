@@ -46,7 +46,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		System.out.println("用户ID为未登录用户" + post);
 	
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
@@ -62,7 +62,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为错误用户" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
@@ -93,7 +93,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为小数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
@@ -108,8 +108,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
-		assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id不能为负数");
 	}
 	/**
 	 * 用户ID为空格
@@ -171,8 +171,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为0" + post);
 
-		assertThat(post.get("status")).isEqualTo(400);
-		//assertThat(post.get("msg")).isEqualTo("数据包错误！");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("用户id不能为0");
 	}
 	/**
 	 * 用户ID为String
@@ -216,7 +216,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
 
-		assertThat(post.get("status")).isEqualTo(-3);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("数据包错误！");
 	}
 	/**
@@ -263,8 +263,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为空" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
+		assertThat(post.get("status")).isEqualTo(500);
+		//assertThat(post.get("msg")).isEqualTo("容器id不能为空");
 	}
 	/**
 	 * 容器ID存在非法字符
@@ -309,7 +309,7 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为负数" + post);
 
-		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("成功");
 		assertThat(post.get("body").toString()).isEqualTo("{}");
 	}
@@ -325,8 +325,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为空格" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
+		assertThat(post.get("status")).isEqualTo(500);
+		//assertThat(post.get("msg")).isEqualTo("容器id不能为空");
 	}
 	/**
 	 * 容器ID为null
@@ -340,8 +340,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
+		assertThat(post.get("status")).isEqualTo(500);
+		//assertThat(post.get("msg")).isEqualTo("容器id不能为空");
 	}
 	/**
 	 * 容器ID为String
@@ -370,8 +370,8 @@ public class GetPlateContentDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("容器ID不传该参数" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("容器id不能为空");
+		assertThat(post.get("status")).isEqualTo(500);
+		//assertThat(post.get("msg")).isEqualTo("容器id不能为空");
 	}
 	
 	

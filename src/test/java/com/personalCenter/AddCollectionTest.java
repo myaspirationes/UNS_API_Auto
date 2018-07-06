@@ -79,7 +79,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID为未登录用户
 	 */
-	//@Test
+	@Test
 	public void postAddCollectionTestUserIdNotLoggedIn() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"
@@ -407,7 +407,7 @@ public class AddCollectionTest extends HttpUtil {
 	/**
 	 * 用户ID为0
 	 */
-	//@Test
+	@Test
 	public void postAddCollectionTestUserIdIsZero() throws Exception {
 		Map<String, Object> msg = new HashMap<String, Object>();
 		msg.put("goodId",10129);//"goodId":"10129","goodName":"他是特","goodUrl":"http://192.168.9.20:8088/index.php?s=/kabao&page_id=792","goodSatus":"1","goodTags":"[fun,instesting,nice]","goodPrice":"10.20"

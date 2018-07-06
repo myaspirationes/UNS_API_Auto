@@ -87,8 +87,8 @@ public class HomePageSearchTest extends HttpUtil {
 		System.out.println("用户ID为未登陆" + post);
 		JSONObject head1 = (JSONObject) post.get("head");
 
-		assertThat(head1.get("st")).isEqualTo("0");
-		assertThat(head1.get("msg")).isEqualTo("成功");
+		assertThat(head1.get("st")).isEqualTo(-3);
+		assertThat(head1.get("msg")).isEqualTo("不存在用户id");
 	}
 	/**
 	 * 用户ID为为错误

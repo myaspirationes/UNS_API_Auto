@@ -12,13 +12,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetWorkBenchListTest extends HttpUtil {
 	// 获取待处理工作列表接口
-	String url = "/uu-admin/workBench/workBenchList";
-	String userId;
+	String url = "/uu-admin/workBench/workBenchList";	
 	
-   @BeforeClass
-   public void beforeClass(){
-	   userId = new BackUserLoginTest().userId; 
-   }
+	   BackUserLoginTest login = new BackUserLoginTest();
+	   String userId = login.userId;
+   
+   
 
 	/**
 	 * 提交正确参数

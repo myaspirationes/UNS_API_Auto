@@ -210,7 +210,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 		System.out.println("用户ID为0" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("用户Id不合法");
+		assertThat(post.get("msg")).isEqualTo("用户不存在");
 		}
 	/**
 	 * 用户ID为超长
@@ -312,7 +312,7 @@ public class GetModifyManagerCheckDetailsTest extends HttpUtil {
 		System.out.println("申请id传0" + post);
 	
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("申请Id参数不合法");
+		assertThat(post.get("msg")).isEqualTo("申请数据不存在");
 		}
 	/**
 	 * 申请id传最大值

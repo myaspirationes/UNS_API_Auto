@@ -536,7 +536,7 @@ public class SettingDefaultReceivingAddressTest extends HttpUtil {
 		JSONObject head1 = (JSONObject) post.get("head");
 	
 		assertThat(head1.get("st")).isEqualTo(-3);
-		assertThat(head1.get("msg")).isEqualTo("userId 校验失败,非法输入");
+		assertThat(head1.get("msg")).isEqualTo("失败");
 			
 	}
 	/**

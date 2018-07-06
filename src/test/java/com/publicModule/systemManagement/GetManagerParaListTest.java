@@ -309,8 +309,8 @@ public class GetManagerParaListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("关键字为null" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * 关键字不传该参数
