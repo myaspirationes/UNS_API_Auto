@@ -34,7 +34,7 @@ public class GetRoleDetailsTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
