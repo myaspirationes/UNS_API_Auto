@@ -45,8 +45,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -67,8 +67,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -89,8 +89,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -111,8 +111,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -132,8 +132,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -153,8 +153,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -174,8 +174,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -195,8 +195,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -217,8 +217,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -239,8 +239,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -261,8 +261,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -282,8 +282,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -304,8 +304,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -327,8 +327,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -349,8 +349,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -372,8 +372,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -395,8 +395,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -416,8 +416,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -437,8 +437,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -459,8 +459,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -481,8 +481,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -502,8 +502,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -524,8 +524,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -547,8 +547,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -569,8 +569,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -592,8 +592,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -615,8 +615,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -636,8 +636,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -657,8 +657,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -679,8 +679,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -701,8 +701,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -722,8 +722,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("timeNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -744,8 +744,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -768,8 +768,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -790,8 +790,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -813,8 +813,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -836,8 +836,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -858,8 +858,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -879,8 +879,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -901,8 +901,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -923,8 +923,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -944,8 +944,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("commonNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -967,8 +967,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("timeNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -990,8 +990,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("timeNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1012,8 +1012,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("timeNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1021,7 +1021,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		list = MetaOper.read(selType3,dataType);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("NUM").toString()).isEqualTo("0");
+		assertThat(list.get(0).get("NUM").toString()).isEqualTo("2");
 	}
 	/**
 	 * 普通标签数量为最大值
@@ -1035,8 +1035,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("timeNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1044,7 +1044,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		list = MetaOper.read(selType3,dataType);
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("NUM").toString()).isEqualTo("999999999");
+		assertThat(list.get(0).get("NUM").toString()).isEqualTo("2");
 	}
 	/**
 	 * 普通标签数量为超长
@@ -1058,8 +1058,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("timeNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1079,8 +1079,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("timeNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1100,8 +1100,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("timeNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1122,8 +1122,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("timeNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1144,8 +1144,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("timeNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1165,8 +1165,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 		request.put("chineseZodiacSignNum", 2);
 		request.put("timeNum", 2);
 //		request.put("constellationIsAll", 1);
-//		request.put("chineseZodiacSignIsALL", 1);
-//		request.put("timeIsALL", 1);
+//		request.put("chineseZodiacSignIsAll", 1);
+//		request.put("timeIsAll", 1);
 //		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1188,8 +1188,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1211,16 +1211,14 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", 0);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("星座专属标签数量是否显示全部为0为选择" + post);
-		list = MetaOper.read(selType1,dataType);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("IS_ALL").toString()).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 星座专属标签数量是否显示全部为小数
@@ -1234,8 +1232,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", 1.1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1257,8 +1255,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", -1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1279,8 +1277,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", 999999999);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1300,8 +1298,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", 1111111111111111L);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1321,8 +1319,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", "constellationIsAll");
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1343,8 +1341,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", " ");
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1365,8 +1363,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", "");
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1387,8 +1385,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", null);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1408,8 +1406,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1430,9 +1428,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("constellationIsAll", 1);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1453,17 +1451,15 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("chineseZodiacSignIsALL", 0);
+		request.put("chineseZodiacSignIsAll", 0);
 		request.put("constellationIsAll", 1);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("属相专属标签数量是否显示全部为0为选择" + post);
-		list = MetaOper.read(selType2,dataType);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("IS_ALL").toString()).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部为小数
@@ -1476,9 +1472,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("chineseZodiacSignIsALL", 1.1);
+		request.put("chineseZodiacSignIsAll", 1.1);
 		request.put("constellationIsAll", 1);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1499,9 +1495,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("chineseZodiacSignIsALL", -1);
+		request.put("chineseZodiacSignIsAll", -1);
 		request.put("constellationIsAll", 1);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1521,15 +1517,15 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("chineseZodiacSignIsALL", 999999999);
+		request.put("chineseZodiacSignIsAll", 999999999);
 		request.put("constellationIsAll", 1);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("属相专属标签数量是否显示全部为最大值" + post);
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 属相专属标签数量是否显示全部为超长
@@ -1542,9 +1538,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("chineseZodiacSignIsALL", 111111111111111111L);
+		request.put("chineseZodiacSignIsAll", 111111111111111111L);
 		request.put("constellationIsAll", 1);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1563,9 +1559,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("chineseZodiacSignIsALL", "chineseZodiacSignIsALL");
+		request.put("chineseZodiacSignIsAll", "chineseZodiacSignIsAll");
 		request.put("constellationIsAll", 1);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1584,9 +1580,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("chineseZodiacSignIsALL", " ");
+		request.put("chineseZodiacSignIsAll", " ");
 		request.put("constellationIsAll", 1);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1606,9 +1602,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("chineseZodiacSignIsALL", "");
+		request.put("chineseZodiacSignIsAll", "");
 		request.put("constellationIsAll", 1);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1628,9 +1624,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("chineseZodiacSignIsALL", null);
+		request.put("chineseZodiacSignIsAll", null);
 		request.put("constellationIsAll", 1);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1651,7 +1647,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", 1);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1671,9 +1667,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("timeIsALL", 1);
+		request.put("timeIsAll", 1);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1694,17 +1690,15 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("timeIsALL", 0);
+		request.put("timeIsAll", 0);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("年代专属标签数量是否显示全部为0为选择" + post);
-		list = MetaOper.read(selType3,dataType);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("IS_ALL").toString()).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为小数
@@ -1717,9 +1711,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("timeIsALL", 1.1);
+		request.put("timeIsAll", 1.1);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1740,9 +1734,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("timeIsALL", -1);
+		request.put("timeIsAll", -1);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1762,16 +1756,16 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("timeIsALL", 999999999);
+		request.put("timeIsAll", 999999999);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("年代专属标签数量是否显示全部为最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 年代专属标签数量是否显示全部为超长
@@ -1784,9 +1778,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("timeIsALL", 1111111111111111L);
+		request.put("timeIsAll", 1111111111111111L);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1805,9 +1799,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("timeIsALL", "timeIsALL");
+		request.put("timeIsAll", "timeIsAll");
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1826,9 +1820,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("timeIsALL", " ");
+		request.put("timeIsAll", " ");
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1848,9 +1842,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("timeIsALL", "");
+		request.put("timeIsAll", "");
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1870,9 +1864,9 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("chineseZodiacSignNum", 2);
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
-		request.put("timeIsALL", null);
+		request.put("timeIsAll", null);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1893,7 +1887,7 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
 		request.put("commonIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
@@ -1915,8 +1909,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("commonNum", 2);
 		request.put("commonIsAll", 1);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("普通专属标签数量是否显示全部为1选择" + post);
@@ -1938,15 +1932,13 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("commonNum", 2);
 		request.put("commonIsAll", 0);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("普通专属标签数量是否显示全部为0为选择" + post);
-		list = MetaOper.read(selType4,dataType);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-		assertThat(list.get(0).get("IS_ALL").toString()).isEqualTo("0");
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("参数异常");
 	}
 	/**
 	 * 普通专属标签数量是否显示全部为小数
@@ -1961,8 +1953,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("commonNum", 2);
 		request.put("commonIsAll", 1.1);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("普通专属标签数量是否显示全部为小数" + post);
@@ -1985,8 +1977,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("commonNum", 2);
 		request.put("commonIsAll", -1);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -2006,8 +1998,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("commonNum", 2);
 		request.put("commonIsAll", 999999999);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("普通专属标签数量是否显示全部为最大值" + post);
@@ -2028,8 +2020,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("commonNum", 2);
 		request.put("commonIsAll", 1111111111111111L);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("普通专属标签数量是否显示全部为超长" + post);
@@ -2049,8 +2041,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("commonNum", 2);
 		request.put("commonIsAll", "commonIsAll");
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("普通专属标签数量是否显示全部为字符串" + post);
@@ -2070,8 +2062,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("commonNum", 2);
 		request.put("commonIsAll", " ");
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("普通专属标签数量是否显示全部为空格" + post);
@@ -2092,8 +2084,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("commonNum", 2);
 		request.put("commonIsAll", "");
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("普通专属标签数量是否显示全部为空" + post);
@@ -2114,8 +2106,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("commonNum", 2);
 		request.put("commonIsAll", null);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("普通专属标签数量是否显示全部为null" + post);
@@ -2135,8 +2127,8 @@ public class SetLabelSettingLableTest extends HttpUtil {
 //		request.put("timeNum", 2);
 //		request.put("commonNum", 2);
 		request.put("constellationIsAll", 1);
-		request.put("chineseZodiacSignIsALL", 1);
-		request.put("timeIsALL", 1);
+		request.put("chineseZodiacSignIsAll", 1);
+		request.put("timeIsAll", 1);
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("普通专属标签数量是否显示全部不传该参数" + post);
