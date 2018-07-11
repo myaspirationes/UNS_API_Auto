@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class ExportAccountDetailListTest extends HttpUtil {
-// 获取角色详情接口
+// 获取对账明细列表接口
 	String url = "/";
 	String userId;
 	@BeforeClass
