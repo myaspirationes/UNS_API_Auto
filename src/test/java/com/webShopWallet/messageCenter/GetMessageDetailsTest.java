@@ -1,4 +1,4 @@
-package com.webShopWallet.setting;
+package com.webShopWallet.messageCenter;
 
 import com.example.HttpUtil;
 import com.publicModule.login.BackUserLoginTest;
@@ -13,8 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 //import org.junit.Test;
 
-public class GetCompanyBasicInformationTest extends HttpUtil {
-// 获取企业基本信息接口
+public class GetMessageDetailsTest extends HttpUtil {
+// 搜索获取消息中心列表接口
 	String url = "/";
 	String userId;
 	@BeforeClass
@@ -26,11 +26,12 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 提交正确参数
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestCorrectParameter() throws Exception {
+	public void postGetMessageDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
+		request.put("recordId", 0);		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
@@ -42,11 +43,12 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 用户ID为空格
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestUserIdIsSpace() throws Exception {
+	public void postGetMessageDetailsTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
 		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
+		request.put("enterpriseId", 0);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
 
@@ -57,11 +59,12 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 用户ID为空
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestUserIdIsEmpty() throws Exception {
+	public void postGetMessageDetailsTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
 		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
+		request.put("enterpriseId", 0);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 
@@ -72,11 +75,12 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 用户ID为null
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestUserIdIsNull() throws Exception {
+	public void postGetMessageDetailsTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
 		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
+		request.put("enterpriseId", 0);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 
@@ -87,10 +91,11 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 用户ID不传该参数
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestUserIdNonSubmissionParameters() throws Exception {
+	public void postGetMessageDetailsTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
+		request.put("enterpriseId", 0);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID不传该参数" + post);
 
@@ -101,11 +106,12 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 用户ID为超长
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestUserIdIsLong() throws Exception {
+	public void postGetMessageDetailsTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 999999999999999999L);
 		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
+		request.put("enterpriseId", 0);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为超长" + post);
 
@@ -113,15 +119,15 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
 	}
 	
-	
 	/**
 	 * walletId不传参数
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestWalletIdIsNotCommit() throws Exception {
+	public void postGetMessageDetailsTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("enterpriseId", 1);
+		request.put("enterpriseId", 0);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("walletId不传参数" + post);
 
@@ -132,11 +138,12 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * walletId传空
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestWalletIdIsEmpty() throws Exception {
+	public void postGetMessageDetailsTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", "");
-		request.put("enterpriseId", 1);
+		request.put("enterpriseId", 0);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("walletId传空" + post);
 
@@ -147,11 +154,12 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * walletId传空格
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestWalletIdIsSpace() throws Exception {
+	public void postGetMessageDetailsTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", " ");
-		request.put("enterpriseId", 1);
+		request.put("enterpriseId", 0);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("walletId传空格" + post);
 
@@ -162,11 +170,12 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * walletId传null
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestWalletIdIsNull() throws Exception {
+	public void postGetMessageDetailsTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", null);
-		request.put("enterpriseId", 1);
+		request.put("enterpriseId", 0);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("walletId传null" + post);
 
@@ -177,11 +186,12 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * walletId传最大值
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestWalletIdIsMax() throws Exception {
+	public void postGetMessageDetailsTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 999999999999999999L);
-		request.put("enterpriseId", 1);
+		request.put("enterpriseId", 0);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("walletId传最大值" + post);
 
@@ -192,26 +202,28 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * enterpriseId传最大值
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestEnterpriseIdIsMax() throws Exception {
+	public void postGetMessageDetailsTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 999999999999999999L);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("enterpriseId传最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败！");
+		assertThat(post.get("msg")).isEqualTo("角色id格式错误！");
 	}
 	/**
 	 * enterpriseId传空
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestEnterpriseIdIsEmpty() throws Exception {
+	public void postGetMessageDetailsTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", "");
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("enterpriseId传空" + post);
 
@@ -222,11 +234,12 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * enterpriseId传空格
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestentErpriseIdIsSpace() throws Exception {
+	public void postGetMessageDetailsTestEnterpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", " ");
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("enterpriseId传空格" + post);
 
@@ -237,11 +250,12 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * enterpriseId传null
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestEnterpriseIdIsNull() throws Exception {
+	public void postGetMessageDetailsTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", null);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("enterpriseId传null" + post);
 
@@ -252,14 +266,95 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * enterpriseId不传参数
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestEnterpriseIdIsNotCommit() throws Exception {
+	public void postGetMessageDetailsTestEnterpriseIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
+		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("enterpriseId不传参数" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("角色id格式错误！");
 	}
+	/**
+	 * recordId传null
+	 */
+	@Test
+	public void postGetMessageDetailsTestRecordIdIsNull() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("walletId", 123);
+		request.put("enterpriseId", 0);
+		request.put("recordId", null);	
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("recordId传null" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * recordId传空
+	 */
+	@Test
+	public void postGetMessageDetailsTestRecordIdIsEmpty() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("walletId", 123);
+		request.put("enterpriseId", 0);
+		request.put("recordId", "");	
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("recordId传空" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * recordId传空格
+	 */
+	@Test
+	public void postGetMessageDetailsTestRecordIdIsSpace() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("walletId", 123);
+		request.put("enterpriseId", 0);
+		request.put("recordId", " ");	
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("recordId传空格" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * recordId不传
+	 */
+	@Test
+	public void postGetMessageDetailsTestRecordIdIsNotCommit() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("walletId", 123);
+		request.put("enterpriseId", 0);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("recordId不传" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
+	}
+	/**
+	 * recordId传最大值
+	 */
+	@Test
+	public void postGetMessageDetailsTestRecordIdIsMax() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("userId", userId);
+		request.put("walletId", 123);
+		request.put("enterpriseId", 0);
+		request.put("recordId", 999999999999999999L);	
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("recordId传最大值" + post);
+
+		assertThat(post.get("status")).isEqualTo(-1);
+		assertThat(post.get("msg")).isEqualTo("失败");
+	}
+	
 }
