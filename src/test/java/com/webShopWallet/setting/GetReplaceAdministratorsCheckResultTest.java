@@ -13,8 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 //import org.junit.Test;
 
-public class GetCompanyBasicInformationTest extends HttpUtil {
-// 获取企业基本信息接口
+public class GetReplaceAdministratorsCheckResultTest extends HttpUtil {
+// 获取更换管理员审核结果接口
 	String url = "/";
 	String userId;
 	@BeforeClass
@@ -26,7 +26,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 提交正确参数
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestCorrectParameter() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
@@ -42,7 +42,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 用户ID为空格
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestUserIdIsSpace() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
 		request.put("walletId", 123);
@@ -57,7 +57,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 用户ID为空
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestUserIdIsEmpty() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
 		request.put("walletId", 123);
@@ -72,7 +72,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 用户ID为null
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestUserIdIsNull() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
 		request.put("walletId", 123);
@@ -87,7 +87,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 用户ID不传该参数
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestUserIdNonSubmissionParameters() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
@@ -101,7 +101,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * 用户ID为超长
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestUserIdIsLong() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 999999999999999999L);
 		request.put("walletId", 123);
@@ -118,7 +118,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * walletId不传参数
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestWalletIdIsNotCommit() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("enterpriseId", 1);
@@ -132,7 +132,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * walletId传空
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestWalletIdIsEmpty() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", "");
@@ -147,7 +147,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * walletId传空格
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestWalletIdIsSpace() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", " ");
@@ -162,7 +162,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * walletId传null
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestWalletIdIsNull() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", null);
@@ -177,7 +177,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * walletId传最大值
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestWalletIdIsMax() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestWalletIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 999999999999999999L);
@@ -192,7 +192,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * enterpriseId传最大值
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestEnterpriseIdIsMax() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
@@ -207,7 +207,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * enterpriseId传空
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestEnterpriseIdIsEmpty() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
@@ -222,7 +222,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * enterpriseId传空格
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestentErpriseIdIsSpace() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestentErpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
@@ -237,7 +237,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * enterpriseId传null
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestEnterpriseIdIsNull() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
@@ -252,7 +252,7 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 	 * enterpriseId不传参数
 	 */
 	@Test
-	public void postSaveThePublicAccountMessageTestEnterpriseIdIsNotCommit() throws Exception {
+	public void postGetReplaceAdministratorsCheckResultTestEnterpriseIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
@@ -262,4 +262,5 @@ public class GetCompanyBasicInformationTest extends HttpUtil {
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("角色id格式错误！");
 	}
+	
 }
