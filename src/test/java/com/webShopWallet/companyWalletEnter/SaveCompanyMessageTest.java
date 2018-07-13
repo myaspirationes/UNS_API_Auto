@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class SaveCompanyMessageTest extends HttpUtil {
-// 修改交易密码接口
+// 保存企业信息接口
 	String url = "/wallet-admin/enterprise/setEnterpriseInfo";
 	String userId;
 	@BeforeClass
