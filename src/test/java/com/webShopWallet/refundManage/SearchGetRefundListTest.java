@@ -1,4 +1,4 @@
-package com.webShopWallet.messageCenter;
+package com.webShopWallet.refundManage;
 
 import com.example.HttpUtil;
 import com.publicModule.login.BackUserLoginTest;
@@ -13,8 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 //import org.junit.Test;
 
-public class SearchGetMessageCenterListTest extends HttpUtil {
-// 搜索获取电商退款列表接口
+public class SearchGetRefundListTest extends HttpUtil {
+// 搜索获取消息中心列表接口
 	String url = "/";
 	String userId;
 	@BeforeClass
@@ -31,8 +31,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -54,8 +53,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", " ");
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -75,8 +73,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", "");
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -96,8 +93,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", null);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -116,8 +112,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -137,8 +132,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", 999999999999999999L);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -158,8 +152,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -179,8 +172,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", " ");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -200,8 +192,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", null);
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -221,8 +212,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -241,8 +231,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "1231345431321326548787532135546546");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -262,8 +251,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "9999-12-31");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -283,8 +271,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "");
 		request.put("pageSize", 5);
@@ -304,8 +291,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", " ");
 		request.put("pageSize", 5);
@@ -325,8 +311,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", null);
 		request.put("pageSize", 5);
@@ -346,8 +331,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -366,8 +350,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "1234567896563212345678946541321215479846543");
 		request.put("pageSize", 5);
@@ -387,8 +370,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "9999-12-31");
 		request.put("pageSize", 5);
@@ -408,8 +390,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", "");
@@ -429,8 +410,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", " ");
@@ -450,8 +430,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", null);
@@ -471,8 +450,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageNow", 1);
@@ -491,8 +469,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 999999999);
@@ -512,8 +489,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -533,8 +509,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -554,8 +529,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -575,8 +549,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -596,8 +569,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -615,8 +587,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -636,8 +607,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", "");
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -657,8 +627,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", " ");
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -678,8 +647,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", null);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -699,8 +667,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 999999999999999999L);
 		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -720,8 +687,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 999999999999999999L);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -741,8 +707,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", "");
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -762,8 +727,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", " ");
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -783,8 +747,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", null);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -803,8 +766,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
-		request.put("payType", 0);
-		request.put("status", 0);
+		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -816,211 +778,103 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		assertThat(post.get("msg")).isEqualTo("角色id格式错误！");
 	}
 	/**
-	 * payType传null
+	 * type传null
 	 */
 	@Test
-	public void postSearchGetMessageCenterListTestPayTypeIsNull() throws Exception {
+	public void postSearchGetMessageCenterListTestTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", null);
-		request.put("status", 0);
+		request.put("type", null);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("payType传null" + post);
+		System.out.println("type传null" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * payType传空
+	 * type传空
 	 */
 	@Test
-	public void postSearchGetMessageCenterListTestPayTypeIsEmpty() throws Exception {
+	public void postSearchGetMessageCenterListTestTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", "");
-		request.put("status", 0);
+		request.put("type", "");
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("payType传空" + post);
+		System.out.println("type传空" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * payType传空格
+	 * type传空格
 	 */
 	@Test
-	public void postSearchGetMessageCenterListTestPayTypeIsSpace() throws Exception {
+	public void postSearchGetMessageCenterListTestTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", " ");
-		request.put("status", 0);
+		request.put("type", " ");
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("payType传空格" + post);
+		System.out.println("type传空格" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * payType不传
+	 * type不传
 	 */
 	@Test
-	public void postSearchGetMessageCenterListTestPayTypeIsNotCommit() throws Exception {
+	public void postSearchGetMessageCenterListTestTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("status", 0);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("payType不传" + post);
+		System.out.println("type不传" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
 	/**
-	 * payType传最大值
+	 * type传最大值
 	 */
 	@Test
-	public void postSearchGetMessageCenterListTestPayTypeIsMax() throws Exception {
+	public void postSearchGetMessageCenterListTestTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("payType", 999999999);
-		request.put("status", 0);
+		request.put("type", 999999999);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("payType传最大值" + post);
+		System.out.println("type传最大值" + post);
 
 		assertThat(post.get("status")).isEqualTo(-1);
 		assertThat(post.get("msg")).isEqualTo("失败");
 	}
-	/**
-	 * status传最大值
-	 */
-	@Test
-	public void postSearchGetMessageCenterListTestStatusIsMax() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 999999999);
-		request.put("beginTime", "2018-01-01");
-		request.put("endTime", "2018-10-10");
-		request.put("pageSize", 5);
-		request.put("pageNow", 1);
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("status传最大值" + post);
-
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
-	}
-	/**
-	 * status传空
-	 */
-	@Test
-	public void postSearchGetMessageCenterListTestStatusIsEmpty() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", "");
-		request.put("beginTime", "2018-01-01");
-		request.put("endTime", "2018-10-10");
-		request.put("pageSize", 5);
-		request.put("pageNow", 1);
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("status传空" + post);
-
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
-	}
-	/**
-	 * status传空格
-	 */
-	@Test
-	public void postSearchGetMessageCenterListTestStatusIsSpace() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", " ");
-		request.put("beginTime", "2018-01-01");
-		request.put("endTime", "2018-10-10");
-		request.put("pageSize", 5);
-		request.put("pageNow", 1);
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("status传空格" + post);
-
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
-	}
-	/**
-	 * status传null
-	 */
-	@Test
-	public void postSearchGetMessageCenterListTestStatusIsNull() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", null);
-		request.put("beginTime", "2018-01-01");
-		request.put("endTime", "2018-10-10");
-		request.put("pageSize", 5);
-		request.put("pageNow", 1);
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("status传null" + post);
-
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
-	}
-	/**
-	 * status不传
-	 */
-	@Test
-	public void postSearchGetMessageCenterListTestStatusIsNotCommit() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("beginTime", "2018-01-01");
-		request.put("endTime", "2018-10-10");
-		request.put("pageSize", 5);
-		request.put("pageNow", 1);
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("status不传" + post);
-
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
-	}
+	
 }
