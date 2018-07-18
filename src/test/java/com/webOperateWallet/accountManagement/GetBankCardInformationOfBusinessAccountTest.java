@@ -13,8 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 //import org.junit.Test;
 
-public class getListOfBusinessAccountOperateRecord extends HttpUtil {
-// 获取企业账户操作记录列表接口
+public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
+// 获取企业账户银行卡信息接口
 	String url = "/BackUser/getUserOperateLogByWalletId";
 	String userId;
 	@BeforeClass
@@ -26,7 +26,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * 提交正确参数
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestCorrectParameter() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", userId);		
@@ -44,7 +44,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * 用户id为空
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestUserIdIsEmpty() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", "");		
@@ -62,7 +62,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * 用户id为空格
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestUserIdIsSpace() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", " ");		
@@ -80,7 +80,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * 用户id为null
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestUserIdIsNull() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", null);		
@@ -98,7 +98,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * 用户id为不传
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestUserIdNotCommitted() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestUserIdNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);	
 		request.put("pageSize", 5);
@@ -115,7 +115,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * 用户id为最大值
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestUserIdIsLong() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", "3164646887845415645645");
@@ -133,7 +133,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * 钱包id为空
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestWalletIdIsEmpty() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", "");
 		request.put("userId", "3164646887845415645645");
@@ -150,7 +150,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * 钱包id为空格
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestWalletIdIsSpace() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", " ");
 		request.put("userId", userId);
@@ -167,7 +167,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * 钱包id为null
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestWalletIdIsNull() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", null);
 		request.put("userId", userId);
@@ -184,7 +184,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * 钱包id不传
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestWalletIdIsNotCommit() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 	
 		request.put("userId", userId);
@@ -201,7 +201,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * 钱包id为最大值
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestWalletIdIsMax() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestWalletIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 999999999999999999L);
 		request.put("userId", userId);
@@ -218,7 +218,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * pageSize为空
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestPageSizeIsEmpty() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", userId);
@@ -235,7 +235,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * pageSize为空格
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestPageSizeIsSpace() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", userId);
@@ -252,7 +252,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * pageSize为null
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestPageSizeIsNull() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", userId);
@@ -269,7 +269,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * pageSize不传
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestPageSizeIsNotCommit() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestPageSizeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", userId);
@@ -285,7 +285,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * pageSize为最大值
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestPageSizeIsMax() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestPageSizeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", userId);
@@ -302,7 +302,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * pageNow为空
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestPageNowIsEmpty() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", userId);
@@ -319,7 +319,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * pageNow为空格
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestPageNowIsSpace() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", userId);
@@ -336,7 +336,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * pageNow为null
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestPageNowIsNull() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", userId);
@@ -353,7 +353,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * pageNow不传
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestPageNowIsNotCommit() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestPageNowIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", userId);
@@ -369,7 +369,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	 * pageNow为最大值
 	 */
 	@Test
-	public void postGetListOfBusinessAccountOperateRecordTestPageNowIsMax() throws Exception {
+	public void postGetBankCardInformationOfBusinessAccountTestPageNowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("userId", userId);
