@@ -28,7 +28,7 @@ public class GetWalletEnterpriseInfoPhotosTest extends HttpUtil {
 	@Test
 	public void postGetWalletEnterpriseInfoPhotosTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("enterpriseId", 123);
+		request.put("enterpriseId", 2);
 		request.put("userId", userId);		
 		
 		JSONObject post = super.UNSPost(url, request);

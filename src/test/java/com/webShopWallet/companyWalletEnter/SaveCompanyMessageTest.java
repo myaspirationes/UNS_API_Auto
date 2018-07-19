@@ -1,12 +1,15 @@
 package com.webShopWallet.companyWalletEnter;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,10 +19,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SaveCompanyMessageTest extends HttpUtil {
 // 保存企业信息接口
 	String url = "/wallet-admin/enterprise/setEnterpriseInfo";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
+	String selEnterprise = "SELECT * FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String selEnterpriseInfo = "SELECT * FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON  = '测试1'";
+	String selEnterpriseWalletInfo = "SELECT * FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1' ";
+	String delEnterprise = "DELETE FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String delEnterpriseInfo = "DELETE FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON = '测试1'";
+	String delEnterpriseWalletInfo = "DELETE FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1'";
+	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
+	List<Map<String,Object>> list2 ;
+	List<Map<String,Object>> list3 ;
+	String dataType = "wallet81";
+	@AfterMethod
+	public void aftermethod(){
+		MetaOper.delete(delEnterprise,dataType);
+		MetaOper.delete(delEnterpriseInfo,dataType);
+		MetaOper.delete(delEnterpriseWalletInfo,dataType);
 }
 
 	/**
@@ -28,32 +43,43 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", 0);
+		request.put("enterpriseId", 0);
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
-		request.put("licenceNo", "J4693000413701");
+		request.put("operatingPeriod", "2020-12-31");
+		request.put("licenceNo", "J4693000413710");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
-		request.put("address", "地球");
-		request.put("mccId", 1);
-		request.put("businessScope", "中国");
+		request.put("minIdCardValidityDate", "2015-2-22");
+		request.put("maxIdCardValidityDate", "2025-2-21");
+		request.put("address", "不晓得");
+		request.put("mccId", 168);
+		request.put("businessScope", "包包");
 		request.put("websiteAddress", "www.998.com");
+		request.put("serviceIp", "182.168.8.8");
+		request.put("icpNum", "2");
+		request.put("isSave", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selEnterprise, dataType);
+		list2 = MetaOper.read(selEnterpriseInfo, dataType);
+		list3 = MetaOper.read(selEnterpriseWalletInfo, dataType);
+		JSONObject body ;
+		body = (JSONObject)post.get("data");
+		assertThat(list1.get(0).get("ENTERPRISE_ID").toString()).isEqualTo(body.get("enterpriseId").toString());
+		assertThat(list2.get(0).get("ENTERPRISE_ID").toString()).isEqualTo(body.get("enterpriseId").toString());
+		assertThat(list3.get(0).get("WALLET_ID").toString()).isEqualTo(body.get("walletId").toString());
 	}
 	
 	/**
@@ -65,20 +91,20 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		request.put("userId", " ");
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -98,20 +124,20 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		request.put("userId", "");
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -131,20 +157,20 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		request.put("userId", null);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -163,20 +189,20 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -196,20 +222,20 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		request.put("userId", 999999999999999999L);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -228,22 +254,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -260,23 +286,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", "");
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -293,23 +319,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", " ");
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -326,23 +352,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", null);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -359,23 +385,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 999999999999999999L);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -392,23 +418,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 999999999999999999L);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -425,23 +451,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", "");
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -458,23 +484,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestentErpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", " ");
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -491,23 +517,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", null);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -524,22 +550,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -556,23 +582,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseIdIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -588,33 +614,48 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseIdIsMofidy() throws Exception {
+		postSaveCompanyMessageTestCorrectParameter();
+		list = MetaOper.read(selEnterpriseWalletInfo, dataType);
+		String walletId = list.get(0).get("WALLET_ID").toString();
+		String enterpriseId = list.get(0).get("ENTERPRISE_ID").toString();
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", walletId);
+		request.put("enterpriseId", enterpriseId);
+		request.put("walletAlias", "自动化测试钱包别名1");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
-		request.put("enterpriseAbbreviation", "自动化");
+		request.put("enterpriseName", "自动化测试企业1");
+		request.put("enterpriseAbbreviation", "自动化1");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
-		request.put("licenceNo", "J4693000413701");
-		request.put("legalPerson", "测试");
+		request.put("operatingPeriod", "2020-12-31");
+		request.put("licenceNo", "J4693000413710");
+		request.put("legalPerson", "测试1");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
-		request.put("address", "地球");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
+		request.put("address", "不晓得1");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
 		request.put("websiteAddress", "www.998.com");
+		request.put("serviceIp", "182.168.8.8");
+		request.put("icpNum", "2");
+		request.put("isSave", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("enterpriseId传enterpriseId修改入驻信息" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("角色id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selEnterprise, dataType);
+		list2 = MetaOper.read(selEnterpriseInfo, dataType);
+		list3 = MetaOper.read(selEnterpriseWalletInfo, dataType);
+		assertThat(list1.get(0).get("ENTERPRISE_NAME").toString()).isEqualTo("自动化测试企业1");
+		assertThat(list1.get(0).get("ADDRESS").toString()).isEqualTo("不晓得1");
+		assertThat(list1.get(0).get("BUSINESS_SCOPE").toString()).isEqualTo("中国");
+		assertThat(list2.get(0).get("LEGAL_PERSON").toString()).isEqualTo("测试1");
+		assertThat(list3.get(0).get("WALLET_ALIAS").toString()).isEqualTo("自动化测试钱包别名1");
 	}
 	
 	/**
@@ -623,23 +664,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWalletAliasIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("walletAlias", null);
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -656,23 +697,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWalletAliasIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("walletAlias", "");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -689,23 +730,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWalletAliasIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("walletAlias", " ");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -722,22 +763,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWalletAliasIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -754,23 +795,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWalletAliasIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("walletAlias", "钱多多df大幅度反对反对是否法大师傅大师傅反对犯得上犯得上发复古复古风格发热热");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -787,23 +828,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEmailIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "3090110512145131323456@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -820,23 +861,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEmailIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -853,23 +894,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEmailIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", " ");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -886,23 +927,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEmailIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", null);
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -919,22 +960,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEmailIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
-		request.put("enterpriseName", "自动化测试");
+		request.put("walletAlias", "自动化测试钱包别名");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -951,22 +992,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseNameIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -983,23 +1024,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1016,23 +1057,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", " ");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1049,23 +1090,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", null);
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1082,23 +1123,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseNameIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试等多个以哦儿童如果对方的广告费的统一体刚刚的功夫刚刚发生过");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1115,23 +1156,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseAbbreviationIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1148,23 +1189,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseAbbreviationIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", " ");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1181,23 +1222,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseAbbreviationIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", null);
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1214,22 +1255,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseAbbreviationIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1246,23 +1287,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestEnterpriseAbbreviationIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "道德规范火箭加油i看过翻跟斗翻跟斗广泛大概的广告的风格复古风格感到反感");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1279,23 +1320,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", "");
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1312,23 +1353,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", " ");
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1345,23 +1386,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", null);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1378,22 +1419,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1410,23 +1451,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 999999999);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1443,32 +1484,37 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", 0);
+		request.put("enterpriseId", 0);
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 1);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
-		request.put("licenceNo", "J4693000413701");
+		request.put("operatingPeriod", "2020-12-31");
+		request.put("licenceNo", "J4693000413710");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
 		request.put("websiteAddress", "www.998.com");
+		request.put("serviceIp", "182.168.8.8");
+		request.put("icpNum", "2");
+		request.put("isSave", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传1有限责任公司" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selEnterprise, dataType);
+		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("1");
 	}
 	/**
 	 * type传2股份责任公司
@@ -1476,32 +1522,37 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", 0);
+		request.put("enterpriseId", 0);
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 2);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
-		request.put("licenceNo", "J4693000413701");
+		request.put("operatingPeriod", "2020-12-31");
+		request.put("licenceNo", "J4693000413710");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
-		request.put("address", "地球");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
+		request.put("address", "不晓得");
 		request.put("mccId", 1);
-		request.put("businessScope", "中国");
+		request.put("businessScope", "包包");
 		request.put("websiteAddress", "www.998.com");
+		request.put("serviceIp", "182.168.8.8");
+		request.put("icpNum", "2");
+		request.put("isSave", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传2股份责任公司" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selEnterprise, dataType);
+		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("2");
 	}
 	/**
 	 * type传3个体工商户
@@ -1509,32 +1560,37 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIs3() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", 0);
+		request.put("enterpriseId", 0);
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 3);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
-		request.put("licenceNo", "J4693000413701");
+		request.put("operatingPeriod", "2020-12-31");
+		request.put("licenceNo", "J4693000413710");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
-		request.put("address", "地球");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
+		request.put("address", "不晓得");
 		request.put("mccId", 1);
-		request.put("businessScope", "中国");
+		request.put("businessScope", "包包");
 		request.put("websiteAddress", "www.998.com");
+		request.put("serviceIp", "182.168.8.8");
+		request.put("icpNum", "2");
+		request.put("isSave", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传3个体工商户" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selEnterprise, dataType);
+		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("3");
 	}
 	/**
 	 * type传4合资
@@ -1542,32 +1598,37 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIs4() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", 0);
+		request.put("enterpriseId", 0);
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 4);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
-		request.put("licenceNo", "J4693000413701");
+		request.put("operatingPeriod", "2020-12-31");
+		request.put("licenceNo", "J4693000413710");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
-		request.put("address", "地球");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
+		request.put("address", "不晓得");
 		request.put("mccId", 1);
-		request.put("businessScope", "中国");
+		request.put("businessScope", "包包");
 		request.put("websiteAddress", "www.998.com");
+		request.put("serviceIp", "182.168.8.8");
+		request.put("icpNum", "2");
+		request.put("isSave", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传4合资" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selEnterprise, dataType);
+		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("4");
 	}
 	/**
 	 * type传5独资
@@ -1575,32 +1636,37 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIs5() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", 0);
+		request.put("enterpriseId", 0);
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 5);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
-		request.put("licenceNo", "J4693000413701");
+		request.put("operatingPeriod", "2020-12-31");
+		request.put("licenceNo", "J4693000413710");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
-		request.put("address", "地球");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
+		request.put("address", "不晓得");
 		request.put("mccId", 1);
-		request.put("businessScope", "中国");
+		request.put("businessScope", "包包");
 		request.put("websiteAddress", "www.998.com");
+		request.put("serviceIp", "182.168.8.8");
+		request.put("icpNum", "2");
+		request.put("isSave", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传5独资" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selEnterprise, dataType);
+		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("5");
 	}
 	/**
 	 * type传6国有
@@ -1608,32 +1674,37 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIs6() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", 0);
+		request.put("enterpriseId", 0);
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
-		request.put("licenceNo", "J4693000413701");
+		request.put("operatingPeriod", "2020-12-31");
+		request.put("licenceNo", "J4693000413710");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
-		request.put("address", "地球");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
+		request.put("address", "不晓得");
 		request.put("mccId", 1);
-		request.put("businessScope", "中国");
+		request.put("businessScope", "包包");
 		request.put("websiteAddress", "www.998.com");
+		request.put("serviceIp", "182.168.8.8");
+		request.put("icpNum", "2");
+		request.put("isSave", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传6国有" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selEnterprise, dataType);
+		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("6");
 	}
 	/**
 	 * type传7私营
@@ -1641,32 +1712,37 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIs7() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", 0);
+		request.put("enterpriseId", 0);
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 7);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
-		request.put("licenceNo", "J4693000413701");
+		request.put("operatingPeriod", "2020-12-31");
+		request.put("licenceNo", "J4693000413710");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
-		request.put("address", "地球");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
+		request.put("address", "不晓得");
 		request.put("mccId", 1);
-		request.put("businessScope", "中国");
+		request.put("businessScope", "包包");
 		request.put("websiteAddress", "www.998.com");
+		request.put("serviceIp", "182.168.8.8");
+		request.put("icpNum", "2");
+		request.put("isSave", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传7私营" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selEnterprise, dataType);
+		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("7");
 	}
 	/**
 	 * type传8全名所有制
@@ -1674,32 +1750,37 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIs8() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", 0);
+		request.put("enterpriseId", 0);
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 8);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
-		request.put("licenceNo", "J4693000413701");
+		request.put("operatingPeriod", "2020-12-31");
+		request.put("licenceNo", "J4693000413710");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
-		request.put("address", "地球");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
+		request.put("address", "不晓得");
 		request.put("mccId", 1);
-		request.put("businessScope", "中国");
+		request.put("businessScope", "包包");
 		request.put("websiteAddress", "www.998.com");
+		request.put("serviceIp", "182.168.8.8");
+		request.put("icpNum", "2");
+		request.put("isSave", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传8全名所有制" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selEnterprise, dataType);
+		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("8");
 	}
 	/**
 	 * type传9集体所有制
@@ -1707,32 +1788,37 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestTypeIs9() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", 0);
+		request.put("enterpriseId", 0);
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 9);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
-		request.put("licenceNo", "J4693000413701");
+		request.put("operatingPeriod", "2020-12-31");
+		request.put("licenceNo", "J4693000413710");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
-		request.put("address", "地球");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
+		request.put("address", "不晓得");
 		request.put("mccId", 1);
-		request.put("businessScope", "中国");
+		request.put("businessScope", "包包");
 		request.put("websiteAddress", "www.998.com");
+		request.put("serviceIp", "182.168.8.8");
+		request.put("icpNum", "2");
+		request.put("isSave", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传9集体所有制" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+		list1 = MetaOper.read(selEnterprise, dataType);
+		assertThat(list1.get(0).get("TYPE").toString()).isEqualTo("9");
 	}
 	/**
 	 * industryId传空
@@ -1740,23 +1826,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestIndustryIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", "");
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1773,23 +1859,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestIndustryIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", " ");
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1806,23 +1892,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestIndustryIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", null);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1839,22 +1925,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestIndustryIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1871,23 +1957,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestIndustryIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 999999999999999999L);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1904,23 +1990,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestUnifiedSocialCreditCodeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1937,23 +2023,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestUnifiedSocialCreditCodeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", " ");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -1970,23 +2056,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestUnifiedSocialCreditCodeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", null);
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2003,22 +2089,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestUnifiedSocialCreditCodeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2035,23 +2121,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestUnifiedSocialCreditCodeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "132454787645313212121545454545545121212");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2068,12 +2154,12 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestOperatingPeriodIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
@@ -2083,8 +2169,8 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2101,12 +2187,12 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestOperatingPeriodIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
@@ -2116,8 +2202,8 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2134,12 +2220,12 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestOperatingPeriodIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
@@ -2149,8 +2235,8 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2167,12 +2253,12 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestOperatingPeriodIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
@@ -2181,8 +2267,8 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2199,12 +2285,12 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestOperatingPeriodIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
@@ -2214,8 +2300,8 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2232,12 +2318,12 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestOperatingPeriodIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
@@ -2247,8 +2333,8 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2265,23 +2351,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLicenceNoIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J469300041D3701123145D1212G1HG212Y1U21J21GF21");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2298,23 +2384,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLicenceNoIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2331,23 +2417,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLicenceNoIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", " ");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2364,23 +2450,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLicenceNoIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", null);
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2397,22 +2483,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLicenceNoIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2429,23 +2515,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试dg梵蒂冈的姑姑姑父国语研究会工作v成本v符合太化股份");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2462,23 +2548,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2495,23 +2581,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", " ");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2528,23 +2614,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", null);
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2561,22 +2647,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2593,23 +2679,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonMobileIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "1366186464113544456464654646566566655");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2626,23 +2712,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonMobileIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2659,23 +2745,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonMobileIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", " ");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2692,23 +2778,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonMobileIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", null);
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2725,22 +2811,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonMobileIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2757,23 +2843,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonIdCardNoIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519123164544645644579965223");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2790,23 +2876,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonIdCardNoIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2823,23 +2909,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonIdCardNoIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", " ");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2856,23 +2942,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonIdCardNoIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", null);
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2889,22 +2975,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestLegalPersonIdCardNoIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2921,23 +3007,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMinIdCardValidityDateIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
 		request.put("minIdCardValidityDate", "1528705838578123454644852121224546");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2954,22 +3040,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMinIdCardValidityDateIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -2986,23 +3072,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMinIdCardValidityDateIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
 		request.put("minIdCardValidityDate", "");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3019,23 +3105,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMinIdCardValidityDateIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
 		request.put("minIdCardValidityDate", " ");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3052,23 +3138,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMinIdCardValidityDateIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
 		request.put("minIdCardValidityDate", null);
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3085,23 +3171,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMinIdCardValidityDateIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
 		request.put("minIdCardValidityDate", "9999-12-31");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3118,22 +3204,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMaxIdCardValidityDateIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
+		request.put("minIdCardValidityDate", "2015-02-22");
 		request.put("maxIdCardValidityDate", "9999-12-31");
 		request.put("address", "地球");
 		request.put("mccId", 1);
@@ -3151,22 +3237,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMaxIdCardValidityDateIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
+		request.put("minIdCardValidityDate", "2015-02-22");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3183,22 +3269,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMaxIdCardValidityDateIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
+		request.put("minIdCardValidityDate", "2015-02-22");
 		request.put("maxIdCardValidityDate", "");
 		request.put("address", "地球");
 		request.put("mccId", 1);
@@ -3216,22 +3302,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMaxIdCardValidityDateIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
+		request.put("minIdCardValidityDate", "2015-02-22");
 		request.put("maxIdCardValidityDate", " ");
 		request.put("address", "地球");
 		request.put("mccId", 1);
@@ -3249,22 +3335,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMaxIdCardValidityDateIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
+		request.put("minIdCardValidityDate", "2015-02-22");
 		request.put("maxIdCardValidityDate", null);
 		request.put("address", "地球");
 		request.put("mccId", 1);
@@ -3282,22 +3368,22 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMaxIdCardValidityDateIsLLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
+		request.put("minIdCardValidityDate", "2015-02-22");
 		request.put("maxIdCardValidityDate", "1234564465321231233565464564646");
 		request.put("address", "地球");
 		request.put("mccId", 1);
@@ -3315,23 +3401,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestAddressIsLLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球Djdkfjj健康健康快乐建立覆盖就感觉偶然已退役士大夫看见路上洛杉矶发多少积分回复客户购房");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3348,23 +3434,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestAddressIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
 		request.put("websiteAddress", "www.998.com");
@@ -3380,23 +3466,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestAddressIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3413,23 +3499,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestAddressIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", " ");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3446,23 +3532,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestAddressIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", null);
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3479,23 +3565,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMccIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", "");
 		request.put("businessScope", "中国");
@@ -3512,23 +3598,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMccIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", " ");
 		request.put("businessScope", "中国");
@@ -3545,23 +3631,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMccIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", null);
 		request.put("businessScope", "中国");
@@ -3578,23 +3664,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMccIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("businessScope", "中国");
 		request.put("websiteAddress", "www.998.com");
@@ -3610,23 +3696,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestMccIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 999999999999999999L);
 		request.put("businessScope", "中国");
@@ -3643,23 +3729,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestBusinessScopeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", " ");
@@ -3676,23 +3762,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestBusinessScopeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "");
@@ -3709,23 +3795,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestBusinessScopeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", null);
@@ -3742,23 +3828,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestBusinessScopeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("websiteAddress", "www.998.com");
@@ -3774,23 +3860,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestBusinessScopeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "大刀阔斧和谁i为瑞芳军事对抗JFK时代就开始罚款乱收费大师傅艰苦拉萨JFK的加分的考生加分");
@@ -3807,23 +3893,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWebsiteAddressIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3840,23 +3926,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWebsiteAddressIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3873,23 +3959,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWebsiteAddressIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3906,23 +3992,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWebsiteAddressIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");
@@ -3939,23 +4025,23 @@ public class SaveCompanyMessageTest extends HttpUtil {
 	@Test
 	public void postSaveCompanyMessageTestWebsiteAddressIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
-		request.put("enterpriseName", "自动化测试");
+		request.put("enterpriseName", "自动化测试企业");
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
 		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
-		request.put("operatingPeriod", "1529784045140");
+		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413701");
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
-		request.put("minIdCardValidityDate", "1528705838578");
-		request.put("maxIdCardValidityDate", "1529784045140");
+		request.put("minIdCardValidityDate", "2015-02-22");
+		request.put("maxIdCardValidityDate", "2025-02-21");
 		request.put("address", "地球");
 		request.put("mccId", 1);
 		request.put("businessScope", "中国");

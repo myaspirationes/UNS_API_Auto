@@ -42,6 +42,9 @@ public final class DBUtils {
     		con =  DriverManager.getConnection("jdbc:oracle:thin:@192.168.9.9:1521:weidu", "uedbsit", "uns1066");
     	}else if(dataType == "yxc_ddp"){
     		con = DriverManager.getConnection("jdbc:mysql://rm-uf63jqo1o12t445bqo.mysql.rds.aliyuncs.com:3306/ddp?user=vine&password=pAssw0rd&useUnicode=true&characterEncoding=utf-8");
+    	}else if(dataType == "wallet81"){
+    		con = DriverManager.getConnection("jdbc:mysql://192.168.9.81:3306/wallet?user=wallet&password=uns1066&useUnicode=true&characterEncoding=utf-8");
+    		
     	}
     	else{
     		con = null;

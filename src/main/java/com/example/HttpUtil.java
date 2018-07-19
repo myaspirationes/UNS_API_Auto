@@ -20,7 +20,7 @@ public class HttpUtil {
 	
 	//String YSBURL = "http://192.168.9.81";
 	String YSBURL = "http://192.168.9.41";
-	String UATURL = "http://192.168.9.51";
+	//String UATURL = "http://192.168.9.51";
 
 	private TestRestTemplate template = new TestRestTemplate();
 
