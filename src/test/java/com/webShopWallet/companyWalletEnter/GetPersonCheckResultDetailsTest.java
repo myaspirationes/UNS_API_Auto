@@ -16,11 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GetPersonCheckResultDetailsTest extends HttpUtil {
 // 获取用户审核结果详情接口
 	String url = "/wallet-admin/enterprise/getAudltList";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+
 
 	/**
 	 * 提交正确参数
@@ -28,8 +24,8 @@ public class GetPersonCheckResultDetailsTest extends HttpUtil {
 	@Test
 	public void postGetPersonCheckResultDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("walletId", 3);
+		request.put("enterpriseId", 2);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	

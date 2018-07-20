@@ -16,11 +16,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CheckUnifiedSocialCreditCodeTest extends HttpUtil {
 // 验证社会统一信用代码接口
 	String url = "/wallet-admin/enterprise/checkUnifiedSocialCreditCode";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
 
 	/**
 	 * 提交正确参数

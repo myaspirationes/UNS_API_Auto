@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 // 更换超级管理员信息提交接口
-	String url = "/";
+	String url = "/wallet-admin/enterpriseWalletApply/getEnterpriseWalletApplyList";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){
@@ -28,7 +28,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("bookUrl", "1123");
@@ -126,7 +126,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", 1);
 		request.put("bookUrl", "1123");
 		JSONObject post = super.UNSPost(url, request);
@@ -141,7 +141,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", "");
 		request.put("enterpriseId", 1);
 		request.put("bookUrl", "1123");
@@ -157,7 +157,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", " ");
 		request.put("enterpriseId", 1);
 		request.put("bookUrl", "1123");
@@ -173,7 +173,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", null);
 		request.put("enterpriseId", 1);
 		request.put("bookUrl", "1123");
@@ -189,7 +189,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestWalletIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 999999999999999999L);
 		request.put("enterpriseId", 1);
 		request.put("bookUrl", "1123");
@@ -205,7 +205,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 999999999999999999L);
 		request.put("bookUrl", "1123");
@@ -221,7 +221,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", "");
 		request.put("bookUrl", "1123");
@@ -237,7 +237,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestentErpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", " ");
 		request.put("bookUrl", "1123");
@@ -253,7 +253,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", null);
 		request.put("bookUrl", "1123");
@@ -269,7 +269,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestEnterpriseIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("bookUrl", "1123");
 		JSONObject post = super.UNSPost(url, request);
@@ -284,7 +284,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestBookUrlIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("bookUrl", null);
@@ -300,7 +300,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestBookUrlIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("bookUrl", "");
@@ -316,7 +316,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestBookUrlIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("bookUrl", " ");
@@ -332,7 +332,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestBookUrlIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		JSONObject post = super.UNSPost(url, request);
@@ -347,7 +347,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@Test
 	public void postReplaceSuperAdministratorsInformationCommitTestBookUrlIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("bookUrl", "144544443223357887765634332132225487612");

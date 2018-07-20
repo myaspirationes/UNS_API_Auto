@@ -1,12 +1,15 @@
 package com.webShopWallet.companyWalletEnter;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,11 +18,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SaveEnclosureMessageTest extends HttpUtil {
 // 保存附件信息接口
-	String url = "/wallet-admin/enterprise/setEnterpriseInfo";
+	String url = "/wallet-admin/enterprise/setEnterpriseAttachment";
+	String selEnterpriseInfo = "SELECT * FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON  = '测试1'";
+	String selEnterpriseWalletInfo = "SELECT * FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1' ";
+	String delEnterprise = "DELETE FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String delEnterpriseInfo = "DELETE FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON = '测试1'";
+	String delEnterpriseWalletInfo = "DELETE FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1'";
+	List<Map<String,Object>> list ;
+	String dataType = "wallet81";
 	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
+	@AfterMethod
+	public void aftermethod(){
+		MetaOper.delete(delEnterprise,dataType);
+		MetaOper.delete(delEnterpriseInfo,dataType);
+		MetaOper.delete(delEnterpriseWalletInfo,dataType);
 }
 
 	/**
@@ -27,10 +39,14 @@ public class SaveEnclosureMessageTest extends HttpUtil {
 	 */
 	@Test
 	public void postSaveEnclosureMessageTestCorrectParameter() throws Exception {
+		new SaveCompanyMessageTest().postSaveCompanyMessageTestCorrectParameter();
+		list = MetaOper.read(selEnterpriseWalletInfo, dataType);
+		String walletId = list.get(0).get("WALLET_ID").toString();
+		String enterpriseId = list.get(0).get("ENTERPRISE_ID").toString();
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 1);
+		request.put("userId", 12495417);
+		request.put("walletId", walletId);
+		request.put("enterpriseId", enterpriseId);
 		request.put("certificateFileId", 1);
 		request.put("businessLicensefileId", 1);
 		request.put("licenceNoFileId", 1);
@@ -39,11 +55,19 @@ public class SaveEnclosureMessageTest extends HttpUtil {
 		request.put("idcardSideFileId", 1);
 		request.put("officeScenefileId", 1);
 		request.put("logoId", 1);
+		request.put("isSave", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		list = MetaOper.read(selEnterpriseInfo, dataType);
+		assertThat(list.get(0).get("BUSINESS_LICENSE_FILE_ID").toString()).isEqualTo("1");
+		assertThat(list.get(0).get("LICENCE_NO_FILE_ID").toString()).isEqualTo("1");
+		assertThat(list.get(0).get("HOLD_BUSINESS_LICENSE_FILE_ID").toString()).isEqualTo("1");
+		assertThat(list.get(0).get("IDCARD_POSITIVE_FILE_ID").toString()).isEqualTo("1");
+		assertThat(list.get(0).get("IDCARD_SIDE_FILE_ID").toString()).isEqualTo("1");
+		assertThat(list.get(0).get("OFFICE_SCENE_FILE_ID").toString()).isEqualTo("1");
 	}
 	
 	/**

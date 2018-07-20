@@ -15,12 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CheckMobileTest extends HttpUtil {
 // 检验手机号接口
-	String url = "/";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+	String url = "/wallet-admin/enterprise/checkMobile";
 
 	/**
 	 * 提交正确参数
@@ -28,7 +23,7 @@ public class CheckMobileTest extends HttpUtil {
 	@Test
 	public void postCheckMobileTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("mobile", "123456789");
+		request.put("mobile", "13774323645");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
