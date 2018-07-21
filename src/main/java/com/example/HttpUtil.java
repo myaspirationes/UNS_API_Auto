@@ -18,8 +18,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RunWith(SpringRunner.class)
 public class HttpUtil {
 	
-	String YSBURL = "http://192.168.9.81";
-	//String YSBURL = "http://192.168.9.41";
+	//String YSBURL = "http://192.168.9.81";
+	String YSBURL = "http://192.168.9.41";
 	//String UATURL = "http://192.168.9.51";
 
 	private TestRestTemplate template = new TestRestTemplate();

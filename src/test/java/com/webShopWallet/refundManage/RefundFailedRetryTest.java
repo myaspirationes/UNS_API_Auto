@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class RefundFailedRetryTest extends HttpUtil {
-//  退款管理，保证金管理接口
+//  退款失败重试接口
 	String url = "/wallet-admin/enterpriseWalletRefundRecord/retryEnterpriseWalletRefundRecord";
 
 
