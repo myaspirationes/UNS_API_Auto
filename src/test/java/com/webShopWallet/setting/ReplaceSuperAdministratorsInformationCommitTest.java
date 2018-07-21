@@ -1,12 +1,16 @@
 package com.webShopWallet.setting;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
+import com.webShopWallet.companyWalletEnter.SaveCompanyMessageTest;
 import org.json.JSONObject;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,10 +20,31 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 // 更换超级管理员信息提交接口
 	String url = "/wallet-admin/enterpriseWalletApply/getEnterpriseWalletApplyList";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
+	String selEnterprise = "SELECT * FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String selEnterpriseInfo = "SELECT * FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON  = '测试1'";
+	String selEnterpriseWalletInfo = "SELECT * FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1' ";
+	String delEnterprise = "DELETE FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String delEnterpriseInfo = "DELETE FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON = '测试1'";
+	String delEnterpriseWalletInfo = "DELETE FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1'";
+	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
+	List<Map<String,Object>> list2 ;
+	List<Map<String,Object>> list3 ;
+	String walletId;
+	String enterpriseId;
+	String dataType = "wallet81";
+	@BeforeMethod
+	public void beforemethod() throws Exception{
+		new SaveCompanyMessageTest().postSaveCompanyMessageTestCorrectParameter();
+		list = MetaOper.read(delEnterprise, dataType);
+		walletId = list.get(0).get("WALLET_ID").toString();
+		enterpriseId = list.get(0).get("ENTERPRISE_ID").toString();
+}
+	@AfterMethod
+	public void aftermethod(){
+		//MetaOper.delete(delEnterprise,dataType);
+		MetaOper.delete(delEnterpriseInfo,dataType);
+		MetaOper.delete(delEnterpriseWalletInfo,dataType);
 }
 
 	/**
@@ -29,8 +54,8 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	public void postReplaceSuperAdministratorsInformationCommitTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495417);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("walletId", walletId);
+		request.put("enterpriseId", enterpriseId);
 		request.put("bookUrl", "1123");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
