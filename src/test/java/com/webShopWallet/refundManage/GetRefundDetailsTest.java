@@ -15,12 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetRefundDetailsTest extends HttpUtil {
 //  获取退款详情接口
-	String url = "/enterpriseWalletRefundRecord/getEnterpriseWalletRefundRecord";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+	String url = "/wallet-admin/enterpriseWalletRefundRecord/getEnterpriseWalletRefundRecord";
+
 
 	/**
 	 * 提交正确参数
@@ -28,7 +24,7 @@ public class GetRefundDetailsTest extends HttpUtil {
 	@Test
 	public void postGetRefundDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -112,7 +108,7 @@ public class GetRefundDetailsTest extends HttpUtil {
 	@Test
 	public void postGetRefundDetailsTestRecordIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", null);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("recordId传null" + post);
@@ -126,7 +122,7 @@ public class GetRefundDetailsTest extends HttpUtil {
 	@Test
 	public void postGetRefundDetailsTestRecordIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", "");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("recordId传空" + post);
@@ -140,7 +136,7 @@ public class GetRefundDetailsTest extends HttpUtil {
 	@Test
 	public void postGetRefundDetailsTestRecordIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", " ");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("recordId传空格" + post);
@@ -154,7 +150,7 @@ public class GetRefundDetailsTest extends HttpUtil {
 	@Test
 	public void postGetRefundDetailsTestRecordIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("recordId不传" + post);
 
@@ -167,7 +163,7 @@ public class GetRefundDetailsTest extends HttpUtil {
 	@Test
 	public void postGetRefundDetailsTestRecordIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 999999999999999999L);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("recordId传最大值" + post);

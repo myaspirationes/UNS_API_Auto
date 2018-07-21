@@ -15,12 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchGetPromiseFundsListTest extends HttpUtil {
 // 搜索获取保证金列表接口
-	String url = "/";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+	String url = "/wallet-admin/deposit/getDepositList";
+
 
 	/**
 	 * 提交正确参数
@@ -28,8 +24,8 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
-		request.put("type", 0);
+		request.put("walletId", 24);
+		request.put("type", 1);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -47,7 +43,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestMinDealTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "");
 		request.put("maxDealTime", "2018-10-10");
@@ -65,7 +61,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestMinDealTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", " ");
 		request.put("maxDealTime", "2018-10-10");
@@ -83,7 +79,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestMinDealTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", null);
 		request.put("maxDealTime", "2018-10-10");
@@ -102,7 +98,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	public void postSearchGetPromiseFundsListTestMinDealTimeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("maxDealTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -119,7 +115,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestMinDealTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "12345678945612312346");
 		request.put("maxDealTime", "2018-10-10");
@@ -138,7 +134,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	public void postSearchGetPromiseFundsListTestMinDealTimeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "9999-12-31");
 		request.put("maxDealTime", "2018-10-10");
@@ -157,7 +153,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	public void postSearchGetPromiseFundsListTestMaxDealTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "");
@@ -176,7 +172,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	public void postSearchGetPromiseFundsListTestMaxDealTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", " ");
@@ -195,7 +191,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	public void postSearchGetPromiseFundsListTestMaxDealTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", null);
@@ -214,7 +210,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	public void postSearchGetPromiseFundsListTestMaxDealTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("pageSize", 5);
@@ -232,7 +228,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	public void postSearchGetPromiseFundsListTestMaxDealTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "1234567984531215464");
@@ -251,7 +247,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	public void postSearchGetPromiseFundsListTestMaxDealTimeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "9999-12-31");
@@ -269,7 +265,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -287,7 +283,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -305,7 +301,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -323,7 +319,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestPageSizeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -340,7 +336,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestPageSizeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -358,7 +354,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestPageNowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -376,7 +372,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -394,7 +390,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -412,7 +408,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -430,7 +426,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestPageNowIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 0);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -536,7 +532,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", null);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -554,7 +550,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", "");
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -572,7 +568,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", " ");
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -590,7 +586,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -607,7 +603,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 999999999);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -625,7 +621,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestTypeIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 1);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -643,7 +639,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestTypeIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 2);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -652,8 +648,8 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传2解冻并转出" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	/**
 	 * type传3赔付
@@ -661,7 +657,7 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetPromiseFundsListTestTypeIs3() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 24);
 		request.put("type", 3);
 		request.put("minDealTime", "2018-01-01");
 		request.put("maxDealTime", "2018-10-10");
@@ -670,8 +666,8 @@ public class SearchGetPromiseFundsListTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传3赔付" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
 	}
 	
 }

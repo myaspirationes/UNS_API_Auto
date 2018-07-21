@@ -36,7 +36,7 @@ public class ReplaceSuperAdministratorsInformationCommitTest extends HttpUtil {
 	@BeforeMethod
 	public void beforemethod() throws Exception{
 		new SaveCompanyMessageTest().postSaveCompanyMessageTestCorrectParameter();
-		list = MetaOper.read(delEnterprise, dataType);
+		list = MetaOper.read(selEnterpriseWalletInfo, dataType);
 		walletId = list.get(0).get("WALLET_ID").toString();
 		enterpriseId = list.get(0).get("ENTERPRISE_ID").toString();
 }

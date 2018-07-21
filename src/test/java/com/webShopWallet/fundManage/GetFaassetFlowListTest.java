@@ -16,11 +16,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GetFaassetFlowListTest extends HttpUtil {
 //  默认页获取资金交易流水列表接口
 	String url = "/wallet-admin/enterpriseWalletRefundRecord/getFaassetFlowList";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
 
 	/**
 	 * 提交正确参数
@@ -28,15 +23,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -55,14 +50,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	public void postGetFaassetFlowListTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -79,14 +74,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	public void postGetFaassetFlowListTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -103,14 +98,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	public void postGetFaassetFlowListTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -126,14 +121,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -150,14 +145,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	public void postGetFaassetFlowListTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 999999999999999999L);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -173,15 +168,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeMethodsIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 999999999);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -197,15 +192,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeMethodsIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", "");
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -221,15 +216,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeMethodsIsSpeace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", " ");
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -245,15 +240,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeMethodsIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", null);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -269,23 +264,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeMethodsIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("tradeMethods为1余额" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * tradeMethods为2银行卡
@@ -293,23 +288,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeMethodsIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 2);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("tradeMethods为2银行卡" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * tradeMethods为3担保中间账户
@@ -317,23 +312,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeMethodsIs3() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 3);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("tradeMethods为3担保中间账户" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * tradeMethods为4服务费余额
@@ -341,23 +336,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeMethodsIs4() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 4);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("tradeMethods为4服务费余额" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * tradeMethods为 5微信
@@ -365,23 +360,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeMethodsIs5() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 5);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("tradeMethods为 5微信" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * tradeMethods为不传
@@ -389,14 +384,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeMethodsIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -412,15 +407,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountNameIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 999999999);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -436,15 +431,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", "");
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -460,15 +455,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", " ");
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -484,15 +479,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", null);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -508,23 +503,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountNameIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accountName为1现金账户" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * accountName为2保证金
@@ -532,23 +527,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountNameIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 2);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accountName为2保证金" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * accountName为3服务费
@@ -556,23 +551,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountNameIs3() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 3);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accountName为3服务费," + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * accountName为4营销账户
@@ -580,23 +575,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountNameIs4() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 4);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accountName为4营销账户" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * accountName为不传
@@ -604,14 +599,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountNameIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -627,15 +622,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestMoneyFlowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 999999999);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -651,15 +646,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestMoneyFlowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", "");
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -675,15 +670,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestMoneyFlowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", " ");
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -699,15 +694,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestMoneyFlowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", null);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -723,14 +718,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestMoneyFlowIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -746,15 +741,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 999999999);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -770,15 +765,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", "");
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -794,15 +789,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", " ");
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -818,15 +813,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", null);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -842,14 +837,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -865,23 +860,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accountType为1充值" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * accountType为2提现
@@ -889,23 +884,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 2);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accountType为2提现" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * accountType为3付款
@@ -913,23 +908,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIs3() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 3);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accountType为3付款" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * accountType为4退款
@@ -937,23 +932,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIs4() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 4);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accountType为4退款" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * accountType为5转出
@@ -961,23 +956,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIs5() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 5);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accountType为5转出" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * accountType为6收款
@@ -985,23 +980,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIs6() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 6);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accountType为6收款" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * accountType为7应收账款
@@ -1009,23 +1004,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestAccountTypeIs7() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 7);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accountType为7应收账款" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * tradeStatus为空
@@ -1033,15 +1028,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeStatusIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", "");
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1057,15 +1052,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeStatusIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", " ");
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1081,15 +1076,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeStatusIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", null);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1105,14 +1100,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeStatusIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1128,15 +1123,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeStatusIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 999999999);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1152,23 +1147,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeStatusIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("tradeStatus为0进行中" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * tradeStatus为1操作成功
@@ -1176,23 +1171,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeStatusIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("tradeStatus为1操作成功" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * tradeStatus为2操作失败
@@ -1200,23 +1195,23 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTradeStatusIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 2);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("tradeStatus为2操作失败" + post);
 
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isIn("参数错误","用户id格式错误！");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isIn("成功");
 	}
 	/**
 	 * beginTime传空
@@ -1224,15 +1219,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestBeginTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "");
+		request.put("startTime", "");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1248,15 +1243,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestBeginTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", " ");
+		request.put("startTime", " ");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1272,15 +1267,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestBeginTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", null);
+		request.put("startTime", null);
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1296,9 +1291,9 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestBeginTimeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
@@ -1319,15 +1314,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestBeginTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "1231345431321326548787532135546546");
+		request.put("startTime", "1231345431321326548787532135546546");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1343,15 +1338,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestBeginTimeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "9999-12-31");
+		request.put("startTime", "9999-12-31");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1367,15 +1362,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestEndTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1391,15 +1386,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestEndTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", " ");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1415,15 +1410,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestEndTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", null);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1439,15 +1434,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestEndTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -1462,15 +1457,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestEndTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "1234567896563212345678946541321215479846543");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1486,15 +1481,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestroleIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "9999-12-31");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1510,15 +1505,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", "");
 		request.put("pageNow", 1);
@@ -1534,15 +1529,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", " ");
 		request.put("pageNow", 1);
@@ -1558,15 +1553,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", null);
 		request.put("pageNow", 1);
@@ -1582,15 +1577,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestPageSizeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -1605,15 +1600,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestPageSizeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 999999999);
 		request.put("pageNow", 1);
@@ -1629,15 +1624,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestPageNowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 999999999);
@@ -1653,15 +1648,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", "");
@@ -1677,15 +1672,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", " ");
@@ -1701,15 +1696,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", null);
@@ -1725,15 +1720,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestPageNowIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		JSONObject post = super.UNSPost(url, request);
@@ -1748,14 +1743,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1771,15 +1766,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", "");
-		request.put("enterpriseId", 0);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1795,15 +1790,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", " ");
-		request.put("enterpriseId", 0);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1819,15 +1814,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", null);
-		request.put("enterpriseId", 0);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1843,15 +1838,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 999999999999999999L);
-		request.put("enterpriseId", 0);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1867,15 +1862,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
 		request.put("enterpriseId", 999999999999999999L);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1891,15 +1886,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
 		request.put("enterpriseId", "");
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1915,15 +1910,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestEnterpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
 		request.put("enterpriseId", " ");
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1939,15 +1934,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
 		request.put("enterpriseId", null);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1963,14 +1958,14 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestEnterpriseIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1986,15 +1981,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -2010,15 +2005,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -2034,15 +2029,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -2058,15 +2053,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -2082,15 +2077,15 @@ public class GetFaassetFlowListTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowListTestTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("tradeMethods", 1);
 		request.put("accountName", 1);
 		request.put("moneyFlow", 1);
 		request.put("accountType", 1);
 		request.put("tradeStatus", 1);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);

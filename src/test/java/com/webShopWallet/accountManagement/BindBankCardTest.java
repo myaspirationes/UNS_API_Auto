@@ -1,12 +1,17 @@
 package com.webShopWallet.accountManagement;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
+import com.webShopWallet.companyWalletEnter.SaveCompanyMessageTest;
+
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,12 +19,31 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class BindBankCardTest extends HttpUtil {
-// 获取企业钱包详情接口
-	String url = "/enterpriseWalletAssets/bindBankCard";
-	String userId;
+// 添加银行卡接口
+	String url = "/wallet-admin/enterpriseBankCard/bindBankCard";
+	String selEnterprise = "SELECT * FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String selEnterpriseInfo = "SELECT * FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON  = '测试1'";
+	String selEnterpriseWalletInfo = "SELECT * FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1' ";
+	String delEnterprise = "DELETE FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String delEnterpriseInfo = "DELETE FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON = '测试1'";
+	String delEnterpriseWalletInfo = "DELETE FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1'";
+	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
+	List<Map<String,Object>> list2 ;
+	List<Map<String,Object>> list3 ;
+	String dataType = "wallet81";
+	String walletId;
 	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
+	public void beforeclass() throws Exception{
+		new SaveCompanyMessageTest().postSaveCompanyMessageTestCorrectParameter();
+		list = MetaOper.read(selEnterpriseWalletInfo, dataType);
+		walletId = list.get(0).get("WALLET_ID").toString();
+}
+	@AfterMethod
+	public void aftermethod(){
+		MetaOper.delete(delEnterprise,dataType);
+		MetaOper.delete(delEnterpriseInfo,dataType);
+		MetaOper.delete(delEnterpriseWalletInfo,dataType);
 }
 
 	/**
@@ -28,14 +52,14 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("wallrtId", 17);
-		request.put("cardNo", "cardNo");
-		request.put("openingBankName", "openingBankName");
+		request.put("userId", 12495417);
+		request.put("wallrtId", walletId);
+		request.put("cardNo", "6217001210075264182");
+		request.put("openingBankName", "中国建设银行");
 		request.put("accountType", 1);
-		request.put("personName", "personName");
-		request.put("papersNo", "310112198708273611");
-		request.put("validCode", "validCode");//预计无法测试需要开发给出万能验证码
+		request.put("personName", "姜佳丽");
+		request.put("papersNo", "412724199302224068");
+		request.put("validCode", "251836");//预计无法测试需要开发给出万能验证码
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
@@ -148,7 +172,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestWallrtIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 1717171717117171717L);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -168,7 +192,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestWallrtIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", "");
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -188,7 +212,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestWallrtIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", " ");
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -208,7 +232,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestWallrtIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", null);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -228,7 +252,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestWallrtIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
 		request.put("accountType", 1);
@@ -247,7 +271,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestCardNoIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "");
 		request.put("openingBankName", "openingBankName");
@@ -267,7 +291,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestCardNoIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", " ");
 		request.put("openingBankName", "openingBankName");
@@ -287,7 +311,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestCardNoIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", null);
 		request.put("openingBankName", "openingBankName");
@@ -307,7 +331,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestCardNoIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", 1231231231231231231L);
 		request.put("openingBankName", "openingBankName");
@@ -327,7 +351,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestCardNoNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("openingBankName", "openingBankName");
 		request.put("accountType", 1);
@@ -347,7 +371,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestOpeningBankNameIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", 1231231211113123123L);
@@ -367,7 +391,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestOpeningBankNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "");
@@ -387,7 +411,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestOpeningBankNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", " ");
@@ -406,7 +430,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestOpeningBankNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", null);
@@ -426,7 +450,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestOpeningBankNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("accountType", 1);
@@ -446,7 +470,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestAccountTypeIsPublic() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -466,7 +490,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestAccountTypeIsPersonal() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -486,7 +510,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestAccountTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -506,7 +530,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestAccountTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -526,7 +550,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestAccountTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -546,7 +570,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestAccountTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -566,7 +590,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestAccountTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -585,7 +609,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestPersonNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -605,7 +629,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestPersonNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -625,7 +649,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestPersonNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -645,7 +669,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestPersonNameIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -665,7 +689,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestPersonNameNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -684,7 +708,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestPapersNoIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -704,7 +728,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestPapersNoIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -724,7 +748,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestPapersNoIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -744,7 +768,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestPapersNoIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -764,7 +788,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestPapersNoNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -783,7 +807,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestValidCodeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -803,7 +827,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestValidCodeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -823,7 +847,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestValidCodeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -843,7 +867,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestValidCodeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");
@@ -863,7 +887,7 @@ public class BindBankCardTest extends HttpUtil {
 	@Test
 	public void postDeleteEnterpriseBankCardTestValidCodeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 17);
 		request.put("cardNo", "cardNo");
 		request.put("openingBankName", "openingBankName");

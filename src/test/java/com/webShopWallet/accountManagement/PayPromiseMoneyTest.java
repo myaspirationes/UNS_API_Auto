@@ -15,12 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PayPromiseMoneyTest extends HttpUtil {
 // 缴纳保证金接口
-	String url = "/";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+	String url = "/wallet-admin/enterpriseWallet/accountPay";
 
 	/**
 	 * 提交正确参数
@@ -28,7 +23,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", 456789);
 		request.put("money", 100);
@@ -130,7 +125,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestWalletIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 999999999999999999L);
 		request.put("assetsId", 456789);
 		request.put("money", 100);
@@ -147,7 +142,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", "");
 		request.put("assetsId", 456789);
 		request.put("money", 100);
@@ -164,7 +159,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", " ");
 		request.put("assetsId", 456789);
 		request.put("money", 100);
@@ -181,7 +176,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", null);
 		request.put("assetsId", 456789);
 		request.put("money", 100);
@@ -198,7 +193,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("assetsId", 456789);
 		request.put("money", 100);
 		request.put("passWord", "123456");
@@ -214,7 +209,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestAssetsIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", "");
 		request.put("money", 100);
@@ -231,7 +226,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestAssetsIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", " ");
 		request.put("money", 100);
@@ -248,7 +243,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestAssetsIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", null);
 		request.put("money", 100);
@@ -265,7 +260,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestAssetsIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("money", 100);
 		request.put("passWord", "123456");
@@ -281,7 +276,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestMoneyIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", 456789);
 		request.put("money", null);
@@ -298,7 +293,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestMoneyIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", 456789);
 		request.put("money", "");
@@ -315,7 +310,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestMoneyIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", 456789);
 		request.put("money", " ");
@@ -332,7 +327,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestMoneyIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", 456789);
 		request.put("passWord", "123456");
@@ -348,7 +343,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestMoneyIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", 456789);
 		request.put("money", 999999999);
@@ -365,7 +360,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestPassWordIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", 456789);
 		request.put("money", 100);
@@ -382,7 +377,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestPassWordIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", 456789);
 		request.put("money", 100);
@@ -399,7 +394,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestPassWordIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", 456789);
 		request.put("money", 100);
@@ -416,7 +411,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestPassWordIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", 456789);
 		request.put("money", 100);
@@ -432,7 +427,7 @@ public class PayPromiseMoneyTest extends HttpUtil {
 	@Test
 	public void postSonAccountTurnToFundsAccountTestPassWordIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123456);
 		request.put("assetsId", 456789);
 		request.put("money", 100);

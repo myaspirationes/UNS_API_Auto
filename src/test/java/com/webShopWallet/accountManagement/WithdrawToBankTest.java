@@ -15,12 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class WithdrawToBankTest extends HttpUtil {
 // 提现到银行卡接口
-	String url = "/asset/WithdrawToBank";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+	String url = "/wallet-admin/asset/withdrawToBank";
 
 	/**
 	 * 提交正确参数
@@ -28,7 +23,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -160,7 +155,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestBankCardIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", 999999999999999999L);
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -182,7 +177,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestBankCardIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -204,7 +199,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestBankCardIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", " ");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -226,7 +221,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestBankCardIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", null);
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -248,7 +243,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestBankCardIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 100);
 		request.put("amount", "100");
 		request.put("remark", "自动化测试提现");
@@ -269,7 +264,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", "");
 		request.put("amount", "100");
@@ -291,7 +286,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", " ");
 		request.put("amount", "100");
@@ -313,7 +308,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", null);
 		request.put("amount", "100");
@@ -335,7 +330,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestWalletIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 999999999999999999L);
 		request.put("amount", "100");
@@ -357,7 +352,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestWalletIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("amount", "100");
 		request.put("remark", "自动化测试提现");
@@ -378,7 +373,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestAmountIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "");
@@ -400,7 +395,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestAmountIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", " ");
@@ -422,7 +417,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestAmountIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", null);
@@ -444,7 +439,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestAmountIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -467,7 +462,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestAmountNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("remark", "自动化测试提现");
@@ -488,7 +483,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestRemarkIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -510,7 +505,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestRemarkIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -532,7 +527,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestRemarkIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -554,7 +549,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestRemarkIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -576,7 +571,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestRemarkIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -597,7 +592,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -619,7 +614,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -641,7 +636,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -663,7 +658,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -685,7 +680,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -706,7 +701,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestPassWordIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -728,7 +723,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestPassWordIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -750,7 +745,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestPassWordIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -772,7 +767,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestPassWordIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -794,7 +789,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestPassWordIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -815,7 +810,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestMobileIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -837,7 +832,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestMobileIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -859,7 +854,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestMobileIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -881,7 +876,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestMobileIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -903,7 +898,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestMobileIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -924,7 +919,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestCodeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -946,7 +941,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestCodeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -968,7 +963,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestCodeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -990,7 +985,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestCodeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -1012,7 +1007,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestCodeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -1033,7 +1028,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestFeeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -1055,7 +1050,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestFeeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -1077,7 +1072,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestFeeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -1099,7 +1094,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestFeeisMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");
@@ -1121,7 +1116,7 @@ public class WithdrawToBankTest extends HttpUtil {
 	@Test
 	public void postWithdrawToBankTestFeeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCardId", "bankCardId");
 		request.put("walletId", 100);
 		request.put("amount", "100");

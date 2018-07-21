@@ -14,13 +14,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class SearchGetRefundListTest extends HttpUtil {
-// 搜索获取消息中心列表接口
-	String url = "/";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+// 搜索获取电商退款列表接口
+	String url = "/wallet-admin/enterpriseWalletRefundRecord/getEnterpriseWalletRefundRecordList";
 
 	/**
 	 * 提交正确参数
@@ -28,10 +23,11 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
-		request.put("type", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 22);
+		request.put("enterpriseId", 1);
+		request.put("payType", 1);
+		request.put("status", 1);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -149,7 +145,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -169,7 +165,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -189,7 +185,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -209,7 +205,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -228,7 +224,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -248,7 +244,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -268,7 +264,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEndTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -288,7 +284,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEndTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -308,7 +304,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEndTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -328,7 +324,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEndTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -347,7 +343,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEndTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -367,7 +363,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestroleIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -387,7 +383,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -407,7 +403,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -427,7 +423,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -447,7 +443,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageSizeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -466,7 +462,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageSizeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -486,7 +482,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageNowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -506,7 +502,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -526,7 +522,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -546,7 +542,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -566,7 +562,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageNowIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -585,7 +581,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
@@ -604,7 +600,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", "");
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -624,7 +620,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", " ");
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -644,7 +640,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", null);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -664,7 +660,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 999999999999999999L);
 		request.put("enterpriseId", 0);
 		request.put("type", 0);
@@ -684,7 +680,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 999999999999999999L);
 		request.put("type", 0);
@@ -704,7 +700,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", "");
 		request.put("type", 0);
@@ -724,7 +720,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEnterpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", " ");
 		request.put("type", 0);
@@ -744,7 +740,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", null);
 		request.put("type", 0);
@@ -764,7 +760,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEnterpriseIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("type", 0);
 		request.put("beginTime", "2018-01-01");
@@ -783,7 +779,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", null);
@@ -803,7 +799,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", "");
@@ -823,7 +819,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", " ");
@@ -843,7 +839,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("beginTime", "2018-01-01");
@@ -862,7 +858,7 @@ public class SearchGetRefundListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("type", 999999999);

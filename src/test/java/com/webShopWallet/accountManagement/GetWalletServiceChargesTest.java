@@ -1,34 +1,34 @@
 package com.webShopWallet.accountManagement;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
+
+import org.hibernate.validator.constraints.Email.List;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 //import org.junit.Test;
 
 public class GetWalletServiceChargesTest extends HttpUtil {
 // 获取手续费标准详情接口
-	String url = "/wallet-admin/enterpriseWallet/GetWalletServiceChargesy";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
-
+	String url = "/wallet-admin/walletServiceCharges/getWalletServiceCharges";
+	String updateSql = "UPDATE T_WALLET_SERVICE_CHARGES_RECORD SET ACCOUT_TYPE = 1,TRANSACTION_TYPE =1 WHERE RECORD_ID = 4";
+	String dataType = "wallet81";	
+	
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postGetWalletServiceChargesTestCorrectParameter() throws Exception {
+		MetaOper.update(updateSql, dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", 1);
 		request.put("accoutType", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -118,7 +118,7 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	@Test
 	public void postGetWalletServiceChargesTestTransactionTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", 999999999);
 		request.put("accoutType", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -133,7 +133,7 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	@Test
 	public void postGetWalletServiceChargesTestTransactionTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", "");
 		request.put("accoutType", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -148,7 +148,7 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	@Test
 	public void postGetWalletServiceChargesTestTransactionTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", " ");
 		request.put("accoutType", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -163,7 +163,7 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	@Test
 	public void postGetWalletServiceChargesTestTransactionTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", null);
 		request.put("accoutType", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -177,8 +177,9 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetWalletServiceChargesTestTransactionTypeIs1() throws Exception {
+		MetaOper.update("UPDATE T_WALLET_SERVICE_CHARGES_RECORD SET ACCOUT_TYPE = 1,TRANSACTION_TYPE =1 WHERE RECORD_ID = 4", dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", 1);
 		request.put("accoutType", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -192,8 +193,9 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetWalletServiceChargesTestTransactionTypeIs2() throws Exception {
+		MetaOper.update("UPDATE T_WALLET_SERVICE_CHARGES_RECORD SET ACCOUT_TYPE = 1,TRANSACTION_TYPE =2 WHERE RECORD_ID = 4", dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", 2);
 		request.put("accoutType", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -207,8 +209,9 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetWalletServiceChargesTestTransactionTypeIs3() throws Exception {
+		MetaOper.update("UPDATE T_WALLET_SERVICE_CHARGES_RECORD SET ACCOUT_TYPE = 1,TRANSACTION_TYPE =3 WHERE RECORD_ID = 4", dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", 3);
 		request.put("accoutType", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -223,7 +226,7 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	@Test
 	public void postGetWalletServiceChargesTestTransactionTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("accoutType", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("transactionType为不传" + post);
@@ -237,7 +240,7 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	@Test
 	public void postGetWalletServiceChargesTestAccoutTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", 1);
 		request.put("accoutType", "");
 		JSONObject post = super.UNSPost(url, request);
@@ -252,7 +255,7 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	@Test
 	public void postGetWalletServiceChargesTestAccoutTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", 1);
 		request.put("accoutType", " ");
 		JSONObject post = super.UNSPost(url, request);
@@ -267,7 +270,7 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	@Test
 	public void postGetWalletServiceChargesTestAccoutTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", 1);
 		request.put("accoutType", null);
 		JSONObject post = super.UNSPost(url, request);
@@ -282,7 +285,7 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	@Test
 	public void postGetWalletServiceChargesTestAccoutTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accoutType为不传" + post);
@@ -296,7 +299,7 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	@Test
 	public void postGetWalletServiceChargesTestAccoutTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", 1);
 		request.put("accoutType", 999999999);
 		JSONObject post = super.UNSPost(url, request);
@@ -310,9 +313,10 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetWalletServiceChargesTestAccoutTypeIs1() throws Exception {
+		MetaOper.update("UPDATE T_WALLET_SERVICE_CHARGES_RECORD SET ACCOUT_TYPE = 1,TRANSACTION_TYPE =3 WHERE RECORD_ID = 4", dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("transactionType", 1);
+		request.put("userId", 12495417);
+		request.put("transactionType", 3);
 		request.put("accoutType", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("accoutType为1个人" + post);
@@ -325,8 +329,9 @@ public class GetWalletServiceChargesTest extends HttpUtil {
 	 */
 	@Test
 	public void postGetWalletServiceChargesTestAccoutTypeIs2() throws Exception {
+		MetaOper.update("UPDATE T_WALLET_SERVICE_CHARGES_RECORD SET ACCOUT_TYPE = 2,TRANSACTION_TYPE =1 WHERE RECORD_ID = 4", dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("transactionType", 1);
 		request.put("accoutType", 2);
 		JSONObject post = super.UNSPost(url, request);

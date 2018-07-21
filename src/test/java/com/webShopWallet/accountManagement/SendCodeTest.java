@@ -15,12 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SendCodeTest extends HttpUtil {
 // 获取转账短信验证码接口
-	String url = "/asset/SendCode";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+	String url = "/wallet-admin/enterpriseBankCard/sendCode";
 
 	/**
 	 * 提交正确参数
@@ -28,8 +23,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910");
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -45,7 +40,7 @@ public class SendCodeTest extends HttpUtil {
 	public void postSendCodeTestUserIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 1231231231231231231L);
-		request.put("enterpriseId", 123);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910");
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -61,7 +56,7 @@ public class SendCodeTest extends HttpUtil {
 	public void postSendCodeTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
-		request.put("enterpriseId", 123);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910");
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -77,7 +72,7 @@ public class SendCodeTest extends HttpUtil {
 	public void postSendCodeTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
-		request.put("enterpriseId", 123);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910");
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -93,7 +88,7 @@ public class SendCodeTest extends HttpUtil {
 	public void postSendCodeTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
-		request.put("enterpriseId", 123);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910");
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -108,7 +103,7 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("enterpriseId", 123);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910");
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -124,7 +119,7 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", 999999999999999999L);
 		request.put("mobile", "12345678910");
 		request.put("type", 1);
@@ -140,7 +135,7 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", "");
 		request.put("mobile", "12345678910");
 		request.put("type", 1);
@@ -156,7 +151,7 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestEnterpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", " ");
 		request.put("mobile", "12345678910");
 		request.put("type", 1);
@@ -172,7 +167,7 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", null);
 		request.put("mobile", "12345678910");
 		request.put("type", 1);
@@ -188,7 +183,7 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestEnterpriseIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("mobile", "12345678910");
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -203,8 +198,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestMobileIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "");
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -219,8 +214,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestMobileIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", " ");
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -235,8 +230,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestMobileIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", null);
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -251,8 +246,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestMobileIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("mobile为不传" + post);
@@ -266,8 +261,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910123456");
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -282,8 +277,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910123456");
 		request.put("type", "");
 		JSONObject post = super.UNSPost(url, request);
@@ -298,8 +293,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910123456");
 		request.put("type", " ");
 		JSONObject post = super.UNSPost(url, request);
@@ -314,8 +309,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910123456");
 		request.put("type", null);
 		JSONObject post = super.UNSPost(url, request);
@@ -330,8 +325,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910123456");
 		request.put("type", 999999999);
 		JSONObject post = super.UNSPost(url, request);
@@ -346,9 +341,9 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestTypeIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
-		request.put("mobile", "12345678910123456");
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
+		request.put("mobile", "12345678910");
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type为1提现" + post);
@@ -362,8 +357,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestTypeIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910123456");
 		request.put("type", 2);
 		JSONObject post = super.UNSPost(url, request);
@@ -378,8 +373,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestTypeIs3() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910123456");
 		request.put("type", 3);
 		JSONObject post = super.UNSPost(url, request);
@@ -394,9 +389,9 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestTypeIs4() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
-		request.put("mobile", "12345678910123456");
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
+		request.put("mobile", "12345678910");
 		request.put("type", 4);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type为4绑卡" + post);
@@ -410,8 +405,8 @@ public class SendCodeTest extends HttpUtil {
 	@Test
 	public void postSendCodeTestTypeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 123);
+		request.put("userId", 12495417);
+		request.put("enterpriseId", 3);
 		request.put("mobile", "12345678910123456");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type为不传" + post);

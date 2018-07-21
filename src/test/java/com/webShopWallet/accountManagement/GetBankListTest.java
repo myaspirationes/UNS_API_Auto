@@ -14,13 +14,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class GetBankListTest extends HttpUtil {
-// 获取企业钱包详情接口
-	String url = "/enterpriseWalletAssets/getBankList";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+// 获取银行卡列表接口
+	String url = "/wallet-admin/enterpriseBankCard/getBankList";
+	
 
 	/**
 	 * 提交正确参数
@@ -28,8 +24,8 @@ public class GetBankListTest extends HttpUtil {
 	@Test
 	public void postGetBankListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("wallrtId", 17);
+		request.put("userId", 12495417);
+		request.put("wallrtId", 4);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
@@ -112,7 +108,7 @@ public class GetBankListTest extends HttpUtil {
 	@Test
 	public void postGetBankListTestWallrtIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", 1717171717117171717L);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -126,7 +122,7 @@ public class GetBankListTest extends HttpUtil {
 	@Test
 	public void postGetBankListTestWallrtIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", "");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("钱包ID为空" + post);
@@ -140,7 +136,7 @@ public class GetBankListTest extends HttpUtil {
 	@Test
 	public void postGetBankListTestWallrtIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", " ");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("钱包ID为空格" + post);
@@ -154,7 +150,7 @@ public class GetBankListTest extends HttpUtil {
 	@Test
 	public void postGetBankListTestWallrtIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("wallrtId", null);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("钱包ID为null" + post);
@@ -168,7 +164,7 @@ public class GetBankListTest extends HttpUtil {
 	@Test
 	public void postGetBankListTestWallrtIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("钱包ID为不传" + post);
 

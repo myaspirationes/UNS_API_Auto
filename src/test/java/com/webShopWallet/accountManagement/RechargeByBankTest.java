@@ -15,12 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class RechargeByBankTest extends HttpUtil {
 // 调用登录网上银行接口
-	String url = "/asset/rechargeByBank";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+	String url = "/wallet-admin/asset/rechargeByBank";
 
 	/**
 	 * 提交正确参数
@@ -28,11 +23,11 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("bankCode", "bankCode");
+		request.put("userId", 12495417);
+		request.put("bankCode", "3");
 		request.put("amount", 100);
-		request.put("assrtId", "assrtId");
-		request.put("fee", "fee");
+		request.put("assrtId", "53");
+		request.put("fee", "1");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
@@ -130,7 +125,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", 2312312312312312312L);
 		request.put("amount", 100);
 		request.put("assrtId", "assrtId");
@@ -147,7 +142,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "");
 		request.put("amount", 100);
 		request.put("assrtId", "assrtId");
@@ -164,7 +159,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestEnterpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", " ");
 		request.put("amount", 100);
 		request.put("assrtId", "assrtId");
@@ -181,7 +176,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", null);
 		request.put("amount", 100);
 		request.put("assrtId", "assrtId");
@@ -198,7 +193,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestEnterpriseIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("amount", 100);
 		request.put("assrtId", "assrtId");
 		request.put("fee", "fee");
@@ -214,7 +209,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestAmountIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100000);
 		request.put("assrtId", "assrtId");
@@ -231,7 +226,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestAmountIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", "");
 		request.put("assrtId", "assrtId");
@@ -248,7 +243,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestAmountIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", " ");
 		request.put("assrtId", "assrtId");
@@ -265,7 +260,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestAmountIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", null);
 		request.put("assrtId", "assrtId");
@@ -282,7 +277,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestAmountNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100);
 		request.put("assrtId", "assrtId");
@@ -299,7 +294,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestssrtIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100);
 		request.put("assrtId", "");
@@ -316,7 +311,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestssrtIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100);
 		request.put("assrtId", " ");
@@ -333,7 +328,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestssrtIdIsnull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100);
 		request.put("assrtId", null);
@@ -350,7 +345,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestssrtIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100);
 		request.put("assrtId", "assrtIdassrtIdassrtIdassrtIdassrtId");
@@ -367,7 +362,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestssrtIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100);
 		request.put("fee", "fee");
@@ -383,7 +378,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestFeeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100);
 		request.put("assrtId", "assrtId");
@@ -400,7 +395,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestFeeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100);
 		request.put("assrtId", "assrtId");
@@ -417,7 +412,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestFeeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100);
 		request.put("assrtId", "assrtId");
@@ -434,7 +429,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestFeeisMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100);
 		request.put("assrtId", "assrtId");
@@ -451,7 +446,7 @@ public class RechargeByBankTest extends HttpUtil {
 	@Test
 	public void postRechargeByBankTestFeeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("bankCode", "bankCode");
 		request.put("amount", 100);
 		request.put("assrtId", "assrtId");

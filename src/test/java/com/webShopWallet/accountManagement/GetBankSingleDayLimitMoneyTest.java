@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class GetBankSingleDayLimitMoneyTest extends HttpUtil {
-// 获取银行单笔单日限额接口
+// 获取银行单笔单日限额接口（暂时不用）
 	String url = "/wallet-admin/enterpriseWallet/GetBankSingleDayLimitMoneyy";
 	String userId;
 	@BeforeClass

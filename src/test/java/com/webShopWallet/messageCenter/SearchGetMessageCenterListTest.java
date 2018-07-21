@@ -1,12 +1,17 @@
 package com.webShopWallet.messageCenter;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
+import com.webShopWallet.companyWalletEnter.SaveCompanyMessageTest;
+
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,12 +19,31 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class SearchGetMessageCenterListTest extends HttpUtil {
-// 搜索获取电商退款列表接口
-	String url = "/";
-	String userId;
+// 搜索获取消息中心列表接口
+	String url = "/wallet-admin/messageRecord/getMessageRecordList";
+	String selEnterprise = "SELECT * FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String selEnterpriseInfo = "SELECT * FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON  = '测试1'";
+	String selEnterpriseWalletInfo = "SELECT * FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1' ";
+	String delEnterprise = "DELETE FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String delEnterpriseInfo = "DELETE FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON = '测试1'";
+	String delEnterpriseWalletInfo = "DELETE FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1'";
+	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
+	List<Map<String,Object>> list2 ;
+	List<Map<String,Object>> list3 ;
+	String dataType = "wallet81";
+	String walletId;
 	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
+	public void beforeclass() throws Exception{
+		new SaveCompanyMessageTest().postSaveCompanyMessageTestCorrectParameter();
+		list = MetaOper.read(selEnterpriseWalletInfo, dataType);
+		walletId = list.get(0).get("WALLET_ID").toString();
+}
+	@AfterMethod
+	public void aftermethod(){
+		MetaOper.delete(delEnterprise,dataType);
+		MetaOper.delete(delEnterpriseInfo,dataType);
+		MetaOper.delete(delEnterpriseWalletInfo,dataType);
 }
 
 	/**
@@ -28,12 +52,11 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
-		request.put("payType", 0);
-		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("walletId", walletId);
+		//request.put("enterpriseId", 3);
+		request.put("type", 1);
+		//request.put("status", 0);
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -56,7 +79,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -77,7 +100,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -98,7 +121,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -118,7 +141,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -139,7 +162,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -155,12 +178,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "");
+		request.put("startTime", "");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -176,12 +199,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", " ");
+		request.put("startTime", " ");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -197,12 +220,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", null);
+		request.put("startTime", null);
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -218,7 +241,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
@@ -238,12 +261,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "1231345431321326548787532135546546");
+		request.put("startTime", "1231345431321326548787532135546546");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -259,12 +282,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestBeginTimeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "9999-12-31");
+		request.put("startTime", "9999-12-31");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -280,12 +303,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEndTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -301,12 +324,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEndTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", " ");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -322,12 +345,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEndTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", null);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -343,12 +366,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEndTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -363,12 +386,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEndTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "1234567896563212345678946541321215479846543");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -384,12 +407,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestroleIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "9999-12-31");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -405,12 +428,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", "");
 		request.put("pageNow", 1);
@@ -426,12 +449,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", " ");
 		request.put("pageNow", 1);
@@ -447,12 +470,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", null);
 		request.put("pageNow", 1);
@@ -468,12 +491,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageSizeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageNow", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -488,12 +511,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageSizeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 999999999);
 		request.put("pageNow", 1);
@@ -509,12 +532,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageNowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 999999999);
@@ -530,12 +553,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", "");
@@ -551,12 +574,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", " ");
@@ -572,12 +595,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", null);
@@ -593,12 +616,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPageNowIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		JSONObject post = super.UNSPost(url, request);
@@ -613,11 +636,11 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -633,12 +656,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", "");
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -654,12 +677,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", " ");
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -675,12 +698,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", null);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -696,12 +719,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 999999999999999999L);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -717,12 +740,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 999999999999999999L);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -738,12 +761,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", "");
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -759,12 +782,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEnterpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", " ");
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -780,12 +803,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", null);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -801,11 +824,11 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestEnterpriseIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("payType", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -821,12 +844,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPayTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", null);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -842,12 +865,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPayTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", "");
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -863,12 +886,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPayTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", " ");
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -884,11 +907,11 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPayTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -904,12 +927,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestPayTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 999999999);
 		request.put("status", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -925,12 +948,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestStatusIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", 999999999);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -946,12 +969,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestStatusIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", "");
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -967,12 +990,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestStatusIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", " ");
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -988,12 +1011,12 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestStatusIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
 		request.put("status", null);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -1009,11 +1032,11 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestStatusIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("payType", 0);
-		request.put("beginTime", "2018-01-01");
+		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);

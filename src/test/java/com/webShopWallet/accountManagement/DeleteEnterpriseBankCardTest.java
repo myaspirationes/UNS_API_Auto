@@ -14,8 +14,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class DeleteEnterpriseBankCardTest extends HttpUtil {
-// 获取企业钱包详情接口
-	String url = "/enterpriseWalletAssets/deleteEnterpriseBankCard";
+// 删除银行卡列表接口
+	String url = "/wallet-admin/enterpriseBankCard/deleteEnterpriseBankCard";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){

@@ -1,12 +1,17 @@
 package com.webShopWallet.messageCenter;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
+import com.webShopWallet.companyWalletEnter.SaveCompanyMessageTest;
+
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,23 +20,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetMessageDetailsTest extends HttpUtil {
 // 搜索获取消息中心列表接口
-	String url = "/";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
-
+	String url = "/wallet-admin/messageRecord/getMessageRecord";	
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postGetMessageDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
-		request.put("recordId", 0);		
+		request.put("walletId", 24);
+		request.put("recordId", 100);		
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
@@ -125,7 +122,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", 0);
 		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
@@ -140,7 +137,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", "");
 		request.put("enterpriseId", 0);
 		request.put("recordId", 0);	
@@ -156,7 +153,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", " ");
 		request.put("enterpriseId", 0);
 		request.put("recordId", 0);	
@@ -172,7 +169,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", null);
 		request.put("enterpriseId", 0);
 		request.put("recordId", 0);	
@@ -188,7 +185,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 999999999999999999L);
 		request.put("enterpriseId", 0);
 		request.put("recordId", 0);	
@@ -204,7 +201,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 999999999999999999L);
 		request.put("recordId", 0);	
@@ -220,7 +217,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", "");
 		request.put("recordId", 0);	
@@ -236,7 +233,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestEnterpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", " ");
 		request.put("recordId", 0);	
@@ -252,7 +249,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", null);
 		request.put("recordId", 0);	
@@ -268,7 +265,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestEnterpriseIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("recordId", 0);	
 		JSONObject post = super.UNSPost(url, request);
@@ -283,7 +280,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestRecordIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("recordId", null);	
@@ -299,7 +296,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestRecordIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("recordId", "");	
@@ -315,7 +312,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestRecordIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("recordId", " ");	
@@ -331,7 +328,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestRecordIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		JSONObject post = super.UNSPost(url, request);
@@ -346,7 +343,7 @@ public class GetMessageDetailsTest extends HttpUtil {
 	@Test
 	public void postGetMessageDetailsTestRecordIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("recordId", 999999999999999999L);	

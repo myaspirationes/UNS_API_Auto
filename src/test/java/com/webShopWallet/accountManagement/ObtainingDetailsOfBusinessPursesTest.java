@@ -1,12 +1,17 @@
 package com.webShopWallet.accountManagement;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
+import com.webShopWallet.companyWalletEnter.SaveCompanyMessageTest;
+
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,11 +20,30 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 // 获取企业钱包详情接口
-	String url = "/enterpriseWalletAssets/getAccountDetail";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
+	String url = "/wallet-admin/asset/getAccountDetail";
+	String selEnterprise = "SELECT * FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String selEnterpriseInfo = "SELECT * FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON  = '测试1'";
+	String selEnterpriseWalletInfo = "SELECT * FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1' ";
+	String delEnterprise = "DELETE FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String delEnterpriseInfo = "DELETE FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON = '测试1'";
+	String delEnterpriseWalletInfo = "DELETE FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1'";
+	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
+	List<Map<String,Object>> list2 ;
+	List<Map<String,Object>> list3 ;
+	String dataType = "wallet81";
+	String walletId;
+	//@BeforeClass
+	//public void beforeclass() throws Exception{
+		//new SaveCompanyMessageTest().postSaveCompanyMessageTestCorrectParameter();
+		//list = MetaOper.read(selEnterpriseWalletInfo, dataType);
+		//walletId = list.get(0).get("WALLET_ID").toString();
+//}
+	@AfterMethod
+	public void aftermethod(){
+		MetaOper.delete(delEnterprise,dataType);
+		MetaOper.delete(delEnterpriseInfo,dataType);
+		MetaOper.delete(delEnterpriseWalletInfo,dataType);
 }
 
 	/**
@@ -27,9 +51,10 @@ public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 	 */
 	@Test
 	public void postObtainingDetailsOfBusinessPursesTestCorrectParameter() throws Exception {
+		
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("wallrtId", 17);
+		request.put("userId", 12495417);
+		request.put("walletId", 6);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
@@ -43,7 +68,7 @@ public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 	public void postObtainingDetailsOfBusinessPursesTestUserIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 1231231231231231231L);
-		request.put("wallrtId", 17);
+		request.put("walletId", 6);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID最大值" + post);
 
@@ -57,7 +82,7 @@ public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 	public void postObtainingDetailsOfBusinessPursesTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
-		request.put("wallrtId", 17);
+		request.put("walletId", 6);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空" + post);
 
@@ -71,7 +96,7 @@ public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 	public void postObtainingDetailsOfBusinessPursesTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
-		request.put("wallrtId", 17);
+		request.put("walletId", 6);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为空格" + post);
 
@@ -85,7 +110,7 @@ public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 	public void postObtainingDetailsOfBusinessPursesTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
-		request.put("wallrtId", 17);
+		request.put("walletId", 6);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为null" + post);
 
@@ -98,7 +123,7 @@ public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 	@Test
 	public void postObtainingDetailsOfBusinessPursesTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("wallrtId", 17);
+		request.put("walletId", 6);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("用户ID为不传" + post);
 
@@ -112,8 +137,8 @@ public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 	@Test
 	public void postObtainingDetailsOfBusinessPursesTestWallrtIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("wallrtId", 1717171717117171717L);
+		request.put("userId", 12495417);
+		request.put("walletId", 617171717117171717L);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 
@@ -126,8 +151,8 @@ public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 	@Test
 	public void postObtainingDetailsOfBusinessPursesTestWallrtIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("wallrtId", "");
+		request.put("userId", 12495417);
+		request.put("walletId", "");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("钱包ID为空" + post);
 
@@ -140,8 +165,8 @@ public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 	@Test
 	public void postObtainingDetailsOfBusinessPursesTestWallrtIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("wallrtId", " ");
+		request.put("userId", 12495417);
+		request.put("walletId", " ");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("钱包ID为空格" + post);
 
@@ -154,8 +179,8 @@ public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 	@Test
 	public void postObtainingDetailsOfBusinessPursesTestWallrtIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("wallrtId", null);
+		request.put("userId", 12495417);
+		request.put("walletId", null);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("钱包ID为null" + post);
 
@@ -168,7 +193,7 @@ public class ObtainingDetailsOfBusinessPursesTest extends HttpUtil {
 	@Test
 	public void postObtainingDetailsOfBusinessPursesTestWallrtIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("钱包ID为不传" + post);
 

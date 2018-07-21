@@ -16,11 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GetFaassetFlowDetsilsTest extends HttpUtil {
 //  获取资金交易流水详情接口
 	String url = "/wallet-admin/enterpriseWalletRefundRecord/getFaassetFlowDetsils";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+
 
 	/**
 	 * 提交正确参数
@@ -28,9 +24,9 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("walletId", 24);
+		request.put("enterpriseId", 19);
 		request.put("billId", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
@@ -125,7 +121,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", 0);
 		request.put("billId", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -140,7 +136,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", "");
 		request.put("enterpriseId", 0);
 		request.put("billId", 1);
@@ -156,7 +152,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", " ");
 		request.put("enterpriseId", 0);
 		request.put("billId", 1);
@@ -172,7 +168,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", null);
 		request.put("enterpriseId", 0);
 		request.put("billId", 1);
@@ -188,7 +184,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 999999999999999999L);
 		request.put("enterpriseId", 0);
 		request.put("billId", 1);
@@ -204,7 +200,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 999999999999999999L);
 		request.put("billId", 1);
@@ -220,7 +216,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", "");
 		request.put("billId", 1);
@@ -236,7 +232,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestEnterpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", " ");
 		request.put("billId", 1);
@@ -252,7 +248,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", null);
 		request.put("billId", 1);
@@ -268,7 +264,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestEnterpriseIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("billId", 1);
 		JSONObject post = super.UNSPost(url, request);
@@ -283,7 +279,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestBillIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("tradeMethods", 1);
@@ -300,7 +296,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestBillIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("billId", 1);
@@ -316,7 +312,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestBillIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("billId", 1);
@@ -332,7 +328,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestBillIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("billId", 1);
@@ -348,7 +344,7 @@ public class GetFaassetFlowDetsilsTest extends HttpUtil {
 	@Test
 	public void postGetFaassetFlowDetsilsTestBillIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("billId", 1);
