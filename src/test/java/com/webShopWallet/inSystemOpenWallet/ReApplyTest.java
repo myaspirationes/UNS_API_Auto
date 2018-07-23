@@ -1,12 +1,15 @@
 package com.webShopWallet.inSystemOpenWallet;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,10 +19,26 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ReApplyTest extends HttpUtil {
 // 保存企业信息接口（系统内再次开通钱包）
 	String url = "/wallet-admin/enterprise/reApply";
-	String userId;
+	String selEnterprise = "SELECT * FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String selEnterpriseInfo = "SELECT * FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON  = '测试1'";
+	String selEnterpriseWalletInfo = "SELECT * FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1' ";
+	String delEnterprise = "DELETE FROM T_ENTERPRISE WHERE ENTERPRISE_NAME = '自动化测试企业' OR ENTERPRISE_NAME = '自动化测试企业1'";
+	String delEnterpriseInfo = "DELETE FROM T_ENTERPRISE_INFO WHERE LEGAL_PERSON = '测试' OR LEGAL_PERSON = '测试1'";
+	String delEnterpriseWalletInfo = "DELETE FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ALIAS = '自动化测试钱包别名' OR WALLET_ALIAS = '自动化测试钱包别名1'";
+	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
+	List<Map<String,Object>> list2 ;
+	List<Map<String,Object>> list3 ;
+	String dataType = "wallet81";
 	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
+	public void beforeclass() throws Exception{
+		
+	}
+	@AfterMethod
+	public void aftermethod(){
+		MetaOper.delete(delEnterprise,dataType);
+		MetaOper.delete(delEnterpriseInfo,dataType);
+		MetaOper.delete(delEnterpriseWalletInfo,dataType);
 }
 
 	/**
@@ -28,9 +47,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("recordId", 123);
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);
+		request.put("walletId", 0);
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");
@@ -39,6 +58,9 @@ public class ReApplyTest extends HttpUtil {
 		request.put("legalPerson", "测试");
 		request.put("legalPersonMobile", "13661864641");
 		request.put("legalPersonIdCardNo", "130321860311519");
+		request.put("certificateFileId", 1);
+		request.put("icpNum", "111");
+		request.put("serverIp", "192.168.3.3");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
@@ -54,7 +76,7 @@ public class ReApplyTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", " ");
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -77,7 +99,7 @@ public class ReApplyTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", "");
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -100,7 +122,7 @@ public class ReApplyTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", null);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -122,7 +144,7 @@ public class ReApplyTest extends HttpUtil {
 	public void postReApplyTestUserIdNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -145,7 +167,7 @@ public class ReApplyTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 999999999999999999L);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -168,8 +190,8 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);	
-		request.put("walletAlias", "钱多多");
+		request.put("userId", 12495417);	
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -190,9 +212,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", "");	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");
@@ -213,9 +235,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", " ");
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -236,9 +258,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", null);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -259,9 +281,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 999999999999999999L);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -282,7 +304,7 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestWalletAliasIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);
 		request.put("walletAlias", null);
 		request.put("email", "30901105@qq.com");
@@ -305,7 +327,7 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestWalletAliasIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);
 		request.put("walletAlias", "");
 		request.put("email", "30901105@qq.com");
@@ -328,7 +350,7 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestWalletAliasIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
 		request.put("walletAlias", " ");
 		request.put("email", "30901105@qq.com");
@@ -351,7 +373,7 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestWalletAliasIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
@@ -373,7 +395,7 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestWalletAliasIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
 		request.put("walletAlias", "钱多多df大幅度反对反对是否法大师傅大师傅反对犯得上犯得上发复古复古风格发热热");
 		request.put("email", "30901105@qq.com");
@@ -396,9 +418,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEmailIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "3090110512145131323456@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -419,9 +441,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEmailIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -442,9 +464,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEmailIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", " ");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");
@@ -465,9 +487,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEmailIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", null);
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");
@@ -488,9 +510,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEmailIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
 		request.put("industryId", 1);
@@ -510,9 +532,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEnterpriseNameIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseAbbreviation", "自动化");	
 		request.put("industryId", 1);
@@ -532,9 +554,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEnterpriseNameIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -555,9 +577,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEnterpriseNameIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", " ");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -578,9 +600,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEnterpriseNameIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", null);
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -602,9 +624,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEnterpriseNameIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试等多个以哦儿童如果对方的广告费的统一体刚刚的功夫刚刚发生过");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -626,9 +648,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEnterpriseAbbreviationIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "");	
@@ -649,9 +671,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEnterpriseAbbreviationIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", " ");	
@@ -672,9 +694,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEnterpriseAbbreviationIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", null);	
@@ -695,9 +717,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEnterpriseAbbreviationIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");	
 		request.put("industryId", 1);
@@ -717,9 +739,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestEnterpriseAbbreviationIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "道德规范火箭加油i看过翻跟斗翻跟斗广泛大概的广告的风格复古风格感到反感");		
@@ -740,9 +762,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestIndustryIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -763,10 +785,10 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestIndustryIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);
 		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -787,9 +809,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestIndustryIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -810,9 +832,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestIndustryIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -832,9 +854,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestIndustryIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -855,9 +877,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestUnifiedSocialCreditCodeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -878,9 +900,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestUnifiedSocialCreditCodeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -901,9 +923,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestUnifiedSocialCreditCodeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -924,9 +946,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestUnifiedSocialCreditCodeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -946,9 +968,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestUnifiedSocialCreditCodeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -969,9 +991,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestOperatingPeriodIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -993,9 +1015,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestOperatingPeriodIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -1017,9 +1039,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestOperatingPeriodIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -1042,9 +1064,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestOperatingPeriodIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -1065,9 +1087,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestOperatingPeriodIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -1089,9 +1111,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestOperatingPeriodIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -1113,9 +1135,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -1136,9 +1158,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -1159,9 +1181,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -1182,9 +1204,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -1205,9 +1227,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -1227,9 +1249,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonMobileIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -1250,9 +1272,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonMobileIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);	
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -1273,9 +1295,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonMobileIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -1296,9 +1318,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonMobileIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -1319,9 +1341,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonMobileIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -1341,9 +1363,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonIdCardNoIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -1364,9 +1386,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonIdCardNoIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -1387,9 +1409,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonIdCardNoIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		
@@ -1410,9 +1432,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonIdCardNoIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");	
@@ -1433,9 +1455,9 @@ public class ReApplyTest extends HttpUtil {
 	@Test
 	public void postReApplyTestLegalPersonIdCardNoIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("recordId", 123);		
-		request.put("walletAlias", "钱多多");
+		request.put("walletAlias", "自动化测试钱包别名");
 		request.put("email", "30901105@qq.com");
 		request.put("enterpriseName", "自动化测试");
 		request.put("enterpriseAbbreviation", "自动化");		

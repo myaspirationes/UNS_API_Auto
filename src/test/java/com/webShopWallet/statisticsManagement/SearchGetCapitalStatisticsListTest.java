@@ -15,12 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 // 搜索获取资金统计列表接口
-	String url = "/wallet-admin/operationRecord/SearchGetCapitalStatisticsList";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+	String url = "/wallet-admin/enterpriseWalletRefundRecord/getAssetTotal";
 
 	/**
 	 * 提交正确参数
@@ -28,9 +23,9 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("accountType", 1);
+		request.put("userId", 12495417);
+		request.put("walletId", 11);
+		request.put("accountType", 2);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -143,7 +138,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestBeginTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);	
+		request.put("userId", 12495417);	
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "");
@@ -162,7 +157,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestBeginTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", " ");
@@ -181,7 +176,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestBeginTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", null);
@@ -200,7 +195,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestBeginTimeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("endTime", "2018-10-10");
@@ -218,7 +213,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestBeginTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "13245678454321213121345123456789");
@@ -237,7 +232,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestBeginTimeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "9999-12-31");
@@ -256,7 +251,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestEndTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -275,7 +270,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestEndTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -294,7 +289,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestEndTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -313,7 +308,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestEndTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -331,7 +326,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestEndTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -350,7 +345,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestroleIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -369,7 +364,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -388,7 +383,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -407,7 +402,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -426,7 +421,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestPageSizeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -444,7 +439,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestPageSizeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -463,7 +458,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestPageNowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -482,7 +477,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -501,7 +496,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -520,7 +515,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -539,7 +534,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestPageNowIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -557,7 +552,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
@@ -575,7 +570,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", "");
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -594,7 +589,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", " ");
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -613,7 +608,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", null);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -632,7 +627,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 999999999999999999L);
 		request.put("accountType", 1);
 		request.put("beginTime", "2018-01-01");
@@ -651,7 +646,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestAccountTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", 999999999);
 		request.put("beginTime", "2018-01-01");
@@ -670,7 +665,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestAccountTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", "");
 		request.put("beginTime", "2018-01-01");
@@ -689,7 +684,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestAccountTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", " ");
 		request.put("beginTime", "2018-01-01");
@@ -708,7 +703,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestAccountTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("accountType", null);
 		request.put("beginTime", "2018-01-01");
@@ -727,7 +722,7 @@ public class SearchGetCapitalStatisticsListTest extends HttpUtil {
 	@Test
 	public void postSearchGetCapitalStatisticsListTestAccountTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");

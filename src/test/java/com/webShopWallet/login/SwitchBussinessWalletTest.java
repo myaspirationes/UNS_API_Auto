@@ -15,12 +15,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SwitchBussinessWalletTest extends HttpUtil {
 // 切换企业钱包用户下企业接口
-	String url = "/";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+	String url = "/wallet-admin/login/getEntAudits";
+ 
+//}
 
 	/**
 	 * 提交正确参数
@@ -28,8 +25,8 @@ public class SwitchBussinessWalletTest extends HttpUtil {
 	@Test
 	public void postSwitchBussinessWalletTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("enterpriseId", 0);
+		request.put("userId", 12495417);
+		request.put("type", 3);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
@@ -112,7 +109,7 @@ public class SwitchBussinessWalletTest extends HttpUtil {
 	@Test
 	public void postSwitchBussinessWalletTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", null);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("enterpriseId传null" + post);
@@ -126,7 +123,7 @@ public class SwitchBussinessWalletTest extends HttpUtil {
 	@Test
 	public void postSwitchBussinessWalletTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", "");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("enterpriseId传空" + post);
@@ -140,7 +137,7 @@ public class SwitchBussinessWalletTest extends HttpUtil {
 	@Test
 	public void postSwitchBussinessWalletTestEnterpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", " ");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("enterpriseId传空格" + post);
@@ -154,7 +151,7 @@ public class SwitchBussinessWalletTest extends HttpUtil {
 	@Test
 	public void postSwitchBussinessWalletTestEnterpriseIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("enterpriseId不传" + post);
 
@@ -167,7 +164,7 @@ public class SwitchBussinessWalletTest extends HttpUtil {
 	@Test
 	public void postSwitchBussinessWalletTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", 999999999999999999L);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("enterpriseId传最大值" + post);

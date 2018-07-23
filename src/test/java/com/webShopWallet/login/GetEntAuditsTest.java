@@ -15,12 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetEntAuditsTest extends HttpUtil {
 // 获取审核通过企业列表接口
-	String url = "/wallet-admin/deposit/exportDepositList";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+	String url = "/wallet-admin/login/getEntAudits";
 
 	/**
 	 * 提交正确参数
@@ -28,8 +23,8 @@ public class GetEntAuditsTest extends HttpUtil {
 	@Test
 	public void postGetEntAuditsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("type", 0);
+		request.put("userId", 12495417);
+		request.put("type", 2);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
@@ -112,7 +107,7 @@ public class GetEntAuditsTest extends HttpUtil {
 	@Test
 	public void postGetEntAuditsTestTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("type", null);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传null" + post);
@@ -126,7 +121,7 @@ public class GetEntAuditsTest extends HttpUtil {
 	@Test
 	public void postGetEntAuditsTestTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("type", "");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传空" + post);
@@ -140,7 +135,7 @@ public class GetEntAuditsTest extends HttpUtil {
 	@Test
 	public void postGetEntAuditsTestTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("type", " ");
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传空格" + post);
@@ -154,7 +149,7 @@ public class GetEntAuditsTest extends HttpUtil {
 	@Test
 	public void postGetEntAuditsTestTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type不传" + post);
 
@@ -167,7 +162,7 @@ public class GetEntAuditsTest extends HttpUtil {
 	@Test
 	public void postGetEntAuditsTestTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("type", 999999999);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传最大值" + post);
@@ -181,7 +176,7 @@ public class GetEntAuditsTest extends HttpUtil {
 	@Test
 	public void postGetEntAuditsTestTypeIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("type", 1);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传1审核中" + post);
@@ -195,7 +190,7 @@ public class GetEntAuditsTest extends HttpUtil {
 	@Test
 	public void postGetEntAuditsTestTypeIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("type", 2);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传2审核成功" + post);
@@ -209,7 +204,7 @@ public class GetEntAuditsTest extends HttpUtil {
 	@Test
 	public void postGetEntAuditsTestTypeIs3() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("type", 3);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type传3审核失败" + post);

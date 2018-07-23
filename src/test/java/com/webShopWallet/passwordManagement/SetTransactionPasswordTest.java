@@ -1,12 +1,15 @@
 package com.webShopWallet.passwordManagement;
 
+import com.example.CryptographyUtil;
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,29 +18,31 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SetTransactionPasswordTest extends HttpUtil {
 // 设置交易密码接口
-	String url = "/";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
-
+	String url = "/wallet-admin/enterpriseWallet/setPwd";
+	String dataType = "wallet81";
+	String selPwd = "SELECT * FROM T_ENTERPRISE_WALLET_PWD WHERE WALLET_ID = 3";
 	/**
 	 * 提交正确参数
 	 */
 	@Test
 	public void postSetTransactionPasswordTestCorrectParameter() throws Exception {
+		//String  password=CryptographyUtil.md5("111111", "naruto");
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
-		request.put("newPwd", 1);
-		request.put("newPwdCr", 1);
-		request.put("type", 1);
+		request.put("userId", 12495417);
+		request.put("walletId", 3);
+		request.put("newPwd", "235215");
+		request.put("newPwdCr", "bGbsc1qhdA6rFwrIikZFs3BluzrOtztmEIl9bu83PT6S84UCAfCkPRZWuYYJKMDvUUD8FKq1AFiG9JWMfyszwRu2HnKw6c7GMH51XiN23EVxrEgCGcDg09ROAswZ5dzS4m9m4CoqEnD4P1fnPmep8MRGApsHZKt8hQMbKA7RyqvX1wI5aFHgDwdDouywNumqZoqUXQL6BH2rRRkGOsCO/tO5+9icIec/MJOwQdIUWIAS1lDeC5MgmjQYYojruuAHbEt59r7enEYzcP4WC9D4Pa2cmdpPXSc0LLpkzHJBA9qnXILppNYJPw0sQdqcQw+d//2euJD+1pvE2a1VSIpMfw==");
+		request.put("type", 2);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
 		assertThat(post.get("msg")).isEqualTo("成功");
+		
+		//System.out.println("md5加密后的字符串" + password);
+		List<Map<String,Object>> list ;
+		list=MetaOper.read(selPwd, dataType);
+		//assertThat(list.get(0).get("PWD").toString()).isEqualTo(password);	
 	}
 	
 	/**
@@ -132,7 +137,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);
 		request.put("type", 1);
@@ -148,7 +153,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", "");
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);
@@ -165,7 +170,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", " ");
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);
@@ -182,7 +187,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", null);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);
@@ -199,7 +204,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 999999999999999999L);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);
@@ -216,7 +221,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestNewPwdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", "1254dnjjkdjjljdkj45443434343d43f4d3fdfdfdfd32f4fdfdfdfdfdf");
 		request.put("newPwdCr", 1);
@@ -233,7 +238,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestNewPwdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", "");
 		request.put("newPwdCr", 1);
@@ -250,7 +255,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestNewPwdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", " ");
 		request.put("newPwdCr", 1);
@@ -267,7 +272,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestNewPwdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", null);
 		request.put("newPwdCr", 1);
@@ -284,7 +289,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestNewPwdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwdCr", 1);
 		request.put("type", 1);
@@ -301,7 +306,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestNewPwdCrIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", null);
@@ -318,7 +323,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestNewPwdCrIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", "");
@@ -335,7 +340,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestNewPwdCrIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", " ");
@@ -352,7 +357,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestNewPwdCrIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("type", 1);
@@ -368,7 +373,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestNewPwdCrIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", "31322gfgfdgfgfdg12124544hghfgggggfhghgh");
@@ -385,7 +390,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);
@@ -402,7 +407,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);
@@ -419,7 +424,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);
@@ -436,7 +441,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);
@@ -452,7 +457,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);
@@ -469,7 +474,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestTypeIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);
@@ -486,7 +491,7 @@ public class SetTransactionPasswordTest extends HttpUtil {
 	@Test
 	public void postSetTransactionPasswordTestTypeIs2() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("newPwd", 1);
 		request.put("newPwdCr", 1);

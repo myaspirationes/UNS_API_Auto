@@ -52,7 +52,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 	@Test
 	public void postSearchGetMessageCenterListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 24);
+		request.put("walletId", 3);
 		//request.put("enterpriseId", 3);
 		request.put("type", 1);
 		//request.put("status", 0);

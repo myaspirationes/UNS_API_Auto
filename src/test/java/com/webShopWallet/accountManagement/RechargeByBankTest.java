@@ -24,10 +24,10 @@ public class RechargeByBankTest extends HttpUtil {
 	public void postRechargeByBankTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495417);
-		request.put("bankCode", "3");
+		request.put("bankCode", "ccb");
 		request.put("amount", 100);
-		request.put("assrtId", "53");
-		request.put("fee", "1");
+		request.put("assetId", "55");
+		request.put("fee", "0");//企业入金
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	

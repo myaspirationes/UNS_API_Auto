@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //import org.junit.Test;
 
 public class SearchGetCheckingListTest extends HttpUtil {
-// 搜索获取对账列表接口
+// 搜索获取资金对账列表接口
 	String url = "/";
 	String userId;
 	@BeforeClass

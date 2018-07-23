@@ -16,11 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GetOperationRecordListTest extends HttpUtil {
 // 获取操作日志列表接口
 	String url = "/wallet-admin/operationRecord/getOperationRecordList";
-	String userId;
-	@BeforeClass
-	public void beforeClass(){
-	userId =new BackUserLoginTest().userId;
-}
+
 
 	/**
 	 * 提交正确参数
@@ -28,10 +24,10 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
-		request.put("walletId", 123);
+		request.put("userId", 12495417);
+		request.put("walletId", 6);
 		request.put("enterpriseId", 1);
-		request.put("operationAccount", 1);
+		request.put("operationAccount", 12491671);
 		request.put("beginTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("pageSize", 5);
@@ -149,7 +145,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestBeginTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -169,7 +165,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestBeginTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -189,7 +185,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestBeginTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -209,7 +205,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestBeginTimeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -228,7 +224,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestBeginTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -248,7 +244,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestBeginTimeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -268,7 +264,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestEndTimeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -288,7 +284,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestEndTimeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -308,7 +304,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestEndTimeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -328,7 +324,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestEndTimeNonSubmissionParameters() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -347,7 +343,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestEndTimeIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -367,7 +363,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestroleIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -387,7 +383,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -407,7 +403,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -427,7 +423,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -447,7 +443,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestPageSizeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -466,7 +462,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestPageSizeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -486,7 +482,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestPageNowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -506,7 +502,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -526,7 +522,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -546,7 +542,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -566,7 +562,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestPageNowIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -585,7 +581,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestWalletIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
 		request.put("beginTime", "2018-01-01");
@@ -604,7 +600,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestWalletIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", "");
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -624,7 +620,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestWalletIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", " ");
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -644,7 +640,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestWalletIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", null);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -664,7 +660,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestWalletIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 999999999999999999L);
 		request.put("enterpriseId", 1);
 		request.put("operationAccount", 1);
@@ -684,7 +680,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestEnterpriseIdIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 999999999999999999L);
 		request.put("operationAccount", 1);
@@ -704,7 +700,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestEnterpriseIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", "");
 		request.put("operationAccount", 1);
@@ -724,7 +720,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestEnterpriseIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", " ");
 		request.put("operationAccount", 1);
@@ -744,7 +740,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestEnterpriseIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", null);
 		request.put("operationAccount", 1);
@@ -764,7 +760,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestEnterpriseIdIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("operationAccount", 1);
 		request.put("beginTime", "2018-01-01");
@@ -783,7 +779,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestOperationAccountIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("operationAccount", null);
@@ -803,7 +799,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestOperationAccountIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("operationAccount", "");
@@ -823,7 +819,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestOperationAccountIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("operationAccount", " ");
@@ -843,7 +839,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestOperationAccountIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("beginTime", "2018-01-01");
@@ -862,7 +858,7 @@ public class GetOperationRecordListTest extends HttpUtil {
 	@Test
 	public void postGetOperationRecordListTestOperationAccountIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("userId", userId);
+		request.put("userId", 12495417);
 		request.put("walletId", 123);
 		request.put("enterpriseId", 0);
 		request.put("operationAccount", 999999999999999999L);

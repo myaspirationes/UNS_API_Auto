@@ -24,8 +24,8 @@ public class WithdrawToBankTest extends HttpUtil {
 	public void postWithdrawToBankTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495417);
-		request.put("bankCardId", "bankCardId");
-		request.put("walletId", 100);
+		request.put("bankCardId", 179);
+		request.put("walletId", 11);
 		request.put("amount", "100");
 		request.put("remark", "自动化测试提现");
 		request.put("type", 1);

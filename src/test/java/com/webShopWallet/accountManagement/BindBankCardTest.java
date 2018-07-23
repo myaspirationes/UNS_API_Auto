@@ -53,13 +53,14 @@ public class BindBankCardTest extends HttpUtil {
 	public void postDeleteEnterpriseBankCardTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", 12495417);
-		request.put("wallrtId", walletId);
+		request.put("walletId", walletId);
 		request.put("cardNo", "6217001210075264182");
 		request.put("openingBankName", "中国建设银行");
 		request.put("accountType", 1);
 		request.put("personName", "姜佳丽");
 		request.put("papersNo", "412724199302224068");
-		request.put("validCode", "251836");//预计无法测试需要开发给出万能验证码
+		request.put("phoneNo", "18338767105");
+		request.put("validCode", "055364");//预计无法测试需要开发给出万能验证码
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);
 	
