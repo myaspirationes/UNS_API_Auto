@@ -22,6 +22,8 @@ public class QueryLabelListTest extends HttpUtil {
 	//获取标签管理列表接口
 	String url = "/uu-admin/labelManage/queryLabelList";
 	String delLabel = "DELETE FROM T_LABEL WHERE LABEL_MSG IN ('自动化标签','<.!@#$%^>','',' ')";
+	String delTalentLabel = "DELETE FROM T_TALENT_LABEL WHERE LABEL_NAME IN ('自动化标签','<.!@#$%^>','',' ')";
+
 	String dataType = "perCenter81";
 
 	String userid;
@@ -37,6 +39,7 @@ public class QueryLabelListTest extends HttpUtil {
 	@AfterClass
 	public void afterClass(){
 		MetaOper.delete(delLabel,dataType);
+		MetaOper.delete(delTalentLabel,dataType);
 	}
 
 	/**
