@@ -5,6 +5,7 @@ import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
 import org.springframework.boot.test.json.JsonContent;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,6 +26,7 @@ public class SetAndModifyTalantLableTest extends HttpUtil {
 	String selLabel = "SELECT * FROM T_TALENT_LABEL WHERE LABEL_NAME IN ('自动化标签','<.!@%^>','',' ')";
 	String dataType = "perCenter81";
 	String userid;
+	String delTalentLabel = "DELETE FROM T_TALENT_LABEL WHERE LABEL_NAME IN ('自动化标签','<.!@#$%^>','',' ')";
 	List<Map<String,Object>> list ;
 	@BeforeClass
 	public void  beforeClass(){
@@ -34,6 +36,11 @@ public class SetAndModifyTalantLableTest extends HttpUtil {
 	@AfterMethod
 	public void afterMethod (){
 		MetaOper.delete(delLabel,dataType);
+	}
+	@AfterClass
+	public void afterClass (){
+		MetaOper.delete(delLabel,dataType);
+		MetaOper.delete(delTalentLabel,dataType);
 	}
 
 	/**

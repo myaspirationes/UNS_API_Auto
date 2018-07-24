@@ -4,6 +4,7 @@ import com.example.HttpUtil;
 import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -46,6 +47,11 @@ public class DeleteLabelTest extends HttpUtil {
 	}
 	@AfterMethod
 	public void afterMethod(){
+		MetaOper.delete(delLabel,dataType);
+		MetaOper.delete(delTalentLabel,dataType);
+	}
+	@AfterClass
+	public void afterClass(){
 		MetaOper.delete(delLabel,dataType);
 		MetaOper.delete(delTalentLabel,dataType);
 	}

@@ -4,6 +4,7 @@ import com.example.HttpUtil;
 import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -35,7 +36,10 @@ public class AddCommonLabelTest extends HttpUtil {
 		userid = new BackUserLoginTest().userId;
 
 	}
-
+	@AfterClass
+	public void afterClass(){
+		MetaOper.delete(delLabel,dataType);
+	}
 	/**
 	 * 提交正确参数
 	 */
