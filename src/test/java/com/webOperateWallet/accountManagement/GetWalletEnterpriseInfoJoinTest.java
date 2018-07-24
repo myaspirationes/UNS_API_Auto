@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetWalletEnterpriseInfoJoinTest extends HttpUtil {
 // 获取企业账户入驻信息接口
-	String url = "/walletEnterprise/getWalletEnterpriseInfoJoin";
+	String url = "/uu-admin/walletEnterprise/getWalletEnterpriseInfoJoin";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){
@@ -28,8 +28,8 @@ public class GetWalletEnterpriseInfoJoinTest extends HttpUtil {
 	@Test
 	public void postGetWalletEnterpriseInfoJoinTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 2);
-		request.put("userId", userId);		
+		request.put("walletId", 4);
+		request.put("userId", 10000000);		
 
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("提交正确参数" + post);

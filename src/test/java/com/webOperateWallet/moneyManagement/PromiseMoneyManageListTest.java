@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PromiseMoneyManageListTest extends HttpUtil {
 // 保证金管理列表接口
-	String url = "/walletEnterprise/getWalletEarnestMoneyRecordList";
+	String url = "/uu-admin/walletEnterprise/getWalletEarnestMoneyRecordList";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){
@@ -31,7 +31,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);	
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -39,7 +39,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		System.out.println("提交正确参数" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo("success");
 	}
 	
 	/**
@@ -51,7 +51,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", "");	
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -71,7 +71,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", " ");	
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -91,7 +91,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", null);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -110,7 +110,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -130,7 +130,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", 999999999999999999L);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -244,7 +244,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "13456789562312156466897945113225669895");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -263,7 +263,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "9999-12-31");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -282,7 +282,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -301,7 +301,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", " ");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -320,7 +320,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", null);
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -338,7 +338,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -357,7 +357,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -376,7 +376,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", " ");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -395,7 +395,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", null);
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -413,7 +413,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -432,7 +432,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "9999-12-31");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -451,7 +451,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "1345678945613123456789456123132456789");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -470,7 +470,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", "");
 		request.put("pageNow", 1);
 		
@@ -489,7 +489,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", " ");
 		request.put("pageNow", 1);
 		
@@ -508,7 +508,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", null);
 		request.put("pageNow", 1);
 		
@@ -527,7 +527,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageNow", 1);
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -545,7 +545,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 999999999);
 		request.put("pageNow", 1);
 		
@@ -564,7 +564,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", "");
 		
@@ -583,7 +583,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", " ");
 		
@@ -602,7 +602,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", null);
 		
@@ -621,7 +621,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		
 		JSONObject post = super.UNSPost(url, request);
@@ -639,7 +639,7 @@ public class PromiseMoneyManageListTest extends HttpUtil {
 		request.put("userId", userId);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 999999999);
 		

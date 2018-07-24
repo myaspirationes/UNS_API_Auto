@@ -1,12 +1,14 @@
 package com.webOperateWallet.accountManagement;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,29 +19,59 @@ public class AccountThawTest extends HttpUtil {
 // 账户解冻接口
 	String url = "/uu-admin/walletAuditEnterprise/updaeAccountStatus";
 	String userId;
+	String selEnterpriseWalletInfo = "SELECT * FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ID = '4' ";
+ 
+	String delSql = "DELETE FROM T_USER_OPERATE WHERE WALLET_ID = 4";
+	String selSql = "select * from T_USER_OPERATE WHERE WALLET_ID = 4";
+	String dataType = "wallet81";
+	List<Map<String,Object>> list ;
 	@BeforeClass
 	public void beforeClass(){
 	userId =new BackUserLoginTest().userId;
 }
 
 	/**
-	 * 提交正确参数
+	 * 提交正确参数:解冻企业账户
 	 */
 	@Test
-	public void postAccountThawTestCorrectParameter() throws Exception {
+	public void postAccountThawTestCorrectParameter1() throws Exception {
+		new AccountForzenTest().postAccountForzenTestCorrectParameter();
+		userId =new BackUserLoginTest().userId;
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);		
 		request.put("remark", "自动化测试");
 		request.put("type", 1);
-		request.put("operateType", 1);
+		request.put("operateType", 0);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("提交正确参数:解冻企业账户" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo(" 成功");
+		list = MetaOper.read(selEnterpriseWalletInfo, dataType);
+		assertThat(list.get(0).get("IS_FROZEN")).isEqualTo(0);
 	}
+	/**
+	 * 提交正确参数:解冻个人账户
+	 */
+	@Test
+	public void postAccountThawTestCorrectParameter2() throws Exception {
+		new AccountForzenTest().postAccountForzenTestOperateTypeIs1();
+		userId =new BackUserLoginTest().userId;
+		Map<String, Object> request = new HashMap<String, Object>();
+		request.put("walletId", 10000016);
+		request.put("userId", userId);		
+		request.put("remark", "自动化测试");
+		request.put("type", 0);
+		request.put("operateType", 0);
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("提交正确参数:解冻个人账户" + post);
 	
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo(" 成功");
+		list = MetaOper.read("select * from t_wallet where WALLET_ID = 10000016",dataType);
+		assertThat(list.get(0).get("IS_FROZEN")).isEqualTo(0);
+	}
 	/**
 	 * 用户id为空
 	 */

@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class getPersonalAccountOperateRecord extends HttpUtil {
 // 获取个人账户操作记录接口
-	String url = "/BackUser/getUserOperateLogByWalletId";
+	String url = "/uu-admin/BackUser/getUserOperateLogByWalletId";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){
@@ -28,8 +28,8 @@ public class getPersonalAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetPersonalAccountOperateRecordTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
-		request.put("userId", userId);		
+		request.put("walletId", 11);
+		request.put("userId", 12495417);		
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
