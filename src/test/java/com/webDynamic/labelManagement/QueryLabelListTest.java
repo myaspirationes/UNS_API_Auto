@@ -1,8 +1,11 @@
 package com.webDynamic.labelManagement;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.junit.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -18,7 +21,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class QueryLabelListTest extends HttpUtil {
 	//获取标签管理列表接口
 	String url = "/uu-admin/labelManage/queryLabelList";
-
+	String delLabel = "DELETE FROM T_LABEL WHERE LABEL_MSG IN ('自动化标签','<.!@#$%^>','',' ')";
+	String dataType = "perCenter81";
 
 	String userid;
 	@BeforeClass
@@ -29,6 +33,10 @@ public class QueryLabelListTest extends HttpUtil {
 	@BeforeMethod
 	public void beforeMethod() throws Exception {
 		new AddCommonLabelTest().postSetAndModifyTalantLableTestCorrectParameter();
+	}
+	@AfterClass
+	public void afterClass(){
+		MetaOper.delete(delLabel,dataType);
 	}
 
 	/**
