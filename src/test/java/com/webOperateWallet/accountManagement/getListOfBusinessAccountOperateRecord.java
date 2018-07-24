@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 // 获取企业账户操作记录列表接口
-	String url = "/BackUser/getUserOperateLogByWalletId";
+	String url = "/uu-admin/BackUser/getUserOperateLogByWalletId";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){
@@ -28,7 +28,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", userId);		
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -46,7 +46,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", "");		
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -64,7 +64,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", " ");		
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -82,7 +82,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", null);		
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -100,7 +100,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestUserIdNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);	
+		request.put("walletId", 2);	
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -117,7 +117,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", "3164646887845415645645");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -220,7 +220,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", userId);
 		request.put("pageSize", "");
 		request.put("pageNow", 1);
@@ -237,7 +237,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", userId);
 		request.put("pageSize", " ");
 		request.put("pageNow", 1);
@@ -254,7 +254,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", userId);
 		request.put("pageSize", null);
 		request.put("pageNow", 1);
@@ -271,7 +271,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestPageSizeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", userId);
 		request.put("pageNow", 1);
 		
@@ -287,7 +287,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestPageSizeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", userId);
 		request.put("pageSize", 999999999);
 		request.put("pageNow", 1);
@@ -304,7 +304,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", userId);
 		request.put("pageSize", 5);
 		request.put("pageNow", "");
@@ -321,7 +321,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", userId);
 		request.put("pageSize", 5);
 		request.put("pageNow", " ");
@@ -338,7 +338,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", userId);
 		request.put("pageSize", 5);
 		request.put("pageNow", null);
@@ -355,7 +355,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestPageNowIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", userId);
 		request.put("pageSize", 5);
 		
@@ -371,7 +371,7 @@ public class getListOfBusinessAccountOperateRecord extends HttpUtil {
 	@Test
 	public void postGetListOfBusinessAccountOperateRecordTestPageNowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 2);
 		request.put("userId", userId);
 		request.put("pageSize", 5);
 		request.put("pageNow", 999999999);

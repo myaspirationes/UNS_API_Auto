@@ -9,6 +9,7 @@ import java.util.Map;
 import com.example.MetaOper;
 import org.json.JSONObject;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 //import org.junit.Test;
 import org.testng.annotations.Test;
@@ -42,6 +43,38 @@ public class SaveParametersTest extends HttpUtil {
 
 	String dataType = "perCenter81";
 	List<Map<String,Object>> list ;
+	/**
+	 * 恢复默认值
+	 */
+	@AfterClass
+	public void postSaveParametersTestRestoreTheDefaultValue() throws Exception {
+		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
+		request.put("userId", 12495324);
+
+		JSONObject post = super.UNSPost(url, request);
+		System.out.println("恢复默认值" + post);
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo("成功");
+        list =MetaOper.read(selectCarousel,dataType);
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("5");
+        list =MetaOper.read(selectBigGunCount,dataType);
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
+        list =MetaOper.read(selectGoodsCount,dataType);
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
+        list =MetaOper.read(selectUsedCount,dataType);
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
+        list =MetaOper.read(selectMixtureHigh,dataType);
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
+        list =MetaOper.read(selectBigGunHigh,dataType);
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
+        list =MetaOper.read(selectShopHigh,dataType);
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        list =MetaOper.read(selectGoodsHigh,dataType);
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+        list =MetaOper.read(selectUsedHigh,dataType);
+        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
+	}
+
 
 
 
@@ -2204,36 +2237,6 @@ public class SaveParametersTest extends HttpUtil {
         assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("216");
 	}
 
-	/**
-	 * 恢复默认值
-	 */
-	//@AfterClass
-	public void postSaveParametersTestRestoreTheDefaultValue() throws Exception {
-		Map<String, Object> request = new HashMap<String, Object>(); // 给request赋值
-		request.put("userId", 12495324);
-
-		JSONObject post = super.UNSPost(url, request);
-		System.out.println("恢复默认值" + post);
-		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
-        list =MetaOper.read(selectCarousel,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("5");
-        list =MetaOper.read(selectBigGunCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
-        list =MetaOper.read(selectGoodsCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
-        list =MetaOper.read(selectUsedCount,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("3");
-        list =MetaOper.read(selectMixtureHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
-        list =MetaOper.read(selectBigGunHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("128");
-        list =MetaOper.read(selectShopHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
-        list =MetaOper.read(selectGoodsHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
-        list =MetaOper.read(selectUsedHigh,dataType);
-        assertThat((list.get(0).get("CONTENT").toString())).isEqualTo("192");
-	}
+	
 	
 }

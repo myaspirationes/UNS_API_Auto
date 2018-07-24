@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetRateListTest extends HttpUtil {
 // 获取费率列表接口
-	String url = "/";
+	String url = "/wallet-admin/wallet/ServiceCharges/getWalletServiceChargesList";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){
@@ -29,7 +29,7 @@ public class GetRateListTest extends HttpUtil {
 	public void postGetRateListTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("userId", userId);
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("accountType", 1);
 		request.put("style", 1);
 		request.put("transactionType", 1);

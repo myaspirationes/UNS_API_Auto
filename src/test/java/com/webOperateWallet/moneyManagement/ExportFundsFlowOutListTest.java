@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExportFundsFlowOutListTest extends HttpUtil {
 // 导出资金流出列表接口
-	String url = "/uu-admin/Fund/getFundsFlowOut";
+	String url = "/uu-admin/Fund/exportFundsFlowOutList";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){

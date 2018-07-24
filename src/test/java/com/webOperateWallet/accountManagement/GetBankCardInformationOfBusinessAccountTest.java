@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 // 获取企业账户银行卡信息接口
-	String url = "/BackUser/getUserOperateLogByWalletId";
+	String url = "/uu-admin/walletEnterprise/getWalletEnterpriseInfoBankCardListByWalletId";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){
@@ -28,7 +28,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", userId);		
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -46,7 +46,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", "");		
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -64,7 +64,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", " ");		
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -82,7 +82,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", null);		
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -100,7 +100,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestUserIdNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);	
+		request.put("walletId", 11);	
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		
@@ -117,7 +117,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", "3164646887845415645645");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
@@ -220,7 +220,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestPageSizeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", userId);
 		request.put("pageSize", "");
 		request.put("pageNow", 1);
@@ -237,7 +237,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestPageSizeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", userId);
 		request.put("pageSize", " ");
 		request.put("pageNow", 1);
@@ -254,7 +254,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestPageSizeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", userId);
 		request.put("pageSize", null);
 		request.put("pageNow", 1);
@@ -271,7 +271,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestPageSizeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", userId);
 		request.put("pageNow", 1);
 		
@@ -287,7 +287,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestPageSizeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", userId);
 		request.put("pageSize", 999999999);
 		request.put("pageNow", 1);
@@ -304,7 +304,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestPageNowIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", userId);
 		request.put("pageSize", 5);
 		request.put("pageNow", "");
@@ -321,7 +321,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestPageNowIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", userId);
 		request.put("pageSize", 5);
 		request.put("pageNow", " ");
@@ -338,7 +338,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestPageNowIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", userId);
 		request.put("pageSize", 5);
 		request.put("pageNow", null);
@@ -355,7 +355,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestPageNowIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", userId);
 		request.put("pageSize", 5);
 		
@@ -371,7 +371,7 @@ public class GetBankCardInformationOfBusinessAccountTest extends HttpUtil {
 	@Test
 	public void postGetBankCardInformationOfBusinessAccountTestPageNowIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("userId", userId);
 		request.put("pageSize", 5);
 		request.put("pageNow", 999999999);

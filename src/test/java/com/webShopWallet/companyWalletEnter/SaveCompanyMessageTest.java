@@ -52,7 +52,7 @@ public class SaveCompanyMessageTest extends HttpUtil {
 		request.put("enterpriseAbbreviation", "自动化");
 		request.put("type", 6);
 		request.put("industryId", 1);
-		request.put("unifiedSocialCreditCode", "91350100M000100Y43");
+		request.put("unifiedSocialCreditCode", "91440982345528281C");
 		request.put("operatingPeriod", "2020-12-31");
 		request.put("licenceNo", "J4693000413710");
 		request.put("legalPerson", "测试");

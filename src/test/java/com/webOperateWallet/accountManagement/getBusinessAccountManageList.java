@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class getBusinessAccountManageList extends HttpUtil {
 // 获取企业账户管理列表接口
-	String url = "/walletEnterprise/getWalletEnterpriseAccountList";
+	String url = "/uu-admin/walletEnterprise/getWalletEnterpriseAccountList";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){
@@ -32,7 +32,7 @@ public class getBusinessAccountManageList extends HttpUtil {
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");
 		request.put("status", 0);
-		request.put("walletIdOrMobile", "123");
+		request.put("walletIdOrMobile", "11");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		

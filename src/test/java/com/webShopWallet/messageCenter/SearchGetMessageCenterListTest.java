@@ -54,7 +54,7 @@ public class SearchGetMessageCenterListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();
 		request.put("walletId", 3);
 		//request.put("enterpriseId", 3);
-		request.put("type", 1);
+		request.put("type", 2);
 		//request.put("status", 0);
 		request.put("startTime", "2018-01-01");
 		request.put("endTime", "2018-10-10");

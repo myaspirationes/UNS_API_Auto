@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PromiseMoneyDetailsTest extends HttpUtil {
 // 保证金详情接口
-	String url = "/walletEnterprise/getWalletEarnestMoneyRecord";
+	String url = "/uu-admin/walletEnterprise/getWalletEarnestMoneyRecord";
 	String userId;
 	@BeforeClass
 	public void beforeClass(){
@@ -29,7 +29,7 @@ public class PromiseMoneyDetailsTest extends HttpUtil {
 	public void postPromiseMoneyDetailsTestCorrectParameter() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("userId", userId);	
-		request.put("walletId", 123);
+		request.put("walletId", 11);
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		

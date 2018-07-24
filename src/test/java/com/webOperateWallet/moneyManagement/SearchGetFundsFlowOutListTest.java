@@ -30,11 +30,11 @@ public class SearchGetFundsFlowOutListTest extends HttpUtil {
 		Map<String, Object> request = new HashMap<String, Object>();		
 		request.put("minTime", "2018-01-01");			
 		request.put("maxTime", "2018-10-10");
-		request.put("accountType", 1);
-		request.put("reasonType", 0);
-		request.put("orderNo", "132456");
-		request.put("billType", 0);
-		request.put("account", "413");
+		request.put("accountType", 2);
+		request.put("reasonType", 42);
+		request.put("orderNo", "153242353246055673846");
+		request.put("billType", 1);
+		request.put("account", "Com_201807231439094611983b41b2235");
 		request.put("pageSize", 5);
 		request.put("pageNow", 1);
 		

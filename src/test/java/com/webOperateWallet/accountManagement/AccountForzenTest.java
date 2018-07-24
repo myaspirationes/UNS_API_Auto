@@ -1,12 +1,17 @@
 package com.webOperateWallet.accountManagement;
 
 import com.example.HttpUtil;
+import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
+import com.webShopWallet.companyWalletEnter.SaveThePublicAccountMessageTest;
+
 import org.json.JSONObject;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,29 +20,41 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class AccountForzenTest extends HttpUtil {
 // 账户冻结接口
-	String url = "/BackUser/getUserOperateLogByWalletId";
-	String userId;
+	String url = "/uu-admin/walletAuditEnterprise/updaeAccountStatus";
+	String userId;	
+	String selEnterpriseWalletInfo = "SELECT * FROM T_ENTERPRISE_WALLET_INFO WHERE WALLET_ID = '4' ";
+	String delSql = "DELETE FROM T_USER_OPERATE WHERE WALLET_ID = 4";
+	String selSql = "select * from T_USER_OPERATE WHERE WALLET_ID = 4";
+	String walletId;
+	List<Map<String,Object>> list ;
+	List<Map<String,Object>> list1 ;
+	String dataType = "wallet81";
+
 	@BeforeClass
-	public void beforeClass(){
+	public void beforeClass() throws Exception{
 	userId =new BackUserLoginTest().userId;
+	
 }
 
 	/**
-	 * 提交正确参数
+	 * 提交正确参数:冻结企业
 	 */
 	@Test
 	public void postAccountForzenTestCorrectParameter() throws Exception {
+		userId =new BackUserLoginTest().userId;
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);		
 		request.put("remark", "自动化测试");
 		request.put("type", 1);
 		request.put("operateType", 1);
 		JSONObject post = super.UNSPost(url, request);
-		System.out.println("提交正确参数" + post);
+		System.out.println("提交正确参数:冻结企业" + post);
 	
 		assertThat(post.get("status")).isEqualTo(0);
-		assertThat(post.get("msg")).isEqualTo("成功");
+		assertThat(post.get("msg")).isEqualTo(" 成功");
+		list = MetaOper.read(selEnterpriseWalletInfo, dataType);
+		assertThat(list.get(0).get("IS_FROZEN")).isEqualTo(1);
 	}
 	
 	/**
@@ -46,7 +63,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestUserIdIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", "");		
 		request.put("remark", "自动化测试");
 		request.put("type", 1);
@@ -65,7 +82,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestUserIdIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", " ");		
 		request.put("remark", "自动化测试");
 		request.put("type", 1);
@@ -84,7 +101,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestUserIdIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", null);		
 		request.put("remark", "自动化测试");
 		request.put("type", 1);
@@ -103,7 +120,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestUserIdNotCommitted() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);	
+		request.put("walletId", 4);	
 		request.put("remark", "自动化测试");
 		request.put("type", 1);
 		request.put("operateType", 1);
@@ -120,7 +137,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestUserIdIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", "3164646887845415645645");
 		request.put("remark", "自动化测试");
 		request.put("type", 1);
@@ -222,7 +239,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestRemarkIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "");
 		request.put("type", 1);
@@ -239,7 +256,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestRemarkIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", " ");
 		request.put("type", 1);
@@ -256,7 +273,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestRemarkIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", null);
 		request.put("type", 1);
@@ -273,7 +290,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestRemarkIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("type", 1);
 		request.put("operateType", 1);
@@ -289,7 +306,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestRemarkIsLong() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "赶回海口海口的好伐拉发截图额我若无开始的建行卡号咖啡机打开房间啊");
 		request.put("type", 1);
@@ -306,7 +323,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", "");
@@ -323,7 +340,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", " ");
@@ -340,7 +357,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", null);
@@ -357,7 +374,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("operateType", 1);
@@ -373,7 +390,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", 999999999);
@@ -389,17 +406,20 @@ public class AccountForzenTest extends HttpUtil {
 	 */
 	@Test
 	public void postAccountForzenTestTypeIs0() throws Exception {
+		MetaOper.update("update t_wallet set IS_FROZEN = 1 where WALLET_ID = 10000016", dataType);
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 10000016);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", 0);
-		request.put("operateType", 1);
+		request.put("operateType", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type为0个人" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo(" 成功");
+		list = MetaOper.read("select * from t_wallet where WALLET_ID = 10000016",dataType);
+		assertThat(list.get(0).get("IS_FROZEN")).isEqualTo(0);
 	}
 	/**
 	 * type为1企业
@@ -407,7 +427,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestTypeIs1() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", 1);
@@ -415,8 +435,8 @@ public class AccountForzenTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("type为1企业" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo(" 成功");
 	}
 	/**
 	 * operateType为空
@@ -424,7 +444,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestOperateTypeIsEmpty() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", 0);
@@ -441,7 +461,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestOperateTypeIsSpace() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", 0);
@@ -458,7 +478,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestOperateTypeIsNull() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", 0);
@@ -475,7 +495,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestOperateTypeIsNotCommit() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", 0);
@@ -491,7 +511,7 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestOperateTypeIsMax() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", 0);
@@ -508,24 +528,28 @@ public class AccountForzenTest extends HttpUtil {
 	@Test
 	public void postAccountForzenTestOperateTypeIs0() throws Exception {
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 4);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
-		request.put("type", 0);
+		request.put("type", 1);
 		request.put("operateType", 0);
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("operateType为0解冻" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo(" 成功");
+		list = MetaOper.read(selEnterpriseWalletInfo, dataType);
+		assertThat(list.get(0).get("IS_FROZEN")).isEqualTo(0);
 	}
 	/**
 	 * operateType为1冻结
 	 */
 	@Test
 	public void postAccountForzenTestOperateTypeIs1() throws Exception {
+		MetaOper.update("update t_wallet set IS_FROZEN = 1 where WALLET_ID = 10000016", dataType);
+		userId =new BackUserLoginTest().userId;
 		Map<String, Object> request = new HashMap<String, Object>();
-		request.put("walletId", 123);
+		request.put("walletId", 10000016);
 		request.put("userId", userId);
 		request.put("remark", "自动化测试");
 		request.put("type", 0);
@@ -533,8 +557,10 @@ public class AccountForzenTest extends HttpUtil {
 		JSONObject post = super.UNSPost(url, request);
 		System.out.println("operateType为1冻结" + post);
 	
-		assertThat(post.get("status")).isEqualTo(-1);
-		assertThat(post.get("msg")).isEqualTo("失败");
+		assertThat(post.get("status")).isEqualTo(0);
+		assertThat(post.get("msg")).isEqualTo(" 成功");
+		list = MetaOper.read("select * from t_wallet where WALLET_ID = 10000016",dataType);
+		assertThat(list.get(0).get("IS_FROZEN")).isEqualTo(1);
 	}
 	
 }
