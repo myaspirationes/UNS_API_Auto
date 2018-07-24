@@ -4,6 +4,7 @@ import com.example.HttpUtil;
 import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -20,7 +21,7 @@ public class DeleteSystemUserTest extends HttpUtil {
 	String url = "/uu-admin/BackUser/deleteUser";
 	String userId;
 	String dataType = "perCenter81";
-	String selectSql = "SELECT * FROM T_WEB_USER WHERE USER_NAME = 'lingfeng'";
+	String selectSql = "SELECT * FROM T_WEB_USER WHERE USER_NAME IN ('<@#$%^&*!>','lingfeng')" ;
 	List<Map<String,Object>> list ;
 	String sysUserId;
 	@BeforeClass
@@ -29,6 +30,14 @@ public class DeleteSystemUserTest extends HttpUtil {
 		new AddOrUpdateUserTest().postAddOrUpdateUserTestCorrectParameter();
 		list = MetaOper.read(selectSql,dataType);
 		sysUserId = list.get(0).get("USER_ID").toString();
+}
+	@AfterClass
+	public void afterClass() throws Exception {
+		list = MetaOper.read(selectSql,dataType);
+		for(int i = 0;i < list.size(); i ++){
+			postDeleteSystemUserTestCorrectParameter();
+			}
+		
 }
 
 	/**

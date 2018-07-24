@@ -4,7 +4,7 @@ import com.example.HttpUtil;
 import com.example.MetaOper;
 import com.publicModule.login.BackUserLoginTest;
 import org.json.JSONObject;
-import org.junit.AfterClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -36,6 +36,7 @@ public class QueryLabelListTest extends HttpUtil {
 	public void beforeMethod() throws Exception {
 		new AddCommonLabelTest().postSetAndModifyTalantLableTestCorrectParameter();
 	}
+	
 	@AfterClass
 	public void afterClass(){
 		MetaOper.delete(delLabel,dataType);

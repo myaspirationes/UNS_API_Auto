@@ -24,6 +24,8 @@ public class AddOrUpdateUserTest extends HttpUtil {
 	String userId;
 	String sysUserId;
 	String dataType = "perCenter81";
+	String selectSql2 = "SELECT * FROM T_WEB_USER WHERE USER_NAME IN ('<@#$%^&*!>','lingfeng')" ;
+
 	String selectSql = "SELECT * FROM T_WEB_USER WHERE USER_NAME = 'lingfeng'";
 	String selectSql1 = "SELECT * FROM T_WEB_USER WHERE USER_NAME = 'test'";
 	List<Map<String,Object>> list ;
@@ -40,6 +42,15 @@ public class AddOrUpdateUserTest extends HttpUtil {
 			e.printStackTrace();
 		}
 	}
+	
+	@AfterClass
+	public void afterClass() throws Exception {
+		list = MetaOper.read(selectSql2,dataType);
+		for(int i = 0;i < list.size(); i ++){
+			new DeleteSystemUserTest().postDeleteSystemUserTestCorrectParameter();
+			}
+		
+}
 	
 	/**
 	 * 提交正确参数
