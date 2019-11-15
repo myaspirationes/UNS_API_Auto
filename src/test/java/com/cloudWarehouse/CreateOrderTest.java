@@ -1,6 +1,7 @@
 package com.cloudWarehouse;
 
 import com.example.HttpUtil;
+import com.example.LoginTest;
 import com.example.MetaOper;
 import org.json.JSONObject;
 import org.springframework.util.LinkedMultiValueMap;
@@ -27,9 +28,17 @@ public class CreateOrderTest extends HttpUtil {
      */
     @Test
     public void postCreateOrderTestCorrectParameter() throws Exception {
-        MultiValueMap<String,Object> request = new LinkedMultiValueMap<String,Object>();
+        
 
-
+    	
+		LoginTest login = new LoginTest();
+		try {
+			login.getLoginTestChcodeBy137();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
     }
 

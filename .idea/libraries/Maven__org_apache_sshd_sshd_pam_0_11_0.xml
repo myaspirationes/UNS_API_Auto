@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.apache.sshd:sshd-pam:0.11.0">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/sshd/sshd-pam/0.11.0/sshd-pam-0.11.0.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/m2_reposity_dev/org/apache/sshd/sshd-pam/0.11.0/sshd-pam-0.11.0.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/sshd/sshd-pam/0.11.0/sshd-pam-0.11.0-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/m2_reposity_dev/org/apache/sshd/sshd-pam/0.11.0/sshd-pam-0.11.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/sshd/sshd-pam/0.11.0/sshd-pam-0.11.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/m2_reposity_dev/org/apache/sshd/sshd-pam/0.11.0/sshd-pam-0.11.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
