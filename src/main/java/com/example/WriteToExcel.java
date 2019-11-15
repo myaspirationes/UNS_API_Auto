@@ -19,7 +19,7 @@ public class WriteToExcel {
             File is = new File(System.getProperty("user.dir") + "\\in.xls");
             File os = new File(System.getProperty("user.dir") + "\\out.xls");
             if (!os.isFile())// 如果指定文件不存在，则新建该文件
-                os.createNewFile();
+            { os.createNewFile();}
 
             wb = Workbook.getWorkbook(is);// 获取数据源in.xls工作簿对象
             wwb = Workbook.createWorkbook(os, wb);// 在原有工作簿out.xls上追加数据
