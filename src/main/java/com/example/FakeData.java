@@ -1,9 +1,9 @@
 package com.example;
 
-import com.github.javafaker.CreditCardType;
 import com.github.javafaker.Faker;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import static com.github.javafaker.CreditCardType.JCB;
@@ -40,6 +40,23 @@ public class FakeData {
         System.out.println(faker.job().field());
         System.out.println(faker.job().keySkills());
         System.out.println(faker.job().position());
+
+        System.out.println(faker.random().nextInt(1,100));
+        System.out.println(faker.random());
+        System.out.println(faker.country().name().toUpperCase());
+
+
+        ArrayList<String> arrayList = new ArrayList<String>();
+        for (int i= 1;i<10;i++){
+            String country= faker.country().name().toUpperCase();
+            arrayList.add(country);
+
+        }
+        System.out.println(arrayList.toString());
+
+        System.out.println(faker.random().nextInt(6));
+
+
     }
 
 
