@@ -6,8 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="938d176f-1a35-4bfe-8c2a-234fb4961f8b" name="Default Changelist" comment="add idgenerator">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/IdCardGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/IdCardGenerator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -206,6 +206,7 @@
       <workItem from="1606182841512" duration="10469000" />
       <workItem from="1606269545935" duration="3107000" />
       <workItem from="1606356449756" duration="12559000" />
+      <workItem from="1606701282986" duration="517000" />
     </task>
     <task id="LOCAL-00001" summary="add class">
       <created>1573793452083</created>
@@ -228,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606376394918</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add idgenerator">
+      <created>1606701507404</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1606701507404</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
