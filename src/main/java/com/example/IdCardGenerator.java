@@ -3626,10 +3626,10 @@ public class IdCardGenerator {
 
     public static void main(String[] args) {
         IdCardGenerator g = new IdCardGenerator();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             System.out.print(g.generate());
             System.out.print("\t");
-            System.out.print(g.generate());
+            //System.out.print(g.randomAreaCode());
             System.out.print("\t");
             System.out.print(g.generate());
             System.out.print("\t");
